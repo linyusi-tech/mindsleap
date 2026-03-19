@@ -30,7 +30,7 @@ export function getAllPosts(locale: string = "zh"): Post[] {
       const slug = fileName.replace(/\.mdx?$/, "");
       return getPostBySlug(slug, locale);
     })
-    .filter((post): post is Post => post !== null && post.locale === locale)
+    .filter((post): post is Post => post !== null)
     .sort((a, b) => (new Date(b.date) > new Date(a.date) ? 1 : -1));
 
   return posts;
