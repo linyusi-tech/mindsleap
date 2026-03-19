@@ -103,7 +103,7 @@ export default function AboutContent() {
               </p>
             </motion.div>
 
-            {/* Hoffman */}
+            {/* Yusi */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -112,22 +112,18 @@ export default function AboutContent() {
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
               <div className="flex items-center gap-6 mb-6">
-                <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-200 shrink-0">
-                  <Image
-                    src="/images/about/hoffman.jpg"
-                    alt="Steve Hoffman"
-                    fill
-                    className="object-cover"
-                    sizes="96px"
-                  />
-                </div>
+                <img
+                  src="/images/about/yusi.jpg"
+                  alt="Yusi"
+                  className="w-24 h-24 rounded-full object-cover shrink-0"
+                />
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">{t("hoffmanName")}</h3>
-                  <p className="text-primary font-medium">{t("hoffmanRole")}</p>
+                  <h3 className="text-xl font-bold text-gray-900">{t("yusiName")}</h3>
+                  <p className="text-primary font-medium">{t("yusiRole")}</p>
                 </div>
               </div>
               <p className="text-gray-600 leading-relaxed text-sm">
-                {t("hoffmanBio")}
+                {t("yusiBio")}
               </p>
             </motion.div>
           </div>

@@ -72,7 +72,7 @@ const content = {
       "Partnering with the global Founders Space network to provide comprehensive incubation support for AI entrepreneurs and tech companies.",
     aboutTitle: "Incubation Overview",
     aboutDescription:
-      "The MindsLeap Unicorn Incubation program leverages Founders Space's powerful network of 40+ global branches to build a bridge for Chinese AI entrepreneurs and tech companies to reach global markets. We go beyond funding connections, focusing on scenario implementation, technology validation, and full-process empowerment for internationalization strategies.",
+      "The MindsLeap Unicorn Incubation program leverages Founders Space's powerful network of 50+ global branches to build a bridge for Chinese AI entrepreneurs and tech companies to reach global markets. We go beyond funding connections, focusing on scenario implementation, technology validation, and full-process empowerment for internationalization strategies.",
     servicesTitle: "Core Services",
     services: [
       {
@@ -93,7 +93,7 @@ const content = {
       {
         title: "Global Market Expansion",
         description:
-          "Leverage the Founders Space network across 40+ countries and regions to help companies quickly enter global markets.",
+          "Leverage the Founders Space network across 50+ countries and regions to help companies quickly enter global markets.",
       },
     ],
     portfolioTitle: "Companies We Have Incubated or Invested In",
@@ -109,7 +109,7 @@ const content = {
     partnerTitle: "Strategic Partner",
     partnerName: "Founders Space",
     partnerDescription:
-      "Ranked the #1 incubator in Silicon Valley by Forbes, with branches in 40+ countries. MindsLeap, as the exclusive Greater China partner of Founders Space, brings authentic Silicon Valley incubation resources to domestic entrepreneurs.",
+      "Ranked the #1 incubator in Silicon Valley by Forbes, with branches in 50+ countries. MindsLeap, as the exclusive Greater China partner of Founders Space, brings authentic Silicon Valley incubation resources to domestic entrepreneurs.",
     targetTitle: "Target Clients",
     targets: [
       "AI entrepreneurs and startup teams",
