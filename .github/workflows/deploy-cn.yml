@@ -63,7 +63,7 @@ jobs:
           CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL}
           ENVEOF
           rm -rf .next
-          npm ci
+          npm install
           NODE_OPTIONS=--max-old-space-size=1536 npm run build
           if pm2 describe mindsleap >/dev/null 2>&1; then
             pm2 restart mindsleap --update-env
