@@ -214,12 +214,12 @@
     "slide2Subtitle": "加速成长为独角兽"
   },
   "trainingHero": {
-    "slide1Title": "AI培训/咨询",
+    "slide1Title": "AI 战略培训",
     "slide1Heading": "Mastering and Implementing\nAI Strategy",
-    "slide1Subtitle": "硅谷大咖与国内专家联合赋能",
-    "slide2Title": "战略咨询",
-    "slide2Heading": "从认知到落地\n定制AI转型方案",
-    "slide2Subtitle": "Hoffman领衔的AI战略咨询服务"
+    "slide1Subtitle": "硅谷前沿洞察 × 企业真实场景 × 可落地行动方案",
+    "slide2Title": "旗舰工作坊",
+    "slide2Heading": "From Insight to Co-Creation\nBuilding Actionable Roadmaps",
+    "slide2Subtitle": "Founders Space 全球资源支持的定制化培训与战略共创"
   },
   "studyToursHero": {
     "slide1Title": "定制研学",
@@ -235,7 +235,7 @@
     "contactTitle": "联系我们",
     "company": "关于",
     "followUs": "关注我们",
-    "rights": "\u00a9 2026 MindsLeap. All Rights Reserved.",
+    "rights": "© 2026 MindsLeap. All Rights Reserved.",
     "icp": ""
   }
 }
