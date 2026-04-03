@@ -12,6 +12,7 @@ export type Post = {
   excerpt: string;
   category: "events" | "insights" | "news";
   image?: string;
+  imagePosition?: string;
   locale: string;
   content: string;
   readingTime: string;
@@ -58,6 +59,7 @@ export function getPostBySlug(slug: string, locale: string = "zh"): Post | null 
       excerpt: data.excerpt || content.slice(0, 160) + "...",
       category: data.category || "news",
       image: data.image || null,
+      imagePosition: data.imagePosition || undefined,
       locale: data.locale || "zh",
       content,
       readingTime: stats.text,

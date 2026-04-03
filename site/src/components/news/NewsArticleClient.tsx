@@ -58,6 +58,7 @@ export default function NewsArticleClient({ post, children }: Props) {
               alt={post.title}
               fill
               className="object-cover"
+              style={{ objectPosition: post.imagePosition ?? "center" }}
               sizes="(max-width: 768px) 100vw, 768px"
               priority
             />

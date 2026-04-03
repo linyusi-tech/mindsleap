@@ -11,13 +11,13 @@ export default function TrainingHero() {
       title: h("slide1Title"),
       heading: h("slide1Heading"),
       subtitle: h("slide1Subtitle"),
-      image: "/images/hero/slide-3.jpg",
+      image: "/images/hero/slide-2.jpg",
     },
     {
       title: h("slide2Title"),
       heading: h("slide2Heading"),
       subtitle: h("slide2Subtitle"),
-      image: "/images/hero/slide-2.jpg",
+      image: "/images/hero/ai-training.jpg",
     },
   ];
 
