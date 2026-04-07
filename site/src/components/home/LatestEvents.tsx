@@ -32,7 +32,7 @@ export default function LatestEvents({ posts }: Props) {
         ) : (
           <div className="grid md:grid-cols-3 gap-8">
             {posts.map((post) => (
-              <Link key={post.slug} href={`/news/${post.slug}`} className="block">
+              <Link key={post.slug} href={`/news/${post.slug}`} scroll className="block">
                 <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition">
                   {post.image ? (
                     <Image

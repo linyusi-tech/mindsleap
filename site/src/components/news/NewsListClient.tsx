@@ -17,7 +17,7 @@ const categories = ["all", "events", "insights"] as const;
 export default function NewsListClient({ posts }: Props) {
   const t = useTranslations("news");
   const h = useTranslations("newsHero");
-  const [filter, setFilter] = useState<string>("all");
+  const [filter, setFilter] = useState<string>("events");
 
   const filteredPosts = filter === "all" ? posts : posts.filter((p) => p.category === filter);
 
@@ -78,7 +78,7 @@ export default function NewsListClient({ posts }: Props) {
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   className="card-hover group"
                 >
-                  <Link href={`/news/${post.slug}`}>
+                  <Link href={`/news/${post.slug}`} scroll>
                     <div className="bg-white rounded-2xl overflow-hidden border border-gray-100">
                       {/* Image */}
                       {post.image && (
