@@ -17,7 +17,7 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
   const siteUrl = getSiteUrl();
 
-  const latestPosts = getAllPosts(locale).slice(0, 3);
+  const latestPosts = getAllPosts(locale).filter((post) => post.category === "events").slice(0, 3);
 
   const organizationJsonLd = {
     "@context": "https://schema.org",

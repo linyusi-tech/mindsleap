@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import NewsArticleClient from "@/components/news/NewsArticleClient";
 import JsonLd from "@/components/shared/JsonLd";
 import { getSiteUrl } from "@/lib/site";
@@ -69,7 +70,7 @@ export default async function NewsArticlePage({ params }: Props) {
     <>
       <JsonLd data={articleJsonLd} />
       <NewsArticleClient post={post}>
-        <MDXRemote source={post.content} />
+        <MDXRemote source={post.content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
       </NewsArticleClient>
     </>
   );

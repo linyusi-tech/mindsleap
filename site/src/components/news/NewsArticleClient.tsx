@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
@@ -13,6 +14,10 @@ type Props = {
 
 export default function NewsArticleClient({ post, children }: Props) {
   const t = useTranslations("news");
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [post.slug]);
 
   return (
     <>
