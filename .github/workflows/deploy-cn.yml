@@ -6,44 +6,53 @@ on:
       - main
   workflow_dispatch:
 
-concurrency:
-  group: deploy-mindsleap-cn
-  cancel-in-progress: true
-
 jobs:
   deploy:
-    runs-on:
-      - self-hosted
-      - linux
-      - x64
-      - mindsleap-cn
-    defaults:
-      run:
-        shell: bash
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sync code into deployment directory
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
         run: |
           set -euo pipefail
-          DEPLOY_ROOT=/www/wwwroot/mindsleap
-          mkdir -p "$DEPLOY_ROOT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Sync code to server
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+        run: |
+          set -euo pipefail
           rsync -az --delete \
             --exclude '.git' \
             --exclude '.github' \
             --exclude 'site/node_modules' \
             --exclude 'site/.next' \
-            ./ "$DEPLOY_ROOT/"
+            -e "ssh -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
 
-      - name: Build and restart locally
+      - name: Build and restart on server
         env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
           SITE_URL: ${{ secrets.CN_SITE_URL }}
           CONTACT_PUBLIC_EMAIL: ${{ secrets.CN_CONTACT_PUBLIC_EMAIL }}
           RESEND_API_KEY: ${{ secrets.CN_RESEND_API_KEY }}
           CONTACT_EMAIL: ${{ secrets.CN_CONTACT_EMAIL }}
           CONTACT_FROM_EMAIL: ${{ secrets.CN_CONTACT_FROM_EMAIL }}
         run: |
+          set -euo pipefail
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<EOF
           set -euo pipefail
           cd /www/wwwroot/mindsleap/site
           cat > .env.production <<ENVEOF
@@ -53,12 +62,13 @@ jobs:
           CONTACT_EMAIL=${CONTACT_EMAIL}
           CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL}
           ENVEOF
-          npm ci --no-fund --no-audit
           rm -rf .next
+          npm install
           NODE_OPTIONS=--max-old-space-size=1536 npm run build
           if pm2 describe mindsleap >/dev/null 2>&1; then
             pm2 restart mindsleap --update-env
           else
-            pm2 start npm --name mindsleap --cwd /www/wwwroot/mindsleap/site -- start -- -p 3000
+            pm2 start npm --name mindsleap -- start -- -p 3000
           fi
           pm2 save
+          EOF
