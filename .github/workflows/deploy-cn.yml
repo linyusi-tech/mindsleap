@@ -21,9 +21,24 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 700 ~/.ssh
+          : "${SSH_PRIVATE_KEY:?Missing secret CN_SERVER_SSH_KEY}"
+          : "${SSH_HOST:?Missing secret CN_SERVER_HOST}"
+          : "${SSH_PORT:?Missing secret CN_SERVER_PORT}"
+          printf '%s\n' "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          ssh-keygen -y -f ~/.ssh/id_ed25519 >/dev/null
+          touch ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+          for attempt in 1 2 3; do
+            if ssh-keyscan -T 15 -H -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts; then
+              exit 0
+            fi
+            echo "ssh-keyscan attempt $attempt failed for $SSH_HOST:$SSH_PORT" >&2
+            sleep 5
+          done
+          echo "::error::Unable to fetch SSH host key from $SSH_HOST:$SSH_PORT after 3 attempts" >&2
+          exit 1
 
       - name: Sync code to server
         env:
