@@ -17,7 +17,9 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
   const siteUrl = getSiteUrl();
 
-  const latestPosts = getAllPosts(locale).filter((post) => post.category === "events").slice(0, 3);
+  const allPosts = getAllPosts(locale);
+  const latestEvents = allPosts.filter((post) => post.category === "events").slice(0, 3);
+  const latestInsights = allPosts.filter((post) => post.category === "insights").slice(0, 3);
 
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -52,7 +54,17 @@ export default async function HomePage({ params }: Props) {
       <ValueProposition />
       <BusinessOverview />
       <EcosystemSection />
-      <LatestEvents posts={latestPosts} />
+      <LatestEvents
+        posts={latestEvents}
+        translationNamespace="latestEvents"
+        emptyText={locale === "zh" ? "暂无活动，敬请期待" : "No events yet. Stay tuned."}
+      />
+      <LatestEvents
+        posts={latestInsights}
+        translationNamespace="latestInsights"
+        emptyText={locale === "zh" ? "暂无洞察，敬请期待" : "No insights yet. Stay tuned."}
+        backgroundClassName="bg-white"
+      />
     </>
   );
 }

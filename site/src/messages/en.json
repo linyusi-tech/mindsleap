@@ -100,6 +100,12 @@
     "event3Title": "Will We Merge with AI?",
     "event3Desc": "High-impact keynote exploring the fusion of human intelligence and artificial systems."
   },
+  "latestInsights": {
+    "title": "Latest Insights",
+    "subtitle": "Fresh thinking on AI transformation, operating models, and enterprise execution.",
+    "viewMore": "View More",
+    "learnMore": "Learn More"
+  },
   "mentors": {
     "title": "Global Mentor Network",
     "subtitle": "Silicon Valley thought leaders bringing cutting-edge tech and investment insights"

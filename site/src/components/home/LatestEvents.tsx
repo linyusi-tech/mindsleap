@@ -7,13 +7,22 @@ import type { Post } from "@/lib/posts";
 
 type Props = {
   posts: Post[];
+  translationNamespace: "latestEvents" | "latestInsights";
+  emptyText: string;
+  backgroundClassName?: string;
 };
 
-export default function LatestEvents({ posts }: Props) {
-  const t = useTranslations("latestEvents");
+export default function LatestEvents({
+  posts,
+  translationNamespace,
+  emptyText,
+  backgroundClassName = "bg-gray-50",
+}: Props) {
+  const t = useTranslations(translationNamespace);
+  const newsT = useTranslations("news");
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className={`py-24 ${backgroundClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-end mb-12">
           <div>
@@ -27,7 +36,7 @@ export default function LatestEvents({ posts }: Props) {
 
         {posts.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-gray-400 text-lg">暂无活动，敬请期待</p>
+            <p className="text-gray-400 text-lg">{emptyText}</p>
           </div>
         ) : (
           <div className="grid md:grid-cols-3 gap-8">
@@ -50,7 +59,11 @@ export default function LatestEvents({ posts }: Props) {
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-2">
                       <p className="text-xs font-bold text-blue-500 uppercase tracking-widest">
-                        {post.category}
+                        {post.category === "events"
+                          ? newsT("events")
+                          : post.category === "insights"
+                            ? newsT("insights")
+                            : post.category}
                       </p>
                       <span className="text-xs text-gray-400">{post.date}</span>
                     </div>

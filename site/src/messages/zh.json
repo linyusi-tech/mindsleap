@@ -100,6 +100,12 @@
     "event3Title": "我们将与AI融合吗？",
     "event3Desc": "高影响力演讲，探索人类智能与人工智能的融合。"
   },
+  "latestInsights": {
+    "title": "最新洞察",
+    "subtitle": "聚焦 AI 转型、方法论与企业实践的最新思考",
+    "viewMore": "查看更多",
+    "learnMore": "了解详情"
+  },
   "mentors": {
     "title": "全球导师智库",
     "subtitle": "硅谷智库为您带来前沿科技与投资洞察"
