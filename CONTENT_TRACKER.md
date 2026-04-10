@@ -36,8 +36,9 @@
 
 | Priority | Title | Category | Source | Target File | Image | Status | Next Action | Notes |
 |---|---|---|---|---|---|---|---|---|
-| P0 | 杨炯纬：龙虾 AI 员工实践洞察 | insights | `/Users/lincoln/lincoln-copaw-worker/memory/content/01_interviews/杨炯纬/杨炯纬访谈精华总结_龙虾AI员工的实践与智慧_20260408.md` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/content/news/ai-agent-seo-experiment-yang-jiongwei-2026.mdx` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/public/images/news/ai-agent-seo-experiment-yang-jiongwei-2026.png` | Previewed | 确认是否提交 Git | 正文与头图已接入，待发布前最后确认 |
-| P0 | 陆蓉之：AI 重启人生洞察 | insights | `/Users/lincoln/lincoln-copaw-worker/memory/content/01_interviews/陆蓉之/陆蓉之访谈精华总结_宝藏萌奶奶的AI重启人生_20260408.md` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/content/news/lu-rongzhi-ai-restart-life-2026.mdx` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/public/images/news/lu-rongzhi-ai-restart-life-2026.png` | Previewed | 确认是否提交 Git | 正文与头图已接入，构建通过，待发布前最后确认 |
+| P0 | 张珣：硬科技投资与 AI 创业双重身份 | insights | `/Users/lincoln/lincoln-copaw-worker/memory/content/01_interviews/张珣/张珣访谈精华总结_硬科技投资与AI创业的双重身份_20260408.md` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/content/news/andy-zhang-hard-tech-ai-founder-investor-2026.mdx` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/public/images/news/andy-zhang-hard-tech-ai-founder-investor-2026.png` | Published | 无 | 已完成头图接入，构建通过并推送至主线 |
+| P1 | 杨炯纬：龙虾 AI 员工实践洞察 | insights | `/Users/lincoln/lincoln-copaw-worker/memory/content/01_interviews/杨炯纬/杨炯纬访谈精华总结_龙虾AI员工的实践与智慧_20260408.md` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/content/news/ai-agent-seo-experiment-yang-jiongwei-2026.mdx` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/public/images/news/ai-agent-seo-experiment-yang-jiongwei-2026.png` | Published | 无 | 已提交并推送至主线 |
+| P1 | 陆蓉之：AI 重启人生洞察 | insights | `/Users/lincoln/lincoln-copaw-worker/memory/content/01_interviews/陆蓉之/陆蓉之访谈精华总结_宝藏萌奶奶的AI重启人生_20260408.md` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/content/news/lu-rongzhi-ai-restart-life-2026.mdx` | `/Users/lincoln/Claude-workspace/mindsleap-website/site/public/images/news/lu-rongzhi-ai-restart-life-2026.png` | Published | 无 | 已提交并推送至主线 |
 
 ## Review Checklist
 
