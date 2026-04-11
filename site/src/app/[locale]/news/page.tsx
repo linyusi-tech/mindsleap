@@ -7,6 +7,10 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+// The news index is content-driven and should reflect new posts immediately
+// after deployment instead of serving a long-lived prerendered snapshot.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "news" });
