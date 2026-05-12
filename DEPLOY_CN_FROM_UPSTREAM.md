@@ -6,7 +6,7 @@
 
 - `upstream/main` 作为内容和站点更新来源
 - 本地仓库负责保留中国站自己的少量补丁
-- 推送到 `origin/main` 后，GitHub self-hosted runner 在阿里云服务器上自动部署
+- 推送到 `origin/main` 后，GitHub Actions 通过 SSH 自动部署到阿里云服务器
 
 ## 以后你需要做的操作
 
@@ -22,22 +22,24 @@ cd /Users/yusi/Downloads/AI雨丝/websites/mindsleap
 1. 拉取 `origin` 和 `upstream` 最新代码
 2. 把 `upstream/main` 合并进本地 `main`
 3. 把结果推送到 `origin/main`
-4. 触发 GitHub Actions 在阿里云服务器上部署
+4. 触发 GitHub Actions 通过 SSH 在阿里云服务器上部署
 
 ## 自动部署依赖
 
 仓库内的 [deploy-cn.yml](/Users/yusi/Downloads/AI雨丝/websites/mindsleap/.github/workflows/deploy-cn.yml) 现在假定：
 
-- GitHub repo 已配置 self-hosted runner
-- runner 标签包含 `self-hosted`、`linux`、`x64`、`mindsleap-cn`
-- runner 就运行在阿里云 ECS 上
+- GitHub 仓库里已经配置好这些 secrets：
+  - `CN_SERVER_SSH_KEY`
+  - `CN_SERVER_HOST`
+  - `CN_SERVER_PORT`
+  - `CN_SERVER_USER`
 - 服务器部署目录是 `/www/wwwroot/mindsleap`
 
 部署时会：
 
 1. 把仓库同步到 `/www/wwwroot/mindsleap`
 2. 重写 `site/.env.production`
-3. 在 `/www/wwwroot/mindsleap/site` 执行 `npm ci`
+3. 通过 SSH 登录服务器，并在 `/www/wwwroot/mindsleap/site` 执行 `npm ci`
 4. 重新 `next build`
 5. 重启 `pm2` 中的 `mindsleap-main`
 6. 重启 `pm2` 中的 `mindsleap-router`
@@ -57,6 +59,10 @@ cd /Users/yusi/Downloads/AI雨丝/websites/mindsleap
 
 自动部署仍然需要这些 secrets：
 
+- `CN_SERVER_SSH_KEY`
+- `CN_SERVER_HOST`
+- `CN_SERVER_PORT`
+- `CN_SERVER_USER`
 - `CN_SITE_URL`
 - `CN_CONTACT_PUBLIC_EMAIL`
 - `CN_RESEND_API_KEY`
@@ -83,9 +89,9 @@ git push origin main
 
 优先检查：
 
-- 仓库的 self-hosted runner 是否在线
-- runner 标签里是否包含 `mindsleap-cn`
 - GitHub Actions 是否启用
+- `CN_SERVER_*` secrets 是否还在
+- 服务器 SSH 是否仍然可用
 
 ## 手工兜底
 
