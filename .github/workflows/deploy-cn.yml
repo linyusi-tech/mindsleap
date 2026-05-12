@@ -67,7 +67,7 @@ jobs:
           CONTACT_EMAIL=${CONTACT_EMAIL}
           CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL}
           ENVEOF
-          npm ci --no-fund --no-audit
+          npm install --no-fund --no-audit
           rm -rf .next
           NODE_OPTIONS=--max-old-space-size=1536 npm run build
           if pm2 describe mindsleap-main >/dev/null 2>&1; then
@@ -75,7 +75,11 @@ jobs:
           else
             pm2 start npm --name mindsleap-main --cwd /www/wwwroot/mindsleap/site -- start -- -p 3001
           fi
-          pm2 restart mindsleap-router
+          if pm2 describe mindsleap-router >/dev/null 2>&1; then
+            pm2 restart mindsleap-router
+          else
+            echo "mindsleap-router not found; skipping router restart"
+          fi
           pm2 save
           EOF
 

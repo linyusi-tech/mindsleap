@@ -39,7 +39,7 @@ cd /Users/yusi/Downloads/AI雨丝/websites/mindsleap
 
 1. 把仓库同步到 `/www/wwwroot/mindsleap`
 2. 重写 `site/.env.production`
-3. 通过 SSH 登录服务器，并在 `/www/wwwroot/mindsleap/site` 执行 `npm ci`
+3. 通过 SSH 登录服务器，并在 `/www/wwwroot/mindsleap/site` 执行 `npm install`
 4. 重新 `next build`
 5. 重启 `pm2` 中的 `mindsleap-main`
 6. 重启 `pm2` 中的 `mindsleap-router`
@@ -104,7 +104,7 @@ cd /www/wwwroot/mindsleap
 git fetch origin
 git reset --hard origin/main
 cd /www/wwwroot/mindsleap/site
-npm ci --no-fund --no-audit
+npm install --no-fund --no-audit
 rm -rf .next
 NODE_OPTIONS=--max-old-space-size=1536 npm run build
 pm2 restart mindsleap-main --update-env
