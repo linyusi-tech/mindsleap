@@ -1,0 +1,165 @@
+---
+title: "\"Coding Is Solved\": What Claude Code Creator Boris Cherny Said at AI Ascent"
+date: "2026-05-08"
+excerpt: "\"For me, coding is solved.\" The man who said that is Boris Cherny, the creator of Claude Code. He hasn't written a single line of code by hand in 2026 — yet ships dozens, sometimes 150, pull requests a day. From his phone."
+category: "ai-insights"
+image: "/images/news/boris-cherny-coding-solved-ai-ascent-2026.jpg"
+imagePosition: "82% center"
+locale: "en"
+author: "王林Lincoln"
+---
+
+**Author: Lincoln Wang | Founder & CEO, MindsLeap | Global Partner, Founders Space | Founder, Entrepreneur AI Club**
+
+"For me, coding is solved."
+
+The man who said that is Boris Cherny.
+
+At Sequoia Capital's AI Ascent 2026 summit in early May, the creator of Claude Code sat onstage for an interview and delivered a line that made every engineer in the room sit up straight.
+
+He hasn't written a single line of code by hand in 2026.
+
+But he ships dozens of pull requests every day — with a personal record of 150 PRs in a single day.
+
+From his phone.
+
+This isn't a technical flex. It's a signal about the next structural shift in software.
+
+## An Accidental Invention
+
+Before describing how he works today, Boris told the story of how Claude Code came to exist.
+
+In late 2024, he joined a small incubator team inside Anthropic — just a handful of people whose mission was to build things they actually wanted. That team ended up creating three things: Claude Code, the MCP protocol, and the Claude desktop app.
+
+"We felt there was a product overhang," Boris said. "The model could do things that no product had yet captured."
+
+At the time, the state of the art in AI coding was autocomplete — you press Tab in your IDE, the model finishes a line. That was what Sonnet 3.5 had enabled. But Boris's bet was that the next step wasn't smarter autocomplete. It was having the agent just write all the code.
+
+He built it. And for six months, almost nobody used it.
+
+"It was barely usable. I used it for maybe 10% of my own code."
+
+Then Opus 4 launched. Exponential growth started. Every model release since has added another inflection.
+
+The insight here for entrepreneurs: **Boris was building for a model that didn't exist yet.** He wasn't solving today's problem. He was betting that when the model was ready, his product would be exactly what people needed.
+
+## What "Coding Is Solved" Actually Means
+
+Boris asked the room two questions: Who writes 100% of their code by hand? Who writes 100% using AI?
+
+He's in the second camp.
+
+He was careful about the limits of that claim: for the type of code he writes — TypeScript and React, heavily represented in model training data — it's solved. Large, complex, obscure-language codebases? Not yet.
+
+"Usually the answer is just: wait for the next model."
+
+That framing is worth sitting with. Not "wait for better tooling" — **wait for the next model**. His planning horizon is model release cycles, not quarterly roadmaps.
+
+## Managing Hundreds of Agents From His Phone
+
+Then he walked through his actual workflow.
+
+Open the Claude app on his phone. On the left: a Code tab with 5–10 active sessions. Inside each session: multiple agents running in parallel.
+
+"Right now I probably have a few hundred agents going. Every night, a few thousand doing deeper work."
+
+The thing he's most excited about: **`/loop`**.
+
+The concept is almost comically simple. You ask Claude to use cron to schedule a recurring job — every minute, every five minutes, every day. Claude keeps doing the task on that schedule until you tell it to stop.
+
+Boris currently has dozens of loops running:
+- One babysitting all his PRs, auto-fixing CI, auto-rebasing
+- One keeping the test suite healthy
+- One pulling Twitter feedback every 30 minutes, clustering it, and sending him a summary
+
+"I feel like loops are the future. If you haven't tried it, I highly recommend it."
+
+What this means to me: the work that used to require a team now becomes a set of scheduled loops. The human role shifts from executor to **scheduler and reviewer**.
+
+## The Printing Press Moment
+
+This was my favorite part of the talk.
+
+An audience member asked: Will coding become a universal skill, like knowing Microsoft Office?
+
+Boris said: Yes. And it'll go further than that.
+
+He used a historical analogy: **the printing press, 1400s Europe**.
+
+Before Gutenberg, roughly 10% of the European population was literate. They were employed by kings and lords who couldn't read — their job was to handle written communication on their behalf.
+
+In the fifty years after the printing press was invented, more literature was published in Europe than in the previous thousand years. The cost of a book dropped a hundredfold.
+
+Over the next few centuries, literacy went from 10% to 70% globally.
+
+"I think what's about to happen," Boris said, "is that software will be fully democratized. Anyone will be able to build it. And it's going to happen much faster than a few hundred years."
+
+His concrete example: the best person to write accounting software in the future probably isn't an engineer. **It's a great accountant — because domain knowledge is the hard part, and coding becomes the easy part.**
+
+That inversion has implications for every industry worth thinking about.
+
+## The SaaS Moat Is Shifting
+
+Boris was asked the pointed question: if software becomes this cheap to build, what happens to SaaS value? Are we headed for a SaaS apocalypse?
+
+He gave a structured answer rooted in Hamilton Helmer's "seven powers" framework.
+
+**Moats that are getting weaker:**
+- **Switching costs** — AI can help port your data from one system to another
+- **Process power** — companies whose moat is complex internal workflows will find AI eroding that
+
+**Moats that remain strong:**
+- **Network effects**
+- **Scale economies**
+- **Cornered resources**
+
+Then the second observation: the number of disruptive startups in the next ten years will be **ten times** what we saw in the last ten.
+
+Because a small team can now build product capabilities that match a large company's — and compete head-to-head. Large companies have to retrain people, overhaul processes, overcome internal resistance. Startups starting fresh have none of that burden.
+
+"It's the best time to build. The best time to be a startup."
+
+## The Gap That Actually Matters
+
+One of the most unexpected moments came when someone asked: Does Anthropic have access to better models than the rest of us?
+
+Boris's answer: No.
+
+"We use the same models everyone else does. That's not where our advantage is."
+
+"The real gap is organizational."
+
+He described how Anthropic operates internally:
+- Everyone writes code — PMs, designers, data scientists, finance, user researchers
+- Not a single line of SQL is written by a human
+- Agents from different people communicate over Slack to coordinate unknowns
+- All software is built by models
+
+"We're ahead not in technology — the same tech is available to everyone here. We're ahead in how we've reorganized the way we work. And that's something every company can learn."
+
+This lands at the exact center of what MindsLeap exists to help with. AI transformation isn't buying a new set of tools. It's changing the way work gets done.
+
+## A Final Thought
+
+Boris Cherny isn't a big-picture theorist. Everything he said onstage, he's actually doing.
+
+150 PRs in a day. Hundreds of parallel agents. Managing all his engineering work from his phone.
+
+He's not describing the future. He's describing his present.
+
+And the printing press analogy places the historical weight of this moment in the right frame:
+
+Literacy took centuries to go from 10% to 70%.
+
+The democratization of software might take years.
+
+The gap between people who can turn ideas into working software — and those who can't — is about to widen faster than most people expect.
+
+## About MindsLeap
+
+MindsLeap is the China partner of Founders Space, one of Silicon Valley's leading innovation accelerators. We connect cutting-edge global AI insights with the real transformation needs of Chinese entrepreneurs — through AI strategy, entrepreneur communities, innovation study tours, and executive training.
+
+---
+
+**Source:**
+- Boris Cherny's full talk at Sequoia AI Ascent 2026: [youtube.com/watch?v=SlGRN8jh2RI](https://www.youtube.com/watch?v=SlGRN8jh2RI&t=160s)

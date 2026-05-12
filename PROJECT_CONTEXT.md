@@ -24,34 +24,58 @@
 
 新闻与洞察文章统一放在：
 
-- `site/content/news`
+- 中文稿：`site/content/news/zh`
+- 英文稿：`site/content/news/en`
 
 封面图通常放在：
 
 - `site/public/images/news`
 
-文章 URL slug 通常与文件名保持一致。
+文章 URL slug 通常与文件名保持一致。中英文版本使用同一个 slug，分别服务：
+
+- `/zh/news/{slug}`
+- `/en/news/{slug}`
+
+默认发布规范：每篇新闻 / 洞察应同时准备中文与英文版本；若英文版暂未完成，英文站不展示该篇文章。
 
 ## 3. 栏目规则
 
-站点的新闻内容分两类：
+站点的新闻内容分三类：
 
 - `events`：活动、发布会、研讨会、Workshop、线下动态
-- `insights`：洞察、观点、方法论、行业分析、AI 实践总结
+- `founders-talk`：Founders Talk 访谈、人物对话、创业者 / 投资人 / AI 实践者的一线经验
+- `ai-insights`：AI Insights，观点、方法论、行业分析、AI 实践总结、公开演讲 / 视频解读
 
 当前约定：
 
-- 首页新闻区按顺序展示两个模块：最新活动、最新洞察；两个模块默认各展示最新 3 篇
+- 首页新闻区按顺序展示三个模块：最新活动、Founders Talk、AI Insights；三个模块默认各展示最新 3 篇
 - `/news` 页面默认展示 `events`
-- 用户点击“全部”或“洞察”时，才展示 `insights`
+- 用户点击“全部”、“Founders Talk”或“AI Insights”时，才展示对应栏目内容
+- 旧 `insights` frontmatter 仅作为兼容入口；新文章不要继续使用
 
 如果新增文章，需要先判断它属于活动报道还是洞察内容，不要混用。
+
+新闻内容会按当前 locale 读取：
+
+- 中文站只读取 `content/news/zh`
+- 英文站只读取 `content/news/en`
+- sitemap 只生成实际存在的语言版本文章 URL
 
 ## 4. 洞察文章发布规范
 
 洞察文章默认作者信息：
 
 `作者：王林Lincoln | MindsLeap创始人 | Founders Space合伙人 | 企业家AI俱乐部创始人`
+
+英文洞察文章默认作者信息：
+
+`Author: Lincoln Wang | Founder of MindsLeap | Global Partner at Founders Space | Founder of Founders AI Club`
+
+基于官方视频、访谈或公开演讲解读的文章，来源说明统一使用对外表达：
+
+`本文由 Lincoln 根据 {官方频道/机构/来源} {发布日期} 发布的视频《{标题}》进行解读。`
+
+不要在官网稿中写入内部制作过程说明，例如字幕下载失败、HTTP 状态码、本地 ASR、交接包、结构化摘要或“并非逐字翻译”等字样。
 
 洞察文章默认补充要求：
 
@@ -81,6 +105,7 @@
 - `site/src/app/[locale]/page.tsx`
 - `site/src/components/news/NewsListClient.tsx`
 - `site/src/components/news/NewsArticleClient.tsx`
+- `site/src/lib/newsCategories.ts`
 
 ## 6. 图片与头图工作流
 

@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
+import { getPostBySlug, getAllLocalizedPostSlugs } from "@/lib/posts";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import NewsArticleClient from "@/components/news/NewsArticleClient";
@@ -12,8 +12,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const slugs = getAllPostSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return getAllLocalizedPostSlugs();
 }
 
 export async function generateMetadata({ params }: Props) {

@@ -4,12 +4,14 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import type { Post } from "@/lib/posts";
+import { getNewsCategoryMessageKey } from "@/lib/newsCategories";
 
 type Props = {
   posts: Post[];
-  translationNamespace: "latestEvents" | "latestInsights";
+  translationNamespace: "latestEvents" | "latestFoundersTalk" | "latestAIInsight";
   emptyText: string;
   backgroundClassName?: string;
+  viewMoreHref?: string;
 };
 
 export default function LatestEvents({
@@ -17,6 +19,7 @@ export default function LatestEvents({
   translationNamespace,
   emptyText,
   backgroundClassName = "bg-gray-50",
+  viewMoreHref = "/news",
 }: Props) {
   const t = useTranslations(translationNamespace);
   const newsT = useTranslations("news");
@@ -29,7 +32,7 @@ export default function LatestEvents({
             <h2 className="text-4xl font-bold text-[#1e477c]">{t("title")}</h2>
             <p className="text-gray-500 mt-2">{t("subtitle")}</p>
           </div>
-          <Link href="/news" className="text-blue-500 font-bold hover:underline hidden sm:block">
+          <Link href={viewMoreHref} className="text-blue-500 font-bold hover:underline hidden sm:block">
             {t("viewMore")} &rarr;
           </Link>
         </div>
@@ -50,6 +53,7 @@ export default function LatestEvents({
                       width={400}
                       height={224}
                       className="w-full h-56 object-cover"
+                      style={{ objectPosition: post.imagePosition ?? "center" }}
                     />
                   ) : (
                     <div className="w-full h-56 bg-gradient-to-br from-[#1e477c] to-blue-400 flex items-center justify-center">
@@ -59,11 +63,9 @@ export default function LatestEvents({
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-2">
                       <p className="text-xs font-bold text-blue-500 uppercase tracking-widest">
-                        {post.category === "events"
-                          ? newsT("events")
-                          : post.category === "insights"
-                            ? newsT("insights")
-                            : post.category}
+                        {getNewsCategoryMessageKey(post.category)
+                          ? newsT(getNewsCategoryMessageKey(post.category)!)
+                          : post.category}
                       </p>
                       <span className="text-xs text-gray-400">{post.date}</span>
                     </div>
@@ -84,7 +86,7 @@ export default function LatestEvents({
         )}
 
         <div className="mt-8 text-center sm:hidden">
-          <Link href="/news" className="text-blue-500 font-bold hover:underline">
+          <Link href={viewMoreHref} className="text-blue-500 font-bold hover:underline">
             {t("viewMore")} &rarr;
           </Link>
         </div>

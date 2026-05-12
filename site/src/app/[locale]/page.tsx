@@ -19,7 +19,8 @@ export default async function HomePage({ params }: Props) {
 
   const allPosts = getAllPosts(locale);
   const latestEvents = allPosts.filter((post) => post.category === "events").slice(0, 3);
-  const latestInsights = allPosts.filter((post) => post.category === "insights").slice(0, 3);
+  const latestFoundersTalk = allPosts.filter((post) => post.category === "founders-talk").slice(0, 3);
+  const latestAIInsights = allPosts.filter((post) => post.category === "ai-insights").slice(0, 3);
 
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -60,10 +61,17 @@ export default async function HomePage({ params }: Props) {
         emptyText={locale === "zh" ? "暂无活动，敬请期待" : "No events yet. Stay tuned."}
       />
       <LatestEvents
-        posts={latestInsights}
-        translationNamespace="latestInsights"
-        emptyText={locale === "zh" ? "暂无洞察，敬请期待" : "No insights yet. Stay tuned."}
+        posts={latestFoundersTalk}
+        translationNamespace="latestFoundersTalk"
+        emptyText={locale === "zh" ? "暂无 Founders Talk，敬请期待" : "No Founders Talk posts yet. Stay tuned."}
         backgroundClassName="bg-white"
+        viewMoreHref="/news?tab=founders-talk"
+      />
+      <LatestEvents
+        posts={latestAIInsights}
+        translationNamespace="latestAIInsight"
+        emptyText={locale === "zh" ? "暂无 AI Insights，敬请期待" : "No AI Insights posts yet. Stay tuned."}
+        viewMoreHref="/news?tab=ai-insights"
       />
     </>
   );

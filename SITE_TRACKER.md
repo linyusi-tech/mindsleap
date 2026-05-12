@@ -41,7 +41,9 @@
 
 | Priority | Item | Area | Status | Next Action | Notes |
 |---|---|---|---|---|---|
-| P0 | 首页增加“最新洞察”模块，展示最新 3 篇 insights | Home | Review | 本地预览首页，确认活动与洞察两组卡片层次与顺序 | 已在“最新活动”下方接入独立洞察模块 |
+| P0 | AI Club Hero rotator 增加 AI 工作坊照片页 | AI Club | Review | 本地预览 `/zh/services/ai-club`，确认第二张横幅裁切与文字可读性 | 已加入为第二张 slide，使用 2026 年 4 月活动照片 |
+| P0 | 首页新闻区改为活动、Founders Talk、AI Insights 三段 | Home | Review | 本地预览首页，确认三组卡片层次与顺序 | 已在“最新活动”下方接入 Founders Talk 与 AI Insights 独立模块 |
+| P0 | 新闻板块拆分为活动、Founders Talk、AI Insights | News/Home | Review | 本地预览首页与 `/zh/news` 三个 tab，确认卡片归类与文案 | 已替换旧 insights 栏目，保留旧 `insights` frontmatter 兼容 |
 | P1 | 首页内容与视觉的下一轮改版规划 | Home | Backlog | 明确是否要调整首页叙事结构与重点模块 | 适合和品牌定位、服务优先级一起看 |
 | P1 | 新闻 / 洞察列表页的下一轮体验优化 | News | Backlog | 结合真实发布节奏复盘筛选、卡片信息密度与浏览效率 | 当前功能可用，但后续可能继续细化 |
 | P2 | 站点级 SEO 与分享呈现检查 | SEO | Backlog | 复查 metadata、OG 图、文章详情页分享信息 | 更适合在内容积累到一定量后统一处理 |
@@ -50,7 +52,8 @@
 
 以下事项已完成或已作为当前基线确认，后续修改时不要误改回去：
 
-- 首页新闻区按顺序展示两个模块：最新活动、最新洞察
+- 首页新闻区按顺序展示三个模块：最新活动、Founders Talk、AI Insights
+- 新闻板块按 `活动 / Founders Talk / AI Insights` 三个栏目组织；旧 `insights` 分类读取时会兼容归入新栏目
 - `/news` 页面默认 tab 为 `events`
 - 点击新闻列表进入详情页时，滚动位置已调整，标题应保持可见
 

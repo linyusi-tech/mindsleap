@@ -100,8 +100,14 @@
     "event3Title": "Will We Merge with AI?",
     "event3Desc": "High-impact keynote exploring the fusion of human intelligence and artificial systems."
   },
-  "latestInsights": {
-    "title": "Latest Insights",
+  "latestFoundersTalk": {
+    "title": "Founders Talk",
+    "subtitle": "Conversations with founders, investors, AI builders, and global practitioners.",
+    "viewMore": "View More",
+    "learnMore": "Learn More"
+  },
+  "latestAIInsight": {
+    "title": "AI Insights",
     "subtitle": "Fresh thinking on AI transformation, operating models, and enterprise execution.",
     "viewMore": "View More",
     "learnMore": "Learn More"
@@ -176,11 +182,14 @@
   },
   "news": {
     "title": "Latest News",
-    "subtitle": "Events and Industry Insights",
+    "subtitle": "Events, Founders Talk, and AI Insights",
     "readMore": "Read More",
     "allPosts": "All",
     "events": "Events",
-    "insights": "Insights",
+    "foundersTalk": "Founders Talk",
+    "aiInsight": "AI Insights",
+    "insights": "AI Insights",
+    "emptyState": "No content yet. Please check back soon.",
     "backToList": "Back to List"
   },
   "contact": {
@@ -204,12 +213,15 @@
     "slide1Title": "Founders AI Club",
     "slide1Heading": "Upgrade AI Mindsets\nfor Global Success",
     "slide1Subtitle": "Exclusive 30-50 person closed-door community",
-    "slide2Title": "AI Club Activities",
-    "slide2Heading": "Private Salons · Workshops\nEnterprise Visits · Lobster Summit",
-    "slide2Subtitle": "Diverse formats for deep exchange and collaboration",
-    "slide3Title": "Enterprise Visits",
-    "slide3Heading": "Visit leading companies\nlearn best practice",
-    "slide3Subtitle": "Learn best practices from industry-leading enterprises"
+    "slide2Title": "AI Workshop",
+    "slide2Heading": "Applying knowledge\nto practice",
+    "slide2Subtitle": "Beyond lectures, into hands-on execution",
+    "slide3Title": "AI Club Activities",
+    "slide3Heading": "Private Salons · Workshops\nEnterprise Visits · Lobster Summit",
+    "slide3Subtitle": "Diverse formats for deep exchange and collaboration",
+    "slide4Title": "Enterprise Visits",
+    "slide4Heading": "Visit leading companies\nlearn best practice",
+    "slide4Subtitle": "Learn best practices from industry-leading enterprises"
   },
   "incubationHero": {
     "slide1Title": "Unicorn Incubation",

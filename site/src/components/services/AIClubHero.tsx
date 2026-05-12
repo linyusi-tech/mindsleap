@@ -17,12 +17,18 @@ export default function AIClubHero() {
       title: h("slide2Title"),
       heading: h("slide2Heading"),
       subtitle: h("slide2Subtitle"),
-      image: "/images/hero/slide-2.jpg",
+      image: "/images/hero/aiclub-workshop-april-2026.jpeg",
     },
     {
       title: h("slide3Title"),
       heading: h("slide3Heading"),
       subtitle: h("slide3Subtitle"),
+      image: "/images/hero/slide-2.jpg",
+    },
+    {
+      title: h("slide4Title"),
+      heading: h("slide4Heading"),
+      subtitle: h("slide4Subtitle"),
       image: "/images/hero/slide-1.jpg",
     },
   ];

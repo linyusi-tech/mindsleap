@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPostSlugs } from "@/lib/posts";
+import { getAllLocalizedPostSlugs } from "@/lib/posts";
 import { getSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -27,16 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  // Blog posts
-  const postSlugs = getAllPostSlugs();
-  const postEntries = locales.flatMap((locale) =>
-    postSlugs.map((slug) => ({
-      url: `${baseUrl}/${locale}/news/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    }))
-  );
+  const postEntries = getAllLocalizedPostSlugs().map(({ locale, slug }) => ({
+    url: `${baseUrl}/${locale}/news/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
 
   return [...staticEntries, ...postEntries];
 }
