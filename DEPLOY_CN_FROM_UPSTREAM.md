@@ -41,9 +41,10 @@ cd /Users/yusi/Downloads/AI雨丝/websites/mindsleap
 2. 重写 `site/.env.production`
 3. 通过 SSH 登录服务器，并在 `/www/wwwroot/mindsleap/site` 执行 `npm install`
 4. 重新 `next build`
-5. 重启 `pm2` 中的 `mindsleap-main`
-6. 重启 `pm2` 中的 `mindsleap-router`
-7. 校验 `3001` 和 `3000` 返回的是同一份 CSS 资源
+5. 如果服务器存在 `admin` 用户，把 `/www/wwwroot/mindsleap` 归还给 `admin:admin`
+6. 重启 `pm2` 中的 `mindsleap-main`
+7. 重启 `pm2` 中的 `mindsleap-router`
+8. 校验公网首页、新闻页和静态 CSS 资源
 
 ## 服务器上的当前进程口径
 
@@ -107,6 +108,9 @@ cd /www/wwwroot/mindsleap/site
 npm install --no-fund --no-audit
 rm -rf .next
 NODE_OPTIONS=--max-old-space-size=1536 npm run build
+if id admin >/dev/null 2>&1; then
+  sudo chown -R admin:admin /www/wwwroot/mindsleap
+fi
 pm2 restart mindsleap-main --update-env
 pm2 restart mindsleap-router
 pm2 save

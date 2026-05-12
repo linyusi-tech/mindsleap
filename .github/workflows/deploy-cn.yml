@@ -70,6 +70,9 @@ jobs:
           npm install --no-fund --no-audit
           rm -rf .next
           NODE_OPTIONS=--max-old-space-size=1536 npm run build
+          if id admin >/dev/null 2>&1; then
+            chown -R admin:admin /www/wwwroot/mindsleap || sudo chown -R admin:admin /www/wwwroot/mindsleap
+          fi
           if pm2 describe mindsleap-main >/dev/null 2>&1; then
             pm2 restart mindsleap-main --update-env
           else
@@ -83,35 +86,33 @@ jobs:
           pm2 save
           EOF
 
-      - name: Verify CN routing on server
-        env:
-          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
-          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
-          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+      - name: Verify CN public site
         run: |
           set -euo pipefail
-          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<'EOF'
-          set -euo pipefail
+
           extract_css() {
-            curl -fsS "$1" | grep -oE '/_next/static/[^"[:space:]]+\.css' | head -n1
+            local html
+            html="$(curl -fsS "$1")"
+            awk 'match($0, /\/_next\/static\/[^"[:space:]]+\.css/) { print substr($0, RSTART, RLENGTH); exit }' <<< "$html"
           }
 
-          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
-            css_main="$(extract_css http://127.0.0.1:3001/zh || true)"
-            css_router="$(extract_css http://127.0.0.1:3000/zh || true)"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24; do
+            css_path="$(extract_css https://www.mindsleap.cn/zh || true)"
 
-            if [ -n "$css_main" ] && [ -n "$css_router" ] && [ "$css_main" = "$css_router" ] \
-              && curl -fIs "http://127.0.0.1:3000$css_router" >/dev/null \
-              && curl -fIs http://127.0.0.1:3000/zh/news >/dev/null; then
+            news_html="$(curl -fsS https://www.mindsleap.cn/zh/news || true)"
+            article_html="$(curl -fsS https://www.mindsleap.cn/zh/news/boris-cherny-coding-solved-ai-ascent-2026 || true)"
+
+            if [ -n "$css_path" ] \
+              && curl -fIs "https://www.mindsleap.cn$css_path" >/dev/null \
+              && [ -n "$news_html" ] \
+              && grep -q "boris-cherny-coding-solved-ai-ascent-2026" <<< "$article_html"; then
               exit 0
             fi
 
-            echo "Verification attempt $attempt/12 not ready yet"
-            echo "css_main=${css_main:-<empty>}"
-            echo "css_router=${css_router:-<empty>}"
+            echo "Public verification attempt $attempt/24 not ready yet"
+            echo "css_path=${css_path:-<empty>}"
             sleep 5
           done
 
-          echo "CN routing verification failed after retries" >&2
+          echo "CN public verification failed after retries" >&2
           exit 1
-          EOF
