@@ -78,8 +78,11 @@ jobs:
           else
             pm2 start npm --name mindsleap-main --cwd /www/wwwroot/mindsleap/site -- start -- -p 3001
           fi
+          if pm2 describe mindsleap >/dev/null 2>&1; then
+            pm2 delete mindsleap
+          fi
           if pm2 describe mindsleap-router >/dev/null 2>&1; then
-            pm2 restart mindsleap-router
+            pm2 restart mindsleap-router --update-env
           else
             echo "mindsleap-router not found; skipping router restart"
           fi
