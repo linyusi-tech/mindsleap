@@ -92,11 +92,26 @@ jobs:
           set -euo pipefail
           ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<'EOF'
           set -euo pipefail
-          css_main="$(curl -fsS http://127.0.0.1:3001/zh | grep -oE '/_next/static/chunks/[A-Za-z0-9-]+\.css' | head -n1)"
-          css_router="$(curl -fsS http://127.0.0.1:3000/zh | grep -oE '/_next/static/chunks/[A-Za-z0-9-]+\.css' | head -n1)"
-          test -n "$css_main"
-          test -n "$css_router"
-          test "$css_main" = "$css_router"
-          curl -fIs "http://127.0.0.1:3000$css_router" >/dev/null
-          curl -fIs http://127.0.0.1:3000/zh/news >/dev/null
+          extract_css() {
+            curl -fsS "$1" | grep -oE '/_next/static/[^"[:space:]]+\.css' | head -n1
+          }
+
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            css_main="$(extract_css http://127.0.0.1:3001/zh || true)"
+            css_router="$(extract_css http://127.0.0.1:3000/zh || true)"
+
+            if [ -n "$css_main" ] && [ -n "$css_router" ] && [ "$css_main" = "$css_router" ] \
+              && curl -fIs "http://127.0.0.1:3000$css_router" >/dev/null \
+              && curl -fIs http://127.0.0.1:3000/zh/news >/dev/null; then
+              exit 0
+            fi
+
+            echo "Verification attempt $attempt/12 not ready yet"
+            echo "css_main=${css_main:-<empty>}"
+            echo "css_router=${css_router:-<empty>}"
+            sleep 5
+          done
+
+          echo "CN routing verification failed after retries" >&2
+          exit 1
           EOF
