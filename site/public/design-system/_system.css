@@ -1,0 +1,144 @@
+/* Shared chrome for the MindsLeap Design System index pages.
+   Loaded by index.html / brand.html / deck.html / website.html / ui.html. */
+
+:root {
+  --ds-ink: #0f172a;
+  --ds-ink-2: #475569;
+  --ds-ink-3: #94a3b8;
+  --ds-line: #e5e7eb;
+  --ds-line-soft: #f1f5f9;
+  --ds-bg: #fafafa;
+  --ds-brand: #1e477c;
+  --ds-brand-soft: #eaf0f8;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ds-bg);
+  color: var(--ds-ink);
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+
+/* ── Top nav ─────────────────────────────────────────────── */
+.ds-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--ds-line);
+}
+.ds-nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.ds-nav .brand {
+  font-family: "MindsLeap Brand", "Noto Sans SC", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ds-brand);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.ds-nav .brand small {
+  font-family: var(--font-sans, system-ui);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ds-ink-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ds-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+}
+.ds-nav ul a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ds-ink-2);
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.ds-nav ul a:hover { background: var(--ds-line-soft); color: var(--ds-ink); }
+.ds-nav ul a.active {
+  background: var(--ds-brand);
+  color: #fff;
+}
+
+/* ── Page chrome ─────────────────────────────────────────── */
+.ds-wrap { max-width: 1180px; margin: 0 auto; padding: 48px 32px 96px; }
+
+.ds-head { padding-bottom: 28px; border-bottom: 1px solid var(--ds-line); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.ds-head h1 { margin: 0 0 6px; font-size: 32px; letter-spacing: -0.02em; font-weight: 700; }
+.ds-head p { margin: 0; color: var(--ds-ink-2); font-size: 14px; line-height: 1.55; max-width: 620px; }
+.ds-head .meta { font-size: 12px; color: var(--ds-ink-3); font-family: var(--font-mono, ui-monospace, monospace); white-space: nowrap; }
+
+.ds-section { margin-top: 48px; scroll-margin-top: 72px; }
+.ds-section > h2 { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ds-brand); margin: 0 0 4px; }
+.ds-section > .lede { font-size: 13px; color: var(--ds-ink-2); margin: 0 0 22px; }
+
+/* ── Embedded preview card ───────────────────────────────── */
+.ds-embed-list { display: flex; flex-direction: column; gap: 16px; }
+.ds-embed { background: #fff; border: 1px solid var(--ds-line); border-radius: 12px; overflow: hidden; }
+.ds-embed > header { padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--ds-line-soft); gap: 16px; }
+.ds-embed h3 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: -0.005em; }
+.ds-embed .path { font-size: 11px; color: var(--ds-ink-3); font-family: var(--font-mono, ui-monospace, monospace); }
+.ds-embed .right { display: flex; align-items: center; gap: 14px; }
+.ds-embed .open { font-size: 11px; color: var(--ds-ink-3); transition: color 120ms; }
+.ds-embed .open:hover { color: var(--ds-brand); }
+.ds-embed iframe { width: 100%; border: 0; display: block; background: #fff; height: 420px; transition: height 200ms ease; }
+
+/* ── Quick start panel ───────────────────────────────────── */
+.ds-quickstart {
+  margin-top: 24px;
+  background: #fff;
+  border: 1px solid var(--ds-line);
+  border-left: 3px solid var(--ds-brand);
+  border-radius: 8px;
+  padding: 20px 22px;
+}
+.ds-quickstart > .qs-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.ds-quickstart .qs-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ds-brand);
+}
+.ds-quickstart .qs-aud {
+  font-size: 11px; color: var(--ds-ink-3); font-family: var(--font-mono, ui-monospace, monospace);
+}
+.ds-quickstart h3 { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
+.ds-quickstart p { margin: 0 0 10px; font-size: 13px; color: var(--ds-ink-2); line-height: 1.6; }
+.ds-quickstart p:last-child { margin-bottom: 0; }
+.ds-quickstart ul { margin: 8px 0 10px; padding-left: 18px; font-size: 13px; color: var(--ds-ink-2); line-height: 1.7; }
+.ds-quickstart code, .ds-quickstart pre { font-family: var(--font-mono, ui-monospace, monospace); }
+.ds-quickstart code { background: var(--ds-line-soft); padding: 1px 6px; border-radius: 4px; color: var(--ds-ink); font-size: 12px; }
+.ds-quickstart pre {
+  background: #0f172a; color: #e2e8f0; padding: 12px 14px; border-radius: 6px;
+  font-size: 12px; line-height: 1.55; overflow-x: auto; margin: 4px 0 12px;
+}
+.ds-quickstart pre .c { color: #94a3b8; }
+.ds-quickstart .qs-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 720px) { .ds-quickstart .qs-cols { grid-template-columns: 1fr; } }
+
+/* ── Footer ──────────────────────────────────────────────── */
+.ds-foot { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--ds-line); font-size: 12px; color: var(--ds-ink-3); line-height: 1.6; }
+.ds-foot code { font-family: var(--font-mono, ui-monospace, monospace); background: var(--ds-line-soft); padding: 1px 6px; border-radius: 4px; color: var(--ds-ink-2); }

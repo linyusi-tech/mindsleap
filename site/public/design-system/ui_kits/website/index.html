@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1440, initial-scale=1" />
+  <title>MindsLeap — UI Kit</title>
+  <link rel="stylesheet" href="../../colors_and_type.css" />
+  <style>
+    html, body { margin: 0; padding: 0; background: #fff; font-family: var(--font-sans); color: #111; }
+    * { box-sizing: border-box; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="Header.jsx"></script>
+  <script type="text/babel" src="Hero.jsx"></script>
+  <script type="text/babel" src="ValueProp.jsx"></script>
+  <script type="text/babel" src="BusinessOverview.jsx"></script>
+  <script type="text/babel" src="Ecosystem.jsx"></script>
+  <script type="text/babel" src="LatestEvents.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
+  <script type="text/babel">
+    const { useState } = React;
+    function App() {
+      const [lang, setLang] = useState("en");
+      return (
+        <div data-screen-label="MindsLeap Home">
+          <Header lang={lang} setLang={setLang} />
+          <Hero lang={lang} />
+          <ValueProp lang={lang} />
+          <BusinessOverview lang={lang} />
+          <Ecosystem lang={lang} />
+          <LatestEvents lang={lang}
+            title={{ en: "Latest Events", zh: "最新活动" }}
+            subtitle={{ en: 'Witness the "Leap" in action across the globe.', zh: '看见全球各地正在发生的"Leap"。' }}
+            background="#f9fafb" />
+          <LatestEvents lang={lang}
+            title={{ en: "Founders Talk", zh: "Founders Talk" }}
+            subtitle={{ en: "Conversations with founders, investors, AI builders, and global practitioners.", zh: "与创始人、投资人、AI 实践者的一线对话。" }}
+            background="#fff" />
+          <LatestEvents lang={lang}
+            title={{ en: "AI Insights", zh: "AI 洞察" }}
+            subtitle={{ en: "Fresh thinking on AI transformation, operating models, and enterprise execution.", zh: "对 AI 转型、运营模式与企业落地的最新思考。" }}
+            background="#f9fafb" />
+          <Footer lang={lang} />
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

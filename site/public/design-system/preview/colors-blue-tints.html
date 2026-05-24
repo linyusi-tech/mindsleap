@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Blue tints</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:#fff;font-family:var(--font-sans);}
+  .wrap{padding:22px 26px;}
+  .row{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;}
+  .chip{border-radius:8px;padding:10px 12px;font-size:11px;line-height:1.3;min-height:78px;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--font-mono);}
+  .chip .n{font-family:var(--font-sans);font-weight:600;letter-spacing:-0.01em;font-size:11px;}
+  .chip .u{font-family:var(--font-sans);font-size:10px;color:rgba(255,255,255,.7);}
+  .chip.dark .u{color:#6b7280;}
+  .chip.dark{color:#111;}
+  .chip.light{color:#fff;}
+</style></head><body>
+<div class="wrap">
+  <div class="row">
+    <div class="chip dark" style="background:#eff6ff"><span class="n">blue-50</span><span class="u">icon tile bg</span><span>#eff6ff</span></div>
+    <div class="chip dark" style="background:#dbeafe"><span class="n">blue-100</span><span class="u">check chip bg</span><span>#dbeafe</span></div>
+    <div class="chip dark" style="background:#bfdbfe"><span class="n">blue-200</span><span class="u">footer body</span><span>#bfdbfe</span></div>
+    <div class="chip light" style="background:#3b82f6"><span class="n">blue-500</span><span class="u">accent / links</span><span>#3b82f6</span></div>
+    <div class="chip light" style="background:#1e477c"><span class="n">blue (primary)</span><span class="u">brand</span><span>#1e477c</span></div>
+    <div class="chip light" style="background:#1e40af"><span class="n">blue-800</span><span class="u">primary hover</span><span>#1e40af</span></div>
+  </div>
+</div>
+</body></html>

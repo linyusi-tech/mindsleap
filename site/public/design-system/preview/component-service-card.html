@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Service Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:#f9fafb;font-family:var(--font-sans);}
+  .wrap{padding:22px 26px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .card{background:#fff;padding:28px 24px;border-radius:12px;box-shadow:0 1px 2px 0 rgba(0,0,0,.05);text-align:center;}
+  .card.hover{box-shadow:0 20px 25px -5px rgba(0,0,0,.10),0 10px 10px -5px rgba(0,0,0,.04);transform:translateY(-1px);}
+  .tile{width:56px;height:56px;border-radius:8px;background:#eff6ff;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#1e477c;transition:background .5s;}
+  .tile.hover{background:#1e477c;color:#fff;}
+  .tile svg{width:32px;height:32px;}
+  .h{font-size:20px;font-weight:700;color:#111;margin:0;}
+  .p{font-size:13px;line-height:1.55;color:#4b5563;margin:12px 0 0;}
+  .lbl{position:absolute;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#9ca3af;padding:6px 8px;}
+  .pos{position:relative;}
+</style></head><body>
+<div class="wrap">
+  <div class="pos"><span class="lbl">Resting</span>
+    <div class="card">
+      <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+      <h3 class="h">AI Founders Club</h3>
+      <p class="p">Exclusive community for entrepreneurs. Closed-door workshops, site visits, and elite networking.</p>
+    </div>
+  </div>
+  <div class="pos"><span class="lbl">Hover</span>
+    <div class="card hover">
+      <div class="tile hover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+      <h3 class="h">Unicorn Incubation</h3>
+      <p class="p">Connecting AI startups with traditional industry scenarios and Silicon Valley resources via Founders Space.</p>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Logos</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:#fff;font-family:var(--font-sans);color:#0f172a;}
+  .wrap{padding:18px 22px;display:flex;flex-direction:column;gap:22px;}
+  .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:#1e477c;margin:0 2px -10px;}
+  .cell{border:1px solid #f3f4f6;border-radius:10px;padding:22px 24px;display:flex;align-items:center;justify-content:center;min-height:108px;}
+  .cell--dark{background:#1e477c;border:none;}
+  .cell img{max-width:100%;max-height:60px;object-fit:contain;}
+  .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#9ca3af;margin-top:8px;text-align:center;}
+
+  /* ── Bilingual lockups ─────────────────────────────────────── */
+  /* Color tokens */
+  .ink-blue   { color:#1e477c; }
+  .ink-white  { color:#fff; }
+  .ink-muted-light { color:rgba(15,23,42,0.55); }
+  .ink-muted-dark  { color:rgba(255,255,255,0.72); }
+
+  /* Mark — just the icon portion of the PNG, cropped to the left ~21% */
+  .mark {
+    display:inline-block;
+    width:46px; height:46px;
+    background-image: url("../assets/logos/mindsleap-logo-blue.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    /* crop to roughly the mark portion: it occupies ~21% of the wordmark image width */
+    -webkit-mask-image: linear-gradient(to right, #000 0 46px, transparent 46px);
+            mask-image: linear-gradient(to right, #000 0 46px, transparent 46px);
+    flex-shrink:0;
+  }
+  .cell--dark .mark {
+    background-image: url("../assets/logos/mindsleap-logo-white.png");
+  }
+
+  /* Lockup typography */
+  .lockup { display:flex; align-items:center; gap:14px; }
+  .lockup.stacked { gap:12px; }
+  .word-en {
+    font-family:"MindsLeap Brand","Noto Sans SC","Inter",system-ui,sans-serif;
+    font-weight:700;
+    font-size:34px;
+    line-height:1;
+    letter-spacing:-0.02em;
+  }
+  .word-cn {
+    font-family:"MindsLeap Brand","Noto Sans SC",system-ui,sans-serif;
+    font-weight:700;
+    font-size:22px;
+    line-height:1;
+    letter-spacing:0.06em;
+  }
+  .word-cn-sm {
+    font-family:"MindsLeap Brand","Noto Sans SC",system-ui,sans-serif;
+    font-weight:600;
+    font-size:14px;
+    line-height:1;
+    letter-spacing:0.10em;
+  }
+  .divider {
+    width:1px; height:26px;
+    background:currentColor;
+    opacity:0.28;
+    margin: 0 4px;
+  }
+  .dot {
+    font-weight:700;
+    opacity:0.4;
+    margin: 0 6px;
+    font-size:22px;
+    line-height:1;
+  }
+  .stack { display:flex; flex-direction:column; gap:6px; align-items:flex-start; }
+</style></head><body>
+<div class="wrap">
+
+  <div class="section-label">Primary marks</div>
+  <div class="row">
+    <div>
+      <div class="cell"><img src="../assets/logos/mindsleap-logo-blue.png" alt="blue"></div>
+      <div class="lbl">Blue · on light</div>
+    </div>
+    <div>
+      <div class="cell cell--dark"><img src="../assets/logos/mindsleap-logo-white.png" alt="white"></div>
+      <div class="lbl">White · on dark</div>
+    </div>
+    <div>
+      <div class="cell cell--dark"><img src="../assets/logos/mindsleap-x-foundersspace-joint.png" alt="joint"></div>
+      <div class="lbl">Joint · with Founders Space</div>
+    </div>
+  </div>
+
+  <div class="section-label">Bilingual · with mark</div>
+  <div class="row">
+    <div>
+      <div class="cell">
+        <div class="lockup">
+          <span class="mark"></span>
+          <div class="stack">
+            <span class="word-en ink-blue">MindsLeap</span>
+            <span class="word-cn-sm ink-muted-light">心智悦动</span>
+          </div>
+        </div>
+      </div>
+      <div class="lbl">A · stacked under wordmark</div>
+    </div>
+    <div>
+      <div class="cell">
+        <div class="lockup">
+          <span class="mark"></span>
+          <span class="word-en ink-blue">MindsLeap</span>
+          <span class="divider ink-blue"></span>
+          <span class="word-cn ink-blue">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">B · inline with divider</div>
+    </div>
+    <div>
+      <div class="cell cell--dark">
+        <div class="lockup">
+          <span class="mark"></span>
+          <div class="stack">
+            <span class="word-en ink-white">MindsLeap</span>
+            <span class="word-cn-sm ink-muted-dark">心智悦动</span>
+          </div>
+        </div>
+      </div>
+      <div class="lbl">A · on dark</div>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="cell cell--dark">
+        <div class="lockup">
+          <span class="mark"></span>
+          <span class="word-en ink-white">MindsLeap</span>
+          <span class="divider ink-white"></span>
+          <span class="word-cn ink-white">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">B · on dark</div>
+    </div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="section-label">Bilingual · text only</div>
+  <div class="row">
+    <div>
+      <div class="cell">
+        <div class="stack">
+          <span class="word-en ink-blue">MindsLeap</span>
+          <span class="word-cn-sm ink-muted-light">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">C · stacked</div>
+    </div>
+    <div>
+      <div class="cell">
+        <div class="lockup">
+          <span class="word-en ink-blue">MindsLeap</span>
+          <span class="dot ink-blue">·</span>
+          <span class="word-cn ink-blue">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">D · inline with dot</div>
+    </div>
+    <div>
+      <div class="cell">
+        <div class="lockup">
+          <span class="word-en ink-blue">MindsLeap</span>
+          <span class="divider ink-blue"></span>
+          <span class="word-cn ink-blue">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">E · inline with divider</div>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <div class="cell cell--dark">
+        <div class="stack">
+          <span class="word-en ink-white">MindsLeap</span>
+          <span class="word-cn-sm ink-muted-dark">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">C · on dark</div>
+    </div>
+    <div>
+      <div class="cell cell--dark">
+        <div class="lockup">
+          <span class="word-en ink-white">MindsLeap</span>
+          <span class="dot ink-white">·</span>
+          <span class="word-cn ink-white">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">D · on dark</div>
+    </div>
+    <div>
+      <div class="cell cell--dark">
+        <div class="lockup">
+          <span class="word-en ink-white">MindsLeap</span>
+          <span class="divider ink-white"></span>
+          <span class="word-cn ink-white">心智悦动</span>
+        </div>
+      </div>
+      <div class="lbl">E · on dark</div>
+    </div>
+  </div>
+
+</div>
+</body></html>

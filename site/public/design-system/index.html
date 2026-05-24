@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/design-system/" />
+  <title>MindsLeap Design System</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="_system.css" />
+  <style>
+    .hero { padding: 72px 32px 64px; max-width: 1180px; margin: 0 auto; }
+    .hero .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ds-brand); margin-bottom: 14px; }
+    .hero h1 { font-family: "MindsLeap Brand", "Noto Sans SC", system-ui, sans-serif; font-size: 64px; line-height: 1.05; margin: 0 0 14px; letter-spacing: -0.02em; font-weight: 700; color: var(--ds-ink); }
+    .hero h1 .cn { color: var(--ds-brand); }
+    .hero p { font-size: 16px; line-height: 1.6; color: var(--ds-ink-2); max-width: 640px; margin: 0; }
+
+    .cats { max-width: 1180px; margin: 0 auto; padding: 0 32px 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 880px) { .cats { grid-template-columns: 1fr; } }
+    .cat {
+      display: flex; flex-direction: column; justify-content: space-between;
+      background: #fff; border: 1px solid var(--ds-line); border-radius: 16px;
+      padding: 32px; min-height: 220px;
+      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+      position: relative; overflow: hidden;
+    }
+    .cat:hover { border-color: var(--ds-brand); transform: translateY(-2px); box-shadow: 0 16px 36px -16px rgba(30,71,124,0.35); }
+    .cat .num { position: absolute; top: 24px; right: 28px; font-family: var(--font-mono, ui-monospace, monospace); font-size: 11px; color: var(--ds-ink-3); }
+    .cat .title { font-family: "MindsLeap Brand", "Noto Sans SC", system-ui, sans-serif; font-size: 32px; line-height: 1.1; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 10px; }
+    .cat .sub { font-size: 14px; color: var(--ds-ink-2); line-height: 1.55; margin: 0 0 22px; }
+    .cat .items { font-size: 12px; color: var(--ds-ink-3); font-family: var(--font-mono, ui-monospace, monospace); letter-spacing: 0.04em; }
+    .cat .enter { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ds-brand); margin-top: auto; }
+
+    .cat.brand   { background: linear-gradient(180deg, #fff 0%, #f5f8fc 100%); }
+    .cat.deck    { background: linear-gradient(180deg, #fff 0%, #f4f0e8 100%); }
+    .cat.website { background: linear-gradient(180deg, #fff 0%, #f0f4f0 100%); }
+    .cat.ui      { background: linear-gradient(180deg, #fff 0%, #f4f0f6 100%); }
+  </style>
+</head>
+<body>
+  <nav class="ds-nav">
+    <div class="ds-nav-inner">
+      <a class="brand" href="index.html">MindsLeap <small>Design System</small></a>
+      <ul>
+        <li><a href="brand.html">Brand</a></li>
+        <li><a href="deck.html">Deck</a></li>
+        <li><a href="ui.html">UI &amp; Site</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="eyebrow">MindsLeap · Design System</div>
+    <h1>设计系统 <span class="cn">Design System</span></h1>
+    <p>MindsLeap 品牌识别、deck 模板、网站界面与 UI 组件——所有素材、所有 preview，全部集中在这里。团队成员任何人都可以浏览、复制、复用。</p>
+  </div>
+
+  <div class="cats">
+    <a class="cat brand" href="brand.html">
+      <div class="num">01</div>
+      <div>
+        <h2 class="title">Brand</h2>
+        <p class="sub">颜色、字体、间距、阴影、Logo——品牌的基本视觉语言。</p>
+        <div class="items">Colors · Typography · Foundations · Logos</div>
+      </div>
+      <div class="enter">进入 →</div>
+    </a>
+
+    <a class="cat deck" href="deck.html">
+      <div class="num">02</div>
+      <div>
+        <h2 class="title">Deck</h2>
+        <p class="sub">1920×1080 品牌 deck，4 种主题预设，进入后可继续微调字体与密度。</p>
+        <div class="items">浅 · 品牌 · 深 · 杂志</div>
+      </div>
+      <div class="enter">进入 →</div>
+    </a>
+
+    <a class="cat ui" href="ui.html">
+      <div class="num">03</div>
+      <div>
+        <h2 class="title">UI &amp; Site</h2>
+        <p class="sub">完整营销页面 + 单个 UI 组件——网站怎么搭、组件怎么复用，都在这里。</p>
+        <div class="items">Marketing mockup · Buttons · Hero · Cards · Quote</div>
+      </div>
+      <div class="enter">进入 →</div>
+    </a>
+  </div>
+
+  <div style="max-width:1180px;margin:0 auto;padding:0 32px 64px;">
+    <div class="ds-quickstart">
+      <div class="qs-head">
+        <span class="qs-tag">Working with this system</span>
+        <span class="qs-aud">human + AI</span>
+      </div>
+      <div class="qs-cols">
+        <div>
+          <h3>给团队成员</h3>
+          <p>每个分类页里都有可直接复制的 token 和 snippet。最常用的几个：</p>
+          <pre><span class="c">/* 在 CSS 里 */</span>
+@import "site/public/design-system/colors_and_type.css";
+
+color: var(--ml-blue);            <span class="c">/* #1e477c — 品牌主色 */</span>
+font-family: var(--font-heading); <span class="c">/* 标题字体 */</span></pre>
+          <p>所有 token 定义在 <code>colors_and_type.css</code>。完整规则读 <code>README.md</code>（含语言/语调/不能做的事）。</p>
+        </div>
+        <div>
+          <h3>给 AI agent</h3>
+          <p>这个文件夹是一个 Claude Code skill。Agent 的入口顺序：</p>
+          <ul>
+            <li><code>SKILL.md</code> — 你能/不能做什么</li>
+            <li><code>README.md</code> — 品牌叙事 + tokens + 规则</li>
+            <li><code>colors_and_type.css</code> — 直接 import 用</li>
+            <li><code>preview/*.html</code> — 单个组件复制粘贴</li>
+          </ul>
+          <p>需要做视觉浏览，打开 <code>index.html</code>；需要写代码，读 README + 用 tokens。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-foot">
+      Dev server：<code>http://127.0.0.1:3000/design-system/</code> · 离线打开：<code>open site/public/design-system/index.html</code>
+    </div>
+  </div>
+</body>
+</html>

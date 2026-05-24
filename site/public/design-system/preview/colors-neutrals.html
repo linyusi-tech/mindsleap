@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Neutrals</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:#fff;font-family:var(--font-sans);}
+  .wrap{padding:22px 26px;}
+  .row{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;}
+  .chip{border-radius:6px;padding:8px 10px;color:#111;font-size:10px;line-height:1.25;min-height:74px;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--font-mono);}
+  .chip .n{font-family:var(--font-sans);font-weight:600;letter-spacing:-0.01em;font-size:11px;color:inherit;}
+  .chip--dark{color:#fff;}
+  .legend{margin-top:14px;font-size:11px;color:var(--ml-gray-500);line-height:1.5;display:flex;gap:18px;flex-wrap:wrap;}
+  .legend b{color:var(--ml-black);}
+</style></head><body>
+<div class="wrap">
+  <div class="row">
+    <div class="chip" style="background:#ffffff;box-shadow:inset 0 0 0 1px #f3f4f6"><span class="n">white</span><span>#ffffff</span></div>
+    <div class="chip" style="background:#f9fafb"><span class="n">gray-50</span><span>#f9fafb</span></div>
+    <div class="chip" style="background:#f3f4f6"><span class="n">gray-100</span><span>#f3f4f6</span></div>
+    <div class="chip" style="background:#e5e7eb"><span class="n">gray-200</span><span>#e5e7eb</span></div>
+    <div class="chip" style="background:#d1d5db"><span class="n">gray-300</span><span>#d1d5db</span></div>
+    <div class="chip chip--dark" style="background:#9ca3af"><span class="n">gray-400</span><span>#9ca3af</span></div>
+    <div class="chip chip--dark" style="background:#6b7280"><span class="n">gray-500</span><span>#6b7280</span></div>
+    <div class="chip chip--dark" style="background:#4b5563"><span class="n">gray-600</span><span>#4b5563</span></div>
+    <div class="chip chip--dark" style="background:#374151"><span class="n">gray-700</span><span>#374151</span></div>
+    <div class="chip chip--dark" style="background:#111111"><span class="n">ink</span><span>#111111</span></div>
+  </div>
+  <div class="legend">
+    <span><b>gray-50</b> alt section bg</span>
+    <span><b>gray-100</b> borders / nav divider</span>
+    <span><b>gray-400</b> meta &amp; locale switcher</span>
+    <span><b>gray-500/600</b> body on white</span>
+    <span><b>ink</b> headings on white</span>
+  </div>
+</div>
+</body></html>

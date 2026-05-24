@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Shadows</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:#f9fafb;font-family:var(--font-sans);}
+  .wrap{padding:28px 26px;display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;}
+  .item{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .card{width:120px;height:80px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#1e477c;font-weight:700;font-size:12px;}
+  .name{font-size:11px;font-weight:700;color:#111;}
+  .v{font-family:var(--font-mono);font-size:10px;color:#6b7280;text-align:center;max-width:160px;}
+  .s-sm{box-shadow:0 1px 2px 0 rgba(0,0,0,0.05);}
+  .s-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,0.10), 0 4px 6px -2px rgba(0,0,0,0.05);}
+  .s-xl{box-shadow:0 20px 25px -5px rgba(0,0,0,0.10), 0 10px 10px -5px rgba(0,0,0,0.04);}
+  .s-card-hover{box-shadow:0 8px 30px rgba(0,0,0,0.08);transform:translateY(-2px);}
+</style></head><body>
+<div class="wrap">
+  <div class="item"><div class="card s-sm">Resting</div><div class="name">shadow-sm</div><div class="v">cards, sticky nav</div></div>
+  <div class="item"><div class="card s-lg">Hover / CTA</div><div class="name">shadow-lg</div><div class="v">primary CTA, hover state</div></div>
+  <div class="item"><div class="card s-xl">Media</div><div class="name">shadow-xl</div><div class="v">ecosystem chart, strong hover</div></div>
+  <div class="item"><div class="card s-card-hover">News card hover</div><div class="name">card-hover</div><div class="v">translateY(-2px) + 0 8 30 / .08</div></div>
+</div>
+</body></html>

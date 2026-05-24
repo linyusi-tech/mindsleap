@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Brand color · pairs v3</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:#fafaf9;font-family:var(--font-sans);color:#0f172a;}
+  .head{padding:18px 24px 6px;font-size:11px;color:#6b7280;line-height:1.6;}
+  .head b{color:#0f172a;}
+  .swatchrow{display:flex;gap:6px;margin-top:8px;}
+  .sw{width:22px;height:22px;border-radius:9999px;border:0.5px solid rgba(15,23,42,0.12);}
+  .wrap{padding:8px 24px 22px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .case{display:flex;flex-direction:column;gap:8px;}
+  .label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#9ca3af;}
+  .name{font-size:14px;font-weight:700;color:#0f172a;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px;}
+  .name .dots{display:inline-flex;gap:3px;}
+  .name .dot{width:12px;height:12px;border-radius:9999px;border:0.5px solid rgba(15,23,42,0.10);}
+  .hex{font-family:var(--font-mono);font-size:10.5px;color:#9ca3af;}
+  .scene{border-radius:14px;overflow:hidden;border:1px solid #ececec;background:#fff;}
+  .why{font-size:11px;color:#6b7280;line-height:1.6;}
+  .why b{color:#0f172a;}
+
+  /* ── E · INDIGO  #2e3a6f ─────────────────────── */
+  .indigo{padding:18px;background:linear-gradient(160deg,#2e3a6f 0%,#1e477c 100%);color:#fff;height:200px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+  .indigo::before{content:"";position:absolute;left:-30%;top:-50%;width:120%;height:140%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.12),transparent 40%);}
+  .indigo .eyebrow{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,0.62);position:relative;}
+  .indigo .ttl{font-size:24px;font-weight:700;letter-spacing:-0.015em;line-height:1.15;margin-top:6px;position:relative;font-family:"MindsLeap Brand","Noto Sans SC",system-ui;}
+  .indigo .row{display:flex;justify-content:space-between;align-items:flex-end;position:relative;}
+  .indigo .meta{font-size:11px;color:rgba(255,255,255,0.7);}
+  .indigo .vol{font-size:11px;color:#fff;background:rgba(255,255,255,0.14);padding:4px 10px;border-radius:9999px;letter-spacing:.04em;border:0.5px solid rgba(255,255,255,0.2);}
+
+  /* ── F · MOSS  #8a9c7c ─────────────────────── */
+  .moss{padding:16px;background:#fff;height:200px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;}
+  .moss .top{display:flex;gap:10px;align-items:center;}
+  .moss .ring{width:46px;height:46px;border-radius:9999px;background:radial-gradient(circle at 30% 30%,#b5c4a4,#8a9c7c 60%,#6e8060);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;flex-shrink:0;}
+  .moss .top .nm{font-size:13px;font-weight:700;color:#1e477c;}
+  .moss .top .sub{font-size:10.5px;color:#6e8060;margin-top:2px;}
+  .moss .quote{font-size:12.5px;color:#3a4a30;font-style:italic;line-height:1.65;padding:10px 12px;border-left:2px solid #8a9c7c;background:#f4f6ef;border-radius:0 6px 6px 0;}
+  .moss .foot{display:flex;justify-content:space-between;font-size:10px;color:#6e8060;letter-spacing:.06em;text-transform:uppercase;font-weight:600;}
+
+  /* ── G · SAND  #d8c8a8 ────────────────────── */
+  .sand{padding:18px;background:#e8dcc0;height:200px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;position:relative;}
+  .sand .eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8a7345;}
+  .sand .num{font-size:64px;font-weight:700;color:#1e477c;line-height:1;letter-spacing:-0.03em;font-family:"MindsLeap Brand","Noto Sans SC",system-ui;margin-top:4px;}
+  .sand .num .pct{font-size:24px;color:#8a7345;font-weight:600;letter-spacing:0;margin-left:2px;}
+  .sand .ttl{font-size:13px;font-weight:600;color:#1e477c;line-height:1.4;}
+  .sand .meta{font-size:10.5px;color:#8a7345;border-top:0.5px solid rgba(30,71,124,0.18);padding-top:6px;display:flex;justify-content:space-between;}
+
+  /* ── H · LAVENDER  #c4b8d4 ──────────────────── */
+  .lav{padding:16px;background:#f3eff7;height:200px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+  .lav::after{content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:9999px;background:radial-gradient(circle,#c4b8d4 0%,#9b6bd6 100%);opacity:0.4;}
+  .lav .eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7a5fa0;position:relative;}
+  .lav .ttl{font-size:16px;font-weight:700;color:#1e477c;line-height:1.3;margin-top:8px;position:relative;}
+  .lav .stats{display:flex;gap:14px;position:relative;}
+  .lav .stat .v{font-size:22px;font-weight:700;color:#1e477c;font-family:var(--font-mono);letter-spacing:-0.02em;line-height:1;}
+  .lav .stat .l{font-size:10px;color:#7a5fa0;margin-top:3px;}
+  .lav .footer{display:flex;justify-content:space-between;font-size:10px;color:#7a5fa0;position:relative;}
+  .lav .pill{background:rgba(255,255,255,0.6);border:0.5px solid #c4b8d4;padding:3px 9px;border-radius:9999px;color:#7a5fa0;font-weight:600;}
+</style></head><body>
+
+<div class="head">
+  <b>本轮新增 4 个方向</b> · 已确定保留：象牙米 · 雾紫 · 烟青 · 赭石 · 黛松。下面是另外 4 个补充候选。
+  <div class="swatchrow">
+    <span class="sw" style="background:#1e477c" title="anchor"></span>
+    <span class="sw" style="background:#f6efde" title="ivory"></span>
+    <span class="sw" style="background:#9b6bd6" title="violet"></span>
+    <span class="sw" style="background:#6b8aa3" title="slate blue"></span>
+    <span class="sw" style="background:#b5896a" title="clay"></span>
+    <span class="sw" style="background:#4a7c74" title="slate teal"></span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- E · INDIGO -->
+  <div class="case">
+    <div class="label">E · 年度封面 / 杂志头屏 · 比品牌蓝更深</div>
+    <div class="scene"><div class="indigo">
+      <div>
+        <div class="eyebrow">AI Insights · Annual Edition</div>
+        <div class="ttl">2026 企业 AI<br>白皮书</div>
+      </div>
+      <div class="row">
+        <span class="meta">王林 Lincoln · 主编</span>
+        <span class="vol">VOL. 03</span>
+      </div>
+    </div></div>
+    <div class="name">
+      <span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#2e3a6f"></span></span>
+      靛蓝 · Indigo
+      <span class="hex">#2e3a6f</span>
+    </div>
+    <div class="why">品牌蓝的<b>更深一档</b>——做封面、年度合订本、PDF 抬头。两个蓝叠在一起读起来仍是"一族"，但比单一蓝有了纵深。</div>
+  </div>
+
+  <!-- F · MOSS -->
+  <div class="case">
+    <div class="label">F · 心智 / Founders Talk 长文章 · 安静类</div>
+    <div class="scene"><div class="moss">
+      <div class="top">
+        <div class="ring">心</div>
+        <div>
+          <div class="nm">陆蓉之 × Lincoln</div>
+          <div class="sub">Founders Talk · 第 14 期</div>
+        </div>
+      </div>
+      <div class="quote">"AI 不是让人变快的工具，是让人慢下来重新做选择的机会。"</div>
+      <div class="foot"><span>32 min 阅读</span><span>♡ 412</span></div>
+    </div></div>
+    <div class="name">
+      <span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#8a9c7c"></span></span>
+      苔藓 · Moss Sage
+      <span class="hex">#8a9c7c</span>
+    </div>
+    <div class="why">品牌名是"<b>心智</b>悦动"——苔色对应那个"静"的语义。用在引述、人物访谈、慢内容；不要做按钮。</div>
+  </div>
+
+  <!-- G · SAND -->
+  <div class="case">
+    <div class="label">G · 数据 / 年报 / 印刷物的暖底</div>
+    <div class="scene"><div class="sand">
+      <div>
+        <div class="eyebrow">2026 H1 · 会员复购率</div>
+        <div class="num">88<span class="pct">%</span></div>
+      </div>
+      <div>
+        <div class="ttl">三种核心服务的会员满意度均超 4.6 / 5</div>
+        <div class="meta"><span>来源：俱乐部内部调研</span><span>n = 318</span></div>
+      </div>
+    </div></div>
+    <div class="name">
+      <span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#e8dcc0;border-color:rgba(15,23,42,0.18)"></span></span>
+      沙岩 · Sand
+      <span class="hex">#e8dcc0 · #d8c8a8</span>
+    </div>
+    <div class="why">象牙米的"更厚一档"。象牙米偏奶白、文献感；沙岩偏黄、年报 / 数据卡 / 物料感更强。两者可以共存。</div>
+  </div>
+
+  <!-- H · LAVENDER -->
+  <div class="case">
+    <div class="label">H · AI 内容卡 / 浅紫底（雾紫的浅版本）</div>
+    <div class="scene"><div class="lav">
+      <div>
+        <div class="eyebrow">AI Insights</div>
+        <div class="ttl">本周 token 调用总览</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">2.4M</div><div class="l">本周调用</div></div>
+        <div class="stat"><div class="v">+18%</div><div class="l">环比</div></div>
+      </div>
+      <div class="footer"><span>4 月 12 日 · 周报</span><span class="pill">AI 自动生成</span></div>
+    </div></div>
+    <div class="name">
+      <span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#c4b8d4"></span></span>
+      薰衣紫 · Lavender
+      <span class="hex">#c4b8d4</span>
+    </div>
+    <div class="why">雾紫 #9b6bd6 是"图表色"，薰衣紫是"底色"——浅一档，做 AI 相关卡片的整面背景、AI 标签、AI 自动生成提示。和雾紫属同族。</div>
+  </div>
+
+</div>
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/design-system/" />
+  <title>UI &amp; Site · MindsLeap Design System</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="_system.css" />
+</head>
+<body>
+  <nav class="ds-nav">
+    <div class="ds-nav-inner">
+      <a class="brand" href="index.html">MindsLeap <small>Design System</small></a>
+      <ul>
+        <li><a href="brand.html">Brand</a></li>
+        <li><a href="deck.html">Deck</a></li>
+        <li><a href="ui.html" class="active">UI &amp; Site</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="ds-wrap">
+    <header class="ds-head">
+      <div>
+        <h1>UI &amp; Site</h1>
+        <p>完整营销页面 mockup + 单个 UI 组件 preview。需要复用？复制 <code style="font-family:var(--font-mono,monospace);background:#f1f5f9;padding:1px 6px;border-radius:4px;">preview/</code> 下的 HTML，或者用 <code style="font-family:var(--font-mono,monospace);background:#f1f5f9;padding:1px 6px;border-radius:4px;">ui_kits/website/</code> 下的 React 组件。</p>
+      </div>
+      <div class="meta">03 · UI &amp; Site</div>
+    </header>
+
+    <div class="ds-quickstart">
+      <div class="qs-head">
+        <span class="qs-tag">Quick start · 怎么用</span>
+        <span class="qs-aud">html · jsx · next.js</span>
+      </div>
+      <div class="qs-cols">
+        <div>
+          <h3>复用单个组件</h3>
+          <p>每个 preview 是独立 HTML/CSS，直接抄：</p>
+          <pre><span class="c">// 1. 打开你要的 preview，例如</span>
+preview/component-news-card.html
+
+<span class="c">// 2. 复制 &lt;style&gt; 里的 CSS 和 &lt;body&gt; 里的 HTML</span>
+<span class="c">// 3. 确保新文件引用了 tokens：</span>
+&lt;link rel="stylesheet" href="colors_and_type.css"&gt;</pre>
+          <p>所有组件都基于 <code>colors_and_type.css</code> 的 tokens，主色/字体直接生效。</p>
+        </div>
+        <div>
+          <h3>用在生产网站</h3>
+          <p>生产代码在 <code>site/src/</code>（Next.js 16 App Router）。UI kit 里的 React 组件用 Babel standalone 渲染，是给设计参考用的，不是生产代码：</p>
+          <ul>
+            <li>UI kit JSX：<code>ui_kits/website/*.jsx</code></li>
+            <li>生产 React：<code>site/src/components/</code></li>
+            <li>页面路由：<code>site/src/app/[locale]/</code></li>
+          </ul>
+          <p>新组件先在 UI kit 里设计验证，再翻译到生产。</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="ds-section" id="site">
+      <h2>Marketing site</h2>
+      <p class="lede">完整营销页 mockup，1440px 设计宽度。Header / Hero / ValueProp / BusinessOverview / Ecosystem / Latest Events / Footer 一整套。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed">
+          <header>
+            <div><h3>Website UI kit</h3></div>
+            <div class="right">
+              <span class="path">ui_kits/website/index.html</span>
+              <a class="open" href="ui_kits/website/index.html" target="_blank">独立打开 ↗</a>
+            </div>
+          </header>
+          <iframe data-h="720" data-no-fit loading="lazy" src="ui_kits/website/index.html" title="Website UI kit" style="overflow:auto;"></iframe>
+        </article>
+      </div>
+    </section>
+
+    <section class="ds-section" id="buttons">
+      <h2>Buttons &amp; Navigation</h2>
+      <p class="lede">基础交互元素。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>Buttons</h3></div><div class="right"><span class="path">preview/buttons.html</span><a class="open" href="preview/buttons.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="360" loading="lazy" src="preview/buttons.html" title="Buttons"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Navigation</h3></div><div class="right"><span class="path">preview/component-nav.html</span><a class="open" href="preview/component-nav.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="260" loading="lazy" src="preview/component-nav.html" title="Navigation"></iframe></article>
+      </div>
+    </section>
+
+    <section class="ds-section" id="hero">
+      <h2>Hero &amp; Section marks</h2>
+      <p class="lede">首屏与栏目标记。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>Hero</h3></div><div class="right"><span class="path">preview/component-hero.html</span><a class="open" href="preview/component-hero.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="320" loading="lazy" src="preview/component-hero.html" title="Hero"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Section marks</h3></div><div class="right"><span class="path">preview/component-section-marks.html</span><a class="open" href="preview/component-section-marks.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="260" loading="lazy" src="preview/component-section-marks.html" title="Section marks"></iframe></article>
+      </div>
+    </section>
+
+    <section class="ds-section" id="cards">
+      <h2>Cards</h2>
+      <p class="lede">内容卡片。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>News card</h3></div><div class="right"><span class="path">preview/component-news-card.html</span><a class="open" href="preview/component-news-card.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="420" loading="lazy" src="preview/component-news-card.html" title="News card"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Service card</h3></div><div class="right"><span class="path">preview/component-service-card.html</span><a class="open" href="preview/component-service-card.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="420" loading="lazy" src="preview/component-service-card.html" title="Service card"></iframe></article>
+      </div>
+    </section>
+
+    <section class="ds-section" id="quote">
+      <h2>Quote</h2>
+      <p class="lede">引用块。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>Quote</h3></div><div class="right"><span class="path">preview/component-quote.html</span><a class="open" href="preview/component-quote.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="300" loading="lazy" src="preview/component-quote.html" title="Quote"></iframe></article>
+      </div>
+    </section>
+
+    <div class="ds-foot">
+      回到 <a href="index.html" style="color:var(--ds-brand);font-weight:600;">总览 ←</a>
+    </div>
+  </div>
+
+  <script src="_system.js"></script>
+</body>
+</html>

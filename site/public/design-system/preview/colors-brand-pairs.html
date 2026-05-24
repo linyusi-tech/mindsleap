@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Brand color · pairs v2</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:#fafaf9;font-family:var(--font-sans);color:#0f172a;}
+  .wrap{padding:22px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .case{display:flex;flex-direction:column;gap:8px;position:relative;}
+  .label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#9ca3af;display:flex;align-items:center;gap:8px;}
+  .kept{font-size:9px;font-weight:700;letter-spacing:.1em;color:#1e477c;background:#eff6ff;padding:2px 7px;border-radius:9999px;text-transform:uppercase;}
+  .name{font-size:13px;font-weight:700;color:#0f172a;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px;}
+  .name .dots{display:inline-flex;gap:3px;}
+  .name .dot{width:11px;height:11px;border-radius:9999px;border:0.5px solid rgba(15,23,42,0.10);}
+  .hex{font-family:var(--font-mono);font-size:10.5px;color:#9ca3af;}
+  .scene{border-radius:14px;overflow:hidden;border:1px solid #ececec;background:#fff;}
+  .why{font-size:10.5px;color:#6b7280;line-height:1.55;}
+
+  /* ── A · 烟青 SLATE BLUE  #6b8aa3 ─────── */
+  .slate{padding:14px;background:#fff;height:175px;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;}
+  .slate .tabs{display:flex;gap:6px;}
+  .slate .tab{padding:5px 12px;border-radius:9999px;font-size:10.5px;font-weight:600;}
+  .slate .tab.on{background:#1e477c;color:#fff;}
+  .slate .tab.off{background:#e9eef3;color:#6b8aa3;}
+  .slate .lst{display:flex;flex-direction:column;gap:8px;margin-top:2px;}
+  .slate .row{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid #e7edf2;border-radius:9px;}
+  .slate .row .ic{width:28px;height:28px;border-radius:7px;background:#eef3f7;color:#6b8aa3;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;font-family:var(--font-mono);}
+  .slate .row.on .ic{background:#1e477c;color:#fff;}
+  .slate .row .t{flex:1;}
+  .slate .row .t1{font-size:12px;font-weight:600;color:#1e477c;}
+  .slate .row .t2{font-size:10px;color:#6b8aa3;margin-top:1px;}
+  .slate .row .meta{font-size:10px;color:#6b8aa3;font-family:var(--font-mono);}
+
+  /* ── B · 黛松 SLATE TEAL  #4a7c74 ──────── */
+  .teal{padding:14px;background:#fff;height:175px;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;}
+  .teal .head{display:flex;justify-content:space-between;align-items:baseline;}
+  .teal .ttl{font-size:13px;font-weight:700;color:#1e477c;}
+  .teal .pill{font-size:9.5px;font-weight:700;color:#4a7c74;background:#e8f0ee;padding:3px 9px;border-radius:9999px;letter-spacing:.06em;text-transform:uppercase;}
+  .teal .gauge{display:flex;align-items:flex-end;gap:6px;flex:1;padding:6px 0 0;}
+  .teal .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+  .teal .col .bar{width:100%;border-radius:5px 5px 0 0;}
+  .teal .col .lbl{font-size:9px;color:#6b7280;}
+  .teal .col .v{font-size:9.5px;color:#1e477c;font-weight:600;font-family:var(--font-mono);}
+  .teal .legend{display:flex;gap:14px;font-size:10px;color:#6b7280;padding-top:4px;border-top:0.5px solid #f0f3f1;}
+  .teal .legend .d{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle;}
+
+  /* ── C · 赭石 CLAY  #b5896a ──────────── */
+  .clay{padding:0;background:#fff;height:175px;box-sizing:border-box;overflow:hidden;display:flex;}
+  .clay .swatch{width:64px;background:linear-gradient(180deg,#c69a7a 0%,#b5896a 60%,#9c724f 100%);position:relative;flex-shrink:0;}
+  .clay .swatch::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:30px;height:30px;border:1.5px solid rgba(255,255,255,0.9);border-radius:9999px;}
+  .clay .body{flex:1;padding:14px 14px 12px;display:flex;flex-direction:column;justify-content:space-between;}
+  .clay .eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#b5896a;}
+  .clay .ttl{font-size:14px;font-weight:700;color:#1e477c;line-height:1.3;margin-top:6px;}
+  .clay .meta{font-size:10.5px;color:#6b7280;line-height:1.5;margin-top:6px;}
+  .clay .cta{align-self:flex-start;background:transparent;color:#1e477c;border:1px solid #b5896a;padding:7px 14px;border-radius:9999px;font-size:10.5px;font-weight:600;font-family:inherit;}
+
+  /* ── D · 暮红 BORDEAUX  #7e3a44 ────────── */
+  .bord{padding:16px;background:linear-gradient(150deg,#0f172a 0%,#1a1620 50%,#3a1f28 100%);color:#fff;height:175px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+  .bord::before{content:"";position:absolute;right:-20%;bottom:-30%;width:80%;height:120%;background:radial-gradient(ellipse,rgba(126,58,68,0.45),transparent 60%);}
+  .bord .eyebrow{font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#c89aa1;position:relative;}
+  .bord .ttl{font-size:16px;font-weight:700;letter-spacing:-0.01em;line-height:1.2;position:relative;}
+  .bord .ttl span{color:#c89aa1;font-style:italic;font-weight:500;}
+  .bord .row{display:flex;justify-content:space-between;align-items:center;position:relative;}
+  .bord .meta{font-size:10px;color:rgba(255,255,255,0.6);}
+  .bord .seat{font-size:10px;font-weight:600;color:#fff;background:rgba(126,58,68,0.6);border:0.5px solid #7e3a44;padding:4px 10px;border-radius:9999px;}
+
+  /* ── 5 · IVORY (kept) ─────────────────── */
+  .ivory{background:#f6efde;padding:16px;height:175px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;}
+  .ivory .eyebrow{font-size:9.5px;font-weight:700;color:#1e477c;letter-spacing:.14em;text-transform:uppercase;}
+  .ivory .ttl{font-size:15px;font-weight:700;color:#1e477c;line-height:1.3;margin-top:6px;font-family:"Georgia",serif;letter-spacing:-0.005em;}
+  .ivory .body{font-size:10.5px;color:#5b4a35;line-height:1.65;margin-top:8px;}
+  .ivory .byline{font-size:9.5px;color:#8a7a5e;border-top:0.5px solid rgba(30,71,124,0.18);padding-top:6px;display:flex;justify-content:space-between;}
+
+  /* ── 6 · VIOLET (kept) ───────────────── */
+  .violet{background:#fff;padding:14px;height:175px;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;}
+  .violet .eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9b6bd6;}
+  .violet .ttl{font-size:13px;font-weight:700;color:#1e477c;line-height:1.3;}
+  .violet .chart{flex:1;background:linear-gradient(180deg,rgba(155,107,214,0.04),rgba(30,71,124,0.02));border-radius:6px;display:flex;align-items:flex-end;justify-content:space-between;padding:8px 8px 6px;gap:4px;position:relative;}
+  .violet .bar{width:11%;border-radius:3px 3px 0 0;}
+  .violet .axis{font-size:8.5px;color:#9ca3af;display:flex;justify-content:space-between;font-family:var(--font-mono);}
+  .violet .leg{display:flex;gap:10px;font-size:9.5px;color:#6b7280;}
+  .violet .leg .dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:4px;vertical-align:middle;}
+</style></head><body>
+<div class="wrap">
+
+  <!-- A · SLATE BLUE -->
+  <div class="case">
+    <div class="label">A · 内容栏目分组 / 二级导航</div>
+    <div class="scene"><div class="slate">
+      <div class="tabs">
+        <span class="tab on">AI 洞察</span>
+        <span class="tab off">Founders Talk</span>
+        <span class="tab off">活动回顾</span>
+      </div>
+      <div class="lst">
+        <div class="row on"><div class="ic">01</div><div class="t"><div class="t1">Token 经济学：企业的智能调用能力</div><div class="t2">Lincoln · 4 月 8 日</div></div><span class="meta">8 min</span></div>
+        <div class="row"><div class="ic">02</div><div class="t"><div class="t1">从 GTC 现场看英伟达路线图</div><div class="t2">编辑部 · 3 月 22 日</div></div><span class="meta">6 min</span></div>
+      </div>
+    </div></div>
+    <div class="name"><span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#6b8aa3"></span></span>烟青 · Slate Blue <span class="hex">#6b8aa3</span></div>
+    <div class="why">品牌蓝的"安静兄弟"——同色相、低饱和。做未选中状态、二级标签、meta 字色，比灰色更有归属感。</div>
+  </div>
+
+  <!-- B · SLATE TEAL -->
+  <div class="case">
+    <div class="label">B · 数据图表 / 类别色</div>
+    <div class="scene"><div class="teal">
+      <div class="head">
+        <span class="ttl">本年度参与度</span>
+        <span class="pill">2026 H1</span>
+      </div>
+      <div class="gauge">
+        <div class="col"><span class="v">12</span><div class="bar" style="height:55px;background:#4a7c74"></div><span class="lbl">活动</span></div>
+        <div class="col"><span class="v">8</span><div class="bar" style="height:38px;background:#7aa39c"></div><span class="lbl">工作坊</span></div>
+        <div class="col"><span class="v">24</span><div class="bar" style="height:90px;background:#1e477c"></div><span class="lbl">文章</span></div>
+        <div class="col"><span class="v">6</span><div class="bar" style="height:30px;background:#4a7c74"></div><span class="lbl">游学</span></div>
+        <div class="col"><span class="v">18</span><div class="bar" style="height:70px;background:#1e477c"></div><span class="lbl">播客</span></div>
+      </div>
+      <div class="legend"><span><i class="d" style="background:#1e477c"></i>会员</span><span><i class="d" style="background:#4a7c74"></i>访客</span></div>
+    </div></div>
+    <div class="name"><span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#4a7c74"></span></span>黛松 · Slate Teal <span class="hex">#4a7c74</span></div>
+    <div class="why">饱和度更克制的青绿。和品牌蓝同样"严肃"，做图表第二色、报表、年报，<b>不带情绪</b>。</div>
+  </div>
+
+  <!-- C · CLAY -->
+  <div class="case">
+    <div class="label">C · 高端服务 / 顾问入口</div>
+    <div class="scene"><div class="clay">
+      <div class="swatch"></div>
+      <div class="body">
+        <div>
+          <div class="eyebrow">Concierge · 一对一</div>
+          <div class="ttl">私享 AI 战略顾问</div>
+          <div class="meta">每季度 1 次 · 60 分钟<br>金会员以上专享</div>
+        </div>
+        <button class="cta">预约时间 →</button>
+      </div>
+    </div></div>
+    <div class="name"><span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#b5896a"></span></span>赭石 · Clay <span class="hex">#b5896a</span></div>
+    <div class="why">东方陶土质感的暖中性。比金更克制、比米更有重量；做"高端服务 / 顾问 / 私享"的入口色。</div>
+  </div>
+
+  <!-- D · BORDEAUX -->
+  <div class="case">
+    <div class="label">D · 年度旗舰 / 晚宴 · 印刷物</div>
+    <div class="scene"><div class="bord">
+      <div class="eyebrow">Annual Summit · 2026</div>
+      <div class="ttl">心智悦动 <span>· 年度晚宴</span></div>
+      <div class="row">
+        <span class="meta">12 月 15 日 · 上海外滩</span>
+        <span class="seat">钻石邀请</span>
+      </div>
+    </div></div>
+    <div class="name"><span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#7e3a44"></span></span>暮红 · Bordeaux <span class="hex">#7e3a44</span></div>
+    <div class="why">酒红/绛红。仅用于"年度大事"——年会海报、印刷请柬、钻石会员仪式感。一年出现两三次。</div>
+  </div>
+
+  <!-- 5 · IVORY (kept) -->
+  <div class="case">
+    <div class="label">5 · 长阅读 / 印刷物 <span class="kept">保留</span></div>
+    <div class="scene"><div class="ivory">
+      <div>
+        <div class="eyebrow">AI Insights · 第 24 期</div>
+        <div class="ttl">Token 经济学：企业的<br>智能调用能力</div>
+      </div>
+      <div class="body">2026 年 CEO 的战略问题，不再是"选哪个模型"，而是企业一年能调用多少智能。这是 Token 时代的"度电"——⋯</div>
+      <div class="byline"><span>王林 Lincoln · 创始人</span><span>8 分钟阅读</span></div>
+    </div></div>
+    <div class="name"><span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#f6efde;border-color:rgba(15,23,42,.20)"></span></span>象牙米 · Ivory Cream <span class="hex">#f6efde</span></div>
+    <div class="why">替代纯白做底色，比白更耐看、更"文献感"。长文阅读、年报、印刷物。</div>
+  </div>
+
+  <!-- 6 · VIOLET (kept) -->
+  <div class="case">
+    <div class="label">6 · AI 数据 / 图表 <span class="kept">保留</span></div>
+    <div class="scene"><div class="violet">
+      <div>
+        <div class="eyebrow">AI Insights · 数据</div>
+        <div class="ttl">企业 Token 调用量增长</div>
+      </div>
+      <div class="chart">
+        <div class="bar" style="height:22%;background:#1e477c"></div>
+        <div class="bar" style="height:36%;background:#9b6bd6"></div>
+        <div class="bar" style="height:30%;background:#1e477c"></div>
+        <div class="bar" style="height:54%;background:#9b6bd6"></div>
+        <div class="bar" style="height:48%;background:#1e477c"></div>
+        <div class="bar" style="height:72%;background:#9b6bd6"></div>
+        <div class="bar" style="height:64%;background:#1e477c"></div>
+        <div class="bar" style="height:96%;background:#9b6bd6"></div>
+      </div>
+      <div class="axis"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div>
+      <div class="leg"><span><i class="dot" style="background:#1e477c"></i>传统行业</span><span><i class="dot" style="background:#9b6bd6"></i>AI 原生</span></div>
+    </div></div>
+    <div class="name"><span class="dots"><span class="dot" style="background:#1e477c"></span><span class="dot" style="background:#9b6bd6"></span></span>雾紫 · Mist Violet <span class="hex">#9b6bd6</span></div>
+    <div class="why">"AI" 语义的伴生色，做数据图表第二色，蓝紫拉出对比但不冲突。</div>
+  </div>
+
+</div>
+</body></html>

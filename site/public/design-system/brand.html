@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/design-system/" />
+  <title>Brand · MindsLeap Design System</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="_system.css" />
+</head>
+<body>
+  <nav class="ds-nav">
+    <div class="ds-nav-inner">
+      <a class="brand" href="index.html">MindsLeap <small>Design System</small></a>
+      <ul>
+        <li><a href="brand.html" class="active">Brand</a></li>
+        <li><a href="deck.html">Deck</a></li>
+        <li><a href="ui.html">UI &amp; Site</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="ds-wrap">
+    <header class="ds-head">
+      <div>
+        <h1>Brand</h1>
+        <p>颜色、字体、间距、阴影、Logo——品牌的基本视觉语言。所有 token 都定义在 <code style="font-family:var(--font-mono,monospace);background:#f1f5f9;padding:1px 6px;border-radius:4px;">colors_and_type.css</code>。</p>
+      </div>
+      <div class="meta">01 · Brand</div>
+    </header>
+
+    <div class="ds-quickstart">
+      <div class="qs-head">
+        <span class="qs-tag">Quick start · 怎么用</span>
+        <span class="qs-aud">copy · paste · use</span>
+      </div>
+      <div class="qs-cols">
+        <div>
+          <h3>颜色 + 字体</h3>
+          <pre><span class="c">/* 一行 import，全部 tokens 到手 */</span>
+@import "colors_and_type.css";
+
+color: var(--ml-blue);          <span class="c">/* #1e477c · 主色 */</span>
+color: var(--ml-blue-light);    <span class="c">/* #2a5a9e · 次色 */</span>
+color: var(--ml-blue-accent);   <span class="c">/* #3b82f6 · 链接/强调 */</span>
+
+font-family: var(--font-sans);  <span class="c">/* 正文 · SF / Inter */</span>
+font-family: var(--font-sans-zh); <span class="c">/* 中文优先栈 */</span></pre>
+          <p>完整 token 列表见 <code>colors_and_type.css</code>（51 个 token）。</p>
+        </div>
+        <div>
+          <h3>Logo + 图标</h3>
+          <ul>
+            <li>Logo PNG：<code>assets/logos/</code>（blue / white / joint）</li>
+            <li>双语 logo 排版：见下方 <a href="#logos" style="color:var(--ds-brand);">Logos</a> 区块</li>
+            <li>图标 SVG：<code>assets/icons/</code>（2px stroke · Heroicons 风格）</li>
+            <li>品牌字体：<code>fonts/MindsLeap-Brand.otf</code>，仅用于 wordmark + hero</li>
+          </ul>
+          <h3 style="margin-top:14px;">三条不能违反的规则</h3>
+          <ul>
+            <li>主色只有 <code>#1e477c</code>，accent 只有 <code>#3b82f6</code></li>
+            <li>UI 里禁止 emoji——用 <code>assets/icons/</code> 里的 SVG</li>
+            <li>品牌名永远中英成对：<code>MindsLeap 心智悦动</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="ds-section" id="colors">
+      <h2>Colors</h2>
+      <p class="lede">品牌主色、配对组合、蓝色色阶与中性色。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>Brand color</h3></div><div class="right"><span class="path">preview/colors-brand.html</span><a class="open" href="preview/colors-brand.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="540" loading="lazy" src="preview/colors-brand.html" title="Brand color"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Brand pairs</h3></div><div class="right"><span class="path">preview/colors-brand-pairs.html</span><a class="open" href="preview/colors-brand-pairs.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="480" loading="lazy" src="preview/colors-brand-pairs.html" title="Brand pairs"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Brand pairs · v3</h3></div><div class="right"><span class="path">preview/colors-brand-pairs-v3.html</span><a class="open" href="preview/colors-brand-pairs-v3.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="480" loading="lazy" src="preview/colors-brand-pairs-v3.html" title="Brand pairs v3"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Blue tints</h3></div><div class="right"><span class="path">preview/colors-blue-tints.html</span><a class="open" href="preview/colors-blue-tints.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="360" loading="lazy" src="preview/colors-blue-tints.html" title="Blue tints"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Neutrals</h3></div><div class="right"><span class="path">preview/colors-neutrals.html</span><a class="open" href="preview/colors-neutrals.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="360" loading="lazy" src="preview/colors-neutrals.html" title="Neutrals"></iframe></article>
+      </div>
+    </section>
+
+    <section class="ds-section" id="type">
+      <h2>Typography</h2>
+      <p class="lede">品牌字体、Display、Headings、正文、双语排版。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>Brand face</h3></div><div class="right"><span class="path">preview/type-brand.html</span><a class="open" href="preview/type-brand.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="280" loading="lazy" src="preview/type-brand.html" title="Brand face"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Display</h3></div><div class="right"><span class="path">preview/type-display.html</span><a class="open" href="preview/type-display.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="420" loading="lazy" src="preview/type-display.html" title="Display"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Headings</h3></div><div class="right"><span class="path">preview/type-headings.html</span><a class="open" href="preview/type-headings.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="420" loading="lazy" src="preview/type-headings.html" title="Headings"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Body</h3></div><div class="right"><span class="path">preview/type-body.html</span><a class="open" href="preview/type-body.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="420" loading="lazy" src="preview/type-body.html" title="Body"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Bilingual</h3></div><div class="right"><span class="path">preview/type-bilingual.html</span><a class="open" href="preview/type-bilingual.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="420" loading="lazy" src="preview/type-bilingual.html" title="Bilingual"></iframe></article>
+      </div>
+    </section>
+
+    <section class="ds-section" id="foundations">
+      <h2>Foundations</h2>
+      <p class="lede">间距、圆角、阴影、图标。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>Spacing</h3></div><div class="right"><span class="path">preview/spacing.html</span><a class="open" href="preview/spacing.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="360" loading="lazy" src="preview/spacing.html" title="Spacing"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Radii</h3></div><div class="right"><span class="path">preview/radii.html</span><a class="open" href="preview/radii.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="240" loading="lazy" src="preview/radii.html" title="Radii"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Shadows</h3></div><div class="right"><span class="path">preview/shadows.html</span><a class="open" href="preview/shadows.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="280" loading="lazy" src="preview/shadows.html" title="Shadows"></iframe></article>
+        <article class="ds-embed"><header><div><h3>Icons</h3></div><div class="right"><span class="path">preview/icons.html</span><a class="open" href="preview/icons.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="200" loading="lazy" src="preview/icons.html" title="Icons"></iframe></article>
+      </div>
+    </section>
+
+    <section class="ds-section" id="logos">
+      <h2>Logos</h2>
+      <p class="lede">主 logo、白色版、Joint 联合版，以及中英文双语 logo 排版方案。</p>
+      <div class="ds-embed-list">
+        <article class="ds-embed"><header><div><h3>Brand logos</h3></div><div class="right"><span class="path">preview/brand-logos.html</span><a class="open" href="preview/brand-logos.html" target="_blank">独立打开 ↗</a></div></header><iframe data-h="900" loading="lazy" src="preview/brand-logos.html" title="Brand logos"></iframe></article>
+      </div>
+    </section>
+
+    <div class="ds-foot">
+      回到 <a href="index.html" style="color:var(--ds-brand);font-weight:600;">总览 ←</a>
+    </div>
+  </div>
+
+  <script src="_system.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="/design-system/" />
+  <title>Deck · MindsLeap Design System</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="_system.css" />
+  <style>
+    .deck-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .deck-card { display: flex; flex-direction: column; border: 1px solid var(--ds-line); border-radius: 14px; overflow: hidden; background: #fff; transition: border-color 140ms, transform 140ms, box-shadow 140ms; }
+    .deck-card:hover { border-color: var(--ds-brand); transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(30,71,124,0.35); }
+    .deck-card .thumb { aspect-ratio: 16 / 9; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+    .deck-card .thumb .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.65; }
+    .deck-card .thumb .title-cn { font-family: "MindsLeap Brand", "Noto Sans SC", system-ui, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
+    .deck-card .thumb .swatches { display: flex; gap: 5px; }
+    .deck-card .thumb .swatches i { display: block; width: 16px; height: 16px; border-radius: 50%; }
+    .deck-card .meta { padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--ds-line); }
+    .deck-card .meta .label { font-size: 14px; font-weight: 600; }
+    .deck-card .meta .hint { font-size: 11px; color: var(--ds-ink-3); font-family: var(--font-mono, ui-monospace, monospace); }
+
+    .thumb-light    { background: #fafaf7; color: #0f172a; }
+    .thumb-brand    { background: #1e477c; color: #fff; }
+    .thumb-dark     { background: #0b1220; color: #f5f5f5; }
+    .thumb-magazine { background: #f5efe6; color: #2a1f14; }
+    .thumb-light    .swatches i:nth-child(1){background:#1e477c;} .thumb-light    .swatches i:nth-child(2){background:#0f172a;} .thumb-light    .swatches i:nth-child(3){background:#fafaf7;border:1px solid rgba(0,0,0,0.1);}
+    .thumb-brand    .swatches i:nth-child(1){background:#fff;} .thumb-brand    .swatches i:nth-child(2){background:#cdd9ee;} .thumb-brand    .swatches i:nth-child(3){background:#1e477c;border:1px solid rgba(255,255,255,0.3);}
+    .thumb-dark     .swatches i:nth-child(1){background:#fff;} .thumb-dark     .swatches i:nth-child(2){background:#4a7cb5;} .thumb-dark     .swatches i:nth-child(3){background:#0b1220;border:1px solid rgba(255,255,255,0.2);}
+    .thumb-magazine .swatches i:nth-child(1){background:#2a1f14;} .thumb-magazine .swatches i:nth-child(2){background:#a8804a;} .thumb-magazine .swatches i:nth-child(3){background:#f5efe6;border:1px solid rgba(0,0,0,0.1);}
+
+    .hint-panel { margin-top: 32px; padding: 22px 26px; background: #fff; border: 1px solid var(--ds-line); border-radius: 12px; }
+    .hint-panel h3 { margin: 0 0 8px; font-size: 14px; font-weight: 600; }
+    .hint-panel p { margin: 0 0 8px; font-size: 13px; color: var(--ds-ink-2); line-height: 1.6; }
+    .hint-panel ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: var(--ds-ink-2); line-height: 1.7; }
+    .hint-panel code { font-family: var(--font-mono, ui-monospace, monospace); background: var(--ds-line-soft); padding: 1px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <nav class="ds-nav">
+    <div class="ds-nav-inner">
+      <a class="brand" href="index.html">MindsLeap <small>Design System</small></a>
+      <ul>
+        <li><a href="brand.html">Brand</a></li>
+        <li><a href="deck.html" class="active">Deck</a></li>
+        <li><a href="ui.html">UI &amp; Site</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="ds-wrap">
+    <header class="ds-head">
+      <div>
+        <h1>Deck templates</h1>
+        <p>1920×1080 品牌 deck，4 种主题预设。点击进入后，右下角的 Tweaks 面板可继续切换字体（Brand/Inter/Noto）与密度（松散/标准/紧凑）。</p>
+      </div>
+      <div class="meta">02 · Deck</div>
+    </header>
+
+    <div class="ds-quickstart">
+      <div class="qs-head">
+        <span class="qs-tag">Quick start · 怎么做新 deck</span>
+        <span class="qs-aud">copy · edit · share</span>
+      </div>
+      <div class="qs-cols">
+        <div>
+          <h3>从模板开始</h3>
+          <ol style="margin:0 0 10px;padding-left:18px;font-size:13px;color:var(--ds-ink-2);line-height:1.7;">
+            <li>下方点任意主题卡片 → 进入 deck</li>
+            <li>右下角 Tweaks 面板继续切字体 / 密度</li>
+            <li>要做新内容：复制 <code>deck-template/</code> 整个文件夹</li>
+            <li>编辑 HTML 里的 <code>&lt;section class="slide"&gt;</code></li>
+          </ol>
+          <h3>键盘快捷键</h3>
+          <ul>
+            <li><code>← / →</code> 翻页 · <code>Home / End</code> 首末</li>
+            <li><code>R</code> 回首页 · <code>1–9</code> 跳页</li>
+            <li>浏览器 <code>Print → Save as PDF</code> 导出</li>
+          </ul>
+        </div>
+        <div>
+          <h3>URL 参数</h3>
+          <pre><span class="c"># 同一个 HTML，URL 决定初始视觉</span>
+?theme=light    <span class="c"># 浅 / brand / dark / magazine</span>
+?heading=brand  <span class="c"># brand / inter / noto</span>
+?density=standard <span class="c"># spacious / standard / compact</span>
+
+<span class="c"># 组合用 &</span>
+deck.html?theme=dark&heading=inter&density=compact</pre>
+          <p>把链接复制给同事，他打开就是同样的预设。</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="ds-section">
+      <h2>4 themes</h2>
+      <p class="lede">同一份 deck，4 种主题。链接里的 <code style="font-family:var(--font-mono,monospace);background:#f1f5f9;padding:1px 6px;border-radius:4px;">?theme=...</code> 决定初始主题。</p>
+      <div class="deck-grid">
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=light">
+          <div class="thumb thumb-light">
+            <div class="eyebrow">Theme · 浅</div>
+            <div class="title-cn">MindsLeap.</div>
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">浅色 Light</span><span class="hint">?theme=light</span></div>
+        </a>
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=brand">
+          <div class="thumb thumb-brand">
+            <div class="eyebrow">Theme · 品牌</div>
+            <div class="title-cn">MindsLeap.</div>
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">品牌蓝 Brand</span><span class="hint">?theme=brand</span></div>
+        </a>
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=dark">
+          <div class="thumb thumb-dark">
+            <div class="eyebrow">Theme · 深</div>
+            <div class="title-cn">MindsLeap.</div>
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">深色 Dark</span><span class="hint">?theme=dark</span></div>
+        </a>
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=magazine">
+          <div class="thumb thumb-magazine">
+            <div class="eyebrow">Theme · 杂志</div>
+            <div class="title-cn">MindsLeap.</div>
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">杂志 Magazine</span><span class="hint">?theme=magazine</span></div>
+        </a>
+      </div>
+
+    </section>
+
+    <div class="ds-foot">
+      回到 <a href="index.html" style="color:var(--ds-brand);font-weight:600;">总览 ←</a>
+    </div>
+  </div>
+</body>
+</html>

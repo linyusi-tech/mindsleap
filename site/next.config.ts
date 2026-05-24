@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/design-system", destination: "/design-system/index.html" },
+        { source: "/design-system/", destination: "/design-system/index.html" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
 };
 
 export default withNextIntl(nextConfig);
