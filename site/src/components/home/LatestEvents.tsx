@@ -69,7 +69,7 @@ export default function LatestEvents({
                       </p>
                       <span className="text-xs text-gray-400">{post.date}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-[#1e477c] mb-4 leading-tight line-clamp-2">
+                    <h3 className="text-xl font-bold text-[#1e477c] mb-4 leading-tight line-clamp-2 h-[3.125rem]">
                       {post.title}
                     </h3>
                     <p className="text-gray-600 text-sm mb-6 line-clamp-2">

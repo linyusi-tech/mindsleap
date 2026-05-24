@@ -113,7 +113,7 @@ export default function NewsListClient({ posts, initialFilter = "events" }: Prop
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2 line-clamp-2">
+                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2 line-clamp-2 h-[3.5rem]">
                           {post.title}
                         </h3>
 
