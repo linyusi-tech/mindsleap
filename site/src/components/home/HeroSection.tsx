@@ -6,6 +6,15 @@ import { Link } from "@/i18n/navigation";
 
 const slides = [
   {
+    titleKey: "slide5Title",
+    subtitleKey: "slide5Subtitle",
+    headingKey: "slide5Heading",
+    ctaKey: "slide5Cta",
+    href: "/news/ai-native-enterprise-conference-shanghai-2026",
+    image: "/images/news/ai-native-enterprise-conference-shanghai-2026-cover1.jpg",
+    bgPosition: "center",
+  },
+  {
     titleKey: "slide1Title",
     subtitleKey: "slide1Subtitle",
     headingKey: "slide1Heading",
@@ -29,8 +38,8 @@ const slides = [
     headingKey: "slide3Heading",
     ctaKey: "slide3Cta",
     href: "/services/training",
-    image: "/images/hero/slide-6.jpg",
-    bgPosition: "top",
+    image: "/images/hero/AI-Native-Conference.jpg",
+    bgPosition: "center 35%",
   },
   {
     titleKey: "slide4Title",
