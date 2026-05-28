@@ -9,13 +9,14 @@ import PageHero from "@/components/shared/PageHero";
 export default function AboutContent() {
   const t = useTranslations("about");
   const h = useTranslations("aboutHero");
+  const missionSubText = t("missionSubText");
 
   const heroSlides = [
     {
       title: h("slide1Title"),
       heading: h("slide1Heading"),
       subtitle: h("slide1Subtitle"),
-      image: "/images/hero/slide-1.jpg",
+      image: "/images/hero/AI-Native-Conference-team.jpg",
     },
     {
       title: h("slide2Title"),
@@ -45,6 +46,11 @@ export default function AboutContent() {
               <p className="text-2xl font-bold text-gray-900 mb-8 leading-relaxed">
                 {t("missionText")}
               </p>
+              {missionSubText ? (
+                <p className="text-lg font-medium text-gray-700 mb-8 leading-relaxed">
+                  {missionSubText}
+                </p>
+              ) : null}
 
               <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
                 {t("story")}

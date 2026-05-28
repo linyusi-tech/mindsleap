@@ -11,7 +11,8 @@ export default function TrainingHero() {
       title: h("slide1Title"),
       heading: h("slide1Heading"),
       subtitle: h("slide1Subtitle"),
-      image: "/images/hero/slide-2.jpg",
+      image: "/images/hero/AI-Native-Conference.jpg",
+      bgPosition: "center 35%",
     },
     {
       title: h("slide2Title"),

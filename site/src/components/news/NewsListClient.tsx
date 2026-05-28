@@ -30,7 +30,7 @@ export default function NewsListClient({ posts, initialFilter = "events" }: Prop
       title: h("slide1Title"),
       heading: h("slide1Heading"),
       subtitle: h("slide1Subtitle"),
-      image: "/images/hero/slide-2.jpg",
+      image: "/images/news/ai-lobster-shanghai-2026-group-photo.jpg",
     },
     {
       title: h("slide2Title"),

@@ -24,15 +24,6 @@ const slides = [
     bgPosition: "center",
   },
   {
-    titleKey: "slide2Title",
-    subtitleKey: "slide2Subtitle",
-    headingKey: "slide2Heading",
-    ctaKey: "slide2Cta",
-    href: "/services/incubation",
-    image: "/images/hero/slide-5.jpg",
-    bgPosition: "center",
-  },
-  {
     titleKey: "slide3Title",
     subtitleKey: "slide3Subtitle",
     headingKey: "slide3Heading",
@@ -40,6 +31,15 @@ const slides = [
     href: "/services/training",
     image: "/images/hero/AI-Native-Conference.jpg",
     bgPosition: "center 35%",
+  },
+  {
+    titleKey: "slide2Title",
+    subtitleKey: "slide2Subtitle",
+    headingKey: "slide2Heading",
+    ctaKey: "slide2Cta",
+    href: "/services/incubation",
+    image: "/images/hero/slide-5.jpg",
+    bgPosition: "center",
   },
   {
     titleKey: "slide4Title",

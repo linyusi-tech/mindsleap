@@ -7,6 +7,7 @@ export type HeroSlide = {
   heading: string;
   subtitle: string;
   image: string;
+  bgPosition?: string;
 };
 
 type Props = {
@@ -41,8 +42,11 @@ export default function PageHero({ slides }: Props) {
         >
           {/* Background image */}
           <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.image})` }}
+            className="absolute inset-0 bg-cover"
+            style={{
+              backgroundImage: `url(${slide.image})`,
+              backgroundPosition: slide.bgPosition ?? "center",
+            }}
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/40" />

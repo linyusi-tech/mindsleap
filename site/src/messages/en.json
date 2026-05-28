@@ -165,6 +165,7 @@
     "title": "About MindsLeap",
     "mission": "Our Mission",
     "missionText": "Accompany Chinese traditional enterprises in AI transformation, and help Chinese tech companies grow faster",
+    "missionSubText": "",
     "vision": "Our Vision",
     "story": "Our Story",
     "storyText": "MindsLeap is dedicated to building a global ecosystem network for the AI era, connecting traditional entrepreneurs, AI/robotics tech founders, investors, and Silicon Valley entrepreneurs across four core pillars.",
@@ -248,7 +249,7 @@
     "slide1Heading": "Global Vision,\nLocal Implementation",
     "slide1Subtitle": "Deep exploration of Silicon Valley AI ecosystem",
     "slide2Title": "Silicon Valley Immersion",
-    "slide2Heading": "GTC · Stanford · Google\nTop AI Enterprise Visits",
+    "slide2Heading": "Connecting Global Resource",
     "slide2Subtitle": "Exclusive itineraries as Founders Space Global Partners"
   },
   "footer": {

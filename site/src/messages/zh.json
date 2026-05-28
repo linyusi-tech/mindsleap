@@ -165,6 +165,7 @@
     "title": "关于MindsLeap",
     "mission": "品牌使命",
     "missionText": "陪伴中国传统企业AI转型，助力中国科技企业更快成长",
+    "missionSubText": "",
     "vision": "品牌愿景",
     "story": "品牌故事",
     "storyText": "MindsLeap（心智悦动）致力于打造AI时代的全球生态网络，构建链接传统企业家、AI/机器人等前沿科技创始人、投资人以及硅谷创业者四个核心生态位网络，帮助企业创始人和组织实现AI转型，智胜全球市场。",
@@ -248,7 +249,7 @@
     "slide1Heading": "Global Vision,\nLocal Implementation",
     "slide1Subtitle": "深度探访硅谷AI前沿生态",
     "slide2Title": "硅谷深度体验",
-    "slide2Heading": "世界名校斯坦福·伯克利\n万亿科技巨头",
+    "slide2Heading": "Connecting Global Resource",
     "slide2Subtitle": "与全球科技高地深度链接"
   },
   "footer": {
