@@ -33,17 +33,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/incubation" className="hover:text-white transition">
-                  {nav("incubation")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/training" className="hover:text-white transition">
+                <Link href="/services/ai-transformation" className="hover:text-white transition">
                   {nav("training")}
                 </Link>
               </li>
               <li>
-                <Link href="/services/study-tours" className="hover:text-white transition">
+                <Link href="/services/accelerator" className="hover:text-white transition">
+                  {nav("incubation")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/global-growth" className="hover:text-white transition">
                   {nav("studyTours")}
                 </Link>
               </li>

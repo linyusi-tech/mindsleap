@@ -7,10 +7,10 @@
     "home": "首页",
     "about": "关于我们",
     "services": "业务板块",
-    "aiClub": "AI Club",
-    "incubation": "独角兽孵化",
-    "training": "AI培训/咨询",
-    "studyTours": "定制研学",
+    "aiClub": "AI俱乐部",
+    "incubation": "创业加速",
+    "training": "AI转型服务",
+    "studyTours": "出海服务",
     "news": "动态",
     "contact": "联系我们"
   },
@@ -57,22 +57,22 @@
     "title": "MindsLeap核心业务",
     "subtitle": "四大板块全方位助力AI转型",
     "aiClub": {
-      "title": "企业家AI俱乐部",
+      "title": "AI俱乐部",
       "description": "助力企业家实现AI转型，30-50人精品闭门私享会，优秀企业家同频共创，制定战略，落地项目。",
       "tag": "核心产品"
     },
     "incubation": {
-      "title": "独角兽孵化",
+      "title": "创业加速",
       "description": "通过辅导、陪跑、路演等形式，理清战略，连接客户与投资人，加速独角兽企业成长。",
       "tag": "ToB 服务"
     },
     "training": {
-      "title": "高管培训 / 战略咨询",
+      "title": "AI转型服务",
       "description": "硅谷大咖AI培训、AI战略咨询、转型陪跑、变革领导力，提升企业AI时代竞争力。",
       "tag": "ToB 服务"
     },
     "studyTours": {
-      "title": "全球研学",
+      "title": "出海服务",
       "description": "深度考察全球商业机会，硅谷GTC大会、名校参访、企业走访，认知升级+资源对接。",
       "tag": "高端产品"
     },

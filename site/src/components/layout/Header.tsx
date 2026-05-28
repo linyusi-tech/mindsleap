@@ -31,9 +31,9 @@ export default function Header() {
 
   const navLinks = [
     { href: "/services/ai-club", label: t("aiClub") },
-    { href: "/services/incubation", label: t("incubation") },
-    { href: "/services/training", label: t("training") },
-    { href: "/services/study-tours", label: t("studyTours") },
+    { href: "/services/ai-transformation", label: t("training") },
+    { href: "/services/accelerator", label: t("incubation") },
+    { href: "/services/global-growth", label: t("studyTours") },
     { href: "/news", label: t("news") },
     { href: "/about", label: t("about") },
   ];

@@ -8,9 +8,9 @@
     "about": "About",
     "services": "Services",
     "aiClub": "AI Club",
-    "incubation": "Unicorn Incubation",
-    "training": "AI Training & Consulting",
-    "studyTours": "Custom Study Tours",
+    "incubation": "Startup Acceleration",
+    "training": "AI Transformation",
+    "studyTours": "Global Growth",
     "news": "News",
     "contact": "Contact"
   },
@@ -55,24 +55,24 @@
   },
   "business": {
     "title": "MindsLeap Core Services",
-    "subtitle": "Four pillars powering your AI transformation",
+    "subtitle": "Four service pillars connecting entrepreneurs, AI-native ventures, industry scenarios, and global markets",
     "aiClub": {
       "title": "AI Founders Club",
       "description": "Exclusive community for entrepreneurs. Closed-door workshops, site visits, and elite networking for AI implementation.",
       "tag": "Core Product"
     },
     "incubation": {
-      "title": "Unicorn Incubation",
+      "title": "Startup Acceleration",
       "description": "Connecting AI startups with traditional industry scenarios and Silicon Valley resources via Founders Space.",
       "tag": "ToB Service"
     },
     "training": {
-      "title": "Training & Consulting",
+      "title": "AI Transformation",
       "description": "From GTC insights to AI strategy workshops. We help companies like Lenovo and Alibaba navigate the AI revolution.",
       "tag": "ToB Service"
     },
     "studyTours": {
-      "title": "Silicon Valley Study",
+      "title": "Global Growth",
       "description": "Direct access to Stanford AI Lab, NVIDIA GTC, and top tech campuses. Real-world insights, premium networking.",
       "tag": "Premium"
     },
