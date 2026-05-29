@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@font-face {
+  font-family: "MindsLeap Brand";
+  src: url("/design-system/fonts/MindsLeap-Brand.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   /* Brand colors — minimal palette */
   --color-primary: #1e477c;
@@ -11,6 +19,10 @@
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
     "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
     system-ui, sans-serif;
+}
+
+.font-brand-display {
+  font-family: "MindsLeap Brand", var(--font-sans);
 }
 
 html {

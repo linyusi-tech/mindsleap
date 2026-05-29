@@ -11,9 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/services",
     "/services/ai-club",
-    "/services/incubation",
-    "/services/training",
-    "/services/study-tours",
+    "/services/ai-transformation",
+    "/services/accelerator",
+    "/services/global-growth",
     "/news",
     "/contact",
   ];

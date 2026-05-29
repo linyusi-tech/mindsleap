@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import PageHero from "@/components/shared/PageHero";
 
 export default function ContactContent() {
   const t = useTranslations("contact");
   const h = useTranslations("contactHero");
+  const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -141,11 +142,13 @@ export default function ContactContent() {
                     </label>
                     <select name="interest" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
                       <option value="">--</option>
-                      <option value="ai-club">企业家AI俱乐部</option>
-                      <option value="incubation">独角兽孵化</option>
-                      <option value="training">高管培训/战略咨询</option>
-                      <option value="study-tours">全球研学</option>
-                      <option value="other">其他合作</option>
+                      <option value="ai-club">{locale === "zh" ? "AI俱乐部" : "AI Club"}</option>
+                      <option value="ai-transformation">{locale === "zh" ? "AI转型服务" : "AI Transformation Services"}</option>
+                      <option value="accelerator">{locale === "zh" ? "创业加速" : "Startup Acceleration"}</option>
+                      <option value="global-growth">{locale === "zh" ? "出海服务" : "Global Growth Services"}</option>
+                      <option value="media-research">{locale === "zh" ? "动态 / 媒体 / 研究合作" : "News / Media / Research Partnership"}</option>
+                      <option value="government-park">{locale === "zh" ? "政府 / 园区合作" : "Government / Park Partnership"}</option>
+                      <option value="other">{locale === "zh" ? "其他合作" : "Other Partnership"}</option>
                     </select>
                   </div>
 

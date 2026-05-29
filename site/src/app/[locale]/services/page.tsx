@@ -9,7 +9,7 @@ type Props = {
 const content = {
   zh: {
     title: "我们的服务",
-    subtitle: "连接中国企业与全球AI前沿，加速数字化转型",
+    subtitle: "连接企业家、产业场景、AI原生项目与全球市场",
     services: [
       {
         title: "企业家AI俱乐部",
@@ -19,24 +19,24 @@ const content = {
         icon: "🤝",
       },
       {
-        title: "独角兽孵化",
+        title: "AI转型服务",
         description:
-          "联合Founders Space全球网络，为AI创业者提供场景对接、投资对接、硅谷资源导入等全方位孵化服务。",
-        href: "/services/incubation",
-        icon: "🦄",
+          "提供AI培训、咨询与FDE一体化落地服务，帮助企业识别高价值场景，跑出可衡量的业务结果。",
+        href: "/services/ai-transformation",
+        icon: "⚡",
       },
       {
-        title: "高管AI培训",
+        title: "创业加速",
         description:
-          "硅谷大咖+国内专家联合授课，涵盖AI战略咨询、转型陪跑、变革管理，服务发那科、联想等知名企业。",
-        href: "/services/training",
-        icon: "🎓",
+          "面向OPC、AI原生企业与科技独角兽，连接产业场景、导师网络、资本与全球市场。",
+        href: "/services/accelerator",
+        icon: "🚀",
       },
       {
-        title: "全球研学之旅",
+        title: "出海服务",
         description:
-          "以Founders Space全球合伙人身份，定制GTC大会、斯坦福AI Lab、谷歌等高端硅谷研学行程。",
-        href: "/services/study-tours",
+          "提供产业考察、海外市场拓展与全球人才服务，帮助中国企业连接国际资源和全球增长机会。",
+        href: "/services/global-growth",
         icon: "🌍",
       },
     ],
@@ -44,7 +44,7 @@ const content = {
   en: {
     title: "Our Services",
     subtitle:
-      "Bridging Chinese enterprises with global AI innovation to accelerate digital transformation",
+      "Connecting entrepreneurs, industry scenarios, AI-native ventures, and global markets",
     services: [
       {
         title: "Founders AI Club",
@@ -54,24 +54,24 @@ const content = {
         icon: "🤝",
       },
       {
-        title: "Unicorn Incubation",
+        title: "AI Transformation Services",
         description:
-          "Leveraging the global Founders Space network to provide AI startups with scenario matching, investment connections, and Silicon Valley resource integration.",
-        href: "/services/incubation",
-        icon: "🦄",
+          "AI training, advisory, and FDE implementation services that help enterprises identify high-value scenarios and produce measurable outcomes.",
+        href: "/services/ai-transformation",
+        icon: "⚡",
       },
       {
-        title: "Executive AI Training",
+        title: "Startup Acceleration",
         description:
-          "Joint programs with Silicon Valley leaders and Chinese experts covering AI strategy consulting, transformation coaching, and change management for enterprises like FANUC and Lenovo.",
-        href: "/services/training",
-        icon: "🎓",
+          "For OPC founders, AI-native ventures, and tech unicorns, connecting industry scenarios, mentors, capital, and global markets.",
+        href: "/services/accelerator",
+        icon: "🚀",
       },
       {
-        title: "Global Study Tours",
+        title: "Global Growth Services",
         description:
-          "Premium Silicon Valley study tours as Founders Space Global Partners, featuring GTC Conference, Stanford AI Lab, Google, and HPE visits.",
-        href: "/services/study-tours",
+          "Industry visits, overseas GTM, and global talent services that help Chinese companies connect global growth opportunities.",
+        href: "/services/global-growth",
         icon: "🌍",
       },
     ],

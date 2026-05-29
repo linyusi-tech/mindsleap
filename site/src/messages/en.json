@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "MindsLeap | AI Transformation Accelerator for Global Success",
-    "description": "MindsLeap helps entrepreneurs and organizations achieve AI transformation for global success. Through our AI Club, Unicorn Incubation, Executive Training, and Global Study Tours."
+    "title": "MindsLeap | Industrial Accelerator for AI-Native Enterprises",
+    "description": "MindsLeap is an industrial accelerator for AI-native enterprises. Through AI Club, AI transformation services, startup acceleration, and global growth services, we connect entrepreneurs, industry scenarios, capital, and global resources."
   },
   "nav": {
     "home": "Home",
@@ -17,37 +17,37 @@
   "hero": {
     "slide5Title": "AI Native Enterprise Conference",
     "slide5Heading": "Build AI Native Organizations",
-    "slide5Subtitle": "Build organizations for the AI era.",
+    "slide5Subtitle": "From Silicon Valley frontiers to China industry practice.",
     "slide5Cta": "Learn More",
-    "slide1Title": "AI Founders Club",
+    "slide1Title": "AI Club",
     "slide1Heading": "Upgrade AI Mindsets\nfor Global Success",
-    "slide1Subtitle": "Upgrade cutting-edge AI thinking, refuse to fall behind.",
-    "slide2Title": "Unicorn Incubation",
+    "slide1Subtitle": "Co-create AI transformation with like-minded entrepreneurs.",
+    "slide2Title": "Startup Acceleration",
     "slide2Heading": "Scaling Tomorrow's\nTech Giants",
-    "slide2Subtitle": "Empowering global growth, accelerating unicorn success.",
-    "slide3Title": "AI Consulting & Training",
+    "slide2Subtitle": "Accelerating OPC, AI-native enterprises, and tech unicorns.",
+    "slide3Title": "AI Transformation Services",
     "slide3Heading": "Mastering and Implementing\nAI Strategy",
-    "slide3Subtitle": "Crafting AI strategy and delivering real AI projects.",
-    "slide4Title": "Global Study Tours",
+    "slide3Subtitle": "AI training, consulting, and FDE implementation.",
+    "slide4Title": "Global Growth Services",
     "slide4Heading": "Global Vision,\nLocal Implementation",
-    "slide4Subtitle": "Deep dive into frontier ecosystems, expanding global perspective.",
+    "slide4Subtitle": "Industry visits, overseas GTM, and global talent services.",
     "slide1Cta": "Join the Club",
     "slide2Cta": "Become a Unicorn",
     "slide3Cta": "Start AI Transformation",
-    "slide4Cta": "Explore the World",
+    "slide4Cta": "Start Global Growth",
     "tagline": "Upgrade AI Mindsets for Global Success",
-    "subtitle": "The AI Transformation Accelerator Bridging Chinese Enterprises with Global AI Innovation",
-    "description": "Through community, content, incubation, and study tours, we help entrepreneurs embrace AI with confidence and transform anxiety into action.",
+    "subtitle": "The industrial accelerator for AI-native enterprises",
+    "description": "Through AI Club, AI transformation services, startup acceleration, and global growth services, we help companies turn AI insight into business execution and help AI-native ventures move from real scenarios to global markets.",
     "cta": "Learn More",
     "ctaContact": "Contact Us"
   },
   "valueProp": {
     "title": "MindsLeap: Joyful Transformation",
-    "paragraph1": "Traditional entrepreneurs face an \"anxiety gap\" in the AI era—knowing AI matters but unable to find a clear path. Tech entrepreneurs are busy developing AI and robotics applications but lack real customers and scenarios.",
-    "paragraph2": "MindsLeap partners with renowned Silicon Valley incubator Founders Space to build an entrepreneur ecosystem connecting traditional and emerging industries, domestic and international capital, and the Silicon Valley tech community—contributing to China's industrial AI transformation and global expansion. We believe this journey should be joyful. Join us and \"Leap\" together.",
+    "paragraph1": "In the AI era, enterprise competition is moving from simply using AI tools to building AI-native organizations. Traditional entrepreneurs need to embed AI into business workflows, organizational capabilities, and new growth curves. AI founders and OPC builders also need real industry scenarios, customers, capital, and global markets to turn technical capability into business outcomes.",
+    "paragraph2": "MindsLeap is the \"industrial accelerator for AI-native enterprises.\" In partnership with Founders Space, we connect entrepreneurs, AI-native founders, industry scenarios, capital, and global resources. Through AI Club, AI transformation services, startup acceleration, and global growth services, we help enterprises move from mindset upgrade to business execution, and help AI-native ventures move from real-world scenarios to global markets.",
     "stat1Label": "Global Partner of Founders Space, the renowned Silicon Valley incubator",
     "stat2Label": "Target Transformations",
-    "quote": "Upgrade AI Mindsets for Global Success. Our mission is to accompany traditional enterprises in their AI transformation and help technology companies grow faster.",
+    "quote": "Upgrade AI Mindsets for Global Success. Our mission is to accompany traditional enterprises in their AI transformation and help AI-native enterprises grow faster.",
     "quoteRole": "Founder & CEO, MindsLeap",
     "quoteRole2": "Founders Space Global Partner",
     "hoffmanQuote": "Founders Space and MindsLeap are coming together to help entrepreneurs and businesses transform with AI.",
@@ -55,26 +55,26 @@
   },
   "business": {
     "title": "MindsLeap Core Services",
-    "subtitle": "Four service pillars connecting entrepreneurs, AI-native ventures, industry scenarios, and global markets",
+    "subtitle": "Connecting entrepreneurs, industry scenarios, AI-native ventures, and global markets",
     "aiClub": {
-      "title": "AI Founders Club",
-      "description": "Exclusive community for entrepreneurs. Closed-door workshops, site visits, and elite networking for AI implementation.",
+      "title": "AI Club",
+      "description": "An AI transformation community for entrepreneurs, combining private salons, workshops, enterprise visits, and industry co-creation.",
       "tag": "Core Product"
     },
     "incubation": {
       "title": "Startup Acceleration",
-      "description": "Connecting AI startups with traditional industry scenarios and Silicon Valley resources via Founders Space.",
-      "tag": "ToB Service"
+      "description": "For OPC, AI-native enterprises, and tech unicorns, connecting industry scenarios, mentors, capital, and global markets.",
+      "tag": "AI-Native Ventures"
     },
     "training": {
-      "title": "AI Transformation",
-      "description": "From GTC insights to AI strategy workshops. We help companies like Lenovo and Alibaba navigate the AI revolution.",
-      "tag": "ToB Service"
+      "title": "AI Transformation Services",
+      "description": "AI training, consulting, and FDE implementation services that help enterprises identify high-value scenarios and produce measurable business results.",
+      "tag": "Enterprise Services"
     },
     "studyTours": {
-      "title": "Global Growth",
-      "description": "Direct access to Stanford AI Lab, NVIDIA GTC, and top tech campuses. Real-world insights, premium networking.",
-      "tag": "Premium"
+      "title": "Global Growth Services",
+      "description": "Industry visits, overseas GTM, and global talent services that help Chinese companies connect international resources and global growth opportunities.",
+      "tag": "Global Growth"
     },
     "learnMore": "Learn More"
   },
@@ -83,7 +83,8 @@
     "subtitle": "MindsLeap builds a global AI-powered resource network, sitting at the center of the ecosystem, connecting traditional enterprises with AI innovators, capital, and the Silicon Valley ecosystem.",
     "network1": "Founders Space Global Network",
     "network2": "Top University AI Labs (Stanford/Berkeley)",
-    "network3": "Corporate Giants (Google/NVIDIA/Lenovo)",
+    "network3": "Corporate Giants (Google/NVIDIA/TESLA)",
+    "network4": "Domestic & Global Capital (Angel, VC, PE)",
     "traditional": "Traditional Industry Founders",
     "ai": "AI & Robotics Founders",
     "silicon": "Silicon Valley AI Ecosystem",
@@ -122,28 +123,28 @@
   },
   "clients": {
     "title": "Trusted By",
-    "subtitle": "Providing AI innovation and strategic consulting for global enterprises"
+    "subtitle": "Providing AI innovation, transformation, and growth services for leading enterprises"
   },
   "cta": {
-    "title": "Ready to Embrace AI Transformation?",
-    "subtitle": "Join MindsLeap and turn transformation into a joyful journey of cognitive upgrade",
+    "title": "Ready to Build an AI-Native Future?",
+    "subtitle": "Join MindsLeap and turn AI transformation into business execution and global growth",
     "button": "Get In Touch"
   },
   "aboutHero": {
     "slide1Title": "About MindsLeap",
     "slide1Heading": "Joyful\nTransformation",
-    "slide1Subtitle": "The AI Transformation Accelerator for the New Era",
+    "slide1Subtitle": "The industrial accelerator for AI-native enterprises",
     "slide2Title": "Founders Space Global Partner",
     "slide2Heading": "Bridging China\n& Silicon Valley",
     "slide2Subtitle": "Building a global entrepreneur ecosystem"
   },
   "servicesHero": {
     "slide1Title": "Core Services",
-    "slide1Heading": "Four Pillars\nPowering AI Transformation",
-    "slide1Subtitle": "End-to-end services from mindset upgrade to business implementation",
+    "slide1Heading": "Four Services\nfor AI-Native Growth",
+    "slide1Subtitle": "From AI mindset and business execution to venture acceleration and global growth",
     "slide2Title": "Tailored Solutions",
     "slide2Heading": "Customized AI Pathways\nfor Every Entrepreneur",
-    "slide2Subtitle": "Community, incubation, training, and study tours — find your fit"
+    "slide2Subtitle": "AI Club, AI transformation, startup acceleration, and global growth services"
   },
   "newsHero": {
     "slide1Title": "Latest News",
@@ -164,12 +165,32 @@
   "about": {
     "title": "About MindsLeap",
     "mission": "Our Mission",
-    "missionText": "Accompany Chinese traditional enterprises in AI transformation, and help Chinese tech companies grow faster",
+    "missionBrand": "MindsLeap",
+    "missionText": "Upgrade AI Mindsets for Global Success",
     "missionSubText": "",
     "vision": "Our Vision",
     "story": "Our Story",
-    "storyText": "MindsLeap is dedicated to building a global ecosystem network for the AI era, connecting traditional entrepreneurs, AI/robotics tech founders, investors, and Silicon Valley entrepreneurs across four core pillars.",
+    "storyText": "MindsLeap is an industrial accelerator for AI-native enterprises, connecting traditional entrepreneurs, AI-native founders, industry scenarios, investors, and global innovation networks.",
     "naming": "\"Minds\" represents cognition and thinking, \"Leap\" represents breakthrough and transformation. MindsLeap: Making AI transformation not painful, but a joyful journey of cognitive upgrade.",
+    "acceleratorTitle": "How We Accelerate AI-Native Enterprises",
+    "acceleratorItems": [
+      {
+        "title": "AI Club",
+        "description": "Bring together like-minded entrepreneurs through private salons, workshops, company visits, and industry co-creation to build new AI-era cognition and connections."
+      },
+      {
+        "title": "AI Transformation Services",
+        "description": "Provide integrated AI training, consulting, and FDE implementation services to help companies identify high-value scenarios and produce measurable business results."
+      },
+      {
+        "title": "Startup Acceleration",
+        "description": "Serve OPC founders, AI-native enterprises, and emerging tech unicorns by connecting industry scenarios, mentor networks, capital, and global markets."
+      },
+      {
+        "title": "Global Growth Services",
+        "description": "Help Chinese companies connect with international resources and global growth opportunities through industry visits, overseas market expansion, and global talent services."
+      }
+    ],
     "founders": "Founding Team",
     "lincolnName": "Lincoln",
     "lincolnRole": "Founder & CEO, MindsLeap",
@@ -183,7 +204,7 @@
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Four business pillars empowering AI transformation"
+    "subtitle": "Four service pillars connecting entrepreneurs, AI-native ventures, industry scenarios, and global markets"
   },
   "news": {
     "title": "Latest News",
@@ -199,7 +220,7 @@
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "Reach out to learn about MindsLeap services and partnerships",
+    "subtitle": "Reach out to learn about MindsLeap services, programs, and partnerships",
     "form": {
       "name": "Name",
       "email": "Email",
@@ -215,9 +236,9 @@
     "wechatDesc": "Scan to add MindsLeap official WeChat"
   },
   "aiClubHero": {
-    "slide1Title": "Founders AI Club",
+    "slide1Title": "AI Club",
     "slide1Heading": "Upgrade AI Mindsets\nfor Global Success",
-    "slide1Subtitle": "Exclusive 30-50 person closed-door community",
+    "slide1Subtitle": "An entrepreneur community for AI transformation",
     "slide2Title": "AI Workshop",
     "slide2Heading": "Applying knowledge\nto practice",
     "slide2Subtitle": "Beyond lectures, into hands-on execution",
@@ -229,31 +250,31 @@
     "slide4Subtitle": "Learn best practices from industry-leading enterprises"
   },
   "incubationHero": {
-    "slide1Title": "Unicorn Incubation",
+    "slide1Title": "Startup Acceleration",
     "slide1Heading": "Scaling Tomorrow's\nTech Giants",
-    "slide1Subtitle": "Partnering with Founders Space for global growth",
-    "slide2Title": "Guided by Hoffman",
+    "slide1Subtitle": "Accelerating OPC, AI-native ventures, and tech unicorns",
+    "slide2Title": "Industry-Challenge Driven",
     "slide2Heading": "Becoming a Unicorn",
-    "slide2Subtitle": "Accelerate your path to unicorn status"
+    "slide2Subtitle": "Start from real industry scenarios and connect customers, capital, and global resources"
   },
   "trainingHero": {
-    "slide1Title": "AI Strategy Programs",
+    "slide1Title": "AI Transformation Services",
     "slide1Heading": "AI Strategy &\nTransformation Programs",
-    "slide1Subtitle": "Silicon Valley insight × real business scenarios × practical outputs",
-    "slide2Title": "Flagship Workshops",
+    "slide1Subtitle": "AI training, advisory, and FDE implementation",
+    "slide2Title": "AI Native Transformation Sprint",
     "slide2Heading": "From clarity to co-creation\nand actionable roadmaps",
-    "slide2Subtitle": "Custom programs backed by the global Founders Space network"
+    "slide2Subtitle": "From diagnosis and co-creation to FDE execution and measurable results"
   },
   "studyToursHero": {
-    "slide1Title": "Custom Study Tours",
+    "slide1Title": "Global Growth Services",
     "slide1Heading": "Global Vision,\nLocal Implementation",
-    "slide1Subtitle": "Deep exploration of Silicon Valley AI ecosystem",
-    "slide2Title": "Silicon Valley Immersion",
+    "slide1Subtitle": "Industry visits, overseas GTM, and global talent services",
+    "slide2Title": "Global Growth Path",
     "slide2Heading": "Connecting Global Resource",
-    "slide2Subtitle": "Exclusive itineraries as Founders Space Global Partners"
+    "slide2Subtitle": "From industry visits to GTM and global team setup"
   },
   "footer": {
-    "description": "The AI transformation accelerator bridging Chinese enterprises with global AI innovation",
+    "description": "The industrial accelerator for AI-native enterprises",
     "services": "Our Services",
     "contactTitle": "Contact Us",
     "company": "Company",

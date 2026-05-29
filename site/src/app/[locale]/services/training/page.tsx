@@ -8,12 +8,12 @@ type Props = {
 
 const content = {
   zh: {
-    title: "企业 AI 战略与转型培训",
+    title: "企业 AI 转型服务",
     heroDescription:
-      "面向企业家、高管与创新团队，提供结合硅谷前沿洞察、真实业务场景与行动方案输出的 AI 战略培训与转型工作坊。",
+      "面向企业家、高管与创新团队，提供结合硅谷前沿洞察、真实业务场景与 FDE 落地能力的 AI 培训、咨询与转型服务。",
     whyTitle: "为什么选择 MindsLeap",
     whyDescription:
-      "我们不是传统的培训和咨询机构，而是面向企业决策层的转型合作伙伴。依托 Founders Space 全球创新网络与多年企业项目经验，我们将硅谷一线的 AI 趋势、方法论与案例，转化为适合中国企业落地的培训、工作坊与战略共创方案。",
+      "我们不是传统的培训和咨询机构，而是面向企业决策层的转型合作伙伴。依托 Founders Space 全球创新网络与多年企业项目经验，我们将硅谷一线的 AI 趋势、方法论与案例，转化为适合中国企业落地的培训、咨询、FDE 与战略共创方案。",
     credibility: [
       { value: "15+ 年", label: "创新与创业教育经验" },
       { value: "350+", label: "教育项目与企业活动" },
@@ -23,8 +23,32 @@ const content = {
       "Founders Space 全球创新网络支持",
       "服务企业、政府、高校与创业生态",
       "兼具硅谷视野与中国企业落地经验",
-      "从培训、共创到咨询可一体化交付",
+      "从培训、咨询到 FDE 可一体化落地",
     ],
+    serviceModelTitle: "AI 培训、咨询、FDE 一体化落地",
+    serviceModelDescription:
+      "企业 AI 转型不能停留在听懂趋势和写出路线图。MindsLeap 将管理层认知、战略共创和现场落地结合起来，帮助企业从关键场景切入，跑出可验证的业务结果。",
+    serviceModel: [
+      {
+        title: "AI 培训",
+        description:
+          "帮助管理层和核心团队建立统一的 AI 认知框架，理解 AI 原生组织、Agent、Token ROI 与新一代生产力。",
+      },
+      {
+        title: "AI 咨询",
+        description:
+          "围绕企业真实业务，识别高价值 AI 场景，完成优先级排序、路线图设计和组织推进机制设计。",
+      },
+      {
+        title: "FDE 落地",
+        description:
+          "由 Forward Deployed Engineer（现场部署工程师）进入业务现场，协同客户团队搭建 AI 工作流、Agent 原型和可复盘的试点项目。",
+      },
+    ],
+    sprintTitle: "AI Native Transformation Sprint",
+    sprintDescription:
+      "以 30/60/90 天为周期，从诊断到试点再到复盘，帮助企业把 AI 转型从概念推进到真实业务成果。",
+    sprintSteps: ["AI 成熟度诊断", "场景识别与优先级排序", "AI 工作流 / Agent 试点", "FDE 现场落地", "ROI 复盘与案例沉淀"],
     flagshipTitle: "旗舰工作坊",
     flagshipPrograms: [
       {
@@ -138,13 +162,13 @@ const content = {
         description: "兼顾区域协同与团队节奏，适配多地团队与跨国组织需求。",
       },
     ],
-    outcomesTitle: "培训之后，组织将带走什么",
+    outcomesTitle: "组织将获得的收益",
     outcomes: [
       "一套适合管理层的 AI 认知框架",
       "一份明确的 AI 机会与优先级清单",
-      "一个可落地的初步行动路线图",
+      "对组织能力与资源缺口的真实判断",
       "若干可快速启动的试点方向",
-      "对组织能力与资源缺口的初步判断",
+      "一个可进入 FDE 落地的高价值场景",
       "更一致的管理层共识与推进节奏",
     ],
     casesTitle: "客户与实践经验",
@@ -156,19 +180,19 @@ const content = {
       { name: "恒安集团", industry: "消费品" },
       { name: "阿里巴巴", industry: "互联网科技" },
     ],
-    ctaTitle: "为您的团队定制 AI 培训方案",
+    ctaTitle: "为您的团队设计 AI 转型落地方案",
     ctaDescription:
-      "无论您是希望提升管理层 AI 认知、寻找业务增长机会，还是为组织设计 AI 转型路径，我们都可以根据企业现状与目标定制相应的培训与工作坊方案。",
+      "无论您是希望提升管理层 AI 认知、寻找业务增长机会，还是让 FDE 团队进入真实场景推动试点，我们都可以根据企业现状与目标定制相应的 AI 转型方案。",
     ctaPrimary: "预约沟通",
     ctaSecondary: "查看全部服务",
   },
   en: {
-    title: "AI Strategy & Transformation Programs",
+    title: "Enterprise AI Transformation Services",
     heroDescription:
-      "Designed for founders, executives, and innovation teams, our programs combine Silicon Valley insight, real business scenarios, and practical outputs to help organizations turn AI ambition into action.",
+      "Designed for founders, executives, and innovation teams, our services combine Silicon Valley insight, real business scenarios, and FDE execution to help organizations turn AI ambition into action.",
     whyTitle: "Why MindsLeap",
     whyDescription:
-      "We are not a traditional training or consulting firm. We are a transformation partner for decision-makers. Backed by the global Founders Space innovation network and years of enterprise program experience, we translate Silicon Valley AI trends, frameworks, and case studies into training, workshops, and strategic co-creation programs that teams can actually apply.",
+      "We are not a traditional training or consulting firm. We are a transformation partner for decision-makers. Backed by the global Founders Space innovation network and years of enterprise program experience, we translate Silicon Valley AI trends, frameworks, and case studies into training, advisory, FDE, and strategic co-creation programs that teams can actually apply.",
     credibility: [
       { value: "15+ Years", label: "of innovation and entrepreneurship education" },
       { value: "350+", label: "programs and enterprise engagements" },
@@ -178,8 +202,32 @@ const content = {
       "Supported by the Founders Space global innovation network",
       "Experience across corporates, governments, universities, and startup ecosystems",
       "Combines Silicon Valley perspective with China market execution",
-      "Can be delivered as training, co-creation workshops, or advisory support",
+      "Can be delivered across training, advisory, and FDE implementation",
     ],
+    serviceModelTitle: "Training, Advisory, and FDE Implementation",
+    serviceModelDescription:
+      "Enterprise AI transformation cannot stop at trend briefings or strategy decks. MindsLeap connects executive alignment, strategic co-creation, and field execution so teams can start from priority scenarios and produce measurable business outcomes.",
+    serviceModel: [
+      {
+        title: "AI Training",
+        description:
+          "Builds a shared AI framework for leadership and core teams, covering AI-native organizations, agents, Token ROI, and the next generation of productivity.",
+      },
+      {
+        title: "AI Advisory",
+        description:
+          "Identifies high-value AI scenarios around real business needs, prioritizes opportunities, and designs roadmaps and governance mechanisms.",
+      },
+      {
+        title: "FDE Implementation",
+        description:
+          "Forward Deployed Engineers work with client teams in the field to build AI workflows, agent prototypes, and pilots that can be reviewed and scaled.",
+      },
+    ],
+    sprintTitle: "AI Native Transformation Sprint",
+    sprintDescription:
+      "A 30/60/90-day path from diagnosis to pilot and review, helping enterprises move AI transformation from concept to real business outcomes.",
+    sprintSteps: ["AI maturity diagnosis", "Use-case mapping and prioritization", "AI workflow / agent pilot", "FDE field implementation", "ROI review and case capture"],
     flagshipTitle: "Flagship Workshops",
     flagshipPrograms: [
       {
@@ -299,6 +347,7 @@ const content = {
       "A prioritized list of AI opportunities",
       "An actionable first-stage roadmap",
       "Pilot directions that can launch quickly",
+      "One high-value scenario ready for FDE implementation",
       "An initial view of capability and resource gaps",
       "Stronger leadership alignment and momentum",
     ],
@@ -311,9 +360,9 @@ const content = {
       { name: "Hengan Group", industry: "Consumer Goods" },
       { name: "Alibaba", industry: "Internet Technology" },
     ],
-    ctaTitle: "Design an AI Program for Your Team",
+    ctaTitle: "Design an AI Transformation Plan for Your Team",
     ctaDescription:
-      "Whether you want to raise executive AI literacy, identify business growth opportunities, or shape a practical AI transformation path, we can tailor a program around your team's goals and current reality.",
+      "Whether you want to raise executive AI literacy, identify growth opportunities, or bring FDE support into real business scenarios, we can tailor an AI transformation plan around your team's goals and current reality.",
     ctaPrimary: "Book a Conversation",
     ctaSecondary: "Explore All Services",
   },
@@ -375,6 +424,54 @@ export default async function TrainingPage({ params }: Props) {
                   <div className="text-sm text-gray-600 leading-relaxed">{item.label}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {c.serviceModelTitle}
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              {c.serviceModelDescription}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {c.serviceModel.map((item, index) => (
+              <div
+                key={item.title}
+                className="rounded-3xl bg-white border border-gray-100 p-7 shadow-sm"
+              >
+                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-white font-bold">
+                  {index + 1}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-[32px] bg-primary text-white p-8 md:p-10 shadow-xl">
+            <div className="grid lg:grid-cols-[0.9fr_1.3fr] gap-8 items-center">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">{c.sprintTitle}</h3>
+                <p className="text-white/85 leading-relaxed">{c.sprintDescription}</p>
+              </div>
+              <div className="grid sm:grid-cols-5 gap-3">
+                {c.sprintSteps.map((step, index) => (
+                  <div
+                    key={step}
+                    className="rounded-2xl bg-white/10 border border-white/15 p-4 text-center"
+                  >
+                    <div className="text-sm text-white/60 mb-2">0{index + 1}</div>
+                    <div className="text-sm font-semibold leading-snug">{step}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

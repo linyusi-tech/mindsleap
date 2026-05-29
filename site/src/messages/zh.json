@@ -17,24 +17,24 @@
   "hero": {
     "slide5Title": "AI原生企业大会",
     "slide5Heading": "Build AI Native Organizations",
-    "slide5Subtitle": "建立适应AI时代的组织",
+    "slide5Subtitle": "从硅谷前沿到中国产业实践",
     "slide5Cta": "了解详情",
     "slide1Title": "企业家AI俱乐部",
     "slide1Heading": "Upgrade AI Mindsets\nfor Global Success",
-    "slide1Subtitle": "升级前沿AI思维，拒绝认知掉队",
-    "slide2Title": "独角兽孵化",
+    "slide1Subtitle": "与同频企业家共创AI转型",
+    "slide2Title": "创业加速",
     "slide2Heading": "Scaling Tomorrow's\nTech Giants",
-    "slide2Subtitle": "赋能全球增长，加速成为独角兽",
-    "slide3Title": "AI咨询/培训",
+    "slide2Subtitle": "加速OPC、AI原生企业与科技独角兽",
+    "slide3Title": "AI转型服务",
     "slide3Heading": "Mastering and Implementing\nAI Strategy",
-    "slide3Subtitle": "制定AI战略，落地AI项目",
-    "slide4Title": "全球研学",
+    "slide3Subtitle": "AI培训、咨询、FDE一体化落地",
+    "slide4Title": "出海服务",
     "slide4Heading": "Global Vision,\nLocal Implementation",
-    "slide4Subtitle": "深度探访前沿生态，开拓全球化视野",
+    "slide4Subtitle": "产业考察、海外市场拓展与全球人才服务",
     "slide1Cta": "我想加入俱乐部",
     "slide2Cta": "我想成为独角兽",
     "slide3Cta": "开启AI转型",
-    "slide4Cta": "我想探索全世界",
+    "slide4Cta": "开启全球市场",
     "tagline": "Upgrade AI Mindsets for Global Success",
     "subtitle": "连接中国传统企业家与全球AI前沿技术的转型加速器",
     "description": "通过社群、内容、孵化、研学四大业务，帮助企业家轻松拥抱AI，实现从焦虑到落地的「悦动」式变革",
@@ -43,11 +43,11 @@
   },
   "valueProp": {
     "title": "心智悦动，轻快变革",
-    "paragraph1": "传统企业家在AI时代普遍处于「变革焦虑」中——知道AI很重要，却找不到清晰的落地路径。与此同时，科技企业家们忙于开发各种AI、机器人等应用，但是往往缺乏有效客户和真实场景。",
-    "paragraph2": "MindsLeap联合硅谷知名孵化器Founders Space，共同构建联动新旧产业、国内外资本以及硅谷科技圈的企业家生态，为中国产业AI转型，中国企业全球化贡献一份力量。并且我们希望这个过程可以是轻松愉悦的，欢迎大家加入我们一起「悦动」。",
+    "paragraph1": "AI时代，企业竞争正在从「使用AI工具」走向「构建AI原生组织」。传统企业家需要把AI真正嵌入业务流程、组织能力和新增长曲线；AI创业者和OPC也需要真实产业场景、客户、资本与全球市场，才能从技术能力走向商业结果。",
+    "paragraph2": "MindsLeap是「AI原生企业的产业加速平台」。我们联合硅谷知名孵化器Founders Space，连接企业家、AI原生创业者、产业场景、资本与全球资源，通过AI俱乐部、AI转型服务、创业加速和出海服务，帮助企业从认知升级走向业务落地，帮助AI原生项目从真实场景走向全球市场。并且我们相信，这场变革可以是轻快、愉悦且充满行动感的。",
     "stat1Label": "硅谷知名孵化器Founders Space 全球合作伙伴",
     "stat2Label": "目标转型企业",
-    "quote": "Upgrade AI Mindsets for Global Success. 我们的使命是陪伴传统企业实现AI转型，助力科技企业更快成长。",
+    "quote": "Upgrade AI Mindsets for Global Success. 我们的使命是陪伴传统企业AI转型，助力AI原生企业更快成长。",
     "quoteRole": "MindsLeap 创始人 & CEO",
     "quoteRole2": "Founders Space 全球合伙人",
     "hoffmanQuote": "Founders Space and MindsLeap are coming together to help entrepreneurs and businesses transform with AI.",
@@ -55,26 +55,26 @@
   },
   "business": {
     "title": "MindsLeap核心业务",
-    "subtitle": "四大板块全方位助力AI转型",
+    "subtitle": "连接企业家、产业场景、AI原生项目与全球市场",
     "aiClub": {
-      "title": "AI俱乐部",
-      "description": "助力企业家实现AI转型，30-50人精品闭门私享会，优秀企业家同频共创，制定战略，落地项目。",
+      "title": "企业家AI俱乐部",
+      "description": "面向企业家的AI转型社群，通过私享会、Workshop、企业参访与产业共创，建立新认知、新连接和新行动。",
       "tag": "核心产品"
     },
     "incubation": {
       "title": "创业加速",
-      "description": "通过辅导、陪跑、路演等形式，理清战略，连接客户与投资人，加速独角兽企业成长。",
-      "tag": "ToB 服务"
+      "description": "面向OPC、AI原生企业与科技独角兽，连接产业场景、导师网络、资本与全球市场。",
+      "tag": "AI 原生项目"
     },
     "training": {
       "title": "AI转型服务",
-      "description": "硅谷大咖AI培训、AI战略咨询、转型陪跑、变革领导力，提升企业AI时代竞争力。",
-      "tag": "ToB 服务"
+      "description": "提供AI培训、战略咨询与FDE一体化落地服务，帮助企业识别高价值场景，跑出可衡量的业务结果。",
+      "tag": "企业服务"
     },
     "studyTours": {
       "title": "出海服务",
-      "description": "深度考察全球商业机会，硅谷GTC大会、名校参访、企业走访，认知升级+资源对接。",
-      "tag": "高端产品"
+      "description": "通过产业考察、海外市场拓展与全球人才服务，帮助中国企业连接国际资源和全球增长机会。",
+      "tag": "全球增长"
     },
     "learnMore": "了解详情"
   },
@@ -83,7 +83,8 @@
     "subtitle": "MindsLeap构建基于AI的全球资源的网络，居于生态的中心，连接传统企业与AI创新者，资本以及硅谷生态。",
     "network1": "Founders Space 全球网络",
     "network2": "顶尖大学AI实验室（斯坦福/伯克利）",
-    "network3": "科技巨头（Google/NVIDIA/联想）",
+    "network3": "科技巨头（Google/NVIDIA/TESLA）",
+    "network4": "国内国际资本（天使、VC、PE）",
     "traditional": "传统行业创始人社群",
     "ai": "AI+机器人企业创始人社群",
     "silicon": "硅谷湾区AI创始人生态",
@@ -132,10 +133,10 @@
   "aboutHero": {
     "slide1Title": "关于MindsLeap",
     "slide1Heading": "心智悦动\n轻快变革",
-    "slide1Subtitle": "AI时代的企业转型加速器",
+    "slide1Subtitle": "AI原生企业的产业加速平台",
     "slide2Title": "Founders Space 全球合作伙伴",
     "slide2Heading": "连接中国与硅谷\n共创AI未来",
-    "slide2Subtitle": "构建全球企业家生态网络"
+    "slide2Subtitle": "连接企业家、AI原生创业者、产业场景与全球资源"
   },
   "servicesHero": {
     "slide1Title": "MindsLeap核心业务",
@@ -164,22 +165,42 @@
   "about": {
     "title": "关于MindsLeap",
     "mission": "品牌使命",
-    "missionText": "陪伴中国传统企业AI转型，助力中国科技企业更快成长",
-    "missionSubText": "",
+    "missionBrand": "MindsLeap 心智悦动",
+    "missionText": "Upgrade AI Mindsets for Global Success",
+    "missionSubText": "陪伴传统企业AI转型，助力AI原生企业更快成长",
     "vision": "品牌愿景",
     "story": "品牌故事",
-    "storyText": "MindsLeap（心智悦动）致力于打造AI时代的全球生态网络，构建链接传统企业家、AI/机器人等前沿科技创始人、投资人以及硅谷创业者四个核心生态位网络，帮助企业创始人和组织实现AI转型，智胜全球市场。",
-    "naming": "\"心\"代表心智与思维，\"智\"代表智慧与AI，\"悦\"代表喜悦与轻松，\"动\"代表行动与变革。心智悦动：让AI转型不再痛苦，而是一场愉悦的认知升级之旅。",
+    "storyText": "MindsLeap（心智悦动）是「AI原生企业的产业加速平台」。我们连接企业家、AI原生创业者、产业场景、资本与全球资源，帮助传统企业从AI认知走向业务落地，也帮助OPC、AI原生企业与科技独角兽从真实场景走向全球市场。",
+    "naming": "\"心\"代表心智与思维，\"智\"代表智慧与AI，\"悦\"代表喜悦与轻快，\"动\"代表行动与变革。心智悦动：让AI转型不只是焦虑和压力，而是一场有认知、有方法、有行动、有结果的跃迁。",
+    "acceleratorTitle": "我们如何加速AI原生企业",
+    "acceleratorItems": [
+      {
+        "title": "AI俱乐部",
+        "description": "汇聚同频企业家，通过私享会、Workshop、企业参访和产业共创，建立面向AI时代的新认知与新连接。"
+      },
+      {
+        "title": "AI转型服务",
+        "description": "提供AI培训、咨询与FDE一体化落地服务，帮助企业识别高价值场景，跑出可衡量的业务结果。"
+      },
+      {
+        "title": "创业加速",
+        "description": "面向OPC、AI原生企业与科技独角兽，连接产业场景、导师网络、资本与全球市场。"
+      },
+      {
+        "title": "出海服务",
+        "description": "通过产业考察、海外市场拓展与全球人才服务，帮助中国企业连接国际资源和全球增长机会。"
+      }
+    ],
     "founders": "创始团队",
-    "lincolnName": "Lincoln",
+    "lincolnName": "王林 Lincoln",
     "lincolnRole": "MindsLeap 创始人 & CEO",
     "lincolnRole2": "Founders Space 全球合伙人",
-    "lincolnBio": "曾担任全球排名第一教育科技公司32亿美元独角兽Emeritus中国区首席运营官，维京游轮中国区营销副总裁。拥有丰富的AI创业圈及硅谷资源，丰富的企业家战略辅导、企业培训与战略咨询、企业家社区资源链接，以及全球研学设计与运营经验。",
-    "yusiName": "Yusi",
+    "lincolnBio": "曾担任全球排名第一教育科技公司32亿美元独角兽Emeritus中国区首席运营官，维京游轮中国区营销副总裁。拥有丰富的AI创业圈、硅谷资源、企业家战略辅导、企业AI转型咨询、企业家社群运营与全球市场连接经验，长期关注AI原生企业、OPC和中国企业全球化机会。",
+    "yusiName": "林雨思 Yusi",
     "yusiRole": "MindsLeap 联合创始人 & CPO",
-    "yusiBio": "曾担任全球排名第一教育科技公司32亿美元独角兽Emeritus中国区产品负责人、前纳斯达克上市教育公司少儿产品线负责人，字节跳动教育出海业务资深产品经理。主导过十余款产品从0到1的构建，服务用户超百万。拥有丰富的硅谷人脉与全球AI创投资源，擅长整合前沿技术与教育创新，驱动产品与业务增长。",
+    "yusiBio": "曾担任全球排名第一教育科技公司32亿美元独角兽Emeritus中国区产品负责人、前纳斯达克上市教育公司少儿产品线负责人，字节跳动教育出海业务资深产品经理。主导过十余款产品从0到1的构建，服务用户超百万。作为MindsLeap联合创始人兼CPO，负责产品体系、服务产品化、交付标准与客户体验，推动AI俱乐部、AI转型服务、创业加速和出海服务形成可复制的业务体系。",
     "partnership": "Founders Space 全球合作伙伴",
-    "partnershipText": "MindsLeap是Founders Space的全球合作伙伴。Founders Space是一家全球风险投资平台，在22个国家/地区拥有50个战略合作伙伴。Founders Space的业务遍及全球，旨在帮助创业者、政府和企业运用人工智能进行创新并加速增长。"
+    "partnershipText": "MindsLeap是Founders Space的全球合作伙伴。Founders Space是一家全球风险投资平台，在22个国家/地区拥有50个战略合作伙伴，长期服务创业者、政府和企业创新生态。通过这一全球网络，MindsLeap将硅谷导师、国际资本、产业资源和全球市场机会引入中国企业与AI原生创业生态。"
   },
   "services": {
     "title": "业务板块",
@@ -229,28 +250,28 @@
     "slide4Subtitle": "学习领先企业的最佳实践"
   },
   "incubationHero": {
-    "slide1Title": "独角兽孵化",
+    "slide1Title": "创业加速",
     "slide1Heading": "Scaling Tomorrow's\nTech Giants",
-    "slide1Subtitle": "联合Founders Space，赋能全球增长",
-    "slide2Title": "Hoffman亲自指导",
+    "slide1Subtitle": "加速OPC、AI原生企业与科技独角兽",
+    "slide2Title": "产业命题驱动",
     "slide2Heading": "Becoming a Unicorn",
-    "slide2Subtitle": "加速成长为独角兽"
+    "slide2Subtitle": "从真实产业场景出发，连接客户、资本与全球资源"
   },
   "trainingHero": {
-    "slide1Title": "AI 战略培训",
+    "slide1Title": "AI 转型服务",
     "slide1Heading": "Mastering and Implementing\nAI Strategy",
-    "slide1Subtitle": "硅谷前沿洞察 × 企业真实场景 × 可落地行动方案",
-    "slide2Title": "旗舰工作坊",
+    "slide1Subtitle": "AI培训、咨询、FDE一体化落地",
+    "slide2Title": "AI Native Transformation Sprint",
     "slide2Heading": "From Insight to Co-Creation\nBuilding Actionable Roadmaps",
-    "slide2Subtitle": "Founders Space 全球资源支持的定制化培训与战略共创"
+    "slide2Subtitle": "从诊断、共创到FDE落地，跑出可衡量的业务结果"
   },
   "studyToursHero": {
-    "slide1Title": "定制研学",
+    "slide1Title": "出海服务",
     "slide1Heading": "Global Vision,\nLocal Implementation",
-    "slide1Subtitle": "深度探访硅谷AI前沿生态",
-    "slide2Title": "硅谷深度体验",
+    "slide1Subtitle": "产业考察、海外市场拓展与全球人才服务",
+    "slide2Title": "全球增长路径",
     "slide2Heading": "Connecting Global Resource",
-    "slide2Subtitle": "与全球科技高地深度链接"
+    "slide2Subtitle": "从产业考察到GTM与全球团队搭建"
   },
   "footer": {
     "description": "连接中国传统企业家与全球AI前沿技术的转型加速器",

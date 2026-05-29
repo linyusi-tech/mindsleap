@@ -16,7 +16,7 @@ export default function EcosystemSection() {
               {t("subtitle")}
             </p>
             <ul className="space-y-4">
-              {["network1", "network2", "network3"].map((key) => (
+              {["network1", "network2", "network3", "network4"].map((key) => (
                 <li key={key} className="flex items-center space-x-3 text-[#1e477c] font-semibold">
                   <span className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center text-xs flex-shrink-0">
                     &#10003;
@@ -28,7 +28,7 @@ export default function EcosystemSection() {
           </div>
           <div className="lg:col-span-3">
             <Image
-              src="/images/ecosystem-chart.jpg"
+              src="/images/MindsLeapecosystem.png"
               alt="MindsLeap Global Eco-system"
               width={800}
               height={500}

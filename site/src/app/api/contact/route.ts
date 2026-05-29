@@ -7,10 +7,15 @@ const contactFromEmail =
   process.env.CONTACT_FROM_EMAIL || "MindsLeap <contact@mindsleap.cn>";
 
 const INTEREST_LABELS: Record<string, string> = {
-  "ai-club": "企业家AI俱乐部",
-  incubation: "独角兽孵化",
-  training: "高管培训/战略咨询",
-  "study-tours": "全球研学",
+  "ai-club": "AI俱乐部",
+  "ai-transformation": "AI转型服务",
+  accelerator: "创业加速",
+  "global-growth": "出海服务",
+  "media-research": "动态 / 媒体 / 研究合作",
+  "government-park": "政府 / 园区合作",
+  incubation: "创业加速",
+  training: "AI转型服务",
+  "study-tours": "出海服务",
   other: "其他合作",
 };
 
