@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="magazine" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FDE 产业商业模式研究报告</title>
+  <link rel="stylesheet" href="https://www.mindsleap.ai/design-system/deck-template/colors_and_type.css" />
+  <link rel="stylesheet" href="https://www.mindsleap.ai/design-system/deck-template/deck.css" />
+  <style>
+    html, body { width: 100%; min-height: 100%; height: auto; margin: 0; overflow-x: hidden; background: #0a0a0a; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    deck-stage.report-stage { display: block; min-height: 100vh; padding: 28px 0 44px; background: radial-gradient(circle at 50% 0, rgba(255,255,255,.08), transparent 42%), #0a0a0a; }
+    .slide-frame { position: relative; margin: 0 auto 32px; overflow: hidden; background: var(--bg); box-shadow: 0 22px 70px rgba(0,0,0,.48); }
+    .slide-frame > .slide { position: absolute; left: 0; top: 0; transform-origin: top left; }
+    @media (min-width: 760px) { .slide-frame:last-child { margin-bottom: 0; } }
+    html[data-theme="magazine"] { --logo-img: url("/images/joint-logo-blue.svg"); }
+    .slide .accent { color: var(--accent); }
+    .slide .muted { color: var(--ink-muted); }
+    .slide:not(.no-chrome)::after { content: attr(data-page); }
+    .slide:not(.no-chrome)::before { width: 620px; height: 124px; bottom: 22px; opacity: 1; background-size: contain; background-position: left center; background-repeat: no-repeat; }
+    .slide.body { padding-bottom: 286px; }
+    .slide.body.statement, .slide.body.kpi { padding-bottom: 286px; }
+    .slide.cover { display: flex; padding-right: 160px; }
+    .slide.cover .col-text { width: 100%; max-width: 1360px; }
+    .slide.cover .cover-title { font-size: 164px; line-height: .95; }
+    .slide.cover .cover-title.zh { font-size: 118px; line-height: 1.08; max-width: 1280px; }
+    .slide.cover .cover-tagline { max-width: 920px; }
+    .slide.cover .cover-meta { width: 100%; max-width: 980px; padding-top: 34px; border-top: 1px solid var(--rule); }
+    .cover-aside { position: absolute; right: 160px; bottom: 210px; width: 430px; border-top: 5px solid var(--accent); border-bottom: 1px solid var(--rule); padding: 34px 0 30px; }
+    .cover-aside .issue { font: 700 18px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: 50px; }
+    .cover-aside .big { font: 700 72px/.96 var(--font-heading); color: var(--ink); letter-spacing: -.02em; margin-bottom: 28px; }
+    .cover-aside ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+    .cover-aside li { display: flex; justify-content: space-between; gap: 24px; padding-top: 18px; border-top: 1px solid var(--rule); font: 600 20px/1.25 var(--font-body); color: var(--ink); }
+    .cover-aside li span { font-family: var(--font-mono); font-size: 15px; letter-spacing: .14em; color: var(--ink-subtle); }
+    .slide.cover .logo, .slide.contact .logo { width: 620px; height: 124px; background-size: contain; background-position: left center; background-repeat: no-repeat; }
+    .pillar-icon { width: 68px; height: 68px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; background: color-mix(in oklab, var(--accent-soft) 18%, var(--bg)); color: var(--accent); }
+    .pillar-icon svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .slide.features .col { padding: 34px 30px 30px; }
+    .slide.features .col p { font: 400 25px/1.45 var(--font-body); }
+    .slide.features .col footer { font-size: 18px; margin-top: 26px; padding-top: 20px; }
+    .slide.compare .pair { flex: 0 0 480px; min-height: 480px; }
+    .matrix-grid { display: grid; grid-template-columns: 1.05fr 1fr 1fr; gap: 28px; margin-top: 28px; flex: 0 0 auto; }
+    .market-card { background: var(--card-bg); border: 1px solid var(--card-rule); border-top: 4px solid var(--accent); padding: 32px 30px 28px; display: flex; flex-direction: column; min-height: 350px; }
+    .market-card .tag { font: 700 14px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--eyebrow); margin-bottom: 18px; }
+    .market-card h3 { font: 700 42px/1.12 var(--font-heading); color: var(--ink); margin: 0 0 20px; }
+    .market-card p, .market-card li { font: 400 26px/1.42 var(--font-body); color: var(--ink-muted); }
+    .market-card ul { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 14px; }
+    .market-foot { margin-top: auto; padding-top: 22px; border-top: 1px solid var(--rule); font: 700 17px/1 var(--font-body); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+    .sop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 34px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); flex: 1; }
+    .sop-step { padding: 34px 38px; border-left: 1px solid var(--rule); display: flex; flex-direction: column; }
+    .sop-step:first-child { border-left: 0; }
+    .sop-step .n { display: block; font: 700 66px/1 var(--font-heading); color: var(--accent); font-variant-numeric: tabular-nums; margin-bottom: 38px; }
+    .sop-step h3 { font: 700 42px/1.1 var(--font-heading); color: var(--ink); margin: 0; }
+    .sop-step .time { font: 700 17px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: var(--eyebrow); margin: 16px 0 22px; }
+    .sop-step p { font: 400 26px/1.42 var(--font-body); color: var(--ink-muted); margin: 0; }
+    .sop-result { margin-top: auto; padding-top: 30px; border-top: 1px solid var(--rule); font: 700 16px/1 var(--font-body); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+    .offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 34px; flex: 1; }
+    .offer { background: var(--card-bg); border: 1px solid var(--card-rule); padding: 40px 32px 34px; display: flex; flex-direction: column; justify-content: space-between; }
+    .offer .fee { font: 700 46px/1.05 var(--font-heading); color: var(--accent); letter-spacing: -.02em; }
+    .offer h3 { font: 700 34px/1.16 var(--font-heading); color: var(--ink); margin: 28px 0 16px; }
+    .offer p { font: 400 24px/1.42 var(--font-body); color: var(--ink-muted); margin: 0; }
+    .offer footer { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule); font: 700 16px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+    @media (max-width: 759px) {
+      html, body { background: #f3eee5; }
+      deck-stage.report-stage { padding: 0; background: #f3eee5; }
+      .slide-frame { width: 100%; height: auto; margin: 0; overflow: visible; box-shadow: none; border-bottom: 1px solid var(--rule); }
+      .slide-frame > .slide, .slide { position: relative !important; inset: auto !important; width: 100% !important; height: auto !important; min-height: 100svh; transform: none !important; overflow: visible; }
+      .slide { padding: 38px 22px 56px !important; }
+      .slide:not(.no-chrome)::before, .slide:not(.no-chrome)::after { display: none !important; }
+      .slide .eyebrow, .eyebrow { font-size: 12px; line-height: 1.2; letter-spacing: .16em; }
+      .eyebrow .dot { margin: 0 8px; }
+      h1.slide-title, .slide-title { font-size: clamp(30px, 9vw, 42px); line-height: 1.12; letter-spacing: 0; margin-top: 18px; }
+      .slide-title .en { font-size: 15px; line-height: 1.45; letter-spacing: 0; margin-top: 12px; }
+      .slide-bar { width: 56px; height: 4px; margin-top: 18px; }
+      .slide.cover { display: flex !important; flex-direction: column; gap: 0; }
+      .slide.cover .col-text { gap: 34px; padding-bottom: 0; }
+      .slide.cover .logo, .slide.contact .logo { width: min(100%, 250px); height: 50px; }
+      .slide.cover .cover-eyebrow { font-size: 12px; line-height: 1.35; letter-spacing: .16em; margin: 28px 0 14px; }
+      .slide.cover .cover-title { font-size: clamp(58px, 18vw, 86px); line-height: .96; letter-spacing: 0; }
+      .slide.cover .cover-title.zh { font-size: clamp(36px, 10vw, 52px); line-height: 1.12; margin-top: 14px; }
+      .slide.cover .cover-tagline { font-size: 17px; line-height: 1.55; margin-top: 24px; }
+      .slide.cover .cover-meta { display: grid; gap: 12px; font-size: 12px; line-height: 1.35; letter-spacing: .12em; padding-top: 22px; }
+      .slide.cover .cover-meta b { margin-bottom: 4px; letter-spacing: .12em; }
+      .cover-aside { position: static; width: 100%; border-top-width: 4px; padding: 24px 0 0; margin-top: 30px; }
+      .cover-aside .issue { font-size: 11px; letter-spacing: .18em; margin-bottom: 24px; }
+      .cover-aside .big { font-size: 38px; line-height: 1; margin-bottom: 18px; }
+      .cover-aside ul { gap: 0; }
+      .cover-aside li { font-size: 15px; line-height: 1.35; padding: 13px 0; }
+      .cover-aside li span { font-size: 11px; }
+      .slide.agenda .agenda-grid { grid-template-columns: 1fr; gap: 0; margin-top: 30px; }
+      .slide.agenda .ag-row { grid-template-columns: 52px 1fr; gap: 14px; padding: 16px 0; }
+      .slide.agenda .ag-num { font-size: 26px; }
+      .slide.agenda .ag-title { font-size: 22px; }
+      .slide.agenda .ag-en { font-size: 13px; margin-top: 4px; }
+      .slide.divider { display: flex !important; flex-direction: column; justify-content: center; gap: 28px; }
+      .slide.divider .num { font-size: 82px; }
+      .slide.divider .label { font-size: 12px; letter-spacing: .18em; }
+      .slide.divider h2 { font-size: clamp(36px, 11vw, 52px); line-height: 1.08; }
+      .slide.divider h2 .en, .slide.divider .desc { font-size: 16px; line-height: 1.55; }
+      .slide.statement .frame { padding: 0; border: 0; }
+      .slide.statement .stmt { font-size: clamp(34px, 10vw, 48px); line-height: 1.14; letter-spacing: 0; }
+      .slide.statement .stmt-en { font-size: 16px; line-height: 1.55; }
+      .slide.compare .pair, .slide.features .grid, .slide.kpi .grid, .slide.bullets .body-row, .body-row, .matrix-grid, .sop-grid, .offer-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 28px; }
+      .slide.compare .pair { flex: none; width: 100%; min-width: 0; min-height: 0; }
+      .slide.compare .panel, .slide.features .col, .slide.kpi .cell, .market-card, .sop-step, .offer { min-width: 0; min-height: 0; padding: 24px 20px; overflow-wrap: anywhere; }
+      .slide.compare .panel h3, .slide.features .col h3, .market-card h3, .sop-step h3, .offer h3 { font-size: 26px; line-height: 1.18; margin-top: 0; }
+      .slide.compare .panel li, .slide.features .col p, .market-card p, .market-card li, .sop-step p, .offer p, .b-desc { font-size: 16px !important; line-height: 1.55 !important; }
+      .slide.features .col footer, .market-foot, .sop-result, .offer footer { font-size: 11px; line-height: 1.25; letter-spacing: .16em; }
+      .pillar-icon { width: 46px; height: 46px; margin-bottom: 18px; }
+      .pillar-icon svg { width: 26px; height: 26px; }
+      .slide.kpi .grid { grid-template-columns: 1fr 1fr; }
+      .slide.kpi .cell .num { font-size: 40px; }
+      .slide.kpi .cell .unit { font-size: 18px; }
+      .slide.kpi .cell .label { font-size: 13px; }
+      .body-row ul { gap: 16px; }
+      .body-row li { gap: 14px; }
+      .chk { width: 38px; height: 38px; font-size: 13px; }
+      .b-title { font-size: 22px; }
+      .sop-grid { border: 0; }
+      .sop-step { border: 1px solid var(--rule) !important; }
+      .sop-step .n { font-size: 44px; margin-bottom: 20px; }
+      .sop-step .time, .market-card .tag { font-size: 11px; letter-spacing: .16em; }
+      .offer .fee { font-size: 34px; }
+      .slide.contact { display: flex !important; flex-direction: column; gap: 34px; }
+      .slide.contact .spacer { height: 38px; }
+      .slide.contact .ty { font-size: clamp(54px, 16vw, 78px); line-height: 1; }
+      .slide.contact .ty-en, .slide.contact .invite, .slide.contact .channel .val { font-size: 16px; line-height: 1.55; }
+      .slide.contact .channels { display: grid; gap: 14px; }
+      .slide.contact .channel { padding: 18px 0; }
+    }
+  </style>
+</head>
+<body>
+<deck-stage class="report-stage" width="1920" height="1080">
+  <section class="slide cover no-chrome" data-label="封面 Cover"><div class="col-text"><div><div class="logo"></div><div class="cover-eyebrow">Industry Report · 2026</div><h1 class="cover-title">FDE<span class="lf">.</span></h1><h2 class="cover-title zh">产业商业模式研究</h2><p class="cover-tagline">Forward Deployed Engineering 如何成为企业 AI 从演示走向生产的关键交付形态。</p></div><div class="cover-meta"><div><b>主题 · TOPIC</b>FDE 商业化路径</div><div><b>形式 · FORMAT</b>HTML Report Deck</div><div><b>日期 · DATE</b>2026-06-04</div></div></div><aside class="cover-aside" aria-label="Research report index"><div class="issue">Research Brief · 01</div><div class="big">From Demo<br/>to Production</div><ul><li><span>01</span>海外收费模式</li><li><span>02</span>FDE 人才画像</li><li><span>03</span>中国商业化路径</li></ul></aside></section>
+  <section class="slide body agenda" data-label="目录 Agenda" data-page="02"><div class="eyebrow">Agenda <span class="dot">·</span> 目录</div><h1 class="slide-title">这份报告回答六个问题<span class="en">Six questions behind the FDE opportunity.</span></h1><span class="slide-bar"></span><div class="agenda-grid"><div class="ag-row"><div class="ag-num">01</div><div><div class="ag-title">FDE 是什么</div><div class="ag-en">Definition</div></div></div><div class="ag-row"><div class="ag-num">04</div><div><div class="ag-title">国内市场机会</div><div class="ag-en">China market</div></div></div><div class="ag-row"><div class="ag-num">02</div><div><div class="ag-title">海外怎么赚钱</div><div class="ag-en">Commercial models</div></div></div><div class="ag-row"><div class="ag-num">05</div><div><div class="ag-title">如何推进项目</div><div class="ag-en">Delivery SOP</div></div></div><div class="ag-row"><div class="ag-num">03</div><div><div class="ag-title">谁能胜任 FDE</div><div class="ag-en">Talent profile</div></div></div><div class="ag-row"><div class="ag-num">06</div><div><div class="ag-title">创业如何切入</div><div class="ag-en">Go-to-market</div></div></div></div></section>
+  <section class="slide divider no-chrome" data-label="章节 · Definition"><div><div class="num">01</div></div><div><span class="label">Definition</span><h2>FDE 是什么<span class="en">Not outsourcing. Not pre-sales. A production loop embedded inside the customer environment.</span></h2><p class="desc">FDE 把资深工程师放到客户现场，负责从需求识别、系统设计、代码实现、集成、评估、上线到知识转移的完整闭环。</p></div></section>
+  <section class="slide body statement" data-label="核心判断" data-page="04"><div class="frame"><div class="eyebrow">Core Thesis <span class="dot">·</span> 核心判断</div><h1 class="stmt">企业 AI 的瓶颈不再只是模型能力，<br/>而是把模型嵌入真实业务的 <em>现场工程能力</em>。</h1><p class="stmt-en">FDE is the bridge from "the demo works" to "the workflow is live, governed, adopted, and improving every sprint."</p></div></section>
+  <section class="slide body compare" data-label="对比 · Traditional vs FDE" data-page="05"><div class="eyebrow">From Delivery to Production <span class="dot">·</span> 从交付到生产</div><h1 class="slide-title">FDE 与传统外包 / 咨询的关键差异<span class="en">The difference is accountability for adoption and production outcomes.</span></h1><span class="slide-bar"></span><div class="pair"><div class="panel now"><h3>传统交付</h3><div class="zh-en">Project Output</div><ul><li>按范围和人天交付</li><li>主要输出方案、代码或配置</li><li>上线后由客户自己消化</li><li>反馈很难系统反哺产品</li><li>验收常停在“完成”</li></ul></div><div class="panel next"><h3>FDE 闭环</h3><div class="zh-en">Production Adoption</div><ul><li>嵌入客户真实环境</li><li>连接模型、数据、系统和权限</li><li>边用边调，推动真实用户采纳</li><li>把重复模式沉淀为产品资产</li><li>验收围绕业务影响</li></ul></div></div></section>
+  <section class="slide body features" data-label="海外模式" data-page="06"><div class="eyebrow">Commercial Models <span class="dot">·</span> 海外商业化模式</div><h1 class="slide-title">海外已经出现三类清晰路径<span class="en">FDE monetizes differently depending on who owns the platform, customer access, and delivery muscle.</span></h1><span class="slide-bar"></span><div class="grid"><div class="col"><div class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5l8-3 8 3v14l-8 3-8-3Z"/><path d="M12 2v20M4 5l8 4 8-4"/></svg></div><div class="f-eyebrow">01 Platform</div><h3>平台公司内生 FDE</h3><p>代表：Palantir、OpenAI、Anthropic。核心收入来自平台、模型、API、订阅和多年合同，FDE 放大成交、扩张与留存，把 PoC 推进到多部门生产系统。</p><footer>Higher ACV</footer></div><div class="col"><div class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 3-5 5 5 5"/><path d="m16 3 5 5-5 5"/><path d="m14 4-4 16"/></svg></div><div class="f-eyebrow">02 Firm</div><h3>独立 FDE 工程公司</h3><p>代表：Embed Engineering、Amplify IT、FORDEA。通过诊断 Sprint、固定项目、长期嵌入团队和 Retainer 收费，卖点是交付生产代码而非咨询方案。</p><footer>Ship code</footer></div><div class="col"><div class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-7h6v7"/><path d="M9 9h.01M12 9h.01M15 9h.01"/></svg></div><div class="f-eyebrow">03 SI</div><h3>咨询 / SI 升级</h3><p>代表：Deloitte、Accenture、Fujitsu。把战略咨询、系统集成、AI 工程能力合并成企业转型交付，借既有客户入口规模化进入受监管行业。</p><footer>Enterprise reach</footer></div><div class="col"><div class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.3"/><path d="M3 12A9 9 0 0 1 18.5 5.7"/><path d="M21 4v5h-5"/><path d="M3 20v-5h5"/></svg></div><div class="f-eyebrow">04 Hybrid</div><h3>产品 + 服务飞轮</h3><p>现场交付积累部署模式、评估方法、合规模板和行业组件，最终反哺平台与行业产品，把服务经验转成可复制资产。</p><footer>Moat building</footer></div></div></section>
+  <section class="slide body kpi" data-label="海外报价与数据" data-page="07"><div class="eyebrow">Signals <span class="dot">·</span> 海外商业信号</div><h1 class="slide-title">FDE 的直接毛利未必最高，但能显著放大客户价值<span class="en">The service layer trades margin for deeper workflow lock-in.</span></h1><span class="slide-bar"></span><div class="grid"><div class="cell"><div class="num">15<span class="unit">万</span></div><div class="label">美元起<span class="en">Typical project floor</span></div></div><div class="cell"><div class="num">50<span class="unit">万</span></div><div class="label">美元项目<span class="en">Public upper sample</span></div></div><div class="cell"><div class="num">5<span class="unit">万</span></div><div class="label">美元/月起<span class="en">Embedded team</span></div></div><div class="cell"><div class="num">4<span class="unit">B</span></div><div class="label">美元初始投资<span class="en">OpenAI Deployment Co.</span></div></div></div></section>
+  <section class="slide body bullets" data-label="人才画像" data-page="08"><div class="eyebrow">Talent Profile <span class="dot">·</span> 人才画像</div><h1 class="slide-title">FDE 是“会写生产代码的现场负责人”<span class="en">The job combines senior engineering, customer-facing judgment, and AI application craft.</span></h1><span class="slide-bar"></span><div class="body-row"><ul><li><div class="chk">01</div><div><div class="b-title">工程能力</div><div class="b-desc">Python、TypeScript、全栈、API、数据工程、云、部署、生产级代码。</div></div></li><li><div class="chk">02</div><div><div class="b-title">客户现场能力</div><div class="b-desc">能面对业务、产品、工程、IT、安全、合规和高层，把流程问题转成技术方案。</div></div></li></ul><ul><li><div class="chk">03</div><div><div class="b-title">AI 应用工程能力</div><div class="b-desc">RAG、Agent、Workflow、Prompt、Eval、模型质量、成本与延迟优化。</div></div></li><li><div class="chk">04</div><div><div class="b-title">高不确定性推进</div><div class="b-desc">在复杂客户环境里拆问题、做取舍、推动上线、培训交接和持续优化。</div></div></li></ul></div></section>
+  <section class="slide body" data-label="中国市场" data-page="09"><div class="eyebrow">China Market <span class="dot">·</span> 中国市场机会</div><h1 class="slide-title">国内 FDE 化首先会长在私有化、硬件栈和行业场景里<span class="en">The Chinese market is likely to monetize through deployment, infrastructure, and vertical workflows.</span></h1><span class="slide-bar"></span><div class="matrix-grid"><div class="market-card"><div class="tag">Model Platform</div><h3>大模型平台 + 行业方案</h3><p>平台/API/模型调用费、私有化部署、算力云资源、项目实施、运维和现场 FDE 服务费组合收费。</p><ul><li>代表：火山方舟、百度千帆、阿里百炼、腾讯云、华为云、智谱等。</li></ul><div class="market-foot">Platform + Delivery Fee</div></div><div class="market-card"><div class="tag">Appliance</div><h3>AI 一体机 + 现场工程师</h3><p>适合政企、制造、医疗、金融等本地化、安全、国产化、硬件栈要求强的客户。</p><ul><li>收入来自硬件、部署费、年度运维、驻场或巡检服务包。</li></ul><div class="market-foot">Hardware + Retainer</div></div><div class="market-card"><div class="tag">Vertical Agent</div><h3>垂直行业 Agent 公司</h3><p>先用行业模板降低首个项目成本，再由 FDE 做数据接入、流程嵌入、效果调优与多场景扩展。</p><ul><li>适合政务、法律、财税、医疗、教育、制造、销售运营等。</li></ul><div class="market-foot">Product + FDE</div></div></div></section>
+  <section class="slide body" data-label="项目推进 SOP" data-page="10"><div class="eyebrow">Delivery SOP <span class="dot">·</span> 项目推进方法</div><h1 class="slide-title">成熟 FDE 项目通常分成四个阶段<span class="en">A production-oriented delivery rhythm: discover, architect, build, transfer.</span></h1><span class="slide-bar"></span><div class="sop-grid"><div class="sop-step"><span class="n">01</span><h3>Discovery</h3><div class="time">1-2 weeks</div><p>梳理业务流程、数据源、系统边界、权限、合规约束、利益相关方和 ROI 指标。</p><div class="sop-result">Use-case priority</div></div><div class="sop-step"><span class="n">02</span><h3>Architecture</h3><div class="time">~1 week</div><p>确定集成方式、模型/工具选择、数据管道、权限审计、人机协同和最小上线范围。</p><div class="sop-result">Production scope</div></div><div class="sop-step"><span class="n">03</span><h3>Build</h3><div class="time">3-12 weeks</div><p>嵌入式 sprint，每两周发布可用增量，建立 eval、监控、日志、回退和人工审核机制。</p><div class="sop-result">Live workflow</div></div><div class="sop-step"><span class="n">04</span><h3>Transfer</h3><div class="time">Throughout</div><p>文档、培训、pairing、运维手册、二次开发方式和成功指标复盘。</p><div class="sop-result">Team independence</div></div></div></section>
+  <section class="slide body features" data-label="成功指标" data-page="11"><div class="eyebrow">Success Metrics <span class="dot">·</span> 成功指标</div><h1 class="slide-title">验收指标应从“完成交付”转向“生产采纳”<span class="en">Measure whether the workflow actually runs in production.</span></h1><span class="slide-bar"></span><div class="grid"><div class="col"><div class="f-eyebrow">01 Speed</div><h3>Time-to-production</h3><p>从 PoC 到真实用户使用的周期。建议拆成首个生产用户、首个部门上线、首个跨部门场景三个里程碑跟踪。</p><footer>Launch rhythm</footer></div><div class="col"><div class="f-eyebrow">02 Use</div><h3>Adoption</h3><p>业务团队真实使用率、关键流程覆盖率。重点看系统是否进入日常工作流，而不是只看演示或培训参与度。</p><footer>Real usage</footer></div><div class="col"><div class="f-eyebrow">03 Impact</div><h3>Business impact</h3><p>节省工时、提升响应速度、降低错误率、提高收入或转化。每个项目都应绑定一个可复盘的 ROI 假设。</p><footer>ROI</footer></div><div class="col"><div class="f-eyebrow">04 Control</div><h3>Reliability & Governance</h3><p>延迟、错误率、SLA、人工接管率、权限、审计、合规例外数。受监管行业尤其需要把控制指标前置。</p><footer>Trust</footer></div></div></section>
+  <section class="slide body" data-label="创业商业包" data-page="12"><div class="eyebrow">Go-to-market <span class="dot">·</span> 创业建议</div><h1 class="slide-title">中国版 FDE 公司不宜从泛 AI 咨询开始<span class="en">Start from one painful vertical and package repeatable delivery units.</span></h1><span class="slide-bar"></span><div class="offer-grid"><div class="offer"><div><div class="fee">3-10万</div><h3>2 周 AI 落地诊断</h3><p>输出流程图、系统清单、用例优先级、ROI 假设、技术架构和一期范围。</p></div><footer>Diagnose</footer></div><div class="offer"><div><div class="fee">30-150万</div><h3>8-12 周生产项目</h3><p>2-4 人小队，交付一个真实上线的 Agent/RAG/Workflow 系统。</p></div><footer>Ship</footer></div><div class="offer"><div><div class="fee">10-50万/月</div><h3>6-12 个月嵌入合作</h3><p>持续迭代、多场景扩展、指标复盘和知识转移。</p></div><footer>Scale</footer></div><div class="offer"><div><div class="fee">3-20万/月</div><h3>年度运维 Retainer</h3><p>覆盖模型、知识库、审计、稳定性、提示词/评估优化和新流程接入。</p></div><footer>Operate</footer></div></div></section>
+  <section class="slide contact no-chrome" data-label="结尾 Thank You"><div class="col-l"><div class="logo"></div><div class="spacer"></div><div class="eyebrow">Next Step <span class="dot">·</span> 后续研究</div><h1 class="ty">Thank <em>You</em></h1><div class="ty-en">把行业判断变成可销售、可交付、可复盘的业务系统。</div><p class="invite">建议下一步形成：3 个行业商业模型、标准 FDE 项目 SOP、岗位 JD、报价模板、ROI 计算器和销售话术。</p></div><div class="channels"><div class="channel"><div class="lbl">Research</div><div class="val">Palantir / OpenAI / Anthropic / Scale AI / Harvey / Clay</div></div><div class="channel"><div class="lbl">China Jobs</div><div class="val">字节、联想、百度、阿里、华为、智谱、第四范式</div></div><div class="channel"><div class="lbl">Commercial</div><div class="val">部署费、项目制、驻场人月、运维费、效果分成</div></div></div></section>
+</deck-stage>
+<script>(()=>{const DESIGN_W=1920,DESIGN_H=1080,MOBILE_BREAKPOINT=760;const stage=document.querySelector('deck-stage.report-stage');if(!stage)return;Array.from(stage.querySelectorAll(':scope > .slide')).forEach((slide,index)=>{const frame=document.createElement('div');frame.className='slide-frame';frame.setAttribute('aria-label',slide.getAttribute('data-label')||`Slide ${index+1}`);stage.insertBefore(frame,slide);frame.appendChild(slide);});const fitSlides=()=>{const isMobile=window.innerWidth<MOBILE_BREAKPOINT;const frames=Array.from(stage.querySelectorAll('.slide-frame'));if(isMobile){frames.forEach(frame=>{frame.style.width='';frame.style.height='';const slide=frame.querySelector('.slide');if(slide)slide.style.transform='';});return;}const maxWidth=Math.min(window.innerWidth-48,1560);const maxHeight=Math.max(window.innerHeight-56,420);const scale=Math.min(maxWidth/DESIGN_W,maxHeight/DESIGN_H);const width=Math.round(DESIGN_W*scale);const height=Math.round(DESIGN_H*scale);frames.forEach(frame=>{frame.style.width=`${width}px`;frame.style.height=`${height}px`;const slide=frame.querySelector('.slide');if(slide)slide.style.transform=`scale(${scale})`;});};window.addEventListener('resize',fitSlides,{passive:true});window.addEventListener('orientationchange',fitSlides);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitSlides).catch(fitSlides);fitSlides();})();</script>
+</body>
+</html>

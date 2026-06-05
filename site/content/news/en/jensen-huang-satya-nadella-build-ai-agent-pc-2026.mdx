@@ -1,0 +1,113 @@
+---
+title: "The Old CPU Was Designed for Humans"
+date: "2026-06-03"
+excerpt: "Jensen Huang and Satya Nadella's conversation at Microsoft Build revealed a fundamental shift already underway: AI agents are moving from cloud laboratories to every desktop, and the entire computing architecture is being redesigned for them."
+category: "ai-insights"
+showOnHomepage: true
+image: "/images/news/jensen-huang-satya-nadella-build-ai-agent-pc-2026.jpg"
+imagePosition: "center"
+locale: "en"
+author: "Lincoln Wang"
+---
+
+**Author: Lincoln Wang | Founder of MindsLeap | Global Partner at Founders Space | Founder of Founders AI Club**
+
+"The old CPU was designed for humans, and humans are much more patient than AI agents."
+
+At Microsoft Build, Satya Nadella thanked Jensen Huang for joining from Taipei late at night. This was not routine executive praise. It was a conversation between two longtime partners who have worked together since the DirectX era, sending a set of signals to the entire industry on the eve of AI agents becoming real.
+
+When Huang said the line above, he was introducing NVIDIA's upcoming Vera Rubin chip. This is not an ordinary hardware upgrade. It is a redesign for a new computing paradigm. Agents do not need the same tolerance that humans have. They need extremely low latency and very fast response, because they get "impatient."
+
+That sentence is worth pausing over for every business leader planning an AI strategy.
+
+## When He Travels, He Texts His PC
+
+Huang described an everyday scenario. When he is traveling, he sends a text message from his phone to his PC, asking it to write code or modify a design. The PC receives the instruction, launches the tools, completes the change, and continues iterating with him while he is away from the computer.
+
+"My PC became an assistant," he said.
+
+Three years ago, Huang and Nadella first discussed this direction. Their goal was to create a class of PCs that would be incredible for designers and creators. Three years later, RTX Spark turns that goal into something concrete. The chip has 128GB of memory and supports NVFP4, a numerical format developed by NVIDIA and Microsoft together. It can run a model with hundreds of billions of parameters locally. Huang described a 200 to 300 billion parameter model as today's state of the art.
+
+What does that mean? It means high-capability AI no longer has to connect only to a cloud server. It can sit on your desk, work autonomously, and respond to what you ask for from your phone.
+
+The PC is shifting from "personal computer" toward "personal AI."
+
+## The Same Computing Model at Different Scales
+
+Huang repeatedly emphasized one point in the conversation: the design logic of a Vera Rubin data center and the design logic of an RTX Spark PC are essentially the same.
+
+"It is the exact same agentic system. It is just much larger in scale and has to process many agents from many different customers and partners at the same time."
+
+That judgment matters more than it may first appear. It means the way agents run, from storage as long-term memory to working memory and data transfer, is becoming structurally similar in the cloud and at the edge. The only difference is scale. A Vera Rubin data center may serve thousands of agents at once, while your RTX Spark serves you.
+
+For enterprise decision makers, this means cloud inference and edge deployment should not be treated as two completely separate technical paths. They are the same architecture unfolded at different scales. The agent workflow you validate in the cloud today may eventually be deployable to an employee's desktop without being redesigned from scratch.
+
+Of course, this is still a directional signal. Large-scale deployment still faces engineering and cost challenges. But the architectural unity itself is enough to change how companies think about technology choices.
+
+## The Whole Toolchain Must Accelerate for Impatient Agents
+
+Another important detail came when Huang discussed Microsoft's Azure platform.
+
+"Fabric is now fully accelerated. We are accelerating data processing, SQL, Spark, semantic, vector, and graph database processing. We want to make sure that every tool available on Azure is fully GPU accelerated, because agents are impatient."
+
+"The faster we can return answers to agents, the faster they can iterate and the faster they can generate tokens."
+
+This reveals a trend that is already happening but has not yet been widely discussed: AI agents are not isolated models. They call many tools, including database queries, data processing, semantic retrieval, and graph computation. If these tools cannot be accelerated on GPUs, they become bottlenecks for the entire agent workflow.
+
+In other words, deploying AI agents in an enterprise is not as simple as buying a model or connecting an API. You need to inspect latency across the whole toolchain. If your agent is waiting for a SQL query that takes three seconds on a traditional CPU, those three seconds are the agent's "impatient" seconds, and they are also three seconds that slow down the business process.
+
+This is not merely a technical problem. It is a business workflow problem.
+
+## GitHub Commits Tripled in the Past Few Months
+
+Huang gave a data point in the conversation that has not been quoted enough.
+
+"In the last several months, the number of code commits on GitHub has grown parabolically. It has grown by a factor of three. That tells you agentic systems are doing productive work."
+
+Then he made the point even more directly: "Tokens can now be monetized."
+
+Together, those two statements form a complete commercial logic. Agents are doing real work, as shown by the surge in GitHub commits, and the tokens behind that work are no longer just cost-center consumption. They can become assets that directly create revenue.
+
+For companies, this signals a fundamental change in cost structure. In the past, AI inference was a pure cost item. You paid for tokens and hoped they would save labor. Now tokens themselves can begin producing direct business value. When agents participate in coding, design, data analysis, and usable output, each generated token can correspond to measurable business value.
+
+Of course, there is still a gap between "tokens can be monetized" and "my company can monetize tokens." Product form, customer acquisition, and pricing strategy still matter. But the door has opened.
+
+## From Pretraining to Reasoning to Agents
+
+If we place the conversation on a longer timeline, Huang and Nadella described a clear evolution.
+
+In the Ampere and Hopper era, the focus was pretraining.
+
+In the Grace Blackwell era, the focus moved to post-training and reinforcement learning, which enabled reasoning models based on mixture-of-experts architectures. Microsoft deployed the world's largest Grace Blackwell cluster using the fully liquid-cooled Fairwater system, reducing token generation cost by roughly 30 times compared with the Hopper era.
+
+Now, in the Vera Rubin era, the focus is agents.
+
+Each chip generation corresponds to a shift in where AI applications concentrate: from making models smarter, to making models reason, to making models act autonomously. The pace is much faster than most people perceive.
+
+## Back to the Business Operator
+
+The easiest mistake is to treat this conversation as a preview of hardware releases. Chip specifications, memory capacity, and numerical formats are important technical details, but the business meaning behind them deserves more attention.
+
+When CPUs begin to be designed for agents rather than humans, when PCs begin to run autonomous agents rather than software operated by humans, and when tokens shift from a cost item to a revenue item, companies need to recalibrate organizational capability, product form, and cost structure.
+
+One practical direction is to re-examine which parts of your business process can be taken over by "impatient" agents. The relevant feature is not simply that these steps require human judgment. It is that they require fast iteration. Agents do not fear repetition or waiting. They fear slowness.
+
+Another direction is to evaluate toolchain latency. Do not only evaluate the inference speed of the AI model itself. Evaluate the full response time when the agent calls your databases, business systems, and third-party APIs. A three- to five-second latency difference may become the difference in iteration speed between your agents and your competitors' agents.
+
+The conversation happened in the early hours in Taipei, but its echo will reach the desk of every enterprise decision maker planning an AI strategy. Change does not always begin with a grand announcement. It begins with Huang texting his PC while traveling, with an agent waiting three extra seconds for a SQL query, and with GitHub commits tripling.
+
+The signals are already there. The question is how you will respond.
+
+---
+
+## Source Note
+
+This article was interpreted by Lincoln based on NVIDIA's official channel video *Jensen Huang and Satya Nadella's Conversation at Microsoft Build*, published on June 3, 2026.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI transformation accelerator that helps traditional entrepreneurs find transformation paths in the AI era. In partnership with Silicon Valley incubator Founders Space, MindsLeap connects technology founders with real customers and scenarios, links domestic and international capital with the Silicon Valley technology ecosystem, and supports China's industrial AI transformation and global expansion.
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

@@ -21,7 +21,7 @@ This design system was built from the following materials, in order of authority
 | **Project context doc** | `PROJECT_CONTEXT.md` in the repo root | Describes folder conventions, locale routing (`/zh`, `/en`), news taxonomy |
 | **Site tracker** | `SITE_TRACKER.md` in the repo root | Active site iteration roadmap |
 | **Content tracker** | `CONTENT_TRACKER.md` in the repo root | News article publication workflow |
-| **Logo PNGs** | `uploads/MindsLeap-Logo-blue-260322.png`, `MindsLeap-logo-white-260322.png`, `MindsLeapxFoundersSpaceJointlogo.png` | Master logos — blue on light, white on dark, joint-lockup with Founders Space |
+| **Logo files** | `assets/logos/mindsleap-logo-blue.png`, `mindsleap-logo-white.png`, `mindsleap-foundersspace-joint-logo-blue.svg`, `mindsleap-foundersspace-joint-logo-white.png` | Master logos: MindsLeap blue on light, white on dark, and current joint logos with Founders Space |
 
 The Next.js site is the **only production surface** — there is no mobile app, dashboard, or product UI beyond the marketing site. All UI kits in this design system therefore replicate the marketing-site visual language.
 
@@ -222,5 +222,6 @@ See `ICONOGRAPHY` section at the end of this README for the full audit. Short ve
 - **Inventory in this design system.**
   - `assets/logos/mindsleap-logo-blue.png` — primary mark, blue-on-light
   - `assets/logos/mindsleap-logo-white.png` — primary mark, white-on-dark
-  - `assets/logos/mindsleap-x-foundersspace-joint.png` — joint lockup with Founders Space
+  - `assets/logos/mindsleap-foundersspace-joint-logo-blue.svg` — current MindsLeap + Founders Space joint logo for light backgrounds
+  - `assets/logos/mindsleap-foundersspace-joint-logo-white.png` — white MindsLeap + Founders Space joint logo for dark backgrounds
   - `assets/icons/` — inline-SVG copies of the production glyphs (people, bolt, training, globe, arrow, check, linkedin)

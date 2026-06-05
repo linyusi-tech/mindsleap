@@ -8,11 +8,11 @@ Read the `README.md` file within this skill, and explore the other available fil
 
 - `README.md` — brand context, content fundamentals, visual foundations, iconography
 - `colors_and_type.css` — drop-in CSS custom properties for color + type tokens
-- `assets/logos/` — primary logos (blue on light, white on dark, joint Founders Space lockup)
+- `assets/logos/` — primary MindsLeap logos (blue on light, white on dark) and MindsLeap + Founders Space joint logos for light/dark backgrounds
 - `assets/icons/` — production inline SVGs (people, bolt, training, globe, arrow-right, check, linkedin, menu)
 - `ui_kits/website/` — high-fidelity recreation of the marketing site (Header, Hero, ValueProp, BusinessOverview, Ecosystem, LatestEvents, Footer)
 - `preview/` — small specimen HTML files showing each token / component in isolation
-- `deck-template/` — 1920×1080 HTML deck template; URL params `?theme=light|brand|dark|magazine`, `?heading=brand|inter|noto`, `?density=spacious|standard|compact` control initial state; Tweaks panel allows live editing
+- `deck-template/` — 1920×1080 HTML deck template; URL params `?logo=single|joint`, `?theme=light|brand|dark|magazine`, `?heading=brand|inter|noto`, `?density=spacious|standard|compact` control initial state; Tweaks panel allows live editing
 
 **Visual browsing** — `index.html` is the human-friendly entry. It links to three category pages (`brand.html`, `deck.html`, `ui.html`), each embedding every preview inline and starting with a "Quick start" panel showing exact token names and copy-paste snippets. Open `http://127.0.0.1:3000/design-system/` with the Next.js dev server running, or `open site/public/design-system/index.html` offline.
 

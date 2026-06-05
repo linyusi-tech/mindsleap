@@ -19,10 +19,12 @@
   const html = document.documentElement;
   const params = new URLSearchParams(window.location.search);
   const validTheme   = (v) => ["light", "brand", "dark", "magazine"].includes(v) ? v : null;
+  const validLogo    = (v) => ["single", "joint"].includes(v) ? v : null;
   const validHeading = (v) => ["brand", "inter", "noto"].includes(v) ? v : null;
   const validDensity = (v) => ["spacious", "standard", "compact"].includes(v) ? v : null;
   const STATE = {
     theme:       validTheme(params.get("theme"))     || html.getAttribute("data-theme")        || DEFAULTS.theme,
+    logo:        validLogo(params.get("logo"))        || html.getAttribute("data-logo")         || "single",
     headingFont: validHeading(params.get("heading")) || html.getAttribute("data-heading-font") || DEFAULTS.headingFont,
     density:     validDensity(params.get("density")) || html.getAttribute("data-density")      || DEFAULTS.density,
   };
@@ -30,6 +32,7 @@
   function apply() {
     const html = document.documentElement;
     html.setAttribute("data-theme", STATE.theme);
+    html.setAttribute("data-logo", STATE.logo);
     html.setAttribute("data-heading-font", STATE.headingFont);
     html.setAttribute("data-density", STATE.density);
   }

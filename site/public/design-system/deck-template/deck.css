@@ -19,6 +19,11 @@ html {
   --card-bg: #f9fafb;
   --card-rule: #e5e7eb;
   --logo-img: url("mindsleap-logo-blue.png");
+  --logo-filter: none;
+  --footer-logo-w: 220px;
+  --footer-logo-h: 40px;
+  --cover-logo-w: 420px;
+  --cover-logo-h: 74px;
   --pad: 120px;
   --pad-y: 96px;
   --gap: 48px;
@@ -74,6 +79,19 @@ html[data-theme="magazine"] {
   --logo-img: url("mindsleap-logo-blue.png");
 }
 
+html[data-logo="joint"] {
+  --logo-img: url("mindsleap-foundersspace-joint-logo-blue.svg");
+  --footer-logo-w: 300px;
+  --footer-logo-h: 60px;
+  --cover-logo-w: 540px;
+  --cover-logo-h: 108px;
+}
+html[data-logo="joint"][data-theme="brand"],
+html[data-logo="joint"][data-theme="dark"] {
+  --logo-img: url("mindsleap-foundersspace-joint-logo-white.png");
+  --logo-filter: none;
+}
+
 /* ── density ──────────────────────────────────────────────── */
 html[data-density="spacious"] { --pad: 160px; --pad-y: 120px; --gap: 64px; }
 html[data-density="standard"] { --pad: 120px; --pad-y: 96px;  --gap: 48px; }
@@ -119,10 +137,11 @@ deck-stage { counter-reset: slide; }
   position: absolute;
   left: var(--pad);
   bottom: 56px;
-  width: 168px;
-  height: 30px;
+  width: var(--footer-logo-w);
+  height: var(--footer-logo-h);
   background: var(--logo-img) left center / contain no-repeat;
-  opacity: 0.78;
+  filter: var(--logo-filter);
+  opacity: 1;
 }
 .slide:not(.no-chrome)::after {
   content: counter(slide, decimal-leading-zero);
@@ -199,8 +218,9 @@ h1.slide-title, .slide-title {
   padding-bottom: 24px;
 }
 .slide.cover .logo {
-  width: 320px; height: 56px;
+  width: var(--cover-logo-w); height: var(--cover-logo-h);
   background: var(--logo-img) left center / contain no-repeat;
+  filter: var(--logo-filter);
 }
 .slide.cover .cover-eyebrow {
   font: 500 28px/1 var(--font-body);
@@ -483,7 +503,7 @@ html[data-theme="brand"] .slide.features .icon,
 html[data-theme="dark"] .slide.features .icon { background: rgba(255,255,255,0.10); color: #fff; }
 .slide.features .icon svg { width: 28px; height: 28px; }
 .slide.features .f-eyebrow {
-  font: 700 14px/1 var(--font-body);
+  font: 700 16px/1 var(--font-body);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--eyebrow);
@@ -495,7 +515,7 @@ html[data-theme="dark"] .slide.features .icon { background: rgba(255,255,255,0.1
   margin: 0 0 14px;
 }
 .slide.features p {
-  font: 400 20px/1.5 var(--font-body);
+  font: 400 24px/1.55 var(--font-body);
   color: var(--ink-muted);
   margin: 0;
   flex: 1;
@@ -628,7 +648,7 @@ html[data-theme="dark"] .slide.features .icon { background: rgba(255,255,255,0.1
 }
 .slide.team .avatar-frame image-slot { width: 100%; height: 100%; }
 .slide.team .role {
-  font: 700 13px/1 var(--font-body);
+  font: 700 16px/1 var(--font-body);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--eyebrow);
@@ -645,7 +665,7 @@ html[data-theme="dark"] .slide.features .icon { background: rgba(255,255,255,0.1
   margin: 8px 0 0;
 }
 .slide.team .creds {
-  font: 400 14px/1.45 var(--font-body);
+  font: 400 16px/1.45 var(--font-body);
   color: var(--ink-subtle);
   margin: 12px 0 0;
   padding-top: 12px;
@@ -674,7 +694,7 @@ html[data-theme="dark"] .slide.features .icon { background: rgba(255,255,255,0.1
   position: relative;
 }
 .slide.logos .cell .ph {
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--ink-subtle);
@@ -827,7 +847,7 @@ html[data-theme="dark"] .slide.features .icon { background: rgba(255,255,255,0.1
 }
 .slide.case .metric .lbl span {
   display: block;
-  font: 400 13px/1.4 var(--font-body);
+  font: 400 16px/1.4 var(--font-body);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-subtle);
@@ -876,7 +896,7 @@ html[data-theme="dark"] .slide.features .icon { background: rgba(255,255,255,0.1
   margin-top: 10px;
 }
 .slide.process .step p {
-  font: 400 20px/1.55 var(--font-body);
+  font: 400 24px/1.55 var(--font-body);
   color: var(--ink-muted);
   margin: 28px 0 0;
 }

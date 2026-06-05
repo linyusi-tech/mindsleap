@@ -14,6 +14,8 @@
     .deck-card .thumb { aspect-ratio: 16 / 9; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
     .deck-card .thumb .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.65; }
     .deck-card .thumb .title-cn { font-family: "MindsLeap Brand", "Noto Sans SC", system-ui, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
+    .deck-card .thumb .logo-img { display: block; width: min(100%, 300px); height: 60px; object-fit: contain; object-position: left center; }
+    .deck-card .thumb .logo-img--joint { width: min(100%, 390px); height: 78px; }
     .deck-card .thumb .swatches { display: flex; gap: 5px; }
     .deck-card .thumb .swatches i { display: block; width: 16px; height: 16px; border-radius: 50%; }
     .deck-card .meta { padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--ds-line); }
@@ -52,7 +54,7 @@
     <header class="ds-head">
       <div>
         <h1>Deck templates</h1>
-        <p>1920×1080 品牌 deck，4 种主题预设。点击进入后，右下角的 Tweaks 面板可继续切换字体（Brand/Inter/Noto）与密度（松散/标准/紧凑）。</p>
+        <p>1920×1080 品牌 deck，保留 4 种主题预设，并提供 MindsLeap 单 logo 与 MindsLeap + Founders Space joint logo 两种版本。点击进入后，右下角的 Tweaks 面板可继续切换主题、字体与密度。</p>
       </div>
       <div class="meta">02 · Deck</div>
     </header>
@@ -66,7 +68,7 @@
         <div>
           <h3>从模板开始</h3>
           <ol style="margin:0 0 10px;padding-left:18px;font-size:13px;color:var(--ds-ink-2);line-height:1.7;">
-            <li>下方点任意主题卡片 → 进入 deck</li>
+            <li>下方选择主题 + logo 版本 → 进入 deck</li>
             <li>右下角 Tweaks 面板继续切字体 / 密度</li>
             <li>要做新内容：复制 <code>deck-template/</code> 整个文件夹</li>
             <li>编辑 HTML 里的 <code>&lt;section class="slide"&gt;</code></li>
@@ -82,54 +84,93 @@
           <h3>URL 参数</h3>
           <pre><span class="c"># 同一个 HTML，URL 决定初始视觉</span>
 ?theme=light    <span class="c"># 浅 / brand / dark / magazine</span>
+?logo=single    <span class="c"># single / joint</span>
 ?heading=brand  <span class="c"># brand / inter / noto</span>
 ?density=standard <span class="c"># spacious / standard / compact</span>
 
 <span class="c"># 组合用 &</span>
-deck.html?theme=dark&heading=inter&density=compact</pre>
+deck-template/MindsLeap%20Brand%20Deck.html?theme=dark&logo=joint&heading=inter&density=compact</pre>
           <p>把链接复制给同事，他打开就是同样的预设。</p>
         </div>
       </div>
     </div>
 
     <section class="ds-section">
-      <h2>4 themes</h2>
-      <p class="lede">同一份 deck，4 种主题。链接里的 <code style="font-family:var(--font-mono,monospace);background:#f1f5f9;padding:1px 6px;border-radius:4px;">?theme=...</code> 决定初始主题。</p>
+      <h2>Single-logo decks</h2>
+      <p class="lede">使用 MindsLeap 单 logo 的 4 种主题入口，适合官网、课程、内部方法论和一般品牌露出。</p>
       <div class="deck-grid">
-        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=light">
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=light&logo=single">
           <div class="thumb thumb-light">
-            <div class="eyebrow">Theme · 浅</div>
+            <div class="eyebrow">Theme · 浅 · Single</div>
             <div class="title-cn">MindsLeap.</div>
             <div class="swatches"><i></i><i></i><i></i></div>
           </div>
-          <div class="meta"><span class="label">浅色 Light</span><span class="hint">?theme=light</span></div>
+          <div class="meta"><span class="label">浅色 Light · 单 logo</span><span class="hint">?theme=light&logo=single</span></div>
         </a>
-        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=brand">
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=brand&logo=single">
           <div class="thumb thumb-brand">
-            <div class="eyebrow">Theme · 品牌</div>
+            <div class="eyebrow">Theme · 品牌 · Single</div>
             <div class="title-cn">MindsLeap.</div>
             <div class="swatches"><i></i><i></i><i></i></div>
           </div>
-          <div class="meta"><span class="label">品牌蓝 Brand</span><span class="hint">?theme=brand</span></div>
+          <div class="meta"><span class="label">品牌蓝 Brand · 单 logo</span><span class="hint">?theme=brand&logo=single</span></div>
         </a>
-        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=dark">
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=dark&logo=single">
           <div class="thumb thumb-dark">
-            <div class="eyebrow">Theme · 深</div>
+            <div class="eyebrow">Theme · 深 · Single</div>
             <div class="title-cn">MindsLeap.</div>
             <div class="swatches"><i></i><i></i><i></i></div>
           </div>
-          <div class="meta"><span class="label">深色 Dark</span><span class="hint">?theme=dark</span></div>
+          <div class="meta"><span class="label">深色 Dark · 单 logo</span><span class="hint">?theme=dark&logo=single</span></div>
         </a>
-        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=magazine">
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=magazine&logo=single">
           <div class="thumb thumb-magazine">
-            <div class="eyebrow">Theme · 杂志</div>
+            <div class="eyebrow">Theme · 杂志 · Single</div>
             <div class="title-cn">MindsLeap.</div>
             <div class="swatches"><i></i><i></i><i></i></div>
           </div>
-          <div class="meta"><span class="label">杂志 Magazine</span><span class="hint">?theme=magazine</span></div>
+          <div class="meta"><span class="label">杂志 Magazine · 单 logo</span><span class="hint">?theme=magazine&logo=single</span></div>
         </a>
       </div>
+    </section>
 
+    <section class="ds-section">
+      <h2>Joint-logo decks</h2>
+      <p class="lede">使用 MindsLeap + Founders Space joint logo 的 4 种主题入口，适合联合活动、合作汇报和对外共品牌材料。</p>
+      <div class="deck-grid">
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=light&logo=joint">
+          <div class="thumb thumb-light">
+            <div class="eyebrow">Theme · 浅 · Joint</div>
+            <img class="logo-img logo-img--joint" src="assets/logos/mindsleap-foundersspace-joint-logo-blue.svg" alt="MindsLeap and Founders Space joint logo">
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">浅色 Light · joint logo</span><span class="hint">?theme=light&logo=joint</span></div>
+        </a>
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=brand&logo=joint">
+          <div class="thumb thumb-brand">
+            <div class="eyebrow">Theme · 品牌 · Joint</div>
+            <img class="logo-img logo-img--joint" src="assets/logos/mindsleap-foundersspace-joint-logo-white.png" alt="White MindsLeap and Founders Space joint logo">
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">品牌蓝 Brand · joint logo</span><span class="hint">?theme=brand&logo=joint</span></div>
+        </a>
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=dark&logo=joint">
+          <div class="thumb thumb-dark">
+            <div class="eyebrow">Theme · 深 · Joint</div>
+            <img class="logo-img logo-img--joint" src="assets/logos/mindsleap-foundersspace-joint-logo-white.png" alt="White MindsLeap and Founders Space joint logo">
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">深色 Dark · joint logo</span><span class="hint">?theme=dark&logo=joint</span></div>
+        </a>
+        <a class="deck-card" href="deck-template/MindsLeap%20Brand%20Deck.html?theme=magazine&logo=joint">
+          <div class="thumb thumb-magazine">
+            <div class="eyebrow">Theme · 杂志 · Joint</div>
+            <img class="logo-img logo-img--joint" src="assets/logos/mindsleap-foundersspace-joint-logo-blue.svg" alt="MindsLeap and Founders Space joint logo">
+            <div class="swatches"><i></i><i></i><i></i></div>
+          </div>
+          <div class="meta"><span class="label">杂志 Magazine · joint logo</span><span class="hint">?theme=magazine&logo=joint</span></div>
+        </a>
+      </div>
     </section>
 
     <div class="ds-foot">

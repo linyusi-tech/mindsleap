@@ -17,7 +17,7 @@ function ValueProp({ lang }) {
               ? `MindsLeap partners with Founders Space to build an entrepreneur ecosystem connecting traditional and emerging industries, domestic and international capital, and the Silicon Valley tech community. We believe this journey should be joyful. Join us and "Leap" together.`
               : `MindsLeap 携手硅谷孵化器 Founders Space，搭建连接传统与新兴产业、国内外资本与硅谷生态的创业网络。我们相信这段旅程应当是愉快的。加入我们，一起"Leap"。`}
           </p>
-          <img src="../../assets/logos/mindsleap-x-foundersspace-joint.png" alt="MindsLeap × Founders Space" style={{ height: 56, marginTop: 32 }} />
+          <img src="../../assets/logos/mindsleap-foundersspace-joint-logo-blue.svg" alt="MindsLeap × Founders Space" style={{ height: 56, marginTop: 32, filter: "brightness(0) invert(1)" }} />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <QuoteCard

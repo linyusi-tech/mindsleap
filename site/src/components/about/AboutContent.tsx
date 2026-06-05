@@ -100,7 +100,7 @@ export default function AboutContent() {
               className="relative h-80 lg:h-[450px] rounded-2xl overflow-hidden bg-gray-200"
             >
               <Image
-                src="/images/about/team.jpg"
+                src="/images/MindsLeap-team.jpg"
                 alt="MindsLeap Team"
                 fill
                 className="object-cover"

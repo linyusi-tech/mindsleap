@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindsLeap Research Reports</title>
+  <link rel="stylesheet" href="https://www.mindsleap.ai/design-system/colors_and_type.css" />
+  <style>
+    :root {
+      --paper: #f3eee5;
+      --paper-2: #ebe4d6;
+      --paper-rule: #d6cdb9;
+      --gold: #8b6f3a;
+      --brand: #1e477c;
+      --ink: #111111;
+      --muted: #4b5563;
+      --line: #e5e7eb;
+      --soft: #f9fafb;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans, Inter, "Noto Sans SC", system-ui, sans-serif);
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      height: 80px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+    .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--brand);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .nav-links a { transition: color 160ms ease; }
+    .nav-links a:hover { color: #3b82f6; }
+    .nav-links .active { color: #111; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(30,71,124,.22);
+    }
+    .hero {
+      min-height: 520px;
+      position: relative;
+      overflow: hidden;
+      background-image:
+        linear-gradient(rgba(0,0,0,.46), rgba(0,0,0,.46)),
+        url("https://www.mindsleap.ai/images/hero/AI-Native-Conference.jpg");
+      background-size: cover;
+      background-position: center 35%;
+    }
+    .hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      min-height: 520px;
+      padding: 72px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .eyebrow {
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .hero .eyebrow { color: #fff; }
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-family: var(--font-sans, Inter, "Noto Sans SC", system-ui, sans-serif);
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      color: #fff;
+      font-weight: 800;
+    }
+    h1 span { color: #fff; }
+    .hero-copy {
+      max-width: 680px;
+      margin: 24px auto 0;
+      color: #e5e7eb;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+    .brief-panel { display: none; }
+    .brief-panel .kicker {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 30px;
+    }
+    .brief-panel strong {
+      display: block;
+      font-family: "MindsLeap Brand", Inter, "Noto Sans SC", system-ui, sans-serif;
+      font-size: 42px;
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 24px;
+    }
+    .brief-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    main {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      background: var(--soft);
+    }
+    .reports-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 88px 24px 104px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+    .section-head h2 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 36px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .section-head p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .view-all {
+      color: var(--brand);
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 30px;
+    }
+    .report-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .report-card[href]:hover {
+      transform: translateY(-4px);
+      border-color: rgba(30,71,124,.35);
+      box-shadow: 0 22px 46px rgba(30,71,124,.16);
+    }
+    .cover {
+      aspect-ratio: 16 / 9;
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(30,71,124,.92), rgba(42,90,158,.88)),
+        #1e477c;
+      border-bottom: 1px solid rgba(30,71,124,.12);
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 1px);
+      background-size: 16px 16px;
+      opacity: .45;
+    }
+    .cover::after {
+      content: "";
+      position: absolute;
+      right: 30px;
+      bottom: 28px;
+      width: 126px;
+      height: 4px;
+      background: #fff;
+    }
+    .cover .issue {
+      position: relative;
+      z-index: 1;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+      margin-bottom: 22px;
+    }
+    .cover .title {
+      position: relative;
+      z-index: 1;
+      max-width: 310px;
+      font-family: var(--font-sans, Inter, "Noto Sans SC", system-ui, sans-serif);
+      font-size: 38px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      color: #fff;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+    .cover .title em {
+      font-style: normal;
+      color: #bfdbfe;
+    }
+    .cover .sub {
+      position: absolute;
+      left: 30px;
+      bottom: 26px;
+      z-index: 1;
+      max-width: 245px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: rgba(255,255,255,.82);
+    }
+    .report-body {
+      padding: 24px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .report-body h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.28;
+    }
+    .report-body p {
+      margin: 12px 0 24px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      flex: 1;
+    }
+    .report-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .disabled {
+      opacity: .68;
+      pointer-events: none;
+    }
+    .disabled .cover {
+      background: #f9fafb;
+      border-color: #eef0f3;
+      color: #4b5563;
+    }
+    .disabled .cover::after { background: #d1d5db; }
+    .disabled .cover .title,
+    .disabled .report-body h3 { color: #4b5563; }
+    .disabled .cover .issue,
+    .disabled .cover .sub { color: #6b7280; }
+    .footer {
+      background: var(--brand);
+      color: #fff;
+      padding: 64px 24px 34px;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer img {
+      width: 220px;
+      max-width: 100%;
+      opacity: .98;
+    }
+    .footer .quote {
+      margin-top: 22px;
+      max-width: 360px;
+      color: #bfdbfe;
+      font-size: 18px;
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .footer h4 {
+      margin: 0 0 18px;
+      font-size: 16px;
+      color: #fff;
+    }
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+      color: #bfdbfe;
+      font-size: 14px;
+    }
+    .copyright {
+      max-width: 1280px;
+      margin: 48px auto 0;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.2);
+      color: rgba(191,219,254,.72);
+      font-size: 12px;
+    }
+    @media (max-width: 980px) {
+      .nav-links a:not(.active),
+      .nav-links .cta { display: none; }
+      .reports-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-inner {
+        height: 68px;
+        padding: 0 18px;
+      }
+      .logo img { height: 34px; }
+      .nav-links {
+        gap: 0;
+        font-size: 13px;
+      }
+      .hero { min-height: 430px; }
+      .hero-inner {
+        min-height: 430px;
+        padding: 58px 20px;
+      }
+      h1 {
+        font-size: clamp(40px, 12vw, 56px);
+        line-height: 1.08;
+      }
+      .hero-copy {
+        font-size: 16px;
+        line-height: 1.65;
+      }
+      .reports-section { padding: 52px 20px 72px; }
+      .section-head { display: block; }
+      .section-head h2 { font-size: 30px; }
+      .view-all {
+        display: inline-block;
+        margin-top: 16px;
+      }
+      .reports-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      .cover {
+        min-height: 230px;
+        padding: 26px;
+      }
+      .cover .title {
+        max-width: 280px;
+        font-size: 34px;
+        line-height: 1.12;
+      }
+      .cover .sub {
+        left: 26px;
+        right: 26px;
+        bottom: 24px;
+      }
+      .cover::after {
+        right: 26px;
+        width: 88px;
+      }
+      .footer { padding: 46px 20px 30px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="logo" href="https://www.mindsleap.ai/zh" aria-label="MindsLeap home">
+        <img src="/images/joint-logo-blue.svg" alt="MindsLeap" />
+      </a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="https://www.mindsleap.ai/zh/services/ai-club">AI俱乐部</a>
+        <a href="https://www.mindsleap.ai/zh/services/ai-transformation">AI转型服务</a>
+        <a href="./" class="active">Research</a>
+        <a href="https://www.mindsleap.ai/zh/news">动态</a>
+        <a href="https://www.mindsleap.ai/zh/about">关于我们</a>
+        <a class="cta" href="https://www.mindsleap.ai/zh/contact">联系我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">MindsLeap · Research</div>
+        <h1>Research for the <span>AI Native</span> Enterprise.</h1>
+        <p class="hero-copy">我们把 AI 原生企业、FDE、产业商业模式与硅谷趋势整理成可阅读、可分享、可复用的研究报告，帮助企业从认知升级走向业务落地。</p>
+      </div>
+      <aside class="brief-panel" aria-label="Research positioning">
+        <div class="kicker">Research System</div>
+        <strong>From insight<br/>to operating playbook.</strong>
+        <p>每份报告都同时服务于三种场景：高管快速阅读、团队内部共识、业务推进中的方案复盘。</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="reports-section" aria-labelledby="latest-reports">
+      <div class="section-head">
+        <div>
+          <h2 id="latest-reports">Latest Reports</h2>
+          <p>持续发布 MindsLeap 对企业 AI 转型与全球 AI 商业化的研究。</p>
+        </div>
+        <a class="view-all" href="fde-industry-report/index.html">查看最新报告 →</a>
+      </div>
+
+      <div class="reports-grid">
+        <a class="report-card" href="fde-industry-report/index.html">
+          <div class="cover">
+            <div class="issue">Research Brief · 01</div>
+            <div class="title">FDE<em>.</em><br/>产业商业模式研究</div>
+            <div class="sub">Forward Deployed Engineering 如何成为企业 AI 从演示走向生产的关键交付形态。</div>
+          </div>
+          <div class="report-body">
+            <div class="meta">
+              <span class="tag">FDE</span>
+              <span class="tag">AI Transformation</span>
+              <span class="tag">2026</span>
+            </div>
+            <h3>FDE 产业商业模式研究</h3>
+            <p>梳理海外收费方式、招聘画像、项目推进机制，以及中国市场可借鉴的产品化与交付路径。</p>
+            <div class="report-foot"><span>Read report</span><span>13 slides</span></div>
+          </div>
+        </a>
+
+        <article class="report-card disabled">
+          <div class="cover">
+            <div class="issue">Upcoming · 02</div>
+            <div class="title">AI Native<br/>Organization</div>
+            <div class="sub">企业如何从“使用 AI 工具”走向“构建 AI 原生组织”。</div>
+          </div>
+          <div class="report-body">
+            <div class="meta">
+              <span class="tag">Org Design</span>
+              <span class="tag">Playbook</span>
+            </div>
+            <h3>AI 原生组织建设报告</h3>
+            <p>围绕高管认知、流程重构、数据治理、Agent 工作流和组织能力升级建立方法论。</p>
+            <div class="report-foot"><span>Coming soon</span><span>Research</span></div>
+          </div>
+        </article>
+
+        <article class="report-card disabled">
+          <div class="cover">
+            <div class="issue">Upcoming · 03</div>
+            <div class="title">Global AI<br/>GTM Map</div>
+            <div class="sub">面向中国 AI 原生企业的海外市场进入路径与生态地图。</div>
+          </div>
+          <div class="report-body">
+            <div class="meta">
+              <span class="tag">Global Growth</span>
+              <span class="tag">Market Map</span>
+            </div>
+            <h3>AI 企业出海 GTM 研究</h3>
+            <p>分析北美生态、标杆公司、渠道伙伴、资本网络和企业级客户获取路径。</p>
+            <div class="report-foot"><span>Coming soon</span><span>Market map</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <img src="https://www.mindsleap.ai/images/logo-white.png" alt="MindsLeap" />
+        <div class="quote">“Upgrade AI Mindsets for Global Success.”</div>
+      </div>
+      <div>
+        <h4>Research Themes</h4>
+        <ul>
+          <li>Enterprise AI Transformation</li>
+          <li>Forward Deployed Engineering</li>
+          <li>AI Native Organization</li>
+          <li>Global AI Commercialization</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Email: mindsleap@gmail.com</li>
+          <li>Office: Silicon Valley / Shanghai</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 MindsLeap. All Rights Reserved.</div>
+  </footer>
+</body>
+</html>
