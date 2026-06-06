@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="magazine" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>中欧商学院市场团队 AI Agent 工作流培训</title>
+  <link rel="stylesheet" href="../../shared/mindsleap-template/colors_and_type.css" />
+  <link rel="stylesheet" href="../../shared/mindsleap-template/deck.css" />
+  <script src="../../shared/mindsleap-template/deck-stage.js"></script>
+  <style>
+    .slide .accent { color: var(--accent); }
+    html[data-theme="magazine"] {
+      --logo-img: url("../../shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg");
+    }
+    .slide:not(.no-chrome)::before {
+      width: 380px;
+      height: 76px;
+      bottom: 40px;
+      opacity: 1;
+    }
+    .slide.body,
+    .slide.contact,
+    .slide.quote {
+      padding-bottom: 190px;
+    }
+    .slide.cover .logo {
+      width: 520px;
+      height: 104px;
+      margin-bottom: 10px;
+    }
+    .slide .muted { color: var(--ink-muted); }
+    .slide .mono { font-family: var(--font-mono); letter-spacing: 0; }
+    .slide .small-en {
+      display: block;
+      font: 400 22px/1.35 var(--font-body);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-top: 8px;
+    }
+    .slide:not(.no-chrome)::after {
+      content: attr(data-page);
+    }
+    .slide .note-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: 9px 14px;
+      font: 700 15px/1 var(--font-body);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .cover-training .col-image {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 28px;
+      background: transparent;
+      border: 0;
+    }
+    .cover-training .cover-title {
+      font-size: 132px;
+      line-height: 1;
+    }
+    .cover-training .visual-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 0;
+    }
+    .cover-training .visual-panel strong {
+      font: 700 54px/1.05 var(--font-heading);
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .cover-training .visual-panel span {
+      font: 500 22px/1.4 var(--font-body);
+      color: var(--ink-muted);
+      margin-top: 18px;
+      display: block;
+    }
+    .cover-training .ladder {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items: end;
+    }
+    .cover-training .ladder div {
+      background: var(--accent);
+      color: #fff;
+      padding: 18px 16px;
+      font: 700 20px/1.2 var(--font-heading);
+      text-align: center;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cover-training .ladder div:nth-child(1) { height: 92px; opacity: .55; }
+    .cover-training .ladder div:nth-child(2) { height: 132px; opacity: .78; }
+    .cover-training .ladder div:nth-child(3) { height: 176px; }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+      margin-top: 70px;
+    }
+    .promise-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 38px 34px;
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .promise-card .k {
+      font: 700 68px/1 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .promise-card h3 {
+      font: 700 34px/1.18 var(--font-heading);
+      margin: 28px 0 0;
+      color: var(--ink);
+    }
+    .promise-card p {
+      font: 400 22px/1.5 var(--font-body);
+      color: var(--ink-muted);
+      margin: 16px 0 0;
+    }
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 46px;
+    }
+    .usecase {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-top: 4px solid var(--accent);
+      padding: 26px 24px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+    }
+    .usecase .idx {
+      font: 700 34px/1 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .usecase h3 {
+      font: 700 27px/1.15 var(--font-heading);
+      color: var(--ink);
+      margin: 18px 0 10px;
+    }
+    .usecase p {
+      font: 400 18px/1.42 var(--font-body);
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: var(--gap);
+      margin-top: 48px;
+      flex: 1;
+      min-height: 0;
+    }
+    .story-card {
+      background: var(--accent);
+      color: #fff;
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 500px;
+    }
+    .story-card h3 {
+      font: 700 56px/1.08 var(--font-heading);
+      color: #fff;
+      margin: 0;
+    }
+    .story-card p {
+      font: 400 24px/1.45 var(--font-body);
+      color: rgba(255,255,255,.86);
+      margin: 24px 0 0;
+    }
+    .story-workflows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-content: start;
+    }
+    .story-workflow {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 22px 24px;
+      min-height: 130px;
+    }
+    .story-workflow h3 {
+      font: 700 25px/1.12 var(--font-heading);
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .story-workflow p {
+      font: 400 18px/1.42 var(--font-body);
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      margin-top: 52px;
+    }
+    .tip {
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent);
+      padding: 30px 34px;
+      min-height: 210px;
+    }
+    .tip h3 {
+      font: 700 34px/1.12 var(--font-heading);
+      color: var(--ink);
+      margin: 0 0 14px;
+    }
+    .tip p {
+      font: 400 22px/1.48 var(--font-body);
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    .schedule-table {
+      margin-top: 52px;
+      border-top: 1px solid var(--rule);
+      flex: 1;
+    }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 250px 390px 1fr 260px;
+      gap: 28px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+    .schedule-row .time {
+      font: 700 34px/1 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .schedule-row .module {
+      font: 700 30px/1.25 var(--font-heading);
+      color: var(--ink);
+    }
+    .schedule-row .content {
+      font: 400 22px/1.45 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .schedule-row .output {
+      font: 600 20px/1.35 var(--font-body);
+      color: var(--ink);
+    }
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 54px;
+    }
+    .concept {
+      border-top: 4px solid var(--accent);
+      background: var(--card-bg);
+      padding: 32px 28px 30px;
+      min-height: 220px;
+    }
+    .concept h3 {
+      font: 700 34px/1.1 var(--font-heading);
+      margin: 0;
+      color: var(--ink);
+    }
+    .concept p {
+      font: 400 22px/1.48 var(--font-body);
+      color: var(--ink-muted);
+      margin: 18px 0 0;
+    }
+    .evolution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 58px;
+      flex: 1;
+    }
+    .evolution-stage {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 38px 34px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 500px;
+    }
+    .evolution-stage:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -32px;
+      top: 45%;
+      transform: translateY(-50%);
+      font: 500 46px/1 var(--font-heading);
+      color: var(--accent);
+      z-index: 2;
+    }
+    .evolution-stage .tag {
+      font: 700 15px/1 var(--font-body);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--eyebrow);
+    }
+    .evolution-stage h3 {
+      font: 700 48px/1.08 var(--font-heading);
+      color: var(--ink);
+      margin: 26px 0 0;
+    }
+    .evolution-stage p {
+      font: 400 22px/1.48 var(--font-body);
+      color: var(--ink-muted);
+      margin: 22px 0 0;
+    }
+    .evolution-stage footer {
+      margin-top: auto;
+      border-top: 1px solid var(--rule);
+      padding-top: 20px;
+      font: 700 18px/1.35 var(--font-body);
+      color: var(--accent);
+    }
+    .agent-collab {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: var(--gap);
+      margin-top: 52px;
+      flex: 1;
+      min-height: 0;
+    }
+    .agent-lead {
+      background: var(--accent);
+      color: #fff;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .agent-lead h3 {
+      font: 700 58px/1.06 var(--font-heading);
+      margin: 0;
+      color: #fff;
+    }
+    .agent-lead p {
+      font: 400 25px/1.48 var(--font-body);
+      margin: 26px 0 0;
+      color: rgba(255,255,255,.86);
+    }
+    .agent-stack {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .agent-node {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 20px 24px;
+      align-items: start;
+    }
+    .agent-node .role {
+      font: 700 18px/1.2 var(--font-heading);
+      color: var(--accent);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .agent-node h3 {
+      font: 700 30px/1.15 var(--font-heading);
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .agent-node p {
+      font: 400 20px/1.42 var(--font-body);
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    .slide.agent-slide {
+      padding-bottom: 230px;
+    }
+    .slide.agent-slide .agent-collab {
+      flex: 0 0 auto;
+      align-items: start;
+      margin-top: 42px;
+    }
+    .slide.agent-slide .agent-lead {
+      height: 410px;
+      box-sizing: border-box;
+    }
+    .slide.agent-slide .agent-stack {
+      gap: 12px;
+    }
+    .slide.agent-slide .agent-node {
+      padding: 18px 22px;
+    }
+    .slide.agent-slide .agent-node h3 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .slide.agent-slide .agent-node p {
+      font-size: 19px;
+      line-height: 1.38;
+    }
+    .spec-stack {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      gap: var(--gap);
+      margin-top: 54px;
+      flex: 1;
+      min-height: 0;
+    }
+    .spec-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 42px;
+    }
+    .spec-box h3 {
+      font: 700 42px/1.1 var(--font-heading);
+      color: var(--ink);
+      margin: 0 0 24px;
+    }
+    .spec-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .spec-line {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      font: 400 23px/1.45 var(--font-body);
+      color: var(--ink-muted);
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+    .spec-line b {
+      color: var(--accent);
+      font: 700 17px/1.2 var(--font-body);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .scenario-img-wrap {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap: 36px;
+      flex: 1;
+      min-height: 0;
+    }
+    .scenario-img {
+      background: #fff;
+      border: 1px solid var(--card-rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 22px;
+    }
+    .scenario-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .scenario-notes {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+    .scenario-note {
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent);
+      padding: 24px 26px;
+    }
+    .scenario-note h3 {
+      font: 700 28px/1.15 var(--font-heading);
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .scenario-note p {
+      font: 400 20px/1.42 var(--font-body);
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    .lane-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+      flex: 1;
+    }
+    .lane {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .lane .num {
+      font: 700 50px/1 var(--font-heading);
+      color: var(--accent);
+      letter-spacing: -.02em;
+    }
+    .lane h3 {
+      font: 700 30px/1.18 var(--font-heading);
+      margin: 22px 0 14px;
+      color: var(--ink);
+    }
+    .lane p {
+      font: 400 19px/1.5 var(--font-body);
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    .lane footer {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      font: 700 14px/1.2 var(--font-body);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .workshop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-top: 56px;
+      flex: 1;
+      min-height: 0;
+    }
+    .workshop-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+    .workshop-card h3 {
+      font: 700 42px/1.12 var(--font-heading);
+      color: var(--ink);
+      margin: 0 0 22px;
+    }
+    .workshop-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 16px;
+    }
+    .workshop-card li {
+      font: 400 23px/1.42 var(--font-body);
+      color: var(--ink-muted);
+      padding-left: 28px;
+      position: relative;
+    }
+    .workshop-card li::before {
+      content: "";
+      width: 12px;
+      height: 2px;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 17px;
+    }
+    .deliverable-strip {
+      margin-top: 22px;
+      background: var(--accent);
+      color: #fff;
+      padding: 26px 32px;
+      font: 600 24px/1.45 var(--font-body);
+    }
+    .case-triptych {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 64px;
+    }
+    .case-tile {
+      border: 1px solid var(--card-rule);
+      background: var(--card-bg);
+      min-height: 450px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .case-tile .label {
+      font: 700 16px/1 var(--font-body);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--eyebrow);
+    }
+    .case-tile h3 {
+      font: 700 42px/1.08 var(--font-heading);
+      color: var(--ink);
+      margin: 22px 0 0;
+    }
+    .case-tile p {
+      font: 400 22px/1.48 var(--font-body);
+      color: var(--ink-muted);
+      margin: 22px 0 0;
+    }
+    .case-tile .metric {
+      font: 700 50px/1 var(--font-heading);
+      color: var(--accent);
+    }
+    .skill-anatomy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      margin-top: 54px;
+      flex: 1;
+    }
+    .slide.skill-slide {
+      padding-bottom: 230px;
+    }
+    .slide.skill-slide .skill-anatomy {
+      grid-template-columns: .84fr 1.16fr;
+      align-items: start;
+      flex: 0 0 auto;
+      margin-top: 42px;
+    }
+    .slide.skill-slide .code-card {
+      justify-self: start;
+      width: 92%;
+      box-sizing: border-box;
+      padding: 30px 32px;
+      font-size: 21px;
+      line-height: 1.48;
+    }
+    .code-card {
+      background: #111;
+      color: #e5e7eb;
+      padding: 36px;
+      font: 400 23px/1.55 var(--font-mono);
+      letter-spacing: 0;
+      white-space: pre-wrap;
+      overflow: hidden;
+    }
+    .checklist {
+      display: grid;
+      gap: 18px;
+    }
+    .check {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+    }
+    .check .n {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font: 700 19px/42px var(--font-body);
+      text-align: center;
+    }
+    .check h3 {
+      font: 700 28px/1.15 var(--font-heading);
+      color: var(--ink);
+      margin: 0;
+    }
+    .check p {
+      font: 400 20px/1.45 var(--font-body);
+      color: var(--ink-muted);
+      margin: 6px 0 0;
+    }
+    .output-wall {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 62px;
+    }
+    .output-item {
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 26px;
+    }
+    .output-item .big {
+      font: 700 72px/1 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .output-item h3 {
+      font: 700 34px/1.15 var(--font-heading);
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .output-item p {
+      font: 400 22px/1.48 var(--font-body);
+      margin: 0;
+      color: var(--ink-muted);
+    }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: var(--gap);
+      margin-top: 48px;
+      flex: 1;
+      min-height: 0;
+    }
+    .bio-photo {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      padding: 0;
+      overflow: hidden;
+      min-height: 590px;
+    }
+    .bio-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 36%;
+      display: block;
+    }
+    .bio-list {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+    .bio-list div {
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+      font: 400 25px/1.42 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .bio-list b { color: var(--ink); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080" no-rail>
+
+  <section class="slide cover cover-training no-chrome" data-label="封面 Cover">
+    <div class="col-text">
+      <div>
+        <div class="logo"></div>
+        <div class="cover-eyebrow">CEIBS Marketing Team · Half-Day Training</div>
+        <h1 class="cover-title">AI Agent<br/>工作流<br/>训练营<span class="lf">.</span></h1>
+        <p class="cover-tagline">从 Prompt 试错到 Spec-Driven Workflow，用 Codex / WorkBuddy 把市场工作变成可复用、可协作、可迭代的 AI 编排系统。</p>
+      </div>
+      <div class="cover-meta">
+        <div><b>对象 · AUDIENCE</b>中欧商学院市场团队</div>
+        <div><b>主讲 · PRESENTER</b>王林 Lincoln</div>
+        <div><b>时长 · FORMAT</b>半天 · 讲解 + 实操</div>
+      </div>
+    </div>
+    <div class="col-image">
+      <div class="visual-panel">
+        <div>
+          <strong>Prompt 不是生产力系统</strong>
+          <span>真正的效率来自规格、资产、流程和复盘机制。</span>
+        </div>
+        <div class="ladder">
+          <div>Prompt</div>
+          <div>Skill</div>
+          <div>Workflow</div>
+        </div>
+      </div>
+      <div class="visual-panel">
+        <div class="note-pill">Training Outcome</div>
+        <strong>每人带走 1 个可投入日常工作的 Skill 或 AI 工作流</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="讲师介绍">
+    <div class="eyebrow">Instructor <span class="dot">·</span> 讲师介绍</div>
+    <h1 class="slide-title">王林 Lincoln<span class="en">MindsLeap 创始人 · Founders Space 全球合伙人</span></h1>
+    <span class="slide-bar"></span>
+    <div class="bio-grid">
+      <div class="bio-list">
+        <div><b>硅谷创新网络：</b>Founders Space 全球合伙人、中国区 CEO，长期连接中国企业与硅谷 AI 生态。</div>
+        <div><b>企业管理背景：</b>原维京游轮中国区副总裁，教育科技独角兽 Emeritus 中国区 COO。</div>
+        <div><b>AI 生态推动者：</b>MindsLeap 创始人、企业家 AI 俱乐部创始人，推动 AI 赋能传统行业转型与超级个体发展。</div>
+        <div><b>国际嘉宾与大会：</b>曾成功运作 Steve Hoffman、OpenAI 前高管 Zack Kass、亚马逊前首席科学家 Andreas Weigend 等来华演讲。</div>
+        <div><b>实战交付经验：</b>成功举办近 300 人企业家参加的“AI 原生企业大会”，长期服务企业 AI 培训、内容生产和工作流升级。</div>
+      </div>
+      <div class="bio-photo">
+        <img src="assets/lincoln.jpeg" alt="王林 Lincoln 讲师照片" />
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body statement" data-label="核心判断 Statement">
+    <div class="frame">
+      <div class="eyebrow">Thesis <span class="dot">·</span> 核心判断</div>
+      <h1 class="stmt">AI Agent 时代，市场部门的效率提升不再靠“多试几个 Prompt”，而要靠一套 <em>结构化工作流体系</em>。</h1>
+      <p class="stmt-en">The team learns to turn repeatable marketing work into specs, skills, workflows, memory, and measurable outputs.</p>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="市场部门 AI Use Case 总览">
+    <div class="eyebrow">Marketing Use Cases <span class="dot">·</span> 市场部门 AI 场景总览</div>
+    <h1 class="slide-title">市场部门不是少做一点事，而是换一种组织产能的方式<span class="en">Agentic marketing turns scattered tasks into repeatable operating loops.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="usecase-grid">
+      <div class="usecase"><div class="idx">01</div><h3>品牌内容资产库</h3><p>把官网、项目介绍、FAQ、校友故事、教授观点和活动素材变成 Agent 可调用的组织记忆。</p></div>
+      <div class="usecase"><div class="idx">02</div><h3>官网 AI / GEO 优化</h3><p>为文章和项目页生成 FAQ、摘要、Schema、AI 问答口径和搜索可见度优化建议。</p></div>
+      <div class="usecase"><div class="idx">03</div><h3>市场监测与研究</h3><p>持续追踪竞品、渠道、社媒、搜索问答、外网动态，把信息流整理成可行动周报。</p></div>
+      <div class="usecase"><div class="idx">04</div><h3>内容与视频生产</h3><p>从活动、访谈、讲座和文章中拆出长文、短视频脚本、字幕、标题、封面与分发素材。</p></div>
+      <div class="usecase"><div class="idx">05</div><h3>设计与课件产出</h3><p>基于品牌模板生成海报、活动页、Deck、社媒图和培训材料，并保持风格一致。</p></div>
+      <div class="usecase"><div class="idx">06</div><h3>站外发布与分发</h3><p>把同一份内容适配公众号、小红书、视频号、官网、邮件和合作渠道，减少重复改写。</p></div>
+      <div class="usecase"><div class="idx">07</div><h3>活动运营支持</h3><p>支持活动 brief、嘉宾介绍、邀请文案、报名页、会后复盘和二次传播内容包。</p></div>
+      <div class="usecase"><div class="idx">08</div><h3>团队协作与复盘</h3><p>把经验写成 Spec、Skill 和版本记录，让高频工作可交接、可复现、可持续优化。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="从 Marketer 到 Agentic Marketing Team">
+    <div class="eyebrow">Personal Story <span class="dot">·</span> 从 Marketer 到 Agentic Marketing Team</div>
+    <h1 class="slide-title">我的变化：从管理团队和预算，到管理一组 AI 工作流<span class="en">From operating a large marketing function to building an agentic marketing team.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="story-grid">
+      <div class="story-card">
+        <div>
+          <h3>过去：管几十个人，上亿预算</h3>
+          <p>传统 Marketer 的核心能力，是管理人、预算、渠道、供应商、排期和风险。</p>
+        </div>
+        <div>
+          <h3>现在：创业，全面使用 Agentic Marketing Team</h3>
+          <p>我把很多市场职能拆成可复用 Workflow，让 Agent 帮我持续产出、维护和分发。</p>
+        </div>
+      </div>
+      <div class="story-workflows">
+        <div class="story-workflow"><h3>网站搭建与自动维护</h3><p>官网、活动页、内容更新、双语版本、SEO / GEO 结构持续迭代。</p></div>
+        <div class="story-workflow"><h3>海报与 Deck 生产</h3><p>从 brief 到视觉方向、页面结构、品牌模板和最终可演示材料。</p></div>
+        <div class="story-workflow"><h3>Research 与市场洞察</h3><p>整理行业资料、竞品动态、专家观点、会议内容和可引用来源。</p></div>
+        <div class="story-workflow"><h3>站外发布与内容分发</h3><p>把核心内容改写成不同平台的发布版本，跟踪反馈并沉淀模板。</p></div>
+        <div class="story-workflow"><h3>短视频剪辑</h3><p>从访谈和讲座素材中切片，生成字幕、标题、脚本和分发说明。</p></div>
+        <div class="story-workflow"><h3>短视频制作</h3><p>把文章、课件、音频、案例变成短视频结构，形成批量生产流程。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body agenda" data-label="课程目标 Outcomes">
+    <div class="eyebrow">Learning Outcomes <span class="dot">·</span> 课程结果</div>
+    <h1 class="slide-title">半天之后，团队应该带走什么<span class="en">What participants should leave with.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="promise-grid">
+      <div class="promise-card">
+        <div class="k">01</div>
+        <div>
+          <h3>共同语言</h3>
+          <p>理解 Agent、Skill、Workflow、Memory、Markdown、Spec，不再把所有 AI 工作都叫“写提示词”。</p>
+        </div>
+      </div>
+      <div class="promise-card">
+        <div class="k">02</div>
+        <div>
+          <h3>一个可用的 Skill 或工作流</h3>
+          <p>每位学员完成 1 个可复用 Skill / Workflow，并能说明使用场景、输入、输出和验收标准。</p>
+        </div>
+      </div>
+      <div class="promise-card">
+        <div class="k">03</div>
+        <div>
+          <h3>一套协作方法</h3>
+          <p>学会用 Spec-Driven Development 把需求、素材、标准、验收和复盘写清楚，让 AI 与同事都能接得住。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="半天安排 Run of Show">
+    <div class="eyebrow">Run of Show <span class="dot">·</span> 半天安排</div>
+    <h1 class="slide-title">3.5 小时：认知统一，然后马上动手<span class="en">A practical half-day flow for a marketing team.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="schedule-table">
+      <div class="schedule-row">
+        <div class="time">13:30-13:55</div>
+        <div class="module">AI Agent 共同语言</div>
+        <div class="content">Agent、Skill、Workflow、Memory、Markdown、Spec：分别解决什么问题，市场团队为什么需要这些概念。</div>
+        <div class="output">一张术语地图</div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">13:55-14:30</div>
+        <div class="module">Spec-Driven Development</div>
+        <div class="content">把“帮我做一下”改写成目标、输入、约束、流程、验收标准和复盘指标。</div>
+        <div class="output">一个标准 Spec 模板</div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">14:30-15:35</div>
+        <div class="module">实操一：网页到课件</div>
+        <div class="content">用 Codex / WorkBuddy 生成培训网页或活动页面，再把页面内容结构化为可讲解的 deck。</div>
+        <div class="output">1 个可演示网页</div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">15:35-16:35</div>
+        <div class="module">实操二：四大市场场景</div>
+        <div class="content">品牌内容资产库、官网 AI 优化、市场监测、内容 / 视频创作，分组选择场景写 Skill。</div>
+        <div class="output">1 个 Skill / Workflow 草案</div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">16:35-17:00</div>
+        <div class="module">展示与迁移</div>
+        <div class="content">每组展示工作流，讨论如何放入团队资料库、周会机制和日常运营节奏。</div>
+        <div class="output">下一周落地清单</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide divider no-chrome" data-label="章节 01">
+    <div><div class="num">01</div></div>
+    <div>
+      <span class="label">Chapter One</span>
+      <h2>共同语言<span class="en">From prompts to an AI operating system for marketing work.</span></h2>
+      <p class="desc">先让团队知道自己在搭什么：不是“会不会问 AI”，而是能不能把高频工作沉淀成可复用系统。</p>
+    </div>
+  </section>
+
+  <section class="slide body compare" data-label="Prompt vs Workflow">
+    <div class="eyebrow">Before / After <span class="dot">·</span> 两种工作方式</div>
+    <h1 class="slide-title">从“会用 AI”到“会编排 AI”<span class="en">The upgrade is operational, not linguistic.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="pair">
+      <div class="panel now">
+        <h3>Prompt 试错</h3>
+        <div class="zh-en">Individual Productivity</div>
+        <ul>
+          <li>每个人都有自己的提示词，质量靠经验</li>
+          <li>上下文反复解释，换人就要重来</li>
+          <li>输出标准不稳定，复盘困难</li>
+          <li>素材、品牌语气、历史结果没有进入系统</li>
+          <li>难以让新人接手复杂工作</li>
+        </ul>
+      </div>
+      <div class="panel next">
+        <h3>AI 工作流</h3>
+        <div class="zh-en">Team Operating System</div>
+        <ul>
+          <li>用 Spec 固化目标、输入、约束和验收</li>
+          <li>用 Skill 封装可复用步骤</li>
+          <li>用 Workflow 串联多个 Agent 与工具</li>
+          <li>用 Memory / 资产库保留组织上下文</li>
+          <li>结果可以复现、协作、迭代、培训新人</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="AI Agent 核心关键词">
+    <div class="eyebrow">Core Vocabulary <span class="dot">·</span> 核心关键词</div>
+    <h1 class="slide-title">运用 AI Agent 的六个基础能力<span class="en">The operating vocabulary behind agentic marketing work.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="concept-grid">
+      <div class="concept"><h3>Context</h3><p>任务发生的背景：业务目标、受众、品牌语气、素材状态、限制条件和成功标准。</p></div>
+      <div class="concept"><h3>Prompt / Spec</h3><p>Prompt 是一次请求，Spec 是可复用的工作合同：目标、输入、流程、约束和验收标准。</p></div>
+      <div class="concept"><h3>Memory</h3><p>组织记忆：品牌资产、历史案例、FAQ、竞品观察、栏目规范和不能踩的边界。</p></div>
+      <div class="concept"><h3>Markdown</h3><p>AI 最容易读写的工作文档格式，也是 Spec、脚本、页面、课件和知识库的桥梁。</p></div>
+      <div class="concept"><h3>Skill</h3><p>把“某类任务怎么做”写成可复用说明书，让新人和 AI 都能照着执行。</p></div>
+      <div class="concept"><h3>Workflow</h3><p>把多个步骤、工具、素材、审批和复盘串起来，形成端到端产出。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="AI Agent 方法论进化">
+    <div class="eyebrow">Evolution <span class="dot">·</span> 方法论进化</div>
+    <h1 class="slide-title">AI Agent 的使用方式正在从“感觉驱动”走向“工程化编排”<span class="en">From vibing with code to designing harnesses for repeatable work.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="evolution-grid">
+      <div class="evolution-stage">
+        <div class="tag">Stage 01</div>
+        <h3>Vibing Code</h3>
+        <p>靠感觉和即时反馈推进：想到什么就让 AI 改什么，速度很快，但上下文容易丢、质量靠个人经验。</p>
+        <footer>适合探索：快速试方向、做 demo、验证想法。</footer>
+      </div>
+      <div class="evolution-stage">
+        <div class="tag">Stage 02</div>
+        <h3>Spec-Driven</h3>
+        <p>先写清楚目标、输入、约束、流程和验收标准，再让 AI 执行。重点从“问得巧”转向“定义得准”。</p>
+        <footer>适合协作：让不同人、不同 Agent 产出稳定结果。</footer>
+      </div>
+      <div class="evolution-stage">
+        <div class="tag">Stage 03</div>
+        <h3>Harness Engineer</h3>
+        <p>设计一套把 Context、Memory、Skill、工具、评估和人工审核串起来的运行装置，让工作流持续复用。</p>
+        <footer>适合规模化：把市场经验沉淀成团队操作系统。</footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body agent-slide" data-label="Agent 与 Sub Agent 协作">
+    <div class="eyebrow">Agent Collaboration <span class="dot">·</span> Agent 协作</div>
+    <h1 class="slide-title">Agent 不是一个“万能助手”，而是一组可以分工协作的执行角色<span class="en">A lead agent coordinates specialized sub-agents, tools, memory, and human review.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-collab">
+      <div class="agent-lead">
+        <div>
+          <h3>Lead Agent</h3>
+          <p>理解最终目标，拆分任务，调度 Sub Agents，合并结果，并在关键节点请求人工确认。</p>
+        </div>
+        <div class="note-pill" style="border-color:#fff;color:#fff;">Orchestration Layer</div>
+      </div>
+      <div class="agent-stack">
+        <div class="agent-node"><div class="role">Research</div><div><h3>研究型 Sub Agent</h3><p>读取资料、搜索信息、整理来源，负责事实与上下文输入。</p></div></div>
+        <div class="agent-node"><div class="role">Strategy</div><div><h3>策略型 Sub Agent</h3><p>判断受众、渠道、竞品与转化目标，把信息转成营销判断。</p></div></div>
+        <div class="agent-node"><div class="role">Creator</div><div><h3>创作型 Sub Agent</h3><p>生成文案、页面、脚本、标题、字幕和分发素材。</p></div></div>
+        <div class="agent-node"><div class="role">Reviewer</div><div><h3>审校型 Sub Agent</h3><p>检查事实、品牌语气、合规边界、格式和验收标准。</p></div></div>
+        <div class="agent-node"><div class="role">Human</div><div><h3>人工审核节点</h3><p>对外发布、招生口径、数据结论和品牌风险仍由人做最终判断。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body process" data-label="AI 编排链路">
+    <div class="eyebrow">Operating Loop <span class="dot">·</span> AI 编排链路</div>
+    <h1 class="slide-title">一个成熟市场工作流的五步<span class="en">The repeatable loop behind agentic marketing work.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="flow">
+      <div class="step"><span class="n">01</span><h3>定义场景<span class="en">Scene</span></h3><p>选择高频、重复、可验收的市场工作。</p></div>
+      <div class="step"><span class="n">02</span><h3>写 Spec<span class="en">Spec</span></h3><p>把目标、输入、约束、质量标准写清楚。</p></div>
+      <div class="step"><span class="n">03</span><h3>接资产<span class="en">Memory</span></h3><p>接入品牌语气、内容库、数据和历史案例。</p></div>
+      <div class="step"><span class="n">04</span><h3>封 Skill<span class="en">Skill</span></h3><p>把可复用步骤沉淀为团队能力。</p></div>
+      <div class="step"><span class="n">05</span><h3>跑复盘<span class="en">Review</span></h3><p>用指标和反馈继续迭代流程。</p></div>
+    </div>
+    <div class="outcome"><b>Key Idea</b>Agent 不是替你“想办法”的魔法，而是执行你已经定义清楚的工作系统。</div>
+  </section>
+
+  <section class="slide divider no-chrome" data-label="章节 02">
+    <div><div class="num">02</div></div>
+    <div>
+      <span class="label">Chapter Two</span>
+      <h2>规格驱动<span class="en">Spec-Driven Development for non-engineering teams.</span></h2>
+      <p class="desc">市场团队不需要变成程序员，但需要学会像产品经理一样描述目标、上下文、流程和验收标准。</p>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="Spec-Driven Development">
+    <div class="eyebrow">Spec-Driven Development <span class="dot">·</span> 规格驱动开发</div>
+    <h1 class="slide-title">Spec 是人与 AI 之间的工作合同<span class="en">A spec makes a request executable, reviewable, and reusable.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="spec-stack">
+      <div class="spec-box">
+        <h3>从一句话需求</h3>
+        <div class="code-card">帮我做一个中欧市场部用的 AI 培训课件，要有实操，风格高级一点。</div>
+      </div>
+      <div class="spec-box">
+        <h3>升级成可执行 Spec</h3>
+        <div class="spec-lines">
+          <div class="spec-line"><b>Goal</b><span>半天培训，让市场团队掌握 AI Agent 工作流，并产出 1 个可用 Skill 或工作流。</span></div>
+          <div class="spec-line"><b>Audience</b><span>中欧商学院市场营销部门，关注官网、渠道投放、市场监测、内容创作。</span></div>
+          <div class="spec-line"><b>Inputs</b><span>品牌资料、现有官网、内容库、竞品清单、平台账号、活动素材。</span></div>
+          <div class="spec-line"><b>Process</b><span>概念讲解、案例拆解、网页生成、Skill 制作、分组展示。</span></div>
+          <div class="spec-line"><b>Acceptance</b><span>每组能演示工作流，说明使用场景、输入、输出、维护方式和风险边界。</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="Spec 模板">
+    <div class="eyebrow">Template <span class="dot">·</span> 市场场景 Spec 模板</div>
+    <h1 class="slide-title">任何 AI 工作流先填这 8 格<span class="en">The worksheet participants use during the workshop.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="output-wall">
+      <div class="output-item"><div class="big">01</div><div><h3>业务目标</h3><p>这条工作流要减少什么成本，提升什么质量，支持什么决策。</p></div></div>
+      <div class="output-item"><div class="big">02</div><div><h3>使用者</h3><p>谁来触发，谁来审核，谁对最终结果负责。</p></div></div>
+      <div class="output-item"><div class="big">03</div><div><h3>输入资料</h3><p>品牌资料、历史内容、平台数据、竞品链接、图片视频、口径要求。</p></div></div>
+      <div class="output-item"><div class="big">04</div><div><h3>输出格式</h3><p>Markdown、网页、PPT、Excel、短视频脚本、监测周报、改版建议。</p></div></div>
+      <div class="output-item"><div class="big">05</div><div><h3>流程步骤</h3><p>Agent 先看什么，再分析什么，什么时候调用工具，什么时候请人确认。</p></div></div>
+      <div class="output-item"><div class="big">06</div><div><h3>质量标准</h3><p>品牌一致性、事实准确性、可引用来源、版式规范、合规边界。</p></div></div>
+      <div class="output-item"><div class="big">07</div><div><h3>失败处理</h3><p>数据不足、素材缺失、结论不确定、平台限制时如何提醒和降级。</p></div></div>
+      <div class="output-item"><div class="big">08</div><div><h3>复盘指标</h3><p>节省时间、内容质量、转化率、曝光率、采用率、团队满意度。</p></div></div>
+    </div>
+  </section>
+
+  <section class="slide divider no-chrome" data-label="章节 03">
+    <div><div class="num">03</div></div>
+    <div>
+      <span class="label">Chapter Three</span>
+      <h2>四大场景<span class="en">Where CEIBS marketing can turn AI into daily leverage.</span></h2>
+      <p class="desc">参考团队已经探索的场景，把培训实操聚焦到最容易当天产出成果的四类工作。</p>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="现有探索地图">
+    <div class="eyebrow">Current Exploration <span class="dot">·</span> 中欧市场场景地图</div>
+    <h1 class="slide-title">你们已经在探索的内容，可以整理成四条工作流主线<span class="en">The spreadsheet becomes our training backlog.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="scenario-img-wrap">
+      <div class="scenario-img"><img src="assets/ceibs-ai-scenarios.png" alt="中欧商学院市场团队 AI 探索场景表" /></div>
+      <div class="scenario-notes">
+        <div class="scenario-note"><h3>渠道投放 / GEO</h3><p>官网 AI 优化、GEO 投放与效果监测、品牌内容资产库。</p></div>
+        <div class="scenario-note"><h3>市场监测</h3><p>中欧生态、竞品公众号、小红书 / 抖音、外网、员工推荐监测。</p></div>
+        <div class="scenario-note"><h3>内容创作</h3><p>文字、视频、活动内容、讲座回顾、社媒发布素材。</p></div>
+        <div class="scenario-note"><h3>可训练重点</h3><p>把“想监测 / 想创作”转成有数据源、有模板、有验收标准的 Skill。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="四条主线">
+    <div class="eyebrow">Training Backlog <span class="dot">·</span> 四条主线</div>
+    <h1 class="slide-title">把高频工作拆成四类可落地 AI 工作流<span class="en">Four high-value lanes for hands-on practice.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="lane-grid">
+      <div class="lane"><div class="num">01</div><h3>品牌内容资产库</h3><p>沉淀官网、招生物料、校友故事、教授观点、FAQ、活动话术，支撑客服、内容生成和品牌一致性。</p><footer>Memory + Retrieval</footer></div>
+      <div class="lane"><div class="num">02</div><h3>官网 AI / GEO 优化</h3><p>为每篇文章设计 schema、FAQ、关键词与 AI 摘要，提升搜索与 AI 问答中的可见度。</p><footer>Website + Search</footer></div>
+      <div class="lane"><div class="num">03</div><h3>市场监测</h3><p>持续追踪竞品、渠道、社媒、员工推荐与舆情，形成周报和选题建议。</p><footer>Monitoring + Insight</footer></div>
+      <div class="lane"><div class="num">04</div><h3>内容 / 视频创作</h3><p>从活动录音、访谈、文章、课件到短视频脚本、字幕、切片和分发文案。</p><footer>Creation + Distribution</footer></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="实操 1 品牌资产库">
+    <div class="eyebrow">Hands-on 01 <span class="dot">·</span> 品牌内容资产库</div>
+    <h1 class="slide-title">把“品牌资料”变成 Agent 可调用的组织记忆<span class="en">From scattered files to a searchable brand memory.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="workshop-grid">
+      <div class="workshop-card">
+        <h3>现场任务</h3>
+        <ul>
+          <li>选择 20-50 条代表性内容：官网页面、项目介绍、招生 FAQ、活动报道、教授观点。</li>
+          <li>用 Markdown 建立统一字段：标题、对象、场景、核心卖点、语气、禁区、可引用原文。</li>
+          <li>写一个“品牌口径检索 + 内容改写” Skill。</li>
+        </ul>
+      </div>
+      <div class="workshop-card">
+        <h3>可直接使用的输出</h3>
+        <ul>
+          <li>中欧市场内容资产库目录。</li>
+          <li>品牌语气与用词清单。</li>
+          <li>活动推文 / 官网 FAQ / 客服答复的生成规范。</li>
+          <li>一个可复制到 Codex / WorkBuddy 的 Skill 文档。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deliverable-strip">验收方式：给定一个招生问题或活动主题，Agent 能引用资产库并生成符合品牌口径的初稿。</div>
+  </section>
+
+  <section class="slide body" data-label="实操 2 官网 AI 优化">
+    <div class="eyebrow">Hands-on 02 <span class="dot">·</span> 官网 AI / GEO 优化</div>
+    <h1 class="slide-title">让官网内容更容易被搜索引擎和 AI 摘要理解<span class="en">Optimize articles for AI search, answer engines, and conversion clarity.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="workshop-grid">
+      <div class="workshop-card">
+        <h3>现场任务</h3>
+        <ul>
+          <li>选择一篇官网文章或项目介绍页，抽取主题、受众、问题、答案和转化目标。</li>
+          <li>生成 FAQ、结构化摘要、Meta description、Schema 建议和 AI 问答口径。</li>
+          <li>建立“文章 AI 曝光优化”检查清单。</li>
+        </ul>
+      </div>
+      <div class="workshop-card">
+        <h3>可直接使用的输出</h3>
+        <ul>
+          <li>官网文章优化 Spec。</li>
+          <li>一份页面级 AI 可读性审计报告。</li>
+          <li>一组可交给网站团队或内容同事的改版建议。</li>
+          <li>后续 GEO 投放效果监测指标。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deliverable-strip">验收方式：页面能回答“谁适合、解决什么问题、为什么选择中欧、下一步做什么”。</div>
+  </section>
+
+  <section class="slide body" data-label="实操 3 市场监测">
+    <div class="eyebrow">Hands-on 03 <span class="dot">·</span> 市场监测</div>
+    <h1 class="slide-title">把市场信息流变成每周可读的情报产品<span class="en">Turn messy signals into a weekly marketing intelligence workflow.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="workshop-grid">
+      <div class="workshop-card">
+        <h3>现场任务</h3>
+        <ul>
+          <li>列出监测源：中欧账号、竞品公众号、小红书 / 抖音、外网商学院动态、搜索问答。</li>
+          <li>定义分析维度：主题、阅读趋势、互动信号、情绪倾向、招生相关性、可借鉴打法。</li>
+          <li>写一个“市场监测周报” Skill。</li>
+        </ul>
+      </div>
+      <div class="workshop-card">
+        <h3>可直接使用的输出</h3>
+        <ul>
+          <li>竞品与渠道监测源清单。</li>
+          <li>周报结构：摘要、变化、机会、风险、推荐动作。</li>
+          <li>内容选题建议模板。</li>
+          <li>需要人工确认的数据限制说明。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deliverable-strip">验收方式：Agent 能基于给定样本内容输出一份结构化周报，而不是一堆散点摘要。</div>
+  </section>
+
+  <section class="slide body" data-label="实操 4 内容视频">
+    <div class="eyebrow">Hands-on 04 <span class="dot">·</span> 内容 / 视频创作</div>
+    <h1 class="slide-title">从活动素材到多平台内容包<span class="en">Create a repeatable path from raw event material to publishable assets.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="workshop-grid">
+      <div class="workshop-card">
+        <h3>现场任务</h3>
+        <ul>
+          <li>选择一段活动录音、访谈稿或文章，拆成长文、短视频脚本、社媒文案和标题候选。</li>
+          <li>定义短视频切片标准：主题完整、开头抓人、事实准确、适配平台、字幕可读。</li>
+          <li>如时间允许，演示用 AI 辅助剪辑一条短视频。</li>
+        </ul>
+      </div>
+      <div class="workshop-card">
+        <h3>可直接使用的输出</h3>
+        <ul>
+          <li>内容再利用 Workflow。</li>
+          <li>短视频脚本与字幕模板。</li>
+          <li>活动复盘文章结构。</li>
+          <li>公众号、小红书、视频号分发文案包。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deliverable-strip">验收方式：同一份素材能稳定生成“长文 + 短视频 + 社媒文案 + 标题”的内容包。</div>
+  </section>
+
+  <section class="slide divider no-chrome" data-label="章节 04">
+    <div><div class="num">04</div></div>
+    <div>
+      <span class="label">Chapter Four</span>
+      <h2>现场实操<span class="en">Build something visible, then package the method into a Skill.</span></h2>
+      <p class="desc">用网页作为中间产物非常适合教学：它能承载结构、视觉、内容和交互，也能反向生成 PPT。</p>
+    </div>
+  </section>
+
+  <section class="slide body process" data-label="网页到 PPT">
+    <div class="eyebrow">Live Build <span class="dot">·</span> 网页到课件</div>
+    <h1 class="slide-title">为什么先让大家用 AI 生成网页<span class="en">A web page is the fastest visible artifact for agent workflows.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="flow">
+      <div class="step"><span class="n">01</span><h3>写需求<span class="en">Brief</span></h3><p>把活动、项目或文章写成一页网页 Spec。</p></div>
+      <div class="step"><span class="n">02</span><h3>生成页面<span class="en">Build</span></h3><p>用 Codex / WorkBuddy 生成 HTML 页面。</p></div>
+      <div class="step"><span class="n">03</span><h3>检查品牌<span class="en">QA</span></h3><p>检查视觉、语气、事实、移动端和链接。</p></div>
+      <div class="step"><span class="n">04</span><h3>提炼结构<span class="en">Deck</span></h3><p>从网页模块抽取成课件页和讲解顺序。</p></div>
+      <div class="step"><span class="n">05</span><h3>沉淀 Skill<span class="en">Reuse</span></h3><p>把这套方法写成团队可复用 Skill。</p></div>
+    </div>
+    <div class="outcome"><b>Why It Works</b>网页让“AI 产出”变得可看、可改、可验收，也能自然过渡到课件、文章和活动物料。</div>
+  </section>
+
+  <section class="slide body skill-slide" data-label="Skill Anatomy">
+    <div class="eyebrow">Skill Anatomy <span class="dot">·</span> Skill 怎么写</div>
+    <h1 class="slide-title">一个好的 Skill，是给 Agent 的作业标准书<span class="en">The skill is the reusable SOP for a marketing task.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="skill-anatomy">
+      <div class="code-card"># Skill: 官网文章 AI 优化
+
+## 何时使用
+当用户需要优化官网文章、项目页或活动页在搜索与 AI 问答中的可见度。
+
+## 输入
+- 页面 URL 或正文
+- 目标受众
+- 转化目标
+- 品牌语气与禁区
+
+## 流程
+1. 提取用户问题
+2. 生成 FAQ 与摘要
+3. 检查结构化信息
+4. 给出改版建议
+5. 输出验收清单</div>
+      <div class="checklist">
+        <div class="check"><div class="n">1</div><div><h3>触发条件</h3><p>什么时候用这个 Skill，什么时候不要用。</p></div></div>
+        <div class="check"><div class="n">2</div><div><h3>输入清单</h3><p>Agent 需要哪些资料，缺资料时如何追问。</p></div></div>
+        <div class="check"><div class="n">3</div><div><h3>执行步骤</h3><p>把隐性经验拆成稳定顺序，必要时加入人工确认点。</p></div></div>
+        <div class="check"><div class="n">4</div><div><h3>输出格式</h3><p>明确要 Markdown、表格、网页、脚本还是周报。</p></div></div>
+        <div class="check"><div class="n">5</div><div><h3>质量门槛</h3><p>定义品牌、事实、合规、引用和可执行性的验收标准。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="案例分享">
+    <div class="eyebrow">Lincoln Cases <span class="dot">·</span> 三个案例</div>
+    <h1 class="slide-title">用真实案例说明：AI 工作流不是 demo，是生产系统<span class="en">Three examples to make the method concrete.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="case-triptych">
+      <div class="case-tile">
+        <div>
+          <div class="label">Case 01</div>
+          <h3>AI 官网与内容维护</h3>
+          <p>用 AI 搭建官网，并把新闻、活动、文章、双语内容维护流程沉淀为可持续运营机制。</p>
+        </div>
+        <div class="metric">Website Ops</div>
+      </div>
+      <div class="case-tile">
+        <div>
+          <div class="label">Case 02</div>
+          <h3>AI 写书与有声阅读</h3>
+          <p>从大纲、章节、编辑、校对到音频生成，把长内容生产拆成可审稿的连续工作流。</p>
+        </div>
+        <div class="metric">Book + Audio</div>
+      </div>
+      <div class="case-tile">
+        <div>
+          <div class="label">Case 03</div>
+          <h3>批量短视频剪辑</h3>
+          <p>把访谈、讲座、课程素材转成字幕、脚本、切片、封面和分发文案，提高内容复用率。</p>
+        </div>
+        <div class="metric">Video Factory</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="学员产出">
+    <div class="eyebrow">Participant Deliverables <span class="dot">·</span> 学员产出</div>
+    <h1 class="slide-title">每位学员带走 1 个可投入日常工作的 Skill 或工作流<span class="en">The training ends with one real working artifact.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="output-wall">
+      <div class="output-item"><div class="big">01</div><div><h3>一个网页或内容原型</h3><p>可以是活动页、项目页、文章页、内容资产库页面或监测周报页面。</p></div></div>
+      <div class="output-item"><div class="big">02</div><div><h3>一个内容创作 Skill</h3><p>例如公众号文章、活动复盘、短视频脚本、FAQ 改写或招生问答。</p></div></div>
+      <div class="output-item"><div class="big">03</div><div><h3>一个监测 / 优化 Skill</h3><p>例如官网 AI 优化、GEO 检查、竞品监测、渠道表现周报。</p></div></div>
+      <div class="output-item"><div class="big">04</div><div><h3>一个团队落地清单</h3><p>下周谁维护资产库，谁负责监测源，谁每周复盘采用率与效果。</p></div></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="落地机制">
+    <div class="eyebrow">Adoption Plan <span class="dot">·</span> 培训后如何落地</div>
+    <h1 class="slide-title">培训结束不是终点，团队要建立一套轻量运营机制<span class="en">Skills only matter if they enter the weekly rhythm.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="concept-grid">
+      <div class="concept"><h3>Skill Library</h3><p>集中保存 Skill，按场景命名，记录版本、负责人、适用范围和最近更新时间。</p></div>
+      <div class="concept"><h3>Asset Owner</h3><p>指定内容资产库负责人，持续维护品牌口径、FAQ、项目介绍和典型案例。</p></div>
+      <div class="concept"><h3>Weekly Review</h3><p>每周挑 2 条工作流复盘：节省了多少时间，哪里还需要人工判断。</p></div>
+      <div class="concept"><h3>Human Gate</h3><p>招生口径、外部发布、数据结论、竞品判断必须保留人工审核节点。</p></div>
+      <div class="concept"><h3>Metric</h3><p>用采用率、返工率、发布时间、内容质量评分和转化表现衡量工作流价值。</p></div>
+      <div class="concept"><h3>Iteration</h3><p>把每次踩坑写回 Spec 和 Skill，团队能力才会越来越稳。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="Agentic Marketing Tips">
+    <div class="eyebrow">Practical Tips <span class="dot">·</span> 几个关键提醒</div>
+    <h1 class="slide-title">真正的效率来自把“偶然做对”变成“稳定复现”<span class="en">The goal is not a clever output once, but a workflow that keeps working.</span></h1>
+    <span class="slide-bar"></span>
+    <div class="tips-grid">
+      <div class="tip"><h3>做对了，就固化成 Skill</h3><p>当 AI 跑对一个 workflow，马上把触发条件、输入、步骤、验收标准固化为 Skill，并严格按 Skill 执行。Skill 本身也要做版本管理。</p></div>
+      <div class="tip"><h3>Context 像炼丹的原料和配比</h3><p>原料和配比对，炼出来的是金丹；混入很多不相干的原料，结果就会漂。上下文管理决定输出稳定性。</p></div>
+      <div class="tip"><h3>不要只修一个 typo</h3><p>比单点修复更重要的是系统性解决问题：不要只改一个错别字，而要建立词表、禁用词、品牌口径和检查流程。</p></div>
+      <div class="tip"><h3>平衡人和 AI 的 IO 速率</h3><p>人的输入输出速度和 AI 的输入输出速度差距很大。要设计节奏：哪些让 AI 批量跑，哪些必须由人判断、取舍和拍板。</p></div>
+    </div>
+  </section>
+
+  <section class="slide contact" data-label="结尾 Thank You">
+    <div class="col-l">
+      <div>
+        <div class="eyebrow">Next Step <span class="dot">·</span> 下一步</div>
+        <h1 class="ty">当天学，<br/>当天用<em>.</em></h1>
+        <div class="ty-en">Turn repeatable marketing work into reusable AI workflows.</div>
+      </div>
+      <div class="spacer"></div>
+      <p class="invite">训练营结束后，我们不只留下几条 Prompt，而是留下中欧市场团队自己的 Skill Library、工作流模板和下一周可执行的落地清单。</p>
+    </div>
+    <div class="col-r">
+      <div class="channels">
+        <div class="channel"><span class="lbl">Deck</span><span class="val">HTML Training Deck</span></div>
+        <div class="channel"><span class="lbl">Method</span><span class="val">Spec-Driven Workflow</span></div>
+        <div class="channel"><span class="lbl">Tools</span><span class="val">Codex / WorkBuddy</span></div>
+        <div class="channel"><span class="lbl">Output</span><span class="val">1 Skill / Workflow per learner</span></div>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script>
+  document.querySelectorAll('.slide').forEach((slide, index) => {
+    slide.dataset.page = String(index + 1).padStart(2, '0');
+  });
+</script>
+
+</body>
+</html>
