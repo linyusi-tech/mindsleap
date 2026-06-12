@@ -51,5 +51,8 @@ retry 4 git -c http.version=HTTP/1.1 push origin main
 
 echo
 echo "Done. GitHub Actions should now deploy mindsleap.cn from origin/main."
+echo "This script is for the CN deploy branch only."
+echo "If you need to prepare a clean upstream PR branch, use:"
+echo "./scripts/start-upstream-feature.sh <branch-name>"
 echo "Check workflow runs at:"
 echo "https://github.com/linyusi-tech/mindsleap/actions"
