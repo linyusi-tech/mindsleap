@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-logo="joint" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>AI 时代，老师该如何重新理解教育</title>
+  <link rel="stylesheet" href="/decks/Yusi/ai-education-teachers-deck/colors_and_type.css" />
+  <link rel="stylesheet" href="/decks/Yusi/ai-education-teachers-deck/deck.css" />
+  <link rel="stylesheet" href="/decks/Yusi/ai-education-teachers-deck/styles.css" />
+  <script src="/decks/Yusi/ai-education-teachers-deck/deck-stage.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+
+  <section class="slide cover edu-cover no-chrome" data-label="封面" data-page="01">
+    <div class="col-text">
+      <div class="logo"></div>
+      <div class="cover-eyebrow">AI EDUCATION TALK · FOR MIDDLE SCHOOL TEACHERS</div>
+      <h1 class="cover-title">技术向前，<br />育人向内<span class="blue-dot">.</span></h1>
+      <p class="cover-tagline">AI 时代，初中老师的务实突围之路</p>
+      <div class="cover-meta">
+        <div><b>主讲 · PRESENTER</b>雨丝</div>
+        <div><b>对象 · AUDIENCE</b>初中老师</div>
+        <div><b>时长 · FORMAT</b>30 分钟分享</div>
+      </div>
+    </div>
+    <div class="col-image cover-image-slot">
+      <img src="/decks/Yusi/ai-education-teachers-deck/assets/generated-image-1.png" alt="老师、学生与 AI 共同学习的场景" />
+    </div>
+  </section>
+
+  <section class="slide body about" data-label="关于我" data-page="02">
+    <div class="eyebrow">Instructor <span class="dot">·</span> 主讲人介绍</div>
+    <h1 class="slide-title">雨丝<span class="en">MindsLeap 联合创始人 &amp; CPO</span></h1>
+    <span class="slide-bar"></span>
+    <div class="speaker-bio-grid">
+      <div class="speaker-bio-list">
+        <div><b>当前角色：</b>MindsLeap 联合创始人 &amp; CPO，FoundersSpace 中国合伙人，企业家 AI 俱乐部联合发起人。</div>
+        <div><b>教育产品一线：</b>曾担任全球排名第一教育科技公司 32 亿美元独角兽 Emeritus 中国区产品负责人。复旦大学本科。</div>
+        <div><b>少儿教育与出海：</b>前纳斯达克上市教育公司少儿产品线负责人，字节跳动教育出海业务资深产品经理。</div>
+        <div><b>产品从 0 到 1：</b>主导十余款教育产品从 0 到 1 的构建，服务用户超百万。</div>
+        <div><b>AI 教育与母亲视角：</b>长期关注 AI 对学习方式、创造力培养与个性化教育的影响；作为 7 个月孩子的妈妈，也更关心技术变化背后“人如何成长”的问题。</div>
+      </div>
+      <div class="speaker-photo">
+        <img src="/decks/Yusi/ai-education-teachers-deck/assets/Yusi.png" alt="雨丝主讲人照片" />
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body outline-page" data-label="目录" data-page="03">
+    <div class="eyebrow">Roadmap · 今天我们走三段路</div>
+    <h1 class="slide-title">分享大纲</h1>
+    <span class="slide-bar"></span>
+    <div class="bridge-grid outline-grid">
+      <div>
+        <b>01</b>
+        <strong>看见变化</strong>
+        <p>AGI 已经到来，只是尚未均匀分布。</p>
+      </div>
+      <div>
+        <b>02</b>
+        <strong>看见先行者</strong>
+        <p>项目与创造，正在训练未来的底层能力。</p>
+      </div>
+      <div>
+        <b>03</b>
+        <strong>回到现场</strong>
+        <p>在升学考还在的现实里，老师可以先做什么。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide quote chapter-divider" data-label="01 看见变化" data-page="04">
+    <div class="chapter-no">01</div>
+    <div class="quote-mark">Part One · 看见变化</div>
+    <h1>看见变化</h1>
+    <p>AGI 已经到来，只是尚未均匀分布。</p>
+  </section>
+
+  <section class="slide body model-signal" data-label="模型越过专家线" data-page="05">
+    <div class="eyebrow">Signal 01 · 标准答案正在变便宜</div>
+    <h1 class="slide-title">如果只拼考试和知识，人类优势已经消失</h1>
+    <span class="slide-bar"></span>
+    <div class="model-grid">
+      <div class="benchmark-bars">
+        <div class="bar-row">
+          <span>AIME 2025<br /><em>高中数学竞赛</em></span>
+          <div class="bars-stack">
+            <div class="bar-wrap"><i style="width:41%"></i><b>参赛者平均：6.16/15</b></div>
+            <div class="bar-wrap ai"><i style="width:100%"></i><b>Claude Fable 5：15/15（满分）</b></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span>MMMU-Pro<br /><em>大学多学科图文题</em></span>
+          <div class="bars-stack">
+            <div class="bar-wrap"><i style="width:89%"></i><b>最佳人类专家：88.6%</b></div>
+            <div class="bar-wrap ai"><i style="width:89%"></i><b>Claude Fable 5：89.31%</b></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <span>GPQA Diamond<br /><em>博士级科学题</em></span>
+          <div class="bars-stack">
+            <div class="bar-wrap"><i style="width:65%"></i><b>博士专家：65%</b></div>
+            <div class="bar-wrap ai"><i style="width:94%"></i><b>Claude Mythos 5：94.1%</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="model-takeaway">
+        <h2>拼标准答案，AI 已经太强。</h2>
+        <p>这不代表孩子不用学习；恰恰相反，越是答案变得便宜，越要训练提问、判断、迁移和创造。</p>
+        <small>Sources: Anthropic System Card / MAA-AoPS AIME / Vals AI MMMU-Pro</small>
+      </div>
+    </div>
+    <aside class="speaker-notes">可以说：这里不是在讲哪个模型最强，而是在讲一个更重要的趋势：如果评价体系只看标准答案、知识库存和考试正确率，最强模型已经非常强。GPQA 是博士级科学问题；AIME 是面向优秀高中生的数学竞赛，2025 AIME I 平均约 6.16/15，而 Claude Fable 5 可以满分；MMMU-Pro 是大学多学科图文题，Claude Fable 5 已经接近或略超最佳人类专家。benchmark 都有局限，但方向很清楚：标准答案和知识型考试正在变便宜。教育当然还要教知识，但不能只停在记忆、刷题和标准答案；更关键的是训练孩子提问、判断、迁移、创造，以及在真实问题中使用知识。</aside>
+  </section>
+
+  <section class="slide quote gibson-quote no-chrome" data-label="未来已来" data-page="06">
+    <div class="quote-mark">OPENING QUOTE · WILLIAM GIBSON</div>
+    <div class="big-quote">“</div>
+    <h1>The future is already here.<br />It’s just not evenly distributed.</h1>
+    <p>未来已经到来，只是尚未均匀分布。</p>
+    <div class="quote-credit">William Gibson <span>Writer · Cyberpunk Pioneer</span></div>
+    <aside class="speaker-notes">这里把论点从“教育没有意义”转成“时代已经到了，只是还没有普及”。AI 能力已经越过很多人类考试和专家基线，但社会渗透率还很低，所以很多人暂时没有体感。我们正站在“未来已经出现，但分布不均”的阶段。</aside>
+  </section>
+
+  <section class="slide body baozi-economics" data-label="包子与Token" data-page="07">
+    <div class="eyebrow">Compute Shock · 同一个包子，换来的 AI 输出正在暴涨</div>
+    <h1 class="slide-title">AI 的单位能耗产出，正在快速跃迁</h1>
+    <span class="slide-bar"></span>
+    <div class="baozi-grid">
+      <div class="baozi-anchor">
+        <b>一个包子</b>
+        <strong>232 kcal ≈ 269 Wh</strong>
+        <p>把人类一小顿能量换算成 AI 计算能耗</p>
+      </div>
+      <div class="baozi-card">
+        <span>2025.08</span>
+        <strong>约 15,000 tokens</strong>
+        <p>大约回答 <b>30</b> 个中等长度问题</p>
+      </div>
+      <div class="baozi-card is-current">
+        <span>2026.05</span>
+        <strong>约 1,000,000 tokens</strong>
+        <p>大约回答 <b>400</b> 个中等长度问题</p>
+      </div>
+    </div>
+    <div class="baozi-bottom">
+      <b>9 个月</b>
+      <span>同等能量可换来的 token 规模，约提升 67 倍。</span>
+    </div>
+    <aside class="speaker-notes">这一页用的是估算口径，不作为严谨工程测量，而是为了让老师有体感：AI 的能力不是缓慢变好，而是在单位成本、单位能耗上快速跃迁。去年一个包子换来几十个回答，今年同样能量能换来几百个回答。真正重要的是趋势：越往后，AI 输出会越来越便宜。</aside>
+  </section>
+
+  <section class="slide body exponential-shift" data-label="指数增长" data-page="08">
+    <div class="eyebrow">Exponential Curve · 变化不是线性的</div>
+    <h1 class="slide-title">AI 的可怕，不在于现在很强，<br />而在于它还在指数级变强</h1>
+    <span class="slide-bar"></span>
+    <div class="curve-layout">
+      <div class="curve-copy">
+        <h2>人类感知到“突然变化”，往往是因为曲线穿过了临界点。</h2>
+        <p>临界点之前像玩具、工具、尝鲜；一旦越过普通人水平，就会很快逼近并超过最聪明的人。</p>
+        <strong>我们现在差不多就站在这个点附近。</strong>
+      </div>
+      <div class="curve-chart">
+        <div class="axis-label low">低体感</div>
+        <div class="axis-label high">巨变</div>
+        <svg viewBox="0 0 720 420" aria-label="指数增长曲线">
+          <path class="grid-line" d="M40 360H680M40 260H680M40 160H680M40 60H680" />
+          <path class="threshold" d="M470 36V372" />
+          <polyline class="curve" points="44.0,356.0 70.3,356.0 96.7,355.7 123.0,355.0 149.3,353.8 175.7,351.9 202.0,349.1 228.3,345.4 254.7,340.6 281.0,334.6 307.3,327.2 333.7,318.4 360.0,308.0 386.3,296.0 412.7,282.2 439.0,266.4 465.3,248.7 491.7,228.8 518.0,206.7 544.3,182.4 570.7,155.5 597.0,126.2 623.3,94.2 649.7,59.5 676.0,22.0" />
+          <circle class="now-dot" cx="470" cy="245" r="12" />
+        </svg>
+        <div class="curve-caption">
+          <span>玩具感</span>
+          <b>临界点</b>
+          <span>全面外溢</span>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页可以讲指数曲线的体感差异：前面很长时间大家觉得只是新工具，突然某一天它就开始改变工作方式。教育最难的是，它面对的是十年后的孩子，不是今天的工具热闹。</aside>
+  </section>
+
+  <section class="slide body capex-market" data-label="资本投入" data-page="09">
+    <div class="eyebrow">Why This Time Is Different · 资本在押注什么</div>
+    <h1 class="slide-title">这次不只是换工具，而是在重写“人的生产力”</h1>
+    <span class="slide-bar"></span>
+    <div class="capex-grid">
+      <div class="capex-thesis">
+        <h2>如果 AI 只是在卖“工具”，今天的投入很难回本。</h2>
+        <p>更大的市场不是软件工具预算，而是白领脑力劳动本身。</p>
+      </div>
+      <div class="capex-metric">
+        <span>美国 AI 大厂每年投入</span>
+        <strong>约 3 万亿 / 年</strong>
+        <p>数据中心、芯片、电力与算力基础设施</p>
+      </div>
+      <div class="capex-metric">
+        <span>美国企业技术预算总和</span>
+        <strong>约 1.5 万亿 / 年</strong>
+        <p>生产资料、软件工具与技术基础设施</p>
+      </div>
+      <div class="capex-metric dark">
+        <span>美国白领人力成本</span>
+        <strong>约 7.5 万亿 / 年</strong>
+        <p>AI 真正瞄准的是这块生产力市场</p>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里要讲的核心不是“AI 又多了一个工具市场”，而是资本在押注人的生产力被重写。页面上只保留量级，不展开币种和统计口径。美国 AI 大厂每年投入已经是万亿级；如果只瞄准企业技术预算，回本逻辑并不成立；真正大的市场，是白领人力成本这块生产力市场。AI 这次改变的是“人的生产力”这一侧。</aside>
+  </section>
+
+  <section class="slide body agi-flywheel" data-label="AGI飞轮" data-page="10">
+    <div class="eyebrow">Flywheel · AGI 到来后的效率闭环</div>
+    <h1 class="slide-title">当 AI 能力越强，社会效率飞轮会越转越快</h1>
+    <span class="slide-bar"></span>
+    <div class="flywheel-layout">
+      <div class="flywheel">
+        <div class="external-force">AI 能力指数进步</div>
+        <svg class="flywheel-ring" viewBox="0 0 520 520" aria-hidden="true">
+          <path d="M260 54 A206 206 0 0 1 456 196" />
+          <path d="M456 196 A206 206 0 0 1 382 426" />
+          <path d="M382 426 A206 206 0 0 1 138 426" />
+          <path d="M138 426 A206 206 0 0 1 64 196" />
+          <path d="M64 196 A206 206 0 0 1 260 54" />
+          <polygon class="wheel-triangle" points="0,-14 28,0 0,14" transform="translate(381 93) rotate(36)" />
+          <polygon class="wheel-triangle" points="0,-14 28,0 0,14" transform="translate(456 324) rotate(108)" />
+          <polygon class="wheel-triangle" points="0,-14 28,0 0,14" transform="translate(260 466) rotate(180)" />
+          <polygon class="wheel-triangle" points="0,-14 28,0 0,14" transform="translate(64 324) rotate(252)" />
+          <polygon class="wheel-triangle" points="0,-14 28,0 0,14" transform="translate(139 93) rotate(324)" />
+        </svg>
+        <div class="node n1">单人产出暴涨</div>
+        <div class="node n2">淘汰与裁员</div>
+        <div class="node n3">降价让利</div>
+        <div class="node n4">购买力下降</div>
+        <div class="node n5">组织被迫利用 AI 进一步提效</div>
+        <div class="flywheel-core">AGI<br />效率飞轮</div>
+      </div>
+      <div class="flywheel-copy">
+        <h2>AI 不是只影响科技公司。</h2>
+        <p>它放大的是所有行业、所有岗位的效率差距：会用 AI 的人和组织，成本更低、速度更快；不会用的人和组织，会被迫进入更残酷的竞争。</p>
+        <strong>这也是为什么“会不会用 AI”，会变成未来基础能力。</strong>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里可以按闭环讲：AI 能力指数进步是飞轮外部的推动力；它带来单人产出暴涨，进而淘汰与裁员；为了活下来，企业开始降价让利；购买力下降和竞争加剧，又迫使组织继续利用 AI 提效。对教育来说，问题不是让孩子恐惧，而是让孩子具备用 AI 放大自己的能力。</aside>
+  </section>
+
+  <section class="slide body brain-vs-ai" data-label="人脑与AI" data-page="11">
+    <div class="eyebrow">Human Brain vs AI · 根本差异</div>
+    <h1 class="slide-title">为什么人脑很神奇，但不适合和 AI 拼算力</h1>
+    <span class="slide-bar"></span>
+    <div class="brain-grid">
+      <div class="brain-card human">
+        <h2>人脑的天然限制</h2>
+        <p><b>表征形式：</b>主要依赖语言，语言也是思想的边界。</p>
+        <p><b>思维速度：</b>语言思考每秒大约十几个比特量级。</p>
+        <p><b>传输转码：</b>从一个脑到另一个脑，需要说、写、听、读。</p>
+        <p><b>生理限制：</b>需要睡眠、休息，容量和持续时间都昂贵。</p>
+      </div>
+      <div class="brain-card ai">
+        <h2>AI 的相对优势</h2>
+        <p><b>表征形式：</b>向量、参数与高维空间。</p>
+        <p><b>运行速度：</b>计算、检索、迭代可达每秒上亿比特量级。</p>
+        <p><b>经验继承：</b>参数可以复制、共享、融合。</p>
+        <p><b>持续输出：</b>不用睡觉，容量扩展和边际成本仍在下降。</p>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里不要贬低人。人脑的神奇在于意识、情感、价值、热爱、身体经验和真实世界中的选择。但如果把任务限定为标准答案、知识提取、信息处理和高速迭代，人脑确实不该和 AI 硬拼。</aside>
+  </section>
+
+  <section class="slide body seven-skills" data-label="七个能力" data-page="12">
+    <div class="eyebrow">Human Edge · AI 时代更需要练什么</div>
+    <h1 class="slide-title">孩子最不会被替代的 7 个“人味能力”</h1>
+    <span class="slide-bar"></span>
+    <div class="skill-orbit">
+      <div><b>01</b><span>提问力</span></div>
+      <div><b>02</b><span>筛选力</span></div>
+      <div><b>03</b><span>创造力</span></div>
+      <div><b>04</b><span>审美力</span></div>
+      <div><b>05</b><span>合作力</span></div>
+      <div><b>06</b><span>整合力</span></div>
+      <div><b>07</b><span>热爱与愿力</span></div>
+    </div>
+    <aside class="speaker-notes">这些不是“素质教育口号”，而是当标准化智力越来越便宜时，孩子真正需要长出来的底层能力。</aside>
+  </section>
+
+  <section class="slide quote human-question" data-label="人的价值" data-page="13">
+    <div class="quote-mark">Human Edge · 真正的问题</div>
+    <h1>人的底层能力 × AI 使用能力<br />= 未来竞争力</h1>
+    <p>人不该和 AI 拼标准答案，而要把 AI 变成自己的能力放大器。</p>
+    <div class="question-bottom">
+      <span>底层能力</span>
+      <span>AI 协作</span>
+      <span>真实问题</span>
+    </div>
+  </section>
+
+  <section class="slide quote chapter-divider" data-label="02 看见先行者" data-page="14">
+    <div class="chapter-no">02</div>
+    <div class="quote-mark">Part Two · 看见先行者</div>
+    <h1>看见先行者</h1>
+    <p>项目与创造，正在训练未来的底层能力。</p>
+  </section>
+
+  <section class="slide body alpha-school" data-label="Alpha School" data-page="15">
+    <div class="eyebrow">Pioneer · AI 教育先行者</div>
+    <h1 class="slide-title">Alpha School：把基础学习压缩，把时间还给项目</h1>
+    <span class="slide-bar"></span>
+    <div class="alpha-grid">
+      <div class="alpha-main">
+        <h2>2 小时高密度 AI 个性化学习</h2>
+        <p>数学、科学、阅读、写作由 AI tutor 个性化推进；成人 guide 不直接授课，而是教孩子成为 self-driven learners。</p>
+        <p class="alpha-project">剩下的时间，用在项目制学习、生活技能与真实世界挑战。</p>
+      </div>
+      <div class="alpha-stats">
+        <div><strong>2h/day</strong><span>基础学习</span></div>
+        <div><strong>90th</strong><span>多数年级标准化测试百分位</span></div>
+        <div><strong>$10k</strong><span>六年级 Airbnb 项目确认订单</span></div>
+      </div>
+    </div>
+    <aside class="speaker-notes">它不一定能直接照搬，但给了我们一个关键启发：AI 的价值不是让孩子“不学”，而是让基础学习更高效，把时间还给创造、生活技能和真实问题。</aside>
+  </section>
+
+  <section class="slide body hackathon-pioneer" data-label="Hackathon" data-page="16">
+    <div class="eyebrow">Pioneer · Hackathon 与路演现场</div>
+    <h1 class="slide-title">年轻人已经在用 AI，把想法做成真实作品</h1>
+    <span class="slide-bar"></span>
+    <div class="hackathon-grid">
+      <div class="hackathon-photo photo"><img src="/decks/Yusi/ai-education-teachers-deck/assets/hackathon-roadshow.jpg" alt="学生路演现场" /></div>
+      <div class="hackathon-cases">
+        <div><b>16 岁 · $1M</b><span>Toby Brown 创立 AI 项目 Beem，融资约 100 万美元，前往硅谷继续开发。</span></div>
+        <div><b>18 岁 · $6.2M</b><span>Arlan Rakhmetzhanov 高中阶段做出 AI coding 工具，进入 YC 后为 Nozomio 融资 620 万美元。</span></div>
+        <div><b>4 小时 · 35 队</b><span>AI Youth Hackathon 中，130 名高中生用 Lovable 做出 AI 原型并完成现场 pitch。</span></div>
+        <strong>对学生来说，AI 不是“偷懒工具”，而是把真实问题变成项目的放大器。</strong>
+        <small>Sources: Business Insider / YC / AI Collective Tri-Valley</small>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里可以讲：初高中生不一定要马上创业，但他们已经具备用 AI 做出小作品、跑通小项目、在路演中表达价值的能力。老师真正能给孩子的，是问题意识、表达能力、项目拆解能力和正确使用 AI 的边界。</aside>
+  </section>
+
+  <section class="slide quote chapter-divider" data-label="03 回到现场" data-page="17">
+    <div class="chapter-no">03</div>
+    <div class="quote-mark">Part Three · 回到现场</div>
+    <h1>回到现场</h1>
+    <p>在升学考还在的现实里，老师可以先做什么。</p>
+  </section>
+
+  <section class="slide quote advice-quote" data-label="建议一" data-page="18">
+    <div class="quote-mark">Suggestion 01 · 给老师的第一个建议</div>
+    <h1 class="two-line-tight">将重复性事务交付 AI，<br />把更多时间，回归育人与学生本身<span class="blue-dot">.</span></h1>
+  </section>
+
+  <section class="slide body agent-era" data-label="AI 能干活" data-page="19">
+    <div class="eyebrow">Agent Era · AI 不再只是回答问题</div>
+    <h1 class="slide-title">现在 AI 已经可以直接上手干活</h1>
+    <span class="slide-bar"></span>
+    <div class="agent-grid">
+      <div class="agent-main">
+        <h2>每个人都可以把 AI 当成自己的“执行团队”。</h2>
+        <p>不是只问一个答案，而是让它读取材料、拆解任务、生成方案、写代码、做页面、跑流程。</p>
+      </div>
+      <div class="agent-tags">
+        <span>教案初稿</span><span>分层练习</span><span>错题变式</span><span>课堂活动</span>
+        <span>学情诊断</span><span>评语反馈</span><span>家校沟通</span><span>项目任务</span>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里可以先分享我自己用 agent 做过的例子：发票、海报、报名系统、早教项目、视频剪辑、Research 与 PPT。PPT 上放老师更容易迁移的场景：教案、分层练习、错题变式、课堂活动、学情诊断、评语反馈、家校沟通、项目任务。</aside>
+  </section>
+
+  <section class="slide body concepts" data-label="输出质量" data-page="20">
+    <div class="eyebrow">Output Quality · 想让 AI 产出更好</div>
+    <h1 class="slide-title">提高输出物质量，需要知道几个底层概念</h1>
+    <span class="slide-bar"></span>
+    <div class="concept-grid">
+      <div><b>Context</b><span>上下文</span></div>
+      <div><b>Token</b><span>文本单位</span></div>
+      <div><b>Skill</b><span>可复用能力</span></div>
+      <div><b>Markdown</b><span>结构化表达</span></div>
+      <div><b>HTML</b><span>可视化输出</span></div>
+      <div><b>Plan Mode</b><span>先规划再执行</span></div>
+    </div>
+    <div class="concept-bottom">把材料、规则、范例、流程沉淀在本地文件夹或飞书知识库里，AI 才能稳定复用。</div>
+  </section>
+
+  <section class="slide body tool-stack" data-label="工具推荐" data-page="21">
+    <div class="eyebrow">Tool Stack · 一些工具推荐</div>
+    <h1 class="slide-title">工欲善其事，必先利其器</h1>
+    <span class="slide-bar"></span>
+    <div class="tool-grid">
+      <div><b>豆包 / DeepSeek</b><span>日常对话与智能体</span></div>
+      <div><b>即梦</b><span>图片与视频创作</span></div>
+      <div><b>秘塔</b><span>搜索、阅读与资料整理</span></div>
+      <div><b>WorkBuddy</b><span>Codex 平替</span></div>
+      <div class="tool-highlight"><b>Hermes</b><span>几乎全能（配置难度略高）</span></div>
+      <div class="tool-highlight"><b>Codex</b><span>几乎全能</span></div>
+    </div>
+  </section>
+
+  <section class="slide body principles" data-label="两个原则" data-page="22">
+    <div class="eyebrow">Principles · 两个朴素但很有用的原则</div>
+    <h1 class="slide-title">用最强模型，做真实任务</h1>
+    <span class="slide-bar"></span>
+    <div class="principle-grid">
+      <div>
+        <b>原则一</b>
+        <h2>使用最厉害的模型</h2>
+        <p>模型能力与价格基本成正比。顶级模型不仅能提高产出质量，还能提升速度，直接影响输出结果并节约时间。</p>
+        <p>顶级模型与第二梯队的差距正在加大：好的模型生态里有大量应用环路，AI Native 应用持续调用、验证、反哺模型。</p>
+        <p class="principle-emphasis">所以只看榜单分数，往往无法直观看出模型真正的能力强度。</p>
+      </div>
+      <div>
+        <b>原则二</b>
+        <h2>直接上手干</h2>
+        <p>AI 时代的学习方式，不再是“先学再用”，而是在真实任务中直接与 AI 交互来学。</p>
+        <ul>
+          <li>面对真实任务，直接拿 AI 开始做。</li>
+          <li>打开 Plan Mode，让 AI 一起拆步骤。</li>
+          <li>做能落地、能看见结果的作品。</li>
+          <li>过程中不懂的地方，实时追问 AI。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide quote advice-quote" data-label="建议二" data-page="23">
+    <div class="quote-mark">Suggestion 02 · 给老师的第二个建议</div>
+    <h1 class="two-line-tight">老师先做探索者，<br />才能带出探索型学生<span class="blue-dot">.</span></h1>
+  </section>
+
+  <section class="slide body explorer" data-label="老师以身作则" data-page="24">
+    <div class="eyebrow">Practice · 教师示范</div>
+    <h1 class="slide-title">老师先做探索者，才能带出探索型学生</h1>
+    <span class="slide-bar"></span>
+    <div class="story-grid">
+      <div class="story-card">
+        <h3>以身示范，让孩子看见成人用 AI 解决真实问题。</h3>
+        <p>教学项目、个人兴趣、公开表达，都可以成为孩子理解 AI 的入口。</p>
+      </div>
+      <div class="story-workflows">
+        <div><h3>个人网站</h3><p>把自己的课程、作品、思考沉淀成可见的空间。</p></div>
+        <div><h3>短视频平台</h3><p>用 AI 辅助脚本、剪辑、素材整理和表达训练。</p></div>
+        <div><h3>第二大脑</h3><p>把阅读、教案、案例和反思变成可复用知识库。</p></div>
+        <div><h3>项目中学习</h3><p>让孩子看到：遇到问题，可以借助 AI 找路径、做作品。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide quote learning-agent-quote" data-label="学习智能体" data-page="25">
+    <div class="quote-mark">Suggestion 03 · 因材施教的新抓手</div>
+    <h1 class="two-line-tight">依托一线教学沉淀，为孩子<br />量身打造适配学情的学习智能体<span class="blue-dot">.</span></h1>
+  </section>
+
+  <section class="slide body sigma-support" data-label="个性化支持" data-page="26">
+    <div class="eyebrow">Personalized Support · AI 让因材施教首次真正可落地</div>
+    <h1 class="slide-title">把专属学习陪伴，变成低成本、高频次、长效可持续</h1>
+    <span class="slide-bar"></span>
+    <div class="sigma-grid">
+      <div class="sigma-image"><img src="/decks/Yusi/ai-education-teachers-deck/assets/two-sigma-diagram-1.png" alt="Bloom two sigma diagram" /></div>
+      <div class="sigma-copy">
+        <h2 class="sigma-title-tight">AI 最大的教育机遇，是将<br />因材施教的个性化辅导规模化</h2>
+        <p>过去我们知道一对一有效，但很难人人拥有。AI 让“持续反馈、个性路径、适配学情”第一次变得足够低成本。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body agent-examples" data-label="智能体示例" data-page="27">
+    <div class="eyebrow">Examples · 可以做什么</div>
+    <h1 class="slide-title">不是替孩子答题，而是训练孩子思考</h1>
+    <span class="slide-bar"></span>
+    <div class="example-grid">
+      <div>苏格拉底式提问智能体</div>
+      <div>费曼学习法智能体</div>
+      <div>布鲁姆提问法智能体</div>
+      <div>考试助手智能体</div>
+      <div>深度阅读思维训练智能体</div>
+      <div>五感拓展法作文助手</div>
+      <div>Khan Academy / Khanmigo</div>
+      <div>MIT Open Learning 等工具</div>
+    </div>
+    <p class="principle-line">核心原则：拒绝直接输出标准答案，依托科学教法，引导学生自主思考求索。</p>
+    <div class="agent-qr-card">
+      <img src="/decks/Yusi/ai-education-teachers-deck/assets/doubao-bloom-qr.png" alt="豆包布鲁姆提问法智能体二维码" />
+      <span>豆包布鲁姆提问法智能体</span>
+    </div>
+    <aside class="speaker-notes">孩子一定会用 AI。与其让 AI 直接给答案，不如引导孩子正确使用 AI 辅助学习。</aside>
+  </section>
+
+  <section class="slide quote jensen-quote feifei-quote" data-label="李飞飞" data-page="28">
+    <div class="quote-left">
+      <div class="quote-mark">FEI-FEI LI · AI EDUCATION</div>
+      <h1>I believe that if we teach responsible tool-using, students will be superpowered by AI<span class="blue-dot">.</span></h1>
+      <p>如果我们教会学生负责任地使用工具，他们会被 AI 赋能。</p>
+    </div>
+    <div class="quote-panel portrait-panel">
+      <img src="/decks/Yusi/ai-education-teachers-deck/assets/fei-fei-li.jpg" alt="Fei-Fei Li" />
+      <div class="quote-caption">
+        <strong>李飞飞 · Fei-Fei Li</strong>
+        <span>Computer Scientist · AI Educator</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body org-next" data-label="组织建议" data-page="29">
+    <div class="eyebrow">Organization · 学校层面的建议</div>
+    <h1 class="slide-title">学校层面，先让一两个愿意尝试的人跑出来</h1>
+    <span class="slide-bar"></span>
+    <div class="org-next-grid">
+      <div><b>01</b><strong>鼓励创新，让成果被看见</strong><p>教育变革里，真实落地的案例远比空洞口号更有感染力。看得见的成效，会自然形成正向带动。</p></div>
+      <div><b>02</b><strong>先行标杆带动组织整体变革</strong><p>依托校内教研分享、内部培训，让先走出来的老师带领全体教师共同迭代成长。</p></div>
+    </div>
+  </section>
+
+  <section class="slide close poetic-close no-chrome" data-label="结尾" data-page="30">
+    <div class="baby-frame photo"><img src="/decks/Yusi/ai-education-teachers-deck/assets/xiao-wuxian.jpg" alt="小无限照片" /></div>
+    <div class="close-text">
+      <div class="close-eyebrow">结尾 · 技术向前，育人向内</div>
+      <h1>AI，可以帮我们更快地处理世界，<br />教育，是陪一个人慢慢长出他自己.</h1>
+      <p>AI 在答题上可以全方面碾压人类；但看着一个孩子慢慢感知世界、慢慢成长，我愈发笃定：人性、热爱与创造力这些血肉生长的特质，才是最无可替代、最珍贵的高阶智能。</p>
+      <p>所以各位老师所做的事，无比了不起。教育是一场温柔且坚定的生命唤醒。</p>
+      <blockquote>大学之道，在明明德，在亲民，在止于至善。</blockquote>
+      <p class="closing-last">借力技术而行，坚守师者初心，于时代变局中教书，于烟火成长中育人。</p>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>
