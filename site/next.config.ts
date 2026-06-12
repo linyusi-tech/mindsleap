@@ -50,6 +50,8 @@ const nextConfig: NextConfig = {
         { source: "/decks/", destination: "/decks/index.html" },
         { source: "/decks/Lincoln", destination: "/decks/Lincoln/index.html" },
         { source: "/decks/Lincoln/", destination: "/decks/Lincoln/index.html" },
+        { source: "/decks/Yusi", destination: "/decks/Yusi/index.html" },
+        { source: "/decks/Yusi/", destination: "/decks/Yusi/index.html" },
         {
           source: "/decks/Lincoln/ai-native-enterprise-conference-lincoln-talk",
           destination: "/decks/Lincoln/ai-native-enterprise-conference-lincoln-talk/index.html",
@@ -65,6 +67,14 @@ const nextConfig: NextConfig = {
         {
           source: "/decks/Lincoln/ceibs-ai-agent-marketing-training/",
           destination: "/decks/Lincoln/ceibs-ai-agent-marketing-training/index.html",
+        },
+        {
+          source: "/decks/Yusi/ai-education-teachers-deck",
+          destination: "/decks/Yusi/ai-education-teachers-deck/index.html",
+        },
+        {
+          source: "/decks/Yusi/ai-education-teachers-deck/",
+          destination: "/decks/Yusi/ai-education-teachers-deck/index.html",
         },
       ],
       afterFiles: [],
