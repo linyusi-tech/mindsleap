@@ -1,10 +1,12 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 /* eslint-disable @next/next/no-img-element */
 
 export default function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
+  const locale = useLocale();
+  const isZh = locale === "zh";
 
   return (
     <footer className="bg-[#1e477c] text-white pt-20 pb-10">
@@ -50,6 +52,21 @@ export default function Footer() {
               <li>
                 <Link href="/news" className="hover:text-white transition">
                   {nav("news")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/research" className="hover:text-white transition">
+                  {nav("research")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/topics" className="hover:text-white transition">
+                  {isZh ? "主题知识库" : "Topic Knowledge Base"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/people" className="hover:text-white transition">
+                  {isZh ? "硅谷人物" : "People"}
                 </Link>
               </li>
               <li>

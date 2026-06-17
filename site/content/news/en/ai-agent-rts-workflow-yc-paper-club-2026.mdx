@@ -1,0 +1,103 @@
+---
+title: "Managing AI Agents Like a Real-Time Strategy Game"
+date: "2026-06-14"
+excerpt: "At a YC Paper Club session, one founder mapped AI agent sessions to Warcraft-style units, used game sound effects as alerts, and tracked tool calls like APM. The strange-sounding method helped his team lift monthly output per person by 3.5x."
+category: "ai-insights"
+showOnHomepage: true
+image: "/images/news/ai-agent-rts-workflow-yc-paper-club-2026.jpg"
+imagePosition: "center"
+locale: "en"
+author: "Lincoln Wang"
+---
+
+**Author: Lincoln Wang | Founder of MindsLeap | Global Partner at Founders Space | Founder of Founders AI Club**
+
+"If you have enough macro, if you can discover and fix problems fast enough, you can clumsily push yourself toward a good outcome."
+
+This was not a startup slogan. It was how researcher Lukens Orthwein summarized the way he manages AI agent workflows during a recent Y Combinator Paper Club session. He compared his coding process to playing a real-time strategy game: many parallel fronts, rapid inspections, and immediate jumps when an alert sound appears. Then he said he was literally managing AI agents like a Warcraft player.
+
+The session covered five papers and five different technical directions: protein language models, LLM self-play, real-time voice agents, formal verification, and Lukens's own approach to AI agent orchestration. But the part that matters most for entrepreneurs is not the detail of any single paper. It is how the people closest to frontier research are reorganizing their own work.
+
+## An Engineer Who Treats AI Agents Like Game Units
+
+Lukens began with a simple point. The core challenge in managing many AI agents is not model capability. It is attention allocation.
+
+In StarCraft, you cannot stare at every unit on the screen. You need to switch views quickly and know from a sound cue where something has gone wrong.
+
+So he did something many engineers would find ridiculous. He mapped each AI agent session on his computer to a Warcraft or StarCraft unit, with colors and themes based on task type. When an agent performs an action, the corresponding game sound plays.
+
+"I instantly know that this tab needs my attention, and that something is happening. I do not even need to read the text."
+
+This is not a game. It is an engineering solution to a real problem: when several AI agents are running at the same time, how do you know which one needs intervention, which one can continue, and which one has gone off track?
+
+The game industry has spent more than two decades studying how to capture human attention with sounds, colors, and icons. Lukens simply borrowed that machinery.
+
+## APM Is Not Only for Gamers
+
+Real-time strategy games have a core metric called APM, actions per minute. Lukens showed a Warcraft III match by a professional player. Elite players tend to have high APM, even though higher is not always better. But as he put it, nobody has low APM and plays well.
+
+He drew the analogy directly: if your AI agents have a low rate of tool calls, your output is probably low too.
+
+His team built an APM tracker, but instead of measuring mouse clicks, it measures AI agent tool calls per minute across the last minute, five minutes, one hour, one day, and seven days. If your APM is low, you may simply not be using the resources available to you.
+
+Underneath this is a basic economic intuition. If you have purchased compute, do not let it sit idle. In an RTS game, workers should not stand around instead of gathering resources. In an AI-native workflow, token capacity should be used with discipline.
+
+## Good Enough Matters More Than Perfect
+
+Lukens brought up the economic idea of satisficing: doing something well enough instead of optimizing for perfection.
+
+"Even if the AI agent does it worse than you, and slower than you, it is still better to let the agent do it. If it gets things wrong, the fix is easy."
+
+For entrepreneurs trained to value precision, that sentence can feel uncomfortable. But in an agent-driven workflow, rapid production followed by correction can be far more efficient than trying to get everything right the first time.
+
+After his team fully adopted this approach, monthly pull requests per person rose another 60 percent in one month, and total output reached 3.5 times the previous level.
+
+He also emphasized a detail that is easy to miss: mix large and small tasks. Do not only give agents big jobs. Do not only give them tiny jobs. A mixed queue keeps your attention flexible and keeps agent capacity moving.
+
+## The Same Story Inside Protein Models
+
+Another major part of the session was Yasa Baig's presentation on protein language models, titled around Richard Sutton's famous idea: the bitter lesson comes to biology.
+
+Sutton's point was that in the history of AI, the winning methods were not systems packed with human expert knowledge. The winning methods were general approaches that could absorb more data and more compute. AlphaGo was initially less impressive than expert systems, until self-play and large-scale computation let it surpass every human.
+
+Yasa asked the same question in protein design: does this pattern hold in biology?
+
+Proteins are essentially strings made from 20 amino acids. The researchers let a model see only those strings and train with masked prediction, just as language models do. They hide a few amino acids and ask the model to guess them. They do not provide prior biological knowledge about protein structure.
+
+The result is striking. As training compute increased, the model spontaneously learned to predict long-range three-dimensional contact relationships in proteins. It was not told biological rules. It simply saw enough sequences.
+
+Once again, the story is scale and generality beating hand-designed knowledge.
+
+## A Problem That Is Still Unsolved
+
+The session was not pure optimism. At the beginning, host Francois Chaubard raised a question he said he was deeply stuck on.
+
+Some people argue that if we train AI on human-generated data, model capability will remain constrained by the range of solutions humans already know. In theory, test-time compute and self-improvement may let models explore beyond human solutions. But Francois's judgment was cautious: not impossible, but very unlikely.
+
+That remains unproven. But its implication is direct. If an AI system has only seen what humans have done, it will probably learn to do what humans have done. Truly novel discoveries may require some form of self-play, like AlphaZero moving beyond human chess records and discovering lines humans had never played.
+
+## The Organizational Gap Matters More Than the Technical Gap
+
+What moved me most about the YC session was not a particular paper. It was that these researchers have already rebuilt their daily way of working.
+
+When Lukens prepared the talk, he pasted the host's request into an AI agent, asked it to search the team's knowledge base, and generated a presentation from the team's existing methodology. Then he made around 15 rounds of revisions and fed those changes and suggestions back into the knowledge base so the system could learn from the process.
+
+That knowledge base is not a document management system. It is a continuously calibrated team memory. Linked documents can be read by AI far faster than by humans. Once your business logic is encoded there, agents can suggest features, detect problems, and operate from your accumulated knowledge.
+
+Technical gaps can be narrowed in months. But when a team has embedded AI agents into its daily production rhythm, turned knowledge capture into an automated habit, and adopted satisficing rather than perfection as a delivery standard, the organizational gap takes much longer to close.
+
+For Chinese entrepreneurs, the real question is not whether to introduce AI agents. The question is how quickly you are willing to redesign your work rhythm, attention allocation, and knowledge-management habits around them.
+
+---
+
+## Source Note
+
+This article was interpreted by Lincoln based on Y Combinator's official video *5 Papers That Show Where AI Research Is Heading Right Now*, published on June 12, 2026.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI transformation accelerator that helps traditional entrepreneurs find transformation paths in the AI era. In partnership with Silicon Valley incubator Founders Space, MindsLeap connects technology founders with real customers and scenarios, links domestic and international capital with the Silicon Valley technology ecosystem, and supports China's industrial AI transformation and global expansion.
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

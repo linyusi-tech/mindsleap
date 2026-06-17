@@ -17,21 +17,46 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { locale, slug } = await params;
+  const siteUrl = getSiteUrl();
   const post = getPostBySlug(slug, locale);
 
   if (!post) {
     return { title: "Not Found" };
   }
 
+  const articleUrl = `${siteUrl}/${locale}/news/${slug}`;
+  const imageUrl = post.image ? new URL(post.image, siteUrl).toString() : undefined;
+  const languages: Record<string, string> = {
+    [locale]: articleUrl,
+  };
+
+  for (const alternateLocale of ["zh", "en"]) {
+    if (alternateLocale !== locale && getPostBySlug(slug, alternateLocale)) {
+      languages[alternateLocale] = `${siteUrl}/${alternateLocale}/news/${slug}`;
+    }
+  }
+
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: articleUrl,
+      languages,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url: articleUrl,
+      siteName: "MindsLeap",
       type: "article",
       publishedTime: post.date,
-      images: post.image ? [{ url: post.image }] : [],
+      images: imageUrl ? [{ url: imageUrl, alt: post.title }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
@@ -47,9 +72,13 @@ export default async function NewsArticlePage({ params }: Props) {
     notFound();
   }
 
+  const articleUrl = `${siteUrl}/${locale}/news/${slug}`;
+  const imageUrl = post.image ? new URL(post.image, siteUrl).toString() : undefined;
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
+    mainEntityOfPage: articleUrl,
     headline: post.title,
     datePublished: post.date,
     author: {
@@ -62,7 +91,7 @@ export default async function NewsArticlePage({ params }: Props) {
       url: siteUrl,
     },
     description: post.excerpt,
-    image: post.image,
+    image: imageUrl,
   };
 
   return (

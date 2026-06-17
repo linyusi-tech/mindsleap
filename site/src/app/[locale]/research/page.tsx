@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getSiteUrl } from "@/lib/site";
+import { geoPeople, geoTopics } from "@/lib/geo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -170,6 +171,94 @@ export default async function ResearchPage({ params }: Props) {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <div className="mb-10 max-w-3xl">
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.18em] text-[#8b6f3a]">
+              Topic Knowledge Base
+            </p>
+            <h2 className="text-3xl font-extrabold tracking-normal text-[#1e477c] md:text-4xl">
+              {isZh ? "主题知识库" : "Topic Knowledge Base"}
+            </h2>
+            <p className="mt-3 text-base leading-7 text-gray-600">
+              {isZh
+                ? "围绕企业 AI 转型、FDE、AI 原生企业和全球增长，把 MindsLeap 的定义、方法论、FAQ 与相关内容组织成可被搜索引擎和 AI 模型理解的主题网络。"
+                : "A structured topic network that organizes MindsLeap definitions, methods, FAQs, and related content for search engines and AI models."}
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {geoTopics.map((topic) => (
+              <Link
+                key={topic.slug}
+                href={`/topics/${topic.slug}`}
+                className="group rounded-xl border border-gray-200 bg-gray-50 p-6 transition hover:-translate-y-1 hover:border-[#1e477c]/40 hover:bg-white hover:shadow-xl hover:shadow-[#1e477c]/10"
+              >
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#8b6f3a]">
+                  {topic.eyebrow[locale === "en" ? "en" : "zh"]}
+                </p>
+                <h3 className="mt-3 text-xl font-extrabold leading-snug tracking-normal text-gray-950 group-hover:text-[#1e477c]">
+                  {topic.title[locale === "en" ? "en" : "zh"]}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  {topic.description[locale === "en" ? "en" : "zh"]}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 flex justify-start">
+            <Link href="/topics" className="text-sm font-extrabold text-[#1e477c] hover:text-blue-600">
+              {isZh ? "查看全部主题 →" : "View all topics →"}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <div className="mb-10 max-w-3xl">
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.18em] text-[#8b6f3a]">
+              People & Silicon Valley Network
+            </p>
+            <h2 className="text-3xl font-extrabold tracking-normal text-[#1e477c] md:text-4xl">
+              {isZh ? "人物与硅谷资源" : "People and Silicon Valley Network"}
+            </h2>
+            <p className="mt-3 text-base leading-7 text-gray-600">
+              {isZh
+                ? "沉淀 MindsLeap 与 Founders Space、Steve Hoffman、硅谷导师和全球创业生态之间的实体关系。"
+                : "Entity pages that clarify MindsLeap's relationship with Founders Space, Steve Hoffman, Silicon Valley mentors, and the global startup ecosystem."}
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {geoPeople.map((person) => (
+              <Link
+                key={person.slug}
+                href={`/people/${person.slug}`}
+                className="rounded-xl border border-gray-200 bg-white p-6 transition hover:-translate-y-1 hover:border-[#1e477c]/40 hover:shadow-xl hover:shadow-[#1e477c]/10"
+              >
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#8b6f3a]">
+                  Silicon Valley Network
+                </p>
+                <h3 className="mt-3 text-xl font-extrabold tracking-normal text-gray-950">
+                  {person.name}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  {person.description[locale === "en" ? "en" : "zh"]}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 flex justify-start">
+            <Link href="/people" className="text-sm font-extrabold text-[#1e477c] hover:text-blue-600">
+              {isZh ? "查看人物索引 →" : "View people index →"}
+            </Link>
+          </div>
         </div>
       </section>
     </div>

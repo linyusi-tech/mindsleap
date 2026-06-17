@@ -13,7 +13,23 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+      },
+      {
         userAgent: "Google-Extended",
+        allow: "/",
+      },
+      {
+        userAgent: "Applebot",
+        allow: "/",
+      },
+      {
+        userAgent: "PerplexityBot",
         allow: "/",
       },
       {
@@ -21,7 +37,35 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
+        userAgent: "ClaudeBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Claude-SearchBot",
+        allow: "/",
+      },
+      {
         userAgent: "anthropic-ai",
+        allow: "/",
+      },
+      {
+        userAgent: "Baiduspider",
+        allow: "/",
+      },
+      {
+        userAgent: "Bytespider",
+        allow: "/",
+      },
+      {
+        userAgent: "Sogou web spider",
+        allow: "/",
+      },
+      {
+        userAgent: "360Spider",
+        allow: "/",
+      },
+      {
+        userAgent: "YisouSpider",
         allow: "/",
       },
     ],
