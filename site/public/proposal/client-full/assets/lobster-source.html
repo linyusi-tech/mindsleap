@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI龙虾大会·上海站</title>
+  <style>
+    :root {
+      --bg-1: #fff4df;
+      --bg-2: #ffd98a;
+      --bg-3: #ff9a36;
+      --ink: #24170f;
+      --muted: #6f5039;
+      --card: rgba(255, 249, 239, 0.92);
+      --card-strong: rgba(255, 247, 235, 0.96);
+      --line: rgba(110, 68, 34, 0.12);
+      --accent: #ef5c00;
+      --accent-deep: #d14d00;
+      --dark: #3b2316;
+      --shadow: 0 20px 50px rgba(111, 57, 8, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.9), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(255, 232, 188, 0.78), transparent 24%),
+        linear-gradient(135deg, var(--bg-1) 0%, #ffe6b5 34%, #ffc05c 70%, var(--bg-3) 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.08) 0%, transparent 36%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.04) 0,
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px,
+          transparent 34px
+        );
+      pointer-events: none;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+      padding: 28px 34px 24px;
+      display: grid;
+      grid-template-rows: 92px minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 640px;
+      gap: 18px;
+    }
+
+    .brand-strip,
+    .meta-card,
+    .hero-panel,
+    .agenda-panel,
+    .speakers-panel,
+    .host-card {
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .brand-strip,
+    .meta-card,
+    .speakers-panel {
+      background: linear-gradient(180deg, rgba(57, 31, 15, 0.94), rgba(34, 19, 11, 0.95));
+      color: #fff4e2;
+    }
+
+    .brand-strip {
+      padding: 14px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .logo-row {
+      display: grid;
+      grid-template-columns: 280px 190px 210px;
+      align-items: center;
+      gap: 22px;
+      justify-items: start;
+    }
+
+    .logo-item img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .logo-item.founders img {
+      height: 36px;
+    }
+
+    .logo-item.mindsleap img {
+      height: 33px;
+    }
+
+    .logo-item.gaoge img {
+      height: 34px;
+    }
+
+    .meta-card {
+      padding: 14px 22px;
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .meta-day {
+      width: 82px;
+      height: 62px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 139, 47, 0.98), rgba(255, 97, 0, 0.94));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .meta-day .month {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .meta-day .date {
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .meta-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .meta-title {
+      font-size: 27px;
+      font-weight: 800;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .meta-address {
+      font-size: 16px;
+      line-height: 1.2;
+      color: rgba(255, 234, 206, 0.9);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(820px, 0.98fr);
+      gap: 16px;
+      min-height: 0;
+    }
+
+    .left-column,
+    .right-column {
+      display: grid;
+      gap: 16px;
+      min-height: 0;
+    }
+
+    .left-column {
+      grid-template-rows: 1fr 320px;
+    }
+
+    .right-column {
+      grid-template-rows: 680px 220px;
+    }
+
+    .hero-panel,
+    .agenda-panel,
+    .host-card {
+      background: var(--card);
+    }
+
+    .hero-panel {
+      padding: 24px 28px 20px;
+      background:
+        radial-gradient(circle at 70% 34%, rgba(255, 183, 86, 0.42), transparent 28%),
+        linear-gradient(135deg, rgba(255, 252, 245, 0.96), rgba(255, 236, 196, 0.95));
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 12px;
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 440px minmax(0, 1fr);
+      gap: 10px;
+      min-height: 0;
+      align-items: center;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent-deep);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.94;
+    }
+
+    .hero-title .ai {
+      font-size: 40px;
+      font-weight: 800;
+      color: #4a2a1a;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-title .lobster {
+      font-size: 102px;
+      font-weight: 900;
+      color: #1e140d;
+      letter-spacing: -0.05em;
+      white-space: nowrap;
+    }
+
+    .hero-title .city {
+      font-size: 54px;
+      font-weight: 800;
+      color: var(--accent-deep);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .hero-desc {
+      margin-top: 10px;
+      max-width: 400px;
+      font-size: 20px;
+      line-height: 1.38;
+      color: #59402f;
+      font-weight: 600;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-right: 8px;
+    }
+
+    .lobster-halo {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 212, 156, 0.94) 0%, rgba(255, 212, 156, 0.12) 60%, rgba(255, 212, 156, 0) 78%);
+      top: 32px;
+      right: 96px;
+    }
+
+    .lobster-graphic {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 560px;
+      max-height: 390px;
+      object-fit: contain;
+      object-position: center center;
+      filter: drop-shadow(0 24px 36px rgba(98, 40, 0, 0.2));
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat-card {
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(56, 33, 20, 0.94), rgba(36, 20, 12, 0.92));
+      color: #fff3e4;
+      padding: 12px 14px 12px;
+      min-height: 90px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 218, 170, 0.72);
+    }
+
+    .stat-value {
+      margin-top: 8px;
+      font-size: 24px;
+      line-height: 1.08;
+      font-weight: 900;
+    }
+
+    .stat-desc {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.3;
+      color: rgba(255, 238, 217, 0.84);
+      font-weight: 600;
+    }
+
+    .agenda-panel {
+      padding: 22px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .panel-kicker {
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--accent-deep);
+    }
+
+    .panel-title {
+      margin-top: 6px;
+      font-size: 40px;
+      line-height: 1;
+      font-weight: 900;
+      color: #22160d;
+      white-space: nowrap;
+    }
+
+    .agenda-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: 0;
+    }
+
+    .agenda-item {
+      display: grid;
+      grid-template-columns: 126px minmax(0, 1fr);
+      gap: 12px;
+      padding: 10px 0 9px;
+      border-top: 1px solid var(--line);
+    }
+
+    .agenda-item:first-child {
+      border-top: none;
+      padding-top: 4px;
+    }
+
+    .agenda-time {
+      font-size: 23px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #2b1a11;
+      white-space: nowrap;
+    }
+
+    .agenda-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .agenda-name {
+      font-size: 21px;
+      line-height: 1.18;
+      font-weight: 900;
+      color: #29180f;
+    }
+
+    .agenda-desc {
+      font-size: 13px;
+      line-height: 1.34;
+      color: #6c4b35;
+      font-weight: 600;
+    }
+
+    .agenda-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .agenda-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255, 116, 0, 0.1);
+      color: #d35400;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .speakers-panel {
+      padding: 14px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .speakers-panel .panel-kicker,
+    .speakers-panel .panel-title {
+      color: inherit;
+    }
+
+    .speakers-panel .panel-kicker {
+      color: rgba(255, 218, 170, 0.76);
+    }
+
+    .speakers-panel .panel-title {
+      font-size: 25px;
+      color: #fff5e7;
+    }
+
+    .speaker-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      min-height: 0;
+    }
+
+    .speaker-card {
+      border-radius: 20px;
+      background: rgba(255, 248, 238, 0.1);
+      border: 1px solid rgba(255, 223, 190, 0.08);
+      padding: 10px 10px 10px 12px;
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      min-height: 104px;
+    }
+
+    .speaker-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .speaker-info {
+      min-width: 0;
+    }
+
+    .speaker-name {
+      font-size: 18px;
+      line-height: 1.02;
+      font-weight: 900;
+      color: #fff5e8;
+    }
+
+    .speaker-role {
+      margin-top: 4px;
+      font-size: 10px;
+      line-height: 1.22;
+      font-weight: 700;
+      color: rgba(255, 235, 213, 0.76);
+    }
+
+    .speaker-topic {
+      margin-top: 5px;
+      font-size: 10px;
+      line-height: 1.22;
+      font-weight: 800;
+      color: #ffd39b;
+    }
+
+    .hosts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      min-height: 0;
+    }
+
+    .host-card {
+      padding: 18px 18px 16px;
+      background: var(--card-strong);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0;
+    }
+
+    .host-kicker {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--accent-deep);
+    }
+
+    .host-title {
+      font-size: 20px;
+      line-height: 1.1;
+      font-weight: 900;
+      color: #24170f;
+      white-space: nowrap;
+    }
+
+    .host-visual {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 183, 114, 0.18);
+      object-fit: cover;
+      object-position: center center;
+      background: transparent;
+      flex: 0 0 auto;
+    }
+
+    .host-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .host-copy p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.32;
+      color: #674833;
+      font-weight: 600;
+    }
+
+    .host-points {
+      display: grid;
+      gap: 4px;
+    }
+
+    .host-point {
+      font-size: 11px;
+      line-height: 1.28;
+      color: #5f422f;
+      font-weight: 700;
+      padding: 5px 8px;
+      border-radius: 12px;
+      background: rgba(255, 242, 224, 0.9);
+      border: 1px solid rgba(255, 185, 119, 0.16);
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <header class="topbar">
+      <div class="brand-strip">
+        <div class="logo-row">
+          <div class="logo-item founders">
+            <img src="../../assets/shared/Founders Space Logo-White.png" alt="Founders Space" />
+          </div>
+          <div class="logo-item mindsleap">
+            <img src="../../assets/shared/MindsLeap New Logo-white.png" alt="MindsLeap" />
+          </div>
+          <div class="logo-item gaoge">
+            <img src="../../assets/lobster-share-shanghai/高格-白.png" alt="高格办公空间" />
+          </div>
+        </div>
+      </div>
+
+      <div class="meta-card">
+        <div class="meta-day">
+          <div class="month">APR</div>
+          <div class="date">16</div>
+        </div>
+        <div class="meta-copy">
+          <div class="meta-title">4月16日（周四）</div>
+          <div class="meta-address">静安区海宁路1155号 汇能大悦中心48楼 路演厅</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="left-column">
+        <section class="hero-panel">
+          <div class="hero-top">
+            <div class="hero-copy">
+              <div class="hero-kicker">Founder / Product / AI Builder</div>
+              <div class="hero-title">
+                <div class="ai">AI</div>
+                <div class="lobster">龙虾大会</div>
+                <div class="city">上海站</div>
+              </div>
+              <div class="hero-desc">一整天闭门工作坊，把 AI 从“听懂”推进到“亲手做出来”。</div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="lobster-halo"></div>
+              <img class="lobster-graphic" src="../../assets/shared/lobster-ai-cutout.png" alt="龙虾主视觉" />
+            </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-label">Focus</div>
+              <div class="stat-value">AI Coding</div>
+              <div class="stat-desc">从 Vibe Coding 到 Spec-Driven，再到 Harness Engineering。</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Practice</div>
+              <div class="stat-value">样板项目</div>
+              <div class="stat-desc">现场安装龙虾、配置环境，一起完成“私人日程管理小助手”。</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Community</div>
+              <div class="stat-value">龙虾晚宴</div>
+              <div class="stat-desc">在更轻松的氛围里继续对话，把分享、实战与连接接起来。</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="hosts-grid">
+          <section class="host-card">
+            <div class="host-kicker">Founders Space × MindsLeap</div>
+            <div class="host-title">全球创新网络 × 企业家AI社群</div>
+            <img class="host-visual" src="./article-kit-v1/hosts/founders-mindsleap-ecosystem.jpg" alt="Founders Space 与 MindsLeap 全球生态网络" />
+            <div class="host-copy">
+              <p>MindsLeap 联合 Founders Space，在全球 50+ 国家和地区拥有合作伙伴，持续连接创业者、企业与资本。</p>
+              <div class="host-points">
+                <div class="host-point">全球网络资源：帮助中国企业接入全球 AI 创新网络。</div>
+                <div class="host-point">企业家 AI 俱乐部：让一次 workshop 延展成长期连接。</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="host-card">
+            <div class="host-kicker">Goger Office Space</div>
+            <div class="host-title">高格办公空间：高质量交流的城市空间</div>
+            <img class="host-visual" src="./article-kit-v1/hosts/gaoge-space.jpg" alt="高格办公空间" />
+            <div class="host-copy">
+              <p>高格成立于 2011 年，覆盖上海、南京、杭州、苏州等 10 座城市，长期聚焦高端办公空间运营。</p>
+              <div class="host-points">
+                <div class="host-point">高规格场域：为成长型企业与高端商务交流提供更完整的接待空间。</div>
+                <div class="host-point">长期运营：从空间到企业服务与资源连接，不只是场地提供。</div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <section class="agenda-panel">
+          <div>
+            <div class="panel-kicker">Agenda</div>
+            <div class="panel-title">4月16日日程</div>
+          </div>
+
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <div class="agenda-time">09:30</div>
+              <div class="agenda-content">
+                <div class="agenda-name">签到开启</div>
+                <div class="agenda-desc">活动开始前半小时签到，提前入场。</div>
+              </div>
+            </div>
+
+            <div class="agenda-item">
+              <div class="agenda-time">10:00–12:00</div>
+              <div class="agenda-content">
+                <div class="agenda-name">蒋镒珍分享：AI Coding 工作流的三次进化</div>
+                <div class="agenda-desc">从 Vibe Coding、Spec-Driven 到 Harness Engineering，快速看清 AI Coding 如何改写开发流程。</div>
+                <div class="agenda-pills">
+                  <span class="agenda-pill">主题分享</span>
+                  <span class="agenda-pill">认知升级</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agenda-item">
+              <div class="agenda-time">12:00–13:30</div>
+              <div class="agenda-content">
+                <div class="agenda-name">午餐午休</div>
+                <div class="agenda-desc">午餐自理，自由用餐与休息。</div>
+              </div>
+            </div>
+
+            <div class="agenda-item">
+              <div class="agenda-time">13:30–13:50</div>
+              <div class="agenda-content">
+                <div class="agenda-name">高格项目介绍</div>
+                <div class="agenda-desc">了解高格项目与空间特色。</div>
+              </div>
+            </div>
+
+            <div class="agenda-item">
+              <div class="agenda-time">14:00–15:00</div>
+              <div class="agenda-content">
+                <div class="agenda-name">王君博分享：悟空如何打造一人独角兽公司</div>
+                <div class="agenda-desc">从真实业务问题出发，看前沿 AI 技术如何变成可执行的商业解法。</div>
+                <div class="agenda-pills">
+                  <span class="agenda-pill">真实案例</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agenda-item">
+              <div class="agenda-time">15:00–17:00</div>
+              <div class="agenda-content">
+                <div class="agenda-name">龙虾实战第一场：样板项目</div>
+                <div class="agenda-desc">安装龙虾、配置环境，所有人一起做“私人日程管理小助手”，先把完整流程跑通。</div>
+                <div class="agenda-pills">
+                  <span class="agenda-pill">集体上手</span>
+                  <span class="agenda-pill">现场支持</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="agenda-item">
+              <div class="agenda-time">18:00–20:00</div>
+              <div class="agenda-content">
+                <div class="agenda-name">龙虾晚宴</div>
+                <div class="agenda-desc">第一天晚宴包含在活动内，大家可在更轻松的氛围里继续交流。</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="speakers-panel">
+          <div>
+            <div class="panel-kicker">Speakers</div>
+            <div class="panel-title">当天嘉宾</div>
+          </div>
+
+          <div class="speaker-list">
+            <article class="speaker-card">
+              <img class="speaker-avatar" src="./article-kit-v1/speakers-circle/jiang-yizhen-circle.png" alt="蒋镒珍" />
+              <div class="speaker-info">
+                <div class="speaker-name">蒋镒珍</div>
+                <div class="speaker-role">有孚网络 首席 AI 科学家</div>
+                <div class="speaker-topic">AI Coding 工作流的三次进化</div>
+              </div>
+            </article>
+
+            <article class="speaker-card">
+              <img class="speaker-avatar" src="./article-kit-v1/speakers-circle/lincoln-circle.png" alt="Lincoln" />
+              <div class="speaker-info">
+                <div class="speaker-name">Lincoln</div>
+                <div class="speaker-role">Founders Space China CEO · MindsLeap CEO</div>
+                <div class="speaker-topic">现场带领龙虾实战与共创</div>
+              </div>
+            </article>
+
+            <article class="speaker-card">
+              <img class="speaker-avatar" src="./article-kit-v1/speakers-circle/wang-junbo-circle.png" alt="王君博" />
+              <div class="speaker-info">
+                <div class="speaker-name">王君博</div>
+                <div class="speaker-role">北京大学人工智能博士 · 钉钉 AI 解决方案负责人</div>
+                <div class="speaker-topic">悟空如何打造一人独角兽公司</div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

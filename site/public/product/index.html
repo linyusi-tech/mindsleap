@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindsLeap Products · 确定产品</title>
+  <style>
+    :root {
+      --blue: #1e477c;
+      --blue-soft: #eff6ff;
+      --ink: #111111;
+      --muted: #4b5563;
+      --subtle: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --bg-alt: #f9fafb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      letter-spacing: -0.01em;
+    }
+    header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,.96);
+    }
+    .logo {
+      width: 260px;
+      height: 52px;
+      background: url("/decks/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    a { color: inherit; text-decoration: none; }
+    nav a { color: var(--blue); }
+    .hero {
+      padding: 92px 56px 84px;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--rule);
+    }
+    .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      color: #3b82f6;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+    .lead {
+      max-width: 760px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.62;
+    }
+    .section {
+      padding: 72px 56px 96px;
+    }
+    .section h2 {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 36px;
+      line-height: 1.2;
+    }
+    .section p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .empty {
+      margin-top: 40px;
+      padding: 34px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      color: var(--muted);
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .empty strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--blue);
+      font-size: 24px;
+    }
+    footer {
+      padding: 42px 56px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      header { height: auto; align-items: flex-start; flex-direction: column; gap: 18px; padding: 24px; }
+      .logo { width: 230px; }
+      nav { flex-wrap: wrap; }
+      .hero, .section, footer { padding-left: 24px; padding-right: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="https://www.mindsleap.ai/zh" aria-label="MindsLeap"></a>
+    <nav>
+      <a href="https://www.mindsleap.ai/zh">首页</a>
+      <a href="/proposal">Proposal</a>
+      <a href="/decks">Decks</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="inner">
+        <div class="eyebrow">MindsLeap Product Archive</div>
+        <h1>确定产品与可售卖服务</h1>
+        <p class="lead">这里放已经定型、可以直接对外售卖和交付的产品。还在策划和验证阶段的内容，会先放在 Proposal 目录。</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="inner">
+        <h2>当前 Products</h2>
+        <p>暂无公开上架产品。产品定型后，会在这里按产品线归档。</p>
+        <div class="empty">
+          <strong>等待上架</strong>
+          Product 目录只放确定版本，避免把仍在讨论中的方案误当成正式产品。
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="inner">© MindsLeap · Product archive</div>
+  </footer>
+</body>
+</html>
