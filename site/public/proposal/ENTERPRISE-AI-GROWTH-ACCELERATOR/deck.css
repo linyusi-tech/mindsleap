@@ -18,7 +18,7 @@ html {
   --footer-ink: #9ca3af;
   --card-bg: #f9fafb;
   --card-rule: #e5e7eb;
-  --logo-img: url("/proposal/client-full/mindsleap-logo-blue.png");
+  --logo-img: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-logo-blue.png");
   --logo-filter: none;
   --footer-logo-w: 220px;
   --footer-logo-h: 40px;
@@ -44,7 +44,7 @@ html[data-theme="brand"] {
   --footer-ink: #93c5fd;
   --card-bg: rgba(255,255,255,0.08);
   --card-rule: rgba(255,255,255,0.18);
-  --logo-img: url("/proposal/client-full/mindsleap-logo-white.png");
+  --logo-img: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-logo-white.png");
 }
 
 html[data-theme="dark"] {
@@ -60,7 +60,7 @@ html[data-theme="dark"] {
   --footer-ink: #64748b;
   --card-bg: rgba(255,255,255,0.04);
   --card-rule: rgba(255,255,255,0.10);
-  --logo-img: url("/proposal/client-full/mindsleap-logo-white.png");
+  --logo-img: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-logo-white.png");
 }
 
 html[data-theme="magazine"] {
@@ -76,11 +76,11 @@ html[data-theme="magazine"] {
   --footer-ink: #6b6353;
   --card-bg: #ebe4d6;
   --card-rule: #d6cdb9;
-  --logo-img: url("/proposal/client-full/mindsleap-logo-blue.png");
+  --logo-img: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-logo-blue.png");
 }
 
 html[data-logo="joint"] {
-  --logo-img: url("/proposal/client-full/mindsleap-foundersspace-joint-logo-blue.svg");
+  --logo-img: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-foundersspace-joint-logo-blue.svg");
   --footer-logo-w: 300px;
   --footer-logo-h: 60px;
   --cover-logo-w: 540px;
@@ -88,7 +88,7 @@ html[data-logo="joint"] {
 }
 html[data-logo="joint"][data-theme="brand"],
 html[data-logo="joint"][data-theme="dark"] {
-  --logo-img: url("/proposal/client-full/mindsleap-foundersspace-joint-logo-white.png");
+  --logo-img: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-foundersspace-joint-logo-white.png");
   --logo-filter: none;
 }
 

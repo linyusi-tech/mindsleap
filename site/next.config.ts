@@ -50,8 +50,18 @@ const nextConfig: NextConfig = {
         { source: "/product/", destination: "/product/index.html" },
         { source: "/proposal", destination: "/proposal/index.html" },
         { source: "/proposal/", destination: "/proposal/index.html" },
-        { source: "/proposal/client-full", destination: "/proposal/client-full/index.html" },
-        { source: "/proposal/client-full/", destination: "/proposal/client-full/index.html" },
+        {
+          source: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR",
+          destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/index.html",
+        },
+        {
+          source: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/",
+          destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/index.html",
+        },
+        {
+          source: "/proposal/client-full/:path*",
+          destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/:path*",
+        },
         { source: "/decks", destination: "/decks/index.html" },
         { source: "/decks/", destination: "/decks/index.html" },
         { source: "/decks/Lincoln", destination: "/decks/Lincoln/index.html" },
