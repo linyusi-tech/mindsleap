@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="magazine" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>嘻游记团队 AI Agent 转型启动工作坊</title>
+  <link rel="stylesheet" href="../../shared/mindsleap-template/colors_and_type.css" />
+  <link rel="stylesheet" href="../../shared/mindsleap-template/deck.css" />
+  <script src="../../shared/mindsleap-template/deck-stage.js"></script>
+  <style>
+    html[data-theme="magazine"] {
+      --logo-img: url("../../shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg");
+      --bg: #ffffff;
+      --bg-alt: #f6f8fb;
+      --ink: #111111;
+      --ink-muted: #526174;
+      --ink-subtle: #7b8494;
+      --rule: #dfe6ef;
+      --accent: #1e477c;
+      --accent-soft: #2f6db4;
+      --eyebrow: #2f6db4;
+      --footer-ink: #9aa5b5;
+      --card-bg: #f6f8fb;
+      --card-rule: #dfe6ef;
+    }
+    body, h1, h2, h3, p, div, span, li {
+      letter-spacing: 0 !important;
+    }
+    .slide:not(.no-chrome)::before {
+      left: 112px;
+      width: 292px;
+      height: 58px;
+      bottom: 42px;
+      opacity: .78;
+    }
+    .slide:not(.no-chrome)::after {
+      content: attr(data-page);
+      right: 112px;
+      bottom: 54px;
+      color: var(--footer-ink);
+    }
+    .slide.body,
+    .slide.contact {
+      padding: 88px 112px 168px;
+    }
+    h1.slide-title, .slide-title {
+      font-size: 64px;
+      line-height: 1.08;
+      max-width: 1696px;
+      word-break: normal;
+      overflow-wrap: normal;
+      text-wrap: wrap;
+    }
+    .slide-title .en {
+      font: 400 27px/1.34 var(--font-heading);
+      color: #5f6f83;
+      max-width: 1696px;
+      margin-top: 12px;
+    }
+    .eyebrow {
+      font: 700 21px/1.1 var(--font-body);
+      color: var(--eyebrow);
+      text-transform: none;
+    }
+    .accent { color: var(--accent); }
+    .muted { color: var(--ink-muted); }
+    .mono { font-family: var(--font-mono); letter-spacing: 0; }
+    .small-en {
+      display: block;
+      font: 400 22px/1.35 var(--font-body);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-top: 8px;
+    }
+    .note-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: 9px 14px;
+      font: 700 15px/1 var(--font-body);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Cover */
+    .kickoff-cover {
+      grid-template-columns: 1.08fr .92fr;
+    }
+    .kickoff-cover .logo {
+      width: 520px;
+      height: 104px;
+      margin-bottom: 10px;
+    }
+    .kickoff-cover .cover-title {
+      font-size: 88px;
+      line-height: 1.04;
+      max-width: 880px;
+    }
+    .kickoff-cover .cover-tagline {
+      max-width: 860px;
+      font-size: 28px;
+      line-height: 1.42;
+    }
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+    .brand-mark {
+      width: 78px;
+      height: 78px;
+      background: var(--accent);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font: 700 34px/1 var(--font-heading);
+    }
+    .brand-name {
+      font: 700 34px/1.08 var(--font-heading);
+      color: var(--ink);
+    }
+    .brand-name span {
+      display: block;
+      font: 500 18px/1.2 var(--font-body);
+      color: var(--ink-muted);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    .cover-visual {
+      background: var(--bg-alt);
+      border: 1px solid var(--card-rule);
+      padding: 46px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 28px;
+    }
+    .operating-loop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      align-content: start;
+    }
+    .loop-tile {
+      min-height: 170px;
+      background: #fff;
+      border: 1px solid var(--card-rule);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .loop-tile b {
+      font: 700 42px/1 var(--font-heading);
+      color: var(--accent);
+    }
+    .loop-tile span {
+      font: 500 23px/1.25 var(--font-heading);
+      color: var(--ink);
+    }
+    .cover-stat {
+      border-top: 5px solid var(--accent);
+      padding-top: 26px;
+    }
+    .cover-stat strong {
+      display: block;
+      font: 700 88px/1 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .cover-stat p {
+      margin: 12px 0 0;
+      font: 400 25px/1.4 var(--font-body);
+      color: var(--ink-muted);
+    }
+
+    /* Common layouts */
+    .big-statement {
+      justify-content: center;
+    }
+    .big-statement .stmt {
+      font: 700 76px/1.12 var(--font-heading);
+      color: var(--ink);
+      max-width: 1600px;
+      margin: 0;
+      text-wrap: wrap;
+    }
+    .big-statement .stmt em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .big-statement .support {
+      font: 400 34px/1.45 var(--font-body);
+      color: var(--ink-muted);
+      max-width: 1320px;
+      margin-top: 44px;
+    }
+    .divider {
+      background: var(--accent);
+      color: #fff;
+      padding: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .slide.divider .kicker {
+      font: 700 24px/1 var(--font-body);
+      text-transform: none;
+      opacity: .78;
+      color: rgba(255,255,255,.78);
+    }
+    .slide.divider h2 {
+      margin: 0;
+      max-width: 1280px;
+      font: 700 104px/1.04 var(--font-heading);
+      color: #fff;
+    }
+    .slide.divider h2 .en {
+      display: block;
+      margin-top: 28px;
+      font: 400 28px/1.35 var(--font-body);
+      color: rgba(255,255,255,.75);
+    }
+    .slide.chapter-light {
+      background: #fff;
+      color: var(--ink);
+      padding: 112px;
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .slide.chapter-light .chapter-num {
+      font: 700 260px/.86 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .slide.chapter-light .chapter-copy {
+      border-left: 6px solid var(--accent);
+      padding-left: 56px;
+      max-width: 1080px;
+    }
+    .slide.chapter-light .kicker {
+      color: var(--accent);
+      opacity: 1;
+      font: 700 25px/1.1 var(--font-body);
+      margin-bottom: 32px;
+    }
+    .slide.chapter-light h2 {
+      color: var(--ink);
+      font: 700 78px/1.08 var(--font-heading);
+      margin: 0;
+      max-width: 1080px;
+      text-wrap: wrap;
+    }
+    .slide.chapter-light p {
+      margin: 34px 0 0;
+      font: 400 30px/1.42 var(--font-body);
+      color: var(--ink-muted);
+      max-width: 1040px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 46px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 30px;
+      min-height: 236px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card .num {
+      font: 700 46px/1 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      margin: 0 0 16px;
+      font: 700 29px/1.16 var(--font-heading);
+      color: var(--ink);
+    }
+    .card p, .card li {
+      margin: 0;
+      font: 400 20px/1.42 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .card ul {
+      margin: 0;
+      padding-left: 24px;
+      display: grid;
+      gap: 8px;
+    }
+    .tight-card {
+      min-height: 190px;
+      padding: 26px 24px;
+    }
+    .tight-card h3 { font-size: 27px; }
+    .tight-card p, .tight-card li { font-size: 18px; line-height: 1.4; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: var(--gap);
+      margin-top: 42px;
+      flex: 1;
+      min-height: 0;
+    }
+    .panel-dark {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .panel-dark h3 {
+      margin: 0;
+      font: 700 48px/1.1 var(--font-heading);
+      color: #fff;
+    }
+    .panel-dark p {
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.82);
+      font: 400 23px/1.42 var(--font-body);
+    }
+    .stack-list {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+    .stack-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 22px 26px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .stack-item b {
+      color: var(--accent);
+      font: 700 27px/1 var(--font-heading);
+      font-variant-numeric: tabular-nums;
+    }
+    .stack-item h3 {
+      margin: 0 0 8px;
+      font: 700 26px/1.14 var(--font-heading);
+    }
+    .stack-item p {
+      margin: 0;
+      font: 400 19px/1.42 var(--font-body);
+      color: var(--ink-muted);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: 40px;
+    }
+    .month {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-top: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 22px 18px;
+      min-height: 438px;
+      display: flex;
+      flex-direction: column;
+    }
+    .month .m {
+      font: 700 38px/1 var(--font-heading);
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .month h3 {
+      margin: 0 0 16px;
+      font: 700 25px/1.12 var(--font-heading);
+    }
+    .month p {
+      margin: 0;
+      font: 400 17px/1.36 var(--font-body);
+      color: var(--ink-muted);
+    }
+
+    .schedule {
+      display: grid;
+      grid-template-columns: 330px 1fr 470px;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .slot {
+      display: contents;
+    }
+    .slot > div {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 14px 18px;
+      min-height: 68px;
+      box-sizing: border-box;
+    }
+    .slot .time {
+      font: 700 23px/1.05 var(--font-heading);
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .slot h3 {
+      margin: 0 0 6px;
+      font: 700 22px/1.08 var(--font-heading);
+    }
+    .slot p {
+      margin: 0;
+      font: 400 16px/1.28 var(--font-body);
+      color: var(--ink-muted);
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 230px 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 28px;
+      font: 400 15px/1.24 var(--font-body);
+    }
+    .matrix > div {
+      min-height: 58px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 6px;
+      padding: 12px 16px;
+      box-sizing: border-box;
+      color: var(--ink-muted);
+    }
+    .matrix .head {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+    .matrix .dept {
+      color: var(--ink);
+      font: 700 19px/1.12 var(--font-heading);
+    }
+
+    .worksheet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .field {
+      background: #fff;
+      border: 1.5px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 22px;
+      min-height: 148px;
+    }
+    .field b {
+      display: block;
+      color: var(--accent);
+      font: 700 23px/1 var(--font-heading);
+      margin-bottom: 12px;
+    }
+    .field span {
+      color: var(--ink-muted);
+      font: 400 18px/1.36 var(--font-body);
+    }
+
+    .task-slide .two-col {
+      grid-template-columns: .8fr 1.2fr;
+    }
+    .deliverable {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .deliverable div {
+      background: #fff;
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 118px;
+    }
+    .deliverable b {
+      display: block;
+      color: var(--accent);
+      font: 700 23px/1 var(--font-heading);
+      margin-bottom: 10px;
+    }
+    .deliverable span {
+      font: 400 17px/1.32 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .checklist {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .check {
+      background: var(--card-bg);
+      border-left: 6px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      font: 700 24px/1.18 var(--font-heading);
+      color: var(--ink);
+    }
+    .quote-band {
+      margin-top: 42px;
+      padding: 34px 40px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      font: 700 38px/1.2 var(--font-heading);
+      text-wrap: wrap;
+    }
+    .agent-layer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 38px;
+    }
+    .agent-layer {
+      min-height: 372px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-top: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .agent-layer b {
+      color: var(--accent);
+      font: 700 40px/1 var(--font-heading);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 24px;
+    }
+    .agent-layer h3 {
+      margin: 0 0 14px;
+      font: 700 25px/1.15 var(--font-heading);
+      color: var(--ink);
+    }
+    .agent-layer p {
+      margin: 0;
+      font: 400 17px/1.42 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .pipe-step {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 22px 18px;
+      min-height: 354px;
+      position: relative;
+    }
+    .pipe-step::after {
+      content: "";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      width: 12px;
+      height: 2px;
+      background: var(--accent-soft);
+    }
+    .pipe-step:last-child::after { display: none; }
+    .pipe-step .tag {
+      display: inline-flex;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font: 700 15px/1 var(--font-body);
+      margin-bottom: 22px;
+    }
+    .pipe-step h3 {
+      margin: 0 0 14px;
+      font: 700 24px/1.14 var(--font-heading);
+      color: var(--ink);
+    }
+    .pipe-step p {
+      margin: 0;
+      font: 400 16px/1.38 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .skill-anatomy {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 34px;
+      margin-top: 30px;
+      align-items: stretch;
+    }
+    .code-card {
+      background: #0f243f;
+      color: #dbeafe;
+      border-radius: 8px;
+      padding: 28px;
+      font: 400 20px/1.48 var(--font-mono);
+      white-space: pre-line;
+    }
+    .anatomy-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-content: start;
+    }
+    .anatomy-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 18px 22px;
+      min-height: 122px;
+    }
+    .anatomy-item h3 {
+      margin: 0 0 10px;
+      font: 700 21px/1.12 var(--font-heading);
+      color: var(--ink);
+    }
+    .anatomy-item p {
+      margin: 0;
+      font: 400 15px/1.3 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .agent-table {
+      display: grid;
+      grid-template-columns: 260px 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 28px;
+      font: 400 16px/1.25 var(--font-body);
+    }
+    .agent-table > div {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 13px 16px;
+      min-height: 68px;
+      color: var(--ink-muted);
+    }
+    .agent-table .head {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      min-height: 50px;
+    }
+    .agent-table .row-title {
+      color: var(--ink);
+      font: 700 19px/1.14 var(--font-heading);
+    }
+    .agent-kit {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 40px;
+    }
+    .kit-card {
+      min-height: 296px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 28px 26px;
+    }
+    .kit-card b {
+      display: block;
+      color: var(--accent);
+      font: 700 42px/1 var(--font-heading);
+      margin-bottom: 24px;
+    }
+    .kit-card h3 {
+      margin: 0 0 14px;
+      font: 700 26px/1.15 var(--font-heading);
+      color: var(--ink);
+    }
+    .kit-card p {
+      margin: 0;
+      font: 400 17px/1.38 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .final-slide {
+      background: var(--accent);
+      color: #fff;
+      padding: 112px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .final-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 760px;
+    }
+    .final-left .eyebrow {
+      color: rgba(255,255,255,.78);
+      margin: 0 0 34px;
+    }
+    .final-left h1 {
+      margin: 0;
+      font: 700 112px/1.02 var(--font-heading);
+      color: #fff;
+      max-width: 920px;
+    }
+    .final-left p {
+      margin: 44px 0 0;
+      max-width: 860px;
+      font: 400 30px/1.42 var(--font-body);
+      color: rgba(255,255,255,.82);
+    }
+    .final-commitments {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .final-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 8px;
+      padding: 28px 26px;
+      min-height: 244px;
+    }
+    .final-card b {
+      display: block;
+      color: #b8d7ff;
+      font: 700 42px/1 var(--font-heading);
+      margin-bottom: 24px;
+      font-variant-numeric: tabular-nums;
+    }
+    .final-card h3 {
+      margin: 0 0 14px;
+      color: #fff;
+      font: 700 27px/1.14 var(--font-heading);
+    }
+    .final-card p {
+      margin: 0;
+      color: rgba(255,255,255,.78);
+      font: 400 18px/1.38 var(--font-body);
+    }
+  </style>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+
+  <section class="slide cover kickoff-cover no-chrome" data-label="封面 Cover">
+    <div class="col-text">
+      <div>
+        <div class="logo"></div>
+        <div class="brand-lockup">
+          <div class="brand-mark">嘻</div>
+          <div class="brand-name">嘻游记团队<span>AI Agent 转型启动</span></div>
+        </div>
+        <p class="cover-eyebrow">半天启动工作坊 · 2026.06</p>
+        <h1 class="cover-title">AI Agent<br/>转型<br/>启动营<span class="lf">.</span></h1>
+        <p class="cover-tagline">从“试试 AI 工具”，走向“把部门工作流交给 Agent 执行、由人制定规则和验收”。</p>
+      </div>
+      <div class="cover-meta">
+        <span><b>MindsLeap</b>王林 Lincoln</span>
+        <span><b>服务对象</b>嘻游记管理团队与各部门负责人</span>
+      </div>
+    </div>
+    <div class="cover-visual">
+      <div class="operating-loop">
+        <div class="loop-tile"><b>01</b><span>消费者洞察</span></div>
+        <div class="loop-tile"><b>02</b><span>数据化决策</span></div>
+        <div class="loop-tile"><b>03</b><span>Agent 工作流</span></div>
+        <div class="loop-tile"><b>04</b><span>组织级复用</span></div>
+      </div>
+      <div class="cover-stat">
+        <strong>9</strong>
+        <p>场部门访谈形成的启动培训：不是通用 AI 课，而是围绕真实业务痛点的转型第一步。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body big-statement" data-page="02" data-label="核心判断">
+    <p class="eyebrow">核心判断 · 从工具使用走向组织工作流</p>
+    <h1 class="stmt">AI 转型不是让每个人“多会几个 Prompt”，而是把嘻游记的高频经营动作，变成 <em>可复用、可验收、可沉淀</em> 的工作流。</h1>
+    <p class="support">今天的目标不是讲完一套概念，而是让每个部门开始拥有自己的第一个 Agent Demo。</p>
+  </section>
+
+  <section class="slide body" data-page="03" data-label="访谈结论">
+    <p class="eyebrow">访谈洞察 · 组织经验需要被流程化</p>
+    <h1 class="slide-title">九场访谈指向同一个问题：经验很多，但工作流还没有被系统化<span class="en">瓶颈不在努力程度，而在能否稳定复现、持续沉淀。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>数据分散，决策滞后</h3>
+        <p>美团、点评、抖音、收银、供应链、财务表格各自为政，很多复盘按月发生，错过了经营调整窗口。</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>流程靠人，标准难留存</h3>
+        <p>研发、巡店、外卖、课件、对账、招商内容都有经验方法，但还没有形成可交给新人和 Agent 执行的规格。</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>资产在个人手里</h3>
+        <p>Prompt、Skill、模板、调研报告、历史数据如果不进入公司级资产库，AI 转型很容易变成个人技巧。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="04" data-label="六个月目标">
+    <p class="eyebrow">六个月目标 · 从培训走向经营节奏</p>
+    <h1 class="slide-title">未来 6 个月，我们要共同交付四类结果<span class="en">培训只有进入周会、复盘、报表和部门产出，才真正改变组织能力。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-4">
+      <div class="card tight-card">
+        <div class="num">1</div>
+        <h3>部门 Agent Backlog</h3>
+        <p>每个部门明确 5-10 个可落地场景，按价值和可行性排序。</p>
+      </div>
+      <div class="card tight-card">
+        <div class="num">2</div>
+        <h3>可复用工作流</h3>
+        <p>从 demo 走向每周能跑的 Skill、模板、脚本、看板。</p>
+      </div>
+      <div class="card tight-card">
+        <div class="num">3</div>
+        <h3>公司级数据资产</h3>
+        <p>沉淀访谈、调研、历史报表、品牌素材、业务规则。</p>
+      </div>
+      <div class="card tight-card">
+        <div class="num">4</div>
+        <h3>管理机制升级</h3>
+        <p>管理者从只管人，升级为管目标、管数据、管 Agent 产出。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="05" data-label="六个月路线图">
+    <p class="eyebrow">推进路线 · 先建立能力，再形成飞轮</p>
+    <h1 class="slide-title">六个月培训与落地路线：先建立能力，再形成经营飞轮<span class="en">从统一认知、工具上手，到部门工作流、看板预警和公司级治理。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="timeline">
+      <div class="month"><div class="m">M1</div><h3>启动与工具</h3><p>统一认知，安装 WorkBuddy/Codex，建立部门任务清单与数据资产目录。</p></div>
+      <div class="month"><div class="m">M2</div><h3>数据与模板</h3><p>把表格、调研、素材、SOP 整理成 Agent 能读取的结构化输入。</p></div>
+      <div class="month"><div class="m">M3</div><h3>部门工作流</h3><p>市场、外卖、运营、研发、人事、供应链各自完成 1-2 条高频流程。</p></div>
+      <div class="month"><div class="m">M4</div><h3>看板与预警</h3><p>搭建经营周报、外卖机会、研发测试、对账异常等可视化面板。</p></div>
+      <div class="month"><div class="m">M5</div><h3>试点复制</h3><p>选择新品牌、重点门店或重点商圈验证，形成培训手册与模板库。</p></div>
+      <div class="month"><div class="m">M6</div><h3>治理与规模化</h3><p>建立 Skill 审核、版本管理、权限、数据备份、复盘机制。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="06" data-label="今日工作坊目标">
+    <p class="eyebrow">启动目标 · 动员、安装、产出</p>
+    <h1 class="slide-title">今天下午 4 小时，先完成三个动作<span class="en">统一方向，跑通工具，并让每个部门做出可展示的小闭环。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">A</div>
+        <h3>把方向讲清楚</h3>
+        <p>为什么现在做 AI 转型，为什么不是裁员工具，而是让 50 家店的能力扩展到 500 家店的方法。</p>
+      </div>
+      <div class="card">
+        <div class="num">B</div>
+        <h3>把工具装起来</h3>
+        <p>WorkBuddy 用于日常 AI 协作与轻量工作流，Codex 用于把复杂流程工程化、版本化、可交付。</p>
+      </div>
+      <div class="card">
+        <div class="num">C</div>
+        <h3>把 demo 做出来</h3>
+        <p>每个部门选择一个真实痛点，用 Spec 描述任务，现场协助做出能演示的第一版。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="07" data-label="四小时安排">
+    <p class="eyebrow">工作坊安排 · 以可展示产出为导向</p>
+    <h1 class="slide-title">4 小时安排：少讲大道理，尽快进入真实任务<span class="en">每一段都服务于现场能做出 demo，而不是只完成一次概念宣讲。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="schedule">
+      <div class="slot"><div class="time">00:00-00:25</div><div><h3>动员大会</h3><p>AI 转型的业务目标、组织原则、6 个月路线。</p></div><div><p>负责人统一预期：今天不是旁听课，是每个部门开始动手。</p></div></div>
+      <div class="slot"><div class="time">00:25-01:05</div><div><h3>Agent 基本原理</h3><p>Prompt、Workflow、Spec、Skill、工具、数据资产。</p></div><div><p>参考中欧训练营框架，但换成餐饮经营语境。</p></div></div>
+      <div class="slot"><div class="time">01:05-01:35</div><div><h3>安装 WorkBuddy / Codex</h3><p>账号、模型、文件夹、示例任务、常见问题。</p></div><div><p>现场确保关键人员能跑通第一个任务。</p></div></div>
+      <div class="slot"><div class="time">01:35-02:00</div><div><h3>部门任务认领</h3><p>按访谈痛点选择 demo 题目，填 Spec。</p></div><div><p>先选简单、明确、可展示的任务。</p></div></div>
+      <div class="slot"><div class="time">02:00-03:25</div><div><h3>分组实操</h3><p>导师巡回协助：喂资料、拆流程、写规则、生成 demo。</p></div><div><p>每组至少产出一页网页、一个表格分析、一个模板或一个脚本。</p></div></div>
+      <div class="slot"><div class="time">03:25-04:00</div><div><h3>Demo 展示与下周行动</h3><p>每组 3 分钟展示，确认 30 天试点任务。</p></div><div><p>用统一标准验收：有输入、有流程、有输出、有下一步。</p></div></div>
+    </div>
+  </section>
+
+  <section class="slide divider chapter-light no-chrome" data-label="章节 01">
+    <div class="chapter-num">01</div>
+    <div class="chapter-copy">
+      <div class="kicker">第一部分 · 共同语言</div>
+      <h2>从 Prompt 到餐饮经营工作的 AI 操作系统</h2>
+      <p>先让管理团队、部门负责人和一线骨干拥有同一套 Agent 语言：任务、上下文、工具、Skill、验收与复用。</p>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="09" data-label="Prompt vs Workflow">
+    <p class="eyebrow">认知转变 · 不是会问，而是会编排</p>
+    <h1 class="slide-title">从“问 AI 一个问题”，到“让 AI 跑一条流程”<span class="en">真正的升级不是语言技巧，而是把工作拆成可执行、可验收的流程。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark">
+        <div>
+          <h3>Prompt 是一次对话</h3>
+          <p>适合临时灵感、写一段话、整理一个想法。问题是不可复用、不可审计、结果依赖个人表达。</p>
+        </div>
+        <p class="mono">Input -> AI -> Output</p>
+      </div>
+      <div class="stack-list">
+        <div class="stack-item"><b>01</b><div><h3>Workflow 是一套生产线</h3><p>输入资料、处理步骤、判断标准、输出格式都写清楚。</p></div></div>
+        <div class="stack-item"><b>02</b><div><h3>Skill 是给 Agent 的 SOP</h3><p>把经验变成文件，让新人和 AI 都能照着做。</p></div></div>
+        <div class="stack-item"><b>03</b><div><h3>Spec 是人与 AI 的工作合同</h3><p>说明任务目标、边界、数据源、验收标准，减少返工。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="10" data-label="Agent 结构">
+    <p class="eyebrow">Agent 结构 · 工具、记忆、指令与人工验收</p>
+    <h1 class="slide-title">Agent 不是万能助手，而是一组可编排的执行角色<span class="en">把目标、上下文、工具和验收标准组合起来，才能形成稳定产出。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-4">
+      <div class="card tight-card"><div class="num">1</div><h3>任务目标</h3><p>要解决什么业务问题，输出给谁使用。</p></div>
+      <div class="card tight-card"><div class="num">2</div><h3>上下文</h3><p>品牌资料、历史数据、业务规则、参考案例。</p></div>
+      <div class="card tight-card"><div class="num">3</div><h3>工具</h3><p>浏览器、表格、代码、文件、网页、数据接口。</p></div>
+      <div class="card tight-card"><div class="num">4</div><h3>验收</h3><p>由人判断是否准确、可用、能进入日常流程。</p></div>
+    </div>
+    <div class="quote-band">从“我让 AI 帮我干点活”，升级为“我设计一条流程，让 Agent 按规则持续产出”。</div>
+  </section>
+
+  <section class="slide body" data-page="11" data-label="Agent 五层结构">
+    <p class="eyebrow">Agent 制作 · 五层结构</p>
+    <h1 class="slide-title">做 Agent 不是写一个神奇提示词，而是搭一套执行系统<span class="en">一个可复用 Agent 至少要有角色、知识、流程、工具和验收五层。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-layer-grid">
+      <div class="agent-layer"><b>01</b><h3>角色定位</h3><p>它服务哪个部门、解决哪个业务问题、输出给谁使用。角色越具体，结果越稳定。</p></div>
+      <div class="agent-layer"><b>02</b><h3>知识资产</h3><p>品牌资料、业务规则、历史报表、菜单、SOP、竞品样例，都是 Agent 的“教材”。</p></div>
+      <div class="agent-layer"><b>03</b><h3>工作流程</h3><p>把任务拆成步骤：读取、清洗、判断、生成、复核、输出，而不是一次性让它“给方案”。</p></div>
+      <div class="agent-layer"><b>04</b><h3>工具能力</h3><p>文件、表格、网页、浏览器、代码、数据接口，每个工具都要有明确使用边界。</p></div>
+      <div class="agent-layer"><b>05</b><h3>验收闭环</h3><p>谁来确认、看哪些指标、失败如何重跑、如何进入周会和公司资料库。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="12" data-label="Agent 开发流水线">
+    <p class="eyebrow">Agent 制作 · 从需求到交付</p>
+    <h1 class="slide-title">一条部门 Agent 的开发流水线：先 Spec，再 Demo，再 Skill<span class="en">不要跳过规格设计；跳过规格，后面一定靠反复返工补回来。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="pipeline">
+      <div class="pipe-step"><span class="tag">Step 1</span><h3>选高频任务</h3><p>优先选择每周重复、规则清楚、数据可拿到、部门负责人愿意验收的任务。</p></div>
+      <div class="pipe-step"><span class="tag">Step 2</span><h3>写 Spec</h3><p>写清业务目标、输入资料、处理步骤、判断规则、输出格式和验收标准。</p></div>
+      <div class="pipe-step"><span class="tag">Step 3</span><h3>喂上下文</h3><p>把真实表格、过往案例、品牌规范、失败样例和老板认可的输出一起给 Agent。</p></div>
+      <div class="pipe-step"><span class="tag">Step 4</span><h3>做 Demo</h3><p>先做网页、清单、表格、报告或脚本的小闭环，现场能打开、能解释、能修改。</p></div>
+      <div class="pipe-step"><span class="tag">Step 5</span><h3>固化 Skill</h3><p>把做法写成 Agent 可读取的 SOP：触发条件、步骤、规则、输出和注意事项。</p></div>
+      <div class="pipe-step"><span class="tag">Step 6</span><h3>周度复盘</h3><p>进入部门周会，用真实结果修正规则，决定继续试点、扩展或暂停。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="13" data-label="Skill 文件结构">
+    <p class="eyebrow">Agent 制作 · Skill 是给 Agent 的 SOP</p>
+    <h1 class="slide-title">一个好的 Skill，把人的经验变成 Agent 可以照着执行的作业标准书<span class="en">Skill 不只是 Prompt，而是触发条件、流程、素材和验收标准的集合。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="skill-anatomy">
+      <div class="code-card">SKILL.md
+├─ 什么时候使用
+├─ 输入资料要求
+├─ 执行步骤
+├─ 输出格式
+├─ 质量检查
+└─ 常见失败处理</div>
+      <div class="anatomy-list">
+        <div class="anatomy-item"><h3>触发条件</h3><p>例如“每周一生成外卖经营周报”或“新品试餐后整理反馈报告”。</p></div>
+        <div class="anatomy-item"><h3>输入清单</h3><p>明确需要哪些文件、表格、链接、图片，缺少时先向人确认。</p></div>
+        <div class="anatomy-item"><h3>执行步骤</h3><p>像教实习生一样写步骤，避免让模型自行猜流程。</p></div>
+        <div class="anatomy-item"><h3>判断规则</h3><p>指标口径、阈值、品牌禁区、数据可信度都要写清楚。</p></div>
+        <div class="anatomy-item"><h3>输出模板</h3><p>固定成网页、表格、报告、PPT 页、日报或待办清单。</p></div>
+        <div class="anatomy-item"><h3>验收方式</h3><p>谁验收、检查什么、失败如何重跑、如何归档。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="14" data-label="工具与数据接入">
+    <p class="eyebrow">Agent 制作 · 工具与数据边界</p>
+    <h1 class="slide-title">Agent 能做什么，取决于它能安全读取什么、操作什么<span class="en">先从文件型自动化开始，再逐步评估浏览器、账号和系统接口。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-table">
+      <div class="head">接入层级</div><div class="head">适合场景</div><div class="head">风险控制</div><div class="head">现场怎么做</div>
+      <div class="row-title">文件读取</div><div>Excel、PDF、课件、图片、转写文本、菜单表。</div><div>不碰账号密码，先用人工导出文件。</div><div>现场最推荐，能快速做 demo。</div>
+      <div class="row-title">网页资料</div><div>竞品页面、公开点评、招商素材、政策/行业信息。</div><div>要求标注来源，不允许编造数据。</div><div>用于市场、外卖、门店开发任务。</div>
+      <div class="row-title">浏览器操作</div><div>登录后台、下载报表、批量回复、检查页面。</div><div>先小范围测试，避免平台风控和误操作。</div><div>现场只讲原理，不作为首选 demo。</div>
+      <div class="row-title">系统接口</div><div>美团、收银、供应链、会员、财务系统数据同步。</div><div>需要权限、字段口径、日志、备份和责任边界。</div><div>作为后续 6 个月项目，不在启动营硬做。</div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="15" data-label="餐饮 Agent 示例">
+    <p class="eyebrow">Agent 制作 · 用餐饮场景拆一遍</p>
+    <h1 class="slide-title">以“门店经营周报 Agent”为例：从数据到动作，不只是生成一篇总结<span class="en">一个好 Agent 的输出，应该直接进入店长会、运营会或部门复盘会。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-table">
+      <div class="head">模块</div><div class="head">需要输入</div><div class="head">处理规则</div><div class="head">输出结果</div>
+      <div class="row-title">营业表现</div><div>本周营业额、客流、客单、目标值。</div><div>对比目标、上周、去年同期，标注异常。</div><div>红黄绿灯 + 核心偏差。</div>
+      <div class="row-title">成本效率</div><div>人力工时、毛利、损耗、库存。</div><div>找出人效低、毛利异常、损耗异常的门店。</div><div>前三个经营问题。</div>
+      <div class="row-title">顾客反馈</div><div>点评/外卖评价、差评、投诉记录。</div><div>按口味、服务、环境、出品速度归类。</div><div>顾客问题标签和优先级。</div>
+      <div class="row-title">行动建议</div><div>门店目标、活动计划、历史动作。</div><div>只给可执行动作，避免泛泛建议。</div><div>下周负责人、动作、复盘指标。</div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="16" data-label="现场 Agent 最小包">
+    <p class="eyebrow">Agent 制作 · 启动营最小交付包</p>
+    <h1 class="slide-title">今天每组做的不是完整系统，而是一个“最小可行 Agent 包”<span class="en">只要这四件事齐了，就能从 demo 继续迭代成部门工作流。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-kit">
+      <div class="kit-card"><b>01</b><h3>一张 Spec</h3><p>说明业务目标、输入资料、处理步骤、判断规则、输出格式和验收标准。</p></div>
+      <div class="kit-card"><b>02</b><h3>一份样例输入</h3><p>真实表格、课件、菜单、评价、视频脚本或竞品资料，不能只有口头描述。</p></div>
+      <div class="kit-card"><b>03</b><h3>一个可打开产出</h3><p>网页、报告、清单、表格、模板或脚本，现场能展示给同事看。</p></div>
+      <div class="kit-card"><b>04</b><h3>一条迭代计划</h3><p>下周补什么数据、谁验收、进入哪个会议或日常动作。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="17" data-label="上下文">
+    <p class="eyebrow">上下文工程 · 像培养新人一样培养 Agent</p>
+    <h1 class="slide-title">多数 AI 结果不好，不是模型不行，而是上下文不够<span class="en">资料、规则和样例越完整，Agent 越接近一个可被管理的执行者。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">资料</div><h3>把真实材料给它</h3><p>历史报表、调研数据、菜单、产品图、投放记录、门店反馈、竞品链接。</p></div>
+      <div class="card"><div class="num">规则</div><h3>把判断标准写明</h3><p>什么算好内容、好点位、好产品、好回复、好报表，不能只说“高级一点”。</p></div>
+      <div class="card"><div class="num">样例</div><h3>把过往案例喂进去</h3><p>成功案例、失败案例、标准课件、品牌话术、老板认可的输出样式。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="18" data-label="Spec 模板">
+    <p class="eyebrow">规格驱动 · 把模糊需求写成工作合同</p>
+    <h1 class="slide-title">任何部门任务，先填这 8 格<span class="en">一张简单的 Spec 表，可以把“帮我做一下”变成可执行任务。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="worksheet">
+      <div class="field"><b>1. 业务目标</b><span>为什么做，解决哪个经营问题。</span></div>
+      <div class="field"><b>2. 使用者</b><span>谁每天/每周会用这个产出。</span></div>
+      <div class="field"><b>3. 输入资料</b><span>需要哪些表格、文档、图片、链接。</span></div>
+      <div class="field"><b>4. 处理步骤</b><span>像教实习生一样写清流程。</span></div>
+      <div class="field"><b>5. 判断规则</b><span>哪些指标、阈值、口径要遵守。</span></div>
+      <div class="field"><b>6. 输出格式</b><span>网页、表格、PPT、日报、清单、脚本。</span></div>
+      <div class="field"><b>7. 验收标准</b><span>什么情况下算可用，谁来确认。</span></div>
+      <div class="field"><b>8. 复用方式</b><span>如何沉淀为模板、Skill 或看板。</span></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="19" data-label="工具分工">
+    <p class="eyebrow">工具体系 · 日常协作与工程化交付分工</p>
+    <h1 class="slide-title">WorkBuddy 与 Codex 的分工：一个让大家上手，一个把流程做扎实<span class="en">轻量任务先跑通，复杂流程再进入可版本管理、可交付的工程化形态。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark">
+        <h3>WorkBuddy</h3>
+        <p>适合快速对话、资料整理、轻量生成、个人日常提效。今天让大家先跑通，降低上手门槛。</p>
+      </div>
+      <div class="panel-dark" style="background:#ebe4d6;color:var(--ink);border:1px solid var(--card-rule);">
+        <h3 style="color:var(--ink);">Codex</h3>
+        <p style="color:var(--ink-muted);">适合把复杂流程做成网页、脚本、模板、可版本管理的交付物。后续重点用于部门级 Agent 项目。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="20" data-label="实操原则">
+    <p class="eyebrow">实操原则 · 小、真、可见、可验收、可复用</p>
+    <h1 class="slide-title">现场实操只遵守五个原则<span class="en">先做能跑的小闭环，再逐步扩展成部门级工作流。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-4">
+      <div class="card tight-card"><div class="num">真</div><h3>真实业务</h3><p>不用玩具题，必须来自部门访谈。</p></div>
+      <div class="card tight-card"><div class="num">小</div><h3>先做小闭环</h3><p>下午只做第一版，不追求大系统。</p></div>
+      <div class="card tight-card"><div class="num">显</div><h3>能看见</h3><p>网页、表格、报告、模板必须可展示。</p></div>
+      <div class="card tight-card"><div class="num">留</div><h3>能沉淀</h3><p>输出要进入公司资料库，不能只在个人对话里。</p></div>
+    </div>
+  </section>
+
+  <section class="slide divider chapter-light no-chrome" data-label="章节 02">
+    <div class="chapter-num">02</div>
+    <div class="chapter-copy">
+      <div class="kicker">第二部分 · 部门场景</div>
+      <h2>把访谈痛点转化为第一批 Agent 任务清单</h2>
+      <p>市场、外卖、研发、运营、人事、供应链/财务、门店开发，都从真实流程里选择第一个可展示小闭环。</p>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="22" data-label="部门需求矩阵">
+    <p class="eyebrow">部门地图 · 第一批 Agent 机会</p>
+    <h1 class="slide-title">从访谈提炼出的第一批 Agent 机会<span class="en">启动营的任务不从通用案例出发，而从嘻游记各部门的真实流程出发。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="matrix">
+      <div class="head">部门</div><div class="head">当前痛点</div><div class="head">AI 切入点</div><div class="head">启动 demo</div>
+      <div class="dept">市场投放</div><div>ROI、核销、用户画像、内容模板缺少数据闭环。</div><div>爆款拆解、投放复盘、用户画像、内容赛马。</div><div>一页投放复盘 + 三条内容模板。</div>
+      <div class="dept">外卖运营</div><div>多平台数据拉取、评价回复、竞品机会滞后。</div><div>人工导出 + AI 清洗；商圈竞品快照。</div><div>外卖机会面板原型。</div>
+      <div class="dept">产品研发</div><div>灵感来自刷平台，缺少随机用户反馈和定价模型。</div><div>竞品热度抓取、试餐反馈整理、价格敏感分析。</div><div>新品试餐反馈表 + 分析报告。</div>
+      <div class="dept">运营督导</div><div>毛利、人力、评价、巡店复盘滞后。</div><div>周报诊断、异常预警、订货预测逻辑。</div><div>门店经营周报 Demo。</div>
+      <div class="dept">人事培训</div><div>课件清洗、合规材料追踪、培训内容重制。</div><div>旧课件比对、HTML 课件模板、证件缺口清单。</div><div>课件下架清单或模板页。</div>
+      <div class="dept">供应链/财务</div><div>询比价、建档、对账、收入核对耗时。</div><div>信息源监测、表格差异比对、对账规则固化。</div><div>对账异常清单 Demo。</div>
+      <div class="dept">门店开发/加盟</div><div>选址模型未跑通，B 端获客内容不足。</div><div>点评数据抓取、点位筛选、招商内容转写。</div><div>点位调研表或加盟官网页。</div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="23" data-label="市场任务">
+    <p class="eyebrow">场景 01 · 市场投放</p>
+    <h1 class="slide-title">市场不是多发内容，而是建立“投放-核销-复购”的增长模型<span class="en">把活动执行变成可衡量、可复盘、可加量的增长闭环。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">痛点</div><h3>投出去不等于赚到钱</h3><p>GMV、核销率、毛利、复购、品牌调性没有被放在一个模型里看。</p></div>
+      <div class="card"><div class="num">Agent</div><h3>每周投放复盘助手</h3><p>读取投放数据和核销数据，输出哪些加量、哪些暂停、哪些改套餐。</p></div>
+      <div class="card"><div class="num">Demo</div><h3>爆款内容模板研发</h3><p>拆解 3 条竞品视频结构，生成适合品牌的脚本模板和拍摄清单。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="24" data-label="外卖任务">
+    <p class="eyebrow">场景 02 · 外卖运营</p>
+    <h1 class="slide-title">外卖增长的核心不是做图，而是发现商圈机会<span class="en">先看清商圈需求、竞品变化和价格带，再决定选品和营销动作。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">痛点</div><h3>机械工作多</h3><p>多后台导数、评价回复、竞价调整、竞品观察占用大量时间。</p></div>
+      <div class="card"><div class="num">Agent</div><h3>外卖机会面板</h3><p>定期抓取商圈竞品月销、价格带、品类变化、评价关键词。</p></div>
+      <div class="card"><div class="num">Demo</div><h3>人工导出 + AI 清洗</h3><p>先不碰账号密码，先把导出的 Excel 自动清洗并生成部门周报。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="25" data-label="产品研发任务">
+    <p class="eyebrow">场景 03 · 产品研发</p>
+    <h1 class="slide-title">新品研发要从“拍脑袋”，走向“测试-反馈-定价”<span class="en">AI 的作用是把分散信号整理成可讨论、可验证的产品决策依据。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">痛点</div><h3>灵感有，基准少</h3><p>Ins、小红书、点评能提供灵感，但算法推荐会放大偏见。</p></div>
+      <div class="card"><div class="num">Agent</div><h3>新品调研助手</h3><p>抓取关键词、竞品菜单、评价痛点，生成热度、差异化、价格区间报告。</p></div>
+      <div class="card"><div class="num">Demo</div><h3>试餐反馈分析</h3><p>把随机用户试餐录音/表单整理成口味、价格、复购意愿分析。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="26" data-label="运营任务">
+    <p class="eyebrow">场景 04 · 门店运营</p>
+    <h1 class="slide-title">运营要从月度事后复盘，走向每周异常预警<span class="en">能按周发现的问题，就不要等到月底才进入损益表。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">痛点</div><h3>数据晚，动作散</h3><p>毛利、人力、评价、巡店结果缺少统一诊断，容易撒胡椒面。</p></div>
+      <div class="card"><div class="num">Agent</div><h3>门店经营诊断助手</h3><p>读取周营业、人力、毛利、差评，输出前三个异常和建议动作。</p></div>
+      <div class="card"><div class="num">Demo</div><h3>周报生成器</h3><p>给一份样表，生成 HTML 周报：红黄绿灯、问题归因、下周动作。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="27" data-label="HR 任务">
+    <p class="eyebrow">场景 05 · 人事培训</p>
+    <h1 class="slide-title">人事优先做培训资产和合规闭环，不为 AI 而 AI<span class="en">先处理重复性高、规则清楚、资产价值高的培训与合规任务。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">痛点</div><h3>400+ 课件要清洗</h3><p>菜单变更后，旧课件哪些下架、哪些重制，人工逐一检查成本高。</p></div>
+      <div class="card"><div class="num">Agent</div><h3>课件资产清洗助手</h3><p>读取最新菜单表和课件目录，输出待下架、待更新、可保留清单。</p></div>
+      <div class="card"><div class="num">Demo</div><h3>HTML 课件模板</h3><p>把一页旧课件内容迁移到标准模板，后续可批量生成图片/PPT。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="28" data-label="供应链财务任务">
+    <p class="eyebrow">场景 06 · 供应链与财务</p>
+    <h1 class="slide-title">供应链与财务的第一优先级：让数据不丢、让对账少耗人<span class="en">在做预测模型之前，先保护历史数据，并把对账规则标准化。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">痛点</div><h3>信息源与表格太散</h3><p>询比价、物料建档、平台收入核对、补贴佣金规则都依赖人工。</p></div>
+      <div class="card"><div class="num">Agent</div><h3>对账差异识别助手</h3><p>读取两份或多份表格，按规则找差异、归类原因、生成待确认清单。</p></div>
+      <div class="card"><div class="num">Demo</div><h3>系统切换数据清单</h3><p>把“必须导出和核对”的字段做成迁移检查表，保护会员和流水资产。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="29" data-label="门店开发任务">
+    <p class="eyebrow">场景 07 · 门店开发与加盟</p>
+    <h1 class="slide-title">门店开发不是让 AI 直接选址，而是让它整理真实证据<span class="en">不要让 AI 猜结论，而要让它收集、对比、解释真实数据。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">痛点</div><h3>模型未跑通，选址风险高</h3><p>租金、面积、客单、回本周期、商圈竞争需要更稳定的数据底座。</p></div>
+      <div class="card"><div class="num">Agent</div><h3>点位调研助手</h3><p>抓取商圈竞品数量、价格带、评价关键词，形成点位可行性初筛。</p></div>
+      <div class="card"><div class="num">Demo</div><h3>B 端招商内容页</h3><p>把 C 端素材转成加盟商视角：模型、门店、产品、支持体系、FAQ。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="30" data-label="数据资产治理">
+    <p class="eyebrow">治理机制 · 从个人技巧到公司资产</p>
+    <h1 class="slide-title">AI 转型能否留下来，取决于资产是否进入公司体系<span class="en">个人 Prompt 不会自然沉淀为组织能力，必须进入账号、目录、版本和验收机制。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark">
+        <h3>必须公司化管理</h3>
+        <p>账号、文件夹、素材库、Skill、数据表、版本记录、权限边界都要有归属。</p>
+      </div>
+      <div class="stack-list">
+        <div class="stack-item"><b>01</b><div><h3>统一资料目录</h3><p>品牌、门店、产品、财务、供应链、市场资料分层存放。</p></div></div>
+        <div class="stack-item"><b>02</b><div><h3>Skill 提交机制</h3><p>员工做出的工作流必须提交、命名、说明用途、标明负责人。</p></div></div>
+        <div class="stack-item"><b>03</b><div><h3>管理者验收</h3><p>不是看“用了 AI 没有”，而是看产出是否进入周会、日报、复盘。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide divider chapter-light no-chrome" data-label="章节 03">
+    <div class="chapter-num">03</div>
+    <div class="chapter-copy">
+      <div class="kicker">第三部分 · 现场实操</div>
+      <h2>先做出第一个 demo，再把它沉淀为可复用工作流</h2>
+      <p>现场不追求大系统，只追求真实资料、清晰 Spec、可打开产出和下一周能继续迭代的负责人。</p>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="32" data-label="分组产出">
+    <p class="eyebrow">实操产出 · 每组一个可展示小闭环</p>
+    <h1 class="slide-title">每组只需要交付一个可展示的小闭环<span class="en">第一版必须足够小，确保现场能完成；同时必须来自真实业务，确保后续值得迭代。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">输入</div><h3>1 份真实材料</h3><p>表格、课件、菜单、竞品链接、评价文本、调研问卷、旧 SOP 均可。</p></div>
+      <div class="card"><div class="num">流程</div><h3>1 张 Spec</h3><p>用 8 格模板写清楚任务、规则、输出、验收，不让 AI 猜。</p></div>
+      <div class="card"><div class="num">输出</div><h3>1 个 Demo</h3><p>网页、报告、清单、表格、模板、脚本、看板雏形，现场能打开看。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body task-slide" data-page="33" data-label="任务 A 市场">
+    <p class="eyebrow">任务 A · 市场内容模板</p>
+    <h1 class="slide-title">市场组：从一条爆款视频，拆成可复用内容模板<span class="en">从制作单条视频，升级为研发可复用的内容结构。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark"><h3>适合市场、视频、平面</h3><p>选择一条竞品视频或自己过往表现好的内容，拆结构、拆钩子、拆镜头。</p></div>
+      <div>
+        <div class="deliverable">
+          <div><b>输入</b><span>视频链接/脚本文案/品牌资料/产品卖点。</span></div>
+          <div><b>流程</b><span>拆解结构、提炼模板、改写为嘻游记品牌语言。</span></div>
+          <div><b>输出</b><span>3 条脚本模板 + 拍摄清单 + 赛马指标。</span></div>
+        </div>
+        <div class="checklist"><div class="check">是否能明天就拿去拍？</div><div class="check">是否能每周复用生成新脚本？</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body task-slide" data-page="34" data-label="任务 B 外卖">
+    <p class="eyebrow">任务 B · 外卖机会面板</p>
+    <h1 class="slide-title">外卖组：把导出的多平台数据变成机会面板<span class="en">先用文件型自动化跑通流程，再评估是否进入账号登录自动化。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark"><h3>适合外卖、财务、运营</h3><p>先采用安全模式：人工导出数据文件，AI 负责读取、清洗、汇总、解释。</p></div>
+      <div>
+        <div class="deliverable">
+          <div><b>输入</b><span>美团/饿了么/收银导出的样表。</span></div>
+          <div><b>流程</b><span>字段识别、口径统一、异常标注、趋势摘要。</span></div>
+          <div><b>输出</b><span>HTML 周报或 Excel 汇总表。</span></div>
+        </div>
+        <div class="checklist"><div class="check">能否减少每周重复整理？</div><div class="check">能否指出该做什么动作？</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body task-slide" data-page="35" data-label="任务 C 研发">
+    <p class="eyebrow">任务 C · 新品反馈分析</p>
+    <h1 class="slide-title">研发组：把试餐反馈变成可决策的分析报告<span class="en">用户反馈只有被结构化，才能支持研发、定价和上市决策。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark"><h3>适合研发、市场、门店</h3><p>围绕新品测试，把随机用户反馈整理成口味、价格、复购、顾虑四类结论。</p></div>
+      <div>
+        <div class="deliverable">
+          <div><b>输入</b><span>试餐问卷、访谈录音转写、价格选项。</span></div>
+          <div><b>流程</b><span>标签化、情绪分析、价格敏感、改进建议。</span></div>
+          <div><b>输出</b><span>新品测试报告 + 定价建议页。</span></div>
+        </div>
+        <div class="checklist"><div class="check">是否能降低上市前的不确定？</div><div class="check">是否能给到下一轮测试问题？</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body task-slide" data-page="36" data-label="任务 D 运营">
+    <p class="eyebrow">任务 D · 门店经营诊断</p>
+    <h1 class="slide-title">运营组：做一份门店经营周报诊断<span class="en">让管理者先看到前三个异常，而不是被所有数字淹没。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark"><h3>适合运营督导、店长、财务</h3><p>把营业、人力、毛利、差评放在一页里，输出本周前三问题和建议动作。</p></div>
+      <div>
+        <div class="deliverable">
+          <div><b>输入</b><span>一周营业、人力、毛利、评价样表。</span></div>
+          <div><b>流程</b><span>目标对比、异常识别、原因假设、动作建议。</span></div>
+          <div><b>输出</b><span>红黄绿经营诊断页。</span></div>
+        </div>
+        <div class="checklist"><div class="check">店长是否一眼看懂？</div><div class="check">下周是否能复盘动作结果？</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body task-slide" data-page="37" data-label="任务 E HR">
+    <p class="eyebrow">任务 E · 培训课件标准化</p>
+    <h1 class="slide-title">人事组：从旧课件到新模板，先跑通一页<span class="en">先用 HTML 模板统一版式，再把课件资产逐步批量迁移。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark"><h3>适合 HR、培训、营运</h3><p>选择一页旧课件，让 AI 提取内容、套入新模板、生成可展示的培训页。</p></div>
+      <div>
+        <div class="deliverable">
+          <div><b>输入</b><span>旧 PPT 截图/文字、新菜单表、模板样式。</span></div>
+          <div><b>流程</b><span>内容清洗、过期项标注、模板排版。</span></div>
+          <div><b>输出</b><span>一页标准 HTML 课件。</span></div>
+        </div>
+        <div class="checklist"><div class="check">能否作为批量迁移模板？</div><div class="check">能否导出成图片/PPT？</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body task-slide" data-page="38" data-label="任务 F 供应链财务">
+    <p class="eyebrow">任务 F · 对账规则固化</p>
+    <h1 class="slide-title">供应链/财务组：把对账规则写给 Agent<span class="en">只要字段、口径和容差规则清楚，对账就是非常适合先落地的工作流。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark"><h3>适合采购、财务、供应链</h3><p>拿两份样表，定义匹配字段、容差规则、异常类型，让 AI 生成差异清单。</p></div>
+      <div>
+        <div class="deliverable">
+          <div><b>输入</b><span>采购单、收货单、平台结算表、补贴表。</span></div>
+          <div><b>流程</b><span>字段匹配、金额核对、差异归类、责任人标注。</span></div>
+          <div><b>输出</b><span>异常对账清单。</span></div>
+        </div>
+        <div class="checklist"><div class="check">是否减少人工逐行核对？</div><div class="check">规则是否可复用到下周？</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body task-slide" data-page="39" data-label="任务 G 招商选址">
+    <p class="eyebrow">任务 G · 点位调研与招商内容</p>
+    <h1 class="slide-title">门店开发组：做一个点位调研或 B 端招商页<span class="en">把分散的商圈、竞品和品牌信息，整理成可讨论的决策证据。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark"><h3>适合开发、加盟、市场</h3><p>选一个商圈或一个加盟主题，把公开数据和品牌资料整理成可沟通材料。</p></div>
+      <div>
+        <div class="deliverable">
+          <div><b>输入</b><span>商圈、竞品链接、品牌素材、门店模型假设。</span></div>
+          <div><b>流程</b><span>竞品列表、价格带、租金假设、加盟商关心点。</span></div>
+          <div><b>输出</b><span>点位调研表或招商官网单页。</span></div>
+        </div>
+        <div class="checklist"><div class="check">是否帮助判断下一步调研？</div><div class="check">是否适合持续更新？</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="40" data-label="Demo 验收标准">
+    <p class="eyebrow">验收标准 · 用同一把尺子看产出</p>
+    <h1 class="slide-title">现场 Demo 用同一把尺子验收<span class="en">一个 demo 的价值，不在于当场炫技，而在于下周能继续改进。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="checklist">
+      <div class="check">输入资料是真实业务资料，不是空想题。</div>
+      <div class="check">Spec 写清楚了目标、步骤、规则、输出。</div>
+      <div class="check">产出可以打开，可以被同事看懂。</div>
+      <div class="check">有明确负责人和下周迭代动作。</div>
+      <div class="check">能说明它未来每周/月如何复用。</div>
+      <div class="check">能进入公司资料库，而不是个人聊天记录。</div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="41" data-label="30天行动">
+    <p class="eyebrow">30 天行动 · 从 demo 到试点项目</p>
+    <h1 class="slide-title">启动营之后的 30 天：把 demo 变成试点项目<span class="en">第一个月决定 AI 是一阵热闹，还是进入部门工作习惯。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">Week 1</div><h3>资料归档与任务确认</h3><p>建立公司级 AI 资料库，确认每个部门 1 个试点项目与负责人。</p></div>
+      <div class="card"><div class="num">Week 2-3</div><h3>Office Hour 与迭代</h3><p>每周集中答疑，帮助部门把 demo 补齐数据、规则、输出格式。</p></div>
+      <div class="card"><div class="num">Week 4</div><h3>试点复盘会</h3><p>每组展示使用效果：节省了什么、改善了什么、下一步要不要扩展。</p></div>
+    </div>
+  </section>
+
+  <section class="slide final-slide no-chrome" data-page="42" data-label="结尾">
+    <div class="final-left">
+      <p class="eyebrow">收尾 · 当天学，当天用</p>
+      <h1>今天不是结束，<br/>是嘻游记 AI 转型的第一天。</h1>
+      <p>让每个部门都带着自己的第一个 Agent Demo 离开，并在接下来 30 天把 demo 变成真实工作流。</p>
+    </div>
+    <div class="final-commitments">
+      <div class="final-card"><b>01</b><h3>每组一个 demo</h3><p>现场产出必须能打开、能展示、能被同事看懂。</p></div>
+      <div class="final-card"><b>02</b><h3>每组一张 Spec</h3><p>目标、输入、步骤、规则、输出和验收标准都要留下来。</p></div>
+      <div class="final-card"><b>03</b><h3>每组一个负责人</h3><p>明确谁在下周继续补数据、改规则、组织复盘。</p></div>
+      <div class="final-card"><b>04</b><h3>每月一次升级</h3><p>从个人提效，走向部门工作流、公司资产和经营飞轮。</p></div>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>
