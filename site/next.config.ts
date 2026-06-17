@@ -59,6 +59,14 @@ const nextConfig: NextConfig = {
           destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/index.html",
         },
         {
+          source: "/proposal/client-full",
+          destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/index.html",
+        },
+        {
+          source: "/proposal/client-full/",
+          destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/index.html",
+        },
+        {
           source: "/proposal/client-full/:path*",
           destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/:path*",
         },
