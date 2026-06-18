@@ -701,6 +701,97 @@
       font: 400 17px/1.38 var(--font-body);
       color: var(--ink-muted);
     }
+    .asset-table {
+      display: grid;
+      grid-template-columns: 260px 1fr 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 28px;
+      font: 400 15px/1.24 var(--font-body);
+    }
+    .asset-table > div {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 13px 15px;
+      min-height: 70px;
+      color: var(--ink-muted);
+    }
+    .asset-table .head {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      min-height: 46px;
+    }
+    .asset-table .row-title {
+      color: var(--ink);
+      font: 700 20px/1.12 var(--font-heading);
+    }
+    .asset-structure-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr .9fr;
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .asset-structure-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      padding: 22px;
+      min-height: 490px;
+      display: flex;
+      flex-direction: column;
+    }
+    .asset-structure-card h3 {
+      margin: 0 0 14px;
+      font: 700 26px/1.12 var(--font-heading);
+      color: var(--ink);
+    }
+    .asset-structure-card p {
+      margin: 0 0 16px;
+      font: 400 16px/1.32 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .asset-structure-card pre {
+      margin: 0;
+      padding: 18px;
+      background: #0f243f;
+      color: #dbeafe;
+      border-radius: 8px;
+      font: 400 14px/1.34 var(--font-mono);
+      white-space: pre-wrap;
+      flex: 1;
+    }
+    .asset-route {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 42px;
+    }
+    .route-step {
+      min-height: 300px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-top: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px 20px;
+    }
+    .route-step b {
+      display: block;
+      color: var(--accent);
+      font: 700 33px/1 var(--font-heading);
+      margin-bottom: 22px;
+      font-variant-numeric: tabular-nums;
+    }
+    .route-step h3 {
+      margin: 0 0 14px;
+      font: 700 25px/1.12 var(--font-heading);
+      color: var(--ink);
+    }
+    .route-step p {
+      margin: 0;
+      font: 400 17px/1.38 var(--font-body);
+      color: var(--ink-muted);
+    }
     .final-slide {
       background: var(--accent);
       color: #fff;
@@ -1383,7 +1474,218 @@
       <div class="final-card"><b>01</b><h3>每组一个 demo</h3><p>现场产出必须能打开、能展示、能被同事看懂。</p></div>
       <div class="final-card"><b>02</b><h3>每组一张 Spec</h3><p>目标、输入、步骤、规则、输出和验收标准都要留下来。</p></div>
       <div class="final-card"><b>03</b><h3>每组一个负责人</h3><p>明确谁在下周继续补数据、改规则、组织复盘。</p></div>
-      <div class="final-card"><b>04</b><h3>每月一次升级</h3><p>从个人提效，走向部门工作流、公司资产和经营飞轮。</p></div>
+      <div class="final-card"><b>04</b><h3>每组资产入库</h3><p>Prompt、Skill、工作流、输入样例和输出案例进入公司资料库。</p></div>
+    </div>
+  </section>
+
+  <section class="slide chapter-light" data-page="43" data-label="章节 04">
+    <div class="chapter-num">04</div>
+    <div class="chapter-copy">
+      <p class="kicker">管理层附录 · AI 资产治理方案</p>
+      <h2>从部门 Demo 到企业级 AI 数字资产</h2>
+      <p>本模块面向管理层单独沟通，重点回答：员工使用 AI 形成的 Prompt、Skill、工作流、业务案例和素材，如何沉淀为公司可继承、可复用、可审计的资产。</p>
+    </div>
+  </section>
+
+  <section class="slide big-statement body" data-page="44" data-label="资产判断">
+    <p class="eyebrow">管理层视角 · 从个人提效到组织能力</p>
+    <p class="stmt">AI 资产管理的核心，不是保存文件本身，而是沉淀<em>可复用的工作方法</em>。</p>
+    <p class="support">如果工作流长期停留在个人电脑、个人账号和聊天记录中，公司最终只能拿到结果文件，无法获得可移交、可复制、可持续优化的规则、样例和执行步骤。</p>
+  </section>
+
+  <section class="slide body" data-page="45" data-label="AI资产定义">
+    <p class="eyebrow">资产定义 · AI 工作流不只保存最终版</p>
+    <h1 class="slide-title">AI 资产需要同时保存结果与生成过程<span class="en">相较普通文件归档，AI 工作流更需要保留输入、提示词、处理步骤、人工修订和复用条件。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-kit">
+      <div class="kit-card"><b>01</b><h3>流程方法资产</h3><p>Prompt、Skill、Workflow、SOP、脚本、配置和工作流说明卡。</p></div>
+      <div class="kit-card"><b>02</b><h3>数据样例资产</h3><p>输入样例、业务规则、字段口径、成功案例、失败案例和参考输出。</p></div>
+      <div class="kit-card"><b>03</b><h3>业务成果资产</h3><p>报告、脚本、周报、对账清单、调研页、课件模板和看板雏形。</p></div>
+      <div class="kit-card"><b>04</b><h3>治理记录资产</h3><p>负责人、版本记录、人工修订、验收结果和后续迭代记录。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="46" data-label="资产架构">
+    <p class="eyebrow">总体架构 · 方法、素材、入口分层管理</p>
+    <h1 class="slide-title">建议先建立三套清晰目录规范<span class="en">GitHub 管方法论资产，飞书管业务素材，本地 CompanyAI 目录作为员工每日工作的统一入口。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="asset-structure-grid">
+      <div class="asset-structure-card">
+        <h3>GitHub：方法论与版本资产</h3>
+        <p>用于保存可复用、可迭代、可审计的 Prompt、Skill、Workflow、SOP、说明卡和提交记录。</p>
+        <pre>ai-asset-hub/
+├── 00-company-rules/
+├── 01-shared-skills/
+├── 02-departments/
+│   ├── marketing/
+│   ├── operation/
+│   ├── delivery/
+│   ├── finance/
+│   ├── supply-chain/
+│   └── hr/
+├── 03-output-cases/
+├── 04-review-reports/
+└── 05-employee-daily-logs/</pre>
+      </div>
+      <div class="asset-structure-card">
+        <h3>本地：员工统一工作入口</h3>
+        <p>用于降低员工整理难度。所有 AI 工作流相关材料先进入本地规范目录，再手动或自动上传。</p>
+        <pre>CompanyAI/
+├── inbox/
+├── organized/
+├── skills/
+├── workflows/
+├── outputs/
+├── materials/
+├── logs/
+└── README.md</pre>
+      </div>
+      <div class="asset-structure-card">
+        <h3>飞书：业务素材与协作文件</h3>
+        <p>用于保存业务侧需要查看、协作、评审和调用的大文件与素材，GitHub 中只保留链接和索引。</p>
+        <pre>AI资产库/
+├── 00_公司规则与模板/
+├── 01_部门工作流/
+├── 02_业务输出案例/
+├── 03_素材库/
+│   ├── 品牌素材/
+│   ├── 门店照片/
+│   ├── 短视频素材/
+│   └── 菜品图片/
+├── 04_周度评审/
+└── 05_离职交接归档/</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="47" data-label="制度边界">
+    <p class="eyebrow">制度边界 · 先明确资产归属和使用责任</p>
+    <h1 class="slide-title">BYOD 与 AI 资产补充协议应作为制度前提<span class="en">在员工使用个人设备和 AI 工具的阶段，必须先明确资产归属、提交义务、敏感数据边界和离职移交要求。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="checklist">
+      <div class="check">明确公司资料、Prompt、Skill、Workflow、输出案例等属于公司可管理资产。</div>
+      <div class="check">要求员工使用指定目录、公司账号、仓库和云文档空间沉淀工作产出。</div>
+      <div class="check">涉及客户、员工、财务、供应链、账号和合同等敏感信息时，必须遵守脱敏和授权规则。</div>
+      <div class="check">员工离职、调岗或项目结束时，应完成 AI 资产清单、权限和关键流程移交。</div>
+      <div class="check">公司账号、GitHub、飞书、邮箱和 AI 工具权限，应具备统一回收机制。</div>
+      <div class="check">对漏交、隐匿、外传或离职后违规使用的情形，应保留制度和法律追责依据。</div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="48" data-label="轻量化测试">
+    <p class="eyebrow">轻量化测试 · 先确认是否有值得沉淀的真实资产</p>
+    <h1 class="slide-title">建议先跑一个月轻量化测试<span class="en">本次实地辅导之后，到下次进场刚好形成一个月观察周期，重点看真实流程是否开始流转。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">观察</div><h3>是否有真实流程流转</h3><p>下次进场重点看部门是否真的把作业带回日常工作，并形成输入、处理、输出和复盘链路。</p></div>
+      <div class="card"><div class="num">打磨</div><h3>先跑通真实业务场景</h3><p>如果没有有效流程，优先继续帮助客户把场景跑通，而不是提前投入资产库和自动化工具。</p></div>
+      <div class="card"><div class="num">前提</div><h3>资产沉淀建立在价值之上</h3><p>资产沉淀是第一优先级任务，但前提是已经产生值得沉淀、复用和评审的 Prompt、Skill 或工作流。</p></div>
+    </div>
+    <div class="quote-band">一个月测试期的判断重点：先看有没有可复用资产，再决定进入哪一级资产管理方案。</div>
+  </section>
+
+  <section class="slide body" data-page="49" data-label="三版本对比">
+    <p class="eyebrow">版本建议 · 三档投入路径</p>
+    <h1 class="slide-title">本次建议提供三个版本，按成熟度循序推进<span class="en">不建议跳过手动规范期；先通过培训和制度建立资产意识，再根据数据质量决定是否进入自动化版本。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>人工培训版</h3>
+        <p>以培训、制度和模板驱动员工手动提交，适合作为第一个月正式规范期。必须同步说明：手动操作不可持续，容易漏传、格式不统一、说明卡缺失。</p>
+      </div>
+      <div class="card" style="border-top:5px solid var(--accent);">
+        <div class="num">02</div>
+        <h3>一键上传版</h3>
+        <p>如果一个月后 GitHub 数据仍不整洁，或员工提交不稳定，就必须推进一键上传自动化，把目录、命名、说明卡、上传和日志标准化。</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>公司设备版</h3>
+        <p>在版本二基础上，针对关键岗位配置公司电脑或专用设备，进一步提升本地数据、账号权限和离职交接的可控性。</p>
+      </div>
+    </div>
+    <div class="quote-band">建议路径：轻量测试一个月，版本一手动规范一个月；若数据质量仍无法稳定，即进入版本二。</div>
+  </section>
+
+  <section class="slide body" data-page="50" data-label="一键上传">
+    <p class="eyebrow">版本二触发条件 · 手动规范不可持续时进入自动化</p>
+    <h1 class="slide-title">一键上传不是第一天就上，而是为了解决手动提交失控<span class="en">当 GitHub 数据质量、提交频率和说明卡完整度无法稳定时，就需要用工具固化资产沉淀动作。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="two-col">
+      <div class="panel-dark">
+        <h3>触发条件</h3>
+        <p>如果版本一运行一个月后，仍出现漏传、命名混乱、只交结果不交方法、说明卡缺失或负责人审核成本过高，即建议进入版本二。</p>
+      </div>
+      <div class="stack-list">
+        <div class="stack-item"><b>价值</b><div><h3>降低员工提交摩擦</h3><p>自动归类文件，生成 daily-log.md、workflow-card.md、manifest.json，减少员工理解目录和命名规则的成本。</p></div></div>
+        <div class="stack-item"><b>留痕</b><div><h3>形成可检查的提交记录</h3><p>自动 commit，记录成功/失败、提交时间、负责人和文件清单，方便部门负责人做周度检查。</p></div></div>
+        <div class="stack-item"><b>边界</b><div><h3>先解决方法论资产</h3><p>第一阶段聚焦 GitHub 资产上传；飞书大文件、复杂权限和自动质量审核可作为后续升级项。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="51" data-label="飞书分级">
+    <p class="eyebrow">素材分级 · 控制容量、权限与合规风险</p>
+    <h1 class="slide-title">飞书素材库建议采用四级上传规则<span class="en">方法资产进入 GitHub，业务素材进入飞书，大体量过程素材保留索引，敏感数据禁止自动上传。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-table">
+      <div class="head">类型</div><div class="head">处理方式</div><div class="head">例子</div><div class="head">管理重点</div>
+      <div class="row-title">A 类：公司必留资产</div><div>上传 GitHub，必要时同步飞书。</div><div>Skill、Prompt、Workflow、说明卡、最终案例。</div><div>版本、负责人、复用条件。</div>
+      <div class="row-title">B 类：业务交付素材</div><div>上传飞书，GitHub 保留链接。</div><div>PPT、Excel、图片、成片、门店照片。</div><div>目录、权限、素材索引。</div>
+      <div class="row-title">C 类：大体量过程素材</div><div>默认保留索引，不做全量同步。</div><div>原始视频、剪辑工程、大型设计源文件。</div><div>容量、归档策略、保留价值。</div>
+      <div class="row-title">D 类：敏感高风险数据</div><div>禁止自动上传，需审批和脱敏。</div><div>密码、密钥、未脱敏个人信息、敏感财务明细。</div><div>脱敏、审批、使用边界。</div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="52" data-label="进度评估">
+    <p class="eyebrow">进度评估 · 与六个月咨询周期对齐</p>
+    <h1 class="slide-title">建议按月评估，逐步升级资产管理强度<span class="en">先用一个月观察真实流程，再用一个月规范手动提交，第二个月末评估是否进入版本二。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="asset-route">
+      <div class="route-step"><b>M1</b><h3>轻量化测试</h3><p>观察是否有真实流程流转；如果没有，先继续打磨业务场景。</p></div>
+      <div class="route-step"><b>M2</b><h3>版本一：手动规范</h3><p>通过培训、模板和制度要求员工手动提交 GitHub 与飞书资产。</p></div>
+      <div class="route-step"><b>M2 末</b><h3>评估是否进入版本二</h3><p>如果 GitHub 数据不整洁、说明卡缺失或提交不稳定，启动一键上传自动流。</p></div>
+      <div class="route-step"><b>M3-5</b><h3>周度评审与资产库沉淀</h3><p>持续筛选可复用工作流，沉淀为共享 Skill、模板和业务案例库。</p></div>
+      <div class="route-step"><b>M6</b><h3>评估飞书与设备升级</h3><p>咨询期结束时，评估飞书容量升级；部分关键岗位可配置专用电脑。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="53" data-label="治理分工">
+    <p class="eyebrow">组织分工 · 技术、制度与管理同步落地</p>
+    <h1 class="slide-title">AI 资产治理需要管理层、部门负责人和员工共同承担<span class="en">工具只能降低整理和提交成本；真正形成组织资产，需要制度约束、负责人评审和持续使用。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">管理层</div><h3>确定制度与优先级</h3><p>指定 AI 资产负责人；定期查看评审结果；推动 HR/法务完善协议；对优秀工作流设置激励。</p></div>
+      <div class="card"><div class="num">部门负责人</div><h3>审核与筛选资产</h3><p>每周检查本部门提交情况，判断哪些流程进入共享库，并负责离职或调岗时的 AI 资产交接验收。</p></div>
+      <div class="card"><div class="num">员工</div><h3>按规范提交过程资产</h3><p>将 AI 产出放入指定目录，说明业务用途、输入资料和处理规则，并按要求上传或一键提交。</p></div>
+    </div>
+    <div class="quote-band">目标结果：公司形成可继承的 AI 工作流资产，管理层看到真实落地进度，部门之间减少重复建设。</div>
+  </section>
+
+  <section class="slide body" data-page="54" data-label="战略延展">
+    <p class="eyebrow">战略延展 · 从内部资产到行业级 Agent</p>
+    <h1 class="slide-title">数据资产沉淀得越扎实，未来越有机会形成餐饮行业 Agent<span class="en">这不是第一阶段要立刻建设的系统，而是建立在长期资产积累之上的产品化可能。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="num">01</div><h3>内部先形成轻量 Agent</h3><p>把门店运营、外卖、市场、研发、供应链、财务等高频流程沉淀为可复用 Skill 和工作流。</p></div>
+      <div class="card"><div class="num">02</div><h3>再沉淀行业方法论</h3><p>当案例、字段、模板、判断规则足够丰富后，可以抽象出适用于连锁餐饮企业的通用能力模块。</p></div>
+      <div class="card"><div class="num">03</div><h3>形成产品化和资本故事</h3><p>未来可面向同行输出行业 Agent、SaaS 化工具或咨询产品，也可作为融资时的数字资产和数据壁垒。</p></div>
+    </div>
+    <div class="quote-band">关键前提之一：前期的数据资产、流程资产和案例资产要持续沉淀，并通过评审保证质量、可复用性和可追溯性。</div>
+  </section>
+
+  <section class="slide final-slide no-chrome" data-page="55" data-label="管理层结尾">
+    <div class="final-left">
+      <p class="eyebrow">管理层收束 · 数字员工团队</p>
+      <h1>把数字员工团队<br/>整理成公司的长期资产。</h1>
+      <p>每一条 Prompt、每一个 Skill、每一套 Workflow，都是未来可复用、可训练、可扩展的组织能力。</p>
+    </div>
+    <div class="final-commitments">
+      <div class="final-card"><b>01</b><h3>最忠诚</h3><p>数字员工不会离职，也不会把公司积累的经验带走。</p></div>
+      <div class="final-card"><b>02</b><h3>可复制</h3><p>一个部门跑通的工作流，可以复制到新门店、新品牌和新团队。</p></div>
+      <div class="final-card"><b>03</b><h3>可进化</h3><p>每一次复盘、修订和提交，都会让公司的 AI 能力继续变强。</p></div>
+      <div class="final-card"><b>04</b><h3>带不走</h3><p>员工会流动，但沉淀好的数字员工团队会留在公司。</p></div>
     </div>
   </section>
 
