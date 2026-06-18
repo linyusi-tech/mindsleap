@@ -1507,7 +1507,7 @@
 
   <section class="slide body" data-page="46" data-label="资产架构">
     <p class="eyebrow">总体架构 · 方法、素材、入口分层管理</p>
-    <h1 class="slide-title">建议先建立三套清晰目录规范<span class="en">GitHub 管方法论资产，飞书管业务素材，本地 CompanyAI 目录作为员工每日工作的统一入口。</span></h1>
+    <h1 class="slide-title">建议先建立三套清晰目录规范<span class="en">GitHub 管方法论资产，钉钉管业务素材，本地 CompanyAI 目录作为员工每日工作的统一入口。</span></h1>
     <span class="slide-bar"></span>
     <div class="asset-structure-grid">
       <div class="asset-structure-card">
@@ -1541,7 +1541,7 @@
 └── README.md</pre>
       </div>
       <div class="asset-structure-card">
-        <h3>飞书：业务素材与协作文件</h3>
+        <h3>钉钉：业务素材与协作文件</h3>
         <p>用于保存业务侧需要查看、协作、评审和调用的大文件与素材，GitHub 中只保留链接和索引。</p>
         <pre>AI资产库/
 ├── 00_公司规则与模板/
@@ -1567,7 +1567,7 @@
       <div class="check">要求员工使用指定目录、公司账号、仓库和云文档空间沉淀工作产出。</div>
       <div class="check">涉及客户、员工、财务、供应链、账号和合同等敏感信息时，必须遵守脱敏和授权规则。</div>
       <div class="check">员工离职、调岗或项目结束时，应完成 AI 资产清单、权限和关键流程移交。</div>
-      <div class="check">公司账号、GitHub、飞书、邮箱和 AI 工具权限，应具备统一回收机制。</div>
+      <div class="check">公司账号、GitHub、钉钉、邮箱和 AI 工具权限，应具备统一回收机制。</div>
       <div class="check">对漏交、隐匿、外传或离职后违规使用的情形，应保留制度和法律追责依据。</div>
     </div>
   </section>
@@ -1620,38 +1620,51 @@
       <div class="stack-list">
         <div class="stack-item"><b>价值</b><div><h3>降低员工提交摩擦</h3><p>自动归类文件，生成 daily-log.md、workflow-card.md、manifest.json，减少员工理解目录和命名规则的成本。</p></div></div>
         <div class="stack-item"><b>留痕</b><div><h3>形成可检查的提交记录</h3><p>自动 commit，记录成功/失败、提交时间、负责人和文件清单，方便部门负责人做周度检查。</p></div></div>
-        <div class="stack-item"><b>边界</b><div><h3>先解决方法论资产</h3><p>第一阶段聚焦 GitHub 资产上传；飞书大文件、复杂权限和自动质量审核可作为后续升级项。</p></div></div>
+        <div class="stack-item"><b>边界</b><div><h3>先解决方法论资产</h3><p>第一阶段聚焦 GitHub 资产上传；钉钉大文件、复杂权限和自动质量审核可作为后续升级项。</p></div></div>
       </div>
     </div>
   </section>
 
-  <section class="slide body" data-page="51" data-label="飞书分级">
+  <section class="slide body" data-page="51" data-label="钉钉成本">
+    <p class="eyebrow">钉钉成本 · 先用现有组织，再按容量升级</p>
+    <h1 class="slide-title">钉钉不是按 25 人逐人收费，要按企业套装和存储容量判断<span class="en">对方已经在用钉钉，建议先用现有钉钉组织和钉盘跑试点，后续再评估专业版、钉盘扩容或 NAS / 对象存储。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="agent-table">
+      <div class="head">方案</div><div class="head">公开价格口径</div><div class="head">存储空间</div><div class="head">适用判断</div>
+      <div class="row-title">现有钉钉 / 免费钉盘</div><div>0 元。</div><div>企业钉盘约 100GB。</div><div>适合 2-4 周试运行，只上传说明卡、Prompt、小文件。</div>
+      <div class="row-title">钉钉专业版</div><div>约 9,800 元/年/套。</div><div>约 1TB 企业存储。</div><div>适合正式做素材库、部门协作、权限和长期留存。</div>
+      <div class="row-title">钉盘扩容</div><div>按后台容量套餐报价。</div><div>按需增加。</div><div>适合 1TB 不够，但暂不想升级专属版。</div>
+      <div class="row-title">钉钉专属版</div><div>商务咨询，公开口径常见 98,000 元/年起。</div><div>需商务确认。</div><div>适合更高安全、定制化、专属服务或大型组织。</div>
+    </div>
+  </section>
+
+  <section class="slide body" data-page="52" data-label="钉钉分级">
     <p class="eyebrow">素材分级 · 控制容量、权限与合规风险</p>
-    <h1 class="slide-title">飞书素材库建议采用四级上传规则<span class="en">方法资产进入 GitHub，业务素材进入飞书，大体量过程素材保留索引，敏感数据禁止自动上传。</span></h1>
+    <h1 class="slide-title">钉钉素材库建议采用四级上传规则<span class="en">钉钉不适合无脑承接所有原始素材；方法资产进入 GitHub，业务素材进入钉钉，大体量过程素材保留索引。</span></h1>
     <span class="slide-bar"></span>
     <div class="agent-table">
       <div class="head">类型</div><div class="head">处理方式</div><div class="head">例子</div><div class="head">管理重点</div>
-      <div class="row-title">A 类：公司必留资产</div><div>上传 GitHub，必要时同步飞书。</div><div>Skill、Prompt、Workflow、说明卡、最终案例。</div><div>版本、负责人、复用条件。</div>
-      <div class="row-title">B 类：业务交付素材</div><div>上传飞书，GitHub 保留链接。</div><div>PPT、Excel、图片、成片、门店照片。</div><div>目录、权限、素材索引。</div>
+      <div class="row-title">A 类：公司必留资产</div><div>上传 GitHub，必要时同步钉钉。</div><div>Skill、Prompt、Workflow、说明卡、最终案例。</div><div>版本、负责人、复用条件。</div>
+      <div class="row-title">B 类：业务交付素材</div><div>上传钉钉，GitHub 保留链接。</div><div>PPT、Excel、图片、成片、门店照片。</div><div>目录、权限、素材索引。</div>
       <div class="row-title">C 类：大体量过程素材</div><div>默认保留索引，不做全量同步。</div><div>原始视频、剪辑工程、大型设计源文件。</div><div>容量、归档策略、保留价值。</div>
       <div class="row-title">D 类：敏感高风险数据</div><div>禁止自动上传，需审批和脱敏。</div><div>密码、密钥、未脱敏个人信息、敏感财务明细。</div><div>脱敏、审批、使用边界。</div>
     </div>
   </section>
 
-  <section class="slide body" data-page="52" data-label="进度评估">
+  <section class="slide body" data-page="53" data-label="进度评估">
     <p class="eyebrow">进度评估 · 与六个月咨询周期对齐</p>
     <h1 class="slide-title">建议按月评估，逐步升级资产管理强度<span class="en">先用一个月观察真实流程，再用一个月规范手动提交，第二个月末评估是否进入版本二。</span></h1>
     <span class="slide-bar"></span>
     <div class="asset-route">
       <div class="route-step"><b>M1</b><h3>轻量化测试</h3><p>观察是否有真实流程流转；如果没有，先继续打磨业务场景。</p></div>
-      <div class="route-step"><b>M2</b><h3>版本一：手动规范</h3><p>通过培训、模板和制度要求员工手动提交 GitHub 与飞书资产。</p></div>
+      <div class="route-step"><b>M2</b><h3>版本一：手动规范</h3><p>通过培训、模板和制度要求员工手动提交 GitHub 与钉钉资产。</p></div>
       <div class="route-step"><b>M2 末</b><h3>评估是否进入版本二</h3><p>如果 GitHub 数据不整洁、说明卡缺失或提交不稳定，启动一键上传自动流。</p></div>
       <div class="route-step"><b>M3-5</b><h3>周度评审与资产库沉淀</h3><p>持续筛选可复用工作流，沉淀为共享 Skill、模板和业务案例库。</p></div>
-      <div class="route-step"><b>M6</b><h3>评估飞书与设备升级</h3><p>咨询期结束时，评估飞书容量升级；部分关键岗位可配置专用电脑。</p></div>
+      <div class="route-step"><b>M6</b><h3>评估钉钉与设备升级</h3><p>咨询期结束时，评估钉钉专业版、钉盘扩容、NAS / 对象存储；关键岗位可配置专用电脑。</p></div>
     </div>
   </section>
 
-  <section class="slide body" data-page="53" data-label="治理分工">
+  <section class="slide body" data-page="54" data-label="治理分工">
     <p class="eyebrow">组织分工 · 技术、制度与管理同步落地</p>
     <h1 class="slide-title">AI 资产治理需要管理层、部门负责人和员工共同承担<span class="en">工具只能降低整理和提交成本；真正形成组织资产，需要制度约束、负责人评审和持续使用。</span></h1>
     <span class="slide-bar"></span>
@@ -1663,7 +1676,7 @@
     <div class="quote-band">目标结果：公司形成可继承的 AI 工作流资产，管理层看到真实落地进度，部门之间减少重复建设。</div>
   </section>
 
-  <section class="slide body" data-page="54" data-label="战略延展">
+  <section class="slide body" data-page="55" data-label="战略延展">
     <p class="eyebrow">战略延展 · 从内部资产到行业级 Agent</p>
     <h1 class="slide-title">数据资产沉淀得越扎实，未来越有机会形成餐饮行业 Agent<span class="en">这不是第一阶段要立刻建设的系统，而是建立在长期资产积累之上的产品化可能。</span></h1>
     <span class="slide-bar"></span>
@@ -1675,7 +1688,7 @@
     <div class="quote-band">关键前提之一：前期的数据资产、流程资产和案例资产要持续沉淀，并通过评审保证质量、可复用性和可追溯性。</div>
   </section>
 
-  <section class="slide final-slide no-chrome" data-page="55" data-label="管理层结尾">
+  <section class="slide final-slide no-chrome" data-page="56" data-label="管理层结尾">
     <div class="final-left">
       <p class="eyebrow">管理层收束 · 数字员工团队</p>
       <h1>把数字员工团队<br/>整理成公司的长期资产。</h1>
