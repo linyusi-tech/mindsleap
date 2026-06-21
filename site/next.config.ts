@@ -70,6 +70,22 @@ const nextConfig: NextConfig = {
           source: "/proposal/client-full/:path*",
           destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/:path*",
         },
+        {
+          source: "/proposal/ai-fde-investor-bp",
+          destination: "/proposal/ai-fde-investor-bp/index.html",
+        },
+        {
+          source: "/proposal/ai-fde-investor-bp/",
+          destination: "/proposal/ai-fde-investor-bp/index.html",
+        },
+        {
+          source: "/proposal/university-ai-capability-proposal",
+          destination: "/proposal/university-ai-capability-proposal/index.html",
+        },
+        {
+          source: "/proposal/university-ai-capability-proposal/",
+          destination: "/proposal/university-ai-capability-proposal/index.html",
+        },
         { source: "/decks", destination: "/decks/index.html" },
         { source: "/decks/", destination: "/decks/index.html" },
         { source: "/decks/Lincoln", destination: "/decks/Lincoln/index.html" },
