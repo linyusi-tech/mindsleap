@@ -113,14 +113,50 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+
+    .stage-frame {
+      position: relative;
+      flex-shrink: 0;
     }
 
     .canvas {
-      position: relative;
+      position: absolute;
+      inset: 0;
       transform-origin: center center;
       flex-shrink: 0;
       background: #fff;
       will-change: transform;
+    }
+
+    :host([data-mobile-readable]) .stage {
+      align-items: flex-start;
+      justify-content: flex-start;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      touch-action: pan-x pan-y;
+    }
+    :host([data-mobile-readable]) .rail {
+      display: none;
+    }
+    :host([data-mobile-readable]) .stage-frame {
+      margin: 14px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    }
+    :host([data-mobile-readable]) .canvas {
+      transform-origin: top left;
+    }
+    :host([data-mobile-readable]) .tapzones {
+      display: none;
+    }
+    :host([data-mobile-readable]) .overlay {
+      opacity: 1;
+      pointer-events: auto;
+      filter: blur(0);
+      transform: translate(-50%, 0) scale(1);
+      bottom: max(10px, env(safe-area-inset-bottom));
     }
 
     /* Slides live in light DOM (via <slot>) so authored CSS still applies.
@@ -816,6 +852,11 @@
       const stage = document.createElement('div');
       stage.className = 'stage';
 
+      const frame = document.createElement('div');
+      frame.className = 'stage-frame';
+      frame.style.width = this.designWidth + 'px';
+      frame.style.height = this.designHeight + 'px';
+
       const canvas = document.createElement('div');
       canvas.className = 'canvas';
       canvas.style.width = this.designWidth + 'px';
@@ -826,7 +867,8 @@
       const slot = document.createElement('slot');
       slot.addEventListener('slotchange', this._onSlotChange);
       canvas.appendChild(slot);
-      stage.appendChild(canvas);
+      frame.appendChild(canvas);
+      stage.appendChild(frame);
 
       // Tap zones (mobile): left third = back, right third = forward.
       const tapzones = document.createElement('div');
@@ -957,6 +999,8 @@
       });
 
       this._root.append(style, rail, resize, stage, tapzones, overlay, menu, confirm);
+      this._stage = stage;
+      this._frame = frame;
       this._canvas = canvas;
       this._slot = slot;
       this._overlay = overlay;
@@ -1104,6 +1148,9 @@
       // has already restored the user's scroll position and yanking back to
       // current would undo it.
       this._syncRail(reason !== 'mutation');
+      if (this.hasAttribute('data-mobile-readable') && this._stage) {
+        this._stage.scrollTo({ left: 0, top: 0, behavior: 'auto' });
+      }
 
       if (broadcast) {
         // (1) Legacy: host-window postMessage for speaker-notes renderers.
@@ -1157,18 +1204,26 @@
 
     _fit() {
       if (!this._canvas) return;
-      const stage = this._canvas.parentElement;
+      const stage = this._stage || (this._canvas.parentElement && this._canvas.parentElement.parentElement);
+      const frame = this._frame || this._canvas.parentElement;
       // PPTX export sets noscale so the DOM capture sees authored-size
       // geometry — the scaled canvas is in shadow DOM, so the exporter's
       // resetTransformSelector can't reach .canvas.style.transform directly.
       if (this.hasAttribute('noscale')) {
+        this.removeAttribute('data-mobile-readable');
+        if (frame) {
+          frame.style.width = this.designWidth + 'px';
+          frame.style.height = this.designHeight + 'px';
+        }
         this._canvas.style.transform = 'none';
         if (stage) stage.style.left = '0';
         if (this._overlay) this._overlay.style.marginLeft = '0';
         if (this._tapzones) this._tapzones.style.left = '0';
         return;
       }
-      const rw = this._railWidth();
+      const vh = window.innerHeight;
+      const mobileReadable = this._isMobileReadable(window.innerWidth, vh);
+      const rw = mobileReadable ? 0 : this._railWidth();
       if (stage) stage.style.left = rw + 'px';
       // Overlay is centred on the viewport via left:50% + translate(-50%);
       // marginLeft shifts the centre by rw/2 so it lands in the middle of
@@ -1176,9 +1231,19 @@
       if (this._overlay) this._overlay.style.marginLeft = (rw / 2) + 'px';
       if (this._tapzones) this._tapzones.style.left = rw + 'px';
       const vw = window.innerWidth - rw;
-      const vh = window.innerHeight;
-      const s = Math.min(vw / this.designWidth, vh / this.designHeight);
+      const fitScale = Math.min(vw / this.designWidth, vh / this.designHeight);
+      const s = mobileReadable ? Math.min(0.5, Math.max(fitScale, 0.44)) : fitScale;
+      if (mobileReadable) this.setAttribute('data-mobile-readable', '');
+      else this.removeAttribute('data-mobile-readable');
+      if (frame) {
+        frame.style.width = (mobileReadable ? Math.ceil(this.designWidth * s) : this.designWidth) + 'px';
+        frame.style.height = (mobileReadable ? Math.ceil(this.designHeight * s) : this.designHeight) + 'px';
+      }
       this._canvas.style.transform = `scale(${s})`;
+    }
+
+    _isMobileReadable(vw, vh) {
+      return vw <= 760 && vh > vw && !this.hasAttribute('noscale');
     }
 
     _onResize() { this._fit(); }
