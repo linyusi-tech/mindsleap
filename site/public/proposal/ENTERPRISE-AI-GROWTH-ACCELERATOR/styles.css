@@ -1361,3 +1361,602 @@ li {
   line-height: 1.32;
   max-width: 1360px;
 }
+
+/* Sharp marketing deck additions */
+.sharp-pain .card {
+  min-height: 410px;
+}
+
+.sharp-pain .card h3 {
+  font-size: 42px;
+  line-height: 1.14;
+}
+
+.sharp-pain .card p {
+  font-size: 26px;
+  line-height: 1.45;
+}
+
+.compare-board {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+  align-items: stretch;
+}
+
+.bad-path,
+.right-path {
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 32px 38px;
+}
+
+.bad-path {
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  display: grid;
+  gap: 12px;
+}
+
+.bad-path h2,
+.right-path h2 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.12;
+}
+
+.bad-path h2 {
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.bad-path div {
+  border-top: 1px solid var(--rule);
+  padding-top: 15px;
+}
+
+.bad-path b {
+  display: block;
+  color: var(--accent);
+  font-size: 27px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.bad-path span {
+  display: block;
+  color: var(--ink-muted);
+  font-size: 22px;
+  line-height: 1.36;
+}
+
+.right-path {
+  background: var(--accent);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.right-path .route-number {
+  color: #b8d7ff;
+  font-size: 84px;
+  line-height: 1;
+  font-weight: 950;
+  margin-bottom: 32px;
+}
+
+.right-path h2 {
+  color: #fff;
+  font-size: 52px;
+  max-width: 720px;
+}
+
+.right-path p {
+  color: #d8e8ff;
+  font-size: 27px;
+  line-height: 1.4;
+  margin: 28px 0 0;
+  max-width: 760px;
+}
+
+.battle-layout {
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 34px;
+  align-items: stretch;
+}
+
+.battle-core {
+  box-sizing: border-box;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.battle-core h3 {
+  font-size: 46px;
+  line-height: 1.12;
+}
+
+.battle-core p {
+  font-size: 27px;
+  line-height: 1.38;
+}
+
+.compact-scenarios {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.compact-scenarios .scenario {
+  box-sizing: border-box;
+  min-height: 214px;
+  padding: 26px 28px;
+}
+
+.compact-scenarios .scenario b {
+  font-size: 29px;
+}
+
+.compact-scenarios .scenario p {
+  font-size: 20px;
+  line-height: 1.36;
+}
+
+.sharp-route .route-step {
+  min-height: 452px;
+  padding: 36px 28px;
+}
+
+.sharp-route .route-step b {
+  margin-bottom: 72px;
+}
+
+.outcome-grid .card {
+  min-height: 410px;
+}
+
+.outcome-grid .card h3 {
+  font-size: 36px;
+}
+
+.offer-grid .product-card {
+  min-height: 410px;
+}
+
+.offer-grid .product-card .metric {
+  font-size: 72px;
+}
+
+.offer-grid .product-card h3 {
+  font-size: 50px;
+}
+
+.offer-grid .product-card p {
+  font-size: 30px;
+}
+
+.sharper-table .cell {
+  min-height: 88px;
+  font-size: 21px;
+  line-height: 1.34;
+}
+
+.sharper-table .cell strong {
+  font-size: 23px;
+}
+
+.case-layout {
+  display: grid;
+  grid-template-columns: 0.96fr 1.04fr;
+  gap: 38px;
+  align-items: stretch;
+}
+
+.case-flywheel {
+  position: relative;
+  min-height: 520px;
+  height: 520px;
+  border-radius: 12px;
+  background: var(--accent);
+  overflow: hidden;
+}
+
+.case-flywheel::before,
+.case-flywheel::after {
+  content: "";
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+
+.case-flywheel::before {
+  width: 420px;
+  height: 420px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.case-flywheel::after {
+  width: 660px;
+  height: 660px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flywheel-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 230px;
+  height: 230px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: #fff;
+  color: var(--accent);
+  font-size: 38px;
+  line-height: 1.15;
+  font-weight: 950;
+  z-index: 2;
+}
+
+.flywheel-node {
+  position: absolute;
+  width: 260px;
+  min-height: 130px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 22px 24px;
+  z-index: 2;
+}
+
+.flywheel-node b {
+  display: block;
+  color: #93c5fd;
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.flywheel-node span {
+  display: block;
+  color: #fff;
+  font-size: 27px;
+  line-height: 1.15;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.flywheel-node p {
+  margin: 0;
+  color: #d8e8ff;
+  font-size: 18px;
+  line-height: 1.34;
+}
+
+.flywheel-node.node-1 {
+  left: 44px;
+  top: 56px;
+}
+
+.flywheel-node.node-2 {
+  right: 44px;
+  top: 56px;
+}
+
+.flywheel-node.node-3 {
+  right: 44px;
+  bottom: 56px;
+}
+
+.flywheel-node.node-4 {
+  left: 44px;
+  bottom: 56px;
+}
+
+.case-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.case-cards .card {
+  box-sizing: border-box;
+  min-height: 164px;
+  padding: 24px 30px;
+}
+
+.case-cards .card h3 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.case-cards .card p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+
+.multi-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.case-column {
+  box-sizing: border-box;
+  min-height: 420px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--bg-alt);
+  padding: 34px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-column.dark {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.case-column .case-kicker {
+  color: var(--accent-soft);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 3px !important;
+  margin-bottom: 36px;
+}
+
+.case-column.dark .case-kicker {
+  color: #93c5fd;
+}
+
+.case-column h3 {
+  color: var(--accent);
+  font-size: 40px;
+  line-height: 1.12;
+  margin: 0 0 22px;
+}
+
+.case-column.dark h3 {
+  color: #fff;
+}
+
+.case-column p {
+  color: var(--ink-muted);
+  font-size: 24px;
+  line-height: 1.42;
+  margin: 0;
+}
+
+.case-column.dark p {
+  color: #d8e8ff;
+}
+
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 36px;
+}
+
+.case-tags span {
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--accent);
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 8px 14px;
+}
+
+.case-column.dark .case-tags span {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.case-principle {
+  margin-top: 22px;
+  padding: 20px 28px;
+  background: var(--accent-pale);
+  border-left: 5px solid var(--accent-soft);
+  color: var(--accent);
+  font-size: 23px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.proof-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 38px;
+  align-items: stretch;
+}
+
+.proof-copy {
+  display: grid;
+  gap: 20px;
+}
+
+.proof-copy .card {
+  box-sizing: border-box;
+  min-height: 156px;
+  padding: 24px 30px;
+}
+
+.proof-copy .card h3 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.proof-copy .card p {
+  font-size: 22px;
+  line-height: 1.34;
+}
+
+.activity-stack {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.activity-stack .tile {
+  position: relative;
+  min-height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+
+.activity-stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-stack .tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 31, 52, 0.78), rgba(10, 31, 52, 0.04));
+}
+
+.activity-stack b {
+  position: absolute;
+  z-index: 2;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1.18;
+}
+
+.slide[data-label="老板焦虑"] .slide-title,
+.slide[data-label="误区改写"] .slide-title,
+.slide[data-label="战役定义"] .slide-title,
+.slide[data-label="陪跑路径"] .slide-title,
+.slide[data-label="交付结果"] .slide-title,
+.slide[data-label="产品地图"] .slide-title,
+.slide[data-label="行业样板"] .slide-title,
+.slide[data-label="为什么我们"] .slide-title {
+  font-size: 70px;
+  line-height: 1.06;
+}
+
+.slide[data-label="陪跑路径"] .slide-bar,
+.slide[data-label="产品地图"] .slide-bar,
+.slide[data-label="行业样板"] .slide-bar,
+.slide[data-label="为什么我们"] .slide-bar {
+  margin-bottom: 34px;
+}
+
+.slide[data-label="98k Product"] .deliverable,
+.slide[data-label="198k Product"] .deliverable {
+  min-height: 178px;
+  padding: 30px 30px 26px;
+}
+
+.slide[data-label="98k Product"] .deliverable b,
+.slide[data-label="198k Product"] .deliverable b {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.slide[data-label="98k Product"] .deliverable span,
+.slide[data-label="198k Product"] .deliverable span {
+  font-size: 21px;
+  line-height: 1.36;
+}
+
+.slide[data-label="下一步"] h1 {
+  max-width: 1500px;
+}
+
+.slide[data-label="下一步"] p {
+  max-width: 1320px;
+}
+
+.org-three-slide .layer-stack {
+  height: 540px;
+}
+
+.org-three-slide .org-layer.layer-top {
+  min-height: 124px;
+}
+
+.org-three-slide .org-layer.layer-mid {
+  min-height: 158px;
+}
+
+.org-three-slide .org-layer.layer-base {
+  min-height: 164px;
+}
+
+.org-three-slide .principle-card {
+  padding: 28px 34px;
+}
+
+.org-three-slide .principle-card b {
+  margin-bottom: 22px;
+}
+
+.org-three-slide .principle-card h3 {
+  font-size: 37px;
+  margin-bottom: 18px;
+}
+
+/* Final contrast guard: any dark blue card/panel must render text in white. */
+.card.dark,
+.card.dark h1,
+.card.dark h2,
+.card.dark h3,
+.card.dark h4,
+.card.dark p,
+.card.dark span,
+.card.dark b,
+.card.dark li,
+.card.dark .metric,
+.card.dark .label,
+.principle-card.dark,
+.principle-card.dark h1,
+.principle-card.dark h2,
+.principle-card.dark h3,
+.principle-card.dark h4,
+.principle-card.dark p,
+.principle-card.dark span,
+.principle-card.dark b,
+.price-card,
+.price-card b,
+.price-card p,
+.price-card .price {
+  color: #fff !important;
+}
+
+.card.dark p,
+.card.dark span,
+.card.dark li,
+.principle-card.dark p,
+.principle-card.dark span,
+.price-card p {
+  color: #d8e8ff !important;
+}
+
+.statement .blue-dot,
+.close .blue-dot {
+  color: #93c5fd !important;
+}
