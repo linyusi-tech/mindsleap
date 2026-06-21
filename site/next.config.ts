@@ -124,6 +124,14 @@ const nextConfig: NextConfig = {
           source: "/decks/Yusi/ai-education-teachers-deck/",
           destination: "/decks/Yusi/ai-education-teachers-deck/index.html",
         },
+        {
+          source: "/decks/Yusi/ai-practice-training-deck",
+          destination: "/decks/Yusi/ai-practice-training-deck/index.html",
+        },
+        {
+          source: "/decks/Yusi/ai-practice-training-deck/",
+          destination: "/decks/Yusi/ai-practice-training-deck/index.html",
+        },
       ],
       afterFiles: [],
       fallback: [],
