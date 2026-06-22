@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindsLeap Posters · 海报长图</title>
+  <style>
+    :root {
+      --blue: #1e477c;
+      --blue-soft: #eff6ff;
+      --ink: #111111;
+      --muted: #4b5563;
+      --subtle: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --bg-alt: #f9fafb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      letter-spacing: -0.01em;
+    }
+    header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,.96);
+    }
+    .logo {
+      width: 260px;
+      height: 52px;
+      background: url("/decks/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    a { color: inherit; text-decoration: none; }
+    nav a { color: var(--blue); }
+    main { overflow: hidden; }
+    .hero {
+      padding: 92px 56px 84px;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--rule);
+    }
+    .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      color: #3b82f6;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+    .lead {
+      max-width: 760px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.62;
+    }
+    .section {
+      padding: 72px 56px 96px;
+    }
+    .section h2 {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 36px;
+      line-height: 1.2;
+    }
+    .section p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .poster-card {
+      display: flex;
+      min-height: 330px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+    .poster-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+    .tag {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 8px 12px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .poster-card h3 {
+      margin: 26px 0 14px;
+      color: var(--blue);
+      font-size: 30px;
+      line-height: 1.18;
+    }
+    .poster-card .meta {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    footer {
+      padding: 42px 56px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      header { height: auto; align-items: flex-start; flex-direction: column; gap: 18px; padding: 24px; }
+      .logo { width: 230px; }
+      nav { flex-wrap: wrap; }
+      .hero, .section, footer { padding-left: 24px; padding-right: 24px; }
+      .poster-card { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="https://www.mindsleap.ai/zh" aria-label="MindsLeap"></a>
+    <nav>
+      <a href="https://www.mindsleap.ai/zh">首页</a>
+      <a href="/decks">Decks</a>
+      <a href="/proposal">Proposal</a>
+      <a href="/product">Product</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="inner">
+        <div class="eyebrow">MindsLeap Poster Archive</div>
+        <h1>活动海报与手机长图</h1>
+        <p class="lead">这里集中存放 MindsLeap 对外活动、会员名录和项目宣传长图。每张海报保留独立 HTML 与素材目录，方便团队拉到本地后继续修改并同步上线。</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="inner">
+        <h2>当前 Posters</h2>
+        <p>URL 使用原始文件夹命名，方便从设计产物快速定位到官网页面。</p>
+        <div class="poster-grid">
+          <a class="poster-card" href="/poster/ai-hermes-workshop">
+            <div>
+              <span class="tag">Workshop</span>
+              <h3>AI 数字员工实战营</h3>
+              <p>面向企业创始人与管理者的数字员工实战营长图，强调从老板定义到 AI 员工上岗的完整路径。</p>
+            </div>
+            <div class="meta">ai-hermes-workshop</div>
+          </a>
+          <a class="poster-card" href="/poster/arctic-expedition">
+            <div>
+              <span class="tag">Expedition</span>
+              <h3>北极科学探索</h3>
+              <p>北极科学探索项目海报，覆盖路线、导师、收获、房型与费用信息。</p>
+            </div>
+            <div class="meta">arctic-expedition</div>
+          </a>
+          <a class="poster-card" href="/poster/hoffman-china-availability">
+            <div>
+              <span class="tag">Availability</span>
+              <h3>Steven Hoffman 访华档期开放</h3>
+              <p>Founder Space 主席 Steven Hoffman 访华企业专场档期开放海报。</p>
+            </div>
+            <div class="meta">hoffman-china-availability</div>
+          </a>
+          <a class="poster-card" href="/poster/lobster-share-shanghai">
+            <div>
+              <span class="tag">Event</span>
+              <h3>AI 龙虾 · 上海站</h3>
+              <p>上海站 AI 龙虾活动海报，包含活动安排、嘉宾、主办方与报名二维码。</p>
+            </div>
+            <div class="meta">lobster-share-shanghai</div>
+          </a>
+          <a class="poster-card" href="/poster/member-directory">
+            <div>
+              <span class="tag">Directory</span>
+              <h3>企业家 AI 俱乐部会员名录</h3>
+              <p>企业家 AI 俱乐部会员名录手机长图，用于展示成员生态与联系入口。</p>
+            </div>
+            <div class="meta">member-directory</div>
+          </a>
+          <a class="poster-card" href="/poster/suzhou-ai-growth-salon">
+            <div>
+              <span class="tag">Salon</span>
+              <h3>AI 增长闭门会</h3>
+              <p>苏州 AI 增长闭门会海报，面向线下参访、分享与业务增长路径讨论。</p>
+            </div>
+            <div class="meta">suzhou-ai-growth-salon</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="inner">© MindsLeap · Poster materials in progress</div>
+  </footer>
+</body>
+</html>

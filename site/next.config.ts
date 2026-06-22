@@ -50,6 +50,56 @@ const nextConfig: NextConfig = {
         { source: "/product/", destination: "/product/index.html" },
         { source: "/proposal", destination: "/proposal/index.html" },
         { source: "/proposal/", destination: "/proposal/index.html" },
+        { source: "/poster", destination: "/poster/index.html" },
+        { source: "/poster/", destination: "/poster/index.html" },
+        {
+          source: "/poster/ai-hermes-workshop",
+          destination: "/poster/ai-hermes-workshop/index.html",
+        },
+        {
+          source: "/poster/ai-hermes-workshop/",
+          destination: "/poster/ai-hermes-workshop/index.html",
+        },
+        {
+          source: "/poster/arctic-expedition",
+          destination: "/poster/arctic-expedition/index.html",
+        },
+        {
+          source: "/poster/arctic-expedition/",
+          destination: "/poster/arctic-expedition/index.html",
+        },
+        {
+          source: "/poster/hoffman-china-availability",
+          destination: "/poster/hoffman-china-availability/index.html",
+        },
+        {
+          source: "/poster/hoffman-china-availability/",
+          destination: "/poster/hoffman-china-availability/index.html",
+        },
+        {
+          source: "/poster/lobster-share-shanghai",
+          destination: "/poster/lobster-share-shanghai/index.html",
+        },
+        {
+          source: "/poster/lobster-share-shanghai/",
+          destination: "/poster/lobster-share-shanghai/index.html",
+        },
+        {
+          source: "/poster/member-directory",
+          destination: "/poster/member-directory/index.html",
+        },
+        {
+          source: "/poster/member-directory/",
+          destination: "/poster/member-directory/index.html",
+        },
+        {
+          source: "/poster/suzhou-ai-growth-salon",
+          destination: "/poster/suzhou-ai-growth-salon/index.html",
+        },
+        {
+          source: "/poster/suzhou-ai-growth-salon/",
+          destination: "/poster/suzhou-ai-growth-salon/index.html",
+        },
         {
           source: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR",
           destination: "/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/index.html",

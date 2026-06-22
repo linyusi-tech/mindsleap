@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steven Hoffman 访华档期开放</title>
+  <style>
+    :root {
+      --bg: #03050b;
+      --panel: rgba(10, 14, 28, 0.88);
+      --text: #f8f8ff;
+      --soft: rgba(230, 236, 255, 0.8);
+      --dim: rgba(213, 222, 255, 0.62);
+      --cyan: #5fdcff;
+      --pink: #df7cff;
+      --grad: linear-gradient(90deg, #f5dbff 0%, #df7cff 45%, #5fdcff 100%);
+      --border-grad: linear-gradient(135deg, rgba(231, 141, 255, 0.9), rgba(87, 209, 255, 0.82));
+      --shadow: 0 34px 74px rgba(0, 0, 0, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 80% 4%, rgba(95, 220, 255, 0.16), transparent 25%),
+        radial-gradient(circle at 10% 18%, rgba(223, 124, 255, 0.14), transparent 26%),
+        linear-gradient(180deg, #02040a 0%, #071024 44%, #02040a 100%);
+    }
+
+    .poster {
+      width: 1080px;
+      margin: 0 auto;
+      padding: 42px 58px 72px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.034) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 13%, rgba(78, 135, 255, 0.22), transparent 30%),
+        linear-gradient(180deg, rgba(2, 4, 10, 0) 0%, rgba(2, 4, 10, 0.18) 36%, rgba(2, 4, 10, 0.94) 100%);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    .brand,
+    .hero,
+    .info-strip,
+    .profile-card,
+    .cta,
+    .fineprint {
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 34px;
+      margin-bottom: 34px;
+    }
+
+    .brand img {
+      display: block;
+      object-fit: contain;
+      opacity: 0.96;
+    }
+
+    .brand .founders {
+      height: 45px;
+    }
+
+    .brand .mindsleap {
+      height: 62px;
+    }
+
+    .hero {
+      min-height: 820px;
+      border-radius: 46px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 73% 16%, rgba(95, 220, 255, 0.2), transparent 25%),
+        radial-gradient(circle at 28% 45%, rgba(223, 124, 255, 0.16), transparent 30%),
+        linear-gradient(180deg, rgba(16, 22, 42, 0.76), rgba(5, 8, 18, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: -80px;
+      right: -80px;
+      bottom: 118px;
+      height: 265px;
+      border-radius: 50%;
+      border: 2px solid rgba(95, 220, 255, 0.42);
+      transform: perspective(840px) rotateX(68deg);
+      box-shadow: 0 0 46px rgba(95, 220, 255, 0.28);
+    }
+
+    .hoffman {
+      position: absolute;
+      right: -42px;
+      bottom: -8px;
+      height: 690px;
+      width: auto;
+      filter: drop-shadow(0 32px 54px rgba(0, 0, 0, 0.44));
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      padding: 72px 44px 48px;
+      max-width: 690px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      width: 100%;
+      color: rgba(230, 236, 255, 0.8);
+      font-size: 25px;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 850;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      display: block;
+      flex: 0 0 72px;
+      width: 72px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--grad);
+      box-shadow: 0 0 18px rgba(223, 124, 255, 0.34);
+    }
+
+    h1 {
+      margin-top: 32px;
+      font-size: 78px;
+      line-height: 1.12;
+      font-weight: 950;
+      letter-spacing: -0.03em;
+      color: #fff;
+      text-shadow: 0 22px 42px rgba(0, 0, 0, 0.36);
+    }
+
+    .gradient-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lead {
+      margin-top: 42px;
+      max-width: 625px;
+      color: var(--soft);
+      font-size: 36px;
+      line-height: 1.52;
+      font-weight: 650;
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .slot {
+      padding: 1px;
+      border-radius: 28px;
+      background: var(--border-grad);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.28);
+    }
+
+    .slot-inner {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 26px 22px;
+      border-radius: 27px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(223, 124, 255, 0.15), transparent 42%),
+        radial-gradient(circle at 90% 10%, rgba(95, 220, 255, 0.13), transparent 40%),
+        linear-gradient(135deg, rgba(30, 36, 68, 0.82), rgba(7, 12, 24, 0.96));
+    }
+
+    .slot h3 {
+      font-size: 38px;
+      line-height: 1.18;
+      font-weight: 950;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .slot p {
+      margin-top: 10px;
+      color: var(--dim);
+      font-size: 24px;
+      line-height: 1.38;
+      font-weight: 650;
+    }
+
+    .profile-card {
+      margin-top: 24px;
+      padding: 1px;
+      border-radius: 34px;
+      background: var(--border-grad);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-inner {
+      min-height: 320px;
+      border-radius: 33px;
+      padding: 38px 40px 42px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(223, 124, 255, 0.15), transparent 42%),
+        radial-gradient(circle at 90% 10%, rgba(95, 220, 255, 0.13), transparent 40%),
+        linear-gradient(135deg, rgba(30, 36, 68, 0.82), rgba(7, 12, 24, 0.96));
+    }
+
+    .profile-name {
+      font-size: 50px;
+      line-height: 1.14;
+      font-weight: 950;
+      color: #fff;
+    }
+
+    .profile-title {
+      margin-top: 12px;
+      color: #dbe6ff;
+      font-size: 29px;
+      line-height: 1.42;
+      font-weight: 850;
+    }
+
+    .profile-line {
+      margin-top: 20px;
+      color: var(--soft);
+      font-size: 28px;
+      line-height: 1.56;
+      font-weight: 600;
+    }
+
+    .cta {
+      margin-top: 26px;
+      border-radius: 34px;
+      padding: 34px 38px 38px;
+      text-align: center;
+      background:
+        linear-gradient(90deg, rgba(223, 124, 255, 0.9), rgba(65, 126, 255, 0.94));
+      box-shadow: 0 26px 54px rgba(75, 92, 255, 0.28);
+    }
+
+    .cta h2 {
+      color: #fff;
+      font-size: 52px;
+      line-height: 1.18;
+      font-weight: 950;
+    }
+
+    .cta p {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 29px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .fineprint {
+      margin-top: 28px;
+      text-align: center;
+      color: rgba(222, 229, 255, 0.62);
+      font-size: 23px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <div class="brand">
+      <img class="founders" src="/poster/_assets/shared/Founders Space Logo-White.png" alt="Founders Space" />
+      <img class="mindsleap" src="/poster/_assets/shared/MindsLeap New Logo-white.png" alt="MindsLeap" />
+    </div>
+
+    <section class="hero">
+      <img class="hoffman" src="/poster/_assets/shared/Hoffman2.png" alt="Steven Hoffman" />
+      <div class="hero-copy">
+        <div class="eyebrow">Steven Hoffman · China Visit</div>
+        <h1>霍夫曼，<span class="gradient-text">企业专场档期开放</span></h1>
+        <p class="hero-lead">硅谷创投教父 6 月应邀来华，<br>少量空档可预约企业专场。</p>
+      </div>
+    </section>
+
+    <section class="info-strip" aria-label="可预约形式">
+      <div class="slot">
+        <div class="slot-inner">
+          <h3>企业内训</h3>
+          <p>面向高管团队</p>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="slot-inner">
+          <h3>Keynote</h3>
+          <p>趋势与战略演讲</p>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="slot-inner">
+          <h3>Workshop</h3>
+          <p>围绕真实议题共创</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-card">
+      <div class="profile-inner">
+        <div>
+          <div class="profile-name">史蒂夫·霍夫曼</div>
+          <div class="profile-title">硅谷创投教父｜知名孵化者｜畅销作家</div>
+          <p class="profile-line">硅谷创投教父、福布斯排名第一创业孵化器 Founders Space 创始人、《让大象飞》、《穿越寒冬》等畅销书作者，曾为华为、阿里巴巴、博世、英特尔、迪士尼、高通等企业提供创新管理与战略指导。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>6 月 18 - 26 日，可约企业专场</h2>
+      <p>联系 Founders Space China / MindsLeap 协调主题与档期</p>
+    </section>
+
+    <div class="fineprint">Founders Space China · MindsLeap 心智悦动</div>
+  </main>
+</body>
+</html>

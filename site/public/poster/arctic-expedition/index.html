@@ -1,0 +1,1859 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindsLeap | 北极科学探索</title>
+  <style>
+    :root {
+      --bg: #06101b;
+      --bg-deep: #081a2b;
+      --surface: rgba(10, 29, 47, 0.82);
+      --surface-soft: rgba(177, 217, 255, 0.08);
+      --line: rgba(183, 223, 255, 0.18);
+      --line-strong: rgba(183, 223, 255, 0.32);
+      --text: #f6fbff;
+      --muted: #a8c0d4;
+      --ice: #c7ecff;
+      --ice-strong: #74d8ff;
+      --gold: #e8c780;
+      --navy: #103c6d;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(116,216,255,.16), transparent 24%),
+        radial-gradient(circle at 100% 12%, rgba(232,199,128,.1), transparent 18%),
+        linear-gradient(180deg, #06101b 0%, #07192b 26%, #081422 100%);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.85), transparent 92%);
+    }
+    .poster {
+      width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 4%, rgba(116,216,255,.12), transparent 18%),
+        radial-gradient(circle at 80% 16%, rgba(255,255,255,.08), transparent 22%);
+      pointer-events: none;
+    }
+    .section {
+      position: relative;
+      z-index: 1;
+      margin-top: 26px;
+      padding: 44px 34px;
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(7, 24, 38, 0.92), rgba(7, 18, 31, 0.96));
+      border: 1px solid rgba(183, 223, 255, 0.12);
+      box-shadow: 0 30px 60px rgba(0,0,0,.22);
+      overflow: hidden;
+    }
+    .section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,.035), transparent 22%);
+    }
+    .hero {
+      min-height: 1540px;
+      padding: 34px 24px 44px 34px;
+      background:
+        linear-gradient(180deg, rgba(6, 16, 27, 0.22) 0%, rgba(6, 16, 27, 0.58) 24%, rgba(6, 16, 27, 0.8) 58%, rgba(5, 12, 20, 0.98) 100%),
+        radial-gradient(circle at 52% 62%, rgba(120, 203, 255, 0.2), transparent 22%),
+        url("/poster/_assets/arctic-expedition/头图.png") center center / cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: -120px;
+      right: -120px;
+      top: 320px;
+      height: 320px;
+      background: radial-gradient(circle at center, rgba(255,255,255,.13), transparent 68%);
+      filter: blur(28px);
+      pointer-events: none;
+    }
+    .logo {
+      width: 320px;
+      display: block;
+    }
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 22px;
+      margin-bottom: 92px;
+    }
+    .hero-tag {
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.24);
+      background: rgba(9, 25, 39, .42);
+      backdrop-filter: blur(10px);
+      font-size: 22px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--ice);
+      font-size: 24px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 64px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,236,255,.78), transparent);
+    }
+    h1 {
+      margin: 0;
+      font-size: 110px;
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      font-weight: 800;
+      text-shadow: 0 26px 50px rgba(0,0,0,.28);
+    }
+    h1 .line {
+      display: block;
+    }
+    h1 .accent {
+      color: var(--ice-strong);
+    }
+    .subhead {
+      margin-top: 30px;
+      max-width: none;
+      font-size: 42px;
+      line-height: 1.5;
+      color: #edf6ff;
+    }
+    .hero-dates {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: rgba(9, 25, 39, .58);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      font-size: 24px;
+      line-height: 1.3;
+      color: #f5fbff;
+      box-shadow: 0 12px 26px rgba(0,0,0,.16);
+    }
+    .hero-dates strong {
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .summary {
+      margin-top: 18px;
+      max-width: none;
+      font-size: 27px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .hero-facts {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      max-width: none;
+    }
+    .fact {
+      padding: 24px 24px 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(7, 31, 50, 0.72), rgba(8, 23, 36, 0.76));
+      border: 1px solid rgba(183, 223, 255, 0.16);
+      backdrop-filter: blur(8px);
+    }
+    .fact strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -.04em;
+      white-space: nowrap;
+    }
+    .fact span {
+      display: block;
+      font-size: 27px;
+      line-height: 1.64;
+      color: var(--muted);
+    }
+    .hero-quote {
+      margin-top: 28px;
+      max-width: none;
+      padding: 22px 24px 24px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(116,216,255,.14), rgba(116,216,255,.06));
+      border: 1px solid rgba(116,216,255,.18);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+      font-size: 27px;
+      line-height: 1.72;
+      color: #f3fbff;
+    }
+    .quote-copy {
+      display: grid;
+      gap: 8px;
+    }
+    .quote-copy span {
+      display: block;
+    }
+    .hero-gallery {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 16px;
+      max-width: none;
+    }
+    .nowrap {
+      white-space: nowrap;
+    }
+    .hero-gallery-main-frame,
+    .hero-gallery-stack-thumb {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(183, 223, 255, 0.14);
+      box-shadow: 0 18px 42px rgba(0,0,0,.18);
+      background: rgba(255,255,255,.03);
+    }
+    .hero-gallery-main,
+    .hero-gallery-stack img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.065);
+      transform-origin: center;
+    }
+    .hero-gallery-main-frame {
+      height: 360px;
+    }
+    .hero-gallery-main {
+      object-position: center 52%;
+    }
+    .hero-gallery-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .hero-gallery-stack-thumb {
+      height: 172px;
+    }
+    .hero-gallery-stack-thumb:nth-child(1) img { object-position: center 48%; }
+    .hero-gallery-stack-thumb:nth-child(2) img { object-position: center 52%; }
+    .hero-gallery-stack-thumb:nth-child(3) img { object-position: center 54%; }
+    .hero-gallery-stack-thumb:nth-child(4) img { object-position: center 50%; }
+    .quote-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 22px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .quote-label::before,
+    .quote-label::after {
+      content: "";
+      flex: 0 0 54px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(232,199,128,.16), rgba(232,199,128,.88), rgba(232,199,128,.16));
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+    .section-head.stacked {
+      display: grid;
+      gap: 14px;
+      align-items: start;
+    }
+    .section-head.stacked .section-note {
+      max-width: none;
+      text-align: left;
+    }
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--ice);
+      font-size: 22px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-kicker::before,
+    .section-kicker::after {
+      content: "";
+      flex: 0 0 54px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(199,236,255,.18), rgba(199,236,255,.92), rgba(199,236,255,.18));
+    }
+    h2 {
+      margin: 0;
+      font-size: 56px;
+      line-height: 1.24;
+      letter-spacing: -.045em;
+    }
+    .section-note {
+      max-width: 360px;
+      font-size: 27px;
+      line-height: 1.68;
+      color: var(--muted);
+      text-align: right;
+    }
+    .value-layout {
+      display: grid;
+      gap: 22px;
+    }
+    .value-visual {
+      padding: 20px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(183, 223, 255, 0.12);
+      display: grid;
+      gap: 18px;
+    }
+    .value-visual img {
+      width: 100%;
+      height: 460px;
+      display: block;
+      object-fit: cover;
+      object-position: center 52%;
+      border-radius: 22px;
+    }
+    .cred-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .cred-card {
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      background: rgba(116,216,255,.06);
+      border: 1px solid rgba(116,216,255,.12);
+    }
+    .cred-card strong {
+      display: block;
+      font-size: 27px;
+      line-height: 1.16;
+      color: #f8fcff;
+      margin-bottom: 8px;
+    }
+    .cred-card span {
+      display: block;
+      font-size: 27px;
+      line-height: 1.64;
+      color: var(--muted);
+    }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .value-card {
+      position: relative;
+      min-height: 0;
+      padding: 18px 18px 20px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(8, 24, 38, 0.88), rgba(7, 17, 29, 0.95));
+      border: 1px solid rgba(183, 223, 255, 0.14);
+      overflow: hidden;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .value-card img {
+      width: 100%;
+      height: 188px;
+      display: block;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(183, 223, 255, 0.12);
+    }
+    .card-index {
+      color: rgba(116,216,255,.78);
+      font-size: 20px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .value-card h3,
+    .mentor-copy h3,
+    .timeline-copy h3,
+    .ship-card h3,
+    .include-card h3,
+    .price-card h3 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+    .value-card p,
+    .mentor-copy p,
+    .ship-card p,
+    .include-card p {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.76;
+      color: var(--muted);
+    }
+    .value-card h3 {
+      font-size: 34px;
+      line-height: 1.22;
+      white-space: nowrap;
+    }
+    .value-card p {
+      font-size: 27px;
+      line-height: 1.66;
+    }
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .mentor-card {
+      display: block;
+      padding: 24px 22px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(7, 26, 43, 0.92), rgba(6, 18, 31, 0.95));
+      border: 1px solid rgba(183, 223, 255, 0.14);
+      overflow: hidden;
+    }
+    .mentor-photo {
+      width: 182px;
+      height: 182px;
+      flex: 0 0 182px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 20px 36px rgba(0,0,0,.24), inset 0 0 0 1px rgba(255,255,255,.03);
+      background: rgba(255,255,255,.05);
+    }
+    .mentor-photo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+    .mentor-photo.wenxu img { object-position: 52% 50%; }
+    .mentor-photo.hujiaojiao img { object-position: 50% 46%; }
+    .mentor-photo.lincoln img { object-position: center 22%; }
+    .mentor-photo.haoli img { object-position: 40% 32%; }
+    .mentor-top {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .mentor-intro {
+      flex: 1;
+      min-width: 0;
+    }
+    .mentor-role {
+      color: var(--gold);
+      font-size: 20px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .mentor-name {
+      font-size: 46px;
+      line-height: 1.02;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -.045em;
+    }
+    .mentor-card.lincoln-card .mentor-name {
+      font-family: "Gill Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    .mentor-copy h3 {
+      font-size: 30px;
+    }
+    .mentor-copy p {
+      line-height: 1.72;
+    }
+    .mentor-points {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .mentor-points li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 27px;
+      line-height: 1.66;
+      color: #dcecf8;
+    }
+    .mentor-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(116,216,255,.92);
+      box-shadow: 0 0 0 4px rgba(116,216,255,.12);
+    }
+    .mission-layout {
+      display: grid;
+      gap: 22px;
+    }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .mission-card {
+      padding: 26px 24px 26px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(8, 26, 43, 0.92), rgba(7, 18, 31, 0.95));
+      border: 1px solid rgba(183, 223, 255, 0.14);
+    }
+    .mission-card h3 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.18;
+      letter-spacing: -.03em;
+    }
+    .mission-card p {
+      margin: 10px 0 0;
+      font-size: 27px;
+      line-height: 1.66;
+      color: var(--muted);
+    }
+    .mission-gallery {
+      display: grid;
+      gap: 18px;
+    }
+    .mission-gallery img {
+      width: 100%;
+      height: 520px;
+      display: block;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid rgba(183, 223, 255, 0.12);
+    }
+    .visual-panel {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(183, 223, 255, 0.12);
+    }
+    .visual-panel img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
+    .visual-caption {
+      margin-top: 12px;
+      font-size: 27px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .route-wrap {
+      display: grid;
+      gap: 24px;
+    }
+    .map-card {
+      padding: 18px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(183, 223, 255, 0.12);
+    }
+    .map-card img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+    }
+    .route-intro {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .intro-card,
+    .ship-card,
+    .include-card {
+      padding: 26px 24px 28px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(8, 26, 43, 0.92), rgba(7, 18, 31, 0.95));
+      border: 1px solid rgba(183, 223, 255, 0.14);
+    }
+    .intro-card p,
+    .ship-meta div,
+    .route-pill span,
+    .price-meta,
+    .note-box,
+    .include-list li {
+      font-size: 22px;
+      line-height: 1.78;
+      color: var(--muted);
+    }
+    .intro-card p,
+    .ship-meta div,
+    .price-meta,
+    .note-box {
+      font-size: 27px;
+      line-height: 1.72;
+    }
+    .route-pill {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .route-pill span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(116,216,255,.08);
+      border: 1px solid rgba(116,216,255,.14);
+      color: #eaf8ff;
+      white-space: nowrap;
+    }
+    .route-lead {
+      margin: 14px 0 0;
+      font-size: 27px;
+      line-height: 1.62;
+      color: #edf8ff;
+    }
+    .route-highlights {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .route-step {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(116,216,255,.06);
+      border: 1px solid rgba(116,216,255,.12);
+    }
+    .route-step strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 27px;
+      line-height: 1.3;
+      color: #f6fbff;
+    }
+    .route-step span {
+      display: block;
+      font-size: 27px;
+      line-height: 1.62;
+      color: var(--muted);
+    }
+    .audience-copy {
+      margin: 14px 0 0;
+      font-size: 27px;
+      line-height: 1.7;
+      color: #edf8ff;
+    }
+    .audience-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .audience-item {
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: rgba(116,216,255,.06);
+      border: 1px solid rgba(116,216,255,.12);
+    }
+    .audience-item strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 30px;
+      line-height: 1.1;
+      color: #f8fcff;
+    }
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .audience-tags span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(183, 223, 255, 0.12);
+      color: #eaf8ff;
+      font-size: 22px;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .timeline-card {
+      min-height: 252px;
+      padding: 22px 20px 22px 24px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(7, 24, 39, 0.92), rgba(7, 18, 30, 0.96));
+      border: 1px solid rgba(183, 223, 255, 0.14);
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 28px;
+      bottom: 28px;
+      width: 5px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(116,216,255,.9), rgba(116,216,255,.18));
+    }
+    .timeline-day {
+      margin-left: 18px;
+      color: var(--gold);
+      font-size: 22px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .timeline-title {
+      margin-left: 18px;
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 760;
+      letter-spacing: -.03em;
+    }
+    .timeline-date {
+      margin-left: 18px;
+      margin-top: 8px;
+      font-size: 22px;
+      line-height: 1.4;
+      color: rgba(116,216,255,.82);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .timeline-copy {
+      margin-left: 18px;
+      margin-top: 10px;
+      font-size: 27px;
+      line-height: 1.66;
+      color: var(--muted);
+    }
+    .timeline-task {
+      margin-left: 18px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(183, 223, 255, 0.12);
+      font-size: 27px;
+      line-height: 1.64;
+      color: #ebf8ff;
+    }
+    .prep-card {
+      padding: 22px 24px;
+      border-radius: 24px;
+      background: rgba(116,216,255,.06);
+      border: 1px solid rgba(116,216,255,.12);
+    }
+    .prep-card strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.2;
+      color: #f7fbff;
+      margin-bottom: 10px;
+    }
+    .prep-card p {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+    .route-photo-card {
+      padding: 18px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(183, 223, 255, 0.12);
+      overflow: hidden;
+    }
+    .route-photo-card img {
+      width: 100%;
+      height: 420px;
+      display: block;
+      object-fit: cover;
+      object-position: center 52%;
+      border-radius: 22px;
+    }
+    .ship-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .ship-card h3 {
+      margin-bottom: 12px;
+    }
+    .ship-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 18px;
+    }
+    .ship-meta strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #f5fbff;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+    .prices {
+      display: grid;
+      gap: 14px;
+    }
+    .room-overview {
+      margin-top: 22px;
+      display: grid;
+      gap: 20px;
+    }
+    .room-overview-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .room-overview-shot {
+      width: 100%;
+      height: 560px;
+      display: block;
+      border-radius: 20px;
+      object-fit: cover;
+      object-position: center 82%;
+    }
+    .room-guide-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(183, 223, 255, 0.14);
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .room-guide-card strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1.2;
+      color: #f7fbff;
+    }
+    .room-guide-card p {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .room-guide-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .room-guide-list li {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(116,216,255,.06);
+      border: 1px solid rgba(116,216,255,.12);
+      font-size: 27px;
+      line-height: 1.64;
+      color: #edf8ff;
+    }
+    .room-guide-list li span {
+      display: block;
+      margin-bottom: 4px;
+      color: #8edcff;
+      font-size: 18px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .room-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+    .room-detail-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 22px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(183, 223, 255, 0.14);
+      box-shadow: 0 16px 40px rgba(3, 16, 31, 0.16);
+      height: 100%;
+    }
+    .room-media {
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,.04);
+      aspect-ratio: 29 / 18;
+      border: 1px solid rgba(183, 223, 255, 0.12);
+    }
+    .room-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+    .room-copy {
+      display: grid;
+      gap: 16px;
+      grid-template-rows: minmax(144px, auto) minmax(92px, auto) auto;
+      align-content: start;
+    }
+    .room-head {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+    .room-title strong {
+      display: block;
+      font-size: 31px;
+      line-height: 1.18;
+      color: #f8fcff;
+      margin-bottom: 6px;
+    }
+    .room-title span {
+      display: block;
+      font-size: 27px;
+      line-height: 1.58;
+      color: #8edcff;
+    }
+    .room-copy .room-price {
+      color: var(--gold);
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.03em;
+      white-space: nowrap;
+    }
+    .room-copy p {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.66;
+      color: var(--muted);
+    }
+    .room-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-content: start;
+    }
+    .room-pills span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(116,216,255,.08);
+      border: 1px solid rgba(116,216,255,.14);
+      color: #eaf8ff;
+      font-size: 22px;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    .price-card {
+      padding: 22px 22px 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(232,199,128,.18);
+    }
+    .price-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: start;
+    }
+    .price-top strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.2;
+      color: #f8fcff;
+    }
+    .price-top span {
+      display: block;
+      font-size: 27px;
+      line-height: 1.62;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .amount {
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      white-space: nowrap;
+    }
+    .price-meta {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(183, 223, 255, 0.12);
+    }
+    .include-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .include-card {
+      min-height: 720px;
+    }
+    .include-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+    .include-list li {
+      position: relative;
+      padding-left: 20px;
+    }
+    .include-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ice-strong);
+      box-shadow: 0 0 0 5px rgba(116,216,255,.1);
+    }
+    .foot-note {
+      margin-top: 26px;
+      padding: 24px 26px 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(232,199,128,.09), rgba(232,199,128,.03));
+      border: 1px solid rgba(232,199,128,.2);
+    }
+    .foot-note-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .foot-note strong {
+      display: block;
+      font-size: 27px;
+      line-height: 1.3;
+      color: var(--gold);
+    }
+    .note-box {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(183, 223, 255, 0.1);
+    }
+    .footer {
+      margin-top: 20px;
+      padding: 28px 12px 0;
+      text-align: center;
+      color: rgba(231, 244, 255, .66);
+      font-size: 20px;
+      line-height: 1.8;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* Mobile readability boost: everything except the main title goes up visibly. */
+    .section {
+      padding: 48px 36px;
+    }
+    .hero {
+      min-height: 1680px;
+      padding: 38px 28px 50px 38px;
+    }
+    .section-head {
+      display: grid;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 32px;
+    }
+    .section-note,
+    .section-head.stacked .section-note {
+      max-width: none;
+      text-align: left;
+    }
+    .hero-tag,
+    .eyebrow,
+    .quote-label,
+    .section-kicker,
+    .card-index,
+    .mentor-role,
+    .timeline-day,
+    .timeline-date,
+    .route-pill span,
+    .audience-tags span,
+    .room-pills span,
+    .footer {
+      font-size: 24px;
+    }
+    .subhead {
+      font-size: 48px;
+      line-height: 1.48;
+    }
+    .hero-dates {
+      font-size: 32px;
+      line-height: 1.34;
+    }
+    h2 {
+      font-size: 68px;
+      line-height: 1.16;
+    }
+    .fact strong,
+    .value-card h3,
+    .mentor-copy h3,
+    .mission-card h3,
+    .ship-card h3,
+    .include-card h3,
+    .price-card h3,
+    .impact-box strong,
+    .timeline-title,
+    .prep-card strong,
+    .room-guide-card strong,
+    .price-top strong,
+    .ship-meta strong,
+    .foot-note strong {
+      font-size: 42px;
+      line-height: 1.18;
+    }
+    .mentor-name {
+      font-size: 54px;
+    }
+    .room-title strong {
+      font-size: 36px;
+      line-height: 1.18;
+    }
+    .summary,
+    .fact span,
+    .hero-quote,
+    .quote-copy span,
+    .section-note,
+    .cred-card strong,
+    .cred-card span,
+    .value-card p,
+    .mentor-copy p,
+    .mentor-points li,
+    .mission-card p,
+    .impact-box span,
+    .visual-caption,
+    .intro-card p,
+    .ship-meta div,
+    .price-meta,
+    .note-box,
+    .route-lead,
+    .route-step strong,
+    .route-step span,
+    .audience-copy,
+    .timeline-copy,
+    .timeline-task,
+    .prep-card p,
+    .room-guide-card p,
+    .room-guide-list li,
+    .room-title span,
+    .room-copy p,
+    .price-top span {
+      font-size: 34px;
+      line-height: 1.64;
+    }
+    .hero-facts,
+    .value-grid,
+    .mentor-grid,
+    .mission-grid,
+    .timeline-grid,
+    .room-detail-grid,
+    .include-grid {
+      gap: 20px;
+    }
+    .timeline-card {
+      min-height: 376px;
+      padding: 24px 22px 24px 26px;
+    }
+    .room-copy {
+      grid-template-rows: minmax(192px, auto) minmax(132px, auto) auto;
+    }
+    .include-card {
+      min-height: 940px;
+    }
+    .include-list li,
+    .note-box {
+      font-size: 31px;
+      line-height: 1.66;
+    }
+    .include-list li::before {
+      top: 16px;
+    }
+    .mentor-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+    .mentor-card {
+      padding: 30px 30px 34px;
+      border-radius: 34px;
+    }
+    .mentor-copy {
+      display: grid;
+      gap: 18px;
+    }
+    .mentor-top {
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .mentor-photo {
+      width: 236px;
+      height: 236px;
+      flex: 0 0 236px;
+    }
+    .mentor-intro {
+      padding-top: 8px;
+    }
+    .mentor-role {
+      margin-bottom: 10px;
+    }
+    .mentor-name {
+      font-size: 64px;
+      margin-bottom: 12px;
+    }
+    .mentor-copy h3 {
+      font-size: 46px;
+      line-height: 1.18;
+    }
+    .mentor-copy p {
+      font-size: 34px;
+      line-height: 1.64;
+    }
+    .mentor-points {
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .mentor-points li {
+      font-size: 34px;
+      line-height: 1.64;
+      padding-left: 22px;
+    }
+    .nowrap { white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <section class="section hero">
+      <div class="hero-top">
+        <img class="logo" src="/poster/_assets/shared/MindsLeap%20New%20Logo-white.png" alt="MindsLeap" />
+        <div class="hero-tag">Arctic Expedition 2026</div>
+      </div>
+      <div class="eyebrow">Arctic Expedition 2026</div>
+      <h1>
+        <span class="line">北极科学探索</span>
+        <span class="line accent">公民科考远征</span>
+      </h1>
+      <div class="subhead">
+        去到 80°N 冰缘，在极地现场完成科学观察、纪录片创作、AI 讨论与真实世界共创。
+      </div>
+      <div class="hero-dates">
+        <strong>日期</strong>
+        <span>2026.7.20 - 2026.7.29 · 10天9晚</span>
+      </div>
+      <div class="summary">
+        围绕斯瓦尔巴群岛，跟随极地探险家、冰川保护行动者、纪录片导演与 AI 领队，在 10 天 9 晚里完成极地观察、公民科学、纪录片创作与船上 AI 微项目。
+      </div>
+      <div class="hero-facts">
+        <div class="fact">
+          <strong>80°N 冰缘航程</strong>
+          <span>深入冰川前沿、海冰带与自然保护区。</span>
+        </div>
+        <div class="fact">
+          <strong>顶级领队同行</strong>
+          <span>探险、公益、纪录片与 AI 四条主线同时在线。</span>
+        </div>
+        <div class="fact">
+          <strong>精品探险船体验</strong>
+          <span>150 人小船、冲锋艇登陆巡游，更靠近真正的冰缘。</span>
+        </div>
+        <div class="fact">
+          <strong>带回沉淀式成果</strong>
+          <span>带回《北极日志》、公民科学任务与 AI 微项目。</span>
+        </div>
+      </div>
+      <div class="hero-gallery">
+        <div class="hero-gallery-main-frame">
+          <img class="hero-gallery-main" src="/poster/_assets/arctic-expedition/项目图片.png" alt="北极科学探索现场" />
+        </div>
+        <div class="hero-gallery-stack">
+          <div class="hero-gallery-stack-thumb"><img src="/poster/_assets/arctic-expedition/保护区.png" alt="自然保护区景观" /></div>
+          <div class="hero-gallery-stack-thumb"><img src="/poster/_assets/arctic-expedition/博物馆.png" alt="北极探索场景" /></div>
+          <div class="hero-gallery-stack-thumb"><img src="/poster/_assets/arctic-expedition/小导演.png" alt="纪录片创作现场" /></div>
+          <div class="hero-gallery-stack-thumb"><img src="/poster/_assets/arctic-expedition/联合国气候大会.png" alt="国际舞台延展" /></div>
+        </div>
+      </div>
+      <div class="hero-quote">
+        <span class="quote-label">Why Join</span>
+        <div class="quote-copy">
+          <span>把科学探索、纪录片创作、公益行动和高质量同行放进同一趟远征，</span>
+          <span>让北极成为一次真正能被记住、被表达、也能继续发酵的经历。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">核心亮点</div>
+          <h2>一次北极远征，六份收获</h2>
+        </div>
+        <div class="section-note">
+          从极地科学到影像表达，每一段体验都能沉淀成具体成果。
+        </div>
+      </div>
+      <div class="value-layout">
+        <div class="value-visual">
+          <img src="/poster/_assets/arctic-expedition/公益活动.png" alt="北极远征现场互动" />
+          <div class="cred-row">
+            <div class="cred-card">
+              <strong>PolarHub 发起</strong>
+              <span>把冰川保护、公民科学与极地行动真正连起来。</span>
+            </div>
+            <div class="cred-card">
+              <strong>央视导演同行</strong>
+              <span>全程影像指导，把北极现场变成能留下来的作品。</span>
+            </div>
+            <div class="cred-card">
+              <strong>COP 延展机会</strong>
+              <span>优秀成果可衔接影像展、分享会与国际舞台。</span>
+            </div>
+          </div>
+        </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <img src="/poster/_assets/arctic-expedition/小科学家.png" alt="公民科学现场" />
+            <div class="card-index">01 / Citizen Science</div>
+            <h3>冰冻圈公民科学家</h3>
+            <p>冰川观察、样本记录与生态理解，都在现场完成。</p>
+          </article>
+          <article class="value-card">
+            <img src="/poster/_assets/arctic-expedition/小导演.png" alt="纪录片创作现场" />
+            <div class="card-index">02 / Documentary</div>
+            <h3>完成《北极日志》</h3>
+            <p>从选题到叙事，在现场完成属于自己的北极短片。</p>
+          </article>
+          <article class="value-card">
+            <img src="/poster/_assets/arctic-expedition/围炉夜话.png" alt="船上讨论空间" />
+            <div class="card-index">03 / AI & Business</div>
+            <h3>AI 走进真实项目</h3>
+            <p>在冰缘现场讨论 Agent、组织升级与未来工作方式。</p>
+          </article>
+          <article class="value-card">
+            <img src="/poster/_assets/arctic-expedition/科学家.png" alt="高质量同行者共创" />
+            <div class="card-index">04 / High-Quality Peers</div>
+            <h3>高质量同行者共创</h3>
+            <p>企业家、家庭与年轻创造者同行，不只是同船，更是同频。</p>
+          </article>
+          <article class="value-card">
+            <img src="/poster/_assets/arctic-expedition/破冰船.png" alt="探险船生活体验" />
+            <div class="card-index">05 / Expedition Ship</div>
+            <h3>精品探险船体验</h3>
+            <p>150 人小船、抗冰船级与冲锋艇登陆，更靠近真正冰缘。</p>
+          </article>
+          <article class="value-card">
+            <img src="/poster/_assets/arctic-expedition/成果展.png" alt="北极成果延展" />
+            <div class="card-index">06 / Arctic Impact</div>
+            <h3>北极成果持续延展</h3>
+            <p>证书、影像展、公益倡议与延展机会，让远征继续发酵。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head stacked">
+        <div>
+          <div class="section-kicker">主领队阵容</div>
+          <h2>四位主领队同行，<br>把探险、公益、影像与 AI 带上船</h2>
+        </div>
+        <div class="section-note">
+          每条主线都有对应导师带队，边走边学，也边做出成果。
+        </div>
+      </div>
+      <div class="mentor-grid">
+        <article class="mentor-card lincoln-card">
+          <div class="mentor-copy">
+            <div class="mentor-top">
+              <div class="mentor-photo wenxu"><img src="/poster/_assets/arctic-expedition/温旭-头像.png" alt="温旭" /></div>
+              <div class="mentor-intro">
+                <div class="mentor-role">Polar Explorer</div>
+                <div class="mentor-name">温旭</div>
+                <h3>把极地探险变成真实的科学观察</h3>
+              </div>
+            </div>
+            <p>中国极地科学探险代表人物，完成穿越地球“三极”探险纪录，把北极现场变成真正的科学观察与极地理解。</p>
+            <ul class="mentor-points">
+              <li>带着孩子理解冰川、海冰、极地动物与科考点位，不只是看见，更知道为什么重要。</li>
+              <li>让新奥勒松、黄河站、80°N 冰缘这些经历沉淀成更扎实的科学语境与探险判断力。</li>
+            </ul>
+          </div>
+        </article>
+        <article class="mentor-card">
+          <div class="mentor-copy">
+            <div class="mentor-top">
+              <div class="mentor-photo hujiaojiao"><img src="/poster/_assets/arctic-expedition/虎姣佼-头像.png" alt="虎姣佼" /></div>
+              <div class="mentor-intro">
+                <div class="mentor-role">Climate Action Lead</div>
+                <div class="mentor-name">虎姣佼</div>
+                <h3>把冰川保护与公民科学真正落地</h3>
+              </div>
+            </div>
+            <p>极地未来创始人，长期推动冰川保护、气候行动与公众环保教育，把北极体验连接到真实世界议题与行动。</p>
+            <ul class="mentor-points">
+              <li>把冰川保护、气候变化与北极生态之间的关系讲清楚，让现场观察和现实议题真正连起来。</li>
+              <li>让孩子参与公民科学和公益表达，带回比旅行打卡更有分量的行动经历。</li>
+            </ul>
+          </div>
+        </article>
+        <article class="mentor-card">
+          <div class="mentor-copy">
+            <div class="mentor-top">
+              <div class="mentor-photo lincoln"><img src="/poster/_assets/shared/Lincoln.jpg" alt="Lincoln" /></div>
+              <div class="mentor-intro">
+                <div class="mentor-role">AI Strategy Lead</div>
+                <div class="mentor-name">Lincoln</div>
+                <h3>把 AI 变成孩子会真正使用的项目工具</h3>
+              </div>
+            </div>
+            <p>Founders Space China CEO、MindsLeap CEO，把 AI 从概念带到真正可用的项目方法。</p>
+            <ul class="mentor-points">
+              <li>带孩子用 AI 做科学观察任务和小项目，把现场问题拆成研究与创作步骤。</li>
+              <li>在北极日志和视频剪辑里用 AI 做资料整理、脚本梳理和表达优化。</li>
+            </ul>
+          </div>
+        </article>
+        <article class="mentor-card">
+          <div class="mentor-copy">
+            <div class="mentor-top">
+              <div class="mentor-photo haoli"><img src="/poster/_assets/arctic-expedition/郝莉.png" alt="郝莉" /></div>
+              <div class="mentor-intro">
+                <div class="mentor-role">Documentary Mentor</div>
+                <div class="mentor-name">郝莉</div>
+                <h3>把一次远征变成孩子自己的作品</h3>
+              </div>
+            </div>
+            <p>央视财经节目新闻主编，大型纪录片《北极，北极！》分集导演，帮助孩子把北极现场整理成有结构、有叙事的作品。</p>
+            <ul class="mentor-points">
+              <li>带着孩子学会选题、叙事和表达，把科学观察转成完整的北极日志与影像内容。</li>
+              <li>最后沉淀下来的不只是照片，而是一份能展示、能分享的作品。</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head stacked">
+        <div>
+          <div class="section-kicker">你将带回</div>
+          <h2><span class="nowrap">一趟北极远征，四类长期成果</span></h2>
+        </div>
+        <div class="section-note">
+          不止是经历当下，更是能继续展示、分享与延展的作品和经历。
+        </div>
+      </div>
+      <div class="mission-layout">
+        <div class="mission-gallery">
+          <img src="/poster/_assets/arctic-expedition/动物.png" alt="北极动物观察现场" />
+        </div>
+        <div class="mission-grid">
+          <article class="mission-card">
+            <h3>个人《北极日志》</h3>
+            <p>从选题到剪辑，完成一部真正属于自己的北极短片。</p>
+          </article>
+          <article class="mission-card">
+            <h3>公民科学任务与证书</h3>
+            <p>把观察、记录与任务结果沉淀成能被认可的极地实践经历。</p>
+          </article>
+          <article class="mission-card">
+            <h3>极地守护者行动倡议</h3>
+            <p>把冰川保护、公民科学与公益表达真正连接到个人行动。</p>
+          </article>
+          <article class="mission-card">
+            <h3>后续影像展与国际舞台</h3>
+            <p>优秀成果可进入北极影像展、分享会与 COP 相关延展机会。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head stacked">
+        <div>
+          <div class="section-kicker">路线与节奏</div>
+          <h2>10天9晚，沿着斯瓦尔巴群岛一路深入<span class="nowrap">冰缘现场</span></h2>
+        </div>
+        <div class="section-note">
+          从奥斯陆集结到 80°N 巡航，每一站都有不同的观察与共创主题。
+        </div>
+      </div>
+      <div class="route-wrap">
+        <div class="map-card">
+          <img src="/poster/_assets/arctic-expedition/地图.png" alt="北极科学探索路线图" />
+        </div>
+        <div class="route-intro">
+          <div class="intro-card">
+            <h3>一条不断深入的北极学习曲线</h3>
+            <div class="route-lead">从奥斯陆集结、朗伊尔城登船，到新奥勒松、80°N 冰缘、自然保护区巡航，路线本身就是一条不断升级的学习曲线。</div>
+            <div class="route-highlights">
+              <div class="route-step">
+                <strong>奥斯陆集合</strong>
+                <span>先定任务，再出发。</span>
+              </div>
+              <div class="route-step">
+                <strong>朗伊尔城登船</strong>
+                <span>正式进入极地探险节奏。</span>
+              </div>
+              <div class="route-step">
+                <strong>80°N 冰缘巡航</strong>
+                <span>冰川、海冰与生态集中展开。</span>
+              </div>
+              <div class="route-step">
+                <strong>船上共创结营</strong>
+                <span>日志、短片、证书与项目收束。</span>
+              </div>
+            </div>
+          </div>
+          <div class="ship-card">
+            <h3>谁会爱上这个项目</h3>
+            <div class="audience-copy">适合两类人：想把旅行升级成认知与作品资产的成年人，以及想更早进入真实问题场景的青少年。</div>
+            <div class="audience-grid">
+              <div class="audience-item">
+                <strong>成年人</strong>
+                <div class="audience-tags">
+                  <span>企业家</span>
+                  <span>管理者</span>
+                  <span>投资人</span>
+                  <span>长期主义者</span>
+                </div>
+              </div>
+              <div class="audience-item">
+                <strong>青少年</strong>
+                <div class="audience-tags">
+                  <span>AI 兴趣者</span>
+                  <span>科学探索者</span>
+                  <span>表达型学生</span>
+                  <span>年轻创造者</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="prep-card">
+          <strong>行前准备｜两次行前会</strong>
+          <p>在正式出发前先完成极地认知、纪录片方法、任务分工与个人项目准备，带着问题上船。</p>
+        </div>
+        <div class="route-photo-card">
+          <img src="/poster/_assets/arctic-expedition/探险.png" alt="北极探险现场" />
+        </div>
+        <div class="timeline-grid">
+          <article class="timeline-card">
+            <div class="timeline-day">Day 1</div>
+            <div class="timeline-title">奥斯陆抵达</div>
+            <div class="timeline-date">7月20日 · 挪威奥斯陆</div>
+            <div class="timeline-copy">抵达奥斯陆，入住 Radisson Hotel，正式开启北欧城市探索与远征集合。</div>
+            <div class="timeline-task">当日重点：适应时差、集合签到、进入出发状态</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 2</div>
+            <div class="timeline-title">飞往朗伊尔城</div>
+            <div class="timeline-date">7月21日 · 斯瓦尔巴</div>
+            <div class="timeline-copy">包机飞往北纬 78 度的朗伊尔城，登上海神号，准备正式开启北极探险。</div>
+            <div class="timeline-task">当日重点：登船、安顿、进入极地航行节奏</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 3</div>
+            <div class="timeline-title">新奥勒松科考日</div>
+            <div class="timeline-date">7月22日 · 新奥勒松</div>
+            <div class="timeline-copy">探访世界最北科研小镇，打卡中国黄河站，把冰川研究与北极现场真正连起来。</div>
+            <div class="timeline-task">当日重点：科研站访问、建立北极观察框架</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 4</div>
+            <div class="timeline-title">进入西北冰缘</div>
+            <div class="timeline-date">7月23日 · 斯匹次卑尔根西北部</div>
+            <div class="timeline-copy">驶入冰缘海域，开始冰川与浮冰带巡航观察，正式向 80°N 方向推进。</div>
+            <div class="timeline-task">当日重点：冰缘巡航、浮冰观察、极地生态识别</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 5</div>
+            <div class="timeline-title">挑战 80°N 以北</div>
+            <div class="timeline-date">7月24日 · 北纬80度附近</div>
+            <div class="timeline-copy">继续在冰缘前沿深度巡航，把冰川、海冰与高纬生态系统放进同一段真实体验里。</div>
+            <div class="timeline-task">当日重点：高纬巡航、冰缘记录、日志素材积累</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 6</div>
+            <div class="timeline-title">东北自然保护区</div>
+            <div class="timeline-date">7月25日 · 海鸦山与海象栖息地</div>
+            <div class="timeline-copy">探访海鸦山与托雷尔内塞海象栖息地，观察北极野生动物与海岸生态。</div>
+            <div class="timeline-task">当日重点：鸟类与海象观察、自然保护区登陆</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 7</div>
+            <div class="timeline-title">东南部保护区探索</div>
+            <div class="timeline-date">7月26日 · 巴伦支岛与埃奇岛</div>
+            <div class="timeline-copy">前往东南部自然保护区，探索巴伦支岛与埃奇岛，邂逅北极狐等极地生灵。</div>
+            <div class="timeline-task">当日重点：岛屿登陆、野生动物观察、路线延展</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 8</div>
+            <div class="timeline-title">西南国家公园徒步</div>
+            <div class="timeline-date">7月27日 · 冰川峡湾</div>
+            <div class="timeline-copy">进入西南部国家公园，在冰川峡湾开展徒步探索，近距离感受极地地貌层次。</div>
+            <div class="timeline-task">当日重点：峡湾徒步、冰川地貌观察、现场讨论</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 9</div>
+            <div class="timeline-title">摄影创作日</div>
+            <div class="timeline-date">7月28日 · 西南部国家公园</div>
+            <div class="timeline-copy">继续在西南部国家公园航行与停靠，把前几天的观察沉淀成摄影与北极日志素材。</div>
+            <div class="timeline-task">当日重点：摄影创作、纪录片素材整理、个人表达</div>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-day">Day 10</div>
+            <div class="timeline-title">返程哥本哈根</div>
+            <div class="timeline-date">7月29日 · 结束极地远征</div>
+            <div class="timeline-copy">包机返程回到哥本哈根，完成这趟北极科学探索旅程，并进入返程后的成果整理阶段。</div>
+            <div class="timeline-task">当日重点：返程收束、资料归档、为后续分享做准备</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">船只与房型</div>
+          <h2>多种房型选择</h2>
+        </div>
+      </div>
+      <div class="room-detail-grid">
+          <article class="room-detail-card">
+            <div class="room-media"><img src="/poster/_assets/arctic-expedition/船东套房-增强.png" alt="船东套房" /></div>
+            <div class="room-copy">
+              <div class="room-head">
+                <div class="room-title">
+                  <strong>船东套房</strong>
+                  <span>31㎡，主卧 + 客厅，完整套房体验</span>
+                </div>
+                <div class="room-price">¥129,900 / 人</div>
+              </div>
+              <p>主卧外另配独立客厅，私密性强，套房感最完整。</p>
+              <div class="room-pills">
+                <span>31㎡</span>
+                <span>独立客厅</span>
+                <span>主卧套房</span>
+                <span>起居分区</span>
+                <span>独立卫浴</span>
+              </div>
+            </div>
+          </article>
+          <article class="room-detail-card">
+            <div class="room-media"><img src="/poster/_assets/arctic-expedition/6层甲板-阳光套房-增强.png" alt="阳光套房" /></div>
+            <div class="room-copy">
+              <div class="room-head">
+                <div class="room-title">
+                  <strong>阳光套房</strong>
+                  <span>21㎡，私人阳台，海景感最强</span>
+                </div>
+                <div class="room-price">¥102,000 / 人</div>
+              </div>
+              <p>私人阳台和落地窗带来开阔海景，是观景体验最强的房型。</p>
+              <div class="room-pills">
+                <span>21㎡</span>
+                <span>私人阳台</span>
+                <span>落地窗</span>
+                <span>双床 / 大床</span>
+                <span>独立卫浴</span>
+              </div>
+            </div>
+          </article>
+          <article class="room-detail-card">
+            <div class="room-media"><img src="/poster/_assets/arctic-expedition/5层甲板-标准套房-增强.png" alt="标准套房5层" /></div>
+            <div class="room-copy">
+              <div class="room-head">
+                <div class="room-title">
+                  <strong>标准套房｜5层</strong>
+                  <span>含船中 / 前部两个价位，视野更高</span>
+                </div>
+                <div class="room-price">¥83,200-90,900 / 人</div>
+              </div>
+              <p>位于 5 层，按船中与前部分为两个价位，整体视野更高。</p>
+              <div class="room-pills">
+                <span>约18㎡</span>
+                <span>观景窗</span>
+                <span>5层位置</span>
+                <span>完整配置</span>
+                <span>双床 / 大床</span>
+              </div>
+            </div>
+          </article>
+          <article class="room-detail-card">
+            <div class="room-media"><img src="/poster/_assets/arctic-expedition/4层甲板-标准套房-增强.png" alt="标准套房4层" /></div>
+            <div class="room-copy">
+              <div class="room-head">
+                <div class="room-title">
+                  <strong>标准套房｜4层</strong>
+                  <span>含船中 / 前部两个价位，预算更轻</span>
+                </div>
+                <div class="room-price">¥79,700-86,700 / 人</div>
+              </div>
+              <p>位于 4 层，保留标准套房完整配置，预算更友好。</p>
+              <div class="room-pills">
+                <span>约18㎡</span>
+                <span>观景窗</span>
+                <span>4层位置</span>
+                <span>完整配置</span>
+                <span>双床 / 大床</span>
+              </div>
+            </div>
+          </article>
+          <article class="room-detail-card">
+            <div class="room-media"><img src="/poster/_assets/arctic-expedition/舷窗套房-增强.png" alt="舷窗套房" /></div>
+            <div class="room-copy">
+              <div class="room-head">
+                <div class="room-title">
+                  <strong>舷窗套房</strong>
+                  <span>18㎡，经典舷窗视野，价格更轻</span>
+                </div>
+                <div class="room-price">¥75,500 / 人</div>
+              </div>
+              <p>位于 5 层，保留完整配置，经典舷窗视野，预算更轻。</p>
+              <div class="room-pills">
+                <span>18㎡</span>
+                <span>舷窗</span>
+                <span>完整卫浴</span>
+                <span>平板电视</span>
+                <span>迷你吧</span>
+              </div>
+            </div>
+          </article>
+          <article class="room-detail-card">
+            <div class="room-media"><img src="/poster/_assets/arctic-expedition/家庭套房-增强.png" alt="家庭套房" /></div>
+            <div class="room-copy">
+              <div class="room-head">
+                <div class="room-title">
+                  <strong>家庭套房</strong>
+                  <span>19㎡，增设下拉床，家庭同行</span>
+                </div>
+                <div class="room-price">¥67,000 / 人</div>
+              </div>
+              <p>位于 4 层，双床可并为大床，另带下拉床，适合家庭同行。</p>
+              <div class="room-pills">
+                <span>19㎡</span>
+                <span>家庭入住</span>
+                <span>观景窗</span>
+                <span>下拉床</span>
+                <span>独立卫浴</span>
+              </div>
+            </div>
+          </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head stacked">
+        <div>
+          <div class="section-kicker">Included & Excluded</div>
+          <h2>费用权益与自理项目</h2>
+        </div>
+      </div>
+      <div class="include-grid">
+        <article class="include-card">
+          <h3>费用包含</h3>
+          <ul class="include-list">
+            <li>行前会与项目课程，包括公民科学任务、北极日志任务、专家指导、证书及国内成果展示名额。</li>
+            <li>奥斯陆国际连锁酒店住宿 1 晚，含早餐。</li>
+            <li>奥斯陆至朗伊尔城、朗伊尔城至哥本哈根之间包机。</li>
+            <li>赠送防水极地探险冲锋衣 1 件与可重复使用水壶 1 个。</li>
+            <li>船上 10G 高速无线网络、航行期间客舱服务及全部餐食零食。</li>
+            <li>晚餐时提供啤酒、普通葡萄酒及软饮，全天咖啡和茶，套房内每日补充迷你吧软饮。</li>
+            <li>船长欢迎与告别酒会、岸上登陆游览、冲锋艇巡游、教育讲座与向导服务。</li>
+            <li>航行期间免费租用登陆靴，港口附加费、许可证与登陆费。</li>
+          </ul>
+        </article>
+        <article class="include-card">
+          <h3>费用不包含</h3>
+          <ul class="include-list">
+            <li>船上服务费：每位客人每船晚 15 美元，将自动计入船上账户。</li>
+            <li>行程未提及的国际 / 国内航班、接送服务、机场抵离税。</li>
+            <li>护照、签证办理及疫苗接种等相关费用。</li>
+            <li>旅行保险、紧急疏散费用、未提及酒店住宿与餐食费用。</li>
+            <li>可选短途旅行、可选活动附加费与个人消费项目。</li>
+            <li>联合国相关后续活动若产生的差旅与会务费用。</li>
+          </ul>
+        </article>
+      </div>
+      <div class="foot-note">
+        <strong>付款与规则</strong>
+        <div class="foot-note-grid">
+          <div class="note-box">舱房价格按人民币参考价展示，具体付款节点与锁位安排以项目确认函为准。</div>
+          <div class="note-box">所有活动受天气、冰情、港口与登陆点变化影响，船长与探险队长可基于安全与整体体验调整航线及活动安排。</div>
+          <div class="note-box">大陆游客需准备有效欧洲申根签证，并确保符合所有入境与登机要求。</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      MindsLeap Arctic Expedition Program · Explore the Arctic, Create for the Future
+    </div>
+  </main>
+</body>
+</html>
