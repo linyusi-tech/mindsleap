@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>电商企业如何转型为 AI 原生组织 · 浦东电商行业协会</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="deck.css" />
+  <script src="deck-stage.js?v=20260519c"></script>
+  <script src="image-slot.js"></script>
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       PER-SLIDE THEMING
+       Default html theme is "light". Each slide can override via
+       data-slide-theme="brand|dark|light". CSS vars cascade
+       through the slide subtree.
+       ═══════════════════════════════════════════════════════════ */
+
+    /* BRAND — primary blue, white text */
+    .slide[data-slide-theme="brand"] {
+      --bg: #1e477c;
+      --bg-alt: #152f54;
+      --ink: #ffffff;
+      --ink-muted: #bfdbfe;
+      --ink-subtle: #93c5fd;
+      --rule: rgba(255,255,255,0.18);
+      --accent: #ffffff;
+      --accent-soft: #93c5fd;
+      --eyebrow: #93c5fd;
+      --footer-ink: #93c5fd;
+      --card-bg: rgba(255,255,255,0.08);
+      --card-rule: rgba(255,255,255,0.18);
+      --logo-img: url("mindsleap-logo-white.png");
+    }
+
+    /* DARK alias — kept as Brand Blue in this screen version */
+    .slide[data-slide-theme="dark"] {
+      --bg: #1e477c;
+      --bg-alt: #152f54;
+      --ink: #ffffff;
+      --ink-muted: #bfdbfe;
+      --ink-subtle: #93c5fd;
+      --rule: rgba(255,255,255,0.18);
+      --accent: #ffffff;
+      --accent-soft: #93c5fd;
+      --eyebrow: #93c5fd;
+      --footer-ink: #93c5fd;
+      --card-bg: rgba(255,255,255,0.08);
+      --card-rule: rgba(255,255,255,0.18);
+      --logo-img: url("mindsleap-logo-white.png");
+    }
+
+    /* LIGHT — white bg, brand blue accents (also the default) */
+    .slide[data-slide-theme="light"] {
+      --bg: #ffffff;
+      --bg-alt: #f9fafb;
+      --ink: #111111;
+      --ink-muted: #4b5563;
+      --ink-subtle: #9ca3af;
+      --rule: #e5e7eb;
+      --accent: #1e477c;
+      --accent-soft: #3b82f6;
+      --eyebrow: #3b82f6;
+      --footer-ink: #9ca3af;
+      --card-bg: #f9fafb;
+      --card-rule: #e5e7eb;
+      --logo-img: url("mindsleap-logo-blue.png");
+    }
+
+    /* On brand/dark, the bullets check-chip + features icon need
+       the inverted look the original CSS gave via html[data-theme]. */
+    .slide[data-slide-theme="brand"] .chk,
+    .slide[data-slide-theme="dark"] .chk {
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+    }
+    .slide[data-slide-theme="brand"] .icon,
+    .slide[data-slide-theme="dark"] .icon {
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+    }
+
+    /* Screen variant: avoid white cards on a blue stage projection. */
+    .slide[data-slide-theme="brand"].compare .panel.next,
+    .slide[data-slide-theme="dark"].compare .panel.next {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.24);
+      color: #fff;
+    }
+    .slide[data-slide-theme="brand"].compare .panel li,
+    .slide[data-slide-theme="dark"].compare .panel li {
+      color: rgba(255,255,255,0.88);
+    }
+    .slide[data-slide-theme="brand"].compare .panel .zh-en,
+    .slide[data-slide-theme="dark"].compare .panel .zh-en {
+      color: rgba(255,255,255,0.68);
+    }
+    .slide[data-slide-theme="brand"].token-table .th,
+    .slide[data-slide-theme="brand"].token-table .td,
+    .slide[data-slide-theme="dark"].token-table .th,
+    .slide[data-slide-theme="dark"].token-table .td {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.90);
+    }
+    .slide[data-slide-theme="brand"].token-table .th,
+    .slide[data-slide-theme="dark"].token-table .th {
+      color: rgba(255,255,255,0.65);
+    }
+    .slide[data-slide-theme="brand"].token-table .td .level,
+    .slide[data-slide-theme="dark"].token-table .td .level {
+      color: #fff;
+    }
+    .slide[data-slide-theme="brand"].token-table .legend,
+    .slide[data-slide-theme="dark"].token-table .legend {
+      color: rgba(255,255,255,0.76);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       24 · Token ROI table (using deck's own --rule / --bg-alt)
+       ═══════════════════════════════════════════════════════════ */
+    .slide.token-table .table {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1.8fr;
+      gap: 0;
+      margin-top: 36px;
+      border-top: 2px solid var(--accent);
+    }
+    .slide.token-table .th,
+    .slide.token-table .td {
+      padding: 24px 26px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+    }
+    .slide.token-table .th {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      background: var(--bg-alt);
+    }
+    .slide.token-table .td {
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .slide.token-table .td .level {
+      font-family: var(--font-mono, ui-monospace, monospace);
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 26px;
+    }
+    .slide.token-table .row-good .td { font-weight: 600; }
+    .slide.token-table .row-good .td b { color: var(--accent); }
+    .slide.token-table .row-bad  .td { opacity: 0.55; }
+    .slide.token-table .legend {
+      margin-top: 28px;
+      font-size: 15px;
+      color: var(--ink-muted);
+      letter-spacing: 0.01em;
+      line-height: 1.55;
+    }
+
+    /* V2 · Chinese heavy-title breathing room */
+    .slide .slide-title {
+      line-height: 1.15;
+    }
+    .slide.statement .stmt {
+      line-height: 1.22;
+    }
+    .slide.divider h2 {
+      line-height: 1.08;
+    }
+    .slide.divider .num {
+      line-height: 0.98;
+    }
+
+    /* V2 · full-width title pages */
+    .slide.v2-campaign {
+      padding-bottom: 126px;
+    }
+    .slide.v2-campaign .slide-title {
+      max-width: 1620px;
+      font-size: 86px;
+      line-height: 1.12;
+    }
+    .slide.v2-campaign .pair {
+      margin-top: 54px;
+      min-height: 0;
+    }
+    .slide.v2-campaign .panel {
+      padding: 46px 56px 58px;
+      min-height: 0;
+    }
+    .slide.v2-campaign .panel h3 {
+      font-size: 52px;
+    }
+    .slide.v2-campaign .panel .zh-en {
+      margin-bottom: 22px;
+    }
+    .slide.v2-campaign .panel ul {
+      gap: 13px;
+      margin-top: 18px;
+    }
+    .slide.v2-campaign .panel li {
+      font-size: 23px;
+      line-height: 1.34;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       08 / 29 · case slide tweaks
+       ═══════════════════════════════════════════════════════════ */
+    .slide.case .body-col h3 { font-size: 32px; line-height: 1.25; font-weight: 700; margin: 12px 0 18px; }
+    .slide.case .body-col p { font-size: 17px; line-height: 1.65; margin: 8px 0; }
+    .slide.case .body-col em.pull { font-style: normal; color: var(--accent); font-weight: 600; }
+    .slide.v2-case-proof .slide-title {
+      max-width: 1660px;
+      font-size: 84px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+    .slide.v2-case-proof .slide-title .main-q {
+      display: block;
+    }
+    .slide.v2-case-proof .proof-subline {
+      font-size: 58px;
+      font-weight: 950;
+      letter-spacing: 0;
+      line-height: 1;
+      color: var(--ink);
+      margin: -6px 0 24px 0;
+    }
+    .slide.v2-case-proof .row {
+      margin-top: 46px;
+    }
+    .slide.v2-case-proof .metric {
+      align-items: center;
+      gap: 20px;
+    }
+    .slide.v2-case-proof .metric .v {
+      min-width: 118px;
+    }
+    .slide.v2-case-proof .metric .lbl {
+      font-size: 22px;
+      line-height: 1.22;
+    }
+    .slide.v2-case-proof .metric .lbl span {
+      font-size: 14px;
+      line-height: 1.45;
+      letter-spacing: 0.05em;
+      text-transform: none;
+    }
+
+    /* V2 · debt-based chapter system */
+    .slide.divider.debt {
+      grid-template-columns: 0.86fr 1.14fr;
+    }
+    .slide.divider.debt .num {
+      font-size: 205px;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      max-width: 720px;
+    }
+    .slide.divider.debt .debt-kicker {
+      font: 700 24px/1 var(--font-body);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--eyebrow);
+      margin-bottom: 28px;
+    }
+    .slide.divider.debt .debt-line {
+      margin-top: 54px;
+      display: grid;
+      gap: 18px;
+      font: 500 26px/1.35 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .slide.divider.debt .debt-line span {
+      display: block;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+    .slide.software3 {
+      padding: var(--pad-y) var(--pad);
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: 60px;
+      align-items: stretch;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .slide.software3 .photo {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--card-rule);
+      background: var(--bg-alt);
+      min-height: 0;
+    }
+    .slide.software3 .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 0% center;
+      display: block;
+      filter: saturate(0.9) contrast(1.02);
+    }
+    .slide.software3 .photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,28,51,0.02), rgba(11,28,51,0.32));
+      pointer-events: none;
+    }
+    .slide.software3 .caption {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 30px;
+      z-index: 1;
+      font: 700 15px/1.35 var(--font-body);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .slide.software3 .caption span {
+      display: block;
+      margin-top: 8px;
+      font: 400 18px/1.35 var(--font-body);
+      letter-spacing: 0;
+      text-transform: none;
+      color: rgba(255,255,255,0.74);
+    }
+    .slide.software3 .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .slide.software3 .title {
+      font: 700 92px/1.12 var(--font-heading);
+      letter-spacing: -0.025em;
+      margin: 28px 0 0;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .slide.software3 .title .sw {
+      display: block;
+      font: 700 72px/1.08 var(--font-heading);
+      letter-spacing: 0;
+      color: var(--ink-muted);
+      margin-bottom: 22px;
+    }
+    .slide.software3 .title em {
+      font-style: normal;
+      color: var(--accent);
+      text-decoration-line: underline;
+      text-decoration-color: var(--accent-soft);
+      text-decoration-thickness: 6px;
+      text-underline-offset: 12px;
+    }
+    .slide.software3 .lead {
+      font: 500 28px/1.45 var(--font-body);
+      color: var(--ink-muted);
+      margin: 34px 0 0;
+      max-width: 820px;
+    }
+    .slide.software3 .stack {
+      margin-top: 44px;
+      border-top: 1px solid var(--rule);
+    }
+    .slide.software3 .stack-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+    .slide.software3 .stack-row b {
+      font: 700 27px/1.1 var(--font-heading);
+      color: var(--ink);
+    }
+    .slide.software3 .stack-row span {
+      font: 400 24px/1.35 var(--font-body);
+      color: var(--ink-muted);
+    }
+  
+    /* V3 narrative system */
+    .slide.v3-quote .frame { max-width: 1540px; }
+    .slide.v3-quote .quote-en {
+      font: 700 78px/1.12 var(--font-heading);
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      max-width: 1480px;
+      text-wrap: balance;
+    }
+    .slide.v3-quote .quote-zh {
+      margin-top: 48px;
+      font: 700 56px/1.25 var(--font-heading);
+      color: var(--ink-muted);
+      max-width: 1260px;
+    }
+    .slide.v3-quote .source {
+      margin-top: 58px;
+      font: 500 22px/1.4 var(--font-body);
+      color: var(--ink-subtle);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .slide.v4-cognition-quote .frame {
+      max-width: 1660px;
+    }
+    .slide.v4-cognition-quote .quote-en {
+      font-size: 92px;
+      line-height: 1.08;
+      max-width: 1620px;
+    }
+    .slide.v4-cognition-quote .quote-zh {
+      font-size: 64px;
+      line-height: 1.22;
+      max-width: 1420px;
+      margin-top: 54px;
+    }
+    .slide.v4-cognition-quote .source {
+      margin-top: 66px;
+      font-size: 24px;
+    }
+    .slide.v4-token-kpi .frame,
+    .slide.v4-token-factor .frame {
+      max-width: 1580px;
+    }
+    .slide.v4-token-kpi .stmt {
+      font-size: 104px;
+      line-height: 1.1;
+    }
+    .slide.v4-token-kpi .stmt-en {
+      font-size: 44px;
+      line-height: 1.45;
+      max-width: 1450px;
+      margin-top: 54px;
+    }
+    .slide.v4-token-factor .stmt {
+      font-size: 148px;
+      line-height: 1.02;
+    }
+    .slide.v4-token-factor .stmt-en {
+      font-size: 58px;
+      line-height: 1.36;
+      max-width: 1620px;
+      margin-top: 70px;
+    }
+    .slide.v3-case .metric .lbl span { text-transform: none; letter-spacing: 0.04em; }
+    .slide.v3-case .body-col .client {
+      font-size: 18px;
+      padding: 10px 16px;
+    }
+    .slide.v3-case .body-col h3 {
+      font-size: 40px;
+      line-height: 1.2;
+      margin: 18px 0 20px;
+      max-width: 780px;
+    }
+    .slide.v3-case .body-col p {
+      font-size: 23px;
+      line-height: 1.55;
+      margin: 16px 0 0;
+      max-width: 820px;
+    }
+    .slide.v3-case .body-col em.pull {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1.35;
+    }
+    .slide.v3-software {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+    .slide.v3-software .title {
+      font-size: 84px;
+      line-height: 1.12;
+    }
+    .slide.v3-software .lead {
+      font-size: 25px;
+      line-height: 1.5;
+    }
+    .slide.v3-source .source-note {
+      margin-top: 46px;
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+      font: 500 20px/1.5 var(--font-body);
+      color: var(--ink-muted);
+      max-width: 1120px;
+    }
+    .slide.v3-capabilities .grid {
+      gap: 34px;
+      margin-top: 52px;
+    }
+    .slide.v3-capabilities .col {
+      padding: 48px 42px 40px;
+    }
+    .slide.v3-capabilities .icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 30px;
+    }
+    .slide.v3-capabilities .icon svg {
+      width: 34px;
+      height: 34px;
+    }
+    .slide.v3-capabilities .f-eyebrow {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .slide.v3-capabilities h3 {
+      font-size: 40px;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+    .slide.v3-capabilities p {
+      font-size: 25px;
+      line-height: 1.52;
+    }
+    .slide.v3-capabilities .col footer {
+      font-size: 18px;
+      margin-top: 30px;
+    }
+    .slide.v3-tech-assets .grid {
+      gap: 34px;
+      margin-top: 54px;
+    }
+    .slide.v3-tech-assets .col {
+      padding: 46px 36px 38px;
+    }
+    .slide.v3-tech-assets .f-eyebrow {
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+    .slide.v3-tech-assets h3 {
+      font-size: 48px;
+      line-height: 1.08;
+      margin-bottom: 28px;
+    }
+    .slide.v3-tech-assets p {
+      font-size: 25px;
+      line-height: 1.52;
+    }
+    .slide.v3-tech-assets .col footer {
+      font-size: 18px;
+      margin-top: 34px;
+    }
+    .slide.v3-frontier-harness .grid {
+      gap: 36px;
+      margin-top: 56px;
+    }
+    .slide.v3-frontier-harness .col {
+      padding: 54px 48px 44px;
+    }
+    .slide.v3-frontier-harness .f-eyebrow {
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+    .slide.v3-frontier-harness h3 {
+      font-size: 56px;
+      line-height: 1.05;
+      margin-bottom: 34px;
+    }
+    .slide.v3-frontier-harness p {
+      font-size: 30px;
+      line-height: 1.48;
+      max-width: 400px;
+    }
+    .slide.v3-frontier-harness .col footer {
+      font-size: 20px;
+      margin-top: 42px;
+    }
+    .slide.v3-loop-shift .stmt {
+      font-size: 78px;
+      line-height: 1.18;
+    }
+    .slide.v3-loop-shift .stmt-en {
+      max-width: 1320px;
+    }
+    .slide.v3-ad .row {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 72px;
+      margin-top: 48px;
+      flex: 1;
+      min-height: 0;
+    }
+    .slide.v3-ad .offer {
+      border: 1px solid var(--card-rule);
+      background: var(--card-bg);
+      padding: 42px 46px;
+      display: grid;
+      gap: 22px;
+      align-content: start;
+    }
+    .slide.v3-ad .offer h3 {
+      font: 700 44px/1.18 var(--font-heading);
+      margin: 0;
+      color: var(--ink);
+    }
+    .slide.v3-ad .offer p {
+      font: 400 23px/1.55 var(--font-body);
+      margin: 0;
+      color: var(--ink-muted);
+    }
+    .slide.v3-ad .qrbox {
+      border: 1px solid var(--card-rule);
+      background: rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      min-height: 430px;
+    }
+    .slide.v3-ad .qrbox image-slot {
+      width: 300px;
+      height: 300px;
+    }
+    .slide.v3-ad .qrbox .qr-img {
+      width: min(430px, 82%);
+      height: auto;
+      display: block;
+      background: #fff;
+      padding: 18px;
+      box-sizing: border-box;
+    }
+    .slide.v3-congruence {
+      padding-bottom: 74px;
+    }
+    .slide.v3-congruence .slide-title {
+      font-size: 64px;
+      max-width: 1560px;
+    }
+    .slide.v3-congruence .congruence-map {
+      position: relative;
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 260px 70px 88px 1fr 88px 260px;
+      align-items: center;
+      gap: 0;
+      min-height: 560px;
+    }
+    .slide.v3-congruence .side-card {
+      border: 1px solid var(--card-rule);
+      background: var(--card-bg);
+      min-height: 218px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+    .slide.v3-congruence .side-card .cap {
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+      font: 800 30px/1.05 var(--font-heading);
+      padding: 26px 30px;
+    }
+    .slide.v3-congruence .side-card ul {
+      margin: 0;
+      padding: 24px 30px 28px;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font: 500 23px/1.28 var(--font-body);
+      color: var(--ink);
+    }
+    .slide.v3-congruence .strategy {
+      justify-self: center;
+      display: grid;
+      place-items: center;
+      gap: 12px;
+      color: var(--ink);
+    }
+    .slide.v3-congruence .strategy b {
+      writing-mode: vertical-rl;
+      font: 800 34px/1 var(--font-heading);
+      letter-spacing: 0.12em;
+    }
+    .slide.v3-congruence .strategy span {
+      font: 700 16px/1 var(--font-body);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .slide.v3-congruence .arrow {
+      justify-self: center;
+      width: 72px;
+      height: 34px;
+      color: rgba(255,255,255,0.82);
+      opacity: 0.9;
+    }
+    .slide.v3-congruence .transform {
+      position: relative;
+      height: 548px;
+      border: 1px solid var(--card-rule);
+      background: rgba(255,255,255,0.06);
+      padding: 34px 44px;
+      overflow: hidden;
+    }
+    .slide.v3-congruence .transform-title {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      font: 800 30px/1.1 var(--font-heading);
+      color: var(--ink);
+    }
+    .slide.v3-congruence .flow-lines {
+      position: absolute;
+      left: 68px;
+      right: 68px;
+      top: 86px;
+      bottom: 68px;
+      width: calc(100% - 136px);
+      height: calc(100% - 140px);
+      z-index: 1;
+      color: rgba(191,219,254,0.72);
+      opacity: 0.58;
+    }
+    .slide.v3-congruence .node {
+      position: absolute;
+      z-index: 2;
+      width: 244px;
+      min-height: 104px;
+      padding: 18px 16px 16px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(30,71,124,0.16);
+    }
+    .slide.v3-congruence .node h3 {
+      margin: 0;
+      font: 800 28px/1.1 var(--font-heading);
+    }
+    .slide.v3-congruence .node p {
+      margin: 8px 0 0;
+      font: 500 15px/1.25 var(--font-body);
+      color: rgba(255,255,255,0.82);
+    }
+    .slide.v3-congruence .node.work { left: 68px; top: 236px; }
+    .slide.v3-congruence .node.structure { right: 68px; top: 236px; }
+    .slide.v3-congruence .node.culture { left: 50%; top: 76px; transform: translateX(-50%); }
+    .slide.v3-congruence .node.people { left: 50%; bottom: 44px; transform: translateX(-50%); }
+    .slide.v3-congruence .feedback {
+      position: absolute;
+      left: 196px;
+      right: 196px;
+      bottom: -12px;
+      height: 74px;
+      border-left: 10px solid rgba(191,219,254,0.66);
+      border-right: 10px solid rgba(191,219,254,0.66);
+      border-bottom: 10px solid rgba(191,219,254,0.66);
+    }
+    .slide.v3-congruence .feedback span {
+      position: absolute;
+      left: 50%;
+      top: 28px;
+      transform: translateX(-50%);
+      background: var(--bg);
+      padding: 0 18px;
+      font: 800 26px/1 var(--font-heading);
+      color: var(--ink);
+    }
+    .slide.v3-action-swim {
+      padding-bottom: 72px;
+    }
+    .slide.v3-action-swim .action-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 58px;
+      margin-top: 32px;
+      flex: 1;
+      min-height: 0;
+    }
+    .slide.v3-action-swim .action-copy {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .slide.v3-action-swim .action-copy p {
+      font: 500 27px/1.48 var(--font-body);
+      color: var(--ink-muted);
+      max-width: 720px;
+      margin: 0 0 22px;
+    }
+    .slide.v3-action-swim .action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .slide.v3-action-swim .action {
+      border: 1px solid var(--card-rule);
+      background: var(--card-bg);
+      padding: 18px 24px 16px;
+      min-height: 98px;
+    }
+    .slide.v3-action-swim .action h3 {
+      margin: 0 0 8px;
+      font: 800 25px/1.08 var(--font-heading);
+      color: var(--ink);
+    }
+    .slide.v3-action-swim .action p {
+      margin: 0;
+      font: 400 16px/1.36 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .slide.v3-action-swim .action.real {
+      grid-column: 1 / -1;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .slide.v3-action-swim .action.real h3,
+    .slide.v3-action-swim .action.real p {
+      color: #fff;
+    }
+    .slide.v3-action-swim .pool-photo {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      background: var(--accent);
+    }
+    .slide.v3-action-swim .pool-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: saturate(0.92) contrast(1.03);
+    }
+    .slide.v3-action-swim .pool-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(30,78,138,0.10), rgba(30,78,138,0.34));
+      pointer-events: none;
+    }
+    .slide.v3-action-swim .caption {
+      position: absolute;
+      left: 28px;
+      bottom: 24px;
+      z-index: 2;
+      color: #fff;
+      font: 700 18px/1.2 var(--font-body);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .slide.v4-lifecycle .grid,
+    .slide.v4-moat .grid {
+      display: grid;
+      gap: 28px;
+      flex: 1;
+      margin-top: 52px;
+    }
+    .slide.v4-lifecycle .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .slide.v4-moat .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .slide.v4-lifecycle .card,
+    .slide.v4-moat .card {
+      border: 1px solid var(--card-rule);
+      background: var(--card-bg);
+      padding: 42px 38px 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      min-height: 420px;
+    }
+    .slide.v4-lifecycle .card::before,
+    .slide.v4-moat .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 56px;
+      height: 5px;
+      background: var(--accent);
+    }
+    .slide.v4-lifecycle .num,
+    .slide.v4-moat .num {
+      font: 800 20px/1 var(--font-heading);
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      margin-bottom: 42px;
+    }
+    .slide.v4-lifecycle h3,
+    .slide.v4-moat h3 {
+      margin: 0 0 24px;
+      font: 800 42px/1.08 var(--font-heading);
+      color: var(--ink);
+    }
+    .slide.v4-lifecycle p,
+    .slide.v4-moat p {
+      margin: 0;
+      font: 400 24px/1.5 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .slide.v4-lifecycle footer,
+    .slide.v4-moat footer {
+      margin-top: auto;
+      padding-top: 26px;
+      border-top: 1px solid var(--rule);
+      font: 800 16px/1.2 var(--font-body);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .slide.v4-final-quote {
+      display: grid;
+      grid-template-columns: 1.04fr 0.82fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .slide.v4-final-quote .quote-copy {
+      padding-top: 12px;
+    }
+    .slide.v4-final-quote .eyebrow {
+      margin-bottom: 48px;
+    }
+    .slide.v4-final-quote .quote-mark {
+      font: 800 86px/0.72 var(--font-heading);
+      color: var(--accent-soft);
+      margin-bottom: 22px;
+    }
+    .slide.v4-final-quote blockquote {
+      margin: 0;
+      font: 800 72px/1.08 var(--font-heading);
+      letter-spacing: 0;
+      color: var(--ink);
+      max-width: 1040px;
+      text-wrap: balance;
+    }
+    .slide.v4-final-quote .quote-cn {
+      margin-top: 34px;
+      font: 700 34px/1.32 var(--font-body);
+      color: var(--ink-muted);
+    }
+    .slide.v4-final-quote .author {
+      margin-top: 58px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font: 800 24px/1 var(--font-heading);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .slide.v4-final-quote .author span {
+      display: block;
+      margin-top: 10px;
+      font: 600 15px/1 var(--font-body);
+      letter-spacing: 0.12em;
+      color: var(--ink-subtle);
+    }
+    .slide.v4-final-quote .author-line {
+      width: 82px;
+      height: 2px;
+      background: var(--accent-soft);
+    }
+    .slide.v4-final-quote .portrait-wrap {
+      justify-self: center;
+      width: 560px;
+      transform: translateX(-28px);
+    }
+    .slide.v4-final-quote .portrait {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 34%;
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.18);
+    }
+    .slide.v4-final-quote .photo-credit {
+      margin-top: 16px;
+      font: 600 12px/1.4 var(--font-body);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(191,219,254,0.72);
+    }
+    .slide.cover.v4-text-cover {
+      display: block;
+      padding: 82px 120px 78px;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide.cover.v4-text-cover::after {
+      content: "";
+      position: absolute;
+      left: 120px;
+      right: 120px;
+      bottom: 174px;
+      height: 1px;
+      background: rgba(255,255,255,0.18);
+      pointer-events: none;
+    }
+    .slide.cover.v4-text-cover .cover-shell {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+    .slide.cover.v4-text-cover .logo {
+      width: 300px;
+      height: 52px;
+      flex: 0 0 auto;
+    }
+    .slide.cover.v4-text-cover .cover-main {
+      margin-top: 112px;
+      max-width: none;
+      width: 100%;
+    }
+    .slide.cover.v4-text-cover .cover-eyebrow {
+      margin-bottom: 34px;
+      font-size: 24px;
+      letter-spacing: 0.32em;
+      color: var(--ink-subtle);
+    }
+    .slide.cover.v4-text-cover .cover-title {
+      font-size: 132px;
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+    .slide.cover.v4-text-cover .cover-title.zh {
+      font-size: 188px;
+      line-height: 0.94;
+      margin-top: 24px;
+      max-width: none;
+      white-space: nowrap;
+    }
+    .slide.cover.v4-text-cover .cover-tagline {
+      margin-top: 48px;
+      max-width: 1460px;
+      font-size: 34px;
+      line-height: 1.45;
+      color: rgba(191,219,254,0.92);
+    }
+    .slide.cover.v4-text-cover .cover-bottom {
+      margin-top: auto;
+      display: flex;
+      align-items: flex-end;
+    }
+    .slide.cover.v4-text-cover .cover-meta {
+      display: block;
+      font-size: 21px;
+      line-height: 1.35;
+      color: rgba(191,219,254,0.78);
+    }
+    .slide.cover.v4-text-cover .cover-meta b {
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    /* Projection big-type pass.
+       Venue projection made small type blurry, so this version prioritizes
+       readable thesis-level text over dense notes and metadata. */
+    .slide {
+      --pad: 118px;
+      --pad-y: 86px;
+    }
+    .slide .eyebrow {
+      font-size: 26px;
+      letter-spacing: 0.22em;
+    }
+    .slide .label,
+    .slide .zh-en,
+    .slide footer,
+    .slide .f-eyebrow,
+    .slide .caption,
+    .slide .photo-credit {
+      display: none !important;
+    }
+    .slide .slide-title {
+      font-size: 78px;
+      line-height: 1.08;
+      max-width: 1660px;
+    }
+    .slide .slide-title .en {
+      margin-top: 22px;
+      font-size: 34px;
+      line-height: 1.32;
+      max-width: 1420px;
+    }
+    .slide .slide-bar {
+      margin-top: 30px;
+      margin-bottom: 36px;
+    }
+    .slide.statement .frame {
+      max-width: 1640px;
+    }
+    .slide.statement .stmt {
+      font-size: 108px;
+      line-height: 1.1;
+    }
+    .slide.statement .stmt-en {
+      font-size: 46px;
+      line-height: 1.42;
+      max-width: 1500px;
+      margin-top: 54px;
+    }
+    .slide.compare .pair {
+      gap: 30px;
+    }
+    .slide.compare .panel {
+      padding: 46px 48px;
+    }
+    .slide.compare .panel h3 {
+      font-size: 48px;
+      line-height: 1.08;
+      margin-bottom: 24px;
+    }
+    .slide.compare .panel ul {
+      gap: 16px;
+      margin-top: 0;
+    }
+    .slide.compare .panel li {
+      font-size: 28px;
+      line-height: 1.35;
+    }
+    .slide.features .grid,
+    .slide.v3-capabilities .grid,
+    .slide.v3-frontier-harness .grid,
+    .slide.v3-tech-assets .grid,
+    .slide.v4-lifecycle .grid {
+      gap: 22px;
+    }
+    .slide.features .col,
+    .slide.v3-capabilities .col,
+    .slide.v3-frontier-harness .col,
+    .slide.v3-tech-assets .col,
+    .slide.v4-lifecycle .card {
+      padding: 38px 34px;
+    }
+    .slide.features .col h3,
+    .slide.v3-capabilities h3,
+    .slide.v3-frontier-harness h3,
+    .slide.v3-tech-assets h3,
+    .slide.v4-lifecycle h3 {
+      font-size: 44px;
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+    .slide.features .col p,
+    .slide.v3-capabilities p,
+    .slide.v3-frontier-harness p,
+    .slide.v3-tech-assets p,
+    .slide.v4-lifecycle p {
+      font-size: 28px;
+      line-height: 1.42;
+    }
+    .slide.bullets .body-row {
+      gap: 56px;
+    }
+    .slide.bullets li {
+      font-size: 34px;
+      line-height: 1.42;
+    }
+    .slide.token-table .table {
+      margin-top: 42px;
+    }
+    .slide.token-table .th,
+    .slide.token-table .td {
+      padding: 28px 28px;
+    }
+    .slide.token-table .th {
+      font-size: 20px;
+      letter-spacing: 0.12em;
+    }
+    .slide.token-table .td {
+      font-size: 32px;
+      line-height: 1.3;
+    }
+    .slide.token-table .td .level {
+      font-size: 38px;
+    }
+    .slide.token-table .legend {
+      font-size: 26px;
+      line-height: 1.42;
+    }
+    .slide.v3-case .body-col p,
+    .slide.v2-case-proof .body-col p {
+      font-size: 27px;
+      line-height: 1.5;
+    }
+    .slide.v2-case-proof .metric .v {
+      font-size: 56px;
+    }
+    .slide.v2-case-proof .metric .lbl {
+      font-size: 23px;
+    }
+    .slide.v2-case-proof .metric .lbl span {
+      font-size: 18px;
+    }
+    .slide.v3-congruence .slide-title {
+      font-size: 72px;
+    }
+    .slide.v3-congruence .side-card ul {
+      font-size: 28px;
+      gap: 16px;
+    }
+    .slide.v3-congruence .node h3 {
+      font-size: 30px;
+    }
+    .slide.v3-congruence .node p {
+      font-size: 18px;
+    }
+    .slide.software3 .copy p,
+    .slide.software3 .stack-row span {
+      font-size: 27px;
+      line-height: 1.42;
+    }
+    .slide.software3 .stack-row b {
+      font-size: 31px;
+    }
+    .slide.v3-action-swim .action-copy p {
+      font-size: 33px;
+      line-height: 1.42;
+    }
+    .slide.v3-action-swim .action h3 {
+      font-size: 34px;
+    }
+    .slide.v3-action-swim .action p {
+      font-size: 23px;
+      line-height: 1.36;
+    }
+    .slide.v3-ad .offer h3 {
+      font-size: 50px;
+    }
+    .slide.v3-ad .offer p {
+      font-size: 31px;
+      line-height: 1.46;
+    }
+    .slide.divider.debt .num {
+      font-size: 228px;
+    }
+    .slide.divider.debt h2 {
+      font-size: 82px;
+      line-height: 1.08;
+    }
+    .slide.divider.debt .desc,
+    .slide.divider.debt .debt-line {
+      font-size: 34px;
+      line-height: 1.36;
+    }
+    .slide.v4-final-quote blockquote {
+      font-size: 82px;
+      line-height: 1.06;
+    }
+    .slide.v4-final-quote .quote-cn {
+      font-size: 40px;
+    }
+
+    /* Hard projection floor: visible text should not fall below 36px. */
+    .slide:not(.no-chrome)::after,
+    .slide:not(.no-chrome)::before {
+      display: none !important;
+    }
+    .slide .eyebrow,
+    .slide .source,
+    .slide .cover-eyebrow,
+    .slide .cover-meta,
+    .slide .quote-cn,
+    .slide .quote-zh,
+    .slide .slide-title .en,
+    .slide p,
+    .slide li,
+    .slide .desc,
+    .slide .debt-line,
+    .slide .legend,
+    .slide .th,
+    .slide .td,
+    .slide .lbl,
+    .slide .stack-row span,
+    .slide .metric .lbl,
+    .slide .author,
+    .slide .author span,
+    .slide .qr-cap {
+      font-size: 36px !important;
+    }
+    .slide.compare .panel::before {
+      display: none !important;
+    }
+    .slide .eyebrow,
+    .slide .cover-eyebrow,
+    .slide .source {
+      line-height: 1.18 !important;
+      letter-spacing: 0.16em;
+    }
+    .slide .slide-title {
+      font-size: 88px;
+    }
+    .slide .slide-title .en {
+      line-height: 1.28 !important;
+      max-width: 1520px;
+    }
+    .slide.compare .panel li {
+      line-height: 1.36 !important;
+    }
+    .slide.features .col p,
+    .slide.v3-capabilities p,
+    .slide.v3-frontier-harness p,
+    .slide.v3-tech-assets p,
+    .slide.v4-lifecycle p,
+    .slide.v3-ad .offer p,
+    .slide.v3-action-swim .action p,
+    .slide.v3-action-swim .action-copy p,
+    .slide.software3 .copy p {
+      font-size: 36px !important;
+      line-height: 1.34 !important;
+    }
+    .slide.features .col h3,
+    .slide.v3-capabilities h3,
+    .slide.v3-frontier-harness h3,
+    .slide.v3-tech-assets h3,
+    .slide.v4-lifecycle h3,
+    .slide.v3-action-swim .action h3,
+    .slide.v3-ad .offer h3 {
+      font-size: 54px !important;
+      line-height: 1.06 !important;
+    }
+    .slide.bullets li {
+      font-size: 40px !important;
+      line-height: 1.34 !important;
+    }
+    .slide.token-table .th,
+    .slide.token-table .td {
+      font-size: 36px !important;
+      line-height: 1.22 !important;
+      padding: 24px 26px;
+    }
+    .slide.token-table .td .level {
+      font-size: 44px !important;
+    }
+    .slide.v4-lifecycle .num,
+    .slide.v4-moat .num {
+      font-size: 36px !important;
+    }
+    .slide.v2-case-proof .metric .lbl span,
+    .slide.v3-congruence .strategy span,
+    .slide.v3-congruence .node p,
+    .slide.software3 .caption span {
+      display: none !important;
+    }
+    .slide.v3-congruence .side-card ul {
+      font-size: 36px !important;
+      line-height: 1.25 !important;
+    }
+    .slide.v3-congruence .node h3,
+    .slide.v3-congruence .transform-title,
+    .slide.v3-congruence .feedback span,
+    .slide.v3-congruence .strategy b {
+      font-size: 40px !important;
+    }
+    .slide.software3 .stack-row b {
+      font-size: 40px !important;
+    }
+    .slide.cover.v4-text-cover .cover-tagline {
+      font-size: 42px !important;
+      line-height: 1.36 !important;
+    }
+    .slide.cover.v4-text-cover .cover-meta {
+      display: grid;
+      gap: 14px;
+      font-size: 32px !important;
+      line-height: 1.22 !important;
+      max-width: 1680px;
+    }
+    .slide.cover.v4-text-cover .cover-meta b {
+      display: inline-block;
+      min-width: 94px;
+      margin: 0 22px 0 0;
+    }
+    .slide.v4-final-quote .photo-credit {
+      display: none !important;
+    }
+    .slide.v3-case {
+      padding-bottom: 126px;
+    }
+    .slide.v3-case .row {
+      margin-top: 48px;
+      align-items: start;
+      gap: 78px;
+    }
+    .slide.v3-case .body-col h3 {
+      max-width: 760px;
+      font-size: 50px !important;
+      line-height: 1.12 !important;
+    }
+    .slide.v3-case .body-col p {
+      max-width: 820px;
+      font-size: 36px !important;
+      line-height: 1.32 !important;
+      margin-top: 26px;
+    }
+    .slide.v3-case .metrics {
+      gap: 22px;
+      align-self: start;
+    }
+    .slide.v3-case .metric {
+      min-height: 154px;
+      padding: 32px 36px;
+    }
+    .slide.v3-action-swim {
+      padding-bottom: 126px;
+    }
+    .slide.v3-action-swim .action-layout {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 64px;
+      margin-top: 46px;
+      align-items: start;
+      flex: 0 0 auto;
+    }
+    .slide.v3-action-swim .action-copy > p {
+      max-width: 820px;
+      margin-bottom: 24px;
+    }
+    .slide.v3-action-swim .action-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 0;
+    }
+    .slide.v3-action-swim .action {
+      min-height: 134px;
+      padding: 24px 28px;
+    }
+    .slide.v3-action-swim .action h3 {
+      font-size: 44px !important;
+      margin-bottom: 12px;
+    }
+    .slide.v3-action-swim .action p {
+      font-size: 32px !important;
+      line-height: 1.28 !important;
+    }
+    .slide.v3-action-swim .action.real {
+      display: block;
+      grid-column: 1 / -1;
+    }
+    .slide.v3-action-swim .pool-photo {
+      min-height: 0;
+      height: 410px;
+      margin-top: 18px;
+    }
+    .slide.v4-fde-big .row {
+      display: block;
+      margin-top: 48px;
+    }
+    .slide.v4-fde-big .offer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 54px 60px;
+      min-height: 420px;
+      align-items: start;
+    }
+    .slide.v4-fde-big .offer h3 {
+      font-size: 50px !important;
+      line-height: 1.06 !important;
+    }
+    .slide.v4-fde-big .offer p {
+      font-size: 38px !important;
+      line-height: 1.34 !important;
+      margin: 0;
+    }
+    .slide.v4-fde-big .fde-col {
+      display: grid;
+      gap: 26px;
+      align-content: start;
+      border-right: 1px solid rgba(255,255,255,0.16);
+      padding-right: 26px;
+      min-height: 310px;
+    }
+    .slide.v4-fde-big .fde-col:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+    .slide.v4-ecommerce-playbook .grid {
+      gap: 22px;
+    }
+    .slide.v4-ecommerce-playbook .col {
+      padding: 42px 34px;
+      min-height: 420px;
+    }
+    .slide.v4-ecommerce-playbook h3 {
+      font-size: 50px !important;
+    }
+    .slide.v4-ecommerce-playbook p {
+      font-size: 34px !important;
+      line-height: 1.34 !important;
+    }
+    .slide.v4-ecommerce-start .row {
+      display: block;
+      margin-top: 54px;
+    }
+    .slide.v4-ecommerce-start .offer {
+      max-width: none;
+      min-height: 430px;
+      padding: 62px 70px;
+    }
+    .slide.v4-ecommerce-start .offer h3 {
+      font-size: 58px !important;
+    }
+    .slide.v4-ecommerce-start .offer p {
+      max-width: 1420px;
+      font-size: 42px !important;
+      line-height: 1.36 !important;
+    }
+    .slide.software3.v3-software {
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: 72px;
+      padding: 92px 118px;
+      align-items: stretch;
+    }
+    .slide.software3.v3-software .photo {
+      height: 100%;
+      min-height: 0;
+    }
+    .slide.software3.v3-software .photo img {
+      object-position: 0% center;
+    }
+    .slide.software3.v3-software .content {
+      justify-content: center;
+      padding-right: 12px;
+    }
+    .slide.software3.v3-software .eyebrow {
+      margin-bottom: 34px;
+    }
+    .slide.software3.v3-software .title {
+      font-size: 82px !important;
+      line-height: 1.08 !important;
+      margin: 0;
+      max-width: 900px;
+    }
+    .slide.software3.v3-software .title .sw {
+      font-size: 64px !important;
+      line-height: 1.06 !important;
+      margin-bottom: 22px;
+    }
+    .slide.software3.v3-software .lead {
+      font-size: 38px !important;
+      line-height: 1.38 !important;
+      margin-top: 44px;
+      max-width: 900px;
+    }
+    .slide.software3.v3-software .stack {
+      display: none;
+    }
+    .slide.bullets[data-label^="Agent"] .body-row,
+    .slide.bullets[data-label^="Skill"] .body-row,
+    .slide.bullets[data-label^="Memory"] .body-row {
+      gap: 68px;
+      margin-top: 76px;
+    }
+    .slide.bullets[data-label^="Agent"] ul,
+    .slide.bullets[data-label^="Skill"] ul,
+    .slide.bullets[data-label^="Memory"] ul {
+      gap: 36px;
+    }
+    .slide.bullets[data-label^="Agent"] li,
+    .slide.bullets[data-label^="Skill"] li,
+    .slide.bullets[data-label^="Memory"] li {
+      grid-template-columns: 64px 1fr;
+      gap: 28px;
+    }
+    .slide.bullets[data-label^="Agent"] .chk,
+    .slide.bullets[data-label^="Skill"] .chk,
+    .slide.bullets[data-label^="Memory"] .chk {
+      width: 48px;
+      height: 48px;
+      font-size: 21px !important;
+      line-height: 48px !important;
+      margin-top: 4px;
+    }
+    .slide.bullets[data-label^="Agent"] .b-title,
+    .slide.bullets[data-label^="Skill"] .b-title,
+    .slide.bullets[data-label^="Memory"] .b-title {
+      font-size: 40px !important;
+      line-height: 1.16 !important;
+    }
+    .slide.bullets[data-label^="Agent"] .b-desc,
+    .slide.bullets[data-label^="Skill"] .b-desc,
+    .slide.bullets[data-label^="Memory"] .b-desc {
+      font-size: 34px !important;
+      line-height: 1.34 !important;
+      margin-top: 12px;
+    }
+    .slide .nowrap {
+      white-space: nowrap;
+    }
+    .slide.v4-io-rate .stmt {
+      font-size: 104px !important;
+      line-height: 1.08 !important;
+    }
+  </style>
+</head>
+<body>
+
+
+<deck-stage width="1920" height="1080">
+
+  <section class="slide cover no-chrome v4-text-cover" data-slide-theme="brand" data-label="封面 · Cover">
+    <div class="cover-shell">
+      <div class="logo"></div>
+      <div class="cover-main">
+        <div class="cover-eyebrow">AI Native E-commerce Organization</div>
+        <h1 class="cover-title">电商企业，如何转型为</h1>
+        <h2 class="cover-title zh">AI 原生组织<span class="lf">.</span></h2>
+        <p class="cover-tagline">
+          从内容、投放、客服、运营到供应链，<br/>
+          把 AI 从工具变成电商增长的组织能力。
+        </p>
+      </div>
+      <div class="cover-bottom">
+        <div class="cover-meta">
+          <div><b>主讲</b>王林 Lincoln Wang · Founders Space 中国 CEO · MindsLeap 创始人</div>
+          <div><b>场合</b>浦东电商行业协会 · AI 原生企业分享 · 2026.06.24</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body statement v3-quote v4-cognition-quote" data-slide-theme="brand" data-label="开场金句 · 理解不能外包">
+    <div class="frame">
+      <div class="eyebrow">Opening Quote <span class="dot">·</span> 理解不能外包</div>
+      <div class="quote-en">You can outsource your thinking, but you can't outsource your understanding.</div>
+      <div class="quote-zh">你可以把思考外包给 AI。<br/>但你不能把理解外包出去。</div>
+      <div class="source">Karpathy 在 Software 3.0 演讲中引用的提醒</div>
+    </div>
+  </section>
+
+  <section class="slide body compare v2-campaign" data-slide-theme="brand" data-label="开场案例 · 新品推广">
+    <div class="eyebrow">开场案例 <span class="dot">·</span> 同一件事，两种组织</div>
+    <h1 class="slide-title">周一例会，决定尽快上线新品电商推广<span class="en">这不是营销问题，是电商组织操作系统问题。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="pair">
+      <div class="panel now">
+        <h3>A · 传统企业</h3>
+        <div class="zh-en">旧做法</div>
+        <ul>
+          <li>商品、设计、投放、客服、渠道分别理解需求</li>
+          <li>详情页、短视频、直播脚本、站内投放串行推进</li>
+          <li>真正上线：<b>2-3 周 / 多团队 / 多轮对齐</b></li>
+        </ul>
+      </div>
+      <div class="panel next">
+        <h3>B · AI 原生企业</h3>
+        <div class="zh-en">AI 原生做法</div>
+        <ul>
+          <li>先定义 GMV 目标、预算边界、验收标准</li>
+          <li>商品卖点、详情页、素材、投放、人群包多 Agent 并行</li>
+          <li>次日可测试上线：<b>24 小时 / 小团队 / 每日复盘</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body compare" data-slide-theme="brand" data-label="定义 · 传统企业和 AI 原生企业">
+    <div class="eyebrow">定义 <span class="dot">·</span> 两种企业</div>
+    <h1 class="slide-title">如何定义传统企业和 AI 原生企业？<span class="en">不是有没有 AI 工具，而是组织能力的载体不同。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="pair">
+      <div class="panel now">
+        <h3>传统企业</h3>
+        <div class="zh-en">能力在人身上</div>
+        <ul>
+          <li>经验在员工脑子里，离职即流失</li>
+          <li>流程靠会议、审批、口头对齐推动</li>
+          <li>AI 是个人效率工具，没有进入组织系统</li>
+          <li>新员工靠培训和师徒制慢慢追赶</li>
+          <li><b>增长方式：加人、开会、层层管理</b></li>
+        </ul>
+      </div>
+      <div class="panel next">
+        <h3>AI 原生企业</h3>
+        <div class="zh-en">能力在系统里</div>
+        <ul>
+          <li>Skill 把员工能力变成可调用资产</li>
+          <li>Memory 把公司数据和信息变成组织记忆</li>
+          <li>Workflow 按 AI 能力重新设计，而不是让 AI 填旧流程</li>
+          <li>Agent 持续增强，组织自动吃到执行红利</li>
+          <li><b>增长方式：沉淀资产、复用智能、缩短判断周期</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body features v4-ecommerce-playbook" data-slide-theme="brand" data-label="电商场景 · AI 原生增长系统">
+    <div class="eyebrow">E-commerce <span class="dot">·</span> AI 原生增长系统</div>
+    <h1 class="slide-title">电商企业不是缺 AI 工具，<br/>而是缺一套 AI 原生增长系统<span class="en">把商品、内容、流量、客户和履约变成可被 Agent 调用的资产。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="col"><div class="f-eyebrow">01</div><h3>商品</h3><p>把卖点、竞品、评价、库存、利润率变成可调用的商品 Memory。</p><footer>Product Memory</footer></div>
+      <div class="col"><div class="f-eyebrow">02</div><h3>内容</h3><p>让 AI 并行生成详情页、短视频脚本、直播话术和达人种草素材。</p><footer>Content Workflow</footer></div>
+      <div class="col"><div class="f-eyebrow">03</div><h3>流量</h3><p>围绕人群、渠道、预算和转化目标，快速生成投放方案并复盘。</p><footer>Traffic Agent</footer></div>
+      <div class="col"><div class="f-eyebrow">04</div><h3>客户</h3><p>把咨询、评价、售后和复购触点沉淀成客服与会员运营 Skill。</p><footer>Customer Skill</footer></div>
+    </div>
+  </section>
+
+  <section class="slide body v3-congruence" data-slide-theme="brand" data-label="Congruence Model · AI 时代的组织对齐">
+    <div class="eyebrow">Congruence Model <span class="dot">·</span> 传统组织的运作机制</div>
+    <h1 class="slide-title">AI时代，重新思考核心要素的变革<span class="en">主体还是原来的模型，只是四个核心模块被 AI 改写。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="congruence-map">
+      <div class="side-card input">
+        <div class="cap">输入 Inputs</div>
+        <ul>
+          <li>环境</li>
+          <li>资源</li>
+          <li>历史</li>
+        </ul>
+      </div>
+      <div class="strategy"><b>战略</b><span>Strategy</span></div>
+      <svg class="arrow" viewBox="0 0 72 34" aria-hidden="true">
+        <path d="M0 17H52" fill="none" stroke="currentColor" stroke-width="10"/>
+        <path d="M52 2L72 17 52 32Z" fill="currentColor"/>
+      </svg>
+      <div class="transform">
+        <div class="transform-title">转化过程 Transformation Process</div>
+        <svg class="flow-lines" viewBox="0 0 760 410" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <marker id="v3Arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0,0 L9,4.5 L0,9 Z" fill="currentColor"></path>
+            </marker>
+          </defs>
+          <path d="M120 205 H640" stroke="currentColor" stroke-width="14" fill="none" marker-end="url(#v3Arrow)"/>
+          <path d="M380 80 V330" stroke="currentColor" stroke-width="14" fill="none" marker-end="url(#v3Arrow)"/>
+          <path d="M120 205 V80 H380" stroke="currentColor" stroke-width="10" fill="none" marker-end="url(#v3Arrow)"/>
+          <path d="M640 205 V80 H380" stroke="currentColor" stroke-width="10" fill="none" marker-end="url(#v3Arrow)"/>
+          <path d="M120 205 V330 H380" stroke="currentColor" stroke-width="10" fill="none" marker-end="url(#v3Arrow)"/>
+          <path d="M640 205 V330 H380" stroke="currentColor" stroke-width="10" fill="none" marker-end="url(#v3Arrow)"/>
+        </svg>
+        <div class="node culture">
+          <h3>文化 Culture</h3>
+          <p>AI Leadership</p>
+        </div>
+      <div class="node work">
+        <h3>工作 Work</h3>
+        <p>人类的 Work + Skill & Workflow</p>
+      </div>
+        <div class="node structure">
+          <h3>结构 Structure</h3>
+          <p>Agent 之间的结构</p>
+        </div>
+        <div class="node people">
+          <h3>人员 People</h3>
+          <p>People + Agent</p>
+        </div>
+      </div>
+      <svg class="arrow" viewBox="0 0 72 34" aria-hidden="true">
+        <path d="M0 17H52" fill="none" stroke="currentColor" stroke-width="10"/>
+        <path d="M52 2L72 17 52 32Z" fill="currentColor"/>
+      </svg>
+      <div class="side-card output">
+        <div class="cap">输出 Outputs</div>
+        <ul>
+          <li>组织</li>
+          <li>团队</li>
+          <li>个人</li>
+        </ul>
+      </div>
+      <div class="feedback">
+        <span>反馈 Feedback</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body statement v3-loop-shift" data-slide-theme="brand" data-label="范式转变 · Human on the loop">
+    <div class="frame">
+      <div class="eyebrow">Paradigm Shift <span class="dot">·</span> 这不是工具升级</div>
+      <h1 class="stmt">
+        从 <em>AI in the loop</em>，<br/>
+        到 <em>Human in the loop</em>，<br/>
+        再到 <em>Human on the loop</em>。
+      </h1>
+      <p class="stmt-en">
+        第一阶段，是人在流程里调用 AI；第二阶段，是 AI 推进任务，人进入关键节点判断和验收。
+        再往后，人不再盯着每一步执行，而是设计 Spec、Harness、Gate 和 Handoff，让系统持续做对。
+      </p>
+    </div>
+  </section>
+
+  <section class="slide body v4-lifecycle" data-slide-theme="brand" data-label="AI 原生生命周期 · 从想法到规模化">
+    <div class="eyebrow">Anthropic Playbook <span class="dot">·</span> 生命周期被重启</div>
+    <h1 class="slide-title">AI 原生组织，不是更快做旧流程<span class="en">而是把“想法、验证、上线、规模化”的每一阶段重新设计。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid">
+      <div class="card"><div class="num">01</div><h3>想法</h3><p>先让 AI 做研究、反证、竞品和用户访谈设计，避免太快做错事。</p><footer>Sense-making first</footer></div>
+      <div class="card"><div class="num">02</div><h3>验证</h3><p>用真实对话、原型和数据证明问题存在，而不是把原型当成验证。</p><footer>Evidence before build</footer></div>
+      <div class="card"><div class="num">03</div><h3>上线</h3><p>让 Agent 承担研究、构建、内容、运营和反馈整理，人负责判断和取舍。</p><footer>Agentic execution</footer></div>
+      <div class="card"><div class="num">04</div><h3>规模化</h3><p>把流程、上下文、自动化和验收机制沉淀成系统，而不是简单加人。</p><footer>Systems over headcount</footer></div>
+    </div>
+  </section>
+
+  <section class="slide body case v2-case-proof v3-case" data-slide-theme="brand" data-label="Lincoln 案例 · 如果只有 AI 没有人手">
+    <div class="eyebrow">Lincoln 自己的案例 <span class="dot">·</span> 如果只有 AI 没有人手</div>
+    <h1 class="slide-title"><span class="main-q">如果只有 AI 没有人手，你会怎么做？</span><span class="en">我自己先干了一遍。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="row">
+      <div class="body-col">
+        <span class="client">MindsLeap · 自我实验</span>
+        <h3>我做了 20 年数字化营销。这次创业，我没有市场部。</h3>
+        <p>过去我的默认动作是“建队、跑流程、出业绩”。这次我只有 Claude + Claude Code 两个 Agent，自己完全不会写代码。</p>
+        <p>一天一夜做出官网；一周搭起内容营销 Workflow，自动找素材、自动上官网、自动发布站外 SEO/GEO。</p>
+        <p><em class="pull">不是 AI 在帮我，是我在帮 AI 做最后一步。</em></p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="v">1<small>晚</small></div><div class="lbl">建成官网<span>vs 传统至少 3 个月</span></div></div>
+        <div class="metric"><div class="v">1<small>周</small></div><div class="lbl">内容营销 Workflow<span>自动找素材 · 自动上官网 · 站外 SEO/GEO</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide software3 no-chrome v3-software" data-slide-theme="brand" data-label="Software 3.0 · Karpathy 菜单 App">
+    <div class="photo">
+      <img src="assets/karpathy-software-3-0-2026-v2.jpg" alt="Andrej Karpathy at Sequoia AI Ascent" />
+      <div class="caption">
+        Andrej Karpathy · AI Ascent
+        <span>MenuGen: 从 App 到一句意图</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="eyebrow">Software 3.0 <span class="dot">·</span> Karpathy 的菜单 App 案例</div>
+      <h1 class="title"><span class="sw">Software 3.0</span>人负责提出需求与验收标准，AI 负责执行</h1>
+      <p class="lead">
+        Karpathy 做过一个 MenuGen：拍菜单、OCR 识别菜名、调用生图 API、生成带图菜单。
+        后来他看到 Gemini 直接把菜品图片叠到原菜单上，意识到：那个 App 根本不应该存在。
+      </p>
+      <div class="stack">
+        <div class="stack-row"><b>Software 1.0</b><span>人写规则，机器执行</span></div>
+        <div class="stack-row"><b>Software 2.0</b><span>人管数据，机器学规则</span></div>
+        <div class="stack-row"><b>Software 3.0</b><span>人说意图，机器直接干</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body statement" data-slide-theme="brand" data-label="需要什么样的人 · Generalist">
+    <div class="frame">
+      <div class="eyebrow">People <span class="dot">·</span> Generalist</div>
+      <h1 class="stmt">
+        AI 提供<em>高并发的执行能力</em>。<br/>
+        稀缺的是能串起来的<em>Generalist</em>。
+      </h1>
+      <p class="stmt-en">
+        当专业能力可以随时调用，人的价值不再只是“会一门手艺”，而是能把业务、产品、技术、风险、客户和时机放在同一个上下文里判断。
+        未来的组织，需要更多能够调度 AI、整合信息、做最终判断的人。
+      </p>
+    </div>
+  </section>
+
+  <section class="slide body features v3-capabilities" data-slide-theme="brand" data-label="下一代管理者 · 三种能力">
+    <div class="eyebrow">Capabilities <span class="dot">·</span> 下一代管理者的三种能力</div>
+    <h1 class="slide-title">需要具备什么能力？<span class="en">建立信任、表达需求、审美与判断。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="col">
+        <div class="icon"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M20 7l-8 10-4-4"/><path d="M3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0z"/></svg></div>
+        <div class="f-eyebrow">能力 01</div>
+        <h3>建立信任</h3>
+        <p>人负责更多与人之间的信任建立：让目标被理解、责任被承诺、边界被看见、结果可验收。信任足够清楚，团队才敢把任务交给系统执行。</p>
+        <footer>Human trust / Accountability</footer>
+      </div>
+      <div class="col">
+        <div class="icon"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M4 5h16M4 12h10M4 19h16"/></svg></div>
+        <div class="f-eyebrow">能力 02</div>
+        <h3>需求表达</h3>
+        <p>把模糊想法写成 Goal、约束、上下文、验收标准。不会表达需求，就无法调度 AI。</p>
+        <footer>Goal / Spec</footer>
+      </div>
+      <div class="col">
+        <div class="icon"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.2 6.4 20.2l1.1-6.2L3 9.6l6.2-.9L12 3z"/></svg></div>
+        <div class="f-eyebrow">能力 03</div>
+        <h3>审美与判断</h3>
+        <p>AI 会给出更多选项，人要判断哪个更对、更美、更安全、更符合业务目标。判断力会变得更贵。</p>
+        <footer>Taste / Judgment</footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body statement v4-token-kpi" data-slide-theme="brand" data-label="如何考核 · Token KPI">
+    <div class="frame">
+      <div class="eyebrow">Token KPI <span class="dot">·</span> 新的管理指标</div>
+      <h1 class="stmt">
+        我们进入了<em>聪明工作</em><br/>
+        比努力工作重要得多的时代。
+      </h1>
+      <p class="stmt-en">
+        会用 AI 的人，不一定更辛苦，但能调动更多机器智能、更快完成验证、更稳定地产出结果。
+        不会用 AI 的“老黄牛”式勤奋，可能仍然可敬，却很难再产生同等价值。
+      </p>
+    </div>
+  </section>
+
+  <section class="slide body statement v4-token-factor" data-slide-theme="brand" data-label="Token · 主要生产要素">
+    <div class="frame">
+      <div class="eyebrow">Token <span class="dot">·</span> 新的生产要素</div>
+      <h1 class="stmt">
+        Token 将成为<br/>
+        <em>主要生产要素</em>。
+      </h1>
+      <p class="stmt-en">
+        人的作用，不是和机器抢执行，而是定义目标、提供上下文、判断结果，
+        让每一次 Token 调用产生最大的业务价值。
+      </p>
+    </div>
+  </section>
+
+  <section class="slide body bullets token-table" data-slide-theme="brand" data-label="Token 管理学">
+    <div class="eyebrow">Token Management <span class="dot">·</span> 核心生产资料</div>
+    <h1 class="slide-title">如何理解 Token 管理学？<span class="en">Token 不是小费用项，而是新的生产资料。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="table">
+      <div class="th">AI Token 调用</div><div class="th">人的产出乘数</div><div class="th">管理含义</div>
+      <div class="td row-good"><span class="level">高</span></div><div class="td row-good">显著提升</div><div class="td row-good"><b>扩大授权，沉淀其 Skill / Spec</b></div>
+      <div class="td"><span class="level">高</span></div><div class="td">提升幅度小</div><div class="td">补上下文工程、任务拆解和验收训练</div>
+      <div class="td"><span class="level">低</span></div><div class="td">提升幅度小</div><div class="td">可能不是省钱，是调用智能不够</div>
+      <div class="td row-bad"><span class="level">零</span></div><div class="td row-bad">没有提升</div><div class="td row-bad">人的 Token 被低价值工作占满</div>
+    </div>
+    <p class="legend"><b>Token 是智能燃料。</b> Cycle Time 衡量组织速度；Token ROI 衡量智能放大率。两者相乘，才是 AI 原生组织的真实效率。</p>
+  </section>
+
+  <section class="slide body features v3-tech-assets" data-slide-theme="brand" data-label="需要掌握什么技术">
+    <div class="eyebrow">Technical Stack <span class="dot">·</span> 我们需要掌握什么技术</div>
+    <h1 class="slide-title">电商 AI 转型，不是装更多插件，<br/>而是建设四类智能资产<span class="en">Agent / Skill / Memory / Workflow，是电商组织调用 AI 的基础设施。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid">
+      <div class="col"><div class="f-eyebrow">01</div><h3>Agent</h3><p>让投放、内容、客服、选品 Agent 进入真实业务流程。</p><footer>智能执行层</footer></div>
+      <div class="col"><div class="f-eyebrow">02</div><h3>Skill</h3><p>把直播话术、客服回复、商品卖点提炼成可复用能力包。</p><footer>员工技能资产化</footer></div>
+      <div class="col"><div class="f-eyebrow">03</div><h3>Memory</h3><p>把商品、客户、评价、渠道、活动数据变成组织记忆。</p><footer>信息变记忆</footer></div>
+      <div class="col"><div class="f-eyebrow">04</div><h3>Workflow</h3><p>重写从选品、内容、投放、客服到复盘的端到端流程。</p><footer>AI-first flow</footer></div>
+    </div>
+  </section>
+
+  <section class="slide body bullets" data-slide-theme="brand" data-label="Agent · 智能执行层">
+    <div class="eyebrow">Agent <span class="dot">·</span> 可调度的智能执行者</div>
+    <h1 class="slide-title">Agent 是执行层：模型能力要进入真实流程<span class="en">真正的问题不是模型强不强，而是组织能否调度、约束和验收 Agent。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="body-row">
+      <ul>
+        <li><div class="chk">事实</div><div><div class="b-title">模型是公共服务，Agent 才是组织接口</div><div class="b-desc">底层模型持续增强，但企业真正要管理的是 Agent 如何拿上下文、执行任务、交付证据。</div></div></li>
+        <li><div class="chk">含义</div><div><div class="b-title">Agent 需要权限、边界和验收机制</div><div class="b-desc">没有 Spec、Harness、Gate 和 Handoff，Agent 越强，组织风险也可能越大。</div></div></li>
+      </ul>
+      <ul>
+        <li><div class="chk">机会</div><div><div class="b-title">Agent 升级自动放大组织资产</div><div class="b-desc">Skill、Memory、Workflow 搭好后，Agent 能力一升级，组织整体执行能力自然增强。</div></div></li>
+        <li><div class="chk">动作</div><div><div class="b-title">从真实任务里训练 Agent</div><div class="b-desc">不要停留在聊天窗口，把 Agent 放进代码、文档、网页、CRM、内容流和运营流里。</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide body bullets" data-slide-theme="brand" data-label="Skill · 员工技能资产化">
+    <div class="eyebrow">Skill <span class="dot">·</span> 把员工技能变成 Skill</div>
+    <h1 class="slide-title">Skill 库 = 员工带不走的能力包<span class="en">把老员工的经验封装进系统，新人才能快速抵达可用水平。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="body-row">
+      <ul>
+        <li><div class="chk">什么</div><div><div class="b-title">岗位 SOP 不是文档，而是可调用能力</div><div class="b-desc">开场白、异议处理、合同 review、客诉回复，都可以变成 AI 一调就能执行的 Skill。</div></div></li>
+        <li><div class="chk">为什么</div><div><div class="b-title">员工带不走的，才是公司的资产</div><div class="b-desc">区域销售老兵 20 年经验 → 12 个 Skill → 新人 3 个月达 80% 水平。</div></div></li>
+      </ul>
+      <ul>
+        <li><div class="chk">从哪</div><div><div class="b-title">从最贵、最容易断档的岗位开始</div><div class="b-desc">公司里“如果走一个人就麻烦”的那个岗位，最值得优先 Skill 化。</div></div></li>
+        <li><div class="chk">节奏</div><div><div class="b-title">每周新增 N 个 Skill</div><div class="b-desc">让 Skill 像资产负债表一样被高管看见、被组织追踪、被员工贡献。</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide body bullets" data-slide-theme="brand" data-label="Memory · 信息变组织记忆">
+    <div class="eyebrow">Memory <span class="dot">·</span> 把公司数据和信息变成 Memory</div>
+    <h1 class="slide-title">Memory 库 = 组织的长期记忆<span class="en">AI 看不到上下文，就只能做一次性助手。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="body-row">
+      <ul>
+        <li><div class="chk">客户</div><div><div class="b-title">客户 Memory</div><div class="b-desc">不是 CRM 字段，而是偏好、痛点、历史决策、对话片段，AI 随时调用。</div></div></li>
+        <li><div class="chk">决策</div><div><div class="b-title">决策 Memory</div><div class="b-desc">三年后回头看，AI 能讲清楚当时为什么选 A 不选 B。</div></div></li>
+      </ul>
+      <ul>
+        <li><div class="chk">项目</div><div><div class="b-title">项目 Memory</div><div class="b-desc">把 Spec、CLAUDE.md、决策日志和复盘教训沉淀下来，下一次 Agent 不必重新理解项目。</div></div></li>
+        <li><div class="chk">关键</div><div><div class="b-title">组织透明度 = AI 员工的天花板</div><div class="b-desc">公司越碎片化、越不透明，Memory 越难建；AI 看得到的，不会超过人能看到的。</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide body statement v4-io-rate" data-slide-theme="brand" data-label="人与机器的 IO 能力">
+    <div class="frame">
+      <div class="eyebrow">IO Rate <span class="dot">·</span> 人与机器的速度差</div>
+      <h1 class="stmt">
+        机器的 IO 是<em>并行高速</em>。<br/>
+        人的 IO 仍然是<em>会议、审批、<span class="nowrap">排队</span></em>。
+      </h1>
+      <p class="stmt-en">
+        AI 把“想到 → 做出来”的时间从几周压到几小时。新的瓶颈不在产能，而在人类审核、决策延迟和上下文切换。
+        AI 原生组织首先要重新审视组织结构、人员配比和 Workflow Review。
+      </p>
+    </div>
+  </section>
+
+  <section class="slide body bullets" data-slide-theme="brand" data-label="Workflow · 基于 AI 能力设计流程">
+    <div class="eyebrow">Workflow <span class="dot">·</span> 基于 AI 的能力重新设计</div>
+    <h1 class="slide-title">不要把 AI 塞进旧流程，要按 AI 能力重写流程<span class="en">流程设计的单位，从“人做什么”变成“机器先跑到哪里，人在哪里判断”。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="body-row">
+      <ul>
+        <li><div class="chk">旧</div><div><div class="b-title">Prompt 驱动 · 人每次重写提示词</div><div class="b-desc">每个任务从零开始，不可复用、不可审计、不可累积。</div></div></li>
+        <li><div class="chk">新</div><div><div class="b-title">Spec 驱动 · 执行前定义可复用规则</div><div class="b-desc">Goal、输入、输出、边界、验收标准先写清楚，AI 按规范执行。</div></div></li>
+      </ul>
+      <ul>
+        <li><div class="chk">验收</div><div><div class="b-title">Harness · 让 AI 输出先被机器验收</div><div class="b-desc">测试、引用检查、事实核验、业务规则先跑一轮，人只处理例外。</div></div></li>
+        <li><div class="chk">复盘</div><div><div class="b-title">每周 Workflow Review</div><div class="b-desc">固定问：哪些事 AI 没做？哪些人工 IO 可以砍？哪些 Spec / Harness 要沉淀？</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide body statement v3-source" data-slide-theme="brand" data-label="未来组织 · 超级个体">
+    <div class="frame">
+      <div class="eyebrow">Future Org <span class="dot">·</span> 更扁平，更开放，更多超级个体</div>
+      <h1 class="stmt">
+        未来组织会更<em>扁平</em>，<br/>
+        也会更依赖企业内部的<em>超级个体</em>。
+      </h1>
+      <p class="stmt-en">
+        金一粟在 MindsLeap 访谈里谈到硅谷精神：开放、尊重个体，相信每个人都可能成为贡献者。
+        AI 时代，企业内部也需要这样的环境：每个人都像合伙人一样调用智能、承担判断、创造结果。
+      </p>
+      <div class="source-note">参考：金一粟对话 MindsLeap《从只身赴硅谷创业26年，到 AI 时代的人才重组》</div>
+    </div>
+  </section>
+
+  <section class="slide divider debt no-chrome" data-slide-theme="brand" data-label="前沿 · 需要关注什么">
+    <div>
+      <div class="debt-kicker">前沿</div>
+      <div class="num">趋势</div>
+    </div>
+    <div>
+      <span class="label">不是刷新闻，而是准备工作方式</span>
+      <h2>需要关注的前沿<span class="en">从 Spec 到 Harness，从 Auto Research 到 Goal 管理。</span></h2>
+      <p class="desc">未来三年，AI 会从“回答问题”变成“完成任务”。组织要提前学会把目标、规范、验收和长时间任务交给机器。</p>
+      <div class="debt-line">
+        <span>From Spec to Harness</span>
+        <span>Auto Research · 长时间 Agent</span>
+        <span>Goal 成为管理入口</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body features v3-frontier-harness" data-slide-theme="brand" data-label="前沿 · Spec to Harness">
+    <div class="eyebrow">Frontier 01 <span class="dot">·</span> From Spec to Harness</div>
+    <h1 class="slide-title">从 Spec 到 Harness：从盯执行到管系统<span class="en">Spec 把意图说清楚，Harness 让 Agent 持续做对。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="col"><div class="f-eyebrow">01</div><h3>Spec</h3><p>把 Goal、边界、输入输出、示例和验收标准写清楚。</p><footer>把意图说清楚</footer></div>
+      <div class="col"><div class="f-eyebrow">02</div><h3>Harness</h3><p>把规则、测试、证据包、Gate 和 Handoff 做成外循环，避免每次 session 重新推断。</p><footer>让 Agent 持续做对</footer></div>
+      <div class="col"><div class="f-eyebrow">03</div><h3>On the Loop</h3><p>人不盯每一步，只看例外、风险和系统改进。</p><footer>Workflow / Tooling / Gates</footer></div>
+    </div>
+  </section>
+
+  <section class="slide body statement" data-slide-theme="brand" data-label="前沿 · Auto Research">
+    <div class="frame">
+      <div class="eyebrow">Frontier 02 <span class="dot">·</span> Auto Research</div>
+      <h1 class="stmt">
+        AI 会从<em>回答问题</em>，<br/>
+        变成<em>整夜完成研究任务</em>。
+      </h1>
+      <p class="stmt-en">
+        今天 Agent 跑 5 分钟人接管；下一阶段是自主跑 1-2 小时；再往后，早上看到的是完整 Research Brief：
+        来源、观点、反方、风险、行动建议都已准备好。
+      </p>
+    </div>
+  </section>
+
+  <section class="slide body statement" data-slide-theme="brand" data-label="前沿 · Goal">
+    <div class="frame">
+      <div class="eyebrow">Frontier 03 <span class="dot">·</span> Goal</div>
+      <h1 class="stmt">
+        管理入口会从<em>任务分配</em>，<br/>
+        变成<em>目标设定</em>。
+      </h1>
+      <p class="stmt-en">
+        管理者不再把任务切成小块派给人，而是把目标、约束、边界、风险和验收标准交给一组 Agent。
+        人的核心工作，是定义“什么叫做对”，而不是盯着每一步怎么做。
+      </p>
+    </div>
+  </section>
+
+  <section class="slide body v3-action-swim" data-slide-theme="brand" data-label="行动 · 真实开始">
+    <div class="eyebrow">Action <span class="dot">·</span> 真实开始行动</div>
+    <h1 class="slide-title">不是看别人游泳，<br/>是今天就下水<span class="en">学习 AI 的方式不是围观，而是把工具接进一个真实电商流程。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="action-layout">
+      <div class="action-copy">
+        <p>不要把“学习 AI”停留在新闻、短视频和演示。真正的开始，是选一个今天就能产生业务价值的流程：新品上架、内容生产、投放复盘、客服回复或会员召回。</p>
+        <div class="action-grid">
+          <div class="action"><h3>跑一个新品上架</h3><p>从商品卖点到详情页、短视频脚本和投放素材。</p></div>
+          <div class="action"><h3>跑一次复盘</h3><p>把数据、评价、客服问题和转化漏斗整理成下一轮动作。</p></div>
+        </div>
+      </div>
+      <div class="pool-photo">
+        <img src="assets/pexels-swimmers-8688150.jpg" alt="泳池里正在游泳的人"/>
+        <div class="caption">Start moving</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body case v3-ad v4-ecommerce-start" data-slide-theme="brand" data-label="电商落地 · 从一个流程开始">
+    <div class="eyebrow">E-commerce Action <span class="dot">·</span> 从一个流程开始</div>
+    <h1 class="slide-title">电商企业转型，不要从“大系统”开始<span class="en">先选一个高频、高价值、可验收的 workflow。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="row">
+      <div class="offer">
+        <h3>优先改造什么？</h3>
+        <p>新品上架、站内搜索优化、短视频素材生产、直播脚本、客服知识库、会员召回、投放日报。</p>
+        <p>目标不是“听懂 AI”，而是让团队下周一就开始缩短一个业务周期。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body case v3-ad v4-fde-big" data-slide-theme="brand" data-label="外部资源 · FDE">
+    <div class="eyebrow">外部资源 01 <span class="dot">·</span> FDE</div>
+    <h1 class="slide-title">FDE：最火热的岗位，前线部署工程师<span class="en">Forward Deployed Engineer</span></h1>
+    <span class="slide-bar"></span>
+    <div class="row">
+      <div class="offer">
+        <div class="fde-col">
+          <h3>为什么会出现？</h3>
+          <p>AI 可以直接参与执行，企业缺的是现场翻译者。</p>
+        </div>
+        <div class="fde-col">
+          <h3>FDE 是什么？</h3>
+          <p>不是传统顾问，也不是只写代码的工程师。</p>
+        </div>
+        <div class="fde-col">
+          <h3>交付什么？</h3>
+          <p>把目标拆成 Goal、Spec、Workflow、Harness，带出第一版可运行方案。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body compare" data-slide-theme="brand" data-label="电商落地 · 外部资源">
+    <div class="eyebrow">外部资源 02 <span class="dot">·</span> 电商 AI 转型</div>
+    <h1 class="slide-title">外部资源的价值，不是给建议，<br/>而是现场带出第一版结果<span class="en">企业给真实场景，FDE 帮你拆 Goal、建 Workflow、做 Harness。</span></h1>
+    <span class="slide-bar"></span>
+    <div class="pair">
+      <div class="panel now">
+        <h3>企业提供</h3>
+        <div class="zh-en">真实问题</div>
+        <ul>
+          <li>一个电商高频流程</li>
+          <li>一个增长或降本场景</li>
+          <li>商品、客户、投放、客服数据</li>
+          <li>业务边界、风险边界、验收标准</li>
+        </ul>
+      </div>
+      <div class="panel next">
+        <h3>FDE 提供</h3>
+        <div class="zh-en">AI 原生样板间</div>
+        <ul>
+          <li>快速拆解 Goal 和 Spec</li>
+          <li>构建第一版电商 Workflow</li>
+          <li>用 AI 生成、验证、迭代结果</li>
+          <li>沉淀可复用的 Skill / Memory / Harness</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body v4-final-quote" data-slide-theme="brand" data-label="收尾 · William Gibson">
+    <div class="quote-copy">
+      <div class="eyebrow">Closing Quote <span class="dot">·</span> William Gibson</div>
+      <div class="quote-mark">"</div>
+      <blockquote>The future is already here. It's just not evenly distributed.</blockquote>
+      <div class="quote-cn">未来已经到来，只是尚未均匀分布。</div>
+      <div class="author">
+        <div class="author-line"></div>
+        <div>William Gibson<span>Writer · Cyberpunk Pioneer</span></div>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <img class="portrait" src="assets/william-gibson-portrait.jpg" alt="William Gibson portrait"/>
+      <div class="photo-credit">Photo: Gonzo Bonzo / CC BY-SA 2.0</div>
+    </div>
+  </section>
+
+</deck-stage>
+
+
+<script src="tweaks.js"></script>
+
+</body>
+</html>
