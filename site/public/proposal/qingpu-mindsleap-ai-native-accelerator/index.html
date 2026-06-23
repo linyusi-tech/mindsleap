@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-logo="joint" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>青浦科创 × MindsLeap AI 原生企业生态合作方案</title>
+  <script src="/proposal/password-gate.js"></script>
+  <link rel="stylesheet" href="/design-system/deck-template/colors_and_type.css" />
+  <link rel="stylesheet" href="/design-system/deck-template/deck.css" />
+  <script src="/design-system/deck-template/deck-stage.js"></script>
+  <style>
+    html {
+      --logo-img: url("/design-system/deck-template/mindsleap-foundersspace-joint-logo-blue.svg");
+      --bg: #ffffff;
+      --bg-alt: #f6f8fb;
+      --ink: #111111;
+      --ink-muted: #4b5563;
+      --ink-subtle: #7b8494;
+      --rule: #dfe6ef;
+      --accent: #1e477c;
+      --accent-soft: #2f6db4;
+      --eyebrow: #2f6db4;
+      --footer-ink: #9aa5b5;
+      --card-bg: #f6f8fb;
+      --card-rule: #dfe6ef;
+    }
+    body, h1, h2, h3, p, div, span, li { letter-spacing: 0 !important; }
+    .slide {
+      background: #fff;
+      color: #111;
+    }
+    .slide.body {
+      padding: 88px 112px 132px;
+    }
+    .slide:not(.no-chrome)::before {
+      width: 276px;
+      height: 46px;
+      opacity: 0.88;
+    }
+    h1.slide-title,
+    .slide-title {
+      font-size: 64px;
+      line-height: 1.08;
+      max-width: 1696px;
+      word-break: normal;
+      overflow-wrap: normal;
+      text-wrap: wrap;
+    }
+    .slide.body .slide-title {
+      font-size: 64px;
+    }
+    .slide-title .en {
+      color: #5f6f83;
+      font-size: 27px;
+      line-height: 1.34;
+      max-width: 1696px;
+    }
+    .slide-sub {
+      font-size: 32px;
+      max-width: 1320px;
+    }
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .logo-mark {
+      width: 430px;
+      height: 78px;
+      background: url("/design-system/deck-template/mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+    }
+    .blue {
+      background: #1e477c;
+      color: #fff;
+    }
+    .blue .eyebrow { color: #b8d7ff; }
+    .blue .slide-title,
+    .blue h1,
+    .blue h2,
+    .blue h3 { color: #fff; }
+    .blue p,
+    .blue .slide-title .en { color: rgba(255,255,255,0.78); }
+    .blue .slide-bar { background: #93c5fd; }
+    .blue:not(.no-chrome)::before {
+      filter: brightness(0) invert(1);
+    }
+    .blue:not(.no-chrome)::after {
+      color: rgba(255,255,255,0.72);
+    }
+    .cover-qp {
+      display: grid;
+      grid-template-columns: 1fr 0.92fr;
+      gap: 72px;
+      padding: 88px 112px 96px;
+      background: #fff;
+    }
+    .cover-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cover-kicker {
+      margin-top: 52px;
+      font: 700 24px/1 var(--font-body);
+      color: #2f6db4;
+      text-transform: uppercase;
+    }
+    .cover-qp h1 {
+      margin: 56px 0 0;
+      font: 700 88px/1.04 var(--font-heading);
+      color: #111;
+      max-width: 880px;
+    }
+    .cover-qp h2 {
+      margin: 28px 0 0;
+      font: 700 54px/1.18 var(--font-heading);
+      color: #1e477c;
+      max-width: 900px;
+    }
+    .cover-qp p {
+      max-width: 860px;
+      margin: 40px 0 0;
+      font: 400 31px/1.45 var(--font-body);
+      color: #516174;
+    }
+    .cover-photo {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #dfe6ef;
+      background: #f6f8fb;
+    }
+    .cover-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(17,17,17,0.35), rgba(17,17,17,0.02));
+    }
+    .cover-badge {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 34px;
+      z-index: 2;
+      color: #fff;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .cover-badge div {
+      border-top: 1px solid rgba(255,255,255,0.52);
+      padding-top: 16px;
+      font: 500 18px/1.32 var(--font-body);
+    }
+    .cover-badge b {
+      display: block;
+      margin-bottom: 8px;
+      font: 700 32px/1 var(--font-heading);
+    }
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      border-top: 1px solid #dfe6ef;
+      padding-top: 26px;
+      color: #7b8494;
+      font: 500 19px/1.35 var(--font-body);
+    }
+    .meta-row b {
+      display: block;
+      color: #111;
+      margin-bottom: 8px;
+      font-size: 17px;
+      text-transform: uppercase;
+    }
+    .statement {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 112px;
+      text-align: left;
+    }
+    .statement-inner {
+      width: 100%;
+      max-width: 1660px;
+    }
+    .statement .eyebrow {
+      margin-bottom: 34px;
+    }
+    .statement h1 {
+      margin: 0;
+      max-width: 1660px;
+      font: 700 92px/1.1 var(--font-heading);
+      color: #fff;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-wrap: wrap;
+    }
+    .statement p {
+      max-width: 1200px;
+      margin: 42px 0 0;
+      font: 400 34px/1.45 var(--font-body);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 58px;
+      margin-top: 54px;
+      flex: 1;
+      min-height: 0;
+    }
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 26px;
+      margin-top: 54px;
+    }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .card {
+      background: #f6f8fb;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      padding: 30px;
+      min-height: 210px;
+      box-sizing: border-box;
+    }
+    .card.dark {
+      background: #1e477c;
+      border-color: #1e477c;
+      color: #fff;
+    }
+    .card .idx,
+    .flow-step .idx {
+      color: #2f6db4;
+      font: 700 20px/1 var(--font-heading);
+      margin-bottom: 18px;
+    }
+    .card.dark .idx { color: #b8d7ff; }
+    .card h3 {
+      margin: 0 0 16px;
+      color: #1e477c;
+      font: 700 34px/1.18 var(--font-heading);
+    }
+    .card.dark h3 { color: #fff; }
+    .card p,
+    .card li {
+      margin: 0;
+      color: #526174;
+      font: 400 23px/1.45 var(--font-body);
+    }
+    .card.dark p { color: rgba(255,255,255,0.78); }
+    .card ul {
+      margin: 0;
+      padding: 0 0 0 24px;
+    }
+    .number-panel {
+      border-top: 8px solid #1e477c;
+      padding-top: 32px;
+    }
+    .number-panel .num {
+      font: 700 132px/0.92 var(--font-heading);
+      color: #1e477c;
+    }
+    .number-panel .num small {
+      font-size: 66px;
+      margin-left: 8px;
+    }
+    .club-slide .number-panel .num {
+      font-size: 114px;
+      white-space: nowrap;
+    }
+    .club-slide .number-panel .num small {
+      font-size: 44px;
+      margin-left: 14px;
+    }
+    .fill-slide .grid-3,
+    .fill-slide .grid-4,
+    .fill-slide .flow,
+    .fill-slide .kpi-grid,
+    .fill-slide .compact-grid,
+    .fill-slide .timeline {
+      margin-top: 68px;
+    }
+    .fill-slide .card {
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .fill-slide .grid-3 .card {
+      min-height: 420px;
+    }
+    .fill-slide .grid-4 .card {
+      min-height: 430px;
+    }
+    .fill-slide .flow-step {
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .fill-slide .kpi {
+      min-height: 220px;
+    }
+    .fill-slide .compact-grid .card {
+      min-height: 230px;
+    }
+    .fill-slide .milestone {
+      min-height: 520px;
+    }
+    .fill-slide .boundary-grid {
+      margin-top: 68px;
+    }
+    .fill-slide .boundary-card {
+      min-height: 470px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .number-panel h3 {
+      margin: 28px 0 12px;
+      font: 700 38px/1.2 var(--font-heading);
+      color: #111;
+    }
+    .number-panel p {
+      margin: 0;
+      font: 400 27px/1.48 var(--font-body);
+      color: #526174;
+    }
+    .proof-photo {
+      overflow: hidden;
+      border: 1px solid #dfe6ef;
+      min-height: 0;
+      position: relative;
+    }
+    .proof-photo .caption {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.48);
+      color: #fff;
+      font: 600 22px/1.32 var(--font-body);
+      z-index: 2;
+    }
+    .proof-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.58), transparent 48%);
+    }
+    .flywheel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px minmax(0, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 20px 34px;
+      align-items: stretch;
+      height: 560px;
+      margin-top: 46px;
+    }
+    .hub {
+      grid-column: 2;
+      grid-row: 1 / 4;
+      align-self: center;
+      justify-self: center;
+      position: relative;
+      width: 360px;
+      height: 360px;
+      border: 2px solid #1e477c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 42px;
+      box-sizing: border-box;
+      color: #1e477c;
+      font: 700 38px/1.18 var(--font-heading);
+      background: #fff;
+      z-index: 2;
+    }
+    .hub::before,
+    .hub::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 34px;
+      height: 2px;
+      background: #dfe6ef;
+    }
+    .hub::before { right: 100%; }
+    .hub::after { left: 100%; }
+    .orbit {
+      position: relative;
+      width: auto;
+      min-height: 0;
+      padding: 22px 24px;
+      box-sizing: border-box;
+      border: 1px solid #dfe6ef;
+      background: #f6f8fb;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .orbit h3 {
+      margin: 0 0 10px;
+      font: 700 27px/1.16 var(--font-heading);
+      color: #1e477c;
+    }
+    .orbit p {
+      margin: 0;
+      color: #526174;
+      font: 400 20px/1.34 var(--font-body);
+    }
+    .o5 { grid-column: 1; grid-row: 1; }
+    .o1 { grid-column: 1; grid-row: 2; }
+    .o4 { grid-column: 1; grid-row: 3; }
+    .o2 { grid-column: 3; grid-row: 1; }
+    .o3 { grid-column: 3; grid-row: 2; }
+    .o6 { grid-column: 3; grid-row: 3; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), 1fr);
+      gap: 22px;
+      margin-top: 54px;
+    }
+    .flow-step {
+      background: #fff;
+      border: 1px solid #dfe6ef;
+      border-top: 6px solid #1e477c;
+      border-radius: 8px;
+      padding: 28px;
+      min-height: 270px;
+      box-sizing: border-box;
+    }
+    .flow-step h3 {
+      margin: 0 0 14px;
+      color: #1e477c;
+      font: 700 31px/1.18 var(--font-heading);
+    }
+    .flow-step p {
+      margin: 0;
+      color: #526174;
+      font: 400 22px/1.42 var(--font-body);
+    }
+    .matrix {
+      display: grid;
+      grid-template-columns: 0.88fr 1.08fr 1.08fr 1.12fr;
+      margin-top: 54px;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .cell {
+      padding: 24px 26px;
+      border-right: 1px solid #dfe6ef;
+      border-bottom: 1px solid #dfe6ef;
+      min-height: 98px;
+      box-sizing: border-box;
+      font: 400 22px/1.38 var(--font-body);
+      color: #526174;
+      background: #fff;
+    }
+    .cell:nth-child(4n) { border-right: 0; }
+    .cell.head {
+      background: #1e477c;
+      color: #fff;
+      font: 700 23px/1.2 var(--font-heading);
+      min-height: 72px;
+    }
+    .cell.topic {
+      color: #1e477c;
+      font: 700 26px/1.2 var(--font-heading);
+      background: #f6f8fb;
+    }
+    .media-card {
+      display: grid;
+      grid-template-rows: 226px 1fr;
+      overflow: hidden;
+      border: 1px solid #dfe6ef;
+      background: #fff;
+      border-radius: 8px;
+    }
+    .media-card .copy {
+      padding: 26px;
+    }
+    .tag {
+      color: #2f6db4;
+      font: 700 17px/1 var(--font-body);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .media-card h3 {
+      margin: 0 0 12px;
+      color: #1e477c;
+      font: 700 30px/1.18 var(--font-heading);
+    }
+    .media-card p {
+      margin: 0;
+      color: #526174;
+      font: 400 21px/1.42 var(--font-body);
+    }
+    .founders-cases {
+      margin-top: 40px;
+    }
+    .founders-cases .media-card {
+      grid-template-rows: 292px 1fr;
+    }
+    .founders-cases .media-card .photo-img {
+      object-fit: contain;
+      background: #f6f8fb;
+    }
+    .founders-cases .media-card .copy {
+      padding: 20px 24px;
+    }
+    .founders-cases .tag {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .founders-cases .media-card h3 {
+      font-size: 27px;
+      line-height: 1.16;
+      margin-bottom: 10px;
+    }
+    .founders-cases .media-card p {
+      font-size: 19px;
+      line-height: 1.35;
+    }
+    .founders-cases .card.dark {
+      min-height: 430px !important;
+    }
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .mentor-card {
+      display: grid;
+      grid-template-rows: 248px 1fr;
+      min-height: 478px;
+      overflow: hidden;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .mentor-photo {
+      background: #eef3f9;
+      overflow: hidden;
+    }
+    .mentor-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .mentor-card.steve .mentor-photo img {
+      object-fit: contain;
+      object-position: center bottom;
+      padding-top: 16px;
+      box-sizing: border-box;
+      background: linear-gradient(180deg, #f5f8fc 0%, #e8eef6 100%);
+    }
+    .mentor-card.zack .mentor-photo img {
+      object-position: center 32%;
+    }
+    .mentor-card.piero .mentor-photo img {
+      object-position: center 28%;
+    }
+    .mentor-copy {
+      padding: 22px 24px;
+    }
+    .mentor-copy .role {
+      color: #2f6db4;
+      font: 700 14px/1.2 var(--font-body);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .mentor-copy h3 {
+      margin: 0 0 10px;
+      color: #1e477c;
+      font: 700 28px/1.1 var(--font-heading);
+    }
+    .mentor-copy p {
+      margin: 0;
+      color: #526174;
+      font: 400 19px/1.34 var(--font-body);
+    }
+    .responsibility-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-top: 44px;
+    }
+    .role-slide .slide-title {
+      font-size: 64px;
+      max-width: 1696px;
+    }
+    .role-slide .slide-title .en {
+      margin-top: 14px;
+      font-size: 25px;
+      line-height: 1.28;
+    }
+    .role-slide .slide-bar {
+      margin-top: 20px;
+    }
+    .role-slide .responsibility-grid {
+      gap: 26px;
+      margin-top: 24px;
+    }
+    .responsibility {
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      min-height: 560px;
+    }
+    .role-slide .responsibility {
+      min-height: 0;
+    }
+    .responsibility header {
+      padding: 28px 32px;
+      background: #f6f8fb;
+      border-bottom: 1px solid #dfe6ef;
+    }
+    .role-slide .responsibility header {
+      padding: 20px 26px;
+    }
+    .responsibility.dark header {
+      background: #1e477c;
+      border-bottom-color: #1e477c;
+    }
+    .responsibility header .label {
+      color: #2f6db4;
+      font: 700 17px/1 var(--font-body);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .responsibility.dark header .label { color: #b8d7ff; }
+    .responsibility h3 {
+      margin: 0;
+      color: #1e477c;
+      font: 700 38px/1.12 var(--font-heading);
+    }
+    .role-slide .responsibility h3 {
+      font-size: 31px;
+      line-height: 1.12;
+    }
+    .responsibility.dark h3 { color: #fff; }
+    .responsibility-list {
+      display: grid;
+      gap: 0;
+    }
+    .responsibility-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 18px;
+      padding: 23px 30px;
+      border-bottom: 1px solid #dfe6ef;
+    }
+    .role-slide .responsibility-item {
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      padding: 14px 24px;
+    }
+    .responsibility-item:last-child { border-bottom: 0; }
+    .responsibility-item .num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #1e477c;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 18px/1 var(--font-heading);
+    }
+    .role-slide .responsibility-item .num {
+      width: 34px;
+      height: 34px;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .responsibility-item b {
+      display: block;
+      color: #1e477c;
+      font: 700 25px/1.18 var(--font-heading);
+      margin-bottom: 8px;
+    }
+    .role-slide .responsibility-item b {
+      font-size: 21px;
+      line-height: 1.14;
+      margin-bottom: 5px;
+    }
+    .responsibility-item span {
+      display: block;
+      color: #526174;
+      font: 400 20px/1.35 var(--font-body);
+    }
+    .role-slide .responsibility-item span {
+      font-size: 17px;
+      line-height: 1.28;
+    }
+    .dense-slide .slide-title {
+      font-size: 64px;
+      max-width: 1696px;
+    }
+    .dense-slide .slide-title .en {
+      font-size: 25px;
+      line-height: 1.3;
+    }
+    .table-5,
+    .table-4 {
+      display: grid;
+      margin-top: 38px;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .table-5 { grid-template-columns: 0.96fr 0.72fr 0.64fr 1.25fr 1.28fr; }
+    .table-4 { grid-template-columns: 1.08fr 0.76fr 0.76fr 0.9fr; }
+    .tcell {
+      padding: 16px 20px;
+      border-right: 1px solid #dfe6ef;
+      border-bottom: 1px solid #dfe6ef;
+      color: #526174;
+      font: 400 18px/1.32 var(--font-body);
+      min-height: 72px;
+      box-sizing: border-box;
+    }
+    .table-5 .tcell:nth-child(5n),
+    .table-4 .tcell:nth-child(4n) { border-right: 0; }
+    .table-5 .tcell:nth-last-child(-n+5),
+    .table-4 .tcell:nth-last-child(-n+4) { border-bottom: 0; }
+    .tcell.head {
+      background: #1e477c;
+      color: #fff;
+      min-height: 58px;
+      font: 700 19px/1.2 var(--font-heading);
+    }
+    .tcell.topic {
+      background: #f6f8fb;
+      color: #1e477c;
+      font: 700 22px/1.16 var(--font-heading);
+    }
+    .tcell.strong {
+      color: #1e477c;
+      font: 700 22px/1.16 var(--font-heading);
+    }
+    .budget-total {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: 22px 28px;
+      border-radius: 8px;
+      background: #1e477c;
+      color: #fff;
+    }
+    .budget-total b {
+      font: 700 34px/1.12 var(--font-heading);
+    }
+    .budget-total span {
+      color: rgba(255,255,255,0.78);
+      font: 400 20px/1.35 var(--font-body);
+    }
+    .funding-grid {
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 26px;
+      margin-top: 42px;
+    }
+    .funding-card {
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #f6f8fb;
+      padding: 28px;
+      min-height: 260px;
+      box-sizing: border-box;
+    }
+    .funding-card.dark {
+      background: #1e477c;
+      border-color: #1e477c;
+      color: #fff;
+    }
+    .funding-card h3 {
+      margin: 0 0 16px;
+      color: #1e477c;
+      font: 700 34px/1.16 var(--font-heading);
+    }
+    .funding-card.dark h3 { color: #fff; }
+    .funding-card p {
+      margin: 0;
+      color: #526174;
+      font: 400 23px/1.42 var(--font-body);
+    }
+    .funding-card.dark p { color: rgba(255,255,255,0.78); }
+    .revenue-chips {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .revenue-chips span {
+      padding: 13px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      text-align: center;
+      font: 700 18px/1.2 var(--font-heading);
+    }
+    .principles {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .principle {
+      border-top: 4px solid #1e477c;
+      background: #fff;
+      border-radius: 8px;
+      padding: 22px;
+      min-height: 148px;
+      box-shadow: inset 0 0 0 1px #dfe6ef;
+      box-sizing: border-box;
+    }
+    .principle b {
+      display: block;
+      margin-bottom: 10px;
+      color: #1e477c;
+      font: 700 24px/1.14 var(--font-heading);
+    }
+    .principle span {
+      color: #526174;
+      font: 400 19px/1.34 var(--font-body);
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .kpi {
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #f6f8fb;
+      padding: 24px;
+      min-height: 170px;
+      box-sizing: border-box;
+    }
+    .kpi.dark {
+      background: #1e477c;
+      border-color: #1e477c;
+      color: #fff;
+    }
+    .kpi .num {
+      color: #1e477c;
+      font: 700 46px/0.95 var(--font-heading);
+      margin-bottom: 12px;
+    }
+    .kpi.dark .num { color: #b8d7ff; }
+    .kpi b {
+      display: block;
+      color: #1e477c;
+      font: 700 24px/1.16 var(--font-heading);
+      margin-bottom: 8px;
+    }
+    .kpi.dark b { color: #fff; }
+    .kpi span {
+      color: #526174;
+      font: 400 18px/1.32 var(--font-body);
+    }
+    .kpi.dark span { color: rgba(255,255,255,0.78); }
+    .compact-grid {
+      margin-top: 38px;
+    }
+    .compact-grid .card {
+      min-height: 185px;
+      padding: 24px;
+    }
+    .compact-grid .card h3 {
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+    .compact-grid .card p {
+      font-size: 20px;
+      line-height: 1.36;
+    }
+    .boundary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 44px;
+    }
+    .boundary-card {
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #fff;
+      padding: 32px;
+      min-height: 430px;
+      border-top: 8px solid #1e477c;
+      box-sizing: border-box;
+    }
+    .boundary-card h3 {
+      margin: 0 0 18px;
+      color: #1e477c;
+      font: 700 38px/1.14 var(--font-heading);
+    }
+    .boundary-card p {
+      margin: 0;
+      color: #526174;
+      font: 400 24px/1.46 var(--font-body);
+    }
+    .chain-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.84fr 1fr;
+      gap: 26px;
+      margin-top: 42px;
+      align-items: stretch;
+    }
+    .chain-card {
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #f6f8fb;
+      padding: 30px;
+      min-height: 360px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .chain-card.bridge {
+      background: #1e477c;
+      border-color: #1e477c;
+      color: #fff;
+    }
+    .chain-card .label {
+      color: #2f6db4;
+      font: 700 18px/1 var(--font-body);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .chain-card.bridge .label { color: #b8d7ff; }
+    .chain-card h3 {
+      margin: 0 0 18px;
+      color: #1e477c;
+      font: 700 38px/1.12 var(--font-heading);
+    }
+    .chain-card.bridge h3 { color: #fff; }
+    .chain-card p {
+      margin: 0;
+      color: #526174;
+      font: 400 23px/1.42 var(--font-body);
+    }
+    .chain-card.bridge p { color: rgba(255,255,255,0.78); }
+    .chain-card ul {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 11px;
+    }
+    .chain-card li {
+      color: #526174;
+      font: 700 20px/1.25 var(--font-heading);
+    }
+    .chain-card.bridge li { color: #fff; }
+    .chain-outputs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+    .chain-output {
+      padding: 18px;
+      min-height: 106px;
+      border-radius: 8px;
+      border: 1px solid #dfe6ef;
+      background: #fff;
+      box-sizing: border-box;
+    }
+    .chain-output b {
+      display: block;
+      color: #1e477c;
+      font: 700 23px/1.16 var(--font-heading);
+      margin-bottom: 8px;
+    }
+    .chain-output span {
+      color: #526174;
+      font: 400 17px/1.3 var(--font-body);
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 54px;
+    }
+    .milestone {
+      background: #f6f8fb;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      min-height: 360px;
+      padding: 26px;
+      box-sizing: border-box;
+    }
+    .milestone .time {
+      color: #2f6db4;
+      font: 700 19px/1 var(--font-heading);
+      margin-bottom: 18px;
+    }
+    .milestone h3 {
+      color: #1e477c;
+      margin: 0 0 14px;
+      font: 700 29px/1.18 var(--font-heading);
+    }
+    .milestone p {
+      margin: 0;
+      color: #526174;
+      font: 400 21px/1.42 var(--font-body);
+    }
+    .final {
+      display: grid;
+      grid-template-columns: 1fr 0.86fr;
+      gap: 72px;
+      padding: 92px 112px;
+      align-items: center;
+      background: #1e477c;
+      color: #fff;
+    }
+    .final .logo-mark {
+      background-image: url("/design-system/deck-template/mindsleap-logo-white.png");
+      width: 310px;
+      height: 58px;
+      margin-bottom: 58px;
+    }
+    .final h1 {
+      margin: 0;
+      font: 700 112px/1.02 var(--font-heading);
+      max-width: 960px;
+    }
+    .final p {
+      margin: 36px 0 0;
+      max-width: 980px;
+      color: rgba(255,255,255,0.78);
+      font: 400 32px/1.45 var(--font-body);
+    }
+    .final-list {
+      display: grid;
+      gap: 18px;
+    }
+    .final-item {
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 26px;
+      background: rgba(255,255,255,0.06);
+    }
+    .final-item b {
+      display: block;
+      color: #fff;
+      font: 700 28px/1.18 var(--font-heading);
+      margin-bottom: 10px;
+    }
+    .final-item span {
+      color: rgba(255,255,255,0.74);
+      font: 400 22px/1.38 var(--font-body);
+    }
+  </style>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+
+  <section class="slide cover-qp no-chrome" data-label="01 封面">
+    <div class="cover-copy">
+      <div>
+        <div class="logo-mark"></div>
+        <h1>共建AI原生企业的产业加速平台合作方案</h1>
+        <h2>MindsLeap × 青浦科创</h2>
+        <p>MindsLeap拥有丰富的硅谷资源链接能力，并已验证大型活动、企业家社群、媒体传播能力，下一步与青浦科创共同建设面向 AI 原生企业的产业加速平台。</p>
+      </div>
+      <div class="meta-row">
+        <div><b>呈报</b>青浦科创集团</div>
+        <div><b>版本</b>合作方案初版 HTML Deck</div>
+        <div><b>日期</b>2026年6月</div>
+      </div>
+    </div>
+    <div class="cover-photo">
+      <img class="photo-img" src="assets/ai-native-conference-cover.jpg" alt="AI原生企业大会现场" />
+      <div class="cover-badge">
+        <div><b>近300人</b>大会组织能力已验证</div>
+        <div><b>500+</b>具备下一阶段放大基础</div>
+        <div><b>1000人</b>与青浦科创共创年度大会</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide statement blue no-chrome" data-label="02 核心判断">
+    <div class="statement-inner">
+      <div class="eyebrow">核心定位 <span class="dot">·</span> 不是单点项目，而是生态建设</div>
+      <h1>共同构建由传统企业家、AI 企业、OPC、资本、硅谷资源、国内高端制造业与媒体影响力共同驱动的AI原生产业生态。</h1>
+      <p>AI 竞争正在从模型能力转向场景落地。青浦科创的空间、政策、场景与区域组织能力，将让这个生态从可见势能进入可持续的产业增长。</p>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="03 生态飞轮">
+    <div class="eyebrow">生态飞轮 <span class="dot">·</span> 青浦 × MindsLeap 生态飞轮</div>
+    <h1 class="slide-title">以信任聚集需求，以场景孵化企业，驱动青浦 AI 原生产业生态闭环
+      <span class="en">大型活动与日常运营建立信任，线下活动与线上矩阵双向联动，企业场景释放需求，AI 企业与 OPC 在真实项目中成长。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="flywheel">
+      <div class="hub">青浦 AI 原生企业生态</div>
+      <div class="orbit o5"><h3>年度大会+每月活动</h3><p>每年 1-2 场大型活动+每月AI主题活动，塑造青浦在 AI 原生与 AI 转型领域的全国心智。</p></div>
+      <div class="orbit o1"><h3>企业家 AI 俱乐部</h3><p>沉淀稳定会员与高信任关系，成为长期现金流和业务需求来源。</p></div>
+      <div class="orbit o2"><h3>FDE 转型服务</h3><p>把传统企业需求变成可交付项目，连接培训、咨询、部署与效果验收。</p></div>
+      <div class="orbit o3"><h3>OPC / AI 企业</h3><p>获得真实场景与收入，先解决生存问题，再成长为行业 AI 服务标杆。</p></div>
+      <div class="orbit o4"><h3>硅谷与资本</h3><p>引入 Founders Space、硅谷导师、全球创业方法论与资本视野。</p></div>
+      <div class="orbit o6"><h3>媒体矩阵</h3><p>把活动、案例、研究和创业故事持续传播，放大青浦区域品牌。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="04 硅谷链接">
+    <div class="eyebrow">硅谷资源 <span class="dot">·</span> 一线大咖与前沿认知</div>
+    <h1 class="slide-title">借助硅谷AI势能，MindsLeap将引入一线AI大咖资源成为生态的重要组成部分
+      <span class="en">把硅谷 AI 认知、商业化经验、资本视野和创业方法论，转化为青浦可使用的生态资源。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="mentor-grid">
+      <div class="mentor-card steve">
+        <div class="mentor-photo"><img src="assets/mentor-steve-hoffman.png" alt="Steve Hoffman" /></div>
+        <div class="mentor-copy"><div class="role">Founders Space</div><h3>Steve Hoffman</h3><p>Founders Space 创始人，被称为“硅谷创投教父”，可参与年度大会、Demo Day、项目辅导与全球创业方法论导入。</p></div>
+      </div>
+      <div class="mentor-card zack">
+        <div class="mentor-photo"><img src="assets/mentor-zack-kass.jpeg" alt="Zack Kass" /></div>
+        <div class="mentor-copy"><div class="role">原 OpenAI 商业化负责人</div><h3>Zack Kass</h3><p>原 OpenAI 市场拓展负责人，长期面向企业家和组织讲解 AI 商业化、组织转型与未来工作方式。</p></div>
+      </div>
+      <div class="mentor-card piero">
+        <div class="mentor-photo"><img src="assets/mentor-piero-scaruffi.webp" alt="Piero Scaruffi" /></div>
+        <div class="mentor-copy"><div class="role">硅谷人工智能研究院</div><h3>Piero Scaruffi</h3><p>硅谷人工智能研究院院长、科技思想家，帮助企业从长期科技趋势理解 AI 原生组织和产业变迁。</p></div>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-photo"><img src="assets/mentor-jeff-qian.jpg" alt="Jeff 钱慰祖" /></div>
+        <div class="mentor-copy"><div class="role">硅谷创业导师</div><h3>Jeff 钱慰祖</h3><p>前 Plug and Play SVP、斯坦福创业导师、Spark Venture Studio 联合创始人，擅长 AI 原生企业判断和创业加速。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide" data-label="05 产业链链接">
+    <div class="eyebrow">产业链链接 <span class="dot">·</span> 国内高端制造业 × 硅谷大厂产业链</div>
+    <h1 class="slide-title">链接国内高端制造业与硅谷大厂产业链，形成青浦独特的产业加速能力
+      <span class="en">一端连接国内高端制造业真实场景，一端连接硅谷 AI、云、芯片与企业软件生态，把两端翻译成项目机会。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="chain-grid">
+      <div class="chain-card">
+        <div>
+          <div class="label">国内产业场景</div>
+          <h3>国内高端制造业</h3>
+          <p>提供真实产业场景、工程化能力、供应链深度、量产经验与企业级客户网络。</p>
+          <ul>
+            <li>智能制造与工业软件场景</li>
+            <li>机器人、设备、供应链协同</li>
+            <li>可验证、可复制的行业需求</li>
+          </ul>
+        </div>
+      </div>
+      <div class="chain-card bridge">
+        <div>
+          <div class="label">MindsLeap × 青浦科创</div>
+          <h3>产业加速平台</h3>
+          <p>把产业需求翻译为 AI 原生企业可交付的产品、项目和合作机会，并组织验证、路演、传播与落地。</p>
+          <ul>
+            <li>需求翻译</li>
+            <li>技术验证</li>
+            <li>商业撮合</li>
+          </ul>
+        </div>
+      </div>
+      <div class="chain-card">
+        <div>
+          <div class="label">硅谷技术生态</div>
+          <h3>硅谷大厂产业链</h3>
+          <p>连接 AI 大厂、云计算、芯片、Agent、开发者工具与企业软件生态，带来前沿认知和全球合作入口。</p>
+          <ul>
+            <li>模型、云、芯片与开发者生态</li>
+            <li>GTM、产品化与企业服务经验</li>
+            <li>出海合作与全球资本视野</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="chain-outputs">
+      <div class="chain-output"><b>场景对接</b><span>制造业真实需求进入 AI 创业供给侧。</span></div>
+      <div class="chain-output"><b>技术验证</b><span>用行业场景检验模型、Agent 与软件能力。</span></div>
+      <div class="chain-output"><b>供应链合作</b><span>帮助 AI 企业找到硬件、设备与产业伙伴。</span></div>
+      <div class="chain-output"><b>标杆案例</b><span>沉淀可传播、可招商、可复制的行业样板。</span></div>
+      <div class="chain-output"><b>双向招商</b><span>吸引软件、制造和 AI 服务公司进入青浦。</span></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="06 大型活动能力">
+    <div class="eyebrow">活动能力验证 <span class="dot">·</span> 大型活动能力已验证</div>
+    <h1 class="slide-title">AI 原生企业大会证明：我们可以组织高质量、高密度、可传播的 AI 产业场域
+      <span class="en">2026年5月 AI 原生企业大会聚集近300位企业家、投资人和科创负责人，验证了议题组织、现场运营和传播能力。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="grid-2">
+      <div class="number-panel">
+        <div class="num">近300</div>
+        <h3>企业家、投资人与科创专家线下聚合</h3>
+        <p>2026年5月23日，MindsLeap 联合上海科企产业创新研究院、Founders Space、衔远科技共同主办 AI 原生企业大会，围绕“AI原生企业的硅谷路径”与“中国企业AI转型实践”形成行业对话。</p>
+      </div>
+      <div class="proof-photo">
+        <img class="photo-img" src="assets/ai-native-conference-hoffman.jpg" alt="Steve Hoffman 大会演讲" />
+        <div class="caption">Steve Hoffman 现场分享企业 AI 落地与硅谷投资趋势</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body fill-slide" data-label="07 从300到1000">
+    <div class="eyebrow">大会放大路径 <span class="dot">·</span> 从 300 人到 1000 人</div>
+    <h1 class="slide-title">升级大会规格，用具有影响力的大会建立青浦的 AI 信任资产
+      <span class="en">标志性大会将成为创业者、企业家和投资人认识青浦 AI 生态的固定入口。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3">
+      <div class="card"><div class="idx">阶段01</div><h3>已验证：近300人</h3><p>议题、嘉宾、场地、生产、传播和会后内容复盘能力已经跑通。</p></div>
+      <div class="card dark"><div class="idx">阶段02</div><h3>下一步：500人</h3><p>通过青浦科创的区域组织能力、政策资源和产业邀约，把大会升级为长三角企业 AI 转型的重要入口。</p></div>
+      <div class="card"><div class="idx">阶段03</div><h3>共同目标：千人大会</h3><p>每年 1-2 场标志性活动，形成“AI 原生企业来青浦”的行业记忆和品牌势能。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body club-slide" data-label="08 企业家 AI 俱乐部">
+    <div class="eyebrow">企业家社群 <span class="dot">·</span> 稳定现金流与需求入口</div>
+    <h1 class="slide-title">企业家 AI 俱乐部正在快速增长，预计 2027 年底达到 200-500 个会员单位
+      <span class="en">到 2027 年底，企业家 AI 俱乐部将成为稳定收入来源和高信任需求网络。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="grid-2">
+      <div class="number-panel">
+        <div class="num">200-500<small>会员单位</small></div>
+        <h3>高信任企业家社群</h3>
+        <p>俱乐部不只是内容订阅，而是企业家之间形成认知同步、长期陪伴和项目共创的关系网络。</p>
+      </div>
+      <div class="grid-2" style="grid-template-columns:1fr 1fr;gap:22px;margin:0;">
+        <div class="card"><div class="idx">01</div><h3>会员服务</h3><p>闭门分享、AI 工作坊、企业参访、导师对话，形成稳定现金流。</p></div>
+        <div class="card"><div class="idx">02</div><h3>需求挖掘</h3><p>通过信任关系进入企业真实经营问题，而不是只停留在公开课线索。</p></div>
+        <div class="card"><div class="idx">03</div><h3>转化服务</h3><p>从会员服务延伸到培训、咨询、FDE 项目和长期顾问服务。</p></div>
+        <div class="card dark"><div class="idx">04</div><h3>长周期价值</h3><p>服务企业 AI 转型全生命周期，同时为青浦导入企业与项目资源。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body fill-slide" data-label="09 FDE 商业模式">
+    <div class="eyebrow">FDE 服务模型 <span class="dot">·</span> 智能化服务新模型</div>
+    <h1 class="slide-title">FDE（Forward Deployed Engineer，前线部署工程师）服务是未来智能化服务的新模型
+      <span class="en">硅谷巨头正在投入数十亿美金级资源建设 FDE 商业模式，把工程师嵌入客户现场，推动 AI 从演示走向真实业务结果。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="flow" style="--cols:4">
+      <div class="flow-step"><div class="idx">01</div><h3>FDE 是什么</h3><p>Forward Deployed Engineer，中文可译为“前线部署工程师”：进入客户现场，理解业务、数据与流程，把 AI 能力转化为可上线、可衡量的系统。</p></div>
+      <div class="flow-step"><div class="idx">02</div><h3>巨头正在投入</h3><p>Palantir 长期验证该模式，OpenAI、Anthropic 等也在建设 FDE 团队，用大客户场景推动模型、产品和交付体系迭代。</p></div>
+      <div class="flow-step"><div class="idx">03</div><h3>从定制交付到产品化 Agent</h3><p>反复解决同类场景后，可以沉淀行业 Skill、Workflow、Memory 和 Agent 产品，逐步提高毛利。</p></div>
+      <div class="flow-step"><div class="idx">04</div><h3>从软件公司到 AI 服务公司</h3><p>青浦园区可以吸引传统软件企业转型为 FDE 公司，获得企业场景、培训体系、客户线索和生态背书。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="10 双向价值">
+    <div class="eyebrow">双向价值 <span class="dot">·</span> 一端服务企业，一端孵化供给</div>
+    <h1 class="slide-title">FDE模式让青浦同时获得传统企业AI转型收益，与AI企业加速成长收益
+      <span class="en">企业真实场景将成为 OPC、AI 原生企业和传统软件企业转型为 AI 服务公司的训练场。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="matrix">
+      <div class="cell head">对象</div><div class="cell head">获得什么</div><div class="cell head">MindsLeap 做什么</div><div class="cell head">青浦获得什么</div>
+      <div class="cell topic">传统企业</div><div class="cell">从培训到咨询到 FDE 落地的一整套 AI 转型服务</div><div class="cell">识别场景、组织交付、验证 ROI、沉淀方法</div><div class="cell">企业竞争力提升，形成区域 AI 转型样板</div>
+      <div class="cell topic">OPC / 超级个体</div><div class="cell">真实业务场景、收入机会、交付经验和行业信誉</div><div class="cell">训练 FDE 方法、提供客户入口、帮助项目复盘</div><div class="cell">先解决人才生存问题，再孵化 AI 原生企业</div>
+      <div class="cell topic">软件企业</div><div class="cell">从传统项目制转型为 AI 服务公司与行业 Agent 公司</div><div class="cell">导入 FDE 方法、行业场景和生态合作机会</div><div class="cell">吸引存量软件企业入驻，完成产业升级</div>
+    </div>
+  </section>
+
+  <section class="slide body fill-slide" data-label="11 Hackathon">
+    <div class="eyebrow">创新赛事 <span class="dot">·</span> 把硅谷最流行的黑客松引进中国</div>
+    <h1 class="slide-title">引进硅谷纯正黑客松（Hackathon）模式，聚集 OPC，发现优秀人才，并把他们链接到商业机会
+      <span class="en">用赛事把关注转化为人才发现、团队形成和商业机会匹配。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="flow" style="--cols:5">
+      <div class="flow-step"><div class="idx">01</div><h3>发布命题</h3><p>从青浦企业和会员企业中选择真实 AI 需求作为赛题。</p></div>
+      <div class="flow-step"><div class="idx">02</div><h3>招募 OPC</h3><p>吸引会用 AI Agent 解决问题的超级个体和小团队参与。</p></div>
+      <div class="flow-step"><div class="idx">03</div><h3>48小时共创</h3><p>以硅谷 Hackathon 方法快速原型、导师辅导、现场评审。</p></div>
+      <div class="flow-step"><div class="idx">04</div><h3>商业匹配</h3><p>把优胜团队与企业场景、FDE 项目和投资人连接起来。</p></div>
+      <div class="flow-step"><div class="idx">05</div><h3>孵化成长</h3><p>进入青浦 AI 原生企业生态，获得持续辅导、客户和资本机会。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="12 媒体矩阵">
+    <div class="eyebrow">媒体矩阵 <span class="dot">·</span> 人物内容资产</div>
+    <h1 class="slide-title">我们正在把硅谷创业者、投资人和产业专家转化为可传播的内容资产
+      <span class="en">高信任关系通过访谈、短视频和文章转化为传播影响力、生态背书和业务机会。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3 founders-cases">
+      <div class="media-card"><div><img class="photo-img" src="assets/media-jin-yisu-cover.jpg" alt="金一粟 Founders Talk" /></div><div class="copy"><div class="tag">硅谷人才服务</div><h3>金一粟：年营收 3 亿美金人才服务创始人</h3><p>IntelliPro 集团创始人，是观察 AI 时代人才重组与组织升级的一线样本。</p></div></div>
+      <div class="media-card"><div><img class="photo-img" src="assets/media-andy-zhang-cover.jpg" alt="Andy Zhang Founders Talk" /></div><div class="copy"><div class="tag">硬科技投资人</div><h3>Andy Zhang：和暄资本合伙人、首席策略官</h3><p>兼具硬科技投资人与 AI 创业者视角，分享如何提前布局 AI 与硬科技机会。</p></div></div>
+      <div class="card dark" style="min-height:450px;"><div class="idx">传播验证</div><h3>从人物访谈到生态信任</h3><p>创始人访谈（Founders Talk）让硅谷创业者、投资人和产业专家持续进入 MindsLeap 叙事，未来可为青浦带来流量、背书、项目线索和招商素材。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body role-slide" data-label="13 合作分工">
+    <div class="eyebrow">合作分工 <span class="dot">·</span> 双方各自做什么</div>
+    <h1 class="slide-title">明确分工，优势互补，共同推动青浦AI原生企业生态发展
+      <span class="en">青浦科创提供区域平台与政策资源，MindsLeap 负责生态运营与项目转化。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="responsibility-grid">
+      <div class="responsibility">
+        <header><div class="label">青浦科创集团</div><h3>青浦科创集团投入</h3></header>
+        <div class="responsibility-list">
+          <div class="responsibility-item"><div class="num">01</div><div><b>空间载体</b><span>提供新楼空间作为项目一期固定物理载体，承载办公、活动、路演与社群运营。</span></div></div>
+          <div class="responsibility-item"><div class="num">02</div><div><b>空间装修</b><span>根据共同确定的定位方案，支持空间设计、装修和基础设施配置。</span></div></div>
+          <div class="responsibility-item"><div class="num">03</div><div><b>启动支持</b><span>协调临时启动空间与运营启动资源，确保项目可以快速进入日常运营。</span></div></div>
+          <div class="responsibility-item"><div class="num">04</div><div><b>运营支持</b><span>提供年度运营支持经费，保障高质量活动、社群服务和生态建设稳定推进。</span></div></div>
+          <div class="responsibility-item"><div class="num">05</div><div><b>政策资源</b><span>整合注册、办公、人才、算力、基金、场景开放等政策资源包，赋能入驻企业。</span></div></div>
+        </div>
+      </div>
+      <div class="responsibility dark">
+        <header><div class="label">MindsLeap</div><h3>MindsLeap 投入</h3></header>
+        <div class="responsibility-list">
+          <div class="responsibility-item"><div class="num">01</div><div><b>项目招募与筛选</b><span>面向全球与本地招募 AI 原生企业、OPC、FDE 团队和传统软件转型企业。</span></div></div>
+          <div class="responsibility-item"><div class="num">02</div><div><b>活动运营</b><span>策划并执行年度大会、创始人访谈、AI 工作坊、项目路演日与黑客松。</span></div></div>
+          <div class="responsibility-item"><div class="num">03</div><div><b>内容传播与品牌建设</b><span>通过媒体矩阵、人物访谈、案例文章与短视频，持续放大青浦 AI 生态影响力。</span></div></div>
+          <div class="responsibility-item"><div class="num">04</div><div><b>硅谷资源链接</b><span>引入 Founders Space、硅谷导师、AI 创业方法论、资本与全球增长资源。</span></div></div>
+          <div class="responsibility-item"><div class="num">05</div><div><b>孵化与 FDE 转化</b><span>推动企业 AI 需求转化为培训、咨询、FDE 落地和 AI 原生企业成长机会。</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide" data-label="14 年度活动矩阵">
+    <div class="eyebrow">年度运营矩阵 <span class="dot">·</span> 61场/年持续运营</div>
+    <h1 class="slide-title">把年度大会的信任势能，转化为全年持续运营的产业入口
+      <span class="en">用高频活动承接大会流量，让信任、项目、媒体内容和招商线索全年持续沉淀。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="table-5">
+      <div class="tcell head">活动模块</div><div class="tcell head">频率</div><div class="tcell head">数量</div><div class="tcell head">产出</div><div class="tcell head">价值</div>
+      <div class="tcell topic">创始人访谈 / Founders Talk</div><div class="tcell strong">每周1场</div><div class="tcell strong">40场/年</div><div class="tcell">40个鲜活创始人故事，成为社区招商和传播素材。</div><div class="tcell">打造社区内容 IP，持续吸引潜在创业者关注。</div>
+      <div class="tcell topic">AI 工作坊 / 技术沙龙</div><div class="tcell strong">每月1场</div><div class="tcell strong">12场/年</div><div class="tcell">深度技术分享、垂直行业探讨与企业 AI 场景共创。</div><div class="tcell">增强社区粘性，为项目招募提供高质量技术引流。</div>
+      <div class="tcell topic">硅谷 AI 大咖专场</div><div class="tcell strong">每季度1场</div><div class="tcell strong">4场/年</div><div class="tcell">国际化前沿思想碰撞，形成媒体热点事件。</div><div class="tcell">显著提升社区国际势能，吸引主流媒体关注。</div>
+      <div class="tcell topic">项目路演日 / Demo Day</div><div class="tcell strong">每季度1场</div><div class="tcell strong">4场/年</div><div class="tcell">为优质项目提供面向投资人与产业方的集中展示舞台。</div><div class="tcell">高效对接资本和产业资源，加速入驻项目成长。</div>
+      <div class="tcell topic">年度 AI 原生创业大会</div><div class="tcell strong">每年1场</div><div class="tcell strong">1场/年</div><div class="tcell">年度性行业盛会和标志性品牌事件。</div><div class="tcell">巩固青浦作为 AI 原生创业高地的品牌地位。</div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide fill-slide" data-label="15 年度交付成果">
+    <div class="eyebrow">年度交付成果 <span class="dot">·</span> 对青浦科创集团的承诺</div>
+    <h1 class="slide-title">量化年度交付成果，让合作价值可见、可衡量、可汇报
+      <span class="en">年度交付不仅是活动数量，更包括传播素材、项目池、重点项目、标杆案例、落地企业和年度报告。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="kpi-grid">
+      <div class="kpi dark"><div class="num">61场</div><b>年度活动总量</b><span>完成高质量社区活动，持续活跃社区氛围。</span></div>
+      <div class="kpi"><div class="num">100+</div><b>可传播素材</b><span>产出短视频与图文素材，扩大青浦品牌声量。</span></div>
+      <div class="kpi"><div class="num">100+</div><b>项目观察池</b><span>建立 AI 原生候选项目与人才储备库。</span></div>
+      <div class="kpi"><div class="num">30+</div><b>重点筛选项目</b><span>筛选重点孵化项目，提供深度专业辅导。</span></div>
+      <div class="kpi"><div class="num">3-5</div><b>标杆创业案例</b><span>打造具有行业影响力的成功案例。</span></div>
+      <div class="kpi"><div class="num">50-100</div><b>落地注册企业</b><span>协助推动优质企业在青浦完成落地。</span></div>
+      <div class="kpi"><div class="num">1份</div><b>年度报告</b><span>用于向区/市级政府进行合作成果汇报。</span></div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide fill-slide" data-label="16 对青浦回报">
+    <div class="eyebrow">青浦获得什么 <span class="dot">·</span> 为什么值得做</div>
+    <h1 class="slide-title">该项目将为青浦带来从短期到长期、从经济到品牌的四层递进式回报
+      <span class="en">短期形成招商与声量，中期形成区域品牌，长期形成可持续的 AI 产业生态资产。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="grid-4">
+      <div class="card"><div class="idx">0-12个月</div><h3>招商增量</h3><p>直接带来 50-100 家高潜力 AI 创业企业注册落户，贡献经济与税收增长，快速形成产业集聚效应。</p></div>
+      <div class="card"><div class="idx">0-12个月</div><h3>社会效益</h3><p>打造“中国首个 AI 原生企业孵化社区”独特品牌，树立区域 AI 产业标杆，带动就业与人才聚集。</p></div>
+      <div class="card"><div class="idx">1-3年</div><h3>品牌升级</h3><p>推动青浦从传统园区运营商向 AI 新经济生态运营方转型，吸引高端人才、前沿技术与风险资本汇聚。</p></div>
+      <div class="card dark"><div class="idx">2-5年</div><h3>生态共建</h3><p>探索设立专项创投基金，投资优质入驻企业，分享长期成长红利，实现从“房东”向“股东”的角色升级。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide" data-label="17 年度运营预算">
+    <div class="eyebrow">年度运营预算 <span class="dot">·</span> 61场活动成本构成</div>
+    <h1 class="slide-title">年度运营支持经费用于明确的活动交付，确保每一分投入清晰透明
+      <span class="en">预算对应可交付的活动、内容生产和生态运营，不包含固定空间租金、装修投入和企业政策补贴。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="table-4">
+      <div class="tcell head">项目</div><div class="tcell head">单价</div><div class="tcell head">频率</div><div class="tcell head">年度金额</div>
+      <div class="tcell topic">创始人访谈 / Founders Talk</div><div class="tcell">1万元/场</div><div class="tcell">40场/年</div><div class="tcell strong">40万元</div>
+      <div class="tcell topic">AI 工作坊 / 沙龙</div><div class="tcell">5万元/场</div><div class="tcell">12场/年</div><div class="tcell strong">60万元</div>
+      <div class="tcell topic">硅谷 AI 大咖专场</div><div class="tcell">15万元/场</div><div class="tcell">4场/年</div><div class="tcell strong">60万元</div>
+      <div class="tcell topic">项目路演日 / Demo Day</div><div class="tcell">10万元/场</div><div class="tcell">4场/年</div><div class="tcell strong">40万元</div>
+      <div class="tcell topic">年度 AI 原生创业大会</div><div class="tcell">50万元/场</div><div class="tcell">1场/年</div><div class="tcell strong">50万元</div>
+    </div>
+    <div class="budget-total"><b>年度总预算合计：约 250万元/年</b><span>该费用为纯运营活动成本，不包含固定空间租金、装修投入及面向入驻企业的政策性资源补贴。</span></div>
+  </section>
+
+  <section class="slide body dense-slide" data-label="18 经费分担机制">
+    <div class="eyebrow">经费分担机制 <span class="dot">·</span> 政府支持与市场化运营结合</div>
+    <h1 class="slide-title">运营经费建议采用“政府引导支持 + MindsLeap 市场化自筹”的可持续模型
+      <span class="en">政府支持降低启动门槛，市场化运营逐步形成自我造血能力。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="funding-grid">
+      <div class="funding-card">
+        <h3>政府运营支持</h3>
+        <p>通过“年度运营服务包”的形式进行专项拨款，确保园区基础服务、核心活动和生态建设能够稳定开展。</p>
+      </div>
+      <div class="funding-card dark">
+        <h3>MindsLeap 自筹</h3>
+        <p>通过会员费、增值服务、活动赞助及空间租赁等市场化方式筹集剩余资金，逐步形成自我造血能力。</p>
+        <div class="revenue-chips"><span>企业孵化费</span><span>共享工位费</span><span>增值服务费</span><span>商业活动赞助</span></div>
+      </div>
+      <div class="principles">
+        <div class="principle"><b>不要求全额覆盖</b><span>政府支持旨在引导与撬动，降低项目启动门槛。</span></div>
+        <div class="principle"><b>坚持市场化运营</b><span>发挥平台优势，通过专业服务自筹资金。</span></div>
+        <div class="principle"><b>友好协商确定</b><span>双方就具体分担比例与机制充分沟通。</span></div>
+        <div class="principle"><b>建立可持续模型</b><span>最终实现自我造血，确保长期稳定发展。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide fill-slide" data-label="19 空间功能规划">
+    <div class="eyebrow">空间功能规划 <span class="dot">·</span> 一层楼怎么布局</div>
+    <h1 class="slide-title">打造一个功能复合、灵活多变的创新生态空间
+      <span class="en">空间要同时承载活动、内容生产、开放办公、导师辅导、投融资对接和项目展示。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3 compact-grid">
+      <div class="card"><div class="idx">01</div><h3>100人+ 路演 / 上课空间</h3><p>举办 AI 工作坊、项目路演、Demo Day，满足大型公开分享与教学需求。</p></div>
+      <div class="card"><div class="idx">02</div><h3>MindsLeap 演播室</h3><p>专业视频录制和直播空间，支持高清拍摄与多机位切换，生产高质量内容。</p></div>
+      <div class="card"><div class="idx">03</div><h3>AI 原生开放办公区</h3><p>灵活分区，打破传统工位限制，服务不同发展阶段的 AI 创业团队。</p></div>
+      <div class="card"><div class="idx">04</div><h3>导师辅导 / 投融资洽谈室</h3><p>提供私密安静的一对一空间，支持导师辅导与资本对接。</p></div>
+      <div class="card"><div class="idx">05</div><h3>项目展示区</h3><p>作为社区荣誉墙与政策窗口，展示优秀项目技术成果及政府扶持政策。</p></div>
+      <div class="card dark"><div class="idx">06</div><h3>灵活会议与共创空间</h3><p>配备白板与协作工具，支持团队会议、跨团队共创和敏捷项目协作。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide fill-slide" data-label="20 政策资源包">
+    <div class="eyebrow">政策资源包 <span class="dot">·</span> 政府为入驻企业提供的招商产品</div>
+    <h1 class="slide-title">打造极具竞争力的政策组合拳，吸引最优秀的 AI 原生企业入驻
+      <span class="en">用注册、办公、人才、算力、基金和监管支持，降低 AI 原生企业落地青浦的综合成本。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3 compact-grid">
+      <div class="card"><div class="idx">01</div><h3>免租办公支持</h3><p>为优质企业提供 6-12 个月免费工位，降低初期运营成本。</p></div>
+      <div class="card"><div class="idx">02</div><h3>工位注册 / 一址多照</h3><p>创新企业注册模式，打破物理空间限制，大幅降低创业门槛。</p></div>
+      <div class="card"><div class="idx">03</div><h3>算力券 / 模型 API 额度</h3><p>提供基础算力资源与 AI 工具 Token，支持企业技术研发。</p></div>
+      <div class="card"><div class="idx">04</div><h3>人才公寓 / 租房补贴</h3><p>解决创业者居住与生活后顾之忧，让人才引得进、留得住。</p></div>
+      <div class="card"><div class="idx">05</div><h3>政府基金跟投 / 拨投结合</h3><p>发挥政府引导基金杠杆作用，以资本力量加速优秀 AI 项目成长。</p></div>
+      <div class="card dark"><div class="idx">06</div><h3>包容审慎监管</h3><p>坚持在发展中规范、在规范中发展，营造鼓励创新、宽容失败的环境。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide fill-slide" data-label="21 治理与合作边界">
+    <div class="eyebrow">治理与边界 <span class="dot">·</span> 长期可持续合作关系</div>
+    <h1 class="slide-title">建立健康的合作边界，确保项目不是短期场地运营，而是长期生态共建
+      <span class="en">评价体系应重点衡量生态质量、项目成长、场景转化和区域品牌，而不只是入驻数量。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="boundary-grid">
+      <div class="boundary-card"><h3>不以单纯入驻数量作为唯一指标</h3><p>综合评价项目聚集质量、内容传播影响力、活动品牌效应、注册落地企业数量、标杆案例、高端人才吸引、资本关注度以及区域品牌显示度。</p></div>
+      <div class="boundary-card"><h3>MindsLeap 不是普通场地运营方</h3><p>MindsLeap 的角色是创业孵化、内容传播、硅谷资源链接和创业陪跑的综合运营方，提供全方位价值赋能，而非简单场地租赁服务。</p></div>
+      <div class="boundary-card"><h3>AI 原生企业孵化社区不是传统联合办公</h3><p>我们打造的是面向 AI 时代新型创业主体的创新孵化与产业服务平台，核心价值是构建协同共生、富有创造力的前沿创新生态系统。</p></div>
+    </div>
+  </section>
+
+  <section class="slide body fill-slide" data-label="22 里程碑">
+    <div class="eyebrow">阶段里程碑 <span class="dot">·</span> 2026-2027 初步路线图</div>
+    <h1 class="slide-title">先建立场域，再跑通服务闭环，最后形成生态品牌
+      <span class="en">从场域启动，到 FDE 样板验证，再到会员收入和区域品牌成型，分阶段推进。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="timeline">
+      <div class="milestone"><div class="time">2026 Q3</div><h3>启动共建空间</h3><p>确定空间功能、政策包、活动日历与首批企业家 AI 俱乐部运营节奏。</p></div>
+      <div class="milestone"><div class="time">2026 Q4</div><h3>跑通 FDE 样板</h3><p>筛选 3-5 个青浦企业 AI 转型场景，完成培训、诊断、原型与验收闭环。</p></div>
+      <div class="milestone"><div class="time">2027 H1</div><h3>500人大会</h3><p>举办青浦版 AI 原生企业大会，形成媒体传播、招商素材和项目观察池。</p></div>
+      <div class="milestone"><div class="time">2027 H2</div><h3>200-500会员单位</h3><p>企业家 AI 俱乐部形成稳定会员服务收入，并持续产生 FDE 与咨询项目。</p></div>
+      <div class="milestone"><div class="time">2027 End</div><h3>生态品牌成型</h3><p>形成一批标杆企业案例、OPC/FDE 人才库、AI 原生项目和青浦区域品牌资产。</p></div>
+    </div>
+  </section>
+
+  <section class="slide final no-chrome" data-label="23 结尾">
+    <div>
+      <div class="logo-mark"></div>
+      <h1>让青浦成为 AI 原生企业的产业加速平台。</h1>
+      <p>年度大会+每月AI主题活动建立信任，日常运营沉淀关系，FDE 服务释放需求，黑客松（Hackathon）发现人才，媒体矩阵放大影响力，并链接国内高端制造业与硅谷大厂产业链。MindsLeap 与青浦科创共同建设的，是一个会持续生长的 AI 产业生态。</p>
+    </div>
+    <div class="final-list">
+      <div class="final-item"><b>年度大会+每月AI主题活动</b><span>每年 1-2 场大型活动，并通过月度活动持续沉淀信任和需求。</span></div>
+      <div class="final-item"><b>企业家 AI 俱乐部</b><span>到 2027 年底冲刺 200-500 个会员单位，成为稳定现金流和需求入口。</span></div>
+      <div class="final-item"><b>FDE 商业闭环</b><span>从培训、咨询到落地，帮助企业转型，也孵化 AI 原生供给。</span></div>
+      <div class="final-item"><b>硅谷深度链接</b><span>用全球导师、Hackathon 方法和媒体影响力，为青浦注入长期势能。</span></div>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>
