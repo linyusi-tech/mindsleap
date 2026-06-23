@@ -1,5 +1,5 @@
 (function () {
-  var PASSWORD = "Proposal";
+  var PASSWORD = "Proposals";
   var SESSION_KEY = "mindsleap:proposal:access";
 
   var style = document.createElement("style");
