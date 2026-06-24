@@ -1,0 +1,3075 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-logo="joint" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>杨铭宇区域品牌资产经营培训</title>
+  <link rel="stylesheet" href="/design-system/deck-template/colors_and_type.css" />
+  <style>
+    :root {
+      --ink: #101522;
+      --muted: #596579;
+      --soft: #eef2f7;
+      --line: #dce3ee;
+      --paper: #f7f8fb;
+      --white: #ffffff;
+      --blue: #1646ff;
+      --red: #c52020;
+      --gold: #b87a18;
+      --green: #087f5b;
+      --shadow: 0 22px 70px rgba(16, 21, 34, 0.08);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    body { overflow: hidden; }
+
+    a { color: inherit; }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: clamp(34px, 4.7vw, 76px);
+      background:
+        linear-gradient(90deg, rgba(16, 21, 34, 0.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 7.142vw 100%;
+    }
+
+    .slide.active {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: clamp(18px, 2.2vh, 30px);
+    }
+
+    .slide-frame {
+      width: min(100%, 1760px);
+      height: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: clamp(22px, 3vh, 40px);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+      color: var(--muted);
+      font-size: clamp(12px, 1vw, 15px);
+    }
+
+    .brand {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .section-mark {
+      color: var(--blue);
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .content {
+      min-height: 0;
+      display: grid;
+      align-content: center;
+      gap: clamp(22px, 3vh, 38px);
+    }
+
+    .content.top { align-content: start; }
+    .content.end { align-content: end; }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: clamp(12px, 1.1vw, 15px);
+      font-weight: 950;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(54px, 7.4vw, 122px);
+      line-height: 1.02;
+      font-weight: 950;
+      max-width: 1400px;
+    }
+
+    h2 {
+      font-size: clamp(40px, 5.4vw, 88px);
+      line-height: 1.06;
+      font-weight: 950;
+      max-width: 1340px;
+    }
+
+    h3 {
+      font-size: clamp(24px, 2.2vw, 42px);
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(21px, 1.75vw, 32px);
+      line-height: 1.65;
+      max-width: 1080px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: clamp(15px, 1.1vw, 20px);
+      line-height: 1.65;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: clamp(28px, 4vw, 72px);
+      align-items: center;
+      min-height: 0;
+    }
+
+    .split.top { align-items: start; }
+
+    .quote-panel {
+      background: var(--ink);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: clamp(28px, 3.4vw, 58px);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-panel strong {
+      display: block;
+      font-size: clamp(34px, 4.4vw, 76px);
+      line-height: 1.12;
+      font-weight: 950;
+    }
+
+    .quote-panel span {
+      display: block;
+      margin-top: 24px;
+      color: #c7d2e2;
+      font-size: clamp(17px, 1.35vw, 24px);
+      line-height: 1.65;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(14px, 1.4vw, 24px);
+    }
+
+    .cards.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cards.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(20px, 2vw, 34px);
+      box-shadow: var(--shadow);
+      min-height: 180px;
+    }
+
+    .card.compact { min-height: 0; padding: clamp(16px, 1.5vw, 24px); }
+
+    .card h3 {
+      margin-bottom: 14px;
+      font-size: clamp(22px, 2vw, 34px);
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: clamp(16px, 1.18vw, 21px);
+      line-height: 1.58;
+    }
+
+    .card ul {
+      margin: 12px 0 0;
+      padding-left: 1.15em;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 4px;
+      color: var(--white);
+      background: var(--ink);
+      font-size: clamp(12px, 0.9vw, 14px);
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .tag.red { background: var(--red); }
+    .tag.blue { background: var(--blue); }
+    .tag.green { background: var(--green); }
+    .tag.gold { background: var(--gold); }
+
+    .metric {
+      display: grid;
+      gap: 10px;
+      border-left: 5px solid var(--blue);
+      padding-left: 20px;
+    }
+
+    .metric strong {
+      font-size: clamp(36px, 5vw, 84px);
+      line-height: 0.95;
+      font-weight: 950;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: clamp(17px, 1.3vw, 23px);
+      line-height: 1.55;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .timeline .node {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 210px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .node b {
+      color: var(--blue);
+      font-size: 15px;
+    }
+
+    .node strong {
+      display: block;
+      font-size: clamp(20px, 1.8vw, 31px);
+      line-height: 1.18;
+      margin: 10px 0 16px;
+    }
+
+    .node span {
+      color: var(--muted);
+      font-size: clamp(15px, 1.08vw, 19px);
+      line-height: 1.58;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .matrix-cell {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(20px, 1.8vw, 30px);
+      min-height: 300px;
+    }
+
+    .matrix-cell .grade {
+      font-size: clamp(46px, 5vw, 80px);
+      line-height: 1;
+      font-weight: 950;
+      margin-bottom: 18px;
+    }
+
+    .matrix-cell h3 { margin-bottom: 14px; }
+
+    .matrix-cell p {
+      color: var(--muted);
+      font-size: clamp(16px, 1.14vw, 20px);
+      line-height: 1.58;
+    }
+
+    .grade.a { color: var(--green); }
+    .grade.b { color: var(--blue); }
+    .grade.c { color: var(--gold); }
+    .grade.d { color: var(--red); }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+      align-items: start;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      font-size: clamp(16px, 1.18vw, 21px);
+      line-height: 1.48;
+      color: var(--muted);
+    }
+
+    .check b {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: white;
+      font-size: 14px;
+    }
+
+    .bar-chart {
+      display: grid;
+      gap: 15px;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 180px 1fr 68px;
+      gap: 16px;
+      align-items: center;
+      color: var(--muted);
+      font-size: clamp(16px, 1.15vw, 20px);
+    }
+
+    .bar-track {
+      height: 32px;
+      background: var(--soft);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--blue);
+    }
+
+    .bar-fill.red { background: var(--red); }
+    .bar-fill.green { background: var(--green); }
+    .bar-fill.gold { background: var(--gold); }
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(28px, 4vw, 72px);
+      align-items: stretch;
+    }
+
+    .case-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(24px, 2.6vw, 44px);
+      box-shadow: var(--shadow);
+    }
+
+    .case-card h3 {
+      font-size: clamp(32px, 3.6vw, 64px);
+      margin: 0 0 22px;
+    }
+
+    .case-card p,
+    .case-card li {
+      color: var(--muted);
+      font-size: clamp(17px, 1.3vw, 24px);
+      line-height: 1.62;
+    }
+
+    .case-card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .lesson {
+      background: var(--ink);
+      color: white;
+      border-radius: var(--radius);
+      padding: clamp(24px, 2.6vw, 44px);
+      display: grid;
+      align-content: center;
+    }
+
+    .lesson b {
+      color: #9fb5ff;
+      font-size: clamp(13px, 1vw, 15px);
+      text-transform: uppercase;
+    }
+
+    .lesson strong {
+      display: block;
+      font-size: clamp(34px, 4.1vw, 70px);
+      line-height: 1.12;
+      margin-top: 18px;
+    }
+
+    .lesson span {
+      display: block;
+      color: #cbd5e1;
+      font-size: clamp(17px, 1.25vw, 23px);
+      line-height: 1.62;
+      margin-top: 22px;
+    }
+
+    .question {
+      background: var(--white);
+      border-left: 7px solid var(--blue);
+      border-radius: var(--radius);
+      padding: clamp(24px, 2.3vw, 38px);
+      font-size: clamp(28px, 3.3vw, 58px);
+      line-height: 1.18;
+      font-weight: 950;
+      box-shadow: var(--shadow);
+    }
+
+    .sources {
+      display: grid;
+      gap: 10px;
+      font-size: clamp(13px, 0.95vw, 17px);
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .sources li { margin-bottom: 6px; }
+
+    .controls {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 10px;
+      box-shadow: 0 10px 30px rgba(16, 21, 34, 0.12);
+      z-index: 10;
+    }
+
+    .controls button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      min-width: 38px;
+      height: 34px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .controls button:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .progress {
+      color: var(--muted);
+      font-size: 14px;
+      min-width: 72px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .hint {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      color: var(--muted);
+      font-size: 12px;
+      z-index: 9;
+    }
+
+    @media (max-width: 1180px) {
+      body { overflow: auto; }
+      .deck { height: auto; min-height: 100vh; overflow: visible; }
+      .slide {
+        position: relative;
+        min-height: 100vh;
+        display: none;
+      }
+      .split,
+      .case-layout,
+      .cards,
+      .cards.two,
+      .cards.four,
+      .matrix,
+      .timeline,
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+      .bar { grid-template-columns: 120px 1fr 52px; }
+      .controls { position: fixed; }
+      .hint { display: none; }
+    }
+
+    /* MindsLeap Brand Deck template alignment: magazine theme, 1920x1080 stage. */
+    html {
+      --bg: #f3eee5;
+      --bg-alt: #ebe4d6;
+      --ink: #1a1a1a;
+      --muted: #5a554b;
+      --subtle: #908a80;
+      --rule: #d6cdb9;
+      --accent: #1e477c;
+      --accent-soft: #1e477c;
+      --eyebrow: #8b6f3a;
+      --card-bg: #ebe4d6;
+      --card-rule: #d6cdb9;
+      --deck-scale: 1;
+    }
+
+    body, h1, h2, h3, p, div, span, li, a, button {
+      letter-spacing: 0 !important;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      min-height: 0;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      min-height: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      padding: 96px 120px 140px;
+      background: var(--bg);
+      background-image: none;
+      color: var(--ink);
+      overflow: hidden;
+      transform: translate(-50%, -50%) scale(var(--deck-scale));
+      transform-origin: center center;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+      counter-increment: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide-frame {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 54px;
+    }
+
+    .slide::before {
+      content: "MindsLeap";
+      position: absolute;
+      left: 120px;
+      bottom: 56px;
+      color: var(--footer-ink, #6b6353);
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .slide::after {
+      content: attr(data-page);
+      position: absolute;
+      right: 120px;
+      bottom: 54px;
+      color: var(--footer-ink, #6b6353);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .topbar {
+      border: 0;
+      padding: 0;
+      min-height: 28px;
+      color: var(--subtle);
+      font-size: 20px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .section-mark {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .content {
+      align-content: start;
+      gap: 56px;
+      min-height: 0;
+    }
+
+    .content:not(.split):not(.top) {
+      align-content: center;
+    }
+
+    .eyebrow {
+      color: var(--eyebrow);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: 92px;
+      line-height: 1.08;
+      font-weight: 800;
+      max-width: 1660px;
+      word-break: normal;
+      overflow-wrap: normal;
+      text-wrap: wrap;
+    }
+
+    h2 {
+      font-size: 76px;
+      line-height: 1.08;
+      font-weight: 800;
+      max-width: 1660px;
+      word-break: normal;
+      overflow-wrap: normal;
+      text-wrap: wrap;
+    }
+
+    h3 {
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 30px;
+      line-height: 1.42;
+      max-width: 1420px;
+    }
+
+    .content > h1::after,
+    .content > h2::after,
+    .content > div:first-child > h1::after,
+    .content > div:first-child > h2::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 5px;
+      background: var(--accent-soft);
+      margin-top: 28px;
+    }
+
+    .split {
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .cards {
+      gap: 28px;
+    }
+
+    .card,
+    .matrix-cell,
+    .timeline .node,
+    .check,
+    .case-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .card {
+      padding: 36px 34px;
+      min-height: 236px;
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48px;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    .card.compact {
+      padding: 30px 28px;
+    }
+
+    .card h3 {
+      margin-bottom: 16px;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.22;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.5;
+    }
+
+    .tag {
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 0;
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .tag.red,
+    .tag.blue,
+    .tag.green,
+    .tag.gold {
+      background: transparent;
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .quote-panel,
+    .lesson {
+      border-radius: 0;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: none;
+      padding: 56px;
+    }
+
+    .quote-panel strong,
+    .lesson strong {
+      font-size: 64px;
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    .quote-panel span,
+    .lesson span {
+      color: #d7e6ff;
+      font-size: 27px;
+      line-height: 1.44;
+    }
+
+    .lesson b {
+      color: #b8d7ff;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .case-layout {
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 48px;
+    }
+
+    .case-card {
+      padding: 52px;
+    }
+
+    .case-card h3 {
+      font-size: 56px;
+      line-height: 1.12;
+      margin-bottom: 28px;
+    }
+
+    .case-card li {
+      font-size: 26px;
+      line-height: 1.52;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .matrix {
+      gap: 24px;
+    }
+
+    .matrix-cell {
+      min-height: 370px;
+      padding: 38px 32px;
+    }
+
+    .matrix-cell .grade {
+      font-size: 96px;
+      margin-bottom: 24px;
+    }
+
+    .matrix-cell h3 {
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    .matrix-cell p {
+      font-size: 23px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .grade.a,
+    .grade.b,
+    .grade.c,
+    .grade.d {
+      color: var(--accent);
+    }
+
+    .timeline {
+      gap: 0;
+      border-top: 2px solid var(--rule);
+      padding-top: 48px;
+    }
+
+    .timeline .node {
+      min-height: 270px;
+      border-left: 0;
+      border-top: 0;
+      border-bottom: 0;
+      padding: 0 34px 0 0;
+      background: transparent;
+      position: relative;
+    }
+
+    .timeline .node::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -59px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .node b {
+      color: var(--accent);
+      font-size: 22px;
+    }
+
+    .node strong {
+      font-size: 40px;
+      line-height: 1.14;
+      margin: 16px 0 24px;
+    }
+
+    .node span {
+      font-size: 24px;
+      line-height: 1.48;
+      color: var(--muted);
+    }
+
+    .checklist {
+      gap: 18px 28px;
+    }
+
+    .check {
+      grid-template-columns: 56px 1fr;
+      padding: 24px 28px;
+      font-size: 25px;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+
+    .check b {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: color-mix(in oklab, var(--accent) 15%, var(--bg));
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .question {
+      border-radius: 0;
+      border-left: 6px solid var(--accent);
+      background: var(--card-bg);
+      box-shadow: none;
+      font-size: 48px;
+      line-height: 1.18;
+      padding: 40px 48px;
+    }
+
+    .bar {
+      grid-template-columns: 210px 1fr 84px;
+      font-size: 24px;
+    }
+
+    .bar-track {
+      height: 38px;
+      border-radius: 0;
+      background: var(--bg);
+    }
+
+    .bar-fill,
+    .bar-fill.red,
+    .bar-fill.green,
+    .bar-fill.gold {
+      background: var(--accent);
+    }
+
+    .sources {
+      font-size: 22px;
+      line-height: 1.5;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .controls {
+      left: 50%;
+      bottom: 18px;
+      border-radius: 999px;
+      transform: translateX(-50%);
+      opacity: 0.76;
+    }
+
+    .hint {
+      right: 28px;
+      bottom: 28px;
+      color: #a7a7a7;
+    }
+
+    .slide.cover-slide {
+      padding: 96px 120px;
+    }
+
+    .slide.cover-slide .topbar {
+      display: none;
+    }
+
+    .slide.cover-slide .content {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: stretch;
+      gap: 64px;
+    }
+
+    .slide.cover-slide .content > div:first-child {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide.cover-slide .content::after {
+      content: "";
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      display: block;
+      background: linear-gradient(135deg, rgba(30,71,124,0.95), rgba(139,111,58,0.70));
+      border: 1px solid var(--card-rule);
+    }
+
+    .slide.cover-slide h1 {
+      font-size: 112px;
+      line-height: 1.04;
+      max-width: 920px;
+    }
+
+    .slide.cover-slide .lead {
+      grid-column: 1;
+      grid-row: 2;
+      max-width: 760px;
+      margin-top: 56px;
+    }
+
+    .slide.divider-slide {
+      padding: 96px 120px;
+    }
+
+    .slide.divider-slide::before,
+    .slide.divider-slide::after {
+      display: none;
+    }
+
+    .slide.divider-slide .topbar {
+      display: none;
+    }
+
+    .slide.divider-slide .slide-frame {
+      display: block;
+      height: 100%;
+    }
+
+    .slide.divider-slide .content {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .slide.divider-slide .content::before {
+      content: var(--chapter);
+      color: var(--accent);
+      font-size: 480px;
+      line-height: 0.85;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slide.divider-slide h1,
+    .slide.divider-slide h2,
+    .slide.divider-slide .quote-panel strong {
+      font-size: 112px;
+      line-height: 1.02;
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .slide.divider-slide .quote-panel {
+      background: transparent;
+      color: var(--ink);
+      padding: 0;
+    }
+
+    .slide.divider-slide .quote-panel span,
+    .slide.divider-slide .lead {
+      color: var(--muted);
+      font-size: 32px;
+      line-height: 1.45;
+      max-width: 760px;
+      margin-top: 46px;
+    }
+
+    .slide.divider-slide .content > h1::after,
+    .slide.divider-slide .content > h2::after,
+    .slide.divider-slide .content > div:first-child > h1::after,
+    .slide.divider-slide .content > div:first-child > h2::after {
+      display: none;
+    }
+
+    /* Qingpu proposal alignment: light civic/enterprise briefing style. */
+    html[data-theme="light"] {
+      --bg: #ffffff;
+      --bg-alt: #f6f8fb;
+      --ink: #111111;
+      --muted: #526174;
+      --subtle: #7b8494;
+      --rule: #dfe6ef;
+      --accent: #1e477c;
+      --accent-soft: #2f6db4;
+      --eyebrow: #2f6db4;
+      --footer-ink: #9aa5b5;
+      --card-bg: #f6f8fb;
+      --card-rule: #dfe6ef;
+    }
+
+    html[data-theme="light"] .slide {
+      padding: 88px 112px 132px;
+      background: #fff;
+      color: #111;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.22);
+    }
+
+    html[data-theme="light"] .slide-frame {
+      gap: 42px;
+    }
+
+    html[data-theme="light"] .slide::before {
+      content: "MindsLeap × Founders Space";
+      left: 112px;
+      bottom: 56px;
+      color: var(--footer-ink);
+      font-size: 22px;
+      font-weight: 800;
+      opacity: 0.88;
+    }
+
+    html[data-theme="light"] .slide::after {
+      right: 112px;
+      bottom: 56px;
+      color: var(--footer-ink);
+      font-size: 22px;
+      letter-spacing: 0.18em !important;
+    }
+
+    html[data-theme="light"] .topbar {
+      color: var(--subtle);
+      font-size: 18px;
+      text-transform: none;
+    }
+
+    html[data-theme="light"] .brand {
+      color: #111;
+      font-weight: 800;
+    }
+
+    html[data-theme="light"] .section-mark,
+    html[data-theme="light"] .eyebrow {
+      color: var(--eyebrow);
+      font-weight: 800;
+    }
+
+    html[data-theme="light"] .eyebrow {
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+
+    html[data-theme="light"] h1 {
+      font-size: 88px;
+      line-height: 1.04;
+      max-width: 1696px;
+      font-weight: 800;
+      color: #111;
+    }
+
+    html[data-theme="light"] h2 {
+      font-size: 64px;
+      line-height: 1.08;
+      max-width: 1696px;
+      font-weight: 800;
+      color: #111;
+    }
+
+    html[data-theme="light"] h3 {
+      color: var(--accent);
+      font-size: 34px;
+      line-height: 1.18;
+      font-weight: 800;
+    }
+
+    html[data-theme="light"] .lead {
+      color: var(--muted);
+      font-size: 31px;
+      line-height: 1.45;
+      max-width: 1320px;
+    }
+
+    html[data-theme="light"] .content {
+      gap: 42px;
+    }
+
+    html[data-theme="light"] .content > h1::after,
+    html[data-theme="light"] .content > h2::after,
+    html[data-theme="light"] .content > div:first-child > h1::after,
+    html[data-theme="light"] .content > div:first-child > h2::after {
+      width: 100px;
+      height: 5px;
+      background: var(--accent-soft);
+      margin-top: 28px;
+    }
+
+    html[data-theme="light"] .card,
+    html[data-theme="light"] .matrix-cell,
+    html[data-theme="light"] .check,
+    html[data-theme="light"] .case-card,
+    html[data-theme="light"] .timeline .node {
+      background: var(--card-bg);
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+      box-shadow: none;
+    }
+
+    html[data-theme="light"] .card {
+      padding: 30px;
+      min-height: 210px;
+    }
+
+    html[data-theme="light"] .card::before {
+      display: none;
+    }
+
+    html[data-theme="light"] .card h3 {
+      color: var(--accent);
+      font-size: 34px;
+      line-height: 1.18;
+      margin-bottom: 16px;
+    }
+
+    html[data-theme="light"] .card p,
+    html[data-theme="light"] .card li {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.45;
+    }
+
+    html[data-theme="light"] .tag {
+      border: 0;
+      color: var(--eyebrow);
+      background: transparent;
+      padding: 0;
+      min-height: 0;
+      font-size: 17px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    html[data-theme="light"] .quote-panel,
+    html[data-theme="light"] .lesson {
+      background: var(--accent);
+      border-radius: 8px;
+      color: #fff;
+      padding: 48px 52px;
+    }
+
+    html[data-theme="light"] .quote-panel strong,
+    html[data-theme="light"] .lesson strong {
+      color: #fff;
+      font-size: 60px;
+      line-height: 1.12;
+    }
+
+    html[data-theme="light"] .quote-panel span,
+    html[data-theme="light"] .lesson span {
+      color: rgba(255,255,255,0.78);
+      font-size: 28px;
+      line-height: 1.45;
+    }
+
+    html[data-theme="light"] .lesson b {
+      color: #b8d7ff;
+      font-size: 17px;
+    }
+
+    html[data-theme="light"] .case-card {
+      background: #fff;
+      padding: 44px;
+    }
+
+    html[data-theme="light"] .case-card h3 {
+      color: var(--accent);
+      font-size: 52px;
+      line-height: 1.12;
+    }
+
+    html[data-theme="light"] .case-card li {
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.48;
+    }
+
+    html[data-theme="light"] .matrix {
+      gap: 22px;
+    }
+
+    html[data-theme="light"] .matrix-cell {
+      min-height: 344px;
+      padding: 32px;
+    }
+
+    html[data-theme="light"] .matrix-cell .grade {
+      color: var(--accent);
+      font-size: 92px;
+      margin-bottom: 18px;
+    }
+
+    html[data-theme="light"] .matrix-cell p {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.44;
+    }
+
+    html[data-theme="light"] .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 28px;
+      border-top: 0;
+      padding-top: 18px;
+    }
+
+    html[data-theme="light"] .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 76px;
+      height: 2px;
+      background: var(--rule);
+      z-index: 0;
+    }
+
+    html[data-theme="light"] .timeline .node {
+      position: relative;
+      z-index: 1;
+      display: block;
+      min-height: 292px;
+      padding: 98px 28px 30px;
+      background: #fff;
+      border: 1px solid var(--card-rule);
+      border-radius: 8px;
+    }
+
+    html[data-theme="light"] .timeline .node::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 47px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 12px #fff;
+    }
+
+    html[data-theme="light"] .timeline .node:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -26px;
+      top: 43px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      color: var(--accent-soft);
+      background: #fff;
+      border: 1px solid var(--card-rule);
+      border-radius: 50%;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    html[data-theme="light"] .node b {
+      position: absolute;
+      left: 64px;
+      top: 38px;
+      display: inline-grid;
+      place-items: center;
+      min-height: 38px;
+      padding: 0 15px;
+      color: var(--accent);
+      background: #eef4fb;
+      border: 1px solid #d7e3f1;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 850;
+    }
+
+    html[data-theme="light"] .node strong {
+      color: var(--accent);
+      margin: 0 0 16px;
+    }
+
+    html[data-theme="light"] .node span {
+      color: var(--muted);
+    }
+
+    html[data-theme="light"] .check {
+      background: #fff;
+      padding: 22px 26px;
+    }
+
+    html[data-theme="light"] .check b {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    html[data-theme="light"] .question {
+      background: var(--card-bg);
+      border-left: 6px solid var(--accent);
+      border-radius: 8px;
+      color: #111;
+    }
+
+    html[data-theme="light"] .bar-fill,
+    html[data-theme="light"] .bar-fill.red,
+    html[data-theme="light"] .bar-fill.green,
+    html[data-theme="light"] .bar-fill.gold {
+      background: var(--accent);
+    }
+
+    html[data-theme="light"] .bar-track {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+    }
+
+    html[data-theme="light"] .slide.cover-slide {
+      padding: 88px 112px 96px;
+      background: #fff;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .content {
+      grid-template-columns: 1fr 0.92fr;
+      gap: 72px;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .content::after {
+      border: 1px solid var(--rule);
+      background:
+        linear-gradient(0deg, rgba(17,17,17,0.35), rgba(17,17,17,0.02)),
+        linear-gradient(135deg, #1e477c 0%, #2f6db4 52%, #d9e7f7 100%);
+    }
+
+    html[data-theme="light"] .slide.cover-slide h1 {
+      font-size: 88px;
+      line-height: 1.04;
+      max-width: 900px;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .lead {
+      font-size: 31px;
+      line-height: 1.45;
+      max-width: 860px;
+      color: var(--muted);
+    }
+
+    html[data-theme="light"] .slide.divider-slide {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    html[data-theme="light"] .slide.divider-slide .content::before {
+      color: rgba(255,255,255,0.22);
+      font-size: 460px;
+    }
+
+    html[data-theme="light"] .slide.divider-slide h1,
+    html[data-theme="light"] .slide.divider-slide h2,
+    html[data-theme="light"] .slide.divider-slide .quote-panel strong {
+      color: #fff;
+      font-size: 84px;
+      line-height: 1.08;
+    }
+
+    html[data-theme="light"] .slide.divider-slide .quote-panel {
+      background: transparent;
+      padding: 0;
+    }
+
+    html[data-theme="light"] .slide.divider-slide .quote-panel span,
+    html[data-theme="light"] .slide.divider-slide .lead {
+      color: rgba(255,255,255,0.78);
+      font-size: 30px;
+      line-height: 1.45;
+      max-width: 1200px;
+    }
+
+    html[data-theme="light"] .slide.divider-slide::before {
+      content: "MindsLeap × Founders Space";
+      color: rgba(255,255,255,0.82);
+    }
+
+    html[data-theme="light"] .slide.divider-slide::after {
+      color: rgba(255,255,255,0.72);
+    }
+
+    html[data-theme="light"] .slide.divider-slide .topbar {
+      display: none;
+    }
+
+    html[data-theme="light"] .slide.divider-slide .content {
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 76px;
+    }
+
+    html[data-theme="light"] .sources {
+      font-size: 21px;
+      color: var(--muted);
+    }
+
+    /* Typography weight calibration: closer to the Qingpu proposal template. */
+    html[data-theme="light"] {
+      --font-body: var(--font-sans);
+      --font-heading: "MindsLeap Brand", "Noto Sans SC", "Inter", system-ui, sans-serif;
+    }
+
+    html[data-theme="light"] body,
+    html[data-theme="light"] .slide {
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html[data-theme="light"] h1,
+    html[data-theme="light"] h2,
+    html[data-theme="light"] h3,
+    html[data-theme="light"] .quote-panel strong,
+    html[data-theme="light"] .lesson strong,
+    html[data-theme="light"] .case-card h3,
+    html[data-theme="light"] .matrix-cell .grade,
+    html[data-theme="light"] .node strong {
+      font-family: var(--font-heading);
+      font-weight: 900;
+    }
+
+    html[data-theme="light"] .slide.cover-slide h1,
+    html[data-theme="light"] .slide.divider-slide h1,
+    html[data-theme="light"] .slide.divider-slide h2 {
+      font-weight: 900;
+    }
+
+    html[data-theme="light"] .brand,
+    html[data-theme="light"] .section-mark,
+    html[data-theme="light"] .eyebrow,
+    html[data-theme="light"] .tag,
+    html[data-theme="light"] .node b,
+    html[data-theme="light"] .slide::before,
+    html[data-theme="light"] .slide::after {
+      font-family: var(--font-body);
+      font-weight: 800;
+    }
+
+    html[data-theme="light"] .lead,
+    html[data-theme="light"] .card p,
+    html[data-theme="light"] .card li,
+    html[data-theme="light"] .case-card p,
+    html[data-theme="light"] .case-card li,
+    html[data-theme="light"] .node span,
+    html[data-theme="light"] .matrix-cell p,
+    html[data-theme="light"] .sources {
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+
+    html[data-theme="light"] .slide.cover-slide {
+      padding: 88px 112px 96px;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .slide-frame {
+      gap: 0;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .content {
+      height: 100%;
+      max-width: 1510px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .content::after {
+      display: none;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .content > div:first-child {
+      display: block;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .eyebrow {
+      margin-bottom: 48px;
+      color: var(--eyebrow);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    html[data-theme="light"] .slide.cover-slide h1 {
+      max-width: 1440px;
+      font-size: 96px;
+      line-height: 1.04;
+      font-weight: 900;
+      color: #111;
+    }
+
+    html[data-theme="light"] .slide.cover-slide h1 span {
+      display: block;
+    }
+
+    html[data-theme="light"] .slide.cover-slide .lead {
+      grid-column: auto;
+      grid-row: auto;
+      max-width: 1210px;
+      margin-top: 42px;
+      color: var(--muted);
+      font-size: 34px;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    html[data-theme="light"] .cover-details {
+      width: 100%;
+      max-width: 1360px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 76px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+    }
+
+    html[data-theme="light"] .cover-details div {
+      color: var(--subtle);
+      font-size: 20px;
+      line-height: 1.36;
+      font-weight: 500;
+    }
+
+    html[data-theme="light"] .cover-details b {
+      display: block;
+      margin-bottom: 10px;
+      color: #111;
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    html[data-theme="light"] .slide.big-statement {
+      background: var(--accent);
+      color: #fff;
+      padding: 88px 112px 132px;
+    }
+
+    html[data-theme="light"] .slide.big-statement .slide-frame {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    html[data-theme="light"] .slide.big-statement .content {
+      grid-template-columns: 1fr;
+      align-items: center;
+      width: 100%;
+      max-width: 1660px;
+      margin: 0 auto;
+    }
+
+    html[data-theme="light"] .slide.big-statement .content::before {
+      display: none;
+    }
+
+    html[data-theme="light"] .slide.big-statement .quote-panel {
+      max-width: 1660px;
+    }
+
+    html[data-theme="light"] .slide.big-statement .quote-panel strong {
+      display: block;
+      color: #fff;
+      font: 700 92px/1.1 var(--font-heading);
+      max-width: 1660px;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      text-wrap: wrap;
+    }
+
+    html[data-theme="light"] .slide.big-statement .quote-panel span {
+      display: block;
+      max-width: 1200px;
+      margin-top: 42px;
+      color: rgba(255,255,255,0.78);
+      font: 400 34px/1.45 var(--font-body);
+    }
+
+    /* Qingpu template primitives: footer logo and flywheel body slide. */
+    html[data-theme="light"] {
+      --logo-blue: url("/design-system/deck-template/mindsleap-foundersspace-joint-logo-blue.svg");
+      --logo-white: url("/design-system/deck-template/mindsleap-foundersspace-joint-logo-white.png");
+    }
+
+    html[data-theme="light"] .slide::before {
+      content: "";
+      left: 112px;
+      bottom: 56px;
+      width: 300px;
+      height: 60px;
+      background: var(--logo-blue) left center / contain no-repeat;
+      color: transparent;
+      font-size: 0;
+      line-height: 0;
+      opacity: 0.88;
+    }
+
+    html[data-theme="light"] .slide.divider-slide::before,
+    html[data-theme="light"] .slide.big-statement::before {
+      content: "";
+      display: block;
+      width: 300px;
+      height: 60px;
+      background: var(--logo-white) left center / contain no-repeat;
+      opacity: 0.9;
+    }
+
+    html[data-theme="light"] .reference-flywheel .topbar {
+      display: none;
+    }
+
+    html[data-theme="light"] .reference-flywheel .slide-frame,
+    html[data-theme="light"] .reference-flywheel .content {
+      display: block;
+      height: 100%;
+    }
+
+    html[data-theme="light"] .reference-flywheel .eyebrow {
+      color: var(--eyebrow);
+      font: 700 22px/1 var(--font-body);
+      letter-spacing: 0 !important;
+      text-transform: none;
+      margin: 0;
+    }
+
+    html[data-theme="light"] .reference-flywheel .dot {
+      display: inline-block;
+      margin: 0 14px;
+      opacity: 0.5;
+    }
+
+    html[data-theme="light"] .reference-flywheel .content > h1::after {
+      display: none;
+    }
+
+    html[data-theme="light"] .slide-title {
+      margin: 28px 0 0;
+      max-width: 1696px;
+      color: #111;
+      font: 700 64px/1.08 var(--font-heading);
+      word-break: normal;
+      overflow-wrap: normal;
+      text-wrap: wrap;
+    }
+
+    html[data-theme="light"] .slide-title .en {
+      display: block;
+      max-width: 1696px;
+      margin-top: 14px;
+      color: #5f6f83;
+      font: 400 27px/1.34 var(--font-heading);
+    }
+
+    html[data-theme="light"] .slide-bar {
+      display: block;
+      width: 100px;
+      height: 5px;
+      margin: 28px 0 0;
+      background: var(--accent-soft);
+    }
+
+    html[data-theme="light"] .flywheel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px minmax(0, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 20px 34px;
+      align-items: stretch;
+      height: 530px;
+      margin-top: 46px;
+    }
+
+    html[data-theme="light"] .hub {
+      grid-column: 2;
+      grid-row: 1 / 4;
+      align-self: center;
+      justify-self: center;
+      position: relative;
+      width: 360px;
+      height: 360px;
+      border: 2px solid #1e477c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 42px;
+      box-sizing: border-box;
+      color: #1e477c;
+      font: 700 38px/1.18 var(--font-heading);
+      background: #fff;
+      z-index: 2;
+    }
+
+    html[data-theme="light"] .hub::before,
+    html[data-theme="light"] .hub::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 34px;
+      height: 2px;
+      background: #dfe6ef;
+    }
+
+    html[data-theme="light"] .hub::before { right: 100%; }
+    html[data-theme="light"] .hub::after { left: 100%; }
+
+    html[data-theme="light"] .orbit {
+      position: relative;
+      width: auto;
+      min-height: 0;
+      padding: 22px 24px;
+      box-sizing: border-box;
+      border: 1px solid #dfe6ef;
+      background: #f6f8fb;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    html[data-theme="light"] .orbit h3 {
+      margin: 0 0 10px;
+      color: #1e477c;
+      font: 700 27px/1.16 var(--font-heading);
+    }
+
+    html[data-theme="light"] .orbit p {
+      margin: 0;
+      color: #526174;
+      font: 400 20px/1.34 var(--font-body);
+    }
+
+    html[data-theme="light"] .o5 { grid-column: 1; grid-row: 1; }
+    html[data-theme="light"] .o1 { grid-column: 1; grid-row: 2; }
+    html[data-theme="light"] .o4 { grid-column: 1; grid-row: 3; }
+    html[data-theme="light"] .o2 { grid-column: 3; grid-row: 1; }
+    html[data-theme="light"] .o3 { grid-column: 3; grid-row: 2; }
+    html[data-theme="light"] .o6 { grid-column: 3; grid-row: 3; }
+
+    html[data-theme="light"] .diagnosis-kpi .topbar {
+      display: none;
+    }
+
+    html[data-theme="light"] .diagnosis-kpi .slide-frame,
+    html[data-theme="light"] .diagnosis-kpi .content {
+      display: block;
+      height: 100%;
+      align-content: start;
+    }
+
+    html[data-theme="light"] .diagnosis-kpi .content > h1::after {
+      display: none;
+    }
+
+    html[data-theme="light"] .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 26px;
+      margin-top: 62px;
+    }
+
+    html[data-theme="light"] .kpi-card {
+      min-height: 500px;
+      box-sizing: border-box;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #f6f8fb;
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    html[data-theme="light"] .kpi-card.dark {
+      background: #1e477c;
+      border-color: #1e477c;
+      color: #fff;
+    }
+
+    html[data-theme="light"] .kpi-card .num {
+      color: #1e477c;
+      font: 700 72px/0.95 var(--font-heading);
+    }
+
+    html[data-theme="light"] .kpi-card.dark .num {
+      color: #b8d7ff;
+    }
+
+    html[data-theme="light"] .kpi-card b {
+      display: block;
+      margin: 26px 0 12px;
+      color: #1e477c;
+      font: 700 30px/1.16 var(--font-heading);
+    }
+
+    html[data-theme="light"] .kpi-card.dark b {
+      color: #fff;
+    }
+
+    html[data-theme="light"] .kpi-card span {
+      display: block;
+      color: #526174;
+      font: 400 22px/1.42 var(--font-body);
+    }
+
+    html[data-theme="light"] .kpi-card.dark span {
+      color: rgba(255,255,255,0.78);
+    }
+
+    html[data-theme="light"] .side-layout-slide .topbar {
+      display: none;
+    }
+
+    html[data-theme="light"] .side-layout-slide .slide-frame {
+      display: block;
+      height: 100%;
+    }
+
+    html[data-theme="light"] .side-layout {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 64px;
+      align-items: center;
+      align-content: stretch;
+    }
+
+    html[data-theme="light"] .side-copy h2::after,
+    html[data-theme="light"] .side-layout > div:first-child > h2::after {
+      display: none;
+    }
+
+    html[data-theme="light"] .side-copy .eyebrow {
+      color: var(--eyebrow);
+      font: 700 22px/1 var(--font-body);
+      letter-spacing: 0 !important;
+      text-transform: none;
+      margin-bottom: 30px;
+    }
+
+    html[data-theme="light"] .side-copy h2 {
+      color: #111;
+      font: 700 58px/1.08 var(--font-heading);
+      max-width: 620px;
+    }
+
+    html[data-theme="light"] .side-copy .lead {
+      max-width: 560px;
+      margin-top: 34px;
+      color: #526174;
+      font: 400 28px/1.46 var(--font-body);
+    }
+
+    html[data-theme="light"] .side-copy .slide-bar {
+      margin-top: 30px;
+    }
+
+    html[data-theme="light"] .side-matrix .matrix {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    html[data-theme="light"] .side-matrix .matrix-cell {
+      min-height: 300px;
+      padding: 28px;
+    }
+
+    html[data-theme="light"] .side-matrix .matrix-cell .grade {
+      font-size: 70px;
+      margin-bottom: 14px;
+    }
+
+    html[data-theme="light"] .side-matrix .matrix-cell h3 {
+      font-size: 29px;
+      line-height: 1.14;
+      margin-bottom: 12px;
+    }
+
+    html[data-theme="light"] .side-matrix .matrix-cell p {
+      font-size: 20px;
+      line-height: 1.36;
+    }
+
+    html[data-theme="light"] .side-evidence .cards.four {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-self: stretch;
+    }
+
+    html[data-theme="light"] .side-evidence .card {
+      min-height: 300px;
+      padding: 30px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    html[data-theme="light"] .side-evidence .card h3 {
+      color: #1e477c;
+      font-size: 30px;
+      line-height: 1.14;
+      margin-bottom: 16px;
+    }
+
+    html[data-theme="light"] .side-evidence .card p {
+      font-size: 20px;
+      line-height: 1.42;
+    }
+
+    html[data-theme="light"] .side-three-cards .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-self: center;
+    }
+
+    html[data-theme="light"] .side-three-cards .card {
+      min-height: 340px;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    html[data-theme="light"] .side-three-cards .card h3 {
+      font-size: 30px;
+      line-height: 1.14;
+    }
+
+    html[data-theme="light"] .side-three-cards .card p {
+      font-size: 20px;
+      line-height: 1.42;
+    }
+
+    html[data-theme="light"] .quadrant-slide .side-layout {
+      grid-template-columns: 0.68fr 1.32fr;
+      gap: 60px;
+    }
+
+    html[data-theme="light"] .quadrant-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-self: center;
+    }
+
+    html[data-theme="light"] .quadrant-card {
+      min-height: 270px;
+      padding: 28px 30px;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      background: #f6f8fb;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    html[data-theme="light"] .quadrant-card.priority {
+      background: #1e477c;
+      border-color: #1e477c;
+      color: #fff;
+    }
+
+    html[data-theme="light"] .quadrant-card .axis {
+      color: #2f6db4;
+      font: 700 18px/1 var(--font-body);
+    }
+
+    html[data-theme="light"] .quadrant-card.priority .axis {
+      color: #b8d7ff;
+    }
+
+    html[data-theme="light"] .quadrant-card h3 {
+      margin: 16px 0 14px;
+      color: #1e477c;
+      font: 700 30px/1.14 var(--font-heading);
+    }
+
+    html[data-theme="light"] .quadrant-card.priority h3 {
+      color: #fff;
+    }
+
+    html[data-theme="light"] .quadrant-card p,
+    html[data-theme="light"] .quadrant-card li {
+      color: #526174;
+      font: 400 19px/1.35 var(--font-body);
+    }
+
+    html[data-theme="light"] .quadrant-card.priority p,
+    html[data-theme="light"] .quadrant-card.priority li {
+      color: rgba(255,255,255,0.82);
+    }
+
+    html[data-theme="light"] .quadrant-card ul {
+      margin: 0;
+      padding-left: 1.05em;
+    }
+
+    html[data-theme="light"] .side-checklist .side-layout {
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 72px;
+    }
+
+    html[data-theme="light"] .side-checklist .checklist {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-self: center;
+    }
+
+    html[data-theme="light"] .side-checklist .check {
+      min-height: 96px;
+      padding: 20px 26px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    html[data-theme="light"] .side-checklist .check b {
+      width: 36px;
+      height: 36px;
+      font-size: 17px;
+    }
+
+    html[data-theme="light"] .side-compare .cards.two {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    html[data-theme="light"] .side-compare .card {
+      min-height: 280px;
+      padding: 34px 38px;
+    }
+
+    html[data-theme="light"] .side-compare .card h3 {
+      font-size: 38px;
+      line-height: 1.14;
+    }
+
+    html[data-theme="light"] .side-compare .card li {
+      font-size: 24px;
+      line-height: 1.42;
+    }
+
+    html[data-theme="light"] .side-stack .cards.three {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    html[data-theme="light"] .side-stack .card {
+      min-height: 152px;
+      padding: 26px 30px;
+    }
+
+    html[data-theme="light"] .side-stack .card h3 {
+      font-size: 31px;
+      line-height: 1.14;
+      margin-bottom: 10px;
+    }
+
+    html[data-theme="light"] .side-stack .card p {
+      font-size: 22px;
+      line-height: 1.34;
+    }
+
+    html[data-theme="light"] .side-stack .question {
+      margin-top: 22px;
+      padding: 30px 34px;
+      color: #fff;
+      background: var(--accent);
+      border: 0;
+      border-radius: 8px;
+      font: 700 34px/1.26 var(--font-heading);
+    }
+
+    /* Fill legacy split/card pages so they do not float in the upper half. */
+    html[data-theme="light"] .content.split:not(.side-layout) {
+      height: 100%;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 64px;
+      align-items: stretch;
+    }
+
+    html[data-theme="light"] .content.split:not(.side-layout) > div:first-child {
+      align-self: center;
+    }
+
+    html[data-theme="light"] .content.split:not(.side-layout) > .cards {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
+      gap: 22px;
+    }
+
+    html[data-theme="light"] .content.split:not(.side-layout) > .cards .card {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 34px 38px;
+    }
+
+    html[data-theme="light"] .content.split:not(.side-layout) > .card {
+      align-self: center;
+      min-height: 680px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 44px 48px;
+    }
+
+    html[data-theme="light"] .content.split:not(.side-layout) > div:last-child:not(:first-child) {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    html[data-theme="light"] .content.split:not(.side-layout) .bar-chart {
+      width: 100%;
+    }
+
+    html[data-theme="light"] .checklist {
+      gap: 22px;
+    }
+
+    html[data-theme="light"] .check {
+      min-height: 112px;
+      align-items: center;
+    }
+
+    html[data-theme="light"] .content.top > .cards.four {
+      align-items: stretch;
+    }
+
+    html[data-theme="light"] .content.top > .cards.four .card {
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 34px 30px;
+    }
+
+    html[data-theme="light"] .regional-kpi .content.split {
+      height: 100%;
+      grid-template-columns: 0.74fr 1.26fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    html[data-theme="light"] .regional-kpi .cards {
+      height: auto !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      grid-auto-rows: 1fr;
+      gap: 22px;
+    }
+
+    html[data-theme="light"] .regional-kpi .card {
+      min-height: 300px !important;
+      padding: 28px 26px !important;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="杨铭宇区域品牌资产经营培训 Deck">
+    <section class="slide active cover-slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">MindsLeap × 杨铭宇黄焖鸡米饭</div><div class="section-mark">Regional Brand Asset Training</div></div>
+        <div class="content">
+          <div>
+            <div class="eyebrow">区域负责人培训 · 90-120 分钟</div>
+            <h1><span>从区域负责人，</span><span>到区域品牌资产经营者。</span></h1>
+          </div>
+          <p class="lead">今天不是再讲一遍总部标准，而是让区域负责人意识到：你不是替总部做品牌，而是在给自己负责的地盘建设品牌资产。</p>
+          <div class="cover-details">
+            <div><b>Audience</b>区域负责人 / 开发与运营管理</div>
+            <div><b>Theme</b>门店组合质量 / 标准落地 / 加盟商经营能力</div>
+            <div><b>Outcome</b>把开店指标转化为区域品牌资产质量</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide divider-slide big-statement">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Opening</div><div class="section-mark">00 / Role Reset</div></div>
+        <div class="content">
+          <div class="quote-panel">
+            <strong>我负责的不是“多开几家店”，而是让这个区域的品牌资产更值钱。</strong>
+            <span>这是今天整场培训的中心句。区域负责人真正经营的不是门店数量，而是自己地盘上的门店组合质量。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Stage Shift</div><div class="section-mark">00 / Quality Dividend</div></div>
+        <div class="content split">
+          <div>
+            <div class="eyebrow">从规模红利到质量红利</div>
+            <h2>过去的增长方式，不能直接带到下一阶段。</h2>
+          </div>
+          <div class="cards">
+            <div class="card"><span class="tag red">过去</span><h3>抢速度</h3><p>好位置还多、品类红利还在、加盟商愿意排队，区域负责人天然容易以开店数量作为结果。</p></div>
+            <div class="card"><span class="tag gold">现在</span><h3>抢质量</h3><p>餐饮供给过剩、顾客容错变低、平台评价透明，低质量门店会立刻拉低品牌感知。</p></div>
+            <div class="card"><span class="tag green">下一步</span><h3>少开烂店</h3><p>高质量增长不是先回到更多门店，而是少开消耗品牌的店，让区域门店组合更稳定、更统一、更有复店价值。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide reference-flywheel">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Market Reality</div><div class="section-mark">00 / New Competition</div></div>
+        <div class="content">
+          <div class="eyebrow">竞争现实 <span class="dot">·</span> 平台评价、内容传播与品牌信任</div>
+          <h1 class="slide-title">餐饮竞争变了：消费者不再给低标准门店第二次机会。
+            <span class="en">外卖评价透明化、短视频传播即时化、同品类替代充分化，正在把单店标准问题放大为区域品牌信任问题。</span>
+          </h1>
+          <span class="slide-bar"></span>
+          <div class="flywheel">
+            <div class="hub">一餐稳定的确定性</div>
+            <div class="orbit o5"><h3>外卖评价</h3><p>出品不稳、包装潦草、卫生疑虑，会被平台长期记录，持续影响转化。</p></div>
+            <div class="orbit o1"><h3>短视频传播</h3><p>单店问题不再留在单店，它可能在内容平台被快速放大成全品牌舆情。</p></div>
+            <div class="orbit o4"><h3>门店环境</h3><p>小店、旧店、卫生和动线问题，会直接削弱顾客对品牌专业度的判断。</p></div>
+            <div class="orbit o2"><h3>同品类替代</h3><p>黄焖鸡、快餐、小炒、盖饭选择太多，顾客没有必要忍受不稳定体验。</p></div>
+            <div class="orbit o3"><h3>出品标准</h3><p>口味、分量、温度和包装一旦不统一，顾客会把问题归因给整个品牌。</p></div>
+            <div class="orbit o6"><h3>品牌信任</h3><p>消费者买的不是一块招牌，而是每天都能被验证的一餐确定性。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide divider-slide" style="--chapter:'01'">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Main Claim</div><div class="section-mark">01 / Brand Credit</div></div>
+        <div class="content">
+          <h1>低质量门店不是增量，是品牌信用负债。</h1>
+          <p class="lead">低质量门店不是增量，是品牌信用负债。它短期帮区域完成指标，长期消耗总部管理带宽、顾客信任、加盟商信心和品牌溢价。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-matrix">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Store Portfolio</div><div class="section-mark">01 / A-B-C-D</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">A/B/C/D 不是贴标签，是资产诊断</div>
+            <h2>每一家店，都在增加或消耗品牌资产。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">区域负责人管理的不是单店好坏，而是整个区域门店组合的资产质量。</p>
+          </div>
+          <div class="matrix">
+            <div class="matrix-cell"><div class="grade a">A</div><h3>品牌样板店</h3><p>位置、面积、形象、出品、管理都较强。目标是保卫、复制、承担训练与参观功能。</p></div>
+            <div class="matrix-cell"><div class="grade b">B</div><h3>稳定贡献店</h3><p>经营健康，标准执行基本稳定。目标是持续优化，让它有机会升级成区域样板。</p></div>
+            <div class="matrix-cell"><div class="grade c">C</div><h3>可升级门店</h3><p>有生意基础，但选址、形象、出品或管理有短板。目标是明确问题，集中升级。</p></div>
+            <div class="matrix-cell"><div class="grade d">D</div><h3>高风险门店</h3><p>小店、夫妻店、品牌意识弱、标准难落地。目标是可整改、可替换、可退出、可让位。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide diagnosis-kpi">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">D Stores</div><div class="section-mark">01 / Hidden Cost</div></div>
+        <div class="content">
+          <div class="eyebrow">结构诊断 <span class="dot">·</span> D 类门店背后的区域经营成本</div>
+          <h1 class="slide-title">D 类门店多，不只是门店问题，是区域经营结构问题。
+            <span class="en">夫妻店、小面积、弱品牌意识不是原罪；真正的风险，是门店无法承接连锁品牌最基本的统一标准。</span>
+          </h1>
+          <span class="slide-bar"></span>
+          <div class="kpi-grid">
+            <div class="kpi-card dark"><div class="num">D</div><div><b>高风险门店</b><span>小店、夫妻店、品牌意识弱，一旦标准承接不住，会持续消耗区域管理资源。</span></div></div>
+            <div class="kpi-card"><div class="num">反复</div><div><b>低价值救火</b><span>投诉、整改、沟通、返工不断出现，看上去很忙，但没有真正改善区域结构。</span></div></div>
+            <div class="kpi-card"><div class="num">弱</div><div><b>标准承接能力</b><span>装修、菜单、出品、物料、卫生与服务难统一，总部标准到门店被一层层稀释。</span></div></div>
+            <div class="kpi-card"><div class="num">重</div><div><b>长期管理成本</b><span>D 类门店越多，区域负责人越难把时间投入优质开发、样板店建设和加盟商升级。</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-compare">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Business Math</div><div class="section-mark">01 / Short Term vs Long Term</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">经营算账 · 短期收入与长期成本</div>
+            <h2>“能开就开”的短期收益，会变成长期管理成本。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">开发不是把门店开出来，而是判断这家店三年后是不是仍然在增加品牌资产。</p>
+          </div>
+          <div class="cards two">
+            <div class="card"><span class="tag red">短期看</span><h3>完成开店指标</h3><ul><li>区域数据好看</li><li>加盟费和首批收入进来</li><li>开发团队有即时结果</li></ul></div>
+            <div class="card"><span class="tag gold">长期看</span><h3>品牌信用被透支</h3><ul><li>门店体验不统一</li><li>总部标准反复被稀释</li><li>区域负责人被低价值救火占满</li><li>优质加盟商对品牌失去信心</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Case Study</div><div class="section-mark">01 / Haidilao</div></div>
+        <div class="content case-layout">
+          <div class="case-card">
+            <span class="tag red">扩张失速</span>
+            <h3>海底捞：强品牌也会被低效门店拖累。</h3>
+            <ul>
+              <li>2021 年海底捞仍新开大量门店。</li>
+              <li>随后启动“啄木鸟计划”，关闭或调整大量经营未达预期门店。</li>
+              <li>核心启示：扩张速度不能超过组织、选址和运营能力。</li>
+            </ul>
+          </div>
+          <div class="lesson">
+            <b>Lesson for Yangmingyu</b>
+            <strong>开店不是胜利，开出能持续贡献品牌资产的店才是胜利。</strong>
+            <span>区域负责人要用长期经营质量，而不是短期开发数量，判断一家店到底该不该开。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Regional Responsibility</div><div class="section-mark">01 / Portfolio Quality</div></div>
+        <div class="content">
+          <h2>区域负责人的第一责任：提高区域门店组合质量。</h2>
+          <div class="timeline">
+            <div class="node"><b>A 店</b><strong>保卫</strong><span>保护样板店，不让好店被低标准拖累。</span></div>
+            <div class="node"><b>B 店</b><strong>复制</strong><span>总结稳定店的共性，作为新店开发模板。</span></div>
+            <div class="node"><b>C 店</b><strong>升级</strong><span>找到短板，集中做形象、出品和管理改善。</span></div>
+            <div class="node"><b>D 店</b><strong>整改 / 替换 / 退出</strong><span>不能长期承接标准的门店，要有和平分手和让位机制。</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide divider-slide" style="--chapter:'02'">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Standards</div><div class="section-mark">02 / Operating System</div></div>
+        <div class="content">
+          <h1>总部标准不是要求，是门店生意的保护系统。</h1>
+          <p class="lead">标准不是“创始人又强调了一遍”，而是把 1600 家店连接成一个品牌的最低操作系统。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-stack">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Why Standards Drift</div><div class="section-mark">02 / Dilution Points</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">标准漂移 · 一线执行为什么会变形</div>
+            <h2>标准为什么会被一线稀释？</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">真正的问题不是标准太多，而是标准没有被理解成经营工具。</p>
+          </div>
+          <div>
+            <div class="cards three">
+              <div class="card"><h3>把标准看成形式</h3><p>觉得“总部要求”可以打折，只要店能开、饭能卖。</p></div>
+              <div class="card"><h3>指标只看开店</h3><p>区域负责人自然会优先完成短期数量，而不是长期质量。</p></div>
+              <div class="card"><h3>加盟商筛选过松</h3><p>没有经营能力和标准意识的人，后续管理成本会越来越高。</p></div>
+            </div>
+            <div class="question">标准不是约束动作，而是保护门店生意和品牌信用的经营系统。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Site Selection</div><div class="section-mark">02 / Brand Location</div></div>
+        <div class="content split">
+          <div>
+            <div class="eyebrow">选址标准</div>
+            <h2>不是找铺子，是选择品牌出现的位置。</h2>
+          </div>
+          <div class="cards">
+            <div class="card compact"><h3>被谁看见</h3><p>位置决定客群，也决定品牌被理解成什么档次。</p></div>
+            <div class="card compact"><h3>如何复购</h3><p>动线、堂食、外卖半径共同决定复购成本。</p></div>
+            <div class="card compact"><h3>能否复制</h3><p>不可复制的偶然铺位，不应成为区域开发模板。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Store Image</div><div class="section-mark">02 / Trust Design</div></div>
+        <div class="content split">
+          <div>
+            <div class="eyebrow">装修与物料标准</div>
+            <h2>不是好不好看，是顾客是否相信你干净、稳定、专业。</h2>
+            <p class="lead">门头是品牌第一触点。统一字体、颜色、材质、灯箱、菜单屏和后厨秩序，都是降低顾客不确定感的工具。</p>
+          </div>
+          <div class="card">
+            <span class="tag blue">连接现有项目</span>
+            <h3>从“每家店单独设计”，走向“标准输入 + 不允许清单 + 统一交付”。</h3>
+            <ul>
+              <li>不允许非标准字体、颜色偏差和异形门头。</li>
+              <li>不允许材质降级、廉价灯箱布和低亮度门头。</li>
+              <li>不允许菜单不清、灯光不足、支付动线不顺。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Product Consistency</div><div class="section-mark">02 / One Bowl</div></div>
+        <div class="content">
+          <h1>一碗黄焖鸡，决定顾客是否还认这个品牌。</h1>
+          <p class="lead">连锁餐饮的品牌不是 Logo，而是顾客从 7 米外看到门头，到进店闻到香气、看清菜单、完成支付、吃到稳定口味的全过程。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Case Study</div><div class="section-mark">02 / Chipotle</div></div>
+        <div class="content case-layout">
+          <div class="case-card">
+            <span class="tag red">标准失守</span>
+            <h3>Chipotle：一线问题会变成全国品牌信任危机。</h3>
+            <ul>
+              <li>2015 年出现多起食安相关事件。</li>
+              <li>2016 年临时关闭全美门店，进行食品安全会议。</li>
+              <li>后续修复集中在流程、培训、供应链和检测。</li>
+            </ul>
+          </div>
+          <div class="lesson">
+            <b>Lesson for Yangmingyu</b>
+            <strong>门店执行不是小事，一次失守可能让全品牌买单。</strong>
+            <span>标准落地不是总部的自我保护，而是门店、加盟商、区域和品牌的共同保护。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-three-cards">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Role Reset</div><div class="section-mark">02 / Execution Owner</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">角色重置 · 标准落地责任链</div>
+            <h2>区域负责人不是标准传话筒，而是标准落地负责人。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">总部定义品牌边界，区域把标准转成动作，门店最终形成顾客每天感受到的体验。</p>
+          </div>
+          <div class="cards">
+            <div class="card"><span class="tag">总部</span><h3>制定标准</h3><p>定义品牌边界、门店模型、出品要求、形象规范。</p></div>
+            <div class="card"><span class="tag blue">区域</span><h3>转成动作</h3><p>选对加盟商、盯住选址、推动整改、建立巡检节奏。</p></div>
+            <div class="card"><span class="tag green">门店</span><h3>形成体验</h3><p>让顾客每天看到、吃到、感受到同一个杨铭宇。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide divider-slide" style="--chapter:'03'">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Recovery</div><div class="section-mark">03 / Store Experience</div></div>
+        <div class="content">
+          <h1>品牌复兴不是喊回来，是吃回来、看回来、信回来。</h1>
+          <p class="lead">顾客不会因为总部开会而改变看法，只会因为一次又一次稳定的门店体验重新建立信任。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Case Study</div><div class="section-mark">03 / Starbucks</div></div>
+        <div class="content case-layout">
+          <div class="case-card">
+            <span class="tag blue">体验回归</span>
+            <h3>星巴克：修复从门店体验开始。</h3>
+            <ul>
+              <li>2008 年舒尔茨回归后，星巴克收缩低效门店。</li>
+              <li>其转型动作长期围绕门店体验、咖啡品质和伙伴训练。</li>
+              <li>近年“Back to Starbucks”也继续强调回到咖啡馆体验。</li>
+            </ul>
+          </div>
+          <div class="lesson">
+            <b>Lesson for Yangmingyu</b>
+            <strong>品牌修复不是先做传播，而是先修门店。</strong>
+            <span>当顾客重新相信每一家店都稳定、干净、好吃，品牌才真正回来。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Case Study</div><div class="section-mark">03 / Domino's</div></div>
+        <div class="content case-layout">
+          <div class="case-card">
+            <span class="tag green">产品重建</span>
+            <h3>达美乐：承认产品问题，重做底层标准。</h3>
+            <ul>
+              <li>2009 年达美乐面对顾客对口味的严厉批评。</li>
+              <li>品牌公开接受反馈，重做披萨配方和产品表达。</li>
+              <li>后续增长来自产品、交付和数字化能力协同。</li>
+            </ul>
+          </div>
+          <div class="lesson">
+            <b>Lesson for Yangmingyu</b>
+            <strong>真正的信心，不来自包装翻新，而来自顾客体验被真实改善。</strong>
+            <span>如果一线出品和体验没有变，品牌传播越强，顾客落差越大。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-evidence">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Confidence</div><div class="section-mark">03 / Why We Can Recover</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">03 / Why We Can Recover</div>
+            <h2>信心不是来自口号，而是来自仍然可被重建的资产。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">区域负责人要把这些基础转成门店组合质量，而不是让存量基础继续被低标准消耗。</p>
+          </div>
+          <div class="cards four">
+            <div class="card compact"><span class="tag red">品类心智</span><h3>黄焖鸡仍是高认知品类</h3><p>顾客知道这是什么，也知道它应该解决什么用餐需求。</p></div>
+            <div class="card compact"><span class="tag blue">存量基础</span><h3>1600 家仍是资产</h3><p>问题不是没有基础，而是如何让门店组合重新变健康。</p></div>
+            <div class="card compact"><span class="tag gold">创始品牌</span><h3>品牌有历史记忆</h3><p>曾经的大规模网络证明它不是无根品牌。</p></div>
+            <div class="card compact"><span class="tag green">重建空间</span><h3>标准化可以再做一遍</h3><p>选址、装修、菜单、出品、加盟商筛选都有升级空间。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Second Growth</div><div class="section-mark">03 / Quality First</div></div>
+        <div class="content">
+          <h1>二次增长，不是先回到 6000 家。</h1>
+          <p class="lead">先让 1600 家更像一个品牌，再谈更高质量的复制。规模不是目标，规模背后的门店质量才是目标。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-evidence">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Operating Tools</div><div class="section-mark">04 / What To Manage</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">经营对象 · 从“管门店”到“管区域资产”</div>
+            <h2>区域负责人真正该管的，是四个会改变区域质量的对象。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">不要让工作被琐碎执行吞掉。真正有价值的管理，应该能提升门店组合、加盟商结构、标准执行质量和区域经营效率。</p>
+          </div>
+          <div class="cards four">
+            <div class="card compact"><h3>优质门店</h3><p>值不值得开，能不能成为区域资产。</p></div>
+            <div class="card compact"><h3>优质加盟商</h3><p>有没有经营能力、标准意识和复店潜力。</p></div>
+            <div class="card compact"><h3>标准落地</h3><p>总部标准是否转成一线可检查的动作。</p></div>
+            <div class="card compact"><h3>时间分配</h3><p>把 50% 以上精力放在寻址、A 类店复制和经营数据上。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-checklist">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Tool 1</div><div class="section-mark">04 / Store Checklist</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">工具一 · 优质门店判断清单</div>
+            <h2>先判断这家店会不会增加品牌资产。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">选址不是找到一个能开的铺子，而是选择一个能长期代表品牌的位置。</p>
+          </div>
+          <div class="checklist">
+            <div class="check"><b>1</b><span>位置是否代表品牌，而不是降低品牌感知？</span></div>
+            <div class="check"><b>2</b><span>面积、门头、动线是否支持堂食和外卖基本体验？</span></div>
+            <div class="check"><b>3</b><span>后厨、排烟、上下水、燃气是否支持标准出品？</span></div>
+            <div class="check"><b>4</b><span>租金结构是否允许加盟商长期健康经营？</span></div>
+            <div class="check"><b>5</b><span>菜单屏、灯箱、海报、门头是否能标准化落地？</span></div>
+            <div class="check"><b>6</b><span>这家店能否成为同类选址的复制模板？</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-checklist">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Tool 2</div><div class="section-mark">04 / Franchisee Checklist</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">工具二 · 优质加盟商判断清单</div>
+            <h2>不是筛选有钱的人，而是筛选能经营的人。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">加盟商不是买名额的人，而是共同经营区域品牌资产的合伙人。</p>
+          </div>
+          <div class="checklist">
+            <div class="check"><b>1</b><span>是否有真实经营能力，而不只是有钱开店？</span></div>
+            <div class="check"><b>2</b><span>是否理解标准是赚钱工具，而不是总部限制？</span></div>
+            <div class="check"><b>3</b><span>是否愿意接受巡检、培训、整改和统一菜单？</span></div>
+            <div class="check"><b>4</b><span>是否具备现金流耐受力，不会一遇波动就降标准？</span></div>
+            <div class="check"><b>5</b><span>是否有学习能力，能从单店经营走向多店经营？</span></div>
+            <div class="check"><b>6</b><span>是否愿意共同经营区域品牌资产，而不是只买一个名额？</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Case Study</div><div class="section-mark">04 / Mixue</div></div>
+        <div class="content case-layout">
+          <div class="case-card">
+            <span class="tag gold">加盟样板</span>
+            <h3>蜜雪冰城：加盟规模背后是供应链和符号系统。</h3>
+            <ul>
+              <li>大规模门店网络背后，是强供应链、低价带和高度统一的品牌符号。</li>
+              <li>其商业模式不是简单收加盟费，而是持续向门店供应原料、设备和包装。</li>
+              <li>规模越大，越依赖标准化系统支撑。</li>
+            </ul>
+          </div>
+          <div class="lesson">
+            <b>Lesson for Yangmingyu</b>
+            <strong>加盟商不是越多越好，能复制标准和经营模型才有价值。</strong>
+            <span>大规模加盟的前提，是总部能让门店开得像、卖得稳、管得住。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Case Study</div><div class="section-mark">04 / Laoxiangji</div></div>
+        <div class="content case-layout">
+          <div class="case-card">
+            <span class="tag gold">中式快餐标准化</span>
+            <h3>老乡鸡：中式快餐标准化离不开供应链和直营基本盘。</h3>
+            <ul>
+              <li>围绕鸡肉主品类建立供应链、食品加工和冷链配送能力。</li>
+              <li>直营体系为门店模型、训练体系和运营标准提供基本盘。</li>
+              <li>中式快餐要复制，不能只复制招牌，还要复制出品和管理能力。</li>
+            </ul>
+          </div>
+          <div class="lesson">
+            <b>Lesson for Yangmingyu</b>
+            <strong>黄焖鸡要连锁化，最终复制的是一套餐饮经营能力。</strong>
+            <span>区域负责人要帮助总部把能力落到门店，而不是让每家店自由发挥。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-matrix">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Tool 3</div><div class="section-mark">04 / Portfolio Matrix</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">工具三 · 区域门店组合盘点矩阵</div>
+            <h2>把 A/B/C/D 变成区域经营动作。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">分类不是为了给门店贴标签，而是决定未来 1-2 年 A/B 店占比怎么提升、C 店怎么升级、D 店怎么整改或退出。</p>
+          </div>
+          <div class="matrix">
+            <div class="matrix-cell"><div class="grade a">A</div><h3>保卫</h3><p>保持高标准，承担样板展示、加盟商参观、区域训练功能。</p></div>
+            <div class="matrix-cell"><div class="grade b">B</div><h3>复制</h3><p>总结选址、加盟商、装修、出品、管理共性，形成开发模板。</p></div>
+            <div class="matrix-cell"><div class="grade c">C</div><h3>升级</h3><p>选出 1-2 个关键短板，制定 30 天整改动作，不做泛泛要求。</p></div>
+            <div class="matrix-cell"><div class="grade d">D</div><h3>处置</h3><p>明确整改期限；不能承接标准的，要和平分手、替换加盟关系或有序退出。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Tool 4</div><div class="section-mark">04 / Time Allocation</div></div>
+        <div class="content split">
+          <div>
+            <h2>区域负责人的时间，应该花在能改变区域结构的事情上。</h2>
+            <p class="lead">至少 50% 以上时间投入寻址、A 类店复制、加盟商升级和数据复盘；D 店救火不能成为每天工作的主线。</p>
+          </div>
+          <div class="card">
+            <div class="bar-chart">
+              <div class="bar"><span>优质寻址与开发</span><div class="bar-track"><div class="bar-fill green" style="width: 30%"></div></div><b>30%</b></div>
+              <div class="bar"><span>A 类店复制</span><div class="bar-track"><div class="bar-fill blue" style="width: 22%"></div></div><b>22%</b></div>
+              <div class="bar"><span>加盟商升级</span><div class="bar-track"><div class="bar-fill gold" style="width: 18%"></div></div><b>18%</b></div>
+              <div class="bar"><span>经营数据复盘</span><div class="bar-track"><div class="bar-fill" style="width: 18%"></div></div><b>18%</b></div>
+              <div class="bar"><span>D 店救火</span><div class="bar-track"><div class="bar-fill red" style="width: 12%"></div></div><b>12%</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide quadrant-slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Tool 4B</div><div class="section-mark">04 / Important vs Urgent</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">时间管理 · 重要紧急四象限</div>
+            <h2>不要被“紧急的小事”拖走，要把时间投到“重要的系统问题”。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">餐饮区域管理不是平均照顾每一家店，而是用少数高价值动作改善整个区域结构。</p>
+          </div>
+          <div class="quadrant-grid">
+            <div class="quadrant-card priority">
+              <div class="axis">重要 / 不紧急</div>
+              <h3>系统建设</h3>
+              <ul>
+                <li>A 类店经验萃取</li>
+                <li>区域店长集中学习</li>
+                <li>选址模型和加盟商筛选</li>
+              </ul>
+            </div>
+            <div class="quadrant-card">
+              <div class="axis">重要 / 紧急</div>
+              <h3>风险止血</h3>
+              <ul>
+                <li>食品安全、重大投诉</li>
+                <li>舆情门店快速整改</li>
+                <li>严重标准失守处置</li>
+              </ul>
+            </div>
+            <div class="quadrant-card">
+              <div class="axis">不重要 / 紧急</div>
+              <h3>低价值救火</h3>
+              <ul>
+                <li>D 店反复沟通返工</li>
+                <li>临时补材料、补照片</li>
+                <li>每家店个案式催促</li>
+              </ul>
+            </div>
+            <div class="quadrant-card">
+              <div class="axis">不重要 / 不紧急</div>
+              <h3>应当减少</h3>
+              <ul>
+                <li>无目标巡店</li>
+                <li>重复会议和口头提醒</li>
+                <li>没有沉淀的经验交流</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Tool 5</div><div class="section-mark">04 / Model Store</div></div>
+        <div class="content">
+          <h2>系统性提升：不是一家一家沟通，而是把 A 类店经验复制到一批店。</h2>
+          <div class="timeline">
+            <div class="node"><b>01</b><strong>选 A 店</strong><span>选已经证明过的好店，不选极端特殊店。</span></div>
+            <div class="node"><b>02</b><strong>拆经验</strong><span>把服务、后厨、出品、动线和订货节奏拆成可学动作。</span></div>
+            <div class="node"><b>03</b><strong>组织学习</strong><span>让区域店长一起到现场学习，而不是逐店重复沟通。</span></div>
+            <div class="node"><b>04</b><strong>批量复制</strong><span>把共性动作变成巡检表、训练表和新店开发证据。</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide divider-slide" style="--chapter:'05'">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Decision Standard</div><div class="section-mark">05 / Worth Opening</div></div>
+        <div class="content">
+          <h1>以后判断一家店，不问“能不能开”，先问“值不值得开”。</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-checklist">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Five Questions</div><div class="section-mark">05 / Before Opening</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">开店前 · 五个必须回答的问题</div>
+            <h2>判断一家店，不问“能不能开”，先问“值不值得开”。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">这五个问题决定新店是区域资产，还是未来三年的管理负债。能开不等于值得开，管理精力也要算进账里。</p>
+          </div>
+          <div class="checklist">
+            <div class="check"><b>1</b><span>这个位置会不会让品牌更有价值？</span></div>
+            <div class="check"><b>2</b><span>这个加盟商能不能长期经营，而不是短期投机？</span></div>
+            <div class="check"><b>3</b><span>总部标准在这家店能不能被执行？</span></div>
+            <div class="check"><b>4</b><span>这家店能不能成为同类门店的复制模板？</span></div>
+            <div class="check"><b>5</b><span>三年后，这家店是在增加品牌资产，还是消耗品牌信用和管理精力？</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide regional-kpi">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Regional KPI</div><div class="section-mark">05 / Asset Quality</div></div>
+        <div class="content split">
+          <div>
+            <h2>区域负责人要交付的，不只是开店数量，而是未来 1-2 年区域资产质量。</h2>
+          </div>
+          <div class="cards">
+            <div class="card compact"><h3>A/B 店占比目标</h3><p>明确未来 1-2 年门店组合健康度。</p></div>
+            <div class="card compact"><h3>C 店升级数</h3><p>衡量区域改善能力。</p></div>
+            <div class="card compact"><h3>D 店整改 / 关停计划</h3><p>衡量风险清理和和平分手能力。</p></div>
+            <div class="card compact"><h3>样板店数量</h3><p>衡量区域复制能力。</p></div>
+            <div class="card compact"><h3>复店加盟商数</h3><p>衡量优质加盟商沉淀。</p></div>
+            <div class="card compact"><h3>经营数据复盘</h3><p>每日关注订货量、营业额和异常波动。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide side-layout-slide side-evidence">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Commitment</div><div class="section-mark">05 / 30 Days</div></div>
+        <div class="content side-layout">
+          <div class="side-copy">
+            <div class="eyebrow">行动承诺 · 30 天内必须看见变化</div>
+            <h2>培训结束后，不是写心得，而是改变一个区域动作。</h2>
+            <span class="slide-bar"></span>
+            <p class="lead">每位区域负责人带走四个具体承诺，把今天的经营判断落到门店、加盟商、A 类店复制和 D 店治理上。</p>
+          </div>
+          <div class="cards four">
+            <div class="card compact"><span class="tag red">停止</span><h3>一个低价值动作</h3><p>我接下来要减少哪类救火、返工或无效沟通？</p></div>
+            <div class="card compact"><span class="tag gold">升级</span><h3>一家 C/D 门店</h3><p>我会选择哪家店做 30 天整改？关键短板是什么？</p></div>
+            <div class="card compact"><span class="tag blue">开发</span><h3>一个优质加盟商</h3><p>我会按什么标准筛选下一个加盟商？</p></div>
+            <div class="card compact"><span class="tag green">复制</span><h3>一家 A 类样板店</h3><p>我会把哪家 A 店的经验拆成可训练、可复制的动作？</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide divider-slide" style="--chapter:'END'">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Close</div><div class="section-mark">05 / Final Message</div></div>
+        <div class="content">
+          <div class="quote-panel">
+            <strong>让这个区域的门店组合更值钱。</strong>
+            <span>这不是否定过去，而是进入杨铭宇下一阶段：从粗放扩张，走向高质量连锁经营。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Appendix</div><div class="section-mark">Sources</div></div>
+        <div class="content top">
+          <h2>案例来源与参考</h2>
+          <ol class="sources">
+            <li>海底捞：Haidilao 2021 expansion and restaurant closures overview, <a href="https://en.wikipedia.org/wiki/Haidilao" target="_blank" rel="noreferrer">Wikipedia: Haidilao</a>.</li>
+            <li>Chipotle：2016 年临时关闭门店进行食品安全会议，<a href="https://time.com/4211767/chipotle-closed-food-safety-meeting/" target="_blank" rel="noreferrer">TIME: This Is Why Your Local Chipotle Is Closed Today</a>.</li>
+            <li>Chipotle：食安事件、销售影响和修复动作，<a href="https://time.com/4182255/chipotle-will-briefly-close-all-its-restaurants-to-address-food-safety-issue/" target="_blank" rel="noreferrer">TIME: Chipotle Will Briefly Close All Its Restaurants</a>.</li>
+            <li>星巴克：2008-2009 年低效门店关闭与转型概览，<a href="https://en.wikipedia.org/wiki/Starbucks" target="_blank" rel="noreferrer">Wikipedia: Starbucks</a>.</li>
+            <li>达美乐：2009-2010 年产品重做与品牌转型概览，<a href="https://en.wikipedia.org/wiki/Domino%27s" target="_blank" rel="noreferrer">Wikipedia: Domino's</a>.</li>
+            <li>达美乐：产品和品牌转型带来的增长讨论，<a href="https://www.foodandwine.com/news/gimmicks-work-dominos-stock-increased-5000-in-past-9-years" target="_blank" rel="noreferrer">Food & Wine: Domino's Stock Increased 5000%</a>.</li>
+            <li>蜜雪冰城：门店规模、加盟和供应链商业模式概览，<a href="https://en.wikipedia.org/wiki/Mixue_Ice_Cream_%26_Tea" target="_blank" rel="noreferrer">Wikipedia: Mixue Ice Cream & Tea</a>.</li>
+            <li>老乡鸡：门店、供应链、加工和冷链体系概览，<a href="https://zh.wikipedia.org/wiki/%E8%80%81%E4%B9%A1%E9%B8%A1" target="_blank" rel="noreferrer">Wikipedia: 老乡鸡</a>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-frame">
+        <div class="topbar"><div class="brand">Appendix</div><div class="section-mark">Training Notes</div></div>
+        <div class="content top">
+          <h2>讲师节奏建议</h2>
+          <div class="cards two">
+            <div class="card"><span class="tag blue">90 分钟版</span><h3>压缩案例，保留工具</h3><p>案例每个控制在 2 分钟。重点讲第 1、2、4、5 部分，工具页必须保留。</p></div>
+            <div class="card"><span class="tag green">120 分钟版</span><h3>保留讨论和承诺</h3><p>第 24 页区域矩阵和第 30 页行动承诺可留出 15-20 分钟现场填写。</p></div>
+          </div>
+          <div class="question">现场不要只问“听懂了吗”，要问：你所在区域，哪一类门店正在消耗品牌信用？</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="controls" aria-label="Slide controls">
+      <button id="prev" type="button" aria-label="上一页">‹</button>
+      <div class="progress"><span id="current">1</span>/<span id="total">38</span></div>
+      <button id="next" type="button" aria-label="下一页">›</button>
+    </div>
+    <div class="hint">键盘 ← / → 翻页</div>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const current = document.getElementById('current');
+    const total = document.getElementById('total');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let index = 0;
+
+    slides.forEach((slide, i) => {
+      slide.dataset.page = String(i + 1).padStart(2, '0');
+    });
+    total.textContent = String(slides.length);
+
+    function fitDeck() {
+      const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+      document.documentElement.style.setProperty('--deck-scale', String(scale));
+    }
+
+    function showSlide(nextIndex) {
+      index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      current.textContent = String(index + 1);
+      prev.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+      const hash = `#${index + 1}`;
+      if (window.location.hash !== hash) {
+        history.replaceState(null, '', hash);
+      }
+    }
+
+    prev.addEventListener('click', () => showSlide(index - 1));
+    next.addEventListener('click', () => showSlide(index + 1));
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') {
+        event.preventDefault();
+        showSlide(index + 1);
+      }
+      if (event.key === 'ArrowLeft' || event.key === 'PageUp') {
+        event.preventDefault();
+        showSlide(index - 1);
+      }
+    });
+
+    window.addEventListener('hashchange', () => {
+      const nextFromHash = Number(window.location.hash.replace('#', ''));
+      if (Number.isFinite(nextFromHash) && nextFromHash > 0) {
+        showSlide(nextFromHash - 1);
+      }
+    });
+
+    const start = Number(window.location.hash.replace('#', ''));
+    window.addEventListener('resize', fitDeck);
+    fitDeck();
+    showSlide(Number.isFinite(start) && start > 0 ? start - 1 : 0);
+  </script>
+</body>
+</html>

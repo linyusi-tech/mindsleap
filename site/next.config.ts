@@ -183,6 +183,22 @@ const nextConfig: NextConfig = {
           destination: "/decks/Lincoln/xiyouji-ai-agent-kickoff-training/index.html",
         },
         {
+          source: "/decks/Lincoln/yangmingyu-regional-brand-asset-training",
+          destination: "/decks/Lincoln/yangmingyu-regional-brand-asset-training/index.html",
+        },
+        {
+          source: "/decks/Lincoln/yangmingyu-regional-brand-asset-training/",
+          destination: "/decks/Lincoln/yangmingyu-regional-brand-asset-training/index.html",
+        },
+        {
+          source: "/decks/Lincoln/zhidu-ai-native-growth-plan",
+          destination: "/decks/Lincoln/zhidu-ai-native-growth-plan/index.html",
+        },
+        {
+          source: "/decks/Lincoln/zhidu-ai-native-growth-plan/",
+          destination: "/decks/Lincoln/zhidu-ai-native-growth-plan/index.html",
+        },
+        {
           source: "/decks/Lincoln/opc-chongqing-10min",
           destination: "/decks/Lincoln/opc-chongqing-10min/index.html",
         },

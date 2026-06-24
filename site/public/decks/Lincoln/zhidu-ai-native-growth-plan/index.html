@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>炙都 AI 原生品牌孵化与 6 个月复制增长方案</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-alt: #f9fafb;
+        --ink: #111111;
+        --ink-muted: #4b5563;
+        --ink-subtle: #9ca3af;
+        --rule: #f3f4f6;
+        --card-rule: #e5e7eb;
+        --blue: #1e477c;
+        --blue-light: #2a5a9e;
+        --blue-accent: #3b82f6;
+        --blue-50: #eff6ff;
+        --green: #15803d;
+        --orange: #c2410c;
+        --red: #b42318;
+        --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        --font-mono: "SF Mono", "Roboto Mono", Consolas, monospace;
+        --deck-scale: 1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        background: #0a0d12;
+        color: var(--ink);
+        font-family: var(--font-body);
+        letter-spacing: -0.01em;
+      }
+
+      body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+      }
+
+      .deck-stage {
+        padding: 28px 0 44px;
+        background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.08), transparent 42%), #0a0d12;
+      }
+
+      .slide-frame {
+        position: relative;
+        width: calc(1920px * var(--deck-scale));
+        height: calc(1080px * var(--deck-scale));
+        margin: 0 auto 32px;
+        background: var(--bg);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.46);
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        transform: scale(var(--deck-scale));
+        transform-origin: top left;
+        padding: 88px 112px 158px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        left: 112px;
+        bottom: 42px;
+        width: 292px;
+        height: 58px;
+        background: url("/decks/shared/mindsleap-template/mindsleap-logo-blue.png") left center / contain no-repeat;
+        opacity: 0.78;
+      }
+
+      .slide::after {
+        content: attr(data-page);
+        position: absolute;
+        right: 112px;
+        bottom: 54px;
+        color: #9aa5b5;
+        font: 700 18px/1 var(--font-body);
+        letter-spacing: 0.08em;
+      }
+
+      .cover::before,
+      .cover::after,
+      .chapter::before,
+      .chapter::after {
+        display: none;
+      }
+
+      .eyebrow {
+        display: block;
+        margin: 0 0 18px;
+        color: var(--blue-accent);
+        font: 700 21px/1.1 var(--font-body);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .slide-title {
+        margin: 0;
+        max-width: 1696px;
+        color: var(--ink);
+        font: 800 62px/1.1 var(--font-heading);
+        letter-spacing: 0;
+      }
+
+      .slide-title .sub {
+        display: block;
+        margin-top: 14px;
+        color: var(--ink-muted);
+        font: 400 27px/1.36 var(--font-heading);
+      }
+
+      .accent {
+        color: var(--blue);
+      }
+
+      .muted {
+        color: var(--ink-muted);
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .cover {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      .cover-logo {
+        width: 520px;
+        height: auto;
+        margin-bottom: 46px;
+      }
+
+      .cover-title {
+        margin: 0;
+        max-width: 1000px;
+        color: var(--ink);
+        font: 800 88px/1.04 var(--font-heading);
+        letter-spacing: 0;
+      }
+
+      .cover-tagline {
+        max-width: 890px;
+        margin: 34px 0 0;
+        color: var(--ink-muted);
+        font: 400 28px/1.42 var(--font-body);
+      }
+
+      .cover-visual {
+        min-height: 740px;
+        padding: 46px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: 28px;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        align-content: start;
+      }
+
+      .metric-tile {
+        min-height: 170px;
+        padding: 26px;
+        background: #fff;
+        border: 1px solid var(--card-rule);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .metric-tile b {
+        color: var(--blue);
+        font: 800 54px/1 var(--font-heading);
+      }
+
+      .metric-tile span {
+        color: var(--ink);
+        font: 700 23px/1.25 var(--font-heading);
+      }
+
+      .cover-stat {
+        padding-top: 26px;
+        border-top: 5px solid var(--blue);
+      }
+
+      .cover-stat strong {
+        display: block;
+        color: var(--blue);
+        font: 800 74px/1 var(--font-heading);
+      }
+
+      .cover-stat p {
+        margin: 18px 0 0;
+        color: var(--ink-muted);
+        font: 400 25px/1.38 var(--font-body);
+      }
+
+      .big-statement {
+        display: grid;
+        align-content: center;
+        gap: 34px;
+      }
+
+      .statement {
+        max-width: 1540px;
+        margin: 0;
+        color: var(--ink);
+        font: 800 84px/1.08 var(--font-heading);
+        letter-spacing: 0;
+      }
+
+      .statement em {
+        color: var(--blue);
+        font-style: normal;
+      }
+
+      .support {
+        max-width: 1180px;
+        margin: 0;
+        color: var(--ink-muted);
+        font: 400 31px/1.5 var(--font-body);
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .grid-6 {
+        display: grid;
+        gap: 22px;
+        margin-top: 54px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .grid-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        min-height: 252px;
+        padding: 30px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card .num,
+      .card .label {
+        display: inline-block;
+        margin-bottom: 28px;
+        color: var(--blue);
+        font: 800 25px/1 var(--font-heading);
+      }
+
+      .card h3 {
+        margin: 0;
+        color: var(--ink);
+        font: 800 30px/1.2 var(--font-heading);
+      }
+
+      .card p {
+        margin: 16px 0 0;
+        color: var(--ink-muted);
+        font: 400 21px/1.5 var(--font-body);
+      }
+
+      .source-bar {
+        position: absolute;
+        left: 112px;
+        right: 112px;
+        bottom: 124px;
+        padding: 18px 24px;
+        background: var(--blue-50);
+        border-left: 6px solid var(--blue);
+        color: var(--ink-muted);
+        font: 700 20px/1.4 var(--font-body);
+      }
+
+      .chapter {
+        display: grid;
+        grid-template-columns: 420px 1fr;
+        gap: 70px;
+        align-items: center;
+        background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+        color: #fff;
+      }
+
+      .chapter-num {
+        color: rgba(255, 255, 255, 0.18);
+        font: 800 260px/1 var(--font-heading);
+      }
+
+      .chapter h2 {
+        max-width: 1100px;
+        margin: 0;
+        color: #fff;
+        font: 800 76px/1.1 var(--font-heading);
+      }
+
+      .chapter p {
+        max-width: 1100px;
+        margin: 26px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font: 400 30px/1.45 var(--font-body);
+      }
+
+      .chapter .eyebrow {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .flywheel {
+        position: relative;
+        margin-top: 50px;
+        min-height: 620px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+      }
+
+      .flywheel-step {
+        padding: 28px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+        display: grid;
+        align-content: start;
+        gap: 14px;
+      }
+
+      .flywheel-step b {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--blue);
+        color: #fff;
+        font: 800 20px/1 var(--font-heading);
+      }
+
+      .flywheel-step h3 {
+        margin: 0;
+        color: var(--ink);
+        font: 800 28px/1.22 var(--font-heading);
+      }
+
+      .flywheel-step p {
+        margin: 0;
+        color: var(--ink-muted);
+        font: 400 20px/1.48 var(--font-body);
+      }
+
+      .flywheel-step footer {
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 1px solid var(--card-rule);
+        color: var(--blue);
+        font: 800 18px/1.25 var(--font-body);
+      }
+
+      .agent-map {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 34px;
+        margin-top: 42px;
+      }
+
+      .orchestrator {
+        min-height: 644px;
+        padding: 44px;
+        background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+        color: #fff;
+        display: grid;
+        align-content: center;
+      }
+
+      .orchestrator span {
+        color: rgba(255, 255, 255, 0.72);
+        font: 700 22px/1 var(--font-body);
+      }
+
+      .orchestrator h3 {
+        margin: 24px 0 0;
+        color: #fff;
+        font: 800 64px/1.08 var(--font-heading);
+      }
+
+      .orchestrator p {
+        max-width: 690px;
+        margin: 28px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font: 400 28px/1.4 var(--font-body);
+      }
+
+      .agent-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .agent-item {
+        padding: 22px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+      }
+
+      .agent-item b {
+        color: var(--blue);
+        font: 800 20px/1 var(--font-heading);
+      }
+
+      .agent-item h3 {
+        margin: 12px 0 0;
+        color: var(--ink);
+        font: 800 24px/1.2 var(--font-heading);
+      }
+
+      .agent-item p {
+        margin: 10px 0 0;
+        color: var(--ink-muted);
+        font: 400 18px/1.42 var(--font-body);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 34px;
+        margin-top: 48px;
+      }
+
+      .panel-dark {
+        min-height: 610px;
+        padding: 42px;
+        background: var(--blue);
+        color: #fff;
+        display: grid;
+        align-content: space-between;
+      }
+
+      .panel-dark h3 {
+        margin: 0;
+        color: #fff;
+        font: 800 46px/1.13 var(--font-heading);
+      }
+
+      .panel-dark p {
+        margin: 24px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font: 400 26px/1.42 var(--font-body);
+      }
+
+      .big-number {
+        color: #fff;
+        font: 800 136px/1 var(--font-heading);
+      }
+
+      .stack-list {
+        display: grid;
+        gap: 16px;
+      }
+
+      .stack-item {
+        display: grid;
+        grid-template-columns: 108px 1fr;
+        gap: 22px;
+        align-items: start;
+        padding: 22px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+      }
+
+      .stack-item b {
+        width: 76px;
+        height: 76px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--blue);
+        color: #fff;
+        font: 800 22px/1 var(--font-heading);
+      }
+
+      .stack-item h3 {
+        margin: 0;
+        color: var(--ink);
+        font: 800 28px/1.2 var(--font-heading);
+      }
+
+      .stack-item p {
+        margin: 10px 0 0;
+        color: var(--ink-muted);
+        font: 400 20px/1.42 var(--font-body);
+      }
+
+      .eval-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        margin-top: 50px;
+      }
+
+      .eval-card {
+        min-height: 472px;
+        padding: 24px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .eval-card b {
+        color: var(--blue);
+        font: 800 40px/1 var(--font-heading);
+      }
+
+      .eval-card h3 {
+        margin: 22px 0 0;
+        color: var(--ink);
+        font: 800 25px/1.2 var(--font-heading);
+      }
+
+      .eval-card p {
+        margin: 14px 0 0;
+        color: var(--ink-muted);
+        font: 400 18px/1.45 var(--font-body);
+      }
+
+      .eval-card ul {
+        margin: auto 0 0;
+        padding: 18px 0 0 20px;
+        border-top: 1px solid var(--card-rule);
+        color: var(--ink-muted);
+        font: 700 17px/1.6 var(--font-body);
+      }
+
+      .roadmap {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+        margin-top: 50px;
+      }
+
+      .month {
+        min-height: 580px;
+        padding: 24px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .month b {
+        color: var(--blue);
+        font: 800 38px/1 var(--font-heading);
+      }
+
+      .month h3 {
+        margin: 22px 0 0;
+        color: var(--ink);
+        font: 800 25px/1.2 var(--font-heading);
+      }
+
+      .month p {
+        margin: 14px 0 0;
+        color: var(--ink-muted);
+        font: 400 18px/1.45 var(--font-body);
+      }
+
+      .month footer {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid var(--card-rule);
+        color: var(--blue);
+        font: 800 17px/1.4 var(--font-body);
+      }
+
+      .score-table {
+        display: grid;
+        grid-template-columns: 1.1fr repeat(4, 0.8fr);
+        margin-top: 48px;
+        border: 1px solid var(--card-rule);
+      }
+
+      .score-table div {
+        min-height: 78px;
+        padding: 18px;
+        border-right: 1px solid var(--card-rule);
+        border-bottom: 1px solid var(--card-rule);
+        color: var(--ink-muted);
+        font: 700 18px/1.35 var(--font-body);
+      }
+
+      .score-table div:nth-child(5n) {
+        border-right: 0;
+      }
+
+      .score-table .head {
+        background: var(--blue);
+        color: #fff;
+        font: 800 18px/1.2 var(--font-body);
+      }
+
+      .score-table .name {
+        color: var(--ink);
+        font: 800 20px/1.3 var(--font-heading);
+      }
+
+      .score-table .good {
+        color: var(--green);
+      }
+
+      .score-table .warn {
+        color: var(--orange);
+      }
+
+      .closing {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        gap: 70px;
+        align-items: center;
+      }
+
+      .closing h2 {
+        margin: 0;
+        color: var(--ink);
+        font: 800 82px/1.08 var(--font-heading);
+      }
+
+      .closing p {
+        margin: 30px 0 0;
+        color: var(--ink-muted);
+        font: 400 30px/1.45 var(--font-body);
+      }
+
+      .closing-box {
+        min-height: 650px;
+        padding: 42px;
+        background: var(--bg-alt);
+        border: 1px solid var(--card-rule);
+        display: grid;
+        align-content: center;
+        gap: 18px;
+      }
+
+      .closing-box div {
+        padding: 22px;
+        background: #fff;
+        border-left: 6px solid var(--blue);
+      }
+
+      .closing-box b {
+        color: var(--blue);
+        font: 800 26px/1.2 var(--font-heading);
+      }
+
+      .closing-box span {
+        display: block;
+        margin-top: 8px;
+        color: var(--ink-muted);
+        font: 400 19px/1.42 var(--font-body);
+      }
+
+      @media print {
+        :root {
+          --deck-scale: 1 !important;
+        }
+
+        body,
+        .deck-stage {
+          background: #fff;
+          padding: 0;
+        }
+
+        .slide-frame {
+          margin: 0;
+          page-break-after: always;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck-stage">
+      <section class="slide-frame">
+        <article class="slide cover">
+          <div>
+            <img class="cover-logo" src="/decks/shared/mindsleap-template/mindsleap-logo-blue.png" alt="MindsLeap" />
+            <p class="eyebrow">炙都 · AI 原生品牌孵化方案</p>
+            <h1 class="cover-title">把首店火爆变成可复制的餐饮投资模型</h1>
+            <p class="cover-tagline">基于嘻游记九场访谈和炙都 6 个月目标，MindsLeap 建议将炙都建设为一个从品牌、产品、营销、门店运营到联营复制全链路 AI 原生的新餐饮标杆。</p>
+          </div>
+          <aside class="cover-visual">
+            <div class="metric-grid">
+              <div class="metric-tile"><b>01</b><span>首店必须形成火爆势能</span></div>
+              <div class="metric-tile"><b>PMF</b><span>验证产品、价格、场景和内容匹配</span></div>
+              <div class="metric-tile"><b>50</b><span>6 个月争取签约联营门店</span></div>
+              <div class="metric-tile"><b>30</b><span>6 个月争取实际落地门店</span></div>
+            </div>
+            <div class="cover-stat">
+              <strong>AI-Native</strong>
+              <p>目标不是给餐饮团队加工具，而是把新品牌从第一天设计成可度量、可复盘、可复制的 Agent 工作流。</p>
+            </div>
+          </aside>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide big-statement" data-page="01">
+          <p class="eyebrow">Executive Point of View</p>
+          <h2 class="statement">炙都的核心挑战不是开一家店，而是证明这是一套<em>能被投资人相信、能被门店复制</em>的经营模型。</h2>
+          <p class="support">创始人具备餐饮行业经验和资源，联营模式具备扩张杠杆。MindsLeap 的 6 个月服务应围绕一个问题展开：如何把首店热度、PMF、单店财务和开店复制转化为可持续的增长机器。</p>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="02">
+          <p class="eyebrow">Strategic Target</p>
+          <h2 class="slide-title">6 个月目标要从“AI 应用项目”改写为“AI 原生餐饮品牌复制项目”。<span class="sub">时间窗口：2026-06-23 至 2026-12-23。目标：首店火爆，确认 Product-Marketing Fit，签约 50 家，落地 30 家。</span></h2>
+          <div class="grid-4">
+            <div class="card">
+              <span class="num">01</span>
+              <h3>首店火爆</h3>
+              <p>开业即形成排队、点评、短视频、外卖和社群声量；首店不是终点，而是复制模型的第一组真实样本。</p>
+            </div>
+            <div class="card">
+              <span class="num">02</span>
+              <h3>PMF 成立</h3>
+              <p>验证产品、价格带、目标人群、消费场景、内容话术和渠道策略之间的匹配关系。</p>
+            </div>
+            <div class="card">
+              <span class="num">03</span>
+              <h3>财务模型可信</h3>
+              <p>把投资额、日均流水、毛利、人效、租金占比和回本周期整理成投资人能判断的店型模型。</p>
+            </div>
+            <div class="card">
+              <span class="num">04</span>
+              <h3>联营快速复制</h3>
+              <p>以创始人资源为杠杆，用标准化招商、选址、开店、培训和运营机制支撑 50 签约、30 落地。</p>
+            </div>
+          </div>
+          <div class="source-bar">上下文来源：嘻游记全量访谈、现有机会地图、优先级矩阵和 FDE 进场简报。</div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide chapter" data-page="03">
+          <div class="chapter-num">01</div>
+          <div>
+            <p class="eyebrow">Operating Thesis</p>
+            <h2>炙都应被设计为一个“首店即实验室，复制店即规模化验证”的 AI 原生品牌。</h2>
+            <p>传统餐饮扩张依赖创始人经验、督导经验和区域资源；AI 原生扩张要把经验拆成可记录的假设、数据、动作和复盘。每一家新店都不是孤立门店，而是让品牌模型更准确的一次实验。</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="04">
+          <p class="eyebrow">Growth Flywheel</p>
+          <h2 class="slide-title">炙都的 6 个月服务应围绕五个闭环，而不是围绕部门职能展开。</h2>
+          <div class="flywheel">
+            <div class="flywheel-step">
+              <b>01</b>
+              <h3>首店爆店闭环</h3>
+              <p>开业前内容预热、开业活动、点评搜索、短视频种草、外卖上线和现场反馈全部进入日复盘。</p>
+              <footer>7/14/30 日 GMV、排队、翻台、点评收藏</footer>
+            </div>
+            <div class="flywheel-step">
+              <b>02</b>
+              <h3>PMF 闭环</h3>
+              <p>持续验证什么产品、什么价格、什么人群、什么内容、什么场景最能转化。</p>
+              <footer>爆品占比、好评关键词、复购、内容转化</footer>
+            </div>
+            <div class="flywheel-step">
+              <b>03</b>
+              <h3>财务模型闭环</h3>
+              <p>把单店经营数据翻译成投资人能理解的回本模型，而不是只讲品牌故事。</p>
+              <footer>投资额、毛利率、净利率、现金回收期</footer>
+            </div>
+            <div class="flywheel-step">
+              <b>04</b>
+              <h3>联营招商闭环</h3>
+              <p>用数据、案例和区域测算推进投资人决策，沉淀异议处理和签约漏斗。</p>
+              <footer>有效线索、考察、意向金、签约率</footer>
+            </div>
+            <div class="flywheel-step">
+              <b>05</b>
+              <h3>开店复制闭环</h3>
+              <p>从签约到开业的工程、供应链、培训、试营业和运营 SOP 全流程可视化。</p>
+              <footer>开店周期、延期率、首月达标率</footer>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="05">
+          <p class="eyebrow">Agent System</p>
+          <h2 class="slide-title">第一版 Agent 体系应服务“增长复制”，而不是服务泛泛的数字化管理。</h2>
+          <div class="agent-map">
+            <div class="orchestrator">
+              <span>Orchestrator Agent</span>
+              <h3>AI Brand Operator</h3>
+              <p>维护炙都的目标、假设、实验、经营指标、门店复制进度和复盘资产，把所有 Agent 的工作串成一个品牌操作系统。</p>
+            </div>
+            <div class="agent-list">
+              <div class="agent-item"><b>01</b><h3>首店爆店 Agent</h3><p>管理开业战役、内容、点评、达人、外卖和现场反馈。</p></div>
+              <div class="agent-item"><b>02</b><h3>PMF 诊断 Agent</h3><p>分析产品、用户、价格、渠道和内容是否匹配。</p></div>
+              <div class="agent-item"><b>03</b><h3>单店模型 Agent</h3><p>生成投资额、流水、毛利、人效和回本周期测算。</p></div>
+              <div class="agent-item"><b>04</b><h3>联营招商 Agent</h3><p>管理投资人画像、招商材料、问答和签约漏斗。</p></div>
+              <div class="agent-item"><b>05</b><h3>开店复制 Agent</h3><p>管理选址、工程、供应链、培训、试营业和开业排期。</p></div>
+              <div class="agent-item"><b>06</b><h3>门店运营 Agent</h3><p>盯日常经营、差评、出品、库存、人效和 SOP 执行。</p></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="06">
+          <p class="eyebrow">First Store Playbook</p>
+          <h2 class="slide-title">首店不是“开业活动”，而是一次高密度 PMF 实验。</h2>
+          <div class="two-col">
+            <div class="panel-dark">
+              <div>
+                <h3>首店要每天回答三个问题。</h3>
+                <p>今天谁被吸引来了？他们为什么下单？他们会不会推荐和复购？所有开业动作都要回到这三个问题。</p>
+              </div>
+              <div class="big-number">30D</div>
+            </div>
+            <div class="stack-list">
+              <div class="stack-item"><b>客群</b><div><h3>谁是真实顾客</h3><p>用收银、外卖、点评、社群和现场观察识别高转化人群，而不是只按品牌假设定义客群。</p></div></div>
+              <div class="stack-item"><b>产品</b><div><h3>什么产品真正能打</h3><p>跟踪爆品销量、套餐搭配、差评原因、复购信号和毛利表现。</p></div></div>
+              <div class="stack-item"><b>内容</b><div><h3>什么话术产生转化</h3><p>比较短视频、达人、点评搜索、团购标题和门店物料的话术表现。</p></div></div>
+              <div class="stack-item"><b>运营</b><div><h3>什么流程限制体验</h3><p>把排队、出餐、服务、动线、外卖履约和差评根因变成每日动作清单。</p></div></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="07">
+          <p class="eyebrow">Financial & Joint Venture Model</p>
+          <h2 class="slide-title">联营能否跑快，取决于投资人是否相信“这家店型能快速回本”。</h2>
+          <div class="score-table">
+            <div class="head">模型模块</div><div class="head">核心输入</div><div class="head">判断指标</div><div class="head">Agent 输出</div><div class="head">业务用途</div>
+            <div class="name">投资模型</div><div>装修、设备、首批物料、租押金、开办费</div><div class="good">总投资额 / 资金缺口</div><div>标准投资测算表</div><div>投资人沟通</div>
+            <div class="name">经营模型</div><div>日均流水、客单、翻台、外卖单量</div><div class="good">盈亏平衡点 / 日均目标</div><div>单店经营模拟器</div><div>店长经营目标</div>
+            <div class="name">利润模型</div><div>食材成本、人力、租金、平台费、营销费</div><div class="warn">毛利率 / 净利率</div><div>利润敏感性分析</div><div>定价与活动边界</div>
+            <div class="name">回本模型</div><div>现金流、利润、淡旺季、爬坡期</div><div class="good">现金回收周期</div><div>回本情景测算</div><div>签约决策</div>
+            <div class="name">联营模型</div><div>出资比例、分成机制、运营责任、退出条款</div><div class="warn">风险收益匹配</div><div>投资人问答与合同要点</div><div>规模化签约</div>
+          </div>
+          <div class="source-bar">管理建议：签约前必须将“理想模型、保守模型、压力模型”三套测算透明化，避免靠情绪和资源推动签约。</div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="08">
+          <p class="eyebrow">Eval System</p>
+          <h2 class="slide-title">这个项目的 Eval 不评“AI 写得好不好”，而评“品牌模型能不能复制”。</h2>
+          <div class="eval-grid">
+            <div class="eval-card">
+              <b>01</b><h3>PMF Eval</h3><p>判断产品、价格、人群、内容和渠道是否匹配。</p>
+              <ul><li>爆品占比</li><li>好评关键词</li><li>复购信号</li><li>内容转化</li></ul>
+            </div>
+            <div class="eval-card">
+              <b>02</b><h3>爆店 Eval</h3><p>判断首店是否形成真实势能，而非短期补贴热闹。</p>
+              <ul><li>7/14/30 日 GMV</li><li>排队与翻台</li><li>点评收藏</li><li>自然搜索</li></ul>
+            </div>
+            <div class="eval-card">
+              <b>03</b><h3>财务 Eval</h3><p>判断投资人是否能看懂、相信并愿意复制。</p>
+              <ul><li>日均流水</li><li>毛利率</li><li>净利率</li><li>回本周期</li></ul>
+            </div>
+            <div class="eval-card">
+              <b>04</b><h3>复制 Eval</h3><p>判断第二家、第三家是否能复现首店能力。</p>
+              <ul><li>开店周期</li><li>首月达标率</li><li>SOP 偏差</li><li>培训通过率</li></ul>
+            </div>
+            <div class="eval-card">
+              <b>05</b><h3>招商 Eval</h3><p>判断市场是否愿意为这个模型投钱。</p>
+              <ul><li>有效线索</li><li>到店考察</li><li>意向金</li><li>签约周期</li></ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="09">
+          <p class="eyebrow">Six-Month Roadmap</p>
+          <h2 class="slide-title">6 个月服务不是线性咨询，而是每个月让品牌模型更可复制。</h2>
+          <div class="roadmap">
+            <div class="month"><b>M1</b><h3>首店爆店战役</h3><p>开业作战图、内容矩阵、爆品假设、首店经营看板。</p><footer>目标：形成首店声量与 PMF 初始样本</footer></div>
+            <div class="month"><b>M2</b><h3>PMF 与财务模型</h3><p>固化有效产品、价格、内容、渠道和单店投资回收模型。</p><footer>目标：证明可投资店型</footer></div>
+            <div class="month"><b>M3</b><h3>联营招商启动</h3><p>上线招商 Agent、投资人材料、签约漏斗和区域优先级。</p><footer>目标：形成第一批签约</footer></div>
+            <div class="month"><b>M4</b><h3>复制店落地</h3><p>验证 3-5 家复制店的选址、工程、培训、开业 SOP。</p><footer>目标：复制流程跑通</footer></div>
+            <div class="month"><b>M5</b><h3>开店工厂化</h3><p>将签约、选址、工程、供应链、培训和运营节奏工厂化。</p><footer>目标：签约与落地速度同步提升</footer></div>
+            <div class="month"><b>M6</b><h3>标杆案例成型</h3><p>沉淀经营数据报告、案例 deck、对外 BP 和下一阶段 FDE 方案。</p><footer>目标：冲刺 50 签约 / 30 落地</footer></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="10">
+          <p class="eyebrow">Service Operating Model</p>
+          <h2 class="slide-title">MindsLeap 的角色不是外包 AI 工具，而是成为炙都 6 个月 AI 原生增长办公室。</h2>
+          <div class="grid-3">
+            <div class="card"><span class="label">Weekly</span><h3>周度增长作战会</h3><p>复盘首店/复制店数据、内容表现、外卖表现、招商进度和门店异常，形成下一周动作。</p></div>
+            <div class="card"><span class="label">Build</span><h3>Agent 工作流共创</h3><p>每两周上线或迭代一个 Agent 工作流，把创始人经验和业务团队经验固化。</p></div>
+            <div class="card"><span class="label">Review</span><h3>月度经营模型评审</h3><p>用 PMF、财务、招商、复制四张看板判断是否继续扩张、调整模型或收缩试点。</p></div>
+          </div>
+          <div class="grid-3" style="margin-top:22px">
+            <div class="card"><span class="label">Assets</span><h3>可复制资产库</h3><p>沉淀招商材料、开业 SOP、培训内容、选址清单、门店日报模板和投资人问答。</p></div>
+            <div class="card"><span class="label">Governance</span><h3>人机协作治理</h3><p>明确哪些建议必须人工复核，哪些动作可以半自动执行，哪些数据不得进入模型。</p></div>
+            <div class="card"><span class="label">Story</span><h3>标杆案例包装</h3><p>把项目过程整理为对外案例，让炙都成为 MindsLeap 打入餐饮企业的样板工程。</p></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide closing" data-page="11">
+          <div>
+            <p class="eyebrow">Final Recommendation</p>
+            <h2>先证明一家店能火、能赚钱、能复制，再把 AI 能力沉淀成餐饮行业方法论。</h2>
+            <p>炙都的价值不只是一家新店，而是一个可以被讲清楚、算清楚、复制出去的 AI 原生餐饮品牌模型。这个模型一旦成立，MindsLeap 就拥有了进入更多餐饮企业的标杆案例。</p>
+          </div>
+          <aside class="closing-box">
+            <div><b>第一优先级</b><span>首店爆店 Agent + PMF 诊断 Agent，围绕开业 30 天建立真实反馈闭环。</span></div>
+            <div><b>第二优先级</b><span>单店模型 Agent + 联营招商 Agent，将经营数据转化为签约工具。</span></div>
+            <div><b>第三优先级</b><span>开店复制 Agent + 门店运营 Agent，支撑 50 签约、30 落地的执行节奏。</span></div>
+          </aside>
+        </article>
+      </section>
+    </main>
+    <script>
+      function resizeDeck() {
+        const margin = window.innerWidth < 900 ? 24 : 56;
+        const scale = Math.min(1, Math.max(0.2, (window.innerWidth - margin) / 1920));
+        document.documentElement.style.setProperty("--deck-scale", scale.toFixed(4));
+      }
+
+      resizeDeck();
+      window.addEventListener("resize", resizeDeck);
+      window.addEventListener("orientationchange", resizeDeck);
+    </script>
+  </body>
+</html>
