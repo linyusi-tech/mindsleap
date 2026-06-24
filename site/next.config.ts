@@ -145,6 +145,14 @@ const nextConfig: NextConfig = {
           destination: "/proposal/qingpu-mindsleap-ai-native-accelerator/index.html",
         },
         {
+          source: "/proposal/mindsleap-fde-bp-v2",
+          destination: "/proposal/mindsleap-fde-bp-v2/index.html",
+        },
+        {
+          source: "/proposal/mindsleap-fde-bp-v2/",
+          destination: "/proposal/mindsleap-fde-bp-v2/index.html",
+        },
+        {
           source: "/proposal/mindsleap-fde-bp",
           destination: "/proposal/mindsleap-fde-bp/index.html",
         },
