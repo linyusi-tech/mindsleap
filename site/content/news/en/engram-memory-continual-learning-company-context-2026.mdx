@@ -1,0 +1,100 @@
+---
+title: "Writing a Company's Way of Working Into Model Weights"
+date: "2026-06-28"
+excerpt: "The bottleneck for enterprise AI is no longer raw intelligence. It is whether a model understands the company's evolving context. In a Sequoia conversation, Engram's founders argue for a contrarian direction: instead of stuffing more files into prompts, let models learn organizational knowledge into their weights."
+category: "ai-insights"
+showOnHomepage: true
+image: "/images/news/engram-memory-continual-learning-company-context-2026.jpg"
+imagePosition: "center"
+locale: "en"
+author: "Lincoln Wang"
+sourceVideo: "https://www.youtube.com/watch?v=aiR7F4jqjXY"
+---
+
+**Author: Lincoln Wang | Founder of MindsLeap | Global Partner at Founders Space | Founder of Founders AI Club**
+
+"We don't look at the world from the perspective of pre-training or post-training. Our model is always training."
+
+That sentence comes from Dan Biderman, co-founder of Engram, during a Sequoia Capital conversation. Engram is a new lab focused on memory and continual learning. Its core judgment is direct: the bottleneck for AI adoption is no longer how smart the model is.
+
+"The bottleneck to making models more useful is not raw intelligence. It is understanding new, continually evolving context."
+
+Every executive introducing AI into a company should pause on that point.
+
+## Prompts Cannot Hold a Company's Way of Working
+
+Over the past two years, the mainstream enterprise AI pattern has been context engineering: put company documents into prompts, use retrieval-augmented generation, and let the model look things up before answering. This works, but the ceiling is becoming more visible.
+
+Jessy Lin, Engram's other co-founder, used a simple analogy. Notes and sticky reminders are valuable, but when people return to work the next day, something remains in the brain: a memory trace, a new intuition about how things should be done, and an intuition about where to find things.
+
+Current systems are mostly giving models sticky notes. Engram wants models to develop that memory trace.
+
+What does that mean commercially? The team says some tasks can reduce token consumption by two orders of magnitude. Not by half, but by 100x. For questions involving people, teams, and organizational priorities, the full answer is rarely contained in a single document. A model can learn that context implicitly through training and answer with 100 tokens what might otherwise require 100,000 tokens of context.
+
+## Factual Memory and Skill Learning Cannot Be Separated
+
+There is a long-running idea in AI research that storing facts such as "the capital of France is Paris" inside model weights is undesirable. In the idealized version, the model should learn abstract concepts while facts are retrieved externally.
+
+Dan's answer is blunt: to some extent, you need to remember things in order to combine them into more complex concepts.
+
+He described a counterintuitive observation. Some researchers tried to strip factual knowledge out of models and keep only the "pure core." The result was unnatural. The model did not know basic things. If you need to recall basic facts to take the next step in reasoning, you cannot get very far without them.
+
+The enterprise lesson is clear: do not treat knowledge management and capability development as two separate problems. A new employee needs to know company policies, but also needs to internalize those policies into judgment through practice. AI is similar. It needs to know before it can understand.
+
+## Deep Learning Merges Algorithms and Databases
+
+In traditional computer science, databases and algorithms are separate. One stores facts. The other processes facts.
+
+Dan put it in a way that technical founders will recognize: the magic of deep learning is that these two things have now been mixed together.
+
+That is the core tension of enterprise AI. Every company has its own context, handled with great specificity, while a general-purpose model is a stranger to that context. For Engram, facts, stories, and details need to be mixed into the model at the right rhythm.
+
+This points toward a new IT architecture. Instead of treating the enterprise knowledge base as an external system to query, the model itself becomes a carrier of organizational memory.
+
+## AI Also Needs Time to Dream
+
+One of the most interesting parts of the conversation was about sleep and dreams.
+
+Jessy described a future where models are given time to step back from real interactions and experiment with the boundaries of their own capabilities. What can the model do? What does it know? How quickly can it call on that knowledge?
+
+Just as humans consolidate memory during sleep and rehearse social situations in dreams, Engram believes models may need offline digestion time instead of living forever inside real-time responses.
+
+That sounds speculative, but the business logic is clear. If an AI agent is going to become a long-term member of a team, it cannot remain only an instant-answer machine. It needs accumulation, reflection, and cycles of self-correction.
+
+## Start With Teams, Not Individuals
+
+Why not begin with a personal model?
+
+Dan's answer is practical. Teams have more discipline and more data when it comes to collecting context, so starting with teams is easier. But eventually, everyone's computer and phone could become a target for this technology.
+
+Engram currently works with companies such as Notion, Microsoft, and Harvey to train dedicated models for team collaboration spaces. The technical path relies heavily on adapter fine-tuning: adding a learnable layer for each team without changing the core foundation model.
+
+That requires white-box access to weights, which makes open models easier to work with. But for companies evaluating AI infrastructure, the direction is already visible. The future of enterprise AI may not be a general model plus a retrieval system. It may be a general foundation plus countless team-level personalized models.
+
+## Judgment and Action
+
+Engram's story points to several signals worth watching.
+
+First, the race for larger context windows may be approaching a ceiling. When context expands to tens of millions of tokens per day, retrieval and rereading become economically unsustainable. Compiling knowledge into weights may be cheaper than endlessly expanding context.
+
+Second, the competitive moat in enterprise AI will shift from which model a company has connected to how deeply its models understand its own business. General capabilities will become increasingly commoditized. Internalized organizational knowledge will become the real moat.
+
+Third, continual learning is still early. Adapter fine-tuning, reinforcement learning, and policy distillation all exist, but there is not yet a standard answer for how to assemble them into a long-running system that automatically identifies what matters.
+
+For Chinese entrepreneurs, this does not mean betting on one technical solution today. It means asking a strategic question: if your company's way of working, including the experience never written into SOPs, the context only senior employees know, and the recurring explanations that happen again and again, were one day written into a model, whose model would it be?
+
+Perhaps the answer should not be a general AI company's model. Perhaps it should be your own.
+
+---
+
+## Source Note
+
+This article was interpreted by Lincoln based on Sequoia Capital's official video *Memory and Continual Learning: Engram's Dan Biderman and Jessy Lin*, published on June 24, 2026.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI transformation accelerator that helps traditional entrepreneurs find transformation paths in the AI era. In partnership with Silicon Valley incubator Founders Space, MindsLeap connects technology founders with real customers and scenarios, links domestic and international capital with the Silicon Valley technology ecosystem, and supports China's industrial AI transformation and global expansion.
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

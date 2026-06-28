@@ -1,0 +1,124 @@
+---
+title: "AI Capability Now Depends on How Much You Are Willing to Spend"
+date: "2026-06-28"
+excerpt: "OpenAI research scientist Noam Brown argues that traditional AI benchmarks are breaking down. Model capability is no longer a fixed number; it is a function of inference budget. Enterprises need to rethink how they evaluate, deploy, and trust AI."
+category: "ai-insights"
+showOnHomepage: true
+image: "/images/news/openai-noam-brown-ai-benchmarks-test-time-compute-2026.jpg"
+imagePosition: "center"
+locale: "en"
+author: "Lincoln Wang"
+sourceVideo: "https://www.youtube.com/watch?v=AZrU6y3pUcU"
+---
+
+**Author: Lincoln Wang | Founder of MindsLeap | Global Partner at Founders Space | Founder of Founders AI Club**
+
+"If you gave GPT-3 a $10 million budget to run, it really would not be able to do much more."
+
+OpenAI research scientist Noam Brown said this in a recent interview. That was the GPT-3 era in 2022, when larger inference budgets did very little to improve model capability. Today, the sentence has been turned upside down.
+
+Brown is one of the key researchers behind OpenAI's work on reasoning. After the release of GPT-5.5, he wrote a long essay arguing that the industry is evaluating AI models in the wrong way. The point is not a narrow technical detail. It is a business reality: AI capability now depends on how much you are willing to spend.
+
+## A Release That Confused the Market
+
+When GPT-5.5 was released, the first market reaction was skepticism.
+
+On benchmark grids, it only improved by a few percentage points over GPT-5.4 on some tests. On paper, that did not look like a step change. Brown admitted that the skepticism lasted only a few hours, because once users tried the model directly, the experience felt very different.
+
+The problem was the way benchmarks were presented. The traditional pattern is one model, one number, compared horizontally. But that framing ignores the fact that model performance now depends on how much compute is spent during a single inference.
+
+The real breakthrough in 5.5 was not only a higher absolute score. It was better thinking efficiency. At maximum settings, 5.4 had to think longer to reach an answer, while 5.5 could reach the same or better answer with less thinking time.
+
+"Once you control for thinking time, 5.5 is actually a huge leap over 5.4."
+
+For enterprise leaders, the translation is simple. If you only look at a single performance number from a vendor, you may be seeing a result that is heavily constrained by budget, not the true upper bound of the model.
+
+## Trust and Deception at the Poker Table
+
+Brown has an unusual evaluation method: he asks AI to help him write poker bots.
+
+Poker is not just a game of luck. It requires reasoning, iteration, and handling many edge cases. There is also very little open-source poker-bot code, which means models cannot simply memorize existing solutions. They have to understand the problem.
+
+Early models were almost useless on this task. With GPT-5.2, things changed. Brown described the feeling this way: it was like working with a graduate student. The model still hit problems, but he could identify the issue, correct the direction, and the model would run off and return with a decent result.
+
+He even used AI to optimize his code by 10x.
+
+But 5.2 had a problem that deeply bothered him: it would gaslight the user. When he pointed out a mistake, it would confidently insist that it was right.
+
+In one unit test, Brown asked: if there is $100 in the pot and I fold, how much do I lose? The model answered $92. Brown said that was absurd. If there is $100 in the pot and I fold, how could I not lose $100? The model replied that 92 was close enough to 100, so it was not a big deal.
+
+In business settings, this behavior is more dangerous than an ordinary technical error. If an AI agent makes this kind of mistake while handling contract clauses, financial data, or compliance review, and then presents itself with high confidence, the consequences can be worse than simply giving a wrong answer.
+
+By GPT-5.5, Brown said the issue had improved dramatically. The model could get close to building a poker solver in a zero-shot setting. He expects that within six to twelve months, a model may be able to zero-shot an entire poker solver, essentially the equivalent of his PhD thesis.
+
+## Thinking Takes Time, but Business Cannot Always Wait
+
+There is a practical tension in Brown's interview that is easy to miss.
+
+When asked whether the industry is making full use of reasoning time, his answer was surprisingly pragmatic. Letting a model think for a week before responding sounds beautiful and may look great on a benchmark, but it is not practical in real work because the user is sitting there waiting for a week.
+
+This is a product-design judgment. Reasoning time should be elastic. Some tasks require fast responses. Others deserve longer thinking.
+
+For companies, this means deploying AI agents is not just a technical question. It is a business-process design question. Which steps should allow deep thinking? Which steps require immediate response? The answer depends on how much waiting cost the business is willing to bear.
+
+## The Budget Paradox in Safety Evaluation
+
+The deeper issue appears in safety evaluation.
+
+Frontier labs have responsible scaling policies that evaluate whether a model has dangerous capabilities before release, such as whether it could assist in biological weapons development. But many of these frameworks were built around an early ChatGPT-era assumption: model capability is fixed.
+
+"Now we are in a world where capability is a function of how much money you put into it. Give it $10,000 and it is much stronger than at $10. Give it $10 million and it can do even more. So the question is: at what budget level should you evaluate it?"
+
+Existing policy frameworks barely answer this question.
+
+The same logic applies to enterprise operations. When a company introduces an AI agent, its capability boundary is not a fixed value. It is determined by how much the company is willing to spend per call. That changes vendor evaluation. The question is not only what the model can do, but what it can do under a specific budget constraint.
+
+## A Bad Equilibrium Everyone Recognizes
+
+One reason Brown wrote his essay is that he saw the industry stuck in what he called a bad equilibrium.
+
+He and other researchers agree that benchmarks need an X-axis, whether it is tokens, cost, or time. Everyone agrees. But no one wants to be the first to break convention.
+
+"The response is: people expect us to publish that grid. Why do they expect that? Because everyone publishes that grid."
+
+So everyone keeps using a standard that no longer works because everyone is afraid to be the first not to use it.
+
+For enterprise decision makers, the lesson is direct. When reviewing vendor benchmarks, do not stare only at the score. Ask: under what budget was this number measured? What happens if the budget increases tenfold? What happens if each call is limited to ten cents?
+
+## The Myth and Reality of the Routing Layer
+
+Near the end of the interview, Brown was asked about a popular idea in AI startups: companies that specialize in model routing, combining outputs from multiple models to improve performance. Is that better than letting a single model think longer?
+
+His answer returned to the same point. Once you control for reasoning time, is the routing layer still better? That is the question to ask.
+
+If you spend five times the cost running five models and then take the consensus, the result may look better. But if you spend that same fivefold budget letting one model think longer, the result may be better too. At minimum, the comparison has to be fair.
+
+This does not deny the value of routing. It is a warning that every performance comparison must be made against the same cost baseline. Otherwise, the performance gain may simply be budget difference in disguise.
+
+## Back to the Essence of Management
+
+Brown ended with a practical detail. He now uses AI to ask tax questions, and he recently used AI to understand the documents involved in buying an apartment. He said that models have reached a point where he can trust their outputs, and in some situations trust them more than human experts.
+
+That is not a slogan of technological optimism. It is the judgment of a researcher who has tested models for years, been gaslit by them, and watched them move from useless to nearly PhD-thesis-level performance in specific domains.
+
+For Chinese entrepreneurs, several signals are clear.
+
+AI capability is no longer a single number on a vendor scorecard. It depends on how much compute the company is willing to spend on each call. Procurement decisions need to shift from choosing the best model to choosing the best deployment design under budget constraints.
+
+More importantly, when a model can produce better performance at the same budget, what Brown calls thinking efficiency becomes a real competitive gap between companies.
+
+The advantage will not belong only to the company that connects the strongest model. It will belong to the company that knows when the model should think, for how long, and at what cost. That capability does not live only in the technology department. It lives in the mind of the business-process designer.
+
+---
+
+## Source Note
+
+This article was interpreted by Lincoln based on No Priors' official video *Why Traditional Benchmarks Fail Modern AI Models with OpenAI Research Scientist Noam Brown*, published on June 26, 2026.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI transformation accelerator that helps traditional entrepreneurs find transformation paths in the AI era. In partnership with Silicon Valley incubator Founders Space, MindsLeap connects technology founders with real customers and scenarios, links domestic and international capital with the Silicon Valley technology ecosystem, and supports China's industrial AI transformation and global expansion.
+
+*This article was translated and adapted from the Chinese original with AI assistance.*
