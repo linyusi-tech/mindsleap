@@ -166,11 +166,11 @@ const nextConfig: NextConfig = {
         { source: "/case/", destination: "/case/index.html" },
         {
           source: "/case/zhidu-brand-strategy",
-          destination: "/case/index.html",
+          destination: "/case/zhidu-brand-strategy/index.html",
         },
         {
           source: "/case/zhidu-brand-strategy/",
-          destination: "/case/index.html",
+          destination: "/case/zhidu-brand-strategy/index.html",
         },
         {
           source: "/case/zhidu-brand-strategy/report",

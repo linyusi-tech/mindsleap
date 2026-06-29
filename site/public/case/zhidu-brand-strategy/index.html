@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="magazine" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>炙都 AI Native Brand Case | MindsLeap</title>
+  <link rel="stylesheet" href="/decks/shared/mindsleap-template/colors_and_type.css" />
+  <style>
+    :root {
+      --ml-blue: #1e477c;
+      --ml-blue-dark: #102745;
+      --ml-ink: #111111;
+      --ml-muted: #526174;
+      --ml-subtle: #7b8494;
+      --ml-bg: #ffffff;
+      --ml-alt: #f6f8fb;
+      --ml-rule: #dfe6ef;
+      --ml-card: #ffffff;
+      --ml-accent: #2f6db4;
+      --zhidu-navy: #1A3A5C;
+      --zhidu-copper: #917956;
+      --zhidu-cream: #F6F3F2;
+      --font-heading: "MindsLeap Brand", "Noto Sans SC", sans-serif;
+      --font-body: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--ml-bg);
+      color: var(--ml-ink);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body.locked .case-shell { display: none; }
+    body.unlocked .password-screen { display: none; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      min-height: 72px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--ml-rule);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar img {
+      height: 32px;
+      width: auto;
+    }
+
+    .topbar nav {
+      display: flex;
+      gap: 26px;
+      color: var(--ml-muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .password-screen {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 40px 24px;
+      background:
+        linear-gradient(115deg, rgba(16, 39, 69, 0.94), rgba(30, 71, 124, 0.8)),
+        url("/case/zhidu-brand-strategy/report/assets/zhidu-KV1.jpg") center / cover no-repeat;
+      color: #fff;
+    }
+
+    .password-card {
+      width: min(520px, 100%);
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(16, 39, 69, 0.82);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(16px);
+    }
+
+    .password-card img {
+      height: 34px;
+      width: auto;
+      margin-bottom: 36px;
+      filter: brightness(0) invert(1);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: rgba(255, 255, 255, 0.68);
+      font: 800 12px/1 var(--font-body);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .password-card h1 {
+      margin: 0;
+      font: 800 42px/1.08 var(--font-heading);
+      letter-spacing: 0;
+    }
+
+    .password-card p {
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 15px;
+    }
+
+    .password-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .password-form input {
+      width: 100%;
+      height: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 0;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font: 600 15px/1 var(--font-body);
+      outline: none;
+    }
+
+    .password-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
+
+    .password-form button,
+    .button {
+      min-height: 48px;
+      border: 0;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ml-blue);
+      color: #fff;
+      font: 800 14px/1 var(--font-body);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .button.secondary {
+      background: #fff;
+      color: var(--ml-blue);
+      border: 1px solid var(--ml-rule);
+    }
+
+    .error {
+      min-height: 18px;
+      color: #ffd0d0;
+      font-size: 13px;
+    }
+
+    .hero {
+      min-height: 720px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, .78fr);
+      background: var(--ml-bg);
+      border-bottom: 1px solid var(--ml-rule);
+    }
+
+    .hero-copy {
+      padding: 92px 72px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-copy h1 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--ml-ink);
+      font: 800 clamp(54px, 7vw, 108px)/.98 var(--font-heading);
+      letter-spacing: 0;
+    }
+
+    .hero-copy .lead {
+      max-width: 760px;
+      margin: 30px 0 0;
+      color: var(--ml-muted);
+      font-size: 24px;
+      line-height: 1.45;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--ml-rule);
+      border-left: 1px solid var(--ml-rule);
+    }
+
+    .meta-item {
+      min-height: 112px;
+      padding: 22px;
+      border-right: 1px solid var(--ml-rule);
+    }
+
+    .meta-item b {
+      display: block;
+      color: var(--ml-blue);
+      font: 800 28px/1 var(--font-heading);
+    }
+
+    .meta-item span {
+      display: block;
+      margin-top: 10px;
+      color: var(--ml-muted);
+      font-size: 13px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 720px;
+      background:
+        linear-gradient(180deg, rgba(16, 39, 69, 0.08), rgba(16, 39, 69, 0.36)),
+        url("/case/zhidu-brand-strategy/report/assets/zhidu-KV1.jpg") center / cover no-repeat;
+    }
+
+    .hero-visual::after {
+      content: "CASE";
+      position: absolute;
+      right: 34px;
+      bottom: 26px;
+      color: rgba(255, 255, 255, 0.72);
+      font: 800 92px/1 var(--font-heading);
+      letter-spacing: .04em;
+    }
+
+    .section {
+      padding: 76px 72px;
+      border-bottom: 1px solid var(--ml-rule);
+    }
+
+    .section.alt { background: var(--ml-alt); }
+
+    .section-inner {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .45fr) minmax(0, 1fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      margin: 0;
+      font: 800 54px/1.08 var(--font-heading);
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      margin: 0;
+      color: var(--ml-muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--ml-rule);
+      border-left: 1px solid var(--ml-rule);
+    }
+
+    .card {
+      min-height: 250px;
+      padding: 30px;
+      background: var(--ml-card);
+      border-right: 1px solid var(--ml-rule);
+      border-bottom: 1px solid var(--ml-rule);
+    }
+
+    .card .num {
+      display: block;
+      margin-bottom: 28px;
+      color: var(--ml-blue);
+      font: 800 48px/1 var(--font-heading);
+    }
+
+    .card h3 {
+      margin: 0;
+      color: var(--ml-ink);
+      font: 800 26px/1.2 var(--font-heading);
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin: 14px 0 0;
+      color: var(--ml-muted);
+      font-size: 15px;
+    }
+
+    .report-frame {
+      display: grid;
+      gap: 18px;
+    }
+
+    .report-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .report-actions p {
+      margin: 0;
+      color: var(--ml-muted);
+      font-size: 14px;
+    }
+
+    iframe {
+      width: 100%;
+      height: min(82vh, 920px);
+      border: 1px solid var(--ml-rule);
+      background: #fff;
+    }
+
+    .footer {
+      padding: 34px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--ml-subtle);
+      font-size: 13px;
+    }
+
+    .footer img {
+      height: 28px;
+      width: auto;
+    }
+
+    @media (max-width: 980px) {
+      .topbar {
+        padding: 18px 22px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .hero,
+      .section-head,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero-copy h1 {
+        font-size: 56px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .footer {
+        padding: 28px 24px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="locked">
+  <main class="password-screen" aria-label="Case access">
+    <section class="password-card">
+      <img src="/decks/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg" alt="MindsLeap" />
+      <p class="eyebrow">Private Case Access</p>
+      <h1>炙都品牌价值主张案例</h1>
+      <p>请输入访问密码。该页面为 MindsLeap 项目 case 资料，用于内部复盘和客户沟通。</p>
+      <form class="password-form" id="passwordForm">
+        <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Password" />
+        <button type="submit">进入 Case</button>
+        <div class="error" id="errorText" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <div class="case-shell">
+    <header class="topbar">
+      <img src="/decks/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg" alt="MindsLeap" />
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#report">Report</a>
+        <a href="/case/zhidu-brand-strategy/report/index.html" target="_blank" rel="noopener">Open Report</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <div>
+          <p class="eyebrow">MindsLeap Case Study · Zhidu</p>
+          <h1>每一碗，专为你现做。</h1>
+          <p class="lead">
+            炙都·板前烤肉饭品牌价值主张与 GTM 战略 case：从创始人故事、产品证据、用户利益、内容策略到首店 PMF 评估体系。
+          </p>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-item"><b>Brand</b><span>炙都·板前烤肉饭</span></div>
+          <div class="meta-item"><b>Stage</b><span>上海首店 / Product-Marketing Fit</span></div>
+          <div class="meta-item"><b>Output</b><span>品牌主张、GTM、Eval System</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="炙都板前现做主视觉"></div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Case Logic</p>
+            <h2 class="section-title">把工艺话术翻译成用户利益。</h2>
+          </div>
+          <p class="section-copy">
+            这个 case 的核心不是再造一句 slogan，而是把“原切、现炙、活虾鲜鸡、免费续”等证据，收敛成顾客能立刻理解的一句话：这碗饭是专门为我现做的。
+          </p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <span class="num">01</span>
+            <h3>创始故事</h3>
+            <p>一人食不该被将就。创始人故事成为品牌主张的源头，而不是后置包装。</p>
+          </article>
+          <article class="card">
+            <span class="num">02</span>
+            <h3>产品证据</h3>
+            <p>牛肉证明原切，大虾证明鲜活，鸡腿饭证明复购，米饭与汤证明满足感。</p>
+          </article>
+          <article class="card">
+            <span class="num">03</span>
+            <h3>首店实验</h3>
+            <p>判断首店火爆，不只看排队，更看复购、自然分享、口碑和招商复制证据。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="report">
+      <div class="section-inner report-frame">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Full Strategy Report</p>
+            <h2 class="section-title">炙都品牌价值主张与 GTM 战略</h2>
+          </div>
+          <p class="section-copy">
+            以下为完整 HTML 报告，可在页面内浏览，也可以打开独立报告页进行演示。
+          </p>
+        </div>
+        <div class="report-actions">
+          <p>访问授权会保存在当前浏览器会话中。关闭浏览器后需要重新输入密码。</p>
+          <div>
+            <a class="button secondary" href="/case/zhidu-brand-strategy/report/index.html" target="_blank" rel="noopener">打开完整报告</a>
+            <button class="button" id="lockButton" type="button">锁定页面</button>
+          </div>
+        </div>
+        <iframe data-src="/case/zhidu-brand-strategy/report/index.html" title="炙都品牌价值主张与GTM战略"></iframe>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="/decks/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg" alt="MindsLeap" />
+      <span>Private case page · MindsLeap case archive</span>
+    </footer>
+  </div>
+
+  <script>
+    const PASSWORD_HASH = "6751339a8e286c175ed4763e8eb1c751652ae0cc845e29c989225068d9ada9ce";
+    const SESSION_KEY = "mindsleap.case.zhiduBrandStrategy.authorized";
+
+    async function sha256(message) {
+      const bytes = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", bytes);
+      return Array.from(new Uint8Array(hashBuffer)).map((b) => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    function unlock() {
+      document.body.classList.remove("locked");
+      document.body.classList.add("unlocked");
+      const frame = document.querySelector("iframe[data-src]");
+      if (frame && !frame.getAttribute("src")) {
+        frame.setAttribute("src", frame.getAttribute("data-src"));
+      }
+    }
+
+    function lock() {
+      sessionStorage.removeItem(SESSION_KEY);
+      document.body.classList.add("locked");
+      document.body.classList.remove("unlocked");
+      document.getElementById("passwordInput").value = "";
+      document.getElementById("passwordInput").focus();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    if (sessionStorage.getItem(SESSION_KEY) === "true") {
+      unlock();
+    }
+
+    document.getElementById("passwordForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const input = document.getElementById("passwordInput");
+      const error = document.getElementById("errorText");
+      const candidate = await sha256(input.value.trim());
+      if (candidate === PASSWORD_HASH) {
+        sessionStorage.setItem(SESSION_KEY, "true");
+        error.textContent = "";
+        unlock();
+      } else {
+        error.textContent = "密码不正确，请重新输入。";
+        input.select();
+      }
+    });
+
+    document.getElementById("lockButton").addEventListener("click", lock);
+  </script>
+</body>
+</html>
