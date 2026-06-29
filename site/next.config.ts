@@ -162,6 +162,24 @@ const nextConfig: NextConfig = {
         },
         { source: "/decks", destination: "/decks/index.html" },
         { source: "/decks/", destination: "/decks/index.html" },
+        { source: "/case", destination: "/case/index.html" },
+        { source: "/case/", destination: "/case/index.html" },
+        {
+          source: "/case/zhidu-brand-strategy",
+          destination: "/case/index.html",
+        },
+        {
+          source: "/case/zhidu-brand-strategy/",
+          destination: "/case/index.html",
+        },
+        {
+          source: "/case/zhidu-brand-strategy/report",
+          destination: "/case/zhidu-brand-strategy/report/index.html",
+        },
+        {
+          source: "/case/zhidu-brand-strategy/report/",
+          destination: "/case/zhidu-brand-strategy/report/index.html",
+        },
         { source: "/decks/Lincoln", destination: "/decks/Lincoln/index.html" },
         { source: "/decks/Lincoln/", destination: "/decks/Lincoln/index.html" },
         { source: "/decks/Yusi", destination: "/decks/Yusi/index.html" },

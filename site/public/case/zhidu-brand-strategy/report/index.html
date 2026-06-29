@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>炙都品牌价值主张与GTM战略</title>
+    <script>
+      if (sessionStorage.getItem("mindsleap.case.zhiduBrandStrategy.authorized") !== "true") {
+        window.location.replace("../../index.html");
+      }
+    </script>
+    <style>
+      :root {
+        --brand-navy: #1A3A5C;
+        --brand-navy-dark: #121F28;
+        --brand-navy-light: #263850;
+        --brand-copper: #917956;
+        --brand-cream: #F6F3F2;
+        --brand-white: #FFFFFF;
+        --brand-text: #263850;
+        --brand-warm-gray: #BFB2A5;
+        --brand-border: #E8E4E0;
+        --fire: #D28A3A;
+        --fire-light: #F6D17B;
+        --danger: #E24B4A;
+        --font-title: "Noto Sans SC", sans-serif;
+        --font-body: "阿里巴巴普惠体", "Noto Sans SC", sans-serif;
+        --font-aux: "OPPO Sans", "Noto Sans SC", sans-serif;
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+        --radius-xl: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--brand-cream);
+        color: var(--brand-text);
+        font-family: var(--font-body);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .brand-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        min-height: 60px;
+        padding: 0 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--brand-navy);
+        box-shadow: 0 2px 12px rgba(26, 58, 92, 0.25);
+      }
+
+      .brand-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .brand-nav a {
+        color: var(--brand-cream);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .brand-nav img {
+        height: 34px;
+        width: auto;
+      }
+
+      .hero {
+        position: relative;
+        min-height: calc(100vh - 60px);
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        color: var(--brand-cream);
+        background: var(--brand-navy-dark);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(18, 31, 40, 0.92) 0%, rgba(18, 31, 40, 0.58) 42%, rgba(18, 31, 40, 0.12) 100%),
+          linear-gradient(180deg, rgba(18, 31, 40, 0.05) 0%, rgba(18, 31, 40, 0.78) 100%),
+          url("assets/zhidu-KV1.jpg") center / cover no-repeat;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 9px;
+        background: linear-gradient(90deg, transparent, #6D2B15, var(--fire), var(--fire-light), var(--fire), #6D2B15, transparent);
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 64px));
+        margin: 0 auto;
+        padding: 74px 0 82px;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: rgba(246, 243, 242, 0.72);
+        font-family: var(--font-aux);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-title);
+      }
+
+      .hero h1 {
+        max-width: 840px;
+        margin: 0;
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 1.1;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .hero-lead {
+        max-width: 760px;
+        margin: 22px 0 0;
+        color: rgba(246, 243, 242, 0.78);
+        font-size: 17px;
+      }
+
+      .claim-strip {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) repeat(3, minmax(160px, 0.28fr));
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .claim,
+      .signal {
+        min-width: 0;
+        min-height: 94px;
+        padding: 18px 20px;
+        border: 1px solid rgba(246, 243, 242, 0.16);
+        border-radius: var(--radius-md);
+        background: rgba(18, 31, 40, 0.5);
+        backdrop-filter: blur(12px);
+      }
+
+      .claim b {
+        display: block;
+        color: #F4D19C;
+        font-size: 15px;
+      }
+
+      .claim span {
+        display: block;
+        margin-top: 6px;
+        color: var(--brand-cream);
+        font-family: var(--font-title);
+        font-size: 24px;
+        font-weight: 900;
+        line-height: 1.3;
+      }
+
+      .signal b {
+        display: block;
+        color: var(--brand-cream);
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .signal span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(246, 243, 242, 0.64);
+        font-size: 12px;
+      }
+
+      main {
+        width: 100%;
+      }
+
+      .section {
+        padding: 76px 32px;
+      }
+
+      .section.white {
+        background: var(--brand-white);
+      }
+
+      .section.navy {
+        background:
+          linear-gradient(135deg, rgba(18, 31, 40, 0.96), rgba(26, 58, 92, 0.96)),
+          var(--brand-navy);
+        color: var(--brand-cream);
+      }
+
+      .section-inner {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 30px;
+      }
+
+      .section-kicker {
+        margin: 0 0 10px;
+        color: var(--brand-copper);
+        font-family: var(--font-aux);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .navy .section-kicker {
+        color: #F4D19C;
+      }
+
+      .section-title {
+        margin: 0;
+        color: var(--brand-navy);
+        font-size: 30px;
+        line-height: 1.32;
+        font-weight: 900;
+      }
+
+      .navy .section-title {
+        color: var(--brand-cream);
+      }
+
+      .section-copy {
+        max-width: 780px;
+        margin: 0;
+        color: rgba(38, 56, 80, 0.78);
+        font-size: 15px;
+      }
+
+      .navy .section-copy {
+        color: rgba(246, 243, 242, 0.72);
+      }
+
+      .thesis {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .big-idea {
+        padding: 36px;
+        border-radius: var(--radius-xl);
+        background: linear-gradient(135deg, #FDF7F0, var(--brand-white));
+        border: 1px solid var(--brand-border);
+      }
+
+      .big-idea h2 {
+        margin: 0;
+        color: var(--brand-navy);
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.22;
+        font-weight: 900;
+      }
+
+      .big-idea p {
+        max-width: 790px;
+        margin: 18px 0 0;
+        font-size: 16px;
+      }
+
+      .proof-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .proof {
+        padding: 18px 20px;
+        border-radius: var(--radius-md);
+        background: var(--brand-navy);
+        color: var(--brand-cream);
+      }
+
+      .proof b {
+        display: block;
+        color: #F4D19C;
+        font-family: var(--font-title);
+        font-size: 16px;
+      }
+
+      .proof span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(246, 243, 242, 0.72);
+        font-size: 13px;
+      }
+
+      .founder-story {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .founder-panel {
+        position: relative;
+        min-height: 430px;
+        overflow: hidden;
+        padding: 34px;
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(145deg, rgba(18, 31, 40, 0.96), rgba(26, 58, 92, 0.9)),
+          url("assets/zhidu-KV1.jpg") center / cover no-repeat;
+        color: var(--brand-cream);
+      }
+
+      .founder-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 18% 76%, rgba(246, 209, 123, 0.24), transparent 28%),
+          linear-gradient(90deg, rgba(18, 31, 40, 0.94), rgba(18, 31, 40, 0.62) 58%, rgba(18, 31, 40, 0.2));
+      }
+
+      .founder-panel::after {
+        content: "一碗饭也要认真";
+        position: absolute;
+        right: 22px;
+        bottom: 18px;
+        color: rgba(246, 243, 242, 0.1);
+        font-family: var(--font-title);
+        font-size: 44px;
+        font-weight: 900;
+        line-height: 1.05;
+        writing-mode: vertical-rl;
+      }
+
+      .founder-kicker,
+      .founder-panel h2,
+      .founder-panel p {
+        position: relative;
+        z-index: 1;
+      }
+
+      .founder-kicker {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border-radius: var(--radius-sm);
+        background: rgba(246, 243, 242, 0.12);
+        color: #F4D19C;
+        font-family: var(--font-aux);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .founder-panel h2 {
+        max-width: 520px;
+        margin: 18px 0 18px;
+        color: var(--brand-cream);
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.2;
+        font-weight: 900;
+      }
+
+      .founder-panel p {
+        max-width: 560px;
+        margin: 0 0 14px;
+        color: rgba(246, 243, 242, 0.78);
+        font-size: 15px;
+      }
+
+      .founder-beliefs {
+        display: grid;
+        gap: 12px;
+      }
+
+      .belief-card {
+        padding: 20px 22px;
+        border: 1px solid var(--brand-border);
+        border-radius: var(--radius-lg);
+        background:
+          linear-gradient(90deg, rgba(145, 121, 86, 0.1), rgba(255, 255, 255, 0)),
+          var(--brand-white);
+      }
+
+      .belief-card b {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--brand-navy);
+        font-family: var(--font-title);
+        font-size: 17px;
+        line-height: 1.4;
+      }
+
+      .belief-card p {
+        margin: 0;
+        color: rgba(38, 56, 80, 0.76);
+        font-size: 13px;
+      }
+
+      .story-map {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .story-map-item {
+        min-height: 184px;
+        padding: 18px 18px 20px;
+        border-radius: var(--radius-lg);
+        background: var(--brand-cream);
+        border: 1px solid var(--brand-border);
+      }
+
+      .story-map-item span {
+        display: inline-flex;
+        min-height: 24px;
+        align-items: center;
+        padding: 0 8px;
+        border-radius: var(--radius-sm);
+        background: rgba(145, 121, 86, 0.12);
+        color: var(--brand-copper);
+        font-family: var(--font-aux);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .story-map-item b {
+        display: block;
+        margin: 12px 0 8px;
+        color: var(--brand-navy);
+        font-family: var(--font-title);
+        font-size: 16px;
+        line-height: 1.35;
+      }
+
+      .story-map-item p {
+        margin: 0;
+        color: rgba(38, 56, 80, 0.72);
+        font-size: 13px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        display: grid;
+        gap: 16px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .card {
+        min-width: 0;
+        padding: 22px 24px;
+        border: 1px solid var(--brand-border);
+        border-radius: var(--radius-lg);
+        background: var(--brand-white);
+        box-shadow: 0 1px 5px rgba(38, 56, 80, 0.05);
+      }
+
+      .card.dark {
+        background: var(--brand-navy);
+        border-color: rgba(246, 243, 242, 0.12);
+        color: var(--brand-cream);
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        color: var(--brand-navy);
+        font-size: 18px;
+        line-height: 1.45;
+      }
+
+      .card.dark h3 {
+        color: var(--brand-cream);
+      }
+
+      .card p {
+        margin: 0;
+      }
+
+      .card.dark p {
+        color: rgba(246, 243, 242, 0.72);
+      }
+
+      .score-panel {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .score-box {
+        min-height: 290px;
+        padding: 28px;
+        border-radius: var(--radius-xl);
+        background:
+          radial-gradient(circle at 28% 20%, rgba(246, 209, 123, 0.22), transparent 28%),
+          var(--brand-navy);
+        color: var(--brand-cream);
+      }
+
+      .score-box strong {
+        display: block;
+        color: #F4D19C;
+        font-family: var(--font-title);
+        font-size: 54px;
+        line-height: 1;
+      }
+
+      .score-box span {
+        display: block;
+        margin-top: 12px;
+        color: rgba(246, 243, 242, 0.74);
+      }
+
+      .break-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .break-item {
+        padding: 18px 20px;
+        border-radius: var(--radius-md);
+        background: var(--brand-cream);
+        border: 1px solid var(--brand-border);
+      }
+
+      .break-item b {
+        color: var(--brand-navy);
+        font-family: var(--font-title);
+      }
+
+      .pyramid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .pyramid-row {
+        display: grid;
+        grid-template-columns: minmax(180px, 0.25fr) minmax(0, 1fr) minmax(140px, 0.2fr);
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .pyramid-label,
+      .pyramid-content,
+      .pyramid-proof {
+        padding: 18px 20px;
+        border-radius: var(--radius-md);
+      }
+
+      .pyramid-label {
+        background: var(--brand-navy);
+        color: var(--brand-cream);
+        font-family: var(--font-title);
+        font-weight: 800;
+      }
+
+      .pyramid-content {
+        background: var(--brand-white);
+        border: 1px solid var(--brand-border);
+      }
+
+      .pyramid-proof {
+        background: #FDF7F0;
+        border: 1px solid var(--brand-border);
+        color: var(--brand-copper);
+        font-weight: 700;
+      }
+
+      .quote-band {
+        padding: 34px 38px;
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(90deg, rgba(26, 58, 92, 0.96), rgba(26, 58, 92, 0.74)),
+          url("assets/zhidu-KV1.jpg") center / cover no-repeat;
+        color: var(--brand-cream);
+      }
+
+      .quote-band h2 {
+        max-width: 860px;
+        margin: 0;
+        color: var(--brand-cream);
+        font-size: clamp(28px, 4vw, 48px);
+        line-height: 1.25;
+        font-weight: 900;
+      }
+
+      .quote-band p {
+        max-width: 700px;
+        margin: 18px 0 0;
+        color: rgba(246, 243, 242, 0.78);
+        font-size: 16px;
+      }
+
+      .message-table {
+        overflow: hidden;
+        border: 1px solid var(--brand-border);
+        border-radius: var(--radius-lg);
+        background: var(--brand-white);
+      }
+
+      .message-row {
+        display: grid;
+        grid-template-columns: minmax(140px, 0.2fr) minmax(0, 1fr) minmax(220px, 0.32fr);
+        border-bottom: 1px solid var(--brand-border);
+      }
+
+      .message-row:last-child {
+        border-bottom: 0;
+      }
+
+      .message-row > div {
+        padding: 18px 20px;
+      }
+
+      .message-row > div:first-child {
+        background: var(--brand-cream);
+        color: var(--brand-copper);
+        font-family: var(--font-title);
+        font-weight: 800;
+      }
+
+      .message-row b {
+        color: var(--brand-navy);
+      }
+
+      .product-stage {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .plate-hero {
+        position: relative;
+        min-height: 470px;
+        padding: 28px;
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+        background:
+          radial-gradient(circle at 50% 72%, rgba(210, 138, 58, 0.34), transparent 36%),
+          linear-gradient(160deg, #FDF7F0, var(--brand-white));
+        border: 1px solid var(--brand-border);
+      }
+
+      .plate-hero img {
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        width: min(92%, 560px);
+        transform: translateX(-50%);
+        filter: drop-shadow(0 28px 34px rgba(26, 58, 92, 0.18));
+      }
+
+      .plate-hero h3 {
+        position: relative;
+        z-index: 1;
+        max-width: 360px;
+        margin: 0;
+        color: var(--brand-navy);
+        font-size: 28px;
+        line-height: 1.35;
+      }
+
+      .plate-hero p {
+        position: relative;
+        z-index: 1;
+        max-width: 330px;
+        margin: 14px 0 0;
+      }
+
+      .dish-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .dish-card {
+        position: relative;
+        min-height: 226px;
+        padding: 18px;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        background: var(--brand-white);
+        border: 1px solid var(--brand-border);
+      }
+
+      .dish-card img {
+        position: absolute;
+        right: -22px;
+        bottom: -26px;
+        width: 62%;
+        max-width: 220px;
+        filter: drop-shadow(0 18px 24px rgba(26, 58, 92, 0.16));
+      }
+
+      .dish-card h3 {
+        max-width: 170px;
+        margin: 0 0 8px;
+        color: var(--brand-navy);
+        font-size: 17px;
+      }
+
+      .dish-card p {
+        max-width: 178px;
+        margin: 0;
+        font-size: 13px;
+      }
+
+      .visual-system {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+        gap: 18px;
+      }
+
+      .visual-frame {
+        min-height: 430px;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        background: url("assets/zhidu-KV1.jpg") center / cover no-repeat;
+        border: 1px solid rgba(246, 243, 242, 0.14);
+      }
+
+      .visual-cards {
+        display: grid;
+        gap: 12px;
+      }
+
+      .visual-card {
+        padding: 18px 20px;
+        border: 1px solid rgba(246, 243, 242, 0.14);
+        border-radius: var(--radius-md);
+        background: rgba(246, 243, 242, 0.08);
+      }
+
+      .visual-card b {
+        display: block;
+        color: #F4D19C;
+        font-family: var(--font-title);
+        font-size: 17px;
+      }
+
+      .visual-card span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(246, 243, 242, 0.72);
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .phase {
+        padding: 22px;
+        border: 1px solid var(--brand-border);
+        border-radius: var(--radius-lg);
+        background: var(--brand-white);
+      }
+
+      .phase .tag {
+        display: inline-flex;
+        min-height: 28px;
+        padding: 0 10px;
+        align-items: center;
+        border-radius: var(--radius-sm);
+        background: rgba(145, 121, 86, 0.12);
+        color: var(--brand-copper);
+        font-family: var(--font-aux);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .phase h3 {
+        margin: 16px 0 10px;
+        color: var(--brand-navy);
+        font-size: 18px;
+      }
+
+      .phase ul,
+      .risk ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .phase li,
+      .risk li {
+        margin: 6px 0;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .metric-group {
+        padding: 24px;
+        border-radius: var(--radius-lg);
+        background: var(--brand-white);
+        border: 1px solid var(--brand-border);
+      }
+
+      .metric-group h3 {
+        margin: 0 0 14px;
+        color: var(--brand-navy);
+        font-size: 18px;
+      }
+
+      .metric-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 11px 0;
+        border-top: 1px solid var(--brand-border);
+      }
+
+      .metric-line b {
+        color: var(--brand-copper);
+        font-family: var(--font-title);
+      }
+
+      .risk-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .risk {
+        min-height: 250px;
+        padding: 20px;
+        border-radius: var(--radius-lg);
+        background: rgba(246, 243, 242, 0.08);
+        border: 1px solid rgba(246, 243, 242, 0.14);
+      }
+
+      .risk b {
+        display: block;
+        margin-bottom: 12px;
+        color: #F4D19C;
+        font-family: var(--font-title);
+        font-size: 17px;
+        line-height: 1.45;
+      }
+
+      .risk li {
+        color: rgba(246, 243, 242, 0.72);
+        font-size: 13px;
+      }
+
+      .footer {
+        padding: 30px 36px;
+        text-align: center;
+        background: var(--brand-navy);
+      }
+
+      .footer img {
+        height: 28px;
+        max-width: 86%;
+        width: auto;
+      }
+
+      .footer p {
+        margin: 10px 0 0;
+        color: rgba(246, 243, 242, 0.5);
+        font-family: var(--font-aux);
+        font-size: 12px;
+      }
+
+      @media (max-width: 1080px) {
+        .claim-strip,
+        .section-head,
+        .thesis,
+        .score-panel,
+        .founder-story,
+        .product-stage,
+        .visual-system,
+        .timeline,
+        .metrics,
+        .risk-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .story-map {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .brand-nav {
+          padding: 14px 20px;
+          align-items: flex-start;
+          flex-direction: column-reverse;
+          gap: 12px;
+        }
+
+        .brand-nav ul {
+          gap: 14px;
+        }
+
+        .hero {
+          min-height: 760px;
+        }
+
+        .hero-inner {
+          width: min(100% - 40px, 1120px);
+          padding-bottom: 54px;
+        }
+
+        .section {
+          padding: 54px 20px;
+        }
+
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .dish-grid,
+        .story-map,
+        .pyramid-row,
+        .message-row {
+          grid-template-columns: 1fr;
+        }
+
+        .big-idea,
+        .quote-band {
+          padding: 26px 22px;
+        }
+
+        .plate-hero {
+          min-height: 410px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="brand-nav">
+      <ul>
+        <li><a href="#founder">创始故事</a></li>
+        <li><a href="#thesis">战略结论</a></li>
+        <li><a href="#benefit">用户利益</a></li>
+        <li><a href="#message">传播主张</a></li>
+        <li><a href="#product">产品证据</a></li>
+        <li><a href="#gtm">GTM</a></li>
+        <li><a href="#eval">Eval</a></li>
+      </ul>
+      <img src="assets/logo-horizontal-light.png" alt="炙都·板前烤肉饭" />
+    </nav>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Zhidu Brand Strategy · Claude Synthesis</p>
+        <h1>每一碗，专为你现做。</h1>
+        <p class="hero-lead">
+          炙都不是只卖烤肉饭，而是卖“有人愿意为你认真做一碗饭”这件事。基于品牌创始初心、Claude 深度策略输出和炙都首店增长目标，本页将价值主张收敛为一套从用户利益、产品证据、画面策略到 GTM 的一致性方案。
+        </p>
+        <div class="claim-strip">
+          <div class="claim">
+            <b>核心主张</b>
+            <span>你的饭，是现做的。</span>
+          </div>
+          <div class="signal"><b>3 秒看懂</b><span>火焰、铁板、师傅动作、一碗刚端出的饭。</span></div>
+          <div class="signal"><b>6 个月目标</b><span>首店火爆，验证 PMF，签约 50 家，落地 30 家。</span></div>
+          <div class="signal"><b>战略占位</b><span>板前现做烤肉饭的品类定义者。</span></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="founder" class="section white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Founder Story</p>
+              <h2 class="section-title">创始人要做的不是一碗更快的饭，而是一碗不被将就的饭。</h2>
+            </div>
+            <p class="section-copy">
+              炙都的创始故事要成为品牌价值主张的源头：创始人有餐饮行业经验和资源，但真正要被顾客记住的，不是履历，而是他为什么坚持把火候、食材和出餐动作放到顾客眼前。
+            </p>
+          </div>
+
+          <div class="founder-story">
+            <div class="founder-panel">
+              <span class="founder-kicker">Story Asset</span>
+              <h2>把一顿被将就的饭，重新认真做给都市人。</h2>
+              <p>
+                城市里的很多人，常常在赶时间、赶工作、赶下一件事的时候完成一顿饭。吃饭变得高效，却也越来越容易被标准化、被预制感、被“随便解决”替代。
+              </p>
+              <p>
+                炙都的起点，不是再做一个烤肉饭品牌，而是回应这种被忽略的日常需求：一个人吃饭也应该被认真对待，快餐也可以有现场感，忙碌的一餐也可以有火候、热气和被专门完成的确定感。
+              </p>
+              <p>
+                所以，“炙”代表火候、新鲜和现场；“都”代表城市里那些认真工作、也值得认真吃饭的人。创始人要卖的不是烤肉饭本身，而是“有人愿意为你认真做一碗饭”这件事。
+              </p>
+            </div>
+
+            <div class="founder-beliefs">
+              <div class="belief-card">
+                <b>一人食不是将就，而是被认真照顾。</b>
+                <p>单人餐不应该等于随便吃。炙都要让顾客坐下来时感到：这一碗不是流水线标准件，而是正在为我完成。</p>
+              </div>
+              <div class="belief-card">
+                <b>把信任从后厨搬到顾客眼前。</b>
+                <p>板前现炙不是表演，而是信任机制。顾客看见师傅放肉、翻面、收汁、装碗，才能把“新鲜”从口号变成证据。</p>
+              </div>
+              <div class="belief-card">
+                <b>用现做对抗预制感，用标准化支撑复制。</b>
+                <p>用户反感的不是效率，而是“不像为我做”。炙都要把效率、火候和专属感同时做出来，并沉淀为可复制的门店模型。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-map" aria-label="创始故事如何转化为品牌资产">
+            <div class="story-map-item">
+              <span>Problem</span>
+              <b>城市人吃饭太容易将就</b>
+              <p>品牌进入的不是单纯快餐赛道，而是“忙碌但仍想认真吃一餐”的都市场景。</p>
+            </div>
+            <div class="story-map-item">
+              <span>Emotion</span>
+              <b>我值得被专门做一碗饭</b>
+              <p>“专为你现做”把工艺转译成情绪利益，比单独说“原切”更容易被理解。</p>
+            </div>
+            <div class="story-map-item">
+              <span>Proof</span>
+              <b>板前可见，拒绝预制感</b>
+              <p>火、铁板、师傅动作、热气和出餐动线，共同构成用户可验证的品牌证据。</p>
+            </div>
+            <div class="story-map-item">
+              <span>Asset</span>
+              <b>都市烟火的一人食仪式感</b>
+              <p>把“独自吃饭”从凑合转为仪式感，这是炙都可长期沉淀的内容资产。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="thesis" class="section white">
+        <div class="section-inner thesis">
+          <div class="big-idea">
+            <p class="section-kicker">One-page Conclusion</p>
+            <h2>炙都的机会不在“烤肉饭”，而在用板前现场感重新定义快餐的品质感。</h2>
+            <p>
+              “原切”是产品标准，“现炙”是工艺语言，“专为你现做”才是用户利益。炙都要把现做这个动作从后厨搬到顾客眼前，用看得见的现场感对抗预制感。
+            </p>
+          </div>
+          <div class="proof-list">
+            <div class="proof"><b>不是又一个烤肉饭品牌</b><span>任何品牌都能说自己卖烤肉饭，但不是所有品牌都能让用户看见这一碗如何被完成。</span></div>
+            <div class="proof"><b>不是只讲原切</b><span>用户未必理解原切，但立刻理解“不是预制，是为我现做”。</span></div>
+            <div class="proof"><b>不是只做开业热闹</b><span>首店必须把内容、产品、体验、数据和招商证据沉淀成可复制模型。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Consistency Diagnosis</p>
+              <h2 class="section-title">品牌一致性已经有方向，但必须把“工艺话术”翻译成“用户利益”。</h2>
+            </div>
+            <p class="section-copy">
+              Claude 对当前品牌一致性评分为 6.5/10。问题不是产品证据不够，而是证据散、表达偏内部、视觉温度还不够。
+            </p>
+          </div>
+          <div class="score-panel">
+            <div class="score-box">
+              <strong>6.5</strong>
+              <span>品牌一致性当前评分。方向正确，但需要把创始初心、门店画面、菜单证据、内容话术和招商叙事串成同一个故事。</span>
+            </div>
+            <div class="break-list">
+              <div class="break-item"><b>断点 01：Slogan 与主张脱节。</b> “碗碗现炙 · 原切见真”适合作为工艺背书，但主传播线应前置“每一碗，专为你现做”。</div>
+              <div class="break-item"><b>断点 02：视觉气质需要温度补偿。</b> 靛蓝和铜色建立品质感，火焰、暖光、铁板、烟气负责让用户感到“热”和“现做”。</div>
+              <div class="break-item"><b>断点 03：招商叙事要接真实证据链。</b> 投资人不怕首店火，怕火完不能复制。GTM 必须沉淀 SOP、数据看板和首店复盘。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="benefit" class="section white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Benefit Pyramid</p>
+              <h2 class="section-title">从功能利益到身份利益，炙都卖的是“我不将就这一餐”。</h2>
+            </div>
+            <p class="section-copy">
+              营销应从情绪利益切入，用体验利益做证据，再用功能利益做信任背书。不要反过来先讲食材标准。
+            </p>
+          </div>
+          <div class="pyramid">
+            <div class="pyramid-row">
+              <div class="pyramid-label">社会/身份利益</div>
+              <div class="pyramid-content">我就算一个人吃饭、再忙，也不将就。选择炙都，是一种认真照顾自己的态度。</div>
+              <div class="pyramid-proof">不将就的人</div>
+            </div>
+            <div class="pyramid-row">
+              <div class="pyramid-label">情绪利益</div>
+              <div class="pyramid-content">这一碗不是流水线标准件，而是有人在眼前为我完成的一碗热饭。</div>
+              <div class="pyramid-proof">专为你现做</div>
+            </div>
+            <div class="pyramid-row">
+              <div class="pyramid-label">体验利益</div>
+              <div class="pyramid-content">看见火候、闻到焦香、等到刚出锅的一碗。等待不只是排队，而是看见一碗饭被完成。</div>
+              <div class="pyramid-proof">板前现场感</div>
+            </div>
+            <div class="pyramid-row">
+              <div class="pyramid-label">功能利益</div>
+              <div class="pyramid-content">原切肉、活虾鲜鸡、现烤现做、越光米饭和海带白玉汤免费续。</div>
+              <div class="pyramid-proof">吃得到新鲜</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="message" class="section">
+        <div class="section-inner">
+          <div class="quote-band">
+            <h2>每一碗，专为你现做。</h2>
+            <p>
+              这是炙都最应该长期占住的传播主线。它比“原切”更接近用户利益，比“现炙”更容易理解，也比“拒绝预制”更正面。
+            </p>
+          </div>
+          <div style="height: 22px;"></div>
+          <div class="message-table">
+            <div class="message-row">
+              <div>主主张</div>
+              <div><b>每一碗，专为你现做。</b></div>
+              <div>门头、品牌 deck、所有核心传播。</div>
+            </div>
+            <div class="message-row">
+              <div>工艺证明</div>
+              <div><b>碗碗现炙 · 原切见真。</b></div>
+              <div>菜单底部、板前挡板、短视频第二屏。</div>
+            </div>
+            <div class="message-row">
+              <div>开业短句</div>
+              <div><b>你的饭，现做的。</b></div>
+              <div>小红书封面、抖音首帧、点评头图。</div>
+            </div>
+            <div class="message-row">
+              <div>传播解释</div>
+              <div><b>看得见的现做，吃得到的新鲜。</b></div>
+              <div>团购页、外卖包装、菜单引导语。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="section white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Product Proof</p>
+              <h2 class="section-title">产品不是罗列卖点，而是证明“专为你现做”的证据链。</h2>
+            </div>
+            <p class="section-copy">
+              菜品图要承担信任作用：牛肉证明原切，大虾证明新鲜，鸡腿饭证明复购基础，米饭和汤证明这是一顿被认真对待的饭。
+            </p>
+          </div>
+          <div class="product-stage">
+            <div class="plate-hero">
+              <h3>原切上脑牛肉饭是“看得见好肉”的核心证据。</h3>
+              <p>它不只是招牌菜，更是用户理解“原切、不拼接、不注脂”的最快入口。</p>
+              <img src="assets/menu/beef-rice.png" alt="原切上脑牛肉饭" />
+            </div>
+            <div class="dish-grid">
+              <div class="dish-card">
+                <h3>游水鲜活大虾饭</h3>
+                <p>承担“新鲜只为你”的价值感和开业传播记忆点。</p>
+                <img src="assets/menu/shrimp-rice.png" alt="游水鲜活大虾饭" />
+              </div>
+              <div class="dish-card">
+                <h3>鲜嫩黄油鸡腿饭</h3>
+                <p>承担复购和日常刚需，让品牌不只靠打卡。</p>
+                <img src="assets/menu/chicken-rice.png" alt="鲜嫩黄油鸡腿饭" />
+              </div>
+              <div class="dish-card">
+                <h3>一虾一牛双满足饭</h3>
+                <p>承担“升级一碗”的客单价和内容可拍性。</p>
+                <img src="assets/menu/shrimp-beef-rice.png" alt="一虾一牛双满足饭" />
+              </div>
+              <div class="dish-card">
+                <h3>越光米饭与海带白玉汤</h3>
+                <p>免费续的用户利益，是“吃得认真，也吃得满足”。</p>
+                <img src="assets/menu/soup.png" alt="海带白玉汤" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section navy">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Visual Strategy</p>
+              <h2 class="section-title">用户第一眼必须看到：火在眼前，这碗饭正在为我做。</h2>
+            </div>
+            <p class="section-copy">
+              未来所有营销画面都要围绕“火、铁板、师傅、出碗”组织，而不是只拍成普通菜品硬照。
+            </p>
+          </div>
+          <div class="visual-system">
+            <div class="visual-frame" aria-label="炙都主KV"></div>
+            <div class="visual-cards">
+              <div class="visual-card"><b>门头</b><span>招牌不是唯一主角，橱窗里的板前动作才是最强招牌。</span></div>
+              <div class="visual-card"><b>短视频首帧</b><span>火焰窜起 + 肉在铁板滋啦作响，2 秒内出现“你的饭，现做的”。</span></div>
+              <div class="visual-card"><b>小红书封面</b><span>一碗刚端上桌的饭，背景露出师傅和火，讲“徐家汇有人愿意为你现做一碗饭”。</span></div>
+              <div class="visual-card"><b>招商 Deck</b><span>板前现场、排队满座、标准化后厨三格同框，证明体验可感知、运营可复制。</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gtm" class="section white">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">GTM Strategy</p>
+              <h2 class="section-title">首店不是开业活动，而是一场高密度 PMF 实验。</h2>
+            </div>
+            <p class="section-copy">
+              GTM 要围绕“首店火爆、话术验证、产品组合、自然传播、单店模型、招商复制”六件事展开。
+            </p>
+          </div>
+          <div class="timeline">
+            <div class="phase">
+              <span class="tag">第 1-4 周</span>
+              <h3>试营业验证</h3>
+              <ul>
+                <li>定向邀请徐家汇白领与美食 KOC</li>
+                <li>测试三组话术和产品组合</li>
+                <li>收集真实评价与拍照动机</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <span class="tag">第 5-8 周</span>
+              <h3>爆店期</h3>
+              <ul>
+                <li>集中放大表现最好的话术</li>
+                <li>达人探店和点评运营同步</li>
+                <li>完成招商 deck 1.0</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <span class="tag">第 9-16 周</span>
+              <h3>复制启动</h3>
+              <ul>
+                <li>投资人开放日到店体验</li>
+                <li>输出选址、产品、培训 SOP</li>
+                <li>第二、三家店验证迁移能力</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <span class="tag">第 17-24 周</span>
+              <h3>规模化</h3>
+              <ul>
+                <li>以上海为核心辐射长三角</li>
+                <li>AI Agent 上线经营复盘</li>
+                <li>基于数据升级品牌 2.0</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="eval" class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">PMF / Eval System</p>
+              <h2 class="section-title">判断首店火爆，要看复购和自然传播，不只看排队。</h2>
+            </div>
+            <p class="section-copy">
+              真火是需求、产品和传播自驱力同时成立；假火通常由达人、补贴和新店红利制造。
+            </p>
+          </div>
+          <div class="metrics">
+            <div class="metric-group">
+              <h3>需求真实性</h3>
+              <div class="metric-line"><span>自然客流占比</span><b>&gt;70%</b></div>
+              <div class="metric-line"><span>30 天复购率</span><b>&gt;25%</b></div>
+              <div class="metric-line"><span>NPS</span><b>&gt;50</b></div>
+            </div>
+            <div class="metric-group">
+              <h3>产品匹配度</h3>
+              <div class="metric-line"><span>招牌款占比</span><b>&gt;60%</b></div>
+              <div class="metric-line"><span>客单价稳定度</span><b>&lt;10%</b></div>
+              <div class="metric-line"><span>差评率</span><b>&lt;5%</b></div>
+            </div>
+            <div class="metric-group">
+              <h3>传播自驱力</h3>
+              <div class="metric-line"><span>自然分享率</span><b>&gt;15%</b></div>
+              <div class="metric-line"><span>搜索量月环比</span><b>&gt;20%</b></div>
+              <div class="metric-line"><span>UGC 正向率</span><b>&gt;85%</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section navy">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Risk Control</p>
+              <h2 class="section-title">品牌最大风险，不是没人来，而是承诺和运营现实脱节。</h2>
+            </div>
+            <p class="section-copy">
+              “专为你现做”一旦被用户相信，就必须被门店 SOP、出餐效率和复制体系持续兑现。
+            </p>
+          </div>
+          <div class="risk-grid">
+            <div class="risk"><b>品类认知模糊</b><ul><li>门头加品类解释层</li><li>透明板前让顾客 3 秒看懂</li></ul></div>
+            <div class="risk"><b>高峰期承诺反噬</b><ul><li>定义必须现场完成的核心动作</li><li>线上点单分流峰值等待</li></ul></div>
+            <div class="risk"><b>复制后体验稀释</b><ul><li>板前体验拆成可培训 SOP</li><li>建立炙烤师认证体系</li></ul></div>
+            <div class="risk"><b>视觉调性摇摆</b><ul><li>靛蓝管品质，暖光管温度</li><li>外部触点增加烟火气</li></ul></div>
+            <div class="risk"><b>招商叙事过早画饼</b><ul><li>首店跑完 4 周再出 deck</li><li>投资人数据 dashboard 透明化</li></ul></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <img src="assets/slogan-light.png" alt="碗碗现炙 · 原切见真" />
+      <p>炙都·板前烤肉饭 · 品牌价值主张与 GTM 战略 · Claude 输出二次整理 · 2026-06-25</p>
+    </footer>
+  </body>
+</html>
