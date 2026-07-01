@@ -153,6 +153,14 @@ const nextConfig: NextConfig = {
           destination: "/proposal/mindsleap-fde-bp-v2/index.html",
         },
         {
+          source: "/proposal/enterprise-ai-growth-light-consulting",
+          destination: "/proposal/enterprise-ai-growth-light-consulting/index.html",
+        },
+        {
+          source: "/proposal/enterprise-ai-growth-light-consulting/",
+          destination: "/proposal/enterprise-ai-growth-light-consulting/index.html",
+        },
+        {
           source: "/proposal/mindsleap-fde-bp",
           destination: "/proposal/mindsleap-fde-bp/index.html",
         },
