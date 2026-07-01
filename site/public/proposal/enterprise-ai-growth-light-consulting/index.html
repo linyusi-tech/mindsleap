@@ -70,14 +70,7 @@
       color: var(--ink);
     }
     .slide::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 8px;
-      background: linear-gradient(90deg, var(--blue) 0%, #78a9d6 36%, rgba(30, 71, 124, 0) 100%);
-      opacity: 0.96;
+      display: none;
     }
     .slide::after {
       content: attr(data-page);
@@ -143,7 +136,18 @@
       font-weight: 580;
     }
     .accent { color: var(--blue-2); }
-    .dark .accent { color: var(--gold); }
+    .dark .accent { color: var(--blue-3); }
+    .title-dot {
+      display: inline-block;
+      width: 0.18em;
+      height: 0.18em;
+      margin-left: 0.08em;
+      border-radius: 999px;
+      background: currentColor;
+      vertical-align: baseline;
+      transform: translateY(-0.06em);
+    }
+    .dark .title-dot { background: var(--blue-3); }
     .headline-cn {
       font-weight: 1000;
       -webkit-text-stroke: 0.42px currentColor;
@@ -764,7 +768,21 @@
       font: 950 55px/1 var(--brand-font);
       margin-bottom: 34px;
     }
+    .ladder-card .original-price {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 800;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(82, 97, 116, 0.45);
+    }
     .ladder-card.blue .price { color: #fff; }
+    .ladder-card.blue .original-price {
+      color: rgba(255,255,255,0.68);
+      text-decoration-color: rgba(255,255,255,0.46);
+    }
     .ladder-card .tag {
       align-self: flex-start;
       padding: 10px 14px;
@@ -804,6 +822,34 @@
     .closing .lead {
       max-width: 980px;
       color: rgba(255,255,255,0.78);
+    }
+    .closing-price {
+      margin-top: 54px;
+      display: inline-grid;
+      gap: 12px;
+      padding: 28px 34px 30px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .closing-price .price-label {
+      color: var(--blue-3);
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .closing-price .promo-price {
+      color: #fff;
+      font: 960 72px/1 var(--brand-font);
+    }
+    .closing-price .original-price {
+      color: rgba(255,255,255,0.66);
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 800;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: rgba(255,255,255,0.42);
     }
     .final-panel {
       padding: 40px;
@@ -845,6 +891,47 @@
       font-size: 26px;
       line-height: 1;
       font-weight: 930;
+    }
+    .qr-panel {
+      align-self: center;
+      justify-self: end;
+      transform: translateX(-42px);
+      width: 560px;
+      padding: 54px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.96);
+      color: var(--ink);
+      box-shadow: 0 28px 90px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .qr-panel h2 {
+      margin: 28px 0 0;
+      color: var(--blue);
+      font-size: 46px;
+      line-height: 1.1;
+      font-weight: 950;
+    }
+    .qr-panel p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.3;
+      font-weight: 680;
+    }
+    .qr-box {
+      width: 390px;
+      height: 390px;
+      margin: 0 auto;
+      padding: 22px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--rule);
+    }
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
     }
 
     .note {
@@ -2691,7 +2778,7 @@
         <div class="mini-stat"><b>轻量切入</b><span>访谈诊断 + 培训打样</span></div>
         <div class="mini-stat"><b>1 份报告</b><span>企业自己的 AI 机会地图</span></div>
         <div class="mini-stat"><b>多组样板</b><span>关键岗位现场跑通</span></div>
-        <div class="mini-stat"><b>30 天</b><span>线上陪跑答疑</span></div>
+        <div class="mini-stat"><b>决策资产</b><span>机会、样板与人选</span></div>
       </div>
     </div>
     <div class="cover-photo">
@@ -2703,8 +2790,8 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">老板真正卡住的地方</p>
-      <h1><span class="headline-cn">活动现场能跑出样板，回到企业更要找到业务切口。</span></h1>
-      <p class="lead">企业家愿意动手，但销售、运营、交付、管理到底从哪里先改，有外部陪跑会快很多。</p>
+      <h1><span class="headline-cn">活动现场能跑出样板，回到企业更要找到业务切口</span><span class="title-dot"></span></h1>
+      <p class="lead">企业家愿意动手，但销售、运营、交付、管理到底从哪里先改，有外部赋能会快很多。</p>
     </div>
     <div class="pain-board">
       <div class="pain-list">
@@ -2723,12 +2810,12 @@
   <section class="slide statement dark no-page no-chrome" data-label="核心判断" data-page="03">
     <div>
       <p class="kicker">核心判断</p>
-      <h1><span class="headline-cn">企业</span> AI <span class="headline-cn">不必一上来重投入，先跑通几组样板，答案自然变清楚</span><span class="accent">。</span></h1>
+      <h1><span class="headline-cn">企业</span> AI <span class="headline-cn">不必一上来重投入，先跑通几组样板，答案自然变清楚</span><span class="title-dot"></span></h1>
       <p class="lead">样板跑通，老板有判断，团队有手感，后续的长期咨询或 FDE 才有真实基础。</p>
       <div class="statement-grid">
         <div class="statement-card"><b>先判断</b><span>哪些业务环节值得先做，哪些暂时不碰。</span></div>
         <div class="statement-card"><b>先动手</b><span>让关键岗位亲手跑通几组能看见价值的 Demo。</span></div>
-        <div class="statement-card"><b>再加码</b><span>用第一轮试跑结果决定是否进入深度陪跑。</span></div>
+        <div class="statement-card"><b>再加码</b><span>用第一轮试跑结果决定是否进入长期咨询或 FDE。</span></div>
       </div>
     </div>
   </section>
@@ -2737,7 +2824,7 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">服务清单</p>
-      <h1><span class="headline-cn">先看清最大的</span> AI <span class="headline-cn">增长点，再跑通能落地的业务样板。</span></h1>
+      <h1><span class="headline-cn">先看清最大的</span> AI <span class="headline-cn">增长点，再跑通能落地的业务样板</span><span class="title-dot"></span></h1>
       <p class="lead">前面先看清服务，而不是先看价格：它不是一堂课，而是一次能看到结果的企业 AI 轻量试跑。</p>
     </div>
     <div class="offer-board">
@@ -2746,7 +2833,7 @@
         <div class="service-line">第一次上门：关键岗位调研访谈</div>
         <div class="service-line">核心交付：《AI 增长机会报告》</div>
         <div class="service-line">第二次上门：落地培训 + 现场打样</div>
-        <div class="service-line">后续 30 天：线上陪跑答疑</div>
+        <div class="service-line">收口交付：机会优先级 + 样板复盘 + 下一步建议</div>
       </div>
       <div class="offer-cards">
         <div class="card"><h3>看清机会</h3><p>通过现场访谈，识别投入成本低、业务增益大的 AI 改造环节。</p></div>
@@ -2761,7 +2848,7 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">第一次上门：调研访谈</p>
-      <h1><span class="headline-cn">不先谈工具，先找到最值得被</span> AI <span class="headline-cn">改造的业务现场。</span></h1>
+      <h1><span class="headline-cn">不先谈工具，先找到最值得被</span> AI <span class="headline-cn">改造的业务现场</span><span class="title-dot"></span></h1>
       <p class="lead">第一天，我们到企业现场，从业务流、岗位流、决策流里找到最有价值的切入点。</p>
     </div>
     <div class="timeline">
@@ -2777,7 +2864,7 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">核心交付：《AI 增长机会报告》</p>
-      <h1><span class="headline-cn">交付一张老板看得懂、团队能行动的</span> AI <span class="headline-cn">机会地图。</span></h1>
+      <h1><span class="headline-cn">交付一张老板看得懂、团队能行动的</span> AI <span class="headline-cn">机会地图</span><span class="title-dot"></span></h1>
       <p class="lead">老板需要的不是更多趋势，而是一套能帮助自己做取舍的判断框架。</p>
     </div>
     <div class="report-board">
@@ -2801,7 +2888,7 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">第二次上门：落地培训 + 现场打样</p>
-      <h1><span class="headline-cn">让关键岗位现场动手，跑通几组真正贴业务的</span> AI Demo<span class="headline-cn">。</span></h1>
+      <h1><span class="headline-cn">让关键岗位现场动手，跑通几组真正贴业务的</span> AI Demo<span class="title-dot"></span></h1>
       <p class="lead">第二天，我们不只讲方法，而是带着团队把几组真实业务场景当场跑出来。</p>
     </div>
     <div class="photo-grid">
@@ -2822,7 +2909,7 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">Demo 的价值</p>
-      <h1>Demo <span class="headline-cn">不是炫技，而是让团队第一次看见：原来的业务可以被重新组织。</span></h1>
+      <h1>Demo <span class="headline-cn">不是炫技，而是让团队第一次看见：原来的业务可以被重新组织</span><span class="title-dot"></span></h1>
       <p class="lead">不同企业会长出不同样板，但目标一致：让关键岗位获得基础 AI 应用能力。</p>
     </div>
     <div class="demo-board">
@@ -2832,23 +2919,23 @@
     </div>
   </section>
 
-  <section class="slide" data-label="30 天陪跑" data-page="09">
+  <section class="slide" data-label="决策资产" data-page="09">
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
-      <p class="kicker">30 天线上陪跑答疑</p>
-      <h1><span class="headline-cn">样板跑出来之后，继续看见谁能往前跑。</span></h1>
-      <p class="lead">现场的热度很容易散掉，所以我们把第一轮试跑延长到真实使用期，并帮助企业看见谁能继续往前跑。</p>
+      <p class="kicker">试跑后的决策资产</p>
+      <h1><span class="headline-cn">不是多听一堂课，而是带走能继续决策的证据</span><span class="title-dot"></span></h1>
+      <p class="lead">轻咨询最值钱的地方，是把现场试跑沉淀成老板能判断、团队能复盘、后续能加码的业务证据。</p>
     </div>
     <div class="support-board">
       <div class="day-box">
-        <div class="big">30</div>
-        <p>不是上完课就结束，而是在关键岗位开始使用后，继续帮企业把问题问出来。</p>
+        <div class="big">3</div>
+        <p>三类关键资产：看清哪里先做，跑出什么样板，看见谁能继续推动。</p>
       </div>
       <div class="support-grid">
-        <div class="card"><h3>建立答疑群</h3><p>关键人物在群内提出真实使用问题，我们进行线上解答。</p></div>
-        <div class="card"><h3>消化机会报告</h3><p>帮助团队理解优先级，不把报告停留在文件里。</p></div>
-        <div class="card"><h3>优化 Demo 方向</h3><p>根据实际反馈，判断 Demo 应该继续优化还是换场景。</p></div>
-        <div class="card blue"><h3>识别 AI 种子人才</h3><p>观察谁理解业务、愿意动手、能用 AI 解决问题，筛出企业内部 AI 原生团队的第一批种子。</p></div>
+        <div class="card"><h3>机会优先级</h3><p>哪些环节先做，哪些暂时不碰，让老板少走弯路。</p></div>
+        <div class="card"><h3>样板复盘</h3><p>每组 Demo 对应什么业务场景、输入资料和使用边界，现场讲清楚。</p></div>
+        <div class="card"><h3>人选观察</h3><p>看见谁懂业务、愿动手、能把 AI 用到真实问题里。</p></div>
+        <div class="card blue"><h3>下一步取舍</h3><p>内部继续试、进入长期咨询，还是直接评估 FDE，路径更清楚。</p></div>
       </div>
     </div>
   </section>
@@ -2857,7 +2944,7 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">适不适合，从这里判断</p>
-      <h1><span class="headline-cn">适合想认真启动</span> AI<span class="headline-cn">，但还不想一上来重投入的企业。</span></h1>
+      <h1><span class="headline-cn">适合想认真启动</span> AI<span class="headline-cn">，但还不想一上来重投入的企业</span><span class="title-dot"></span></h1>
       <p class="lead">这是一款为“从兴趣到企业试跑”设计的中间档产品，尤其适合活动客户和年度会员客户。</p>
     </div>
     <div class="fit-board">
@@ -2882,13 +2969,14 @@
     <div class="brand-mark" data-footer-logo></div>
     <div class="title-block">
       <p class="kicker">产品阶梯</p>
-      <h1><span class="headline-cn">小投入，跑通一次真验证。</span></h1>
+      <h1><span class="headline-cn">小投入，跑通一次真验证</span><span class="title-dot"></span></h1>
       <p class="lead">先看清机会、跑出样板，再决定是否进入长期咨询或 FDE。</p>
     </div>
     <div class="ladder">
       <div class="ladder-card blue">
-        <div class="tag">第一步试跑</div>
+        <div class="tag">活动现场预报名</div>
         <div>
+          <div class="original-price">原价 ¥59,800</div>
           <div class="price">¥39,800</div>
           <h3>企业 AI 增长咨询服务</h3>
           <p>看清机会、跑通样板、带动关键岗位动手，是企业 AI 落地的第一步。</p>
@@ -2916,19 +3004,21 @@
   <section class="slide closing dark no-page no-chrome" data-label="成交页" data-page="12">
     <div>
       <div class="logo-white"></div>
-      <p class="kicker">预约企业 AI 增长轻咨询包</p>
-      <h1><span class="headline-cn">先跑通，再加码</span><span class="accent">。</span></h1>
-      <p class="lead">先看清方向，再筛出能继续往前跑的人。</p>
-    </div>
-    <div class="final-panel">
-      <h2>下一步怎么启动</h2>
-      <div class="final-list">
-        <p><b>确认</b><span>企业业务场景与关键岗位参与名单</span></p>
-        <p><b>排期</b><span>确定两天连续到场服务时间</span></p>
-        <p><b>准备</b><span>收集基础资料、流程文件与业务样本</span></p>
-        <p><b>进入</b><span>从现场访谈开始，跑通第一轮 AI 样板</span></p>
+      <p class="kicker">活动现场预报名</p>
+      <h1><span class="headline-cn">先跑通，再加码</span><span class="title-dot"></span></h1>
+      <p class="lead">现场预报名锁定轻咨询优惠价，先把企业自己的 AI 增长切口跑出来。</p>
+      <div class="closing-price">
+        <div class="price-label">活动现场预报名优惠价</div>
+        <div class="promo-price">¥39,800</div>
+        <div class="original-price">原价 ¥59,800</div>
       </div>
-      <div class="cta">预约轻咨询包</div>
+    </div>
+    <div class="qr-panel">
+      <div class="qr-box">
+        <img src="assets/signup-qr.png" alt="扫码报名二维码" />
+      </div>
+      <h2>扫码报名</h2>
+      <p>锁定现场预报名优惠价</p>
     </div>
   </section>
 
