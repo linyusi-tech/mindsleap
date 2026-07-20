@@ -1,282 +1,5206 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Codex 安装攻略 · MindsLeap 心智悦动</title>
-  <link rel="stylesheet" href="/internal-nav.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/manuals/codex-installation/" />
+  <title>电脑环境准备 | AI 数字员工实战坊 · MindsLeap</title>
   <style>
-    :root {
-      --blue: #1e477c;
-      --blue-soft: #eef5ff;
-      --green: #157f63;
-      --ink: #111827;
-      --muted: #4b5563;
-      --subtle: #8a94a6;
-      --rule: #e5e7eb;
-      --paper: #f8fafc;
-      --code: #0f172a;
+    @font-face {
+      font-family: "MindsLeap Brand";
+      src: url("./platform-assets/MindsLeap-Brand.otf") format("opentype");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    :root {
+      --brand: #1e477c;
+      --brand-light: #2a5a9e;
+      --brand-dark: #152f54;
+      --accent: #3b82f6;
+      --accent-soft: #eff6ff;
+      --bg: #ffffff;
+      --bg-2: #ffffff;
+      --surface: #ffffff;
+      --surface-strong: #f8fafc;
+      --line: #e8edf3;
+      --line-strong: #bfdbfe;
+      --text: #111827;
+      --muted: #4b5563;
+      --faint: #6b7280;
+      --danger: #b42318;
+      --ok: #067647;
+      --shadow: 0 2px 6px rgba(16, 24, 40, 0.05), 0 22px 54px rgba(30, 71, 124, 0.11);
+      --radius-card: 8px;
+      --radius-control: 8px;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --brand-font: "MindsLeap Brand", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f9fafb 58%, #ffffff 100%);
+    }
+
     body {
       margin: 0;
-      color: var(--ink);
-      background: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+      min-height: 100dvh;
+      overflow-x: clip;
+      font-family: var(--font);
+      color: var(--text);
+      letter-spacing: 0;
+      background: var(--bg);
     }
-    a { color: inherit; text-decoration: none; }
-    header {
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 0 56px;
-      border-bottom: 1px solid var(--rule);
-      background: rgba(255,255,255,.96);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
+
+    body::before {
+      content: none;
     }
-    .logo {
-      width: 260px;
-      height: 52px;
-      background: url("/manuals/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
     }
-    .hero {
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .app {
       position: relative;
-      overflow: hidden;
-      padding: 96px 56px 82px;
-      border-bottom: 1px solid var(--rule);
-      background:
-        radial-gradient(circle at 12% 12%, rgba(30,71,124,.14), transparent 32%),
-        linear-gradient(135deg, #f8fbff 0%, #ffffff 48%, #eef5ff 100%);
+      min-height: 100dvh;
+      isolation: isolate;
     }
-    .inner {
-      max-width: 1180px;
+
+    .hidden {
+      display: none !important;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
+    }
+
+    .login-shell {
+      position: relative;
+      width: min(1120px, calc(100% - 80px));
+      margin: 0 auto;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: minmax(0, 560px) minmax(360px, 430px);
+      gap: clamp(44px, 6vw, 72px);
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      padding: clamp(40px, 6vh, 72px) 0;
+    }
+
+    .login-logo {
+      position: fixed;
+      top: 32px;
+      left: max(32px, calc((100vw - 1120px) / 2));
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+    }
+
+    .login-story {
+      min-height: auto;
+      display: flex;
+      align-items: flex-start;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+      position: relative;
+    }
+
+    .login-story::before {
+      content: none;
+    }
+
+    .login-copy {
       position: relative;
       z-index: 1;
     }
-    .eyebrow {
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      margin-bottom: 22px;
+
+    .login-copy {
+      max-width: 620px;
     }
-    h1 {
-      max-width: 900px;
+
+    .login-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .event-badge {
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .login-copy h1 {
       margin: 0;
-      color: var(--blue);
-      font-size: clamp(44px, 7vw, 82px);
-      line-height: 1.03;
-      letter-spacing: -.035em;
+      max-width: 720px;
+      font-family: var(--brand-font);
+      font-size: clamp(40px, 4.1vw, 58px);
+      line-height: 1.08;
+      font-weight: 760;
+      color: var(--brand);
+      letter-spacing: 0;
     }
-    .lead {
-      max-width: 820px;
-      margin: 28px 0 0;
-      color: var(--muted);
-      font-size: 21px;
-      line-height: 1.68;
+
+    .login-copy h1 span,
+    .hero-panel h1 span {
+      display: block;
     }
-    .hero-actions, .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
+
+    .title-main {
+      white-space: nowrap;
     }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border: 1px solid var(--blue);
-      color: var(--blue);
-      font-size: 14px;
-      font-weight: 900;
-    }
-    .button.primary { background: var(--blue); color: #fff; }
-    .section { padding: 72px 56px; }
-    .section.alt { background: var(--paper); border-block: 1px solid var(--rule); }
-    h2 {
-      margin: 0;
-      color: var(--blue);
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1.14;
-      letter-spacing: -.02em;
-    }
-    .section-copy {
-      max-width: 760px;
-      margin: 14px 0 0;
+
+    .login-copy .lead {
+      margin: 22px 0 0;
+      max-width: 610px;
       color: var(--muted);
       font-size: 18px;
-      line-height: 1.68;
+      line-height: 1.65;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 34px;
+
+    .login-media {
+      margin: 30px 0 0;
+      width: min(520px, 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--surface-strong);
+      box-shadow: 0 2px 6px rgba(16, 24, 40, 0.05), 0 28px 68px rgba(30, 71, 124, 0.14);
     }
-    .card {
-      border: 1px solid var(--rule);
-      background: #fff;
-      padding: 28px;
-      box-shadow: 0 1px 2px rgba(15,23,42,.04);
+
+    .login-media img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: center;
     }
-    .tag {
-      display: inline-flex;
-      padding: 8px 11px;
-      background: var(--blue-soft);
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+
+    .login-panel {
+      position: relative;
+      overflow: hidden;
+      align-self: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 30px;
+      background: var(--surface);
+      box-shadow: 0 2px 6px rgba(16, 24, 40, 0.05), 0 34px 80px rgba(30, 71, 124, 0.15);
+      transition: box-shadow 180ms ease, border-color 180ms ease;
     }
-    .card h3 {
-      margin: 22px 0 12px;
-      color: var(--blue);
-      font-size: 26px;
-      line-height: 1.18;
-    }
-    .card p, li {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.68;
-    }
-    .steps {
-      display: grid;
-      gap: 18px;
-      margin-top: 34px;
-    }
-    .step {
-      display: grid;
-      grid-template-columns: 88px 1fr;
-      gap: 24px;
-      padding: 28px;
-      border: 1px solid var(--rule);
-      background: #fff;
-    }
-    .num {
-      display: grid;
-      place-items: center;
-      width: 64px;
-      height: 64px;
+
+    .login-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -46%;
+      width: 46%;
+      height: 3px;
       border-radius: 999px;
-      background: var(--blue);
-      color: #fff;
-      font-size: 24px;
-      font-weight: 900;
+      background: linear-gradient(90deg, rgba(30, 71, 124, 0), var(--brand), rgba(59, 130, 246, 0.78), rgba(30, 71, 124, 0));
+      opacity: 0;
+      transform: translateX(-100%);
+      pointer-events: none;
     }
-    .step h3 { margin: 0 0 12px; color: var(--blue); font-size: 26px; }
-    .step p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.68; }
-    pre {
-      margin: 18px 0 0;
-      overflow: auto;
-      border-radius: 14px;
-      background: var(--code);
-      color: #e5efff;
-      padding: 18px;
+
+    .login-panel.is-loading {
+      border-color: rgba(30, 71, 124, 0.28);
+      box-shadow: 0 2px 6px rgba(16, 24, 40, 0.05), 0 38px 90px rgba(30, 71, 124, 0.20), 0 0 0 4px rgba(30, 71, 124, 0.05);
+    }
+
+    .login-panel.is-loading::before {
+      opacity: 1;
+      animation: login-progress 1.05s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+
+    .login-panel h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .login-panel .sub {
+      margin: 0 0 22px;
+      color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
     }
-    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
-    .note {
-      margin-top: 22px;
-      padding: 18px 20px;
-      border-left: 4px solid var(--green);
-      background: #f3fbf7;
-      color: #166047;
-      font-size: 15px;
+
+    .login-rules {
+      margin: -4px 0 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #f9fafb;
+      overflow: hidden;
+    }
+
+    .login-rules summary {
+      padding: 12px 14px;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .login-rules summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .login-rules summary::after {
+      content: "+";
+      float: right;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .login-rules[open] summary::after {
+      content: "-";
+    }
+
+    .login-rules ul {
+      margin: 0;
+      padding: 0 14px 14px 30px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .required-mark {
+      margin-left: 3px;
+      color: var(--danger);
+      font-weight: 900;
+    }
+
+    .field .hint {
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .input,
+    .textarea,
+    .select {
+      width: 100%;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-control);
+      background: #ffffff;
+      outline: none;
+      transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .input,
+    .select {
+      min-height: 46px;
+      padding: 0 13px;
+    }
+
+    .textarea {
+      min-height: 104px;
+      resize: vertical;
+      padding: 12px 13px;
+      line-height: 1.55;
+    }
+
+    .field-tall .textarea {
+      min-height: 180px;
+    }
+
+    .field-xl .textarea {
+      min-height: 230px;
+    }
+
+    .input::placeholder,
+    .textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .input:focus,
+    .textarea:focus,
+    .select:focus {
+      border-color: var(--accent);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+    }
+
+    .pasted-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-height: 0;
+    }
+
+    .pasted-image {
+      width: 92px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+
+    .pasted-image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #f9fafb;
+    }
+
+    .pasted-image span {
+      display: block;
+      padding: 5px 6px;
+      color: var(--faint);
+      font-size: 11px;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .avatar-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .avatar-preview {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-weight: 800;
+      overflow: hidden;
+    }
+
+    .avatar-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .file-input {
+      width: 100%;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .image-file-field {
+      padding: 13px;
+      border: 1px dashed #bfdbfe;
+      border-radius: var(--radius-control);
+      background: #f8fbff;
+    }
+
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: var(--brand);
+      background: #ffffff;
+      border: 1px solid var(--line);
+      font-weight: 800;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: #f8fbff;
+      border-color: var(--line-strong);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
+      border-color: var(--brand);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(30, 71, 124, 0.24);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #25578f 0%, #3370b7 100%);
+    }
+
+    .btn.is-loading,
+    .btn:disabled {
+      cursor: wait;
+      transform: none;
+    }
+
+    .btn.is-loading {
+      background: linear-gradient(135deg, var(--brand) 0%, #3168a8 100%);
+      box-shadow: 0 12px 30px rgba(30, 71, 124, 0.28);
+    }
+
+    .login-button-spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.42);
+      border-top-color: #ffffff;
+      flex: 0 0 auto;
+      animation: login-spin 720ms linear infinite;
+    }
+
+    .btn.is-loading .login-button-spinner {
+      display: inline-block;
+    }
+
+    .btn.is-loading i {
+      display: none;
+    }
+
+    .login-loading-text {
+      display: none;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .login-panel.is-loading .login-loading-text {
+      display: block;
+    }
+
+    @keyframes login-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes login-progress {
+      0% {
+        transform: translateX(-110%);
+      }
+
+      100% {
+        transform: translateX(320%);
+      }
+    }
+
+    .btn-ghost {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--line-strong);
+    }
+
+    .btn-wide {
+      width: 100%;
+    }
+
+    .btn i,
+    .nav-link i,
+    .icon-btn i,
+    .task-link i {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .topbar-inner {
+      height: 72px;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .app-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 150px;
+    }
+
+    .app-brand img {
+      height: 30px;
+      width: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .nav-link {
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 750;
+      transition: background 160ms ease, color 160ms ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--brand);
+      background: var(--accent-soft);
+    }
+
+    .user-chip {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      min-width: 190px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .user-mini-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--accent-soft);
+      border: 1px solid var(--line-strong);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .user-mini-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logout-btn {
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--brand);
+      background: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .logout-btn:hover {
+      background: var(--accent-soft);
+      border-color: var(--line-strong);
+    }
+
+    .main {
+      padding: 50px 0 72px;
+    }
+
+    .home-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.78fr);
+      gap: clamp(34px, 5vw, 72px);
+      align-items: center;
+      padding: clamp(42px, 7vw, 82px) 0 clamp(22px, 4vw, 40px);
+      min-height: auto;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: visible;
+      max-width: none;
+      padding: 0;
+      background: transparent;
+    }
+
+    .hero-panel::before {
+      content: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
+    }
+
+    .hero-panel h1 {
+      margin: 0;
+      font-family: var(--brand-font);
+      font-size: clamp(40px, 4.8vw, 62px);
+      line-height: 1.06;
+      color: var(--brand);
+      letter-spacing: 0;
+    }
+
+    .hero-panel .hero-lead {
+      margin: 0;
+      max-width: 900px;
+      color: var(--brand-dark);
+      font-size: clamp(22px, 2.1vw, 30px);
+      line-height: 1.36;
+      font-weight: 760;
+    }
+
+    .hero-panel .hero-sub {
+      margin: 12px 0 0;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      white-space: nowrap;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn-plaza {
+      color: var(--brand);
+      background: #ffffff;
+      border-color: rgba(30, 71, 124, 0.32);
+      box-shadow: 0 10px 24px rgba(30, 71, 124, 0.08);
+    }
+
+    .btn-plaza:hover {
+      color: #ffffff;
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    .hero-media {
+      position: relative;
+      margin: 0;
+      min-height: 380px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background: var(--surface-strong);
+      box-shadow: 0 2px 6px rgba(16, 24, 40, 0.05), 0 34px 84px rgba(30, 71, 124, 0.15);
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(21, 47, 84, 0.08));
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    }
+
+    .section {
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .workbench-section {
+      margin-top: 32px;
+      box-shadow: 0 2px 6px rgba(16, 24, 40, 0.05), 0 30px 76px rgba(30, 71, 124, 0.13);
+    }
+
+    .section-head {
+      padding: 30px 32px 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.24;
+      color: var(--brand);
+    }
+
+    .section-head p {
+      margin: 10px 0 0;
+      max-width: 760px;
+      color: var(--muted);
       line-height: 1.7;
     }
-    footer {
-      padding: 42px 56px;
-      border-top: 1px solid var(--rule);
-      color: var(--subtle);
-      font-size: 14px;
+
+    .timeline {
+      padding: 22px 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
-    @media (max-width: 900px) {
-      header { align-items: flex-start; flex-direction: column; padding: 24px; }
-      .logo { width: 230px; }
-      .hero, .section, footer { padding-left: 24px; padding-right: 24px; }
-      .grid { grid-template-columns: 1fr; }
-      .step { grid-template-columns: 1fr; }
-      .num { width: 56px; height: 56px; }
+
+    .phase {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03), 0 16px 42px rgba(30, 71, 124, 0.06);
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease, background 160ms ease;
+    }
+
+    .phase.phase-active {
+      border-color: rgba(21, 47, 84, 0.9);
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 34%),
+        linear-gradient(145deg, #214f89 0%, #1e477c 48%, #14365f 100%);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(16, 24, 40, 0.08), 0 30px 78px rgba(30, 71, 124, 0.25);
+    }
+
+    .phase.phase-active::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent 28%, rgba(255, 255, 255, 0.08));
+      opacity: 0.7;
+    }
+
+    .phase-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 22px 22px 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .phase.phase-active .phase-head {
+      border-bottom-color: rgba(255, 255, 255, 0.14);
+      background: transparent;
+    }
+
+    .phase-head strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.18;
+      margin-bottom: 8px;
+    }
+
+    .phase-head span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .phase.phase-active .phase-head strong,
+    .phase.phase-active .phase-head span {
+      color: #ffffff;
+    }
+
+    .phase.phase-active .phase-date-row > span:not(.phase-status) {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .phase-date-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .phase-status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 850;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .task-list {
+      position: relative;
+      z-index: 1;
+      padding: 12px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .task-link {
+      width: 100%;
+      min-height: 104px;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .task-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      background: #f8fbff;
+      box-shadow: 0 12px 28px rgba(30, 71, 124, 0.10);
+    }
+
+    .task-link.task-link-active {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.10);
+      color: #ffffff;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    }
+
+    .task-link.task-link-active:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.30);
+    }
+
+    .task-link.task-link-active strong {
+      color: #ffffff;
+    }
+
+    .task-link.task-link-active p {
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .task-link:active {
+      transform: translateY(1px);
+    }
+
+    .task-index {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      background: var(--accent-soft);
+      border: 1px solid var(--line-strong);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .task-link.task-link-active .task-index {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
+    .task-copy {
+      min-width: 0;
+    }
+
+    .task-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .task-link strong {
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .task-link p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-height: 28px;
+      padding: 0 11px 0 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line-strong);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 860;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    }
+
+    .status-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: currentColor;
+      opacity: 0.9;
+    }
+
+    .status-pill.is-pending {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(30, 71, 124, 0.22);
+    }
+
+    .status-pill.is-pending::before {
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.16);
+    }
+
+    .task-link.task-link-active .status-pill.is-pending {
+      background: #ffffff;
+      border-color: rgba(255, 255, 255, 0.78);
+      color: var(--brand);
+      box-shadow: 0 10px 22px rgba(8, 30, 65, 0.18);
+    }
+
+    .task-link.task-link-active .status-pill.is-pending::before {
+      background: var(--brand);
+      box-shadow: 0 0 0 3px rgba(30, 71, 124, 0.10);
+    }
+
+    .status-pill.is-submitted {
+      background: #078354;
+      border-color: #078354;
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(7, 131, 84, 0.22);
+    }
+
+    .status-pill.is-submitted::before {
+      content: "✓";
+      width: 14px;
+      height: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 10px;
+      line-height: 1;
+      opacity: 1;
+    }
+
+    .status-pill.is-static {
+      background: #ffffff;
+      border-color: rgba(255, 255, 255, 0.42);
+      color: var(--brand);
+    }
+
+    .info-block {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      background: #ffffff;
+    }
+
+    .info-block h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .info-block p,
+    .info-block li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .info-block ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .page-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    .page-head h1 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .page-head p {
+      margin: 10px 0 0;
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(300px, 0.28fr);
+      gap: 18px;
+    }
+
+    .content-panel,
+    .side-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .content-inner {
+      padding: 24px;
+    }
+
+    .content-inner h2,
+    .content-inner h3 {
+      margin: 0 0 14px;
+    }
+
+    .content-inner p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .prep-checklist {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+    }
+
+    .prep-item {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .prep-item .check {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(88, 210, 255, 0.12);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .prep-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .prep-item span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .prep-guide {
+      display: grid;
+      gap: 18px;
+    }
+
+    .prep-hero-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: 18px;
+      align-items: center;
+      padding: 24px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 92% 16%, rgba(59, 130, 246, 0.12), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f3f7fc 100%);
+    }
+
+    .prep-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--line-strong);
+      font-size: 12px;
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
+
+    .prep-hero-card h2 {
+      margin: 0;
+      color: var(--brand);
+      font-size: clamp(28px, 3.2vw, 42px);
+      line-height: 1.16;
+    }
+
+    .prep-hero-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .prep-hero-logo {
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    }
+
+    .prep-hero-logo img {
+      width: 108px;
+      height: auto;
+    }
+
+    .prep-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .prep-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .prep-section {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .prep-section h3 {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .prep-section h4 {
+      margin: 0 0 8px;
+      color: var(--brand);
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .prep-section p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .prep-section a {
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .prep-section a:hover {
+      color: var(--brand);
+    }
+
+    .prep-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .prep-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: var(--surface-strong);
+    }
+
+    .prep-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .prep-card span,
+    .prep-card li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .prep-card ul {
+      margin: 8px 0 0;
+      padding-left: 17px;
+    }
+
+    .prep-callout {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-card);
+      background: var(--accent-soft);
+      color: var(--brand);
+    }
+
+    .prep-callout strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--brand);
+    }
+
+    .prep-callout p,
+    .prep-callout li {
+      color: #24476f;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .prep-callout ul,
+    .prep-callout ol {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .prep-callout.warn {
+      border-color: #fed7aa;
+      background: #fff7ed;
+    }
+
+    .prep-callout.warn strong {
+      color: #9a3412;
+    }
+
+    .prep-callout.warn p,
+    .prep-callout.warn li {
+      color: #7c2d12;
+    }
+
+    .prep-steps {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .prep-step {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .prep-step-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      background: var(--brand);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .prep-step strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .prep-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .prep-media {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .prep-media img {
+      width: 100%;
+      height: auto;
+      background: #ffffff;
+    }
+
+    .prep-media figcaption {
+      padding: 10px 12px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .prep-app-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .prep-app-shot {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .prep-app-shot img {
+      width: 100%;
+      aspect-ratio: 1 / 0.94;
+      object-fit: contain;
+      object-position: center;
+      padding: 10px;
+      background: #ffffff;
+    }
+
+    .prep-app-shot figcaption {
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      border-top: 1px solid var(--line);
+    }
+
+    .prep-link-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .prep-link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .prep-link-row span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .prep-link-row strong {
+      color: var(--text);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .prep-price-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .prep-price {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .prep-price strong {
+      display: block;
+      color: var(--brand);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .prep-price span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .prep-side-list {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+
+    .prep-side-list div {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .prep-side-list strong {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .prep-side-list span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .side-panel {
+      padding: 18px;
+      height: fit-content;
+    }
+
+    .side-panel h3 {
+      margin: 0 0 10px;
+    }
+
+    .side-panel p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-grid .span-2 {
+      grid-column: 1 / -1;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-control);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .choice input {
+      accent-color: var(--brand-light);
+    }
+
+    .nps-row {
+      display: grid;
+      grid-template-columns: repeat(11, minmax(30px, 1fr));
+      gap: 6px;
+    }
+
+    .nps-row input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .nps-row label {
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-control);
+      color: var(--muted);
+      background: #ffffff;
+      cursor: pointer;
+      font-weight: 800;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .nps-row input:checked + label {
+      color: #ffffff;
+      border-color: var(--brand);
+      background: linear-gradient(135deg, var(--brand), var(--brand-light));
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .plaza-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .toolbar-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .tab {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      color: #ffffff;
+      border-color: rgba(88, 210, 255, 0.48);
+      background: linear-gradient(135deg, var(--brand), var(--brand-light));
+    }
+
+    .plaza-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 18px;
+    }
+
+    .feed {
+      display: grid;
+      gap: 14px;
+    }
+
+    .post {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+
+    .post:hover {
+      border-color: rgba(30, 71, 124, 0.28);
+      box-shadow: 0 2px 6px rgba(16, 24, 40, 0.05), 0 26px 64px rgba(30, 71, 124, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .post-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-light));
+      font-weight: 900;
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 420px;
+    }
+
+    .author span {
+      display: block;
+      color: var(--faint);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .post-time {
+      color: var(--faint);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .post-body {
+      padding: 18px;
+    }
+
+    .post-body h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .post-body p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .post-project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 850;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .post-attachment {
+      margin: 14px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .post-attachments {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .post-attachments .post-attachment {
+      margin: 0;
+    }
+
+    .post-attachment img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      background: #f9fafb;
+    }
+
+    .post-attachment figcaption {
+      padding: 9px 12px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      color: var(--brand);
+      background: #ffffff;
+      border: 1px solid rgba(30, 71, 124, 0.28);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .post-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      background: #f9fafb;
+    }
+
+    .icon-btn {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .icon-btn:hover {
+      color: var(--brand);
+      background: var(--accent-soft);
+    }
+
+    .icon-btn:active {
+      transform: translateY(1px);
+    }
+
+    .icon-btn.liked {
+      color: var(--ok);
+      border-color: #abefc6;
+      background: #ecfdf3;
+    }
+
+    .comment-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .comment {
+      padding: 10px 12px;
+      border-radius: var(--radius-card);
+      background: #f9fafb;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .comment-person {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border-radius: var(--radius-card);
+      background: #f9fafb;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .person-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-light));
+      font-size: 13px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .person-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .comment-person strong {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .comment-person strong span {
+      color: var(--muted-light);
+      font-weight: 650;
+    }
+
+    .comment-person p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .like-people {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .like-person {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 4px 10px 4px 5px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .like-person .person-avatar {
+      width: 24px;
+      height: 24px;
+      font-size: 11px;
+    }
+
+    .public-project-route .topbar {
+      display: none;
+    }
+
+    .public-page {
+      min-height: 100dvh;
+      padding: 28px 0 56px;
+    }
+
+    .public-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .public-brand img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .public-project-card {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+      box-shadow: 0 30px 78px rgba(30, 71, 124, 0.14), 0 2px 7px rgba(16, 24, 40, 0.05);
+    }
+
+    .public-content {
+      min-width: 0;
+      padding: 26px;
+    }
+
+    .public-title {
+      margin: 0;
+      color: var(--brand);
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.12;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .public-subline {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .public-login-note {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #f8fbff;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 13px;
+    }
+
+    .public-empty {
+      min-height: 60vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .public-empty h1 {
+      margin: 0 0 10px;
+      color: var(--brand);
+      font-size: 34px;
+    }
+
+    .public-empty p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(17, 24, 39, 0.42);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .project-modal {
+      width: min(1060px, 100%);
+      max-height: min(760px, calc(100dvh - 48px));
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+      box-shadow: 0 34px 90px rgba(15, 23, 42, 0.24);
+    }
+
+    .modal-profile {
+      min-width: 0;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      background: #f8fbff;
+    }
+
+    .modal-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 999px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-light));
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .modal-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-profile h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--brand);
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .modal-profile p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .profile-meta {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .profile-meta div {
+      min-width: 0;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .profile-meta strong {
+      display: block;
+      color: var(--faint);
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .profile-meta span {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 750;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .modal-content {
+      min-width: 0;
+      max-height: min(760px, calc(100dvh - 48px));
+      overflow: auto;
+      padding: 24px;
+    }
+
+    .modal-top {
+      min-width: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .modal-top > div {
+      min-width: 0;
+    }
+
+    .modal-top h2 {
+      min-width: 0;
+      margin: 0;
+      color: var(--brand);
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.18;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .modal-close {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--brand);
+      background: #ffffff;
+    }
+
+    .modal-section {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .modal-section h4 {
+      margin: 0 0 8px;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .modal-section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .modal-section-title h4 {
+      margin: 0;
+    }
+
+    .modal-section p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .detail-row {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background: #ffffff;
+    }
+
+    .detail-row strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--brand);
+      font-size: 12px;
+    }
+
+    .detail-row span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .modal-comment-form {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .modal-comment-form textarea {
+      min-height: 84px;
+    }
+
+    .empty-state {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      padding: 36px;
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius-card);
+      color: var(--muted);
+      text-align: center;
+      background: #f9fafb;
+    }
+
+    .empty-state strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 20px;
+    }
+
+    .plaza-side {
+      display: grid;
+      gap: 14px;
+      height: fit-content;
+    }
+
+    .plaza-progress-mobile {
+      display: none;
+    }
+
+    .mini-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .mini-panel h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .mini-panel p,
+    .mini-panel li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .mini-panel ul {
+      margin: 0;
+      padding-left: 17px;
+    }
+
+    .submitted-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .submitted-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .submit-state {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 24px;
+      padding: 0 9px 0 8px;
+      border-radius: 999px;
+      border: 1px solid #d9e4f2;
+      background: #f8fafc;
+      color: #24476f;
+      font-size: 12px;
+      font-weight: 760;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    }
+
+    .state-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: currentColor;
+      opacity: 0.72;
+      box-shadow: 0 0 0 3px rgba(36, 71, 111, 0.08);
+    }
+
+    .submit-state.done {
+      color: #ffffff;
+      border-color: #078354;
+      background: #078354;
+      box-shadow: 0 8px 18px rgba(7, 131, 84, 0.18);
+    }
+
+    .submit-state.done .state-dot {
+      width: 14px;
+      height: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.18);
+      opacity: 1;
+      box-shadow: none;
+    }
+
+    .submit-state.done .state-dot::before {
+      content: "✓";
+      color: #ffffff;
+      font-size: 10px;
+      line-height: 1;
+    }
+
+    .submit-state.missing {
+      color: #ffffff;
+      border-color: var(--brand);
+      background: var(--brand);
+      box-shadow: 0 8px 18px rgba(30, 71, 124, 0.18);
+    }
+
+    .submit-state.missing .state-dot {
+      background: #ffffff;
+      opacity: 1;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.16);
+    }
+
+    .submitted-row:last-child {
+      border-bottom: 0;
+    }
+
+    .toast {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 30;
+      max-width: min(360px, calc(100% - 48px));
+      padding: 14px 16px;
+      border: 1px solid rgba(88, 210, 255, 0.34);
+      border-radius: var(--radius-card);
+      color: #ffffff;
+      background: var(--brand);
+      box-shadow: var(--shadow);
+      transform: translateY(16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .login-shell,
+      .home-hero,
+      .detail-layout,
+      .plaza-grid,
+      .prep-hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .prep-app-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .login-story {
+        min-height: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        height: auto;
+        min-height: 72px;
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      .app-brand,
+      .user-chip {
+        min-width: auto;
+      }
+
+      .nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .login-shell {
+        width: min(100% - 28px, 1180px);
+        display: block;
+        padding: 24px 0 40px;
+      }
+
+      .login-logo {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 42px;
+      }
+
+      .login-story {
+        padding: 0;
+        margin-bottom: 26px;
+      }
+
+      .form-grid,
+      .checkbox-grid,
+      .prep-grid,
+      .prep-app-grid,
+      .prep-price-row {
+        grid-template-columns: 1fr;
+      }
+
+      .prep-hero-card,
+      .prep-section {
+        padding: 18px;
+      }
+
+      .prep-hero-logo {
+        min-height: 130px;
+      }
+
+      .prep-link-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .form-grid .span-2 {
+        grid-column: auto;
+      }
+
+      .container,
+      .topbar-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .main {
+        padding: 20px 0 56px;
+      }
+
+      .login-logo img {
+        height: 28px;
+      }
+
+      .app-brand img {
+        height: 26px;
+      }
+
+      .app-brand span,
+      .user-chip {
+        font-size: 12px;
+      }
+
+      .user-chip {
+        gap: 8px;
+      }
+
+      .user-mini-avatar {
+        width: 30px;
+        height: 30px;
+      }
+
+      .nav {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4px;
+        overflow-x: visible;
+      }
+
+      .nav-link {
+        width: 100%;
+        min-width: 0;
+        height: 36px;
+        justify-content: center;
+        gap: 4px;
+        padding: 0 4px;
+        font-size: 13px;
+      }
+
+      .nav-link i {
+        width: 16px;
+        height: 16px;
+      }
+
+      .login-copy .lead {
+        font-size: 16px;
+      }
+
+      .login-panel,
+      .hero-panel,
+      .content-inner {
+        padding: 20px;
+      }
+
+      .home-hero {
+        gap: 18px;
+        padding: 8px 0 22px;
+      }
+
+      .hero-content {
+        gap: 18px;
+      }
+
+      .login-copy h1,
+      .hero-panel h1 {
+        font-size: clamp(34px, 9.5vw, 42px);
+      }
+
+      .login-media {
+        margin-top: 22px;
+      }
+
+      .hero-panel {
+        padding: 0;
+      }
+
+      .hero-panel .hero-sub {
+        white-space: normal;
+      }
+
+      .hero-media,
+      .hero-media img {
+        min-height: 220px;
+      }
+
+      .section-head,
+      .timeline {
+        padding: 18px;
+      }
+
+      .page-head {
+        display: grid;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      .page-head p {
+        margin-top: 12px;
+      }
+
+      .page-head .btn-primary {
+        width: fit-content;
+        margin-top: 2px;
+      }
+
+      .plaza-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .tabs {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        overflow-x: visible;
+        padding-bottom: 0;
+        scrollbar-width: none;
+      }
+
+      .tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab {
+        width: 100%;
+        min-width: 0;
+        padding: 0 10px;
+        font-size: 13px;
+      }
+
+      .toolbar-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .plaza-progress-mobile {
+        display: block;
+        margin-top: 2px;
+      }
+
+      .plaza-side .progress-panel {
+        display: none;
+      }
+
+      .nps-row {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .post-head,
+      .post-actions {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .modal-backdrop {
+        padding: 12px;
+        align-items: flex-end;
+      }
+
+      .project-modal {
+        grid-template-columns: 1fr;
+        max-height: calc(100dvh - 24px);
+      }
+
+      .modal-profile {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 18px;
+      }
+
+      .modal-content {
+        max-height: calc(100dvh - 260px);
+        padding: 18px;
+      }
+
+      .public-project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .public-project-card .modal-profile {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .public-content {
+        padding: 18px;
+      }
+
+      .author strong {
+        max-width: 220px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+
+      .login-panel.is-loading::before {
+        left: 0;
+        width: 100%;
+        opacity: 1;
+        transform: none;
+        animation: none !important;
+      }
+
+      .login-button-spinner {
+        animation: none !important;
+        border-color: rgba(255, 255, 255, 0.72);
+      }
+    }
+
+    body.standalone-prep .nav,
+    body.standalone-prep .user-chip,
+    body.standalone-prep .page-head > .btn {
+      display: none;
+    }
+
+    body.standalone-prep .topbar-inner {
+      justify-content: flex-start;
     }
   </style>
 </head>
-<body>
-  <header>
-    <a class="logo" href="/zh" aria-label="MindsLeap"></a>
-    <nav class="internal-nav" aria-label="Internal pages">
-      <a href="/menu">Menu</a>
-      <a href="/decks">Decks</a>
-      <a href="/proposal">Proposal</a>
-      <a href="/product">Product</a>
-      <a href="/poster">Poster</a>
-      <a href="/manuals" aria-current="page">Manuals</a>
-      <a href="/case">Case</a>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="inner">
-        <div class="eyebrow">Public Manual · No Login Required</div>
-        <h1>Codex 安装攻略</h1>
-        <p class="lead">这是一页可以直接转发给学员和同事的公开安装清单。会前把账号、电脑环境和自检跑通，现场就把时间留给真实任务。</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#quickstart">开始安装</a>
-          <a class="button" href="https://developers.openai.com/codex/quickstart" rel="noopener" target="_blank">官方 Quickstart</a>
-          <a class="button" href="/manuals">返回 Manuals</a>
+<body class="standalone-prep">
+  <div class="app">
+    <section id="loginView" class="login-shell">
+      <a class="login-logo" href="#home" aria-label="MindsLeap">
+        <img src="./platform-assets/mindsleap-logo-blue.png" alt="MindsLeap" />
+      </a>
+      <div class="login-story">
+        <div class="login-copy">
+          <div class="event-badge">本次实战坊专属工作台</div>
+          <h1><span>AI 实战：</span><span class="title-main">AI 数字员工实战坊</span></h1>
+          <p class="lead">7月4日-7月5日 / 外滩 FTC</p>
+          <figure class="login-media">
+            <img src="./platform-assets/login-visual-v2.jpg" alt="AI 数字员工实战坊会前工作台场景" />
+          </figure>
         </div>
       </div>
-    </section>
-    <section class="section">
-      <div class="inner">
-        <h2>先选你要用的入口</h2>
-        <p class="section-copy">第一次上手时，先选最符合自己工作习惯的入口，不要一开始就把所有东西都装满。</p>
-        <div class="grid">
-          <article class="card"><span class="tag">推荐给大多数人</span><h3>ChatGPT 桌面 App / 网页</h3><p>适合先用自然语言安排任务、整理文档、做网页预览和让 Codex 帮你操作本地项目。</p></article>
-          <article class="card"><span class="tag">本地项目交付</span><h3>Codex CLI</h3><p>适合需要读写本地文件、跑命令、提交代码、做网站发布的人。现场如果要完整跑项目，建议至少一台电脑装好 CLI。</p></article>
-          <article class="card"><span class="tag">代码编辑器</span><h3>IDE Extension</h3><p>适合已经常用 VS Code 等编辑器的同事。它和 CLI 共享登录与配置，可以在编辑器里直接协作。</p></article>
-        </div>
-      </div>
-    </section>
-    <section id="quickstart" class="section alt">
-      <div class="inner">
-        <h2>安装步骤</h2>
-        <p class="section-copy">下面按现场最常见的 Mac / Windows 场景写。只要跑通登录和诊断，就算会前准备完成。</p>
-        <div class="steps">
-          <article class="step"><div class="num">1</div><div><h3>准备基础环境</h3><p>使用 Chrome 或 Edge，确认网络可以正常访问 ChatGPT / OpenAI。需要本地交付项目的同事，提前安装 Git、Node.js LTS；Windows 同事建议同步安装 GitHub CLI。</p></div></article>
-          <article class="step"><div class="num">2</div><div><h3>安装 ChatGPT 桌面 App</h3><p>打开 ChatGPT 官方网站，下载并登录桌面 App；如果暂时不装 App，也可以先用 ChatGPT 网页版。</p></div></article>
-          <article class="step"><div class="num">3</div><div><h3>安装 Codex CLI</h3><p>Mac / Linux 可以在终端里运行官方安装脚本；Windows 可以在 PowerShell 里运行官方安装脚本。安装完成后，重新打开终端。</p><pre><code># macOS / Linux
-curl -fsSL https://chatgpt.com/codex/install.sh | sh
 
-# Windows PowerShell
-irm https://chatgpt.com/codex/install.ps1 | iex</code></pre><div class="note">如果你已经熟悉 Node.js，也可以使用 npm 全局安装。现场建议优先按官方脚本走，少一个变量，少一点玄学。</div></div></article>
-          <article class="step"><div class="num">4</div><div><h3>登录 Codex</h3><p>安装后在终端运行登录命令，浏览器会弹出 OpenAI 登录页面。请使用你准备现场使用的 ChatGPT / OpenAI 账号。</p><pre><code>codex login</code></pre></div></article>
-          <article class="step"><div class="num">5</div><div><h3>跑一次自检</h3><p>诊断通过后，现场就可以让 Codex 进入本地项目，读文件、改页面、跑检查和协助发布。</p><pre><code>codex doctor</code></pre></div></article>
+      <form id="loginForm" class="login-panel">
+        <h2>进入工作台</h2>
+        <p class="sub">用手机号进入本次活动工作台。</p>
+        <details class="login-rules">
+          <summary>登录说明</summary>
+          <ul>
+            <li>首次进入用手机号设置密码。</li>
+            <li>之后同一手机号只能用第一次设置的密码登录。</li>
+            <li>无验证码和重置密码，请自行保管。</li>
+            <li>称呼用于名牌，头像建议使用真人头像。</li>
+          </ul>
+        </details>
+
+        <div class="field">
+          <label for="phone">手机号</label>
+          <input class="input" id="phone" name="phone" type="tel" inputmode="tel" required placeholder="填写您的手机号" />
         </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="inner">
-        <h2>现场前检查清单</h2>
-        <p class="section-copy">如果只做一件事，就确保下面几项都完成。卡住也没关系，把错误截图带到现场，我们可以快速定位。</p>
-        <div class="grid">
-          <article class="card"><h3>必须完成</h3><ul><li>能打开 ChatGPT，并确认登录的是自己的账号。</li><li>终端里运行 <code>codex --version</code> 有返回版本号。</li><li>终端里运行 <code>codex doctor</code> 可以生成诊断结果。</li><li>知道自己要让 AI 帮忙完成的一个真实任务。</li></ul></article>
-          <article class="card"><h3>常见卡点</h3><ul><li>网络无法访问 OpenAI：先换稳定网络或代理环境。</li><li>命令不存在：重开终端，或确认安装目录是否加入 PATH。</li><li>登录跳转失败：复制终端里的链接到浏览器，或换默认浏览器重试。</li><li>Windows 权限问题：用普通 PowerShell 先试，不行再以管理员权限运行。</li></ul></article>
+
+        <div class="field">
+          <label for="password">设置初始密码</label>
+          <input class="input" id="password" name="password" type="password" minlength="4" required placeholder="至少 4 位，自己保管" />
         </div>
-      </div>
+
+        <div class="field">
+          <label for="nickname">活动中希望别人对您的称呼</label>
+          <input class="input" id="nickname" name="nickname" type="text" required placeholder="例如：雨丝 / Lincoln / 王总" />
+        </div>
+
+        <div class="field">
+          <label for="avatar">上传头像</label>
+          <div class="avatar-row">
+            <div id="avatarPreview" class="avatar-preview">AI</div>
+            <input class="file-input" id="avatar" name="avatar" type="file" accept="image/*" />
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-wide" type="submit">
+          <span class="login-button-spinner" aria-hidden="true"></span>
+          <span class="login-button-label">进入实战坊</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+        <p id="loginLoadingText" class="login-loading-text" role="status" aria-live="polite">正在校验手机号和密码，请稍候。</p>
+      </form>
     </section>
-  </main>
-  <footer><div class="inner">© MindsLeap · Codex installation guide · Source checked against the current OpenAI Codex manual.</div></footer>
+
+    <section id="appView" class="hidden">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <a class="app-brand" href="#home" data-route="home">
+            <img src="./platform-assets/mindsleap-logo-blue.png" alt="MindsLeap" />
+          </a>
+          <nav class="nav" aria-label="主导航">
+            <a class="nav-link" href="#home" data-route="home"><i data-lucide="layout-dashboard"></i><span>首页</span></a>
+            <a class="nav-link" href="#plaza=idea" data-plaza="idea"><i data-lucide="messages-square"></i><span>项目广场</span></a>
+          </nav>
+          <div class="user-chip">
+            <span id="userName">学员</span>
+            <div id="userAvatar" class="user-mini-avatar">AI</div>
+            <button class="logout-btn" type="button" data-logout>退出登录</button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" class="main container"></main>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    // Public copy of platform-demo.html#task=prep. Keep the original guide markup unchanged.
+    const standalonePrepMode = true;
+    const runtimeConfig = window.__AI_HERMES_CONFIG__ || {};
+    const runtimeBasePath = (() => {
+      const raw = String(runtimeConfig.basePath || "").trim();
+      if (!raw || raw === "/") return "";
+      return `/${raw.replace(/^\/+|\/+$/g, "")}`;
+    })();
+    const runtimeEnv = runtimeConfig.appEnv || "local";
+
+    function appUrl(path) {
+      const value = String(path || "");
+      if (/^(https?:|data:|blob:)/i.test(value)) return value;
+      if (value.startsWith("/uploads/") || value.startsWith("/api/")) return `${runtimeBasePath}${value}`;
+      return value;
+    }
+
+    function mediaUrl(path) {
+      return appUrl(path);
+    }
+
+    function assetUrl(path) {
+      const clean = String(path || "").replace(/^\.?\//, "");
+      return `${runtimeBasePath || ""}/${clean}`;
+    }
+
+    function appBaseUrl() {
+      return `${location.origin}${runtimeBasePath || ""}/`;
+    }
+
+    function publicProjectTokenFromPath() {
+      let path = location.pathname;
+      if (runtimeBasePath && path.startsWith(runtimeBasePath)) {
+        path = path.slice(runtimeBasePath.length) || "/";
+      }
+      const match = path.match(/^\/project\/([^/]+)\/?$/);
+      return match ? decodeURIComponent(match[1]) : "";
+    }
+
+    function legacyShareTokenFromHash() {
+      const hash = window.location.hash.replace(/^#/, "");
+      if (!hash.startsWith("share=")) return "";
+      return decodeURIComponent(hash.split("=")[1] || "");
+    }
+
+    function publicProjectTokenFromLocation() {
+      return publicProjectTokenFromPath() || legacyShareTokenFromHash();
+    }
+
+    function publicProjectUrl(post) {
+      const token = post.publicToken || post.id;
+      return `${location.origin}${runtimeBasePath || ""}/project/${encodeURIComponent(token)}`;
+    }
+
+    function normalizeLegacyPublicProjectUrl(token) {
+      if (publicProjectTokenFromPath()) return;
+      const finalToken = state.publicPost?.publicToken || token;
+      if (!finalToken) return;
+      window.history.replaceState(null, "", `${runtimeBasePath || ""}/project/${encodeURIComponent(finalToken)}`);
+    }
+
+    const taskDefs = {
+      prep: {
+        phase: "会前",
+        plaza: null,
+        title: "电脑环境准备",
+        date: "7月1日-7月3日",
+        kind: "static",
+        summary: "电脑、网络环境、Codex 账号与手机端工具准备。"
+      },
+      idea: {
+        phase: "会前",
+        plaza: "idea",
+        title: "数字员工设想",
+        date: "7月1日-7月3日",
+        kind: "form",
+        summary: "先定义一个最想招来的 AI 数字员工。"
+      },
+      mini: {
+        phase: "会中",
+        plaza: "mini",
+        title: "单数字员工项目",
+        date: "7月4日-7月5日",
+        kind: "form",
+        summary: "提交一个已经跑通或正在迭代的单数字员工。"
+      },
+      profile: {
+        phase: "会中",
+        plaza: "profile",
+        title: "更新自我介绍",
+        date: "7月4日-7月5日",
+        kind: "form",
+        summary: "更新个人介绍、企业介绍和希望链接的资源。"
+      },
+      review: {
+        phase: "会后",
+        plaza: "review",
+        title: "会议收获复盘与 NPS",
+        date: "7月6日-8月6日",
+        kind: "form",
+        summary: "沉淀本次活动收获，同时完成 NPS 调研。"
+      },
+      team: {
+        phase: "会后",
+        plaza: "team",
+        title: "多数字员工项目",
+        date: "7月6日-8月6日",
+        kind: "form",
+        summary: "提交一个由多个数字员工协作的业务系统。"
+      }
+    };
+
+    const plazaTabs = [
+      { id: "idea", label: "设想" },
+      { id: "mini", label: "单数字员工" },
+      { id: "profile", label: "个人介绍" },
+      { id: "review", label: "收获复盘" },
+      { id: "team", label: "多数字员工" }
+    ];
+
+    const longIdeaBody = "我们现在投研团队每天会面对大量碎片化信息：券商晨会纪要、公告、行业新闻、宏观数据、内部研究员的即时观点、客户临时提出的问题，以及盘后需要整理的复盘材料。这些信息本身不是难点，真正的难点是它们分布在不同渠道里，时间点也不一致，最后都要靠人手工汇总、判断优先级，再转成可以讨论和决策的材料。我的第一个数字员工设想，是先做一个投研信息整理员工。它每天早上先读取固定来源，把新闻、公告和研报摘要按照行业、公司、主题和风险类型分类；中午补充市场异动和新增信息；下午收盘后根据我们持仓和重点观察名单生成复盘提纲。它不直接给投资结论，而是把信息整理成更适合人判断的结构。第一层输出是今日重点，按紧急程度排序；第二层输出是与持仓相关的信息提醒；第三层输出是需要研究员继续跟进的问题清单；第四层输出是可以发给客户或内部讨论的简版观点。希望它能记住我们团队常看的行业、常用的估值口径、历史复盘中反复出现的判断错误，以及每位研究员负责的方向。这样它不是一个普通摘要工具，而是逐步变成团队里的信息入口和复盘秘书。短期目标是减少每天 1 到 2 小时的人工整理时间，让研究员把精力放在判断和讨论上。中期目标是形成一个可追踪的投研知识库，所有重要信息、判断、后续验证结果都能连接起来。长期目标是让这个数字员工可以和会议纪要员工、客户沟通员工、交易复盘员工协作，变成一个小型投研数字员工团队。当前我最担心的是信息源权限、摘要可靠性、噪音过滤、以及它如何避免把未经验证的信息包装得像结论。所以第一版我希望它只做整理、归类、提问和提醒，不做最终判断。";
+
+    const samplePosts = {
+      idea: [
+        {
+          id: "sample-idea-1",
+          author: "江南",
+          role: "上海八桂资产管理有限公司",
+          position: "投资负责人",
+          projectRole: "投研信息整理员工",
+          title: "投研信息整理数字员工 | 投研数字员工团队",
+          summary: "围绕投研团队的信息分散和复盘耗时问题，先做一个只负责整理、归类、提问和提醒的数字员工，逐步连接成投研知识库。",
+          body: longIdeaBody,
+          tags: ["投研", "复盘", "资料整理"],
+          likes: 18,
+          likedBy: [
+            { name: "雨丝", role: "MindsLeap" },
+            { name: "Lincoln", role: "MindsLeap 心智悦动" },
+            { name: "Lawrence", role: "Humania.AI" },
+            { name: "周忠杰", role: "钱拓科技" }
+          ],
+          comments: [
+            { author: "雨丝", role: "MindsLeap", text: "这个场景很适合作为会后多数字员工项目继续做。第一版可以先把信息源和输出模板固定住，再慢慢接入复盘记忆。" },
+            { author: "Lincoln", role: "MindsLeap 心智悦动", text: "建议把输出分成内部版和客户版，两种语气和信息密度会不一样，也方便后面做权限控制。" },
+            { author: "Lawrence", role: "Humania.AI", text: "这里最关键的是不要让数字员工替代判断，而是把证据链和待验证假设整理清楚。这个边界写得很好。" },
+            { author: "周忠杰", role: "钱拓科技", text: "如果后面能沉淀历史判断和验证结果，这个就不是信息摘要，而是团队认知资产了。" }
+          ]
+        },
+        {
+          id: "sample-idea-2",
+          author: "周忠杰",
+          role: "钱拓科技",
+          position: "市场负责人",
+          projectRole: "选题与脚本员工",
+          title: "市场部选题数字员工 | 内容增长数字员工团队",
+          body: "先把客户案例、行业热点和个人观点连接起来，让 AI 每天产出可筛选的短视频选题和初稿。",
+          tags: ["内容", "市场", "短视频"],
+          likes: 22,
+          likedBy: [
+            { name: "江南", role: "上海八桂资产管理有限公司" },
+            { name: "雨丝", role: "MindsLeap" }
+          ],
+          comments: []
+        }
+      ],
+      mini: [
+        {
+          id: "sample-mini-1",
+          author: "Lincoln",
+          role: "MindsLeap 心智悦动",
+          position: "课程共创人",
+          projectRole: "客户拜访纪要员工",
+          title: "客户拜访纪要到行动清单",
+          body: "现场完成了一个小流程：输入访谈纪要，自动识别客户痛点、机会点、下一步动作和跟进话术。",
+          tags: ["销售", "纪要", "行动清单"],
+          likes: 31,
+          likedBy: [
+            { name: "雨丝", role: "MindsLeap" },
+            { name: "江南", role: "上海八桂资产管理有限公司" },
+            { name: "周忠杰", role: "钱拓科技" }
+          ],
+          comments: [
+            { author: "雨丝", role: "MindsLeap", text: "这个可以和企微跟进动作打通。" },
+            { author: "江南", role: "上海八桂资产管理有限公司", text: "如果能自动识别下一次拜访目标，会更适合销售管理复盘。" }
+          ]
+        }
+      ],
+      profile: [
+        {
+          id: "sample-profile-1",
+          author: "雨丝",
+          role: "MindsLeap",
+          position: "内容与知识系统负责人",
+          projectRole: "活动主持与案例整理",
+          title: "想认识正在做企业知识库和内容系统的伙伴",
+          body: "我关注 AI 如何变成组织里的记忆系统，也想看看大家的真实业务场景，尤其是可以复用为方法论的案例。",
+          tags: ["第二大脑", "知识库", "内容系统"],
+          likes: 16,
+          likedBy: [
+            { name: "江南", role: "上海八桂资产管理有限公司" },
+            { name: "Lawrence", role: "Humania.AI" }
+          ],
+          comments: [
+            { author: "Lincoln", role: "MindsLeap 心智悦动", text: "可以把希望链接的资源写得更具体一点，现场交流会更容易接上。" }
+          ]
+        }
+      ],
+      review: [
+        {
+          id: "sample-review-1",
+          author: "Lawrence",
+          role: "Humania.AI",
+          position: "AI 产品负责人",
+          projectRole: "任务定义复盘者",
+          title: "真正难的不是工具，而是把任务定义清楚",
+          body: "这次最有价值的是让每个人把岗位、流程、输入输出和验收标准写出来。AI Agent 的质量首先来自任务定义。",
+          tags: ["复盘", "Agent", "任务定义"],
+          likes: 27,
+          likedBy: [
+            { name: "雨丝", role: "MindsLeap" },
+            { name: "江南", role: "上海八桂资产管理有限公司" },
+            { name: "Lincoln", role: "MindsLeap 心智悦动" }
+          ],
+          comments: [
+            { author: "雨丝", role: "MindsLeap", text: "这句可以沉淀成活动后的复盘金句。任务定义越清楚，数字员工越像员工，而不是工具。" },
+            { author: "周忠杰", role: "钱拓科技", text: "同感。现场真正拉开差距的是谁能把输入、输出和验收标准讲清楚。" }
+          ]
+        }
+      ],
+      team: [
+        {
+          id: "sample-team-1",
+          author: "企业家 AI 俱乐部成员",
+          role: "示例项目",
+          position: "项目负责人",
+          projectRole: "内容增长数字员工团队",
+          title: "从内容选题到发布复盘的数字员工团队",
+          body: "团队包含选题员工、脚本员工、资料员工和复盘员工，目标是把单次内容生产变成连续的增长系统。",
+          tags: ["内容团队", "增长", "30 天推进"],
+          likes: 34,
+          likedBy: [
+            { name: "雨丝", role: "MindsLeap" },
+            { name: "Lincoln", role: "MindsLeap 心智悦动" },
+            { name: "Lawrence", role: "Humania.AI" },
+            { name: "江南", role: "上海八桂资产管理有限公司" }
+          ],
+          comments: [
+            { author: "雨丝", role: "MindsLeap", text: "很适合做成模板给大家复用。" },
+            { author: "Lawrence", role: "Humania.AI", text: "建议把每个数字员工的输入输出边界画出来，团队协作会更清晰。" }
+          ]
+        }
+      ]
+    };
+
+    const state = {
+      user: standalonePrepMode
+        ? { phone: "", nickname: "安装攻略", avatar: "", role: "public", readTasks: {} }
+        : readJson("aiHermesDemoUser", null),
+      submissions: readJson("aiHermesDemoSubmissions", []),
+      drafts: readJson("aiHermesDemoDrafts", {}),
+      liked: readJson("aiHermesDemoLiked", {}),
+      comments: readJson("aiHermesDemoComments", {}),
+      publicPost: null,
+      publicError: ""
+    };
+
+    const localDemoAllowedUsers = [
+      { phone: "13800000000", nickname: "测试学员", role: "participant" },
+      { phone: "13900000000", nickname: "测试管理员", role: "admin" }
+    ];
+
+    let pastedImagesByField = {};
+
+    const loginView = document.getElementById("loginView");
+    const appView = document.getElementById("appView");
+    const main = document.getElementById("main");
+    const toast = document.getElementById("toast");
+
+    function readJson(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function writeJson(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function removeJson(key) {
+      localStorage.removeItem(key);
+    }
+
+    function normalizePhone(value) {
+      const digits = String(value || "").replace(/\D/g, "");
+      if (digits.length === 13 && digits.startsWith("86")) return digits.slice(2);
+      return digits;
+    }
+
+    function usesBackendAuth() {
+      return !standalonePrepMode && (location.protocol === "http:" || location.protocol === "https:");
+    }
+
+    function localAllowedRecord(phone) {
+      const normalized = normalizePhone(phone);
+      return localDemoAllowedUsers.find((record) => normalizePhone(record.phone) === normalized) || null;
+    }
+
+    function localAuthUsers() {
+      return readJson("aiHermesDemoAuthUsers", {});
+    }
+
+    function saveLocalAuthUsers(users) {
+      writeJson("aiHermesDemoAuthUsers", users);
+    }
+
+    function localReadTaskStore() {
+      return readJson("aiHermesDemoReadTasks", {});
+    }
+
+    function saveLocalReadTaskStore(store) {
+      writeJson("aiHermesDemoReadTasks", store);
+    }
+
+    function ensureUserReadTasks() {
+      if (!state.user) return {};
+      if (!state.user.readTasks || typeof state.user.readTasks !== "object") {
+        state.user.readTasks = {};
+      }
+      return state.user.readTasks;
+    }
+
+    function hasReadTask(id) {
+      if (!state.user) return false;
+      const readTasks = ensureUserReadTasks();
+      if (readTasks[id]) return true;
+      const phone = normalizePhone(state.user.phone);
+      const store = localReadTaskStore();
+      return Boolean(phone && store[phone]?.[id]);
+    }
+
+    function writeReadTask(id, timestamp = new Date().toISOString()) {
+      if (!state.user) return;
+      const readTasks = ensureUserReadTasks();
+      readTasks[id] = readTasks[id] || timestamp;
+      const phone = normalizePhone(state.user.phone);
+      if (phone) {
+        const store = localReadTaskStore();
+        store[phone] = {
+          ...(store[phone] || {}),
+          [id]: store[phone]?.[id] || timestamp
+        };
+        saveLocalReadTaskStore(store);
+      }
+      writeJson("aiHermesDemoUser", state.user);
+    }
+
+    async function markTaskRead(id) {
+      const task = taskDefs[id];
+      if (!state.user || task?.kind !== "static") return;
+      const alreadySynced = Boolean(state.user.readTasks?.[id]);
+      writeReadTask(id);
+      if (!usesBackendAuth() || alreadySynced) return;
+      try {
+        const result = await apiJson(`/api/tasks/${encodeURIComponent(id)}/read`, {
+          method: "POST",
+          body: "{}"
+        });
+        if (result.user) {
+          state.user = result.user;
+          writeJson("aiHermesDemoUser", state.user);
+        }
+      } catch {
+        // Local read state is kept so the UI does not bounce back if the network is slow.
+      }
+    }
+
+    function validateLocalDemoSession() {
+      if (!state.user) return;
+      const phone = normalizePhone(state.user.phone);
+      const users = localAuthUsers();
+      if (!users[phone]) {
+        state.user = null;
+        removeJson("aiHermesDemoUser");
+      }
+    }
+
+    async function apiJson(url, options = {}) {
+      const response = await fetch(appUrl(url), {
+        credentials: "include",
+        headers: { "content-type": "application/json", ...(options.headers || {}) },
+        ...options
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.error || "请求失败，请稍后再试。");
+      }
+      return payload;
+    }
+
+    async function restoreBackendSession() {
+      if (!usesBackendAuth()) return;
+      const payload = await apiJson("/api/session");
+      if (payload.user) {
+        state.user = payload.user;
+        writeJson("aiHermesDemoUser", state.user);
+      } else {
+        state.user = null;
+        removeJson("aiHermesDemoUser");
+      }
+    }
+
+    async function loginWithBackend(payload) {
+      const result = await apiJson("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify(payload)
+      });
+      return result.user;
+    }
+
+    async function loadBackendSubmissions() {
+      if (!usesBackendAuth() || !state.user) return;
+      const result = await apiJson("/api/submissions");
+      state.submissions = result.submissions || [];
+      state.liked = {};
+      state.submissions.forEach((item) => {
+        if (item.currentUserLiked) state.liked[item.id] = true;
+      });
+    }
+
+    async function loadBackendDrafts() {
+      if (!usesBackendAuth() || !state.user) return;
+      const result = await apiJson("/api/drafts");
+      state.drafts = {};
+      (result.drafts || []).forEach((draft) => {
+        state.drafts[draft.type] = draft;
+      });
+    }
+
+    async function saveSubmissionToBackend(type, payload) {
+      const result = await apiJson("/api/submissions", {
+        method: "POST",
+        body: JSON.stringify({ type, payload })
+      });
+      await loadBackendSubmissions();
+      await loadBackendDrafts();
+      return result.submission;
+    }
+
+    async function saveDraftToBackend(type, payload) {
+      const result = await apiJson("/api/drafts", {
+        method: "POST",
+        body: JSON.stringify({ type, payload })
+      });
+      if (result.draft) state.drafts[type] = result.draft;
+      return result.draft;
+    }
+
+    async function toggleLikeOnBackend(id) {
+      const result = await apiJson(`/api/submissions/${encodeURIComponent(id)}/like`, {
+        method: "POST",
+        body: "{}"
+      });
+      await loadBackendSubmissions();
+      return result.submission;
+    }
+
+    async function addCommentToBackend(id, text) {
+      const result = await apiJson(`/api/submissions/${encodeURIComponent(id)}/comments`, {
+        method: "POST",
+        body: JSON.stringify({ text })
+      });
+      await loadBackendSubmissions();
+      return result.submission;
+    }
+
+    async function loadPublicSubmission(token) {
+      const result = await apiJson(`/api/public/submissions/${encodeURIComponent(token)}`);
+      state.publicPost = result.submission || null;
+      state.publicError = state.publicPost ? "" : "没有找到这个项目。";
+      return state.publicPost;
+    }
+
+    function loginWithLocalDemo(payload) {
+      const phone = normalizePhone(payload.phone);
+      const allowed = localAllowedRecord(phone) || {};
+      const users = localAuthUsers();
+      const existing = users[phone];
+      if (existing) {
+        if (existing.password !== payload.password) {
+          throw new Error("密码不正确。这个活动工作台不支持验证码登录或重置密码。");
+        }
+        if (payload.avatar && payload.avatar !== existing.avatar) {
+          users[phone] = {
+            ...existing,
+            avatar: payload.avatar,
+            updatedAt: new Date().toISOString()
+          };
+          saveLocalAuthUsers(users);
+        }
+        return {
+          phone,
+          nickname: existing.nickname,
+          avatar: users[phone]?.avatar || existing.avatar || "",
+          role: existing.role || allowed.role || "participant",
+          readTasks: existing.readTasks || {}
+        };
+      }
+      users[phone] = {
+        phone,
+        password: payload.password,
+        nickname: payload.nickname,
+        avatar: payload.avatar || "",
+        role: allowed.role || "participant",
+        readTasks: {},
+        createdAt: new Date().toISOString()
+      };
+      saveLocalAuthUsers(users);
+      return {
+        phone,
+        nickname: payload.nickname,
+        avatar: payload.avatar || "",
+        role: allowed.role || "participant",
+        readTasks: {}
+      };
+    }
+
+    function syncOwnSubmissionAuthorSnapshot() {
+      if (!state.user) return;
+      const phone = normalizePhone(state.user.phone);
+      if (!phone) return;
+      let changed = false;
+      state.submissions = state.submissions.map((item) => {
+        const itemPhone = normalizePhone(item.phone || item.userPhone || "");
+        if (!itemPhone || itemPhone !== phone) return item;
+        const next = { ...item };
+        if (state.user.nickname && next.author !== state.user.nickname) {
+          next.author = state.user.nickname;
+          changed = true;
+        }
+        if (state.user.avatar && next.avatar !== state.user.avatar) {
+          next.avatar = state.user.avatar;
+          changed = true;
+        }
+        return next;
+      });
+      if (changed) writeJson("aiHermesDemoSubmissions", state.submissions);
+    }
+
+    function setLoginBusy(isBusy) {
+      const form = document.getElementById("loginForm");
+      const button = form?.querySelector("button[type='submit']");
+      if (!button) return;
+      const label = button.querySelector(".login-button-label");
+      button.disabled = isBusy;
+      button.setAttribute("aria-disabled", String(isBusy));
+      button.classList.toggle("is-loading", isBusy);
+      form.classList.toggle("is-loading", isBusy);
+      form.setAttribute("aria-busy", String(isBusy));
+      if (label) label.textContent = isBusy ? "正在进入工作台" : "进入实战坊";
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function firstChar(name) {
+      return (name || "AI").trim().slice(0, 1).toUpperCase();
+    }
+
+    function normalizePerson(person, fallbackName = "学员") {
+      if (person && typeof person === "object") {
+        return {
+          name: person.name || person.author || fallbackName,
+          role: person.role || "",
+          avatar: person.avatar || ""
+        };
+      }
+      return {
+        name: String(person || fallbackName),
+        role: "",
+        avatar: ""
+      };
+    }
+
+    function personAvatarHtml(person) {
+      const normalized = normalizePerson(person);
+      const name = normalized.name || "AI";
+      if (normalized.avatar) {
+        return `<img src="${escapeHtml(mediaUrl(normalized.avatar))}" alt="${escapeHtml(name)}头像" />`;
+      }
+      return escapeHtml(firstChar(name));
+    }
+
+    function likePeople(post) {
+      const people = Array.isArray(post.likedBy) ? post.likedBy.map((person) => normalizePerson(person)) : [];
+      if (state.liked[post.id] && state.user) {
+        const currentUser = normalizePerson({
+          name: state.user.nickname || "我",
+          role: "我",
+          avatar: state.user.avatar || ""
+        });
+        const alreadyListed = people.some((person) => person.name === currentUser.name);
+        return alreadyListed ? people : [currentUser, ...people];
+      }
+      return people;
+    }
+
+    function likeCount(post) {
+      return likePeople(post).length;
+    }
+
+    function likePersonHtml(person) {
+      const normalized = normalizePerson(person);
+      return `
+        <span class="like-person">
+          <span class="person-avatar">${personAvatarHtml(normalized)}</span>
+          <span>${escapeHtml(normalized.name)}</span>
+        </span>
+      `;
+    }
+
+    function normalizeComment(comment) {
+      if (comment && typeof comment === "object") {
+        const role = String(comment.role || "").trim();
+        return {
+          author: comment.author || comment.name || "学员",
+          role: role && role !== "活动参与者" ? role : "",
+          avatar: comment.avatar || "",
+          text: comment.text || comment.body || ""
+        };
+      }
+      const text = String(comment || "");
+      const match = text.match(/^([^：:]{1,16})[：:](.+)$/);
+      if (match) {
+        return {
+          author: match[1].trim() || "学员",
+          role: "",
+          avatar: "",
+          text: match[2].trim()
+        };
+      }
+      return {
+        author: "学员",
+        role: "",
+        avatar: "",
+        text
+      };
+    }
+
+    function commentHtml(comment) {
+      const normalized = normalizeComment(comment);
+      return `
+        <div class="comment-person">
+          <div class="person-avatar">${personAvatarHtml({
+            name: normalized.author,
+            avatar: normalized.avatar
+          })}</div>
+          <div>
+            <strong>${escapeHtml(normalized.author)}${normalized.role ? `<span> / ${escapeHtml(normalized.role)}</span>` : ""}</strong>
+            <p>${escapeHtml(normalized.text)}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function iconRefresh() {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+
+    function setUserChrome() {
+      const userName = document.getElementById("userName");
+      const userAvatar = document.getElementById("userAvatar");
+      if (!state.user) return;
+      userName.textContent = state.user.nickname || "学员";
+      if (state.user.avatar) {
+        userAvatar.innerHTML = `<img src="${escapeHtml(mediaUrl(state.user.avatar))}" alt="${escapeHtml(state.user.nickname)}头像" />`;
+      } else {
+        userAvatar.textContent = firstChar(state.user.nickname);
+      }
+    }
+
+    function ensureApp() {
+      if (!state.user) {
+        loginView.classList.remove("hidden");
+        appView.classList.add("hidden");
+        return false;
+      }
+      loginView.classList.add("hidden");
+      appView.classList.remove("hidden");
+      setUserChrome();
+      return true;
+    }
+
+    function activeNav(route) {
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.classList.remove("active");
+      });
+      const selector = route === "plaza" ? "[data-plaza]" : route === "timeline" ? "[data-scroll-target]" : `[data-route="${route}"]`;
+      const current = document.querySelector(`.nav-link${selector}`);
+      if (current) current.classList.add("active");
+    }
+
+    function render() {
+      const hash = window.location.hash.replace(/^#/, "");
+      const publicToken = publicProjectTokenFromLocation();
+      document.body.classList.toggle("public-project-route", Boolean(publicToken));
+      if (publicToken) {
+        renderPublicProject();
+        return;
+      }
+      document.body.classList.remove("public-project-route");
+
+      if (!state.user) {
+        loginView.classList.remove("hidden");
+        appView.classList.add("hidden");
+        return;
+      }
+
+      ensureApp();
+
+      if (!hash || hash === "home" || hash === "timeline") {
+        renderHome();
+      } else if (hash.startsWith("task=")) {
+        renderTask(hash.split("=")[1]);
+      } else if (hash.startsWith("plaza=")) {
+        renderPlaza(hash.split("=")[1] || "idea");
+      } else {
+        renderHome();
+      }
+
+      iconRefresh();
+      if (hash === "timeline") {
+        window.setTimeout(() => document.getElementById("timelineSection")?.scrollIntoView({ behavior: "smooth", block: "start" }), 40);
+      } else {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+    }
+
+    function shanghaiDateKey(date = new Date()) {
+      const parts = new Intl.DateTimeFormat("en", {
+        timeZone: "Asia/Shanghai",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).formatToParts(date);
+      const valueByType = {};
+      parts.forEach((part) => {
+        valueByType[part.type] = part.value;
+      });
+      return `${valueByType.year}-${valueByType.month}-${valueByType.day}`;
+    }
+
+    function activePhaseInfo() {
+      const today = shanghaiDateKey();
+      const ranges = [
+        { title: "会前", start: "2026-07-01", end: "2026-07-03" },
+        { title: "会中", start: "2026-07-04", end: "2026-07-05" },
+        { title: "会后", start: "2026-07-06", end: "2026-08-06" }
+      ];
+      const current = ranges.find((range) => today >= range.start && today <= range.end);
+      if (current) return { ...current, label: "当前阶段" };
+      if (today < ranges[0].start) return { ...ranges[0], label: "即将开始" };
+      if (today > ranges[ranges.length - 1].end) return { ...ranges[ranges.length - 1], label: "可继续补交" };
+      return null;
+    }
+
+    function renderHome() {
+      activeNav("home");
+      main.innerHTML = `
+        <section class="home-hero">
+          <div class="hero-panel">
+            <div class="hero-content">
+              <div>
+                <div class="event-badge">7月4日-7月5日 / 外滩 FTC</div>
+                <h1><span>AI 实战：</span><span class="title-main">AI 数字员工实战坊</span></h1>
+                <p class="hero-lead">创始人亲自学会，怎么给公司搭出第一批 <span class="nowrap">AI 数字员工</span></p>
+                <p class="hero-sub">不是来学工具，是来给公司招 AI 员工。</p>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="#task=idea"><span>提交数字员工设想</span><i data-lucide="arrow-right"></i></a>
+                  <a class="btn btn-plaza" href="#plaza=idea"><span>进入项目广场</span><i data-lucide="messages-square"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figure class="hero-media">
+            <img src="./platform-assets/home-hero-v2.jpg" alt="工作坊学员正在围绕 AI 数字员工流程讨论" />
+          </figure>
+        </section>
+
+        <section id="timelineSection" class="section workbench-section">
+          <div class="section-head">
+            <h2>本次活动的项目工作台</h2>
+            <p>按活动节奏进入对应任务。时间只作为提示，不锁定提交入口。</p>
+          </div>
+          ${timelineHtml()}
+        </section>
+      `;
+    }
+
+    function timelineHtml() {
+      const activePhase = activePhaseInfo();
+      const phases = [
+        {
+          title: "会前",
+          date: "7月1日-7月3日",
+          items: ["prep", "idea"]
+        },
+        {
+          title: "会中",
+          date: "7月4日-7月5日",
+          items: ["mini", "profile"]
+        },
+        {
+          title: "会后",
+          date: "7月6日-8月6日",
+          items: ["review", "team"]
+        }
+      ];
+
+      return `
+        <div class="timeline">
+          ${phases.map((phase) => {
+            const phaseActive = activePhase && activePhase.title === phase.title;
+            return `
+            <article class="phase ${phaseActive ? "phase-active" : ""}" ${phaseActive ? 'aria-current="step"' : ""}>
+              <div class="phase-head">
+                <strong>${phase.title}</strong>
+                <div class="phase-date-row">
+                  <span>${phase.date}</span>
+                  ${phaseActive ? `<span class="phase-status">${activePhase.label}</span>` : ""}
+                </div>
+              </div>
+              <div class="task-list">
+                ${phase.items.map((id, index) => {
+                  const task = taskDefs[id];
+                  const submitted = task.plaza ? hasOwnSubmission(task.plaza) : false;
+                  const read = task.kind === "static" ? hasReadTask(id) : false;
+                  const statusLabel = task.kind === "static"
+                    ? read ? "已阅读" : "未阅读"
+                    : submitted ? "已提交" : "未提交";
+                  const statusClass = (submitted || read) ? "is-submitted" : "is-pending";
+                  return `
+                    <button class="task-link ${phaseActive ? "task-link-active" : ""}" type="button" data-task="${id}">
+                      <span class="task-index">${String(index + 1).padStart(2, "0")}</span>
+                      <div class="task-copy">
+                        <div class="task-title-row">
+                          <strong>${task.title}</strong>
+                          <span class="status-pill ${statusClass}">${statusLabel}</span>
+                        </div>
+                        <p>${task.summary}</p>
+                      </div>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
+            </article>
+          `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function renderTask(id) {
+      const task = taskDefs[id] || taskDefs.idea;
+      activeNav("timeline");
+      if (task.kind === "static") {
+        markTaskRead(id);
+        renderPrepPage(task);
+      } else {
+        renderFormPage(id, task);
+      }
+    }
+
+    function renderPrepPage(task) {
+      main.innerHTML = `
+        <div class="page-head">
+          <div>
+            <h1>${task.title}</h1>
+            <p>${task.date}。请尽量在开课前完成电脑、网络、Codex 账号和手机端工具准备。实在搞不定也不要卡住，线下把电脑带来，我们会协助配置。</p>
+          </div>
+          <a class="btn btn-ghost" href="#home"><i data-lucide="arrow-left"></i><span>回到首页</span></a>
+        </div>
+        <div class="detail-layout">
+          <section class="content-panel">
+            <div class="content-inner">
+              <div class="prep-guide">
+                <section class="prep-hero-card">
+                  <div>
+                    <div class="prep-kicker">会前必须完成</div>
+                    <h2>工具准备越早完成，现场越能专心训练自己的数字员工</h2>
+                    <p>这次不是来听工具介绍，而是要把 AI 真正接到自己的业务里。建议先把电脑、网络、Codex 账号和手机端工具准备好，现场时间就能留给开发、调试和提问。</p>
+                    <div class="prep-pill-row">
+                      <span class="prep-pill">首选 MacBook</span>
+                      <span class="prep-pill">电脑必须可装软件</span>
+                      <span class="prep-pill">提前准备稳定网络</span>
+                      <span class="prep-pill">强烈推荐 Codex</span>
+                    </div>
+                  </div>
+                  <div class="prep-hero-logo" aria-label="Codex 图标">
+                    <img src="./prep-assets/codex-logo.png" alt="Codex 图标" />
+                  </div>
+                </section>
+
+                <section class="prep-section">
+                  <h3>1. 电脑准备</h3>
+                  <p>电脑是现场实战的主工具，选择和权限会直接影响现场效率。</p>
+                  <div class="prep-grid">
+                    <div class="prep-card">
+                      <strong>首选 MacBook</strong>
+                      <span>如果你同时有 MacBook 和 Windows 电脑，建议带 MacBook。整体兼容性更好，安装和调试过程会更顺。</span>
+                    </div>
+                    <div class="prep-card">
+                      <strong>Windows 可以用，但要预留容错</strong>
+                      <span>Windows 对部分 AI 工具链的兼容性会稍弱，过程中可能遇到更多 Bug，效率略低，但不是不能使用。</span>
+                    </div>
+                    <div class="prep-card">
+                      <strong>硬性要求：可以下载安装软件</strong>
+                      <span>如果是企业电脑，且限制安装外部软件，就不适合带来现场。请提前确认自己有安装权限。</span>
+                    </div>
+                    <div class="prep-card">
+                      <strong>建议提前自测</strong>
+                      <span>开课前先确认浏览器、网络、下载权限和磁盘空间都正常。现场主要解决实战问题，不建议把大量时间花在基础配置上。</span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="prep-section">
+                  <h3>2. 安装软件：Claude Code 与 Codex</h3>
+                  <p>现场会详细说明几个软件的区别。总体原则是：能使用更强模型时，就尽量使用更强模型。</p>
+                  <div class="prep-grid">
+                    <div class="prep-card">
+                      <strong>Claude Code</strong>
+                      <span>能力很强，但配置难度更高。为了降低封号率，需要投入的时间和成本会更多，适合愿意折腾的同学提前准备。</span>
+                    </div>
+                    <div class="prep-card">
+                      <strong>Codex：强烈推荐下载</strong>
+                      <span>Codex 配合现在 GPT 2.0 的多模态能力，5.5.6 模型的编程能力并不输于 Opus 4.8。Fable 5 国内暂时无法使用，综合来看 Codex 的性价比非常高。</span>
+                    </div>
+                  </div>
+                  <div class="prep-callout">
+                    <strong>准备原则</strong>
+                    <ol>
+                      <li>建议大家提前安装。如果实在搞不定，现场我们会协助安装。</li>
+                      <li>网络环境必须提前准备好，也就是俗称的“梯子”。这一块越早配置越好。</li>
+                    </ol>
+                  </div>
+                </section>
+
+                <section class="prep-section">
+                  <h3>3. 先检查自己的 IP 类型和风控值</h3>
+                  <p>连接好自己的网络工具后，先打开 <a href="https://ping0.cc/" target="_blank" rel="noreferrer">ping0.cc</a>，看页面里的 IP 类型和风控值。</p>
+                  <figure class="prep-media">
+                    <img src="./prep-assets/ip-check.png" alt="ping0.cc 显示家庭宽带 IP 与风控值示例" />
+                    <figcaption>理想情况是显示“家庭宽带 IP”，风控值越低越好。截图仅作为示例，实际以你自己打开页面后看到的结果为准。</figcaption>
+                  </figure>
+                  <div class="prep-grid">
+                    <div class="prep-card">
+                      <strong>如果显示“机场 IP”</strong>
+                      <ul>
+                        <li>使用 Codex 时可能经常重连，速度更慢，比较浪费时间。</li>
+                        <li>有一定概率被 Codex 封号，我们会员里确实发生过这种情况。</li>
+                        <li>尤其不建议用这种 IP 注册 Claude Code 账号，封号概率会明显更高。</li>
+                      </ul>
+                    </div>
+                    <div class="prep-card">
+                      <strong>如果是“动态宽带”</strong>
+                      <span>如果不是家庭宽带 IP，或者最上面的 IP 地址会变化，那就是动态宽带。用动态宽带操作 Codex 基本可以，封号风险相对低，但使用 Claude Code 仍然会有一定风险。</span>
+                    </div>
+                  </div>
+                  <div class="prep-callout warn">
+                    <strong>更稳定的选择：静态宽带线路</strong>
+                    <p>如果你想把 IP 改成静态宽带，或者现在还没有稳定工具，可以加微信 <strong>adminytt</strong>，微信昵称是“23”。联系时说明要买“静态宽带”线路。</p>
+                    <p>他那边价格是 100 元一个月，支持多设备使用；参加我们活动的学员可以打 9 折，优惠后是 90 元一个月。电脑、手机、家人或关系近的员工可以共享，但共享人数多会影响速度，建议小范围使用。</p>
+                  </div>
+                  <div class="prep-callout">
+                    <strong>Windows、Mac 和 Android 安装方式</strong>
+                    <p>Windows、Mac 和 Android 可以直接下载对应版本的软件：<a href="https://gethiddify.com/hiddify-app/" target="_blank" rel="noreferrer">gethiddify.com/hiddify-app</a>。</p>
+                    <p>简单流程：找 <strong>adminytt</strong> 购买，获得一串配置链接；下载软件；复制配置链接；按教程导入；连接使用。</p>
+                  </div>
+                  <div class="prep-callout">
+                    <strong>关于普通梯子</strong>
+                    <p>如果你不想花这 90 元，也可以购买普通梯子。但我们暂时不做官方推荐，因为即使有些工具当前能用，也没人能保证未来长期稳定并持续提供售后。现场大家可以互相推荐，也可以在广场里提问。</p>
+                  </div>
+                </section>
+
+                <section class="prep-section">
+                  <h3>4. iPhone 是否需要配置，看你是否想用手机指挥电脑</h3>
+                  <p>手机端能实现的是发送指令，比如在 GPT 里发任务，然后让电脑继续运作。也就是说，当你没带电脑时，只要电脑没有关机，手机也可以指导电脑做事情。</p>
+                  <div class="prep-steps">
+                    <div class="prep-step"><div class="prep-step-num">01</div><div><strong>如果想手机和电脑联动</strong><span>手机上需要安装网络工具，也需要能下载 ChatGPT、Typeless、Wispr Flow 或 Whisper 这类 App。</span></div></div>
+                    <div class="prep-step"><div class="prep-step-num">02</div><div><strong>如果只在电脑上工作</strong><span>手机端配置可以先不管，只要电脑端网络和 Codex 能跑起来即可。</span></div></div>
+                    <div class="prep-step"><div class="prep-step-num">03</div><div><strong>iPhone 需要美区 Apple ID</strong><span>中国大陆地区 App Store 没有对应靠谱工具，建议切换美区账号。注册比较麻烦，可以直接购买。</span></div></div>
+                  </div>
+                  <div class="prep-link-list">
+                    <div class="prep-link-row">
+                      <div><strong>购买美区 Apple ID</strong><span>网站里有切换账号的详细图文教程。</span></div>
+                      <a href="https://accboyytbhsp.accountboy.com/zh-cn-cny/buy-apple-id" target="_blank" rel="noreferrer">打开教程</a>
+                    </div>
+                  </div>
+                  <div class="prep-app-grid">
+                    <figure class="prep-app-shot">
+                      <img src="./prep-assets/hiddify.jpg" alt="App Store 中的 Hiddify Proxy and VPN 截图" />
+                      <figcaption>Hiddify：免费工具，可以用于 iPhone 端网络配置。</figcaption>
+                    </figure>
+                    <figure class="prep-app-shot">
+                      <img src="./prep-assets/shadowrocket.jpg" alt="App Store 中的 Shadowrocket 截图" />
+                      <figcaption>Shadowrocket：付费工具，截图用于识别图标和名称。</figcaption>
+                    </figure>
+                    <figure class="prep-app-shot">
+                      <img src="./prep-assets/chatgpt.jpg" alt="App Store 中的 ChatGPT 截图" />
+                      <figcaption>ChatGPT：手机端发送任务和查看结果时会用到。</figcaption>
+                    </figure>
+                    <figure class="prep-app-shot">
+                      <img src="./prep-assets/typeless.jpg" alt="App Store 中的 Typeless AI 语音键盘截图" />
+                      <figcaption>Typeless：语音输入类工具，适合用口述布置任务。</figcaption>
+                    </figure>
+                    <figure class="prep-app-shot">
+                      <img src="./prep-assets/wispr-flow.jpg" alt="App Store 中的 Wispr Flow 截图" />
+                      <figcaption>Wispr Flow：语音转文字工具，适合高频口述。</figcaption>
+                    </figure>
+                  </div>
+                </section>
+
+                <section class="prep-section">
+                  <h3>5. 电脑端安装 Codex，并准备好付费账号</h3>
+                  <p>电脑端除了网络环境，第二件事就是安装 Codex 并准备付费账号。连接好网络后，用谷歌浏览器搜索 Codex，找到下载页面。看到的 Logo 大致如下方页面顶部所示。</p>
+                  <div class="prep-steps">
+                    <div class="prep-step"><div class="prep-step-num">01</div><div><strong>登录方式优先选 GPT 登录</strong><span>打开 Codex 后会提示使用 GPT 登录或 API 登录。建议注册 GPT 账号，因为直接使用 API 的成本较高，Codex 订阅包性价比更高。</span></div></div>
+                    <div class="prep-step"><div class="prep-step-num">02</div><div><strong>订阅额度按强度选择</strong><span>如果之前没有高强度使用 AI，可以先注册 $20 的 Plus 或 $100 的 Pro。额度用光后，再考虑升级到 $200 的 Pro。</span></div></div>
+                    <div class="prep-step"><div class="prep-step-num">03</div><div><strong>准备手机号与支付方式</strong><span>注册免费账号时可能要求绑定手机并接收验证码。+86 中国大陆和 +852 香港手机号目前无法接收，最好准备其他地区号码，尤其是美区号码。支付 $20、$100 或 $200 都需要海外信用卡，中国大陆和香港信用卡不可用。</span></div></div>
+                  </div>
+                  <div class="prep-callout warn">
+                    <strong>如果没有谷歌账号，建议直接买成品号</strong>
+                    <p>现在自己从零注册谷歌账号非常麻烦，容易卡在网络环境、手机号验证、地区风控和支付方式上。为了不把现场时间浪费在账号问题上，建议直接购买可用的成品号，买完后尽快修改密码，并保存好购买记录和售后入口。</p>
+                    <div class="prep-link-list">
+                      <div class="prep-link-row">
+                        <div><strong>账号星球（首推）</strong><span>多地区可选，美区账号更适合后续使用 Gemini 等能力。</span></div>
+                        <a href="https://accboyytbhsp.accountboy.com/" target="_blank" rel="noreferrer">打开链接</a>
+                      </div>
+                      <div class="prep-link-row">
+                        <div><strong>账号星球备用入口</strong><span>如果主入口打不开，可以尝试这个备用域名。</span></div>
+                        <a href="https://accboyytbhsp.acceboy.com/" target="_blank" rel="noreferrer">打开链接</a>
+                      </div>
+                      <div class="prep-link-row">
+                        <div><strong>环球巴士（备用 1）</strong><span>可作为账号购买的备用渠道。</span></div>
+                        <a href="https://universalbus.cn/?s=olLxMA23uH" target="_blank" rel="noreferrer">打开链接</a>
+                      </div>
+                      <div class="prep-link-row">
+                        <div><strong>银河录像局（备用 2）</strong><span>可作为账号购买的备用渠道。</span></div>
+                        <a href="https://nf.video/fLV6C" target="_blank" rel="noreferrer">打开链接</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="prep-link-list">
+                    <div class="prep-link-row">
+                      <div><strong>海外手机号</strong><span>愿意自己研究的同学可以尝试这个网站。</span></div>
+                      <a href="https://hero-sms.com/cn" target="_blank" rel="noreferrer">hero-sms.com</a>
+                    </div>
+                    <div class="prep-link-row">
+                      <div><strong>海外信用卡</strong><span>愿意自己研究的同学可以尝试这个网页。</span></div>
+                      <a href="https://www.bybit.com/en/sign-up" target="_blank" rel="noreferrer">bybit.com</a>
+                    </div>
+                  </div>
+                  <div class="prep-callout warn">
+                    <strong>如果嫌麻烦，可以找人代充 Codex</strong>
+                    <p>可以加微信 <strong>awakenob</strong>，头像是一个奥特曼。他收取的费用不算贵，例如 20 刀收 150 元，100 刀收 720 元，相当于只收一点手续费，但能省去大量研究时间。</p>
+                    <div class="prep-price-row">
+                      <div class="prep-price"><strong>20 刀 Plus</strong><span>首次登录仍有概率要求绑定海外手机号。</span></div>
+                      <div class="prep-price"><strong>100 刀 Pro</strong><span>如果不想遇到手机号问题，更建议直接选这个。</span></div>
+                      <div class="prep-price"><strong>升级限制</strong><span>从他那边买 20 刀账号后，不能直接升级为 100 刀 Plus。</span></div>
+                    </div>
+                    <p>如果后续想升级，要么重新购买新账号，要么在原账号上自行搞定海外信用卡充值。请了解这些前提后再购买。</p>
+                  </div>
+                </section>
+
+                <section class="prep-section">
+                  <h3>最后确认</h3>
+                  <p>我们只是为大家提供相对靠谱的信息源头，所有工具推荐都与我们没有利益相关。建议大家提前把工具准备到位，这样现场就能有充足时间开发自己的工具、训练自己的数字员工，并提出更高质量的问题。</p>
+                  <div class="prep-callout">
+                    <strong>实在搞不定怎么办？</strong>
+                    <p>也没有关系。把电脑带到线下来，我们会帮你把工具搞定、环境配好。</p>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+          <aside class="side-panel">
+            <h3>建议完成顺序</h3>
+            <p>先把最低可用环境跑通，再去追求更好的账号和更稳定的线路。</p>
+            <div class="prep-side-list">
+              <div><strong>1. 电脑</strong><span>优先 MacBook，且必须能安装外部软件。</span></div>
+              <div><strong>2. 网络</strong><span>打开 ping0.cc，尽量避免“机场 IP”。</span></div>
+              <div><strong>3. Codex</strong><span>安装桌面端，用 GPT 登录并准备订阅。</span></div>
+              <div><strong>4. 手机</strong><span>只有想用 iPhone 指挥电脑时，才需要完整配置。</span></div>
+            </div>
+            <a class="btn btn-ghost btn-wide" href="https://ping0.cc/" target="_blank" rel="noreferrer"><span>检查 IP 类型</span><i data-lucide="external-link"></i></a>
+            <br /><br />
+            <p>准备完电脑环境后，建议马上填写“数字员工设想”，现场更容易进入实操。</p>
+            <a class="btn btn-primary btn-wide" href="https://mindsleap.cn/event/ai-employee/#task=idea"><span>填写设想</span><i data-lucide="arrow-right"></i></a>
+          </aside>
+        </div>
+      `;
+    }
+
+    function renderFormPage(id, task) {
+      const savedPayload = latestPayload(task.plaza);
+      pastedImagesByField = clonePastedImages(savedPayload);
+      main.innerHTML = `
+        <div class="page-head">
+          <div>
+            <h1>${task.title}</h1>
+            <p>${task.date}。提交后会进入对应广场 Tab，其他伙伴可以点赞、评论和转发。</p>
+          </div>
+          <a class="btn btn-ghost" href="#home"><i data-lucide="arrow-left"></i><span>回到首页</span></a>
+        </div>
+        <div class="detail-layout">
+          <section class="content-panel">
+            <div class="content-inner">
+              <form class="demo-form" data-submit-type="${task.plaza}">
+                ${formFields(id)}
+                <div class="form-actions">
+                  <button class="btn btn-primary" type="submit"><span>提交并进入广场</span><i data-lucide="send"></i></button>
+                  <button class="btn" type="button" data-save-draft="${task.plaza}"><span>保存草稿</span><i data-lucide="save"></i></button>
+                </div>
+              </form>
+            </div>
+          </section>
+          <aside class="side-panel">
+            <h3>提交说明</h3>
+            <p>提交后会出现在对应广场 Tab 中，方便其他伙伴查看、点赞和评论。</p>
+            <a class="btn btn-ghost btn-wide" href="#plaza=${task.plaza}"><span>先看广场</span><i data-lucide="messages-square"></i></a>
+          </aside>
+        </div>
+      `;
+      Object.keys(pastedImagesByField).forEach(renderPastedImages);
+    }
+
+    function clonePastedImages(payload) {
+      return Object.fromEntries(
+        Object.entries(payload?.pastedImages || {})
+          .map(([field, images]) => [
+            field,
+            (Array.isArray(images) ? images : [])
+              .filter((image) => image?.dataUrl || image?.url)
+              .map((image) => ({ ...image, dataUrl: image.dataUrl || image.url }))
+          ])
+          .filter(([, images]) => images.length)
+      );
+    }
+
+    function payloadTimestamp(value) {
+      if (!value) return 0;
+      if (typeof value === "number") return value;
+      return new Date(value).getTime() || 0;
+    }
+
+    function formatShanghaiTimestamp(value) {
+      const timestamp = payloadTimestamp(value);
+      if (!timestamp) return "";
+      const date = new Date(timestamp);
+      const parts = Object.fromEntries(
+        new Intl.DateTimeFormat("zh-CN", {
+          timeZone: "Asia/Shanghai",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false
+        }).formatToParts(date).map((part) => [part.type, part.value])
+      );
+      const currentYear = new Intl.DateTimeFormat("en", {
+        timeZone: "Asia/Shanghai",
+        year: "numeric"
+      }).format(new Date());
+      const dateText = `${Number(parts.month)}月${Number(parts.day)}日 ${parts.hour}:${parts.minute}`;
+      return parts.year === currentYear ? dateText : `${parts.year}年${dateText}`;
+    }
+
+    function postTimeText(post) {
+      const realTime = post.submittedAt || post.updatedAt || post.createdAt;
+      return formatShanghaiTimestamp(realTime);
+    }
+
+    function isOwnSubmission(item) {
+      if (!item) return false;
+      if (item.mine) return true;
+      const currentPhone = normalizePhone(state.user?.phone || "");
+      const itemPhone = normalizePhone(item.phone || item.userPhone || "");
+      return Boolean(currentPhone && itemPhone && currentPhone === itemPhone);
+    }
+
+    function hasOwnSubmission(type) {
+      return state.submissions.some((item) => item.type === type && isOwnSubmission(item));
+    }
+
+    function meaningfulPayload(payload) {
+      return Object.fromEntries(
+        Object.entries(payload || {}).filter(([, value]) => {
+          if (Array.isArray(value)) return value.length;
+          if (value && typeof value === "object") return Object.keys(value).length;
+          return String(value || "").trim();
+        })
+      );
+    }
+
+    function latestPayload(type) {
+      const found = [...state.submissions]
+        .filter((item) => item.type === type && item.raw && isOwnSubmission(item))
+        .sort((a, b) => b.createdAt - a.createdAt)[0];
+      const draft = state.drafts[type];
+      const draftTime = payloadTimestamp(draft?.updatedAt || draft?.createdAt);
+      const submissionTime = payloadTimestamp(found?.updatedAt || found?.submittedAt || found?.createdAt);
+      const draftRaw = meaningfulPayload(draft?.raw);
+      if (Object.keys(draftRaw).length && (!found || draftTime >= submissionTime)) {
+        return { ...(found?.raw || {}), ...draftRaw };
+      }
+      return found?.raw || draft?.raw || {};
+    }
+
+    function formFields(id) {
+      if (id === "idea") {
+        const values = latestPayload("idea");
+        return `
+          <div class="form-grid">
+            ${inputField("company", "公司名", "例如：MindsLeap 心智悦动", "", values.company, true)}
+            ${inputField("job", "职位", "例如：创始人 / 市场负责人 / 投资负责人", "", values.job, true)}
+            ${textareaField("pain", "目前公司或该职位上看到的 1-3 个最大痛点", "请尽量写真实、具体的卡点。", "span-2 field-tall", values.pain, true)}
+            ${inputField("singleAgentName", "希望创建的第一个数字员工是什么？", "例如：销售跟进数字员工", "span-2", values.singleAgentName, true)}
+            ${textareaField("singleAgentDescription", "该数字员工具体负责的工作是什么？", "描述这个数字员工要解决什么问题、输入是什么、输出是什么。", "span-2 field-tall", values.singleAgentDescription, true)}
+            ${inputField("multiAgentProjectName", "希望创建的数字员工团队是什么？", "例如：内容增长数字员工团队", "span-2", values.multiAgentProjectName, true)}
+            ${textareaField("multiAgentDescription", "该数字员工团队整体负责的工作是什么？", "描述多个数字员工如何协作、覆盖哪条业务链路、最终交付什么结果。", "span-2 field-tall", values.multiAgentDescription, true)}
+          </div>
+        `;
+      }
+
+      if (id === "mini") {
+        const values = latestPayload("mini");
+        return `
+          <div class="form-grid">
+            ${inputField("role", "数字员工岗位名", "例如：销售跟进助手", "", values.role, true)}
+            ${textareaField("scenario", "它解决的具体业务场景", "这个数字员工在什么情况下被使用？请尽量写清楚业务输入、使用对象和输出结果。可以直接粘贴图片。", "span-2 field-xl", values.scenario, true)}
+            ${textareaField("capability", "它已经具备的关键能力", "把已经跑通的关键能力都写上来，不限制条数。可以直接粘贴图片。", "span-2 field-xl", values.capability, true)}
+            ${inputField("liveLink", "已发布项目链接（可选）", "如果已上线，可以粘贴 Vercel、飞书、网页或其他可访问链接", "span-2", values.liveLink)}
+          </div>
+        `;
+      }
+
+      if (id === "profile") {
+        const ideaDefaults = latestPayload("idea");
+        const profileDefaults = { ...ideaDefaults, ...latestPayload("profile") };
+        return `
+          <div class="form-grid">
+            ${inputField("company", "公司名", "例如：MindsLeap 心智悦动", "", profileDefaults.company, true)}
+            ${inputField("job", "职位", "例如：创始人 / 市场负责人 / 投资负责人", "", profileDefaults.job, true)}
+            ${inputField("oneLineIntro", "个人一句话介绍", "例如：我正在用 AI 重做企业内容生产系统", "span-2", profileDefaults.oneLineIntro, true)}
+            ${textareaField("bio", "个人介绍", "建议用语音输入法填写。可以写过往经历、擅长领域、正在关注的问题，以及这次希望大家如何认识你。", "span-2 field-tall", profileDefaults.bio, true)}
+            ${textareaField("companyIntro", "企业介绍", "建议用语音输入法填写。可以写公司做什么、服务谁、发展阶段、核心产品和现在最重要的业务目标。", "span-2 field-tall", profileDefaults.companyIntro, true)}
+          </div>
+        `;
+      }
+
+      if (id === "review") {
+        const values = latestPayload("review");
+        const npsValue = String(values.nps || "9");
+        const interests = Array.isArray(values.interest) ? values.interest : values.interest ? [values.interest] : [];
+        return `
+          <div class="form-grid">
+            ${textareaField("gain", "本次实战营有什么收获", "建议用语音输入法填写。可以写认知改变、现场作品、具体方法，或者回去后已经想立刻尝试的动作。", "span-2 field-tall", values.gain, true)}
+            ${inputField("keyTakeaway", "实战营中最大的收获是什么", "请用一句话描述", "span-2", values.keyTakeaway, true)}
+            ${textareaField("change", "回去后最想立刻改变的一件事", "越具体越好。", "span-2", values.change, true)}
+            <div class="field span-2">
+              <label>推荐意愿：有多大概率会向朋友推荐我们的项目？</label>
+              <div class="nps-row">
+                ${Array.from({ length: 11 }, (_, index) => `
+                  <span>
+                    <input id="nps-${index}" name="nps" type="radio" value="${index}" ${String(index) === npsValue ? "checked" : ""} />
+                    <label for="nps-${index}">${index}</label>
+                  </span>
+                `).join("")}
+              </div>
+              <div class="hint">0 表示完全不会推荐，10 表示非常愿意推荐。</div>
+            </div>
+            ${textareaField("suggestion", "对项目有什么改进建议？", "课程节奏、工具准备、现场支持、会后陪跑都可以写。", "span-2", values.suggestion, true)}
+            <div class="field span-2">
+              <label>对哪些产品感兴趣？</label>
+              <div class="checkbox-grid">
+                <label class="choice"><input type="checkbox" name="interest" value="企业家 AI 俱乐部" ${interests.includes("企业家 AI 俱乐部") ? "checked" : ""} />企业家 AI 俱乐部</label>
+                <label class="choice"><input type="checkbox" name="interest" value="入企轻咨询" ${interests.includes("入企轻咨询") ? "checked" : ""} />入企轻咨询</label>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      const values = latestPayload("team");
+      return `
+        <div class="form-grid">
+          ${inputField("teamRoleName", "多数字员工岗位名", "例如：内容增长数字员工团队", "span-2", values.teamRoleName || "", true)}
+          ${textareaField("workflow", "它覆盖的业务链路", "写清楚它解决了什么业务问题、从输入到输出的完整链路，以及每个数字员工和团队成员分别负责什么。可以直接粘贴图片。", "span-2 field-xl", values.workflow, true)}
+          ${textareaField("members", "数字员工和团队成员的分工", "例如：选题员工、资料员工、脚本员工、复盘员工，以及真人团队成员分别怎么协作。可以直接粘贴图片。", "span-2 field-tall", values.members, true)}
+          ${textareaField("progress", "目前的进展", "写清楚当前已经完成什么、还差什么、下一步准备怎么推进。可以直接粘贴图片。", "span-2 field-xl", values.progress, true)}
+          ${inputField("liveLink", "已发布项目链接（可选）", "如果已上线，可以粘贴 Vercel、飞书、网页或其他可访问链接", "span-2", values.liveLink || "")}
+        </div>
+      `;
+    }
+
+    function requiredMark(required) {
+      return required ? `<span class="required-mark">*</span>` : "";
+    }
+
+    function inputField(name, label, placeholder, extraClass = "", value = "", required = false) {
+      return `
+        <div class="field ${extraClass}">
+          <label for="${name}">${label}${requiredMark(required)}</label>
+          <input class="input" id="${name}" name="${name}" type="text" placeholder="${placeholder}" value="${escapeHtml(value)}" ${required ? "required" : ""} />
+        </div>
+      `;
+    }
+
+    function textareaField(name, label, placeholder, extraClass = "", value = "", required = false) {
+      return `
+        <div class="field ${extraClass}">
+          <label for="${name}">${label}${requiredMark(required)}</label>
+          <textarea class="textarea" id="${name}" name="${name}" placeholder="${placeholder}" data-paste-image-field="${name}" ${required ? "required" : ""}>${escapeHtml(value)}</textarea>
+          <div class="pasted-images" data-pasted-images="${name}"></div>
+        </div>
+      `;
+    }
+
+    function fileField(name, label, hint, extraClass = "") {
+      return `
+        <div class="field ${extraClass}">
+          <label for="${name}">${label}</label>
+          <div class="image-file-field">
+            <input class="file-input" id="${name}" name="${name}" type="file" accept="image/png,image/jpeg,image/webp,image/gif" />
+          </div>
+          <div class="hint">${hint}</div>
+        </div>
+      `;
+    }
+
+    function selectField(name, label, options) {
+      return `
+        <div class="field">
+          <label for="${name}">${label}</label>
+          <select class="select" id="${name}" name="${name}">
+            ${options.map((item) => `<option value="${item}">${item}</option>`).join("")}
+          </select>
+        </div>
+      `;
+    }
+
+    function renderPlaza(tabId = "idea") {
+      const activeTab = plazaTabs.some((tab) => tab.id === tabId) ? tabId : "idea";
+      activeNav("plaza");
+      const posts = getPosts(activeTab);
+      main.innerHTML = `
+        <div class="page-head">
+          <div>
+            <h1>项目广场</h1>
+            <p>查看伙伴们的项目设想、现场作品、个人介绍、复盘和会后多数字员工项目。这里可以点赞、评论，也可以生成适合发到微信的摘要。</p>
+          </div>
+          ${progressPanelHtml("plaza-progress-mobile")}
+          <a class="btn btn-primary" href="#task=${taskIdByPlaza(activeTab)}"><span>提交我的项目</span><i data-lucide="plus"></i></a>
+        </div>
+        <div class="plaza-toolbar">
+          <div class="tabs" role="tablist" aria-label="广场分类">
+            ${plazaTabs.map((tab) => `<button class="tab ${tab.id === activeTab ? "active" : ""}" type="button" data-plaza-tab="${tab.id}">${tab.label}</button>`).join("")}
+          </div>
+          <div class="toolbar-actions">
+            <span class="status-pill">最新提交在最上面</span>
+          </div>
+        </div>
+        <div class="plaza-grid">
+          <section class="feed">
+            ${posts.length ? posts.map((post) => postHtml(post, activeTab)).join("") : emptyPostHtml(activeTab)}
+          </section>
+          <aside class="plaza-side">
+            <div class="mini-panel">
+              <h3>广场规则</h3>
+              <ul>
+                <li>默认公开给本次活动参与者。</li>
+                <li>点赞用于表达兴趣，评论用于留下建议和连接线索。</li>
+                <li>单个项目可复制链接转发，广场内容需登录后查看。</li>
+              </ul>
+            </div>
+            ${progressPanelHtml("progress-panel")}
+          </aside>
+        </div>
+      `;
+    }
+
+    function progressPanelHtml(extraClass = "") {
+      return `
+        <div class="mini-panel ${extraClass}">
+          <h3>提交进度</h3>
+          <div class="submitted-list">
+            ${plazaTabs.map((tab) => {
+              const has = hasOwnSubmission(tab.id);
+              return `<div class="submitted-row"><span>${tab.label}</span>${submitStateHtml(has)}</div>`;
+            }).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function submitStateHtml(hasSubmitted) {
+      return hasSubmitted
+        ? `<span class="submit-state done"><span class="state-dot"></span><span>已提交</span></span>`
+        : `<span class="submit-state missing"><span class="state-dot"></span><span>未提交</span></span>`;
+    }
+
+    function taskIdByPlaza(type) {
+      return Object.keys(taskDefs).find((id) => taskDefs[id].plaza === type) || "idea";
+    }
+
+    function getPosts(type) {
+      const userPosts = state.submissions
+        .filter((item) => item.type === type)
+        .sort((a, b) => b.createdAt - a.createdAt);
+      if (usesBackendAuth()) return userPosts;
+      return [...userPosts, ...(samplePosts[type] || [])];
+    }
+
+    function displayPostAffiliation(post) {
+      return post.profile?.company || post.raw?.company || post.role || "";
+    }
+
+    function postHtml(post, type) {
+      const liked = Boolean(state.liked[post.id]);
+      const addedComments = state.comments[post.id] || [];
+      const comments = [...(post.comments || []), ...addedComments];
+      const postTime = postTimeText(post);
+      const avatar = post.avatar
+        ? `<img src="${escapeHtml(mediaUrl(post.avatar))}" alt="${escapeHtml(post.author)}头像" />`
+        : firstChar(post.author);
+      return `
+        <article class="post" data-post-id="${post.id}" data-post-type="${type}" data-open-post="${post.id}">
+          <header class="post-head">
+            <div class="author">
+              <div class="author-avatar">${avatar}</div>
+              <div>
+                <strong>${escapeHtml(post.author)}</strong>
+                ${displayPostAffiliation(post) ? `<span>${escapeHtml(displayPostAffiliation(post))}</span>` : ""}
+              </div>
+            </div>
+            ${postTime ? `<div class="post-time">${escapeHtml(postTime)}</div>` : ""}
+          </header>
+          <div class="post-body">
+            <h3>${escapeHtml(post.title)}</h3>
+          </div>
+          <div class="post-actions">
+            <button class="icon-btn ${liked ? "liked" : ""}" type="button" data-like="${post.id}">
+              <i data-lucide="thumbs-up"></i><span>${likeCount(post)}</span>
+            </button>
+            <button class="icon-btn" type="button" data-comment="${post.id}">
+              <i data-lucide="message-circle"></i><span>评论 ${comments.length}</span>
+            </button>
+            <button class="icon-btn" type="button" data-share="${post.id}">
+              <i data-lucide="share-2"></i><span>转发</span>
+            </button>
+          </div>
+        </article>
+      `;
+    }
+
+    function emptyPostHtml(type) {
+      return `
+        <div class="empty-state">
+          <div>
+            <strong>这个 Tab 还没有提交</strong>
+            <span>你可以先提交一份${plazaTabs.find((tab) => tab.id === type)?.label || "内容"}，它会立刻出现在这里。</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function postTypeLabel(type) {
+      return plazaTabs.find((tab) => tab.id === type)?.label || "项目";
+    }
+
+    function projectLinkHtml(raw) {
+      const link = raw?.liveLink || "";
+      if (!link) return "";
+      return `<a class="post-project-link" href="${escapeHtml(link)}" target="_blank" rel="noreferrer">打开已发布项目链接</a>`;
+    }
+
+    function attachmentHtml(raw) {
+      const fieldMap = {
+        scenario: "业务场景",
+        capability: "关键能力",
+        workflow: "业务链路",
+        members: "分工",
+        progress: "目前进展",
+        singleAgentDescription: "该数字员工具体负责的工作是什么？",
+        multiAgentDescription: "该数字员工团队整体负责的工作是什么？",
+        gain: "实战营收获",
+        bio: "个人介绍",
+        companyIntro: "企业介绍"
+      };
+      const figures = [];
+      const legacyImage = raw?.screenshot;
+      if (legacyImage?.dataUrl) {
+        figures.push({
+          src: legacyImage.dataUrl,
+          alt: legacyImage.name || "项目截图",
+          caption: legacyImage.name || "本地项目截图"
+        });
+      }
+      Object.entries(raw?.pastedImages || {}).forEach(([field, images]) => {
+        (Array.isArray(images) ? images : []).forEach((image, index) => {
+          if (!image?.dataUrl) return;
+          figures.push({
+            src: image.dataUrl,
+            alt: image.name || `${fieldMap[field] || field}贴图`,
+            caption: `${fieldMap[field] || field}贴图 ${index + 1}`
+          });
+        });
+      });
+      if (!figures.length) return "";
+      return `
+        <div class="post-attachments">
+          ${figures.map((image) => `
+            <figure class="post-attachment">
+              <img src="${escapeHtml(mediaUrl(image.src))}" alt="${escapeHtml(image.alt)}" />
+              <figcaption>${escapeHtml(image.caption)}</figcaption>
+            </figure>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function detailValueHtml(value) {
+      if (Array.isArray(value)) return escapeHtml(value.join("、"));
+      if (value && typeof value === "object") return escapeHtml(value.name || "");
+      return escapeHtml(value);
+    }
+
+    function detailRows(post) {
+      const raw = post.raw || {};
+      const labelMap = {
+        company: "公司名",
+        job: "职位",
+        pain: "痛点",
+        role: "数字员工岗位名",
+        scenario: "业务场景",
+        capability: "关键能力",
+        liveLink: "已发布项目链接",
+        screenshot: "本地截图",
+        help: "需要的帮助",
+        bio: "个人介绍",
+        companyIntro: "企业介绍",
+        gain: "实战坊收获",
+        change: "想改变的事",
+        nps: "NPS",
+        suggestion: "改进建议",
+        interest: "产品意向",
+        owner: "负责人",
+        workflow: "业务链路",
+        members: "数字员工和团队成员的分工",
+        progress: "目前进展",
+        singleAgentName: "希望创建的第一个数字员工是什么？",
+        multiAgentProjectName: "希望创建的数字员工团队是什么？",
+        singleAgentDescription: "该数字员工具体负责的工作是什么？",
+        multiAgentDescription: "该数字员工团队整体负责的工作是什么？",
+        oneLineIntro: "个人一句话介绍",
+        keyTakeaway: "实战营中最大的收获",
+        teamRoleName: "多数字员工岗位名",
+        pastedImages: "贴图"
+      };
+      const entries = Object.entries(raw).filter(([key, value]) => {
+        if (key === "screenshot") return false;
+        if (key === "pastedImages") return false;
+        if (key === "headcount" || key === "revenue") return false;
+        if (Array.isArray(value)) return value.length;
+        if (value && typeof value === "object") return Boolean(value.name);
+        return String(value || "").trim();
+      });
+      if (!entries.length) {
+        return `<div class="detail-row"><strong>项目内容</strong><span>${escapeHtml(post.body)}</span></div>`;
+      }
+      return entries.map(([key, value]) => {
+        return `<div class="detail-row"><strong>${escapeHtml(labelMap[key] || key)}</strong><span>${detailValueHtml(value)}</span></div>`;
+      }).join("");
+    }
+
+    function authorProfileForPost(post) {
+      if (post.profile) return post.profile;
+      const candidates = state.submissions
+        .filter((item) => item.type === "profile" && item.raw)
+        .filter((item) => {
+          if (post.phone && item.phone) return normalizePhone(post.phone) === normalizePhone(item.phone);
+          return item.author && post.author && item.author === post.author;
+        })
+        .sort((a, b) => payloadTimestamp(b.updatedAt || b.submittedAt || b.createdAt) - payloadTimestamp(a.updatedAt || a.submittedAt || a.createdAt));
+      const raw = candidates[0]?.raw || {};
+      return {
+        company: raw.company || "",
+        job: raw.job || "",
+        oneLineIntro: raw.oneLineIntro || "",
+        bio: raw.bio || "",
+        companyIntro: raw.companyIntro || ""
+      };
+    }
+
+    function modalHtml(post, type) {
+      const addedComments = state.comments[post.id] || [];
+      const comments = [...(post.comments || []), ...addedComments];
+      const likedPeople = likePeople(post);
+      const liked = Boolean(state.liked[post.id] || post.currentUserLiked);
+      const avatar = post.avatar
+        ? `<img src="${escapeHtml(mediaUrl(post.avatar))}" alt="${escapeHtml(post.author)}头像" />`
+        : firstChar(post.author);
+      const authorProfile = authorProfileForPost(post);
+      const company = authorProfile.company || post.raw?.company || post.role || "活动参与者";
+      const job = authorProfile.job || post.raw?.job || post.position || "活动参与者";
+      const personalIntro = authorProfile.bio || post.raw?.bio || "";
+      const companyIntro = authorProfile.companyIntro || post.raw?.companyIntro || "";
+      return `
+        <div class="modal-backdrop open" data-modal-backdrop>
+          <article class="project-modal" role="dialog" aria-modal="true" aria-label="${escapeHtml(post.title)}">
+            <aside class="modal-profile">
+              <div class="modal-avatar">${avatar}</div>
+              <h3>${escapeHtml(post.author)}</h3>
+              <p>${escapeHtml(company)}</p>
+              <div class="profile-meta">
+                <div><strong>职位</strong><span>${escapeHtml(job)}</span></div>
+                ${personalIntro ? `<div><strong>个人介绍</strong><span>${escapeHtml(personalIntro)}</span></div>` : ""}
+                ${companyIntro ? `<div><strong>企业介绍</strong><span>${escapeHtml(companyIntro)}</span></div>` : ""}
+              </div>
+            </aside>
+            <section class="modal-content">
+              <div class="modal-top">
+                <div>
+                  <h2>${escapeHtml(post.title)}</h2>
+                </div>
+                <button class="modal-close" type="button" data-close-modal aria-label="关闭"><i data-lucide="x"></i></button>
+              </div>
+              <div class="modal-section">
+                <h4>项目内容</h4>
+                ${projectLinkHtml(post.raw)}
+                ${attachmentHtml(post.raw)}
+                <div class="detail-list">${detailRows(post)}</div>
+              </div>
+              <div class="modal-section">
+                <div class="modal-section-title">
+                  <h4>点赞 ${likeCount(post)} 人</h4>
+                  <button class="icon-btn ${liked ? "liked" : ""}" type="button" data-like="${post.id}">
+                    <i data-lucide="thumbs-up"></i><span>${liked ? "已点赞" : "点赞"}</span>
+                  </button>
+                </div>
+                <div class="like-people">
+                  ${likedPeople.length ? likedPeople.map((person) => likePersonHtml(person)).join("") : `<div class="comment">还没有点赞，先表达一下兴趣。</div>`}
+                </div>
+              </div>
+              <div class="modal-section">
+                <h4>评论</h4>
+                <div class="comment-list">
+                  ${comments.length ? comments.map((comment) => commentHtml(comment)).join("") : `<div class="comment">还没有评论，先留下一句建议。</div>`}
+                </div>
+                <div class="modal-comment-form">
+                  <textarea class="textarea" data-comment-input="${post.id}" placeholder="写一句建议、资源或想进一步交流的问题"></textarea>
+                  <button class="btn btn-primary" type="button" data-comment-submit="${post.id}"><span>发送评论</span><i data-lucide="send"></i></button>
+                </div>
+              </div>
+              <div class="modal-section">
+                <button class="btn btn-plaza" type="button" data-share="${post.id}"><span>复制项目链接</span><i data-lucide="share-2"></i></button>
+              </div>
+            </section>
+          </article>
+        </div>
+      `;
+    }
+
+    function publicProjectHtml(post) {
+      if (!post) {
+        return `
+          <section class="public-page">
+            <div class="public-empty">
+              <div>
+                <h1>项目不存在</h1>
+                <p>${escapeHtml(state.publicError || "这个项目链接可能已经失效。")}</p>
+                <a class="btn btn-primary" href="${appBaseUrl()}#home"><span>登录进入工作台</span><i data-lucide="log-in"></i></a>
+              </div>
+            </div>
+          </section>
+        `;
+      }
+      const comments = post.comments || [];
+      const likedPeople = likePeople(post);
+      const liked = Boolean(state.liked[post.id] || post.currentUserLiked);
+      const canInteract = Boolean(state.user && usesBackendAuth());
+      const avatar = post.avatar
+        ? `<img src="${escapeHtml(mediaUrl(post.avatar))}" alt="${escapeHtml(post.author)}头像" />`
+        : firstChar(post.author);
+      const authorProfile = authorProfileForPost(post);
+      const company = authorProfile.company || post.raw?.company || post.role || "";
+      const job = authorProfile.job || post.raw?.job || post.position || "";
+      const personalIntro = authorProfile.bio || post.raw?.bio || "";
+      const companyIntro = authorProfile.companyIntro || post.raw?.companyIntro || "";
+      const plazaHref = `${appBaseUrl()}#plaza=${post.type || "idea"}`;
+      return `
+        <section class="public-page">
+          <div class="public-topline">
+            <a class="public-brand" href="${appBaseUrl()}#home" aria-label="MindsLeap">
+              <img src="${assetUrl("platform-assets/mindsleap-logo-blue.png")}" alt="MindsLeap" />
+            </a>
+            <a class="btn btn-plaza" href="${plazaHref}">
+              <span>${state.user ? "进入项目广场" : "登录后进入工作台"}</span><i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+          <article class="public-project-card">
+            <aside class="modal-profile">
+              <div class="modal-avatar">${avatar}</div>
+              <h3>${escapeHtml(post.author)}</h3>
+              ${company ? `<p>${escapeHtml(company)}</p>` : ""}
+              <div class="profile-meta">
+                ${job ? `<div><strong>职位</strong><span>${escapeHtml(job)}</span></div>` : ""}
+                ${personalIntro ? `<div><strong>个人介绍</strong><span>${escapeHtml(personalIntro)}</span></div>` : ""}
+                ${companyIntro ? `<div><strong>企业介绍</strong><span>${escapeHtml(companyIntro)}</span></div>` : ""}
+              </div>
+            </aside>
+            <section class="public-content">
+              <h1 class="public-title">${escapeHtml(post.title)}</h1>
+              <p class="public-subline">${escapeHtml(postTimeText(post) || "单项目分享页")}</p>
+              <div class="modal-section">
+                <h4>项目内容</h4>
+                ${projectLinkHtml(post.raw)}
+                ${attachmentHtml(post.raw)}
+                <div class="detail-list">${detailRows(post)}</div>
+              </div>
+              <div class="modal-section">
+                <div class="modal-section-title">
+                  <h4>点赞 ${likeCount(post)} 人</h4>
+                  ${canInteract ? `
+                    <button class="icon-btn ${liked ? "liked" : ""}" type="button" data-like="${post.id}">
+                      <i data-lucide="thumbs-up"></i><span>${liked ? "已点赞" : "点赞"}</span>
+                    </button>
+                  ` : ""}
+                </div>
+                <div class="like-people">
+                  ${likedPeople.length ? likedPeople.map((person) => likePersonHtml(person)).join("") : `<div class="comment">还没有点赞。</div>`}
+                </div>
+                ${canInteract ? "" : `<div class="public-login-note">登录后可以点赞、评论或进入项目广场；未登录只能查看当前项目。</div>`}
+              </div>
+              <div class="modal-section">
+                <h4>评论</h4>
+                <div class="comment-list">
+                  ${comments.length ? comments.map((comment) => commentHtml(comment)).join("") : `<div class="comment">还没有评论。</div>`}
+                </div>
+                ${canInteract ? `
+                  <div class="modal-comment-form">
+                    <textarea class="textarea" data-comment-input="${post.id}" placeholder="写一句建议、资源或想进一步交流的问题"></textarea>
+                    <button class="btn btn-primary" type="button" data-comment-submit="${post.id}"><span>发送评论</span><i data-lucide="send"></i></button>
+                  </div>
+                ` : ""}
+              </div>
+              <div class="modal-section">
+                <button class="btn btn-plaza" type="button" data-share="${post.id}"><span>复制项目链接</span><i data-lucide="share-2"></i></button>
+              </div>
+            </section>
+          </article>
+        </section>
+      `;
+    }
+
+    function renderPublicProject() {
+      document.body.classList.add("public-project-route");
+      loginView.classList.add("hidden");
+      appView.classList.remove("hidden");
+      main.innerHTML = publicProjectHtml(state.publicPost);
+      iconRefresh();
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+
+    function closeProjectModal() {
+      document.querySelector("[data-modal-backdrop]")?.remove();
+    }
+
+    function openProjectModal(id, typeHint = "") {
+      closeProjectModal();
+      const post = findPost(id);
+      if (!post) return;
+      const type = typeHint || post.type || plazaTabs.find((tab) => getPosts(tab.id).some((item) => item.id === id))?.id || "idea";
+      main.insertAdjacentHTML("beforeend", modalHtml(post, type));
+      iconRefresh();
+    }
+
+    function addPayloadValue(payload, key, value) {
+      if (payload[key]) {
+        payload[key] = Array.isArray(payload[key]) ? [...payload[key], value] : [payload[key], value];
+      } else {
+        payload[key] = value;
+      }
+    }
+
+    function fileToDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderPastedImages(field) {
+      const holder = document.querySelector(`[data-pasted-images="${field}"]`);
+      if (!holder) return;
+      const images = pastedImagesByField[field] || [];
+      holder.innerHTML = images.map((image) => `
+        <figure class="pasted-image">
+          <img src="${escapeHtml(mediaUrl(image.dataUrl))}" alt="${escapeHtml(image.name)}" />
+          <span>${escapeHtml(image.name)}</span>
+        </figure>
+      `).join("");
+    }
+
+    async function handleTextareaImagePaste(event) {
+      const textarea = event.target.closest("[data-paste-image-field]");
+      if (!textarea) return;
+      const imageItems = Array.from(event.clipboardData?.items || [])
+        .filter((item) => item.kind === "file")
+        .map((item) => item.getAsFile())
+        .filter((file) => file && file.type.startsWith("image/"));
+      if (!imageItems.length) return;
+      event.preventDefault();
+      const field = textarea.dataset.pasteImageField;
+      pastedImagesByField[field] = pastedImagesByField[field] || [];
+      for (const file of imageItems) {
+        const dataUrl = await fileToDataUrl(file);
+        pastedImagesByField[field].push({
+          name: file.name || `粘贴图片 ${pastedImagesByField[field].length + 1}`,
+          type: file.type,
+          size: file.size,
+          dataUrl
+        });
+      }
+      renderPastedImages(field);
+      showToast("图片已粘贴到当前输入框");
+    }
+
+    async function collectForm(form) {
+      const data = new FormData(form);
+      const payload = {};
+      for (const [key, value] of data.entries()) {
+        if (value instanceof File) {
+          if (!value.name || value.size === 0) continue;
+          const dataUrl = await fileToDataUrl(value);
+          addPayloadValue(payload, key, {
+            name: value.name,
+            type: value.type,
+            size: value.size,
+            dataUrl
+          });
+          continue;
+        }
+        addPayloadValue(payload, key, value);
+      }
+      const pastedImages = Object.fromEntries(
+        Object.entries(pastedImagesByField).filter(([, images]) => Array.isArray(images) && images.length)
+      );
+      if (Object.keys(pastedImages).length) {
+        payload.pastedImages = pastedImages;
+      }
+      return payload;
+    }
+
+    function summaryFromPayload(type, payload) {
+      const titleMap = {
+        idea: `${payload.singleAgentName || "单数字员工"} | ${payload.multiAgentProjectName || "多数字员工项目"}`,
+        mini: payload.role || "我的单数字员工项目",
+        profile: payload.oneLineIntro || "我的个人介绍",
+        review: payload.keyTakeaway || "我的会议收获复盘",
+        team: payload.teamRoleName || "我的多数字员工项目"
+      };
+      const bodyMap = {
+        idea: payload.singleAgentDescription || payload.multiAgentDescription || payload.pain || "我想先从一个真实业务卡点出发，设计第一个数字员工。",
+        mini: payload.scenario || payload.capability || "现场完成了一个可继续迭代的单数字员工项目。",
+        profile: payload.bio || payload.companyIntro || "更新了现场交流用的个人与企业介绍。",
+        review: payload.gain || payload.change || payload.suggestion || "完成了复盘与 NPS 调研。",
+        team: payload.workflow || payload.progress || "正在推进一个由多个数字员工组成的业务系统。"
+      };
+      const tagsMap = {
+        idea: [payload.company, payload.job, "设想"],
+        mini: [payload.role, payload.liveLink ? "已上线" : "单数字员工"],
+        profile: [payload.company, payload.job, "介绍"],
+        review: [payload.nps ? `NPS ${payload.nps}` : "复盘", ...(Array.isArray(payload.interest) ? payload.interest : payload.interest ? [payload.interest] : [])],
+        team: [payload.teamRoleName, payload.liveLink ? "已上线" : "多数字员工"]
+      };
+      return {
+        title: String(titleMap[type] || "").slice(0, 42),
+        body: String(bodyMap[type] || "").slice(0, 220),
+        tags: (tagsMap[type] || []).filter(Boolean).slice(0, 4)
+      };
+    }
+
+    function saveSubmission(type, payload) {
+      const summary = summaryFromPayload(type, payload);
+      const item = {
+        id: `user-${Date.now()}`,
+        type,
+        author: state.user.nickname,
+        avatar: state.user.avatar,
+        role: payload.company || payload.job || "活动参与者",
+        position: payload.job || "",
+        projectRole: payload.role || payload.singleAgentName || payload.teamRoleName || "",
+        likes: 0,
+        comments: [],
+        createdAt: Date.now(),
+        submittedAt: new Date().toISOString(),
+        phone: state.user.phone,
+        raw: payload,
+        ...summary
+      };
+      state.submissions.push(item);
+      delete state.drafts[type];
+      writeJson("aiHermesDemoSubmissions", state.submissions);
+      writeJson("aiHermesDemoDrafts", state.drafts);
+      return item;
+    }
+
+    function saveDraft(type, payload) {
+      const draft = {
+        type,
+        raw: payload,
+        createdAt: state.drafts[type]?.createdAt || Date.now(),
+        updatedAt: Date.now()
+      };
+      state.drafts[type] = draft;
+      writeJson("aiHermesDemoDrafts", state.drafts);
+      return draft;
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.className = "sr-only";
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand("copy");
+      area.remove();
+      return Promise.resolve();
+    }
+
+    function findPost(id) {
+      if (state.publicPost?.id === id || state.publicPost?.publicToken === id) {
+        return state.publicPost;
+      }
+      for (const type of plazaTabs.map((tab) => tab.id)) {
+        const found = getPosts(type).find((post) => post.id === id);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    function typeByPostId(id) {
+      if (state.publicPost?.id === id || state.publicPost?.publicToken === id) {
+        return state.publicPost.type || "";
+      }
+      return plazaTabs.map((tab) => tab.id).find((type) => getPosts(type).some((post) => post.id === id)) || "";
+    }
+
+    function loadImageElement(src) {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error("图片无法读取，请换一张 JPG、PNG 或 WebP 图片。"));
+        image.src = src;
+      });
+    }
+
+    async function fileToAvatarDataUrl(file) {
+      if (!file || !String(file.type || "").startsWith("image/")) {
+        throw new Error("请选择图片文件。");
+      }
+      if (file.size > 16 * 1024 * 1024) {
+        throw new Error("头像原图太大，请选择 16MB 以内的图片。");
+      }
+
+      const objectUrl = URL.createObjectURL(file);
+      try {
+        const image = await loadImageElement(objectUrl);
+        const size = 512;
+        const sourceSize = Math.min(image.naturalWidth || image.width, image.naturalHeight || image.height);
+        if (!sourceSize) throw new Error("图片尺寸异常，请换一张图片。");
+        const sx = ((image.naturalWidth || image.width) - sourceSize) / 2;
+        const sy = ((image.naturalHeight || image.height) - sourceSize) / 2;
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const context = canvas.getContext("2d");
+        context.drawImage(image, sx, sy, sourceSize, sourceSize, 0, 0, size, size);
+        return canvas.toDataURL("image/jpeg", 0.86);
+      } finally {
+        URL.revokeObjectURL(objectUrl);
+      }
+    }
+
+    document.getElementById("avatar").addEventListener("change", async (event) => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      const preview = document.getElementById("avatarPreview");
+      preview.textContent = "处理中";
+      delete preview.dataset.avatar;
+      try {
+        const dataUrl = await fileToAvatarDataUrl(file);
+        preview.innerHTML = `<img src="${dataUrl}" alt="头像预览" />`;
+        preview.dataset.avatar = dataUrl;
+      } catch (error) {
+        event.target.value = "";
+        preview.textContent = "AI";
+        showToast(error.message || "头像读取失败，请换一张图片。");
+      }
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const payload = {
+        phone: normalizePhone(form.phone.value),
+        password: form.password.value,
+        nickname: form.nickname.value.trim(),
+        avatar: document.getElementById("avatarPreview").dataset.avatar || ""
+      };
+      setLoginBusy(true);
+      try {
+        state.user = usesBackendAuth() ? await loginWithBackend(payload) : loginWithLocalDemo(payload);
+        writeJson("aiHermesDemoUser", state.user);
+        await loadBackendSubmissions();
+        await loadBackendDrafts();
+        syncOwnSubmissionAuthorSnapshot();
+        window.location.hash = "home";
+        ensureApp();
+        render();
+        showToast("已进入工作台");
+      } catch (error) {
+        showToast(error.message || "登录失败，请检查手机号和密码。");
+      } finally {
+        setLoginBusy(false);
+      }
+    });
+
+    document.addEventListener("paste", handleTextareaImagePaste);
+
+    document.addEventListener("click", async (event) => {
+      if (event.target.matches("[data-modal-backdrop]") || event.target.closest("[data-close-modal]")) {
+        closeProjectModal();
+        return;
+      }
+
+      const logoutButton = event.target.closest("[data-logout]");
+      if (logoutButton) {
+        if (usesBackendAuth()) {
+          await apiJson("/api/auth/logout", { method: "POST", body: "{}" }).catch(() => null);
+        }
+        removeJson("aiHermesDemoUser");
+        state.user = null;
+        state.drafts = {};
+        window.location.hash = "";
+        appView.classList.add("hidden");
+        loginView.classList.remove("hidden");
+        document.getElementById("loginForm").reset();
+        document.getElementById("avatarPreview").textContent = "AI";
+        delete document.getElementById("avatarPreview").dataset.avatar;
+        showToast("已回到登录页");
+        return;
+      }
+
+      const taskButton = event.target.closest("[data-task]");
+      if (taskButton) {
+        window.location.hash = `task=${taskButton.dataset.task}`;
+        return;
+      }
+
+      const plazaOpen = event.target.closest("[data-plaza-open]");
+      if (plazaOpen) {
+        window.location.hash = `plaza=${plazaOpen.dataset.plazaOpen}`;
+        return;
+      }
+
+      const plazaTab = event.target.closest("[data-plaza-tab]");
+      if (plazaTab) {
+        window.location.hash = `plaza=${plazaTab.dataset.plazaTab}`;
+        return;
+      }
+
+      const scrollTarget = event.target.closest("[data-scroll-target]");
+      if (scrollTarget) {
+        event.preventDefault();
+        window.location.hash = "timeline";
+        return;
+      }
+
+      const likeButton = event.target.closest("[data-like]");
+      if (likeButton) {
+        const id = likeButton.dataset.like;
+        const wasModalOpen = Boolean(likeButton.closest("[data-modal-backdrop]"));
+        const publicToken = publicProjectTokenFromLocation();
+        try {
+          if (usesBackendAuth()) {
+            await toggleLikeOnBackend(id);
+            if (publicToken) await loadPublicSubmission(publicToken);
+          } else {
+            state.liked[id] = !state.liked[id];
+            writeJson("aiHermesDemoLiked", state.liked);
+          }
+        } catch (error) {
+          showToast(error.message || "点赞失败，请稍后再试。");
+          return;
+        }
+        render();
+        if (wasModalOpen) {
+          window.setTimeout(() => openProjectModal(id, typeByPostId(id)), 30);
+        }
+        return;
+      }
+
+      const commentButton = event.target.closest("[data-comment]");
+      if (commentButton) {
+        const id = commentButton.dataset.comment;
+        openProjectModal(id, typeByPostId(id));
+        return;
+      }
+
+      const commentSubmit = event.target.closest("[data-comment-submit]");
+      if (commentSubmit) {
+        const id = commentSubmit.dataset.commentSubmit;
+        const input = document.querySelector(`[data-comment-input="${id}"]`);
+        const text = input?.value.trim() || "";
+        if (!text) {
+          showToast("先写一句评论再发送");
+          return;
+        }
+        const publicToken = publicProjectTokenFromLocation();
+        try {
+          if (usesBackendAuth()) {
+            await addCommentToBackend(id, text);
+            if (publicToken) await loadPublicSubmission(publicToken);
+          } else {
+            state.comments[id] = [
+              ...(state.comments[id] || []),
+              {
+                author: state.user?.nickname || "学员",
+                avatar: state.user?.avatar || "",
+                role: state.user?.company || "",
+                text
+              }
+            ];
+            writeJson("aiHermesDemoComments", state.comments);
+          }
+        } catch (error) {
+          showToast(error.message || "评论失败，请稍后再试。");
+          return;
+        }
+        showToast("评论已发布");
+        if (document.querySelector("[data-modal-backdrop]")) {
+          openProjectModal(id, typeByPostId(id));
+        } else {
+          render();
+        }
+        return;
+      }
+
+      const shareButton = event.target.closest("[data-share]");
+      if (shareButton) {
+        const post = findPost(shareButton.dataset.share);
+        if (!post) return;
+        const url = publicProjectUrl(post);
+        const text = `我在 AI 数字员工实战坊看到一个项目：${post.title}\n来自：${post.author}\n${url}`;
+        copyText(text).then(() => showToast("已复制项目链接"));
+        return;
+      }
+
+      const postOpen = event.target.closest("[data-open-post]");
+      if (postOpen && !event.target.closest("a")) {
+        const id = postOpen.dataset.openPost;
+        openProjectModal(id, postOpen.dataset.postType || typeByPostId(id));
+        return;
+      }
+
+      const draftButton = event.target.closest("[data-save-draft]");
+      if (draftButton) {
+        const form = draftButton.closest("form");
+        if (!form) return;
+        const type = form.dataset.submitType;
+        draftButton.disabled = true;
+        try {
+          const payload = await collectForm(form);
+          if (usesBackendAuth()) {
+            await saveDraftToBackend(type, payload);
+          } else {
+            saveDraft(type, payload);
+          }
+          showToast("草稿已保存");
+        } catch (error) {
+          showToast(error.message || "草稿保存失败，请稍后再试。");
+        } finally {
+          draftButton.disabled = false;
+        }
+        return;
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeProjectModal();
+    });
+
+    document.addEventListener("submit", async (event) => {
+      const form = event.target.closest(".demo-form");
+      if (!form) return;
+      event.preventDefault();
+      const type = form.dataset.submitType;
+      const payload = await collectForm(form);
+      if (usesBackendAuth()) {
+        await saveSubmissionToBackend(type, payload);
+      } else {
+        saveSubmission(type, payload);
+      }
+      showToast("提交成功，已进入广场");
+      const nextHash = `plaza=${type}`;
+      if (window.location.hash === `#${nextHash}`) {
+        render();
+      } else {
+        window.location.hash = nextHash;
+      }
+    });
+
+    window.addEventListener("hashchange", render);
+
+    async function boot() {
+      if (standalonePrepMode) {
+        window.history.replaceState(null, "", `${location.pathname}${location.search}#task=prep`);
+        ensureApp();
+        render();
+        iconRefresh();
+        return;
+      }
+
+      const publicToken = publicProjectTokenFromLocation();
+      try {
+        if (usesBackendAuth()) {
+          await restoreBackendSession();
+          if (publicToken) {
+            await loadPublicSubmission(publicToken);
+            normalizeLegacyPublicProjectUrl(publicToken);
+          } else {
+            await loadBackendSubmissions();
+            await loadBackendDrafts();
+          }
+        } else {
+          validateLocalDemoSession();
+        }
+      } catch (error) {
+        if (publicToken) {
+          state.publicPost = null;
+          state.publicError = error.message || "这个项目链接可能已经失效。";
+        } else {
+          state.user = null;
+          removeJson("aiHermesDemoUser");
+          showToast("登录状态已过期，请重新进入。");
+        }
+      }
+
+      if (publicToken) {
+        loginView.classList.add("hidden");
+        appView.classList.remove("hidden");
+        render();
+        iconRefresh();
+        return;
+      }
+
+      if (!state.user) {
+        loginView.classList.remove("hidden");
+        appView.classList.add("hidden");
+      } else {
+        ensureApp();
+        if (!window.location.hash) window.location.hash = "home";
+        render();
+      }
+
+      iconRefresh();
+    }
+
+    boot();
+  </script>
 </body>
 </html>
