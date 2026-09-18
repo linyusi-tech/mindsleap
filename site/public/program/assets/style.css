@@ -41,6 +41,7 @@ h1,h2,h3,h4,.phase-title,.facts strong,.journey-foot strong{font-family:"Source 
 .photo-triptych figure:not(.photo-triptych-main){display:flex;flex-direction:column;height:100%}
 .photo-triptych figure:not(.photo-triptych-main) img{aspect-ratio:3 / 2;flex:1;min-height:0}
 .photo-triptych figcaption{font-size:10px;line-height:1.35;margin-top:8px;color:var(--subtle);min-height:1.35em}
+.faculty:nth-child(3) img{object-position:center 12%}
 @media(max-width:540px){.photo-triptych{gap:12px}.photo-triptych figure:not(.photo-triptych-main) img{aspect-ratio:3 / 2}}
 
 #overview{background:var(--blue);color:#fff}
