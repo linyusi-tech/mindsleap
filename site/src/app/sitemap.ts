@@ -32,6 +32,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  const eventEntries = [
+    {
+      url: `${baseUrl}/event/qinghuaemba`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+    },
+  ];
+
   const postEntries = getAllLocalizedPostSlugs().map(({ locale, slug }) => ({
     url: `${baseUrl}/${locale}/news/${slug}`,
     lastModified: new Date(),
@@ -57,5 +66,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticEntries, ...topicEntries, ...peopleEntries, ...postEntries];
+  return [...staticEntries, ...eventEntries, ...topicEntries, ...peopleEntries, ...postEntries];
 }
