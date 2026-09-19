@@ -119,7 +119,11 @@ const SEED_WORKS = [
 let database: Database.Database | null = null;
 
 function dataDirectory() {
-  return process.env.QINGHUAEMBA_DATA_DIR || path.join(os.tmpdir(), "mindsleap-qinghuaemba");
+  if (process.env.QINGHUAEMBA_DATA_DIR) return process.env.QINGHUAEMBA_DATA_DIR;
+  if (process.env.NODE_ENV === "production" && process.env.SITE_URL?.includes("mindsleap.cn")) {
+    return "/www/wwwroot/qinghuaemba/prod/data";
+  }
+  return path.join(os.tmpdir(), "mindsleap-qinghuaemba");
 }
 
 function getDatabase() {

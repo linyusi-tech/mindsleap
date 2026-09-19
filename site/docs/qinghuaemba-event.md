@@ -18,6 +18,8 @@
 QINGHUAEMBA_DATA_DIR=/path/outside/release/directory
 ```
 
+中国站部署在 `SITE_URL` 包含 `mindsleap.cn` 且未显式设置该变量时，会安全回退到 `/www/wwwroot/qinghuaemba/prod/data`。这个目录位于主站发布树之外，不会被主站的 `rsync --delete` 清除。其他生产环境仍应显式配置持久目录。
+
 数据库文件为 `${QINGHUAEMBA_DATA_DIR}/qinghuaemba.sqlite`，并会同时产生 SQLite WAL 文件。部署时不要把该目录放进会被 `rsync --delete` 或重新发布覆盖的位置。
 
 首次启动会自动建表，并只写入以下三个系统 Demo：
