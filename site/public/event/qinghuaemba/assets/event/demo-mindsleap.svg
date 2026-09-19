@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">MindsLeap 心智悦动网站封面</title>
+  <desc id="desc">深蓝色企业 AI 转型主题封面</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b2347"/>
+      <stop offset="1" stop-color="#2e73b9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="24%" r="60%">
+      <stop offset="0" stop-color="#8ed3ff" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#8ed3ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#glow)"/>
+  <g fill="none" stroke="#b7e4ff" stroke-opacity=".28">
+    <circle cx="910" cy="170" r="120"/><circle cx="910" cy="170" r="210"/><circle cx="910" cy="170" r="300"/>
+  </g>
+  <text x="84" y="112" fill="#9fcfff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">MINDSLEAP</text>
+  <text x="84" y="312" fill="white" font-family="Arial, PingFang SC, sans-serif" font-size="78" font-weight="700">心智悦动</text>
+  <text x="84" y="395" fill="#d8ecff" font-family="Arial, PingFang SC, sans-serif" font-size="34">企业 AI 转型与 AI 原生创业加速平台</text>
+  <rect x="84" y="482" width="250" height="64" rx="32" fill="white"/>
+  <text x="209" y="524" fill="#174b82" text-anchor="middle" font-family="Arial, PingFang SC, sans-serif" font-size="23" font-weight="700">查看网站</text>
+</svg>
