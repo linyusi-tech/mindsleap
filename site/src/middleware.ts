@@ -15,5 +15,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|design-system|decks|case|product|proposal|poster|manuals|codex-installation|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|_vercel|design-system|decks|case|product|proposal|poster|menu|manuals|codex-installation|.*\\..*).*)"],
 };
