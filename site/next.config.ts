@@ -65,6 +65,14 @@ const nextConfig: NextConfig = {
         { source: "/poster", destination: "/poster/index.html" },
         { source: "/poster/", destination: "/poster/index.html" },
         {
+          source: "/poster/ai-native-organization-program",
+          destination: "/poster/ai-native-organization-program/index.html",
+        },
+        {
+          source: "/poster/ai-native-organization-program/",
+          destination: "/poster/ai-native-organization-program/index.html",
+        },
+        {
           source: "/manuals/codex-installation",
           destination: "/manuals/codex-installation/index.html",
         },
