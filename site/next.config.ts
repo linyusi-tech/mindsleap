@@ -53,6 +53,22 @@ const nextConfig: NextConfig = {
         { source: "/poster", destination: "/poster/index.html" },
         { source: "/poster/", destination: "/poster/index.html" },
         {
+          source: "/manuals/codex-installation",
+          destination: "/manuals/codex-installation/index.html",
+        },
+        {
+          source: "/manuals/codex-installation/",
+          destination: "/manuals/codex-installation/index.html",
+        },
+        {
+          source: "/codex-installation",
+          destination: "/manuals/codex-installation/index.html",
+        },
+        {
+          source: "/codex-installation/",
+          destination: "/manuals/codex-installation/index.html",
+        },
+        {
           source: "/poster/ai-hermes-workshop",
           destination: "/poster/ai-hermes-workshop/index.html",
         },
