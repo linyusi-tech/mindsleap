@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-logo="joint" data-heading-font="brand" data-density="standard">
+<head>
+  <base href="/product/mindsleap-company-intro/" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>MindsLeap 心智悦动 · 品牌手册</title>
+  <link rel="stylesheet" href="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/colors_and_type.css" />
+  <link rel="stylesheet" href="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/deck.css" />
+  <link rel="stylesheet" href="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/styles.css" />
+  <script src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/deck-stage.js"></script>
+  <style>
+    @font-face {
+      font-family: "MindsLeap Brand";
+      src: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/fonts/MindsLeap-Brand.otf") format("opentype");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    html {
+      --font-heading: "MindsLeap Brand", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Inter", system-ui, sans-serif;
+      --font-body: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    }
+
+    .slide {
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+
+    .cover-logo,
+    .slide:not(.no-chrome)::before {
+      background-image: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-foundersspace-joint-logo-blue.svg");
+    }
+
+    h1.slide-title,
+    .slide .slide-title,
+    .cover h1,
+    .closing h1,
+    .card h3,
+    .person-body h3,
+    .fs-point h3,
+    .pyr-row .pyr-txt b,
+    .talk-card h3,
+    .duo-block h3,
+    .space-card h3,
+    .study-card h3,
+    .partner-card h3,
+    .cta-block b {
+      font-family: var(--font-heading);
+      font-weight: 800;
+    }
+
+    /* ------- generic helpers ------- */
+    .slide-title.t68 { font-size: 68px; }
+    .slide-title.t60 { font-size: 60px; }
+
+    .slide-lead {
+      margin: 4px 0 0;
+      max-width: 1660px;
+      color: var(--ink-muted);
+      font-size: 26px;
+      line-height: 1.42;
+    }
+
+    .bottom-line {
+      margin-top: 24px;
+      padding: 20px 30px;
+      border-left: 6px solid var(--accent-soft);
+      background: var(--bg-alt);
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.42;
+      border-radius: 0 8px 8px 0;
+    }
+    .bottom-line b { color: var(--accent); }
+
+    .nowrap { white-space: nowrap; }
+
+    /* G3 · keep page number above overlapping photos + readable */
+    .slide:not(.no-chrome)::after {
+      z-index: 6;
+      padding: 4px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+    .slide:not(.no-chrome)::before { z-index: 6; }
+
+    /* ------- 01 cover overrides ------- */
+    .slide.cover h1 { font-size: 82px; line-height: 1.08; white-space: nowrap; }
+    .slide.cover .cover-copy { max-width: 810px; margin-top: 30px; }
+    /* meta stacks vertically so the divider hugs the text and stays ≥40px from the photo.
+       override shared .slide.cover .cover-meta (flex / uppercase / absolute) at matching specificity */
+    .slide.cover .cover-meta {
+      position: static; display: block; width: auto; max-width: 810px;
+      border-top: 1px solid var(--rule); padding-top: 24px; margin-top: 40px;
+      text-transform: none; letter-spacing: normal !important; color: var(--ink);
+    }
+    .slide.cover .cover-meta .row { display: block; color: var(--ink); font-size: 20px; font-weight: 800; line-height: 1.9; white-space: nowrap; text-transform: none; }
+    .slide.cover .cover-meta .row span { color: var(--accent-soft); font-weight: 900; margin-right: 12px; }
+    .cover-updated { position: absolute; left: 112px; bottom: 40px; color: #6b7688; font-size: 19px; font-weight: 700; letter-spacing: 2px !important; }
+    .cover-visual .img-caption {
+      position: absolute; left: 40px; right: 40px; bottom: 34px; z-index: 2;
+      color: #fff; font-size: 22px; font-weight: 800; line-height: 1.3;
+    }
+    /* P01 · center Lincoln in the frame (container fixed, shift underlying image) */
+    .cover-visual img { object-position: 8% center; }
+
+    /* ------- 02 brand page ------- */
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      margin-top: 64px;
+    }
+    .brand-card { padding: 48px 34px 52px; }
+    .brand-card .char {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 118px;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+    .brand-card.dark .char { color: #fff; }
+    .brand-card h3 { font-size: 30px; margin: 0 0 14px; color: var(--accent); }
+    .brand-card.dark h3 { color: #fff; }
+    .brand-card p { font-size: 22px; line-height: 1.5; margin: 0; color: var(--ink-muted); }
+    .brand-card.dark p { color: #d8e8ff; }
+
+    /* ------- 03 ecosystem ------- */
+    .slide[data-label="生态定位"] .slide-title { font-size: 54px; }
+    .slide[data-label="生态定位"] .slide-bar { margin-top: 20px; margin-bottom: 20px; }
+    .slide[data-label="生态定位"] .slide-lead { margin-top: 2px; }
+    .eco-layout {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 46px;
+      margin-top: 26px;
+      align-items: center;
+    }
+    .eco-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .eco-card { padding: 22px 28px; }
+    .eco-card h3 { font-size: 26px; margin: 0 0 9px; color: var(--accent); line-height: 1.2; }
+    .eco-card p { font-size: 19px; line-height: 1.42; margin: 0; color: var(--ink-muted); }
+    .eco-image {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--rule);
+      display: block;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+    .eco-layout + .bottom-line { margin-top: 16px; }
+    .eco-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ------- chapter divider (P04 / P11 / P18 / P22) ------- */
+    .chapter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 150px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(184, 215, 255, 0.20), transparent 34%),
+        linear-gradient(135deg, #102948 0%, #1e477c 58%, #0f2746 100%);
+    }
+    .chapter .chap-eyebrow {
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 6px !important;
+      margin: 0 0 40px;
+    }
+    .chapter .chap-num {
+      font-family: var(--font-heading);
+      font-weight: 950;
+      font-size: 300px;
+      line-height: 0.9;
+      color: rgba(184, 215, 255, 0.16);
+      letter-spacing: 4px !important;
+      margin: 0;
+    }
+    .chapter .chap-name {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 88px;
+      line-height: 1.1;
+      color: #fff;
+      margin: -30px 0 0;
+    }
+    .chapter .chap-rule {
+      width: 120px;
+      height: 4px;
+      background: var(--accent-soft);
+      border-radius: 2px;
+      margin: 40px 0 34px;
+    }
+    .chapter .chap-lead {
+      max-width: 1180px;
+      color: #d8e8ff;
+      font-size: 32px;
+      line-height: 1.5;
+      font-weight: 500;
+      margin: 0;
+    }
+    .chapter .chap-logo {
+      position: absolute;
+      left: 150px;
+      bottom: 56px;
+      width: 400px;
+      height: 48px;
+      background: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-foundersspace-joint-logo-white.png") left center / contain no-repeat;
+    }
+
+    /* ------- Founders Space (P05) ------- */
+    /* 收紧标题到内容的留白：slide-bar 下方间距缩小 */
+    .slide[data-label="Founders Space"] .slide-bar { margin-top: 12px; margin-bottom: 8px; }
+    /* 右侧人像列改为绝对定位，允许头顶越过标题基线上延、底部贴近页底，显出两人高大 */
+    .slide[data-label="Founders Space"] { position: relative; }
+    .fs-layout {
+      display: grid;
+      grid-template-columns: 1fr 780px;
+      gap: 36px;
+      margin-top: 6px;
+      align-items: stretch;
+    }
+    /* 左栏卡片组顶对齐并适度加大，收紧标题下方空隙、消除头重脚轻；右侧人像仍居中 */
+    .fs-points { display: grid; gap: 20px; align-self: start; }
+    .fs-point {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-radius: 8px;
+      padding: 22px 30px;
+    }
+    .fs-point h3 { font-size: 24px; line-height: 1.24; margin: 0 0 8px; color: var(--accent); }
+    .fs-point p { font-size: 20px; line-height: 1.48; margin: 0; color: var(--ink-muted); }
+    .fs-point.dark { background: var(--accent); border-color: var(--accent); }
+    .fs-point.dark h3 { color: #fff; }
+    .fs-point.dark p { color: #d8e8ff; }
+    /* transparent-bg photo: no scrim card, person enlarged, plain name caption */
+    .fs-photo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    /* HD 1023×1374 合影：以宽度放大、无遮罩直出，人物底部贴近页底 */
+    .fs-photo img { width: 780px; max-width: 100%; max-height: 760px; height: auto; object-fit: contain; display: block; }
+    .fs-photo .fs-photo-cap {
+      margin-top: 14px;
+      color: var(--ink-subtle);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.3;
+      text-align: center;
+    }
+    /* P05 · 人像绝对定位、以高度定尺寸：头顶完整入画（距页顶留白），底部+图注仍在页内 */
+    .slide[data-label="Founders Space"] .fs-layout { grid-template-columns: 1fr 780px; }
+    .slide[data-label="Founders Space"] .fs-photo {
+      position: absolute;
+      right: 92px;
+      bottom: 26px;
+      top: 24px;
+      width: auto;
+      z-index: 2;
+      justify-content: flex-end;
+    }
+    .slide[data-label="Founders Space"] .fs-photo img {
+      width: auto;
+      height: 864px;
+      max-width: none;
+      max-height: none;
+    }
+    .slide[data-label="Founders Space"] .fs-photo .fs-photo-cap { margin-top: 10px; }
+
+    /* ------- P06 speaker head-shot wall (24) ------- */
+    .slide[data-label="大咖网络"] .slide-title { font-size: 52px; }
+    .slide[data-label="大咖网络"] .slide-bar { margin-top: 14px; margin-bottom: 12px; }
+    .slide[data-label="大咖网络"] .slide-lead { margin-top: 2px; font-size: 23px; }
+    /* 网格与页面左对齐：首列头像左缘贴齐标题左缘（cell 左对齐，avatar/文字都从左起） */
+    .headwall {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 18px;
+      row-gap: 6px;
+      margin-top: 14px;
+    }
+    .head-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .head-cell .avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f2f7ff 0%, #dcebff 100%);
+      border: 3px solid #fff;
+      box-shadow: 0 2px 10px rgba(15, 44, 80, 0.14);
+      margin-bottom: 6px;
+    }
+    .head-cell .avatar img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+    }
+    .head-cell b {
+      font-size: 17.5px;
+      line-height: 1.14;
+      color: var(--ink);
+      margin-bottom: 3px;
+      font-weight: 800;
+    }
+    .head-cell span {
+      font-size: 13.5px;
+      line-height: 1.24;
+      color: var(--ink-muted);
+      max-width: 100%;
+    }
+    .headwall-note { margin-top: 18px; font-size: 16px; color: var(--ink-subtle); font-weight: 700; }
+
+    /* ------- P07 sea-going network (three cards) ------- */
+    .triad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-top: 34px;
+    }
+    .triad-card { padding: 40px 38px 44px; }
+    .triad-card h3 { font-size: 32px; line-height: 1.2; margin: 0 0 18px; color: var(--accent); }
+    .triad-card.dark h3 { color: #fff; }
+    .triad-card p { font-size: 23px; line-height: 1.5; margin: 0; color: var(--ink-muted); }
+    .triad-card.dark p { color: #d8e8ff; }
+
+    /* ------- P08 go-global service (four cards) ------- */
+    .quad-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+    .quad-card {
+      padding: 36px 30px 40px;
+      min-height: 380px;
+    }
+    .quad-card h3 { font-size: 28px; line-height: 1.2; margin: 0 0 16px; color: var(--accent); }
+    .quad-card.dark h3 { color: #fff; }
+    .quad-card p { font-size: 22px; line-height: 1.5; margin: 0; color: var(--ink-muted); }
+    .quad-card.dark p { color: #d8e8ff; }
+
+    /* ------- P07 出海（网络 × 服务，合并页） ------- */
+    .seaco-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      margin-top: 24px;
+      align-items: start;
+    }
+    .seaco-col-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 27px;
+      color: var(--accent);
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .seaco-col-head .seaco-idx {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 21px; font-weight: 900;
+      flex: 0 0 auto;
+    }
+    .seaco-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .seaco-list li {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-left: 5px solid var(--accent-soft);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 26px 20px;
+    }
+    .seaco-list li.hot {
+      background: var(--accent);
+      border-color: var(--accent);
+      border-left-color: #b8d7ff;
+    }
+    .seaco-list li b {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .seaco-list li.hot b { color: #fff; }
+    .seaco-list li span {
+      display: block;
+      font-size: 20px;
+      line-height: 1.44;
+      color: var(--ink-muted);
+    }
+    .seaco-list li.hot span { color: #d8e8ff; }
+    /* 右块服务四条：双列更紧凑 */
+    .seaco-list.svc { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .seaco-list.svc li.hot { grid-column: 1 / -1; }
+
+    /* P07 版面填充：上半卡片区压缩 + 下半硅谷现场照片带 */
+    .slide[data-label="出海"] .seaco-layout { margin-top: 18px; gap: 36px; align-items: start; }
+    .slide[data-label="出海"] .seaco-list li { padding: 14px 24px 15px; }
+    .slide[data-label="出海"] .seaco-list li b { font-size: 22px; margin-bottom: 4px; }
+    .slide[data-label="出海"] .seaco-list li span { font-size: 18px; line-height: 1.38; }
+    .slide[data-label="出海"] .seaco-list.svc { gap: 14px; }
+    .slide[data-label="出海"] .seaco-col-head { font-size: 25px; margin-bottom: 14px; }
+    /* 6 格照片带（1 行 6 列 mosaic），统一圆角、object-fit:cover，图注在带上方 */
+    .sea-band { margin-top: 22px; }
+    .sea-band-cap {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink-subtle);
+      letter-spacing: 0.5px;
+      padding-left: 14px;
+      border-left: 5px solid var(--accent-soft);
+      line-height: 1.2;
+    }
+    .sea-band-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+    .sea-shot {
+      position: relative;
+      margin: 0;
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .sea-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ------- 硅谷创业加速（新增页） ------- */
+    .accelnew-top {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 22px;
+    }
+    .accelnew-card {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-top: 5px solid var(--accent-soft);
+      border-radius: 0 0 10px 10px;
+      padding: 26px 30px 28px;
+    }
+    .accelnew-card h3 {
+      font-size: 26px; line-height: 1.2; margin: 0 0 12px;
+      color: var(--accent); font-family: var(--font-heading); font-weight: 800;
+    }
+    .accelnew-card p { font-size: 20px; line-height: 1.46; margin: 0; color: var(--ink-muted); }
+    .accelnew-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 22px;
+    }
+    .accelnew-chan {
+      position: relative;
+      border-radius: 12px;
+      padding: 26px 32px 28px;
+      color: #fff;
+      background: linear-gradient(135deg, #163b66 0%, #1e477c 100%);
+      overflow: hidden;
+    }
+    .accelnew-chan .chan-tag {
+      display: inline-block;
+      font-size: 16px; font-weight: 900; letter-spacing: 2px;
+      color: #b8d7ff; margin-bottom: 10px;
+    }
+    .accelnew-chan h3 {
+      font-size: 27px; line-height: 1.18; margin: 0 0 12px;
+      color: #fff; font-family: var(--font-heading); font-weight: 800;
+    }
+    .accelnew-chan p { font-size: 19.5px; line-height: 1.46; margin: 0; color: #d8e8ff; }
+    .accelnew-mode {
+      margin-top: 20px;
+      padding: 18px 30px;
+      border-left: 6px solid var(--accent-soft);
+      background: var(--bg-alt);
+      border-radius: 0 8px 8px 0;
+      font-size: 21px; line-height: 1.44; color: var(--ink);
+      font-weight: 600;
+    }
+    .accelnew-mode b { color: var(--accent); font-weight: 800; }
+    .slide[data-label="创业加速"] .slide-lead { font-size: 24px; }
+    .slide[data-label="创业加速"] .slide-bar { margin-top: 14px; margin-bottom: 14px; }
+    /* P09 版面压缩：上方卡片区收紧，为底部四图照片带腾空间 */
+    .slide[data-label="创业加速"] .accelnew-top { margin-top: 16px; gap: 22px; }
+    .slide[data-label="创业加速"] .accelnew-card { padding: 20px 26px 22px; }
+    .slide[data-label="创业加速"] .accelnew-card h3 { font-size: 24px; margin-bottom: 9px; }
+    .slide[data-label="创业加速"] .accelnew-card p { font-size: 18.5px; line-height: 1.42; }
+    .slide[data-label="创业加速"] .accelnew-duo { margin-top: 16px; gap: 22px; }
+    .slide[data-label="创业加速"] .accelnew-chan { padding: 20px 28px 22px; }
+    .slide[data-label="创业加速"] .accelnew-chan h3 { font-size: 24px; margin-bottom: 9px; }
+    .slide[data-label="创业加速"] .accelnew-chan p { font-size: 18px; line-height: 1.42; }
+    .slide[data-label="创业加速"] .accelnew-mode { margin-top: 14px; padding: 14px 28px; font-size: 19px; line-height: 1.4; }
+    /* P09 底部四图照片带（1 行 4 列），统一圆角、object-fit:cover，总图注在上方 */
+    .accel-band { margin-top: 18px; }
+    .accel-band-cap {
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink-subtle);
+      letter-spacing: 0.5px;
+      padding-left: 14px;
+      border-left: 5px solid var(--accent-soft);
+      line-height: 1.2;
+    }
+    .accel-band-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .accel-shot {
+      position: relative;
+      margin: 0;
+      height: 168px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .accel-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ------- P09 custom study-tour (chips + three selling cards) ------- */
+    .visit-label {
+      margin: 26px 0 14px;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--ink-subtle);
+    }
+    .visit-chips { display: flex; flex-wrap: wrap; gap: 13px; }
+    .visit-chip {
+      border: 1px solid var(--rule);
+      background: #fff;
+      border-radius: 999px;
+      padding: 11px 24px;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .visit-note { margin-top: 11px; font-size: 17px; color: var(--ink-subtle); font-weight: 700; }
+    .sell-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 26px;
+    }
+    .sell-card {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-top: 5px solid var(--accent-soft);
+      border-radius: 0 0 8px 8px;
+      padding: 28px 30px 30px;
+    }
+    .sell-card h3 { font-size: 26px; line-height: 1.2; margin: 0 0 12px; color: var(--accent); font-family: var(--font-heading); font-weight: 800; }
+    .sell-card p { font-size: 21px; line-height: 1.46; margin: 0; color: var(--ink-muted); }
+    .visit-2c { margin-top: 16px; font-size: 18px; color: var(--ink-subtle); font-weight: 700; }
+    /* P09 活动形式 · 紧凑双列 */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+      margin-top: 12px;
+    }
+    .form-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .form-item b {
+      flex: 0 0 auto;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+      font-family: var(--font-heading);
+      line-height: 1.25;
+    }
+    .form-item span {
+      font-size: 17px;
+      line-height: 1.32;
+      color: var(--ink-muted);
+    }
+    /* P08 compaction to fit chips + 三卖点卡 + 活动形式(7) + 6 图带 on one page */
+    .slide[data-label="定制研学"] .slide-lead { font-size: 22px; }
+    .slide[data-label="定制研学"] .slide-bar { margin-top: 12px; margin-bottom: 12px; }
+    .slide[data-label="定制研学"] .visit-label { margin: 14px 0 8px; }
+    .slide[data-label="定制研学"] .visit-chip { padding: 9px 20px; font-size: 20px; }
+    .slide[data-label="定制研学"] .visit-chips { gap: 11px; }
+    .slide[data-label="定制研学"] .visit-note { margin-top: 9px; font-size: 17px; }
+    /* 卖点卡 3 竖排 + 活动形式列表 左右并排，压缩纵向 */
+    .p08-mid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 34px;
+      margin-top: 18px;
+      align-items: start;
+    }
+    .p08-mid .sell-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 0;
+    }
+    .p08-mid .sell-card { padding: 15px 22px 16px; border-radius: 0 8px 8px 0; border-top: none; border-left: 5px solid var(--accent-soft); }
+    .p08-mid .sell-card h3 { font-size: 22px; margin: 0 0 6px; }
+    .p08-mid .sell-card p { font-size: 18px; line-height: 1.4; }
+    .p08-mid .form-block .visit-label { margin: 0 0 8px; }
+    .p08-mid .form-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 0;
+    }
+    .p08-mid .form-item { padding: 7px 0; gap: 10px; }
+    .p08-mid .form-item b { font-size: 18px; }
+    .p08-mid .form-item span { font-size: 15.5px; line-height: 1.3; }
+    .study-band { margin-top: 14px; }
+    .study-band .sea-band-cap { margin-bottom: 8px; }
+    .study-band .sea-shot { height: 120px; }
+    .slide[data-label="定制研学"] .visit-2c { margin-top: 10px; }
+    .tour-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+      height: 150px;
+    }
+    .tour-strip.four { grid-template-columns: repeat(4, 1fr); height: 148px; margin-top: 16px; }
+    .tour-thumb {
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .tour-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ------- P10 tour photo wall (8) ------- */
+    .slide[data-label="往期研学"] .slide-bar { margin-top: 20px; margin-bottom: 18px; }
+    .photo-wall {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+      margin-top: 22px;
+      height: 640px;
+    }
+    .photo-cell {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .photo-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-wall-cap {
+      margin-top: 18px;
+      padding: 16px 28px;
+      border-left: 6px solid var(--accent-soft);
+      background: var(--bg-alt);
+      border-radius: 0 8px 8px 0;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .photo-wall-cap b { color: var(--accent); }
+
+    /* ------- P12 member chip wall (28) ------- */
+    .wall-label {
+      margin: 28px 0 16px;
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--ink-subtle);
+    }
+    .chip-wall { display: flex; flex-wrap: wrap; gap: 14px; }
+    .chip {
+      border: 1px solid var(--rule);
+      background: #fff;
+      border-radius: 999px;
+      padding: 12px 26px;
+      font-size: 22px;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .slide[data-label="企业家网络"] .chip { font-size: 21px; padding: 11px 22px; }
+
+    /* ------- P12 member wall (editorial, grouped by sector) ------- */
+    .member-wall {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px 40px;
+      margin-top: 16px;
+    }
+    .member-group {
+      border-top: 2px solid var(--accent);
+      padding-top: 12px;
+    }
+    .member-sector {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .member-sector .sector-idx {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--accent-soft);
+      letter-spacing: 2px;
+    }
+    .member-list { margin: 0; padding: 0; list-style: none; }
+    .member-list li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .member-list li:last-child { border-bottom: none; }
+    .member-list li b {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.18;
+    }
+    .member-list li span {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--ink-subtle);
+      white-space: nowrap;
+    }
+    .slide[data-label="企业家网络"] .slide-lead { font-size: 24px; }
+    .slide[data-label="企业家网络"] .slide-bar { margin-top: 14px; margin-bottom: 12px; }
+    .slide[data-label="企业家网络"] .wall-label { margin: 14px 0 6px; }
+    .slide[data-label="企业家网络"] .member-wall + .bottom-line { margin-top: 16px; }
+
+    /* ------- P11 会员画像墙（职级优先重设计） ------- */
+    .rank-wall {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 40px;
+      margin-top: 14px;
+    }
+    .rank-group {
+      position: relative;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-radius: 12px;
+      padding: 20px 28px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    .rank-group.hero {
+      background: linear-gradient(135deg, #123156 0%, #1e477c 100%);
+      border-color: var(--accent);
+    }
+    .rank-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .rank-icon {
+      flex: 0 0 auto;
+      width: 46px; height: 46px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--accent);
+    }
+    .rank-group.hero .rank-icon { color: #b8d7ff; }
+    .rank-icon svg { width: 40px; height: 40px; display: block; }
+    .rank-title {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 40px;
+      line-height: 1.02;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+    .rank-group.hero .rank-title { color: #fff; }
+    .rank-title small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent-soft);
+      margin-top: 4px;
+    }
+    .rank-group.hero .rank-title small { color: #b8d7ff; }
+    .rank-tags { display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; }
+    .rank-tag {
+      border: 1px solid var(--rule);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+      line-height: 1.1;
+    }
+    .rank-group.hero .rank-tag {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(184,215,255,0.35);
+      color: #eaf3ff;
+    }
+
+    /* ------- P13 seven-layer pyramid ------- */
+    .pyr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+    }
+    .pyr-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 8px;
+      padding: 10px 34px;
+      min-height: 74px;
+      box-sizing: border-box;
+    }
+    .pyr-row .pyr-who {
+      flex: 0 0 260px;
+      text-align: right;
+      padding-right: 28px;
+      font-size: 17px;
+      font-weight: 800;
+      color: #cfe2ff;
+      border-right: 1px solid rgba(255,255,255,0.28);
+    }
+    .pyr-row .pyr-txt {
+      flex: 1;
+      padding-left: 28px;
+    }
+    .pyr-row .pyr-txt b {
+      display: block;
+      font-size: 23px;
+      line-height: 1.1;
+      margin-bottom: 3px;
+      color: #fff;
+    }
+    .pyr-row .pyr-txt b small {
+      font-size: 15px;
+      font-weight: 700;
+      color: #b8d7ff;
+      margin-left: 6px;
+    }
+    .pyr-row .pyr-txt span {
+      display: block;
+      font-size: 17px;
+      line-height: 1.3;
+      color: #d8e8ff;
+    }
+    /* true pyramid: narrowest+darkest (L7) on top → widest (L1) at bottom. */
+    .pyr-row.l7 { width: 760px;  background: #0d2748; }
+    .pyr-row.l6 { width: 890px;  background: #123156; }
+    .pyr-row.l5 { width: 1020px; background: #163b66; }
+    .pyr-row.l4 { width: 1150px; background: #1c4576; }
+    .pyr-row.l3 { width: 1280px; background: #234f86; }
+    .pyr-row.l2 { width: 1410px; background: #295995; }
+    .pyr-row.l1 { width: 1540px; background: #2f63a4; }
+    .pyr-row.l7 .pyr-who { color: #b8d7ff; }
+
+    /* ------- P14 Founders Talk cards (retained) ------- */
+    .talk-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .talk-card {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .talk-cover {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      background: #10233d;
+    }
+    .talk-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .talk-body { padding: 24px 26px 28px; }
+    .talk-body h3 { font-size: 25px; line-height: 1.24; margin: 0 0 8px; color: var(--accent); }
+    .talk-body .who { display: block; font-size: 19px; font-weight: 800; color: var(--accent-soft); margin: 0 0 14px; }
+    .talk-body p { font-size: 20px; line-height: 1.44; margin: 0; color: var(--ink-muted); }
+
+    /* ------- P15 two clubs (L3 + L4) ------- */
+    .club-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .club-block {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-radius: 12px;
+      padding: 34px 36px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+    .club-block.dark { background: var(--accent); border-color: var(--accent); }
+    .club-block .who { display: block; font-size: 20px; font-weight: 800; color: var(--accent-soft); margin-bottom: 8px; }
+    .club-block.dark .who { color: #b8d7ff; }
+    .club-block h3 { font-size: 32px; margin: 0 0 6px; color: var(--accent); font-family: var(--font-heading); font-weight: 800; line-height: 1.14; }
+    .club-block.dark h3 { color: #fff; }
+    .club-block .rename { display: block; font-size: 18px; font-weight: 700; color: var(--ink-subtle); margin-bottom: 20px; }
+    .club-block.dark .rename { color: #b8d7ff; }
+    .club-items { display: flex; flex-direction: column; gap: 18px; flex: 1; }
+    .club-item b { display: block; font-size: 22px; line-height: 1.2; margin-bottom: 6px; color: var(--ink); }
+    .club-block.dark .club-item b { color: #fff; }
+    .club-item span { display: block; font-size: 20px; line-height: 1.42; color: var(--ink-muted); }
+    .club-block.dark .club-item span { color: #d8e8ff; }
+    .lecturer-block { margin-top: 22px; }
+    .lecturer-head {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 6px solid var(--accent-soft);
+      line-height: 1.2;
+    }
+    .lecturer-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    .lecturer-card {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-top: 4px solid var(--accent-soft);
+      border-radius: 0 0 8px 8px;
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .lecturer-card b {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.15;
+      font-family: var(--font-heading);
+    }
+    .lecturer-card span {
+      font-size: 15.5px;
+      line-height: 1.32;
+      color: var(--ink-muted);
+      font-weight: 600;
+    }
+    /* P14 俱乐部页：紧凑化 + 底部活动照片条 */
+    .slide[data-label="两个俱乐部"] .slide-title { font-size: 52px; }
+    .slide[data-label="两个俱乐部"] .slide-bar { margin-top: 14px; margin-bottom: 16px; }
+    .slide[data-label="两个俱乐部"] .club-grid { margin-top: 20px; }
+    .slide[data-label="两个俱乐部"] .club-block { padding: 26px 32px 28px; }
+    .slide[data-label="两个俱乐部"] .club-items { gap: 14px; }
+    .slide[data-label="两个俱乐部"] .club-item b { font-size: 21px; margin-bottom: 5px; }
+    .slide[data-label="两个俱乐部"] .club-item span { font-size: 18.5px; line-height: 1.38; }
+    /* P14 底部：左照片条 + 右讲师库紧凑卡 */
+    .club-bottom {
+      display: flex;
+      gap: 24px;
+      margin-top: 20px;
+      align-items: stretch;
+    }
+    .club-photo {
+      position: relative;
+      flex: 0 0 50%;
+      margin-top: 0;
+      height: 210px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .club-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+    .club-photo .img-caption {
+      position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+      padding: 40px 28px 16px;
+      background: linear-gradient(to top, rgba(8,28,51,0.82), rgba(8,28,51,0));
+      color: #fff; font-size: 19px; font-weight: 800; line-height: 1.3;
+    }
+    .lecturer-panel {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-radius: 12px;
+      padding: 16px 22px 18px;
+      box-sizing: border-box;
+    }
+    .lecturer-panel-head {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 12px;
+      padding-left: 12px;
+      border-left: 5px solid var(--accent-soft);
+      line-height: 1.2;
+    }
+    .lecturer-mini-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      row-gap: 9px;
+      align-content: center;
+    }
+    /* 两条长头衔（崔健 / Lawrence）占满整行，保证 nowrap 全文不截断 */
+    .lecturer-mini.wide { grid-column: 1 / -1; }
+    .lecturer-mini.more b {
+      color: var(--ink-subtle);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--font-body);
+    }
+    .lecturer-mini {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    .lecturer-mini b {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.2;
+      font-family: var(--font-heading);
+      flex: 0 0 auto;
+    }
+    .lecturer-mini span {
+      font-size: 14px;
+      line-height: 1.25;
+      color: var(--ink-muted);
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ------- P16 landing trio (L5-L7) ------- */
+    .step-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 34px;
+    }
+    .step-box {
+      position: relative;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px;
+      padding: 36px 34px 38px;
+      min-height: 300px;
+    }
+    .step-box:not(:last-child)::after {
+      content: "→";
+      position: absolute; right: -22px; top: 50%; transform: translateY(-50%);
+      font-size: 34px; color: var(--accent-soft); z-index: 3;
+    }
+    .step-box .who { display: block; font-size: 19px; font-weight: 800; color: #b8d7ff; margin-bottom: 10px; letter-spacing: 1px; }
+    /* 诊断 / 陪跑 / 落地 · 视觉主角，超大字 */
+    .step-box .step-hero {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 72px;
+      line-height: 1;
+      color: #fff;
+      letter-spacing: 4px;
+      margin-bottom: 18px;
+    }
+    .step-box b { display: block; font-size: 30px; margin-bottom: 16px; color: #fff; font-family: var(--font-heading); font-weight: 800; }
+    .step-box p { font-size: 21px; line-height: 1.5; color: #d8e8ff; margin: 0; }
+
+    /* ------- P17 delivery methods (retained P12 minus study cards) ------- */
+    .l17-layout {
+      display: grid;
+      grid-template-columns: 1.22fr 0.78fr;
+      gap: 40px;
+      margin-top: 30px;
+      align-items: start;
+    }
+    .method-chips {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .method-chip {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-top: 4px solid var(--accent-soft);
+      border-radius: 0 0 8px 8px;
+      padding: 22px 28px;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      min-height: 80px;
+    }
+    .l17-layout .bottom-line { margin-top: 20px; }
+    .l17-photo {
+      position: relative;
+      height: 560px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .l17-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .l17-photo .img-caption {
+      position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+      padding: 46px 30px 24px;
+      background: linear-gradient(to top, rgba(8,28,51,0.85), rgba(8,28,51,0));
+      color: #fff; font-size: 21px; font-weight: 800; line-height: 1.3;
+    }
+
+    /* ------- P19 accelerate (four cards) ------- */
+    .accel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+    .accel-card {
+      padding: 34px 30px 38px;
+      min-height: 400px;
+    }
+    .accel-card h3 { font-size: 27px; line-height: 1.2; margin: 0 0 16px; color: var(--accent); }
+    .accel-card.dark h3 { color: #fff; }
+    .accel-card p { font-size: 21px; line-height: 1.5; margin: 0; color: var(--ink-muted); }
+    .accel-card.dark p { color: #d8e8ff; }
+
+    /* ------- AI 原生企业服务（P19+P21 合并页） ------- */
+    .ainative-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      margin-top: 28px;
+      align-items: start;
+    }
+    .ainative-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .ainative-head .ainative-idx {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .ainative-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .ainative-list li {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-left: 5px solid var(--accent-soft);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 24px 18px;
+    }
+    .ainative-list li b {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .ainative-list li span {
+      display: block;
+      font-size: 18.5px;
+      line-height: 1.42;
+      color: var(--ink-muted);
+    }
+    .ainative-photo {
+      position: relative;
+      margin-top: 16px;
+      height: 210px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .ainative-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ainative-photo-cap {
+      position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+      padding: 30px 22px 14px;
+      background: linear-gradient(to top, rgba(8,28,51,0.82), rgba(8,28,51,0));
+      color: #fff; font-size: 17px; font-weight: 800; line-height: 1.3;
+    }
+
+    /* ------- P18 FS portfolio（左图右文重设计） ------- */
+    .slide[data-label="孵化基因"] .slide-bar { margin-top: 12px; margin-bottom: 12px; }
+    .slide[data-label="孵化基因"] .slide-lead { margin-top: 2px; }
+    /* 整体下移：现内容与页底 logo 之间空白偏多，下移一点收紧至净空 40-60px */
+    .fs-port-layout {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 44px;
+      margin-top: 138px;
+      align-items: stretch;
+    }
+    /* 左侧 logo 墙：contain 完整显示、不裁切、不加遮罩 */
+    .fs-logowall {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fs-logowall img { width: 100%; height: auto; max-height: 620px; object-fit: contain; display: block; border-radius: 4px; }
+    /* 右侧文字栏 */
+    .fs-port-text { display: flex; flex-direction: column; justify-content: center; }
+    .fs-port-lede {
+      font-size: 23px;
+      line-height: 1.56;
+      color: var(--ink);
+      margin: 0 0 20px;
+    }
+    .fs-port-lede b { color: var(--accent); font-weight: 800; }
+    .fs-acq {
+      padding: 16px 26px;
+      border-left: 6px solid var(--accent-soft);
+      background: var(--bg-alt);
+      border-radius: 0 8px 8px 0;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--ink-muted);
+    }
+    .fs-acq-head { display: block; font-size: 16px; font-weight: 900; letter-spacing: 1px; color: var(--accent); margin-bottom: 8px; }
+    .fs-acq b { color: var(--accent); font-weight: 800; }
+    .fs-port-attr { margin-top: 16px; font-size: 16px; color: var(--ink-subtle); font-weight: 700; line-height: 1.5; }
+
+    /* ------- P21 space resources ------- */
+    .space-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 44px;
+    }
+    .space-card { padding: 44px 40px 46px; }
+    .space-card .idx {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 40px;
+      letter-spacing: 2px !important;
+      color: var(--accent-soft);
+      margin-bottom: 20px;
+    }
+    .space-card.dark .idx { color: #b8d7ff; }
+    .space-card h3 { font-size: 34px; margin: 0 0 24px; color: var(--accent); }
+    .space-card.dark h3 { color: #fff; }
+    .space-list { margin: 0; padding: 0; list-style: none; }
+    .space-list li {
+      position: relative;
+      font-size: 23px;
+      line-height: 1.4;
+      color: var(--ink-muted);
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .space-list li:last-child { margin-bottom: 0; }
+    .space-list li::before {
+      content: "";
+      position: absolute; left: 0; top: 13px;
+      width: 10px; height: 2px; background: var(--accent-soft);
+    }
+    .space-card.dark .space-list li { color: #d8e8ff; }
+    .space-card.dark .space-list li::before { background: #b8d7ff; }
+    .prep-note {
+      position: absolute;
+      right: 120px;
+      top: 82px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink-subtle);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 7px 18px;
+      background: var(--bg-alt);
+    }
+
+    /* ------- P23 investor duo ------- */
+    .slide[data-label="面向投资人"] .slide-title { font-size: 46px; }
+    .slide[data-label="面向投资人"] .duo-block h3 { font-size: 30px; line-height: 1.18; }
+    .duo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 34px;
+    }
+    .duo-block {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-radius: 12px;
+      padding: 36px 40px 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .duo-block.dark { background: var(--accent); border-color: var(--accent); }
+    .duo-block .who { display: block; font-size: 20px; font-weight: 800; color: var(--accent-soft); margin-bottom: 10px; }
+    .duo-block.dark .who { color: #b8d7ff; }
+    .duo-block h3 { font-size: 34px; margin: 0 0 22px; color: var(--accent); font-family: var(--font-heading); font-weight: 800; }
+    .duo-block.dark h3 { color: #fff; }
+    .duo-block ul { margin: 0; padding: 0; list-style: none; flex: 1; }
+    .duo-block li {
+      position: relative;
+      font-size: 23px;
+      line-height: 1.46;
+      color: var(--ink-muted);
+      padding-left: 26px;
+      margin-bottom: 20px;
+    }
+    .duo-block li:last-child { margin-bottom: 0; }
+    .duo-block li::before {
+      content: "";
+      position: absolute; left: 0; top: 13px;
+      width: 12px; height: 2px; background: var(--accent-soft);
+    }
+    .duo-block.dark li { color: #d8e8ff; }
+    .duo-block.dark li::before { background: #b8d7ff; }
+
+    /* ------- P24 partners (5 people, retained) ------- */
+    .delivery-team-slide.p24 .slide-title { font-size: 72px; }
+    .p24 .slide-bar { margin-top: 20px; margin-bottom: 16px; }
+    .partner-stack { display: grid; gap: 24px; margin-top: 14px; }
+    .founder-row { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .partner-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .partner-card {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-radius: 12px;
+      overflow: hidden;
+      display: grid;
+    }
+    .founder-row .partner-card { grid-template-columns: 236px 1fr; height: 322px; }
+    .partner-row .partner-card { grid-template-columns: 190px 1fr; height: 312px; }
+
+    .partner-portrait {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f2f7ff 0%, #dcebff 100%);
+      border-right: 1px solid var(--rule);
+    }
+    /* 五原则默认：cover 裁切，头部略下移，避免顶边 */
+    .partner-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 14%;
+      display: block;
+    }
+    /* Lincoln 头部尺寸与留白对齐 Yusi：缩小 scale、上移收紧头顶留白、整体居中 */
+    .partner-card.lincoln .partner-portrait img {
+      object-position: center top;
+      transform-origin: center top;
+      transform: translateY(40px) scale(1.08);
+    }
+    .partner-card.yusi .partner-portrait img { object-position: center 18%; }
+    .partner-card.bingzhou .partner-portrait img { object-position: center 14%; }
+    /* Jeff / Hoffman：透明底站姿，改为 cover 裁到腰部以上，
+       头部放大到与冰洲接近、头顶留空隙、头顶不出框，下排三人头高对齐一条线 */
+    .partner-card.jeff .partner-portrait,
+    .partner-card.hoffman .partner-portrait {
+      background: linear-gradient(180deg, #f2f7ff 0%, #dcebff 100%);
+    }
+    .partner-card.jeff .partner-portrait img,
+    .partner-card.hoffman .partner-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Jeff 全身像 → 缩小取景（原 1.55 过大、胳膊出框、头偏大），头部与冰洲/Hoffman 同尺寸、头顶对齐 Hoffman */
+    .partner-card.jeff .partner-portrait img {
+      object-position: center top;
+      transform-origin: center top;
+      transform: translateY(8px) scale(1.34);
+    }
+    /* Hoffman 腰部以上 → 略放大对齐头部尺寸，下压出头顶空隙 */
+    .partner-card.hoffman .partner-portrait img {
+      object-position: center top;
+      transform-origin: center top;
+      transform: translateY(20px) scale(1.22);
+    }
+
+    .partner-body { align-self: center; }
+    .founder-row .partner-body { padding: 26px 30px; }
+    .partner-row .partner-body { padding: 18px 24px; }
+    .partner-body h3 { line-height: 1; color: var(--accent); }
+    .founder-row .partner-body h3 { font-size: 34px; margin: 0 0 16px; }
+    .partner-row .partner-body h3 { font-size: 27px; margin: 0 0 11px; }
+    .partner-body ul { margin: 0; padding: 0; list-style: none; }
+    .partner-body li {
+      line-height: 1.3;
+      color: var(--ink-muted);
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .founder-row .partner-body li { font-size: 19px; }
+    .partner-row .partner-body li { font-size: 16.5px; line-height: 1.26; margin-bottom: 5px; }
+    .partner-body li:last-child { margin-bottom: 0; }
+    .partner-body li::before {
+      content: "";
+      position: absolute; left: 0; top: 11px;
+      width: 8px; height: 2px; background: var(--accent-soft);
+    }
+    .partner-body li:first-child { color: var(--ink); font-weight: 800; }
+
+    /* ------- P25 why choose MindsLeap ------- */
+    /* 版面配平：放大各块 + 拉开间距，让内容自然占满整页，消除页底空白带 */
+    .slide[data-label="为什么选择"] .slide-lead { margin-bottom: 4px; font-size: 24px; }
+    .slide[data-label="为什么选择"] .slide-bar { margin-top: 16px; margin-bottom: 16px; }
+    .slide[data-label="为什么选择"] .wall-label { margin: 20px 0 12px; font-size: 22px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 26px;
+    }
+    .why-card {
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      border-top: 5px solid var(--accent-soft);
+      border-radius: 0 0 8px 8px;
+      padding: 22px 28px 26px;
+    }
+    .why-card h3 {
+      font-size: 23px;
+      line-height: 1.22;
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-family: var(--font-heading);
+      font-weight: 800;
+    }
+    .why-card p { font-size: 18.5px; line-height: 1.48; margin: 0; color: var(--ink-muted); }
+    .why-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .why-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 22px 32px;
+      background: var(--accent);
+      border-radius: 12px;
+    }
+    .why-stat b {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 60px;
+      line-height: 1;
+      color: #fff;
+    }
+    .why-stat span { font-size: 20px; font-weight: 700; color: #d8e8ff; line-height: 1.25; }
+    .p25-logowall {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 16px;
+    }
+    .p25-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 86px;
+      padding: 13px 20px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      box-sizing: border-box;
+    }
+    .p25-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .why-more {
+      margin-top: 12px;
+      font-size: 17px;
+      color: var(--ink-subtle);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* ------- P26 closing ------- */
+    .closing {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 96px 150px;
+      background:
+        radial-gradient(circle at 82% 16%, rgba(184, 215, 255, 0.22), transparent 32%),
+        linear-gradient(135deg, #102948 0%, #1e477c 58%, #0f2746 100%);
+      color: #fff;
+    }
+    .closing .logo-white {
+      width: 610px;
+      height: 72px;
+      margin-bottom: 72px;
+      background: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-foundersspace-joint-logo-white.png") left center / contain no-repeat;
+    }
+    .closing .kicker {
+      margin: 0 0 30px;
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 4px !important;
+    }
+    .closing h1 {
+      max-width: 1400px;
+      margin: 0;
+      color: #fff;
+      font-size: 84px;
+      line-height: 1.14;
+      font-weight: 950;
+    }
+    .closing .lead {
+      margin: 40px 0 0;
+      max-width: 1300px;
+      color: #d8e8ff;
+      font-size: 30px;
+      line-height: 1.46;
+      font-weight: 500;
+    }
+    .closing .site {
+      margin: 40px 0 0;
+      color: #b8d7ff;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 2px !important;
+    }
+    .closing .closing-date {
+      margin: 14px 0 0;
+      color: #8fb4e0;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 2px !important;
+    }
+    .closing .blue-dot { color: #b8d7ff; }
+
+    /* ── P2 品牌初心：压缩四字卡高度 + 底部 6 格「悦」照片带 ── */
+    .slide[data-page="02"] .brand-grid { margin-top: 36px; }
+    .slide[data-page="02"] .brand-card { padding: 30px 34px 32px; }
+    .slide[data-page="02"] .brand-card .char { font-size: 90px; margin-bottom: 16px; }
+    .slide[data-page="02"] .brand-card h3 { margin-bottom: 11px; }
+    .joy-band { margin-top: 28px; }
+    .joy-band-cap {
+      margin: 0 0 11px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink-subtle);
+      letter-spacing: 0.5px;
+      padding-left: 14px;
+      border-left: 5px solid var(--accent-soft);
+      line-height: 1.3;
+    }
+    .joy-band-cap b { color: var(--accent); }
+    .joy-band-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+    .joy-shot {
+      position: relative;
+      margin: 0;
+      height: 146px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .joy-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  </style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080" no-rail>
+
+  <!-- 01 封面 -->
+  <section class="slide cover no-chrome" data-label="封面" data-page="01">
+    <div>
+      <div class="cover-logo"></div>
+      <div class="cover-kicker">Upgrade AI Mindsets for Global Success</div>
+      <h1>MindsLeap 品牌手册<span class="blue-dot">.</span></h1>
+      <p class="cover-copy">MindsLeap（心智悦动）站在生态中央，连接硅谷、传统企业、AI 原生企业与投资人——让资源在四端之间流动，让 AI <span class="nowrap">真正长进业务里</span>。</p>
+      <div class="cover-meta">
+        <span class="row"><span>·</span>AI 原生企业的产业加速平台</span>
+        <span class="row"><span>·</span>Founders Space China 运营方</span>
+        <span class="row"><span>·</span>www.mindsleap.cn</span>
+      </div>
+      <div class="cover-updated">更新于 2026.07</div>
+    </div>
+    <div class="cover-visual">
+      <img src="/images/hero/AI-Native-Conference.jpg" alt="AI 原生企业大会现场" />
+      <div class="img-caption">AI 原生企业大会现场 · 上海 · 2026</div>
+    </div>
+  </section>
+
+  <!-- 02 品牌初心【沿用】 -->
+  <section class="slide body" data-label="品牌初心" data-page="02">
+    <div class="eyebrow">品牌初心 · 名字里写着我们的性格</div>
+    <h1 class="slide-title">心智悦动：有认知、有方法、有行动、有结果</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">把 MindsLeap 译成中文，我们只用了四个字。AI 转型可以少一点焦虑，多一点行动感——这就是我们做事的节奏。</p>
+    <div class="brand-grid">
+      <div class="card brand-card">
+        <span class="char">心</span>
+        <h3>心 · 心智与思维</h3>
+        <p>转型先转脑。先升级企业家的 AI 心智，工具与系统才谈得上落地。</p>
+      </div>
+      <div class="card brand-card">
+        <span class="char">智</span>
+        <h3>智 · 智慧与 AI</h3>
+        <p>把硅谷一线的 AI 认知与方法论，翻译成中国企业听得懂、用得上的打法。</p>
+      </div>
+      <div class="card brand-card">
+        <span class="char">悦</span>
+        <h3>悦 · 喜悦与轻快</h3>
+        <p>用轻量切入、快速见效的节奏，让团队在正反馈里一路往前走。</p>
+      </div>
+      <div class="card brand-card dark">
+        <span class="char">动</span>
+        <h3>动 · 行动与变革</h3>
+        <p>一切以业务结果收尾：跑通样板、改变经营，把热闹变成<span class="nowrap">真实的增长</span>。</p>
+      </div>
+    </div>
+    <div class="joy-band">
+      <div class="joy-band-cap">心智悦动的现场——<b>认真做 AI，也认真开心。</b></div>
+      <div class="joy-band-row">
+        <figure class="joy-shot"><img src="assets/photos/joy-01.jpg" alt="会议桌前搞怪合影" /></figure>
+        <figure class="joy-shot"><img src="assets/photos/joy-02.jpg" alt="Google 门牌前劈叉摆姿" /></figure>
+        <figure class="joy-shot"><img src="assets/photos/joy-03.jpg" alt="晚会搞怪四人组" /></figure>
+        <figure class="joy-shot"><img src="assets/photos/joy-04.jpg" alt="与导师拥抱大笑" /></figure>
+        <figure class="joy-shot"><img src="assets/photos/joy-05.jpg" alt="与 Hoffman 竖拇指合影" /></figure>
+        <figure class="joy-shot"><img src="assets/photos/joy-06.jpg" alt="吧台摆字母姿势" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 生态定位 -->
+  <section class="slide body" data-label="生态定位" data-page="03">
+    <div class="eyebrow">生态定位 · MindsLeap 居于生态中央</div>
+    <h1 class="slide-title">我们站在中央，让四端资源为彼此所用</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">MindsLeap 构建基于 AI 的全球资源网络，居于生态的中心，连接传统企业、AI 原生企业、投资人与硅谷生态。四端各有所求，也各有所长——我们的工作，是让这张网络<span class="nowrap">高效转起来</span>。</p>
+    <div class="eco-layout">
+      <div class="eco-grid">
+        <div class="card eco-card">
+          <h3>传统企业 · 真实场景</h3>
+          <p>连接各行业的企业家，把最迫切的经营命题带进网络，成为 AI 落地的第一现场。</p>
+        </div>
+        <div class="card eco-card">
+          <h3>AI 原生企业 · 技术与产品</h3>
+          <p>汇聚 AI 原生创业者与 OPC 社群，让前沿能力找到真正的用武之地。</p>
+        </div>
+        <div class="card eco-card">
+          <h3>投资人 · 天使 / VC / PE</h3>
+          <p>对接国内与国际资本，让好项目更快拿到钱，让好资金更早看见项目。</p>
+        </div>
+        <div class="card eco-card">
+          <h3>硅谷生态 · 前沿与人脉</h3>
+          <p>Founders Space、顶尖实验室与科技巨头的一线网络，把前沿认知直连中国现场。</p>
+        </div>
+      </div>
+      <div class="eco-image">
+        <img src="assets/ecosystem.png" alt="MindsLeap 全球生态网络" data-qa-ignore />
+      </div>
+    </div>
+    <div class="bottom-line">从硅谷到传统企业，从 AI 原生企业到投资人——接下来的每一章，讲的都是这张网络如何为你所用。</div>
+  </section>
+
+  <!-- 04 章节页 01 · 硅谷 -->
+  <section class="slide chapter no-chrome" data-label="章节 01 硅谷" data-page="04">
+    <div>
+      <p class="chap-eyebrow">CHAPTER 01</p>
+      <p class="chap-num">01</p>
+      <h1 class="chap-name">硅谷 · 资源与产品</h1>
+      <div class="chap-rule"></div>
+      <p class="chap-lead">先看我们在硅谷握有什么，再看这些资源如何变成你能用的产品。</p>
+    </div>
+    <div class="chap-logo"></div>
+  </section>
+
+  <!-- 05 硅谷资源 · Founders Space -->
+  <section class="slide body" data-label="Founders Space" data-page="05">
+    <div class="eyebrow">硅谷背书 · Founders Space</div>
+    <h1 class="slide-title t60 fs-title">硅谷第一孵化器的全球资源，<span class="nowrap">向我们敞开</span></h1>
+    <span class="slide-bar"></span>
+    <div class="fs-layout">
+      <div class="fs-points">
+        <div class="fs-point dark">
+          <h3>深度合作，全球资源随时可调</h3>
+          <p>MindsLeap 是 Founders Space 的战略合作伙伴，也是 Founders Space China 的运营方——它遍布全球的孵化、导师与资本资源，我们都能调用。创始人 Lincoln 同时任 Founders Space China CEO，两端由他直接打通。</p>
+        </div>
+        <div class="fs-point">
+          <h3>被《福布斯》评为硅谷第一孵化器</h3>
+          <p>Founders Space 是全球风险投资平台，网络覆盖 22 个国家与地区、50+ 战略合作伙伴，帮助创业者、政府与企业用 AI 创新并加速增长。</p>
+        </div>
+        <div class="fs-point">
+          <h3>Steve Hoffman · 硅谷创投教父</h3>
+          <p>Founders Space 创始人、《让大象飞》作者，辅导 1,000+ 初创企业，担任华为、博世、高通等的创新顾问。</p>
+        </div>
+        <div class="fs-point">
+          <h3>投出过一批改变行业的名字</h3>
+          <p>从 Instagram 到 RapidAPI，孵化组合里有一长串被 Snapchat、LinkedIn、Google 收购的项目——详见「AI 原生企业」一章。</p>
+        </div>
+      </div>
+      <div class="fs-photo">
+        <img src="assets/lincoln-hoffman-hd.png" alt="Steve Hoffman 与 Lincoln" />
+        <div class="fs-photo-cap">Steve Hoffman（左）· Lincoln（右）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 硅谷资源 · 大咖网络（头像墙 24 人） -->
+  <section class="slide body" data-label="大咖网络" data-page="06">
+    <div class="eyebrow">硅谷资源 · 大咖网络</div>
+    <h1 class="slide-title t60">把顶级大咖，从硅谷请到你面前</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">我们在硅谷的人脉网络，覆盖科技巨头掌舵人、顶级实验室负责人与诺奖级学者。以下为曾邀请或可触达的部分讲者。</p>
+    <div class="headwall">
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/thomas-kurian.jpg" alt="Thomas Kurian" /></div><b>Thomas Kurian</b><span>谷歌云 CEO</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/zack-kass.jpg" alt="Zack Kass" /></div><b>Zack Kass</b><span>OpenAI 前市场负责人</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/pieter-abbeel.jpg" alt="Pieter Abbeel" /></div><b>Pieter Abbeel</b><span>OpenAI 前十创始员工 · <span class="nowrap">伯克利 AI 实验室负责人</span></span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/angela-ying.jpg" alt="Angela Ying" /></div><b>Angela Ying</b><span>NVIDIA 商业副总裁</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/piero-scaruffi.jpg" alt="Piero Scaruffi" /></div><b>Piero Scaruffi</b><span>硅谷人工智能学院院长</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/dick-brouwer.jpg" alt="Dick Brouwer" /></div><b>Dick Brouwer</b><span>WhatsApp 副总裁</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/angela-du.jpg" alt="Angela Du" /></div><b>Angela Du</b><span>软银集团合伙人</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/steve-hoffman.jpg" alt="Steve Hoffman" /></div><b>Steve Hoffman</b><span>Founders Space 创始人 &amp; CEO</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/barry-katz.jpg" alt="Barry Katz" /></div><b>Barry Katz</b><span>斯坦福设计学院退休教授</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/andreas-weigend.jpg" alt="Andreas Weigend" /></div><b>Andreas Weigend</b><span>亚马逊前首席科学家</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/angie-zhu.jpg" alt="Angie Zhu" /></div><b>Angie Zhu</b><span>微软 AI 实验室总经理</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/clas-neumann.jpg" alt="Clas Neumann" /></div><b>Clas Neumann</b><span>SAP 高级副总裁</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/matt-mahan.jpg" alt="Matt Mahan" /></div><b>Matt Mahan</b><span>圣何塞市长</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/nik-spirin.jpg" alt="Nik Spirin" /></div><b>Nik Spirin</b><span>NVIDIA 大语言模型平台负责人</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/david-roberts.jpg" alt="David Roberts" /></div><b>David Roberts</b><span>哈佛医学院对外教育学院院长</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/yangqing-jia.jpg" alt="贾扬清" /></div><b>贾扬清</b><span>阿里巴巴前副总裁 · <span class="nowrap">Lepton AI 创始人</span></span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/lilian-weng.jpg" alt="翁荔 Lilian Weng" /></div><b>翁荔 Lilian Weng</b><span>OpenAI 安全研究副总裁</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/bo-li.jpg" alt="李波 Bo Li" /></div><b>李波 Bo Li</b><span>国际货币基金组织（IMF）副总裁</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/chenlin-meng.jpg" alt="孟晨琳 Chenlin Meng" /></div><b>孟晨琳 Chenlin Meng</b><span>Pika 联合创始人 &amp; CEO</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/weibing-yao.jpg" alt="姚维兵" /></div><b>姚维兵</b><span>明珞装备董事长 &amp; 创始人</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/zhe-shi.jpg" alt="施哲 Zhe Shi" /></div><b>施哲 Zhe Shi</b><span>富士康首席信息官</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/randy-schekman.jpg" alt="Randy Schekman" /></div><b>Randy Schekman</b><span>诺贝尔医学奖得主</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/bob-metcalfe.jpg" alt="Bob Metcalfe" /></div><b>Bob Metcalfe</b><span>图灵奖得主</span></div>
+      <div class="head-cell"><div class="avatar"><img src="assets/speakers/thomas-sargent.jpg" alt="Thomas J. Sargent" /></div><b>Thomas J. Sargent</b><span>诺贝尔经济学奖得主</span></div>
+    </div>
+  </section>
+
+  <!-- 07 出海（网络 × 服务，P7+P8 合并） -->
+  <section class="slide body" data-label="出海" data-page="07">
+    <div class="eyebrow">出海能力 · 网络 × 服务</div>
+    <h1 class="slide-title t60">出海这件事，我们既有湾区的网络，<span class="nowrap">也有能交付的服务</span></h1>
+    <span class="slide-bar"></span>
+    <div class="seaco-layout">
+      <div class="seaco-col">
+        <div class="seaco-col-head"><span class="seaco-idx">网</span>我们在湾区的网络</div>
+        <ul class="seaco-list">
+          <li><b>Mega 7 关系网</b><span>与硅谷七巨头的一线人脉直连，需求能递到对的人。</span></li>
+          <li><b>本地落地资源</b><span>空间、算力、注册、招聘，湾区落地要素齐备。</span></li>
+          <li><b>政商网络</b><span>硅谷各区政商关系打通，本地事有人接得住。</span></li>
+        </ul>
+      </div>
+      <div class="seaco-col">
+        <div class="seaco-col-head"><span class="seaco-idx">服</span>出海服务</div>
+        <ul class="seaco-list svc">
+          <li class="hot"><b>切入七巨头供应链</b><span>帮你把产品与技术，接进七巨头的供应体系。</span></li>
+          <li><b>建 Lab</b><span>在硅谷落一个研发与创新的前哨实验室。</span></li>
+          <li><b>美国 GTM</b><span>从定位到获客，把美国市场的打法跑通。</span></li>
+          <li><b>组建美国本地团队</b><span>为出海企业招募硅谷 AI 人才，<span class="nowrap">在当地把团队搭起来。</span></span></li>
+          <li><b>硅谷人才引进回国</b><span>把硅谷工程师与研究者，对接到国内核心岗位。</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sea-band">
+      <div class="sea-band-cap">硅谷现场 · Plug and Play / 斯坦福 / 闭门晚宴</div>
+      <div class="sea-band-row">
+        <figure class="sea-shot"><img src="assets/photos/sv-01.jpg" alt="Plug and Play 大堂参访" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/sv-02.jpg" alt="庭院导师深谈" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/sv-03.jpg" alt="工作坊共创" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/sv-04.jpg" alt="斯坦福圆桌会议室" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/sv-05.jpg" alt="社交晚宴交流" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/sv-06.jpg" alt="商务对接握手" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 硅谷产品 · 定制研学（含活动形式 + 往期照片条） -->
+  <section class="slide body" data-label="定制研学" data-page="08">
+    <div class="eyebrow">硅谷产品 · 定制研学</div>
+    <h1 class="slide-title t60">硅谷研学带过十余批，<span class="nowrap">定制到你的命题</span></h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">硅谷的门道，我们常年带队在走；你要看的行业、要见的人、要解的题，一站帮你<span class="nowrap">定制到位</span>。</p>
+    <div class="visit-label">参访企业</div>
+    <div class="visit-chips">
+      <span class="visit-chip">NVIDIA 英伟达</span>
+      <span class="visit-chip">Google 谷歌</span>
+      <span class="visit-chip">Microsoft 微软</span>
+      <span class="visit-chip">Amazon 亚马逊</span>
+      <span class="visit-chip">Apple 苹果</span>
+      <span class="visit-chip">OpenAI</span>
+      <span class="visit-chip">Tesla 特斯拉</span>
+      <span class="visit-chip">HP 惠普</span>
+      <span class="visit-chip">SAP</span>
+      <span class="visit-chip">Meta</span>
+    </div>
+    <div class="visit-note">根据定制需求安排企业参访与学习</div>
+    <div class="p08-mid">
+      <div class="sell-grid">
+        <div class="sell-card">
+          <h3>深入落地，不走马观花</h3>
+          <p>我们自己就是做 AI 的团队，看得懂技术、问得出关键问题，把参访变成能<span class="nowrap">带回去用的方法</span>。</p>
+        </div>
+        <div class="sell-card">
+          <h3>Super Influencer 人脉</h3>
+          <p>与硅谷生态里的关键连接者关系深厚，研学路上就能对接到<span class="nowrap">更好的资源</span>。</p>
+        </div>
+        <div class="sell-card">
+          <h3>持续在场</h3>
+          <p>我们自己也定期赴硅谷更新认知——这条路线常年在跑，认知<span class="nowrap">始终是新的</span>。</p>
+        </div>
+      </div>
+      <div class="form-block">
+        <div class="visit-label">活动形式</div>
+        <div class="form-grid">
+          <div class="form-item"><b>教授课堂</b><span>走进斯坦福、伯克利，听一线教授讲课。</span></div>
+          <div class="form-item"><b>企业参访 · 高管对谈</b><span>进到硅谷公司现场，与高管面对面深谈。</span></div>
+          <div class="form-item"><b>专家闭门分享</b><span>AI 专家与顶尖投资人的小范围闭门交流。</span></div>
+          <div class="form-item"><b>创业路演</b><span>看优秀创业企业当面路演、拆解打法。</span></div>
+          <div class="form-item"><b>华人圈晚宴</b><span>硅谷华人创业与投资圈的社交晚宴。</span></div>
+          <div class="form-item"><b>政商交流</b><span>会见硅谷各区市长、副市长。</span></div>
+          <div class="form-item"><b>更多形式可灵活安排</b><span>按你的命题定制，路线随需扩展。</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sea-band study-band">
+      <div class="sea-band-cap">往期带队 · 课堂 / 参访 / 合影实录</div>
+      <div class="sea-band-row">
+        <figure class="sea-shot"><img src="assets/photos/study-07.jpg" alt="Google 园区单车合影" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/study-02.jpg" alt="校园大合影" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/study-03.jpg" alt="园区合影" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/study-04.jpg" alt="教室全景" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/study-05.jpg" alt="室内大合影" /></figure>
+        <figure class="sea-shot"><img src="assets/photos/study-06.jpg" alt="阶梯教室合影" /></figure>
+      </div>
+    </div>
+    <div class="visit-2c">仅做企业定制，不做 2C。</div>
+  </section>
+
+  <!-- 09 硅谷产品 · 创业加速（新增页） -->
+  <section class="slide body" data-label="创业加速" data-page="09">
+    <div class="eyebrow">硅谷产品 · 创业加速营</div>
+    <h1 class="slide-title t60">硅谷加速的顶级资源，<span class="nowrap">随时为你开营</span></h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">YC 式的封闭加速营，吃住工作在一起，硅谷顶尖投资人与创业导师带教——突破卡点、对接资本，一路带你<span class="nowrap">打进美国市场</span>。</p>
+    <div class="accelnew-top">
+      <div class="accelnew-card">
+        <h3>YC 式封闭加速</h3>
+        <p>约两个月（时间可定制）的沉浸式加速营，学员吃住工作在一起，节奏拉满、彼此打磨。</p>
+      </div>
+      <div class="accelnew-card">
+        <h3>顶尖导师带教</h3>
+        <p>硅谷一线投资人与创业导师全程带教，直击认知卡点，尤其是 AI 时代的打法与判断。</p>
+      </div>
+      <div class="accelnew-card">
+        <h3>从资本到市场</h3>
+        <p>加速之后不止步于融资对接——从拿到资本，一路陪你把美国市场真正拓开。</p>
+      </div>
+    </div>
+    <div class="accelnew-duo">
+      <div class="accelnew-chan">
+        <span class="chan-tag">通道一</span>
+        <h3>明星项目海外加速</h3>
+        <p>投资人的明星被投项目、地方政府筛选出的优质企业，依托硅谷当地合作伙伴，成批成行赴美加速。</p>
+      </div>
+      <div class="accelnew-chan">
+        <span class="chan-tag">通道二</span>
+        <h3>企业家二代成长加速</h3>
+        <p>面向家办客户的二代成长路径：从创业方法论、设计思维到 go-to-market，含项目路演与导师对接，成批输送、系统带教。</p>
+      </div>
+    </div>
+    <div class="accelnew-mode"><b>仅支持 2B 定制、不独立招生</b>——由合作方成批输送学员，我们把硅谷这套加速跑道，为你成建制地跑通。</div>
+    <div class="accel-band">
+      <p class="accel-band-cap">加速营现场 · 路演 / 带教 / 共创</p>
+      <div class="accel-band-row">
+        <figure class="accel-shot"><img src="assets/photos/accel-01.jpg" alt="山景房间创业分享" /></figure>
+        <figure class="accel-shot"><img src="assets/photos/accel-02.jpg" alt="Voiceon AI 项目路演" /></figure>
+        <figure class="accel-shot"><img src="assets/photos/accel-03.jpg" alt="Plug and Play 双屏 pitch" /></figure>
+        <figure class="accel-shot"><img src="assets/photos/accel-04.jpg" alt="多桌工作坊共创" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 章节页 02 · 传统企业 -->
+  <section class="slide chapter no-chrome" data-label="章节 02 传统企业" data-page="10">
+    <div>
+      <p class="chap-eyebrow">CHAPTER 02</p>
+      <p class="chap-num">02</p>
+      <h1 class="chap-name">传统企业 · 资源与服务</h1>
+      <div class="chap-rule"></div>
+      <p class="chap-lead">一张企业家网络，一条从内容到落地的完整产品线。</p>
+    </div>
+    <div class="chap-logo"></div>
+  </section>
+
+  <!-- 12 传统企业资源 · 企业家网络（chip 墙 28） -->
+  <section class="slide body" data-label="企业家网络" data-page="11">
+    <div class="eyebrow">传统企业资源 · 企业家网络</div>
+    <h1 class="slide-title t60">一屋子愿意把真问题摆上桌的企业家</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">企业家 AI 俱乐部聚起的这张网络，是我们最核心的资源：各行业的决策者在这里交换判断、共享路径、互为场景。</p>
+    <div class="wall-label">会员画像（部分）· 已脱敏，按职级归组</div>
+    <div class="rank-wall">
+      <div class="rank-group">
+        <div class="rank-head">
+          <span class="rank-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 8l4.5 3L12 5l4.5 6L21 8l-1.7 10.2a1 1 0 0 1-1 .8H5.7a1 1 0 0 1-1-.8L3 8z"/><circle cx="3" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="21" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="5" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+          <span class="rank-title">董事长 · 总裁<small>CHAIRMAN · PRESIDENT</small></span>
+        </div>
+        <div class="rank-tags">
+          <span class="rank-tag">金融级支付科技</span>
+          <span class="rank-tag">实业集团</span>
+          <span class="rank-tag">头部广告集团</span>
+          <span class="rank-tag">大宗投资机构</span>
+          <span class="rank-tag">资产管理公司</span>
+          <span class="rank-tag">工业级 3D 打印</span>
+        </div>
+      </div>
+      <div class="rank-group">
+        <div class="rank-head">
+          <span class="rank-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.7 5.9 6.5.7-4.8 4.4 1.3 6.4L12 17.9 6.3 20.3l1.3-6.4-4.8-4.4 6.5-.7L12 2.5z"/></svg></span>
+          <span class="rank-title">CEO · 总经理<small>CEO · GENERAL MANAGER</small></span>
+        </div>
+        <div class="rank-tags">
+          <span class="rank-tag">精密测量科技</span>
+          <span class="rank-tag">互联网科技</span>
+          <span class="rank-tag">智能财税 SaaS</span>
+          <span class="rank-tag">纺织品企业</span>
+          <span class="rank-tag">云视频通讯上市公司</span>
+          <span class="rank-tag">投资管理公司</span>
+          <span class="rank-tag">港股连锁商超</span>
+          <span class="rank-tag">A 股上市科技</span>
+        </div>
+      </div>
+      <div class="rank-group">
+        <div class="rank-head">
+          <span class="rank-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3l7 3.5v5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5v-5L12 3z"/><path d="M9 11.5l2 2 4-4"/></svg></span>
+          <span class="rank-title">创始人 · 合伙人<small>FOUNDER · PARTNER</small></span>
+        </div>
+        <div class="rank-tags">
+          <span class="rank-tag">软件工程</span>
+          <span class="rank-tag">全国口才教育</span>
+          <span class="rank-tag">医疗美容机构</span>
+          <span class="rank-tag">文化传媒</span>
+          <span class="rank-tag">管理咨询</span>
+          <span class="rank-tag">服饰品牌</span>
+          <span class="rank-tag">科技信息公司</span>
+          <span class="rank-tag">纸品制造企业</span>
+        </div>
+      </div>
+      <div class="rank-group">
+        <div class="rank-head">
+          <span class="rank-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></span>
+          <span class="rank-title">高管<small>CMO · COO · 院长</small></span>
+        </div>
+        <div class="rank-tags">
+          <span class="rank-tag">乳业巨头品牌 CMO</span>
+          <span class="rank-tag">头部工厂自动化</span>
+          <span class="rank-tag">跨境智能家居 COO</span>
+          <span class="rank-tag">民营医院院长</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-line">从董事长到 CEO 到创始人——一屋子决策者的组合，让每一个真问题都能在这张网络里<span class="nowrap">找到同频的人和答案</span>。</div>
+  </section>
+
+  <!-- 13 传统企业服务 · 产品金字塔（7 层） -->
+  <section class="slide body" data-label="产品全景" data-page="12">
+    <div class="eyebrow">传统企业服务 · 产品全景</div>
+    <h1 class="slide-title">一座金字塔，从科普一路走到落地</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">从最上层的公开科普内容起步，一层层往下沉，直到 FDE 下场把 AI 做进你的业务——同一条产品线，管到落地为止。</p>
+    <div class="pyr-wrap">
+      <div class="pyr-row l7">
+        <div class="pyr-who">企业</div>
+        <div class="pyr-txt"><b>L7 · AI 落地服务包</b><span>FDE 下场，直接负责数字员工团队建设。</span></div>
+      </div>
+      <div class="pyr-row l6">
+        <div class="pyr-who">企业</div>
+        <div class="pyr-txt"><b>L6 · AI 咨询陪跑包</b><span>咨询加培训加阶段反馈，陪团队自己跑出项目。</span></div>
+      </div>
+      <div class="pyr-row l5">
+        <div class="pyr-who">企业</div>
+        <div class="pyr-txt"><b>L5 · 企业内部诊断包</b><span>走进现场，把一家企业的 AI 机会看清、讲透。</span></div>
+      </div>
+      <div class="pyr-row l4">
+        <div class="pyr-who">企业家专属</div>
+        <div class="pyr-txt"><b>L4 · 企业家 AI 俱乐部</b><span>再筛选一层的企业家圈子，专属活动加线上轻诊断。</span></div>
+      </div>
+      <div class="pyr-row l3">
+        <div class="pyr-who">企业家 + 超级个体</div>
+        <div class="pyr-txt"><b>L3 · AI 俱乐部</b><span>线上体系化内容加每月一场线下活动。</span></div>
+      </div>
+      <div class="pyr-row l2">
+        <div class="pyr-who">企业家 + 超级个体</div>
+        <div class="pyr-txt"><b>L2 · 线上 AI 社群</b><span>开放式线上社群，配持续更新的体系化 AI 课程。</span></div>
+      </div>
+      <div class="pyr-row l1">
+        <div class="pyr-who">企业家 + 超级个体</div>
+        <div class="pyr-txt"><b>L1 · 媒体平台</b><span>Founders Talk 访谈节目与公开 AI 内容。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 L1 展开 · Founders Talk【沿用】 -->
+  <section class="slide body" data-label="媒体平台" data-page="13">
+    <div class="eyebrow">传统企业服务 · L1 媒体平台</div>
+    <h1 class="slide-title">和最会用 AI 的人，一场一场深聊</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">Founders Talk 是 Lincoln 发起的访谈节目，对话 AI 时代有影响力的创业者、企业家、AI 专家与投资人，把一线判断公开分享。</p>
+    <div class="talk-grid">
+      <div class="talk-card">
+        <div class="talk-cover"><img src="/images/news/jin-yisu-silicon-valley-ai-talent-2026-cover.jpg" alt="金一粟访谈" /></div>
+        <div class="talk-body">
+          <h3>金一粟</h3>
+          <span class="who">IntelliPro 集团创始人</span>
+          <p>AI 时代的人才重组：当岗位被重新定义，人该怎么站位。</p>
+        </div>
+      </div>
+      <div class="talk-card">
+        <div class="talk-cover"><img src="/images/news/jiang-yizhen-openclaw-ai-transformation-2026-cover.jpg" alt="蒋镒珍访谈" /></div>
+        <div class="talk-body">
+          <h3>蒋镒珍</h3>
+          <span class="who">有孚网络首席 AI 科学家</span>
+          <p>AI 转型真正改变的，是什么：从工具用法一路谈到组织的运转方式。</p>
+        </div>
+      </div>
+      <div class="talk-card">
+        <div class="talk-cover"><img src="/images/news/ai-agent-seo-experiment-yang-jiongwei-2026.png" alt="杨炯纬访谈" /></div>
+        <div class="talk-body">
+          <h3>杨炯纬</h3>
+          <span class="who">卫瓴科技 CEO</span>
+          <p>企业如何管理数字员工：把 AI 当成同事，边界与协作怎么定。</p>
+        </div>
+      </div>
+      <div class="talk-card">
+        <div class="talk-cover"><img src="/images/news/andy-zhang-hard-tech-ai-founder-investor-2026.png" alt="张珣 Andy 访谈" /></div>
+        <div class="talk-body">
+          <h3>张珣 Andy</h3>
+          <span class="who">和暄资本创始合伙人</span>
+          <p>硬科技投资与 AI 创业：资本正在往哪儿看，创业者该怎么接。</p>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-line">我们持续为不同合伙人搭建 AI 个人 IP 矩阵，让更多一线判断被听见。</div>
+  </section>
+
+  <!-- 15 两个俱乐部（递进） -->
+  <section class="slide body" data-label="两个俱乐部" data-page="14">
+    <div class="eyebrow">传统企业服务 · 俱乐部体系</div>
+    <h1 class="slide-title t60">一套俱乐部两级台阶：先向超级个体敞开，<span class="nowrap">再为企业家做深</span></h1>
+    <span class="slide-bar"></span>
+    <div class="club-grid">
+      <div class="club-block">
+        <span class="who">向超级个体敞开</span>
+        <h3>AI 俱乐部</h3>
+        <div class="club-items">
+          <div class="club-item">
+            <b>多样的活动形式</b>
+            <span>大咖私享会 · 一线大咖，小范围深度分享。</span>
+          </div>
+          <div class="club-item">
+            <b>实战工作坊</b>
+            <span>围绕真实命题，动手把方法跑一遍。</span>
+          </div>
+          <div class="club-item">
+            <b>标杆企业参访</b>
+            <span>走进标杆企业，看 AI 怎么真正落地。</span>
+          </div>
+          <div class="club-item">
+            <b>行业专家分享</b>
+            <span>各行业专家上场，讲清本行业的 AI 打法。</span>
+          </div>
+        </div>
+      </div>
+      <div class="club-block dark">
+        <span class="who">企业家专属，再筛一层</span>
+        <h3>企业家 AI 俱乐部</h3>
+        <div class="club-items">
+          <div class="club-item">
+            <b>再筛选一层的圈子</b>
+            <span>全部会员经过再筛选，决策者密度更高，话题直达经营。</span>
+          </div>
+          <div class="club-item">
+            <b>专属活动与独家内容</b>
+            <span>华为练秋湖、智谱、飞书、小米、发那科、英伟达等标杆参访；哥大、凯洛格、MIT 商学框架加持共创。</span>
+          </div>
+          <div class="club-item">
+            <b>企业家共创流</b>
+            <span>企业家围坐共创，把彼此的真实经营命题摆上桌一起解。</span>
+          </div>
+          <div class="club-item">
+            <b>一次线上轻诊断</b>
+            <span>访谈企业关键人物，识别这家公司与 AI 结合的机会点。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="club-bottom">
+      <div class="club-photo">
+        <img src="/images/hero/aiclub-workshop-april-2026.jpeg" alt="企业家 AI 俱乐部活动现场" />
+        <div class="img-caption">企业家 AI 俱乐部 · 线下活动现场</div>
+      </div>
+      <div class="lecturer-panel">
+        <div class="lecturer-panel-head">国内实战讲师库（部分）</div>
+        <div class="lecturer-mini-grid">
+          <div class="lecturer-mini"><b>崔健</b><span>衔远集团总裁 · 700 亿集团操盘手</span></div>
+          <div class="lecturer-mini"><b>Lawrence</b><span>Humania.AI 创办人</span></div>
+          <div class="lecturer-mini"><b>狮明亮</b><span>全域增长研究院创始人</span></div>
+          <div class="lecturer-mini"><b>杨炯纬</b><span>卫瓴科技创始人</span></div>
+          <div class="lecturer-mini"><b>蒋镒珍</b><span>有孚网络首席 AI 科学家</span></div>
+          <div class="lecturer-mini"><b>延君晨</b><span>Dify 联合创始人</span></div>
+          <div class="lecturer-mini"><b>周立钢</b><span>博乐设计创始人</span></div>
+          <div class="lecturer-mini"><b>周忠杰</b><span>钱拓科技董事长 · Allinone AI CEO</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 L5-L7 展开 · 落地三件套 -->
+  <section class="slide body" data-label="落地三件套" data-page="15">
+    <div class="eyebrow">传统企业服务 · 落地三件套</div>
+    <h1 class="slide-title t68">先诊断，再陪跑。必要时，我们直接下场。</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">诊断是这条落地链路的起点；之后走多远，由真实的业务结果说了算。</p>
+    <div class="step-row">
+      <div class="step-box">
+        <span class="step-hero">诊断</span>
+        <b>把 AI 机会看清</b>
+        <p>两次线下、一次线上——关键人访谈、老板深度沟通、AI 机会地图、定制化培训。</p>
+      </div>
+      <div class="step-box">
+        <span class="step-hero">陪跑</span>
+        <b>陪团队跑出项目</b>
+        <p>咨询加培训加阶段反馈，识别内部种子选手，陪团队自己跑出 AI 项目。</p>
+      </div>
+      <div class="step-box">
+        <span class="step-hero">落地</span>
+        <b>我们直接下场</b>
+        <p>FDE 前线部署工程师下场，接手复杂搭建，直接负责数字员工团队建设。</p>
+      </div>
+    </div>
+    <div class="bottom-line">三步各自可停可续：看清就止步，也是一次值回的诊断；要走到底，我们就下场把事做成。</div>
+  </section>
+
+  <!-- 章节页 03 · AI 原生企业 -->
+  <section class="slide chapter no-chrome" data-label="章节 03 AI 原生企业" data-page="16">
+    <div>
+      <p class="chap-eyebrow">CHAPTER 03</p>
+      <p class="chap-num">03</p>
+      <h1 class="chap-name">AI 原生企业 · 加速与孵化</h1>
+      <div class="chap-rule"></div>
+      <p class="chap-lead">场景、导师、资本与空间，帮 AI 原生企业跑得更快。</p>
+    </div>
+    <div class="chap-logo"></div>
+  </section>
+
+  <!-- AI 原生企业服务（P19 创业加速 + P21 空间政策 合并，筹备中） -->
+  <section class="slide body" data-label="原生企业服务" data-page="17">
+    <div class="prep-note">筹备中</div>
+    <div class="eyebrow">AI 原生企业 · 加速 · 空间与政策</div>
+    <h1 class="slide-title t60">真实场景、硅谷背书、空间政策，一站给到 AI 原生企业</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">从产业场景到 Demo Day，从工位算力到公司注册——AI 原生企业需要的加速和落地，我们在同一条跑道上一起给。</p>
+    <div class="ainative-layout">
+      <div class="ainative-col">
+        <div class="ainative-head"><span class="ainative-idx">A</span>创业加速</div>
+        <ul class="ainative-list">
+          <li><b>全流程加速</b><span>产业命题、项目招募、导师辅导、入驻孵化、采购与投资对接、Demo Day，每一站都有真实产出。</span></li>
+          <li><b>真实场景对接</b><span>一端连着传统企业的真实痛点，一端连着 AI 原生团队，需求和能力在这里直接见面。</span></li>
+          <li><b>Super Builder 机制</b><span>经我们考核、培训并背书的 Super Builder，下沉到传统企业内部，提供转型所需的 AI 技术服务。</span></li>
+          <li><b>黑客松</b><span>在实战中筛出更优质的 Super Builder，也给 AI 原生企业一个展示与磨合技术的平台。</span></li>
+        </ul>
+      </div>
+      <div class="ainative-col">
+        <div class="ainative-head"><span class="ainative-idx">B</span>空间与政策</div>
+        <ul class="ainative-list">
+          <li><b>基础设施</b><span>硅谷模式的空间装修与运作，灵活工位随需扩展，算力券直接可用，落地即开工。</span></li>
+          <li><b>服务支持</b><span>公司注册一条龙，人才引进与人才公寓打通，各类政策补贴统一对接到位。</span></li>
+          <li><b>深度赋能</b><span>导师辅导、业务资源与投资对接一并接入，让好项目更快跑起来。</span></li>
+        </ul>
+        <div class="ainative-photo">
+          <img src="assets/photos/incubation-hoffman.jpg" alt="Founders Space 孵化现场" />
+          <div class="ainative-photo-cap">Founders Space 孵化活动现场</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FS 孵化案例（logo 墙挪入） -->
+  <section class="slide body" data-label="孵化基因" data-page="18">
+    <div class="eyebrow">AI 原生企业 · Founders Space 孵化基因</div>
+    <h1 class="slide-title t60">我们身后的 Founders Space，投出过这些名字</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">这些是 Founders Space 在全球孵化、投资过的项目——一张被科技巨头认过账的名单。</p>
+    <div class="fs-port-layout">
+      <div class="fs-logowall">
+        <img src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/assets/portfolio-logowall-v2.png" alt="Founders Space 孵化 / 投资的部分项目 logo 墙" />
+      </div>
+      <div class="fs-port-text">
+        <p class="fs-port-lede">这些是 <b>Founders Space</b> 在全球孵化、投资过的项目。作为它的战略合作伙伴，我们把这套被验证过的加速经验接到你面前——其中不少已被<b>科技巨头收入囊中</b>。</p>
+        <div class="fs-acq">
+          <span class="fs-acq-head">被巨头收购的名字</span>
+          <b>Instagram</b> · <b>RapidAPI</b> · <b>Vurb</b>（被 Snapchat 收购）· <b>CardMunch</b>（被 LinkedIn 收购）· <b>Alooma</b>（被 Google 收购）· <b>Bossa Nova Robotics</b>
+        </div>
+        <div class="fs-port-attr">以上为 Founders Space 孵化 / 投资项目，非 MindsLeap 自有业绩。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 章节页 04 · 投资人 -->
+  <section class="slide chapter no-chrome" data-label="章节 04 投资人" data-page="19">
+    <div>
+      <p class="chap-eyebrow">CHAPTER 04</p>
+      <p class="chap-num">04</p>
+      <h1 class="chap-name">投资人 · 两类被低估的机会</h1>
+      <div class="chap-rule"></div>
+      <p class="chap-lead">一类从我们的孵化里长出来，一类在 AI 改造中被重新看见——都是市场还没充分定价的机会。</p>
+    </div>
+    <div class="chap-logo"></div>
+  </section>
+
+  <!-- 23 面向投资人（双卡） -->
+  <section class="slide body" data-label="面向投资人" data-page="20">
+    <div class="eyebrow">投资人 · 两类被低估的机会</div>
+    <h1 class="slide-title">两类机会：孵化里的 AI 原生项目，改造后重估的传统企业</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">生态里长出来的机会，我们替投资人先筛过一遍。</p>
+    <div class="duo-grid">
+      <div class="duo-block dark">
+        <span class="who">来自我们自己的孵化平台</span>
+        <h3>AI 原生孵化项目</h3>
+        <ul>
+          <li>聚焦 AI for Science（科学智能）与 AI 行业落地，只挑解决真问题的原生项目。</li>
+          <li>有机会长出平台级产品——比如面向餐饮行业的通用型 Agent。</li>
+          <li>来自我们自己的孵化平台：看得见过程，摸得到数据。</li>
+        </ul>
+      </div>
+      <div class="duo-block">
+        <span class="who">从诊断与陪跑中识别</span>
+        <h3>AI 改造后价值重估的传统企业</h3>
+        <ul>
+          <li>筛选素质优异、能借 AI 改造在行业内脱颖而出的传统企业。</li>
+          <li>转型后的价值提升空间大，是常被忽略的一类标的。</li>
+          <li>我们在诊断与陪跑中识别机会，再推荐给投资人。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-line">两端的项目都先过我们的场景与数据——投资人看到的，是筛过的机会。</div>
+  </section>
+
+  <!-- 合伙人团队 -->
+  <section class="slide body delivery-team-slide p24" data-label="合伙人团队" data-page="21">
+    <div class="eyebrow">合伙人 · 和企业一起把 AI 做进业务</div>
+    <h1 class="slide-title">MindsLeap 合伙人团队</h1>
+    <span class="slide-bar"></span>
+    <div class="partner-stack">
+      <div class="founder-row">
+        <div class="partner-card lincoln">
+          <div class="partner-portrait"><img src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/assets/Lincoln.png" alt="Lincoln" /></div>
+          <div class="partner-body">
+            <h3>Lincoln</h3>
+            <ul>
+              <li>MindsLeap 心智悦动创始人</li>
+              <li>Founders Space China CEO · 企业家 AI 俱乐部创始人</li>
+              <li>全球排名第一教育科技独角兽 Emeritus 前中国区 COO</li>
+              <li>维京游轮中国区营销副总裁</li>
+              <li>英孚教育数字营销高级总监</li>
+            </ul>
+          </div>
+        </div>
+        <div class="partner-card yusi">
+          <div class="partner-portrait"><img src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/assets/Yusi.png" alt="Yusi" /></div>
+          <div class="partner-body">
+            <h3>Yusi</h3>
+            <ul>
+              <li>MindsLeap 联合创始人 &amp; CPO</li>
+              <li>企业家 AI 俱乐部联合创始人</li>
+              <li>前 Emeritus 中国区产品负责人</li>
+              <li>前纳斯达克上市公司少儿产品线负责人</li>
+              <li>字节跳动教育出海资深产品经理 · 复旦大学本科</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="partner-row">
+        <div class="partner-card bingzhou">
+          <div class="partner-portrait"><img src="assets/bingzhou.jpg" alt="冰洲 Bingzhou" /></div>
+          <div class="partner-body">
+            <h3>冰洲 Bingzhou</h3>
+            <ul>
+              <li>MindsLeap AI 落地交付合伙人（FDE）</li>
+              <li>星翼智能 AI 工作流体系主理人</li>
+              <li>十年连续创业者</li>
+              <li>多家企业 AI 落地顾问</li>
+              <li>曾任医疗大健康企业增长负责人</li>
+            </ul>
+          </div>
+        </div>
+        <div class="partner-card jeff">
+          <div class="partner-portrait"><img src="assets/jeff-portrait.png" alt="Jeff 钱慰祖" /></div>
+          <div class="partner-body">
+            <h3>Jeff 钱慰祖</h3>
+            <ul>
+              <li>MindsLeap 硅谷办公室合伙人</li>
+              <li>前 Plug and Play SVP</li>
+              <li>斯坦福创业导师</li>
+              <li>福布斯全球华人 TOP100</li>
+              <li>Spark Venture Studio 联合创始人</li>
+            </ul>
+          </div>
+        </div>
+        <div class="partner-card hoffman">
+          <div class="partner-portrait"><img src="assets/hoffman-standing.png" alt="Steve Hoffman" /></div>
+          <div class="partner-body">
+            <h3>Steve Hoffman</h3>
+            <ul>
+              <li>硅谷创投教父</li>
+              <li>福布斯排名第一创业孵化器 Founders Space 创始人</li>
+              <li>《让大象飞》《穿越寒冬》等畅销书作者</li>
+              <li>曾为华为、阿里巴巴、博世、英特尔、迪士尼、高通等提供创新管理与战略指导</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 25 为什么选择 MindsLeap（卖点卡 + 数据大字 + logo 墙） -->
+  <section class="slide body" data-label="为什么选择" data-page="22">
+    <div class="eyebrow">为什么选择我们 · 一体化的落地能力</div>
+    <h1 class="slide-title">为什么选择 MindsLeap</h1>
+    <span class="slide-bar"></span>
+    <p class="slide-lead">面向企业决策层，我们做的是从认知到业务结果的 AI 转型合作伙伴——把硅谷的前沿，落成中国企业用得上的打法。</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>接入 Founders Space 全球创新网络</h3>
+        <p>作为它的战略合作伙伴，把硅谷第一孵化器的资源、导师与项目组合，直接接到中国现场。</p>
+      </div>
+      <div class="why-card">
+        <h3>服务企业、政府、高校与创业生态</h3>
+        <p>从大企业到政府园区，从高校到 AI 原生创业者，我们在四端之间搭桥，让资源彼此所用。</p>
+      </div>
+      <div class="why-card">
+        <h3>硅谷视野 + 中国落地经验</h3>
+        <p>一边常年在硅谷更新一线认知，一边在中国企业里做诊断、陪跑、下场，两头的经验都是真在跑的。</p>
+      </div>
+      <div class="why-card">
+        <h3>培训 · 咨询 · FDE 一体化落地</h3>
+        <p>从升级 AI 心智，到陪团队跑项目，再到 FDE 下场直接交付——一条链路管到业务结果。</p>
+      </div>
+    </div>
+    <div class="why-stats">
+      <div class="why-stat"><b>15+</b><span>年创新与创业教育经验</span></div>
+      <div class="why-stat"><b>350+</b><span>场教育项目与企业活动</span></div>
+      <div class="why-stat"><b>50+</b><span>全球战略合作伙伴</span></div>
+    </div>
+    <div class="wall-label">团队服务过的企业（部分）</div>
+    <div class="p25-logowall">
+      <div class="p25-logo"><img src="assets/clients/qualcomm.png" alt="Qualcomm 高通" /></div>
+      <div class="p25-logo"><img src="assets/clients/huawei.png" alt="华为 Huawei" /></div>
+      <div class="p25-logo"><img src="assets/clients/alibaba.png" alt="阿里巴巴 Alibaba" /></div>
+      <div class="p25-logo"><img src="assets/clients/siemens.png" alt="Siemens 西门子" /></div>
+      <div class="p25-logo"><img src="assets/clients/bosch.png" alt="Bosch 博世" /></div>
+      <div class="p25-logo"><img src="assets/clients/intel.png" alt="Intel 英特尔" /></div>
+      <div class="p25-logo"><img src="assets/clients/ford.png" alt="Ford 福特" /></div>
+      <div class="p25-logo"><img src="assets/clients/volkswagen.png" alt="Volkswagen 大众" /></div>
+      <div class="p25-logo"><img src="assets/clients/infosys.png" alt="Infosys" /></div>
+      <div class="p25-logo"><img src="assets/clients/metlife.png" alt="MetLife 大都会人寿" /></div>
+      <div class="p25-logo"><img src="assets/clients/pwc.png" alt="PwC 普华永道" /></div>
+      <div class="p25-logo"><img src="assets/clients/gulf.png" alt="Gulf" /></div>
+      <div class="p25-logo"><img src="assets/clients/ralph-lauren.png" alt="Ralph Lauren" /></div>
+      <div class="p25-logo"><img src="assets/clients/disney.png" alt="Disney 迪士尼" /></div>
+      <div class="p25-logo"><img src="assets/clients/warner-bros.png" alt="Warner Bros 华纳兄弟" /></div>
+      <div class="p25-logo"><img src="assets/clients/fanuc.png" alt="FANUC 发那科" /></div>
+      <div class="p25-logo"><img src="assets/clients/lenovo.png" alt="Lenovo 联想" /></div>
+      <div class="p25-logo"><img src="assets/clients/nbc.png" alt="NBC" /></div>
+    </div>
+    <div class="why-more">服务客户名单持续扩展中。</div>
+  </section>
+
+  <!-- 26 收束页 -->
+  <section class="slide closing dark no-chrome" data-label="收束页" data-page="23">
+    <div class="logo-white"></div>
+    <p class="kicker">MindsLeap 心智悦动 · 品牌手册</p>
+    <h1>Upgrade AI Mindsets<br />for Global Success<span class="blue-dot">.</span></h1>
+    <p class="lead">无论你来自硅谷还是产业一线，是企业家、AI 创业者还是投资人——欢迎进入这张网络。</p>
+    <p class="site">www.mindsleap.cn</p>
+    <p class="closing-date">2026.07</p>
+  </section>
+
+</deck-stage>
+</body>
+</html>

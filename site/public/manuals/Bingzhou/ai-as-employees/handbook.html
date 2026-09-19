@@ -1,0 +1,1118 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>数字员工上岗手册 · MindsLeap 心智悦动</title>
+<link rel="stylesheet" href="../../shared/mindsleap-template/colors_and_type.css" />
+<style>
+  /* ============================================================
+     数字员工上岗手册 —— 普通滚动长文页
+     配色/字体全部走 MindsLeap token（colors_and_type.css）
+     只在此处写版式，颜色一律用 var(--ml-*)
+     ============================================================ */
+
+  :root {
+    --page-max: 860px;
+    --body-size: 18px;
+  }
+
+  html { background: var(--ml-gray-50); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--ml-gray-800);
+    background: var(--ml-gray-50);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 28px 120px;
+    background: var(--ml-white);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ── 正文排版 ── */
+  .wrap p, .wrap li {
+    font-size: var(--body-size);
+    line-height: 1.7;
+    color: var(--ml-gray-600);
+  }
+  .wrap p { margin: 0 0 18px; }
+  .wrap strong { color: var(--ml-gray-900); font-weight: 600; }
+  .wrap ul, .wrap ol { margin: 0 0 20px; padding-left: 24px; }
+  .wrap li { margin: 0 0 10px; }
+  .lead {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--ml-gray-700);
+  }
+
+  /* ── 章标题：品牌蓝 + 80×4px 横线 + eyebrow ── */
+  .chapter { padding-top: 64px; scroll-margin-top: 24px; }
+  .chapter > .ml-eyebrow { display: block; margin-bottom: 14px; }
+  .chapter > h2.ml-h2 {
+    font-size: var(--text-4xl);
+    color: var(--ml-blue);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .chapter > .ml-section-bar { margin-top: 16px; margin-bottom: 30px; }
+
+  h3.sub {
+    font-size: var(--text-2xl);
+    color: var(--ml-blue-dark);
+    font-weight: 700;
+    margin: 40px 0 14px;
+    line-height: 1.3;
+  }
+  h4.subsub {
+    font-size: var(--text-xl);
+    color: var(--ml-gray-900);
+    font-weight: 700;
+    margin: 28px 0 10px;
+  }
+
+  /* ── 提示卡（要点 / 铁律 / 避坑）：左边框品牌蓝，无 emoji ── */
+  .callout {
+    border-left: 4px solid var(--ml-blue);
+    background: var(--ml-blue-50);
+    padding: 18px 22px;
+    margin: 22px 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .callout .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: none;
+    color: var(--ml-blue);
+    background: var(--ml-blue-100);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    margin-bottom: 10px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.tie { border-left-color: var(--ml-blue-dark); background: #f4f7fb; }
+  .callout.tie .tag { color: var(--ml-white); background: var(--ml-blue-dark); }
+  .callout.pit { border-left-color: var(--ml-gray-500); background: var(--ml-gray-100); }
+  .callout.pit .tag { color: var(--ml-white); background: var(--ml-gray-600); }
+
+  /* ── 提示词模板块：浅灰底等宽字体卡 + 右上角标签 ── */
+  .prompt {
+    position: relative;
+    background: var(--ml-gray-50);
+    border: 1px solid var(--ml-gray-200);
+    border-radius: var(--radius-lg);
+    padding: 26px 24px 22px;
+    margin: 20px 0 26px;
+  }
+  .prompt .prompt-flag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ml-white);
+    background: var(--ml-blue);
+    padding: 5px 12px;
+    border-radius: 0 var(--radius-lg) 0 var(--radius-md);
+  }
+  .prompt pre {
+    margin: 6px 0 0;
+    font-family: var(--font-mono);
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ml-gray-800);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* ── 作业块：带「预估时间」徽标 ── */
+  .task {
+    border: 1px solid var(--ml-blue-200);
+    border-top: 3px solid var(--ml-blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px 6px;
+    margin: 26px 0;
+    background: var(--ml-white);
+  }
+  .task-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .task-head h4 {
+    font-size: var(--text-xl);
+    color: var(--ml-blue);
+    font-weight: 700;
+    margin: 0;
+  }
+  .time-badge {
+    flex: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ml-blue);
+    background: var(--ml-blue-100);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  /* ── 案例三段式卡 ── */
+  .case {
+    border: 1px solid var(--ml-gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 26px 0;
+  }
+  .case-title {
+    background: var(--ml-blue);
+    color: var(--ml-white);
+    padding: 14px 22px;
+    font-weight: 700;
+    font-size: var(--text-lg);
+  }
+  .case-body { padding: 8px 22px 4px; }
+  .case-row { padding: 16px 0; border-bottom: 1px solid var(--ml-gray-100); }
+  .case-row:last-child { border-bottom: 0; }
+  .case-row .label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ml-blue);
+    margin-bottom: 7px;
+  }
+  .case-row p { margin: 0; }
+
+  /* ── 岗位说明书：可打印手填的五格表 ── */
+  .jd-sheet {
+    border: 2px solid var(--ml-blue);
+    border-radius: var(--radius-lg);
+    margin: 28px 0;
+    overflow: hidden;
+    background: var(--ml-white);
+  }
+  .jd-sheet .jd-head {
+    background: var(--ml-blue);
+    color: var(--ml-white);
+    padding: 18px 24px;
+  }
+  .jd-sheet .jd-head b { font-size: var(--text-xl); display: block; }
+  .jd-sheet .jd-head span { font-size: 13px; color: var(--ml-blue-200); }
+  .jd-row { display: flex; border-bottom: 1px solid var(--ml-gray-200); min-height: 88px; }
+  .jd-row:last-child { border-bottom: 0; }
+  .jd-cell-k {
+    flex: none;
+    width: 190px;
+    padding: 18px 20px;
+    background: var(--ml-blue-50);
+    border-right: 1px solid var(--ml-gray-200);
+  }
+  .jd-cell-k b { color: var(--ml-blue-dark); font-size: var(--text-base); display: block; margin-bottom: 6px; }
+  .jd-cell-k span { color: var(--ml-gray-500); font-size: 13px; line-height: 1.4; display: block; }
+  .jd-cell-v {
+    flex: 1;
+    padding: 18px 20px;
+    color: var(--ml-gray-400);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  .jd-cell-v .hint { font-style: italic; }
+
+  /* ── 全书地图 / 四层架构 / 复利闭环 / 流水线：内联 SVG 简图容器 ── */
+  .figure {
+    margin: 26px 0;
+    border: 1px dashed var(--ml-blue-200);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px 16px;
+    background: var(--ml-white);
+  }
+  .figure svg { display: block; width: 100%; height: auto; }
+  .figure figcaption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ml-gray-500);
+    margin-top: 12px;
+  }
+
+  /* ── 五步法×章节 对照表 ── */
+  .map-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 15px; }
+  .map-table th, .map-table td {
+    border: 1px solid var(--ml-gray-200);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .map-table thead th { background: var(--ml-blue); color: var(--ml-white); font-weight: 600; }
+  .map-table tbody td { color: var(--ml-gray-600); }
+  .map-table tbody td:first-child { color: var(--ml-blue-dark); font-weight: 600; white-space: nowrap; }
+  .map-table tbody tr:nth-child(even) { background: var(--ml-gray-50); }
+
+  /* ── 对照表（软件 vs 员工 等通用两列表） ── */
+  .cmp-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 15px; }
+  .cmp-table th, .cmp-table td { border: 1px solid var(--ml-gray-200); padding: 12px 14px; text-align: left; vertical-align: top; }
+  .cmp-table thead th { background: var(--ml-blue-50); color: var(--ml-blue-dark); font-weight: 700; }
+  .cmp-table tbody td { color: var(--ml-gray-600); }
+  .cmp-table tbody td:first-child { color: var(--ml-gray-900); font-weight: 600; }
+
+  /* ── 截图占位框 ── */
+  .shot {
+    border: 2px dashed var(--ml-blue-200);
+    border-radius: var(--radius-lg);
+    background: var(--ml-blue-50);
+    padding: 30px 24px;
+    margin: 22px 0;
+    text-align: center;
+    color: var(--ml-blue-dark);
+  }
+  .shot .shot-k { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--ml-blue); display: block; margin-bottom: 8px; }
+  .shot .shot-d { font-size: 14px; color: var(--ml-gray-500); }
+
+  /* ── 勾选清单 ── */
+  .checklist { list-style: none; padding-left: 0; margin: 20px 0; }
+  .checklist li {
+    position: relative;
+    padding: 14px 16px 14px 46px;
+    border: 1px solid var(--ml-gray-200);
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    background: var(--ml-white);
+    color: var(--ml-gray-700);
+    font-size: 16px;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--ml-blue);
+    border-radius: 4px;
+  }
+  .checklist li .est { color: var(--ml-gray-400); font-size: 13px; }
+
+  /* ── 封面 ── */
+  .cover {
+    text-align: center;
+    padding: 72px 20px 56px;
+    border-bottom: 1px solid var(--ml-gray-100);
+  }
+  .cover .logo { width: 300px; max-width: 74%; height: auto; margin: 0 auto 34px; display: block; }
+  .cover .kicker {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ml-blue-accent);
+    margin-bottom: 18px;
+  }
+  .cover h1 {
+    font-size: 46px;
+    line-height: 1.14;
+    color: var(--ml-blue);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+  }
+  .cover .h1-en {
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: var(--ml-gray-500);
+    font-weight: 500;
+    margin: 0 0 26px;
+  }
+  .cover .cover-sub {
+    max-width: 620px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ml-gray-600);
+  }
+  .cover .cover-meta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--ml-gray-500);
+    border-top: 1px solid var(--ml-gray-100);
+    padding-top: 22px;
+  }
+  .cover .cover-meta b { color: var(--ml-blue-dark); font-weight: 600; }
+
+  /* ── 目录 ── */
+  .toc {
+    background: var(--ml-gray-50);
+    border: 1px solid var(--ml-gray-200);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin: 40px 0 0;
+  }
+  .toc h2 { font-size: var(--text-lg); color: var(--ml-blue-dark); margin: 0 0 14px; font-weight: 700; }
+  .toc ol { margin: 0; padding-left: 22px; }
+  .toc li { font-size: 16px; color: var(--ml-gray-700); margin-bottom: 9px; }
+  .toc a { color: var(--ml-gray-700); text-decoration: none; }
+  .toc a:hover { color: var(--ml-blue); text-decoration: underline; }
+
+  /* ── 章末页脚线 ── */
+  .foot-rule {
+    margin-top: 44px;
+    padding-top: 16px;
+    border-top: 1px solid var(--ml-gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ml-gray-400);
+    text-align: center;
+  }
+
+  /* ── 结尾社群钩子 ── */
+  .community {
+    margin-top: 56px;
+    background: var(--ml-blue);
+    color: var(--ml-white);
+    border-radius: var(--radius-xl);
+    padding: 40px 36px;
+  }
+  .community .ml-eyebrow { color: var(--ml-blue-200); }
+  .community h3 { color: var(--ml-white); font-size: var(--text-2xl); font-weight: 700; margin: 12px 0 16px; }
+  .community p { color: var(--ml-blue-200); font-size: 17px; line-height: 1.75; margin: 0 0 14px; }
+  .community .qr-slot {
+    margin-top: 20px;
+    border: 2px dashed var(--ml-blue-300);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ml-blue-200);
+  }
+
+  .divider-note { font-size: 14px; color: var(--ml-gray-400); font-style: italic; margin: 8px 0 0; }
+
+  /* ============================================================
+     打印：A4 分页合理，隐藏截图虚线，黑白可读
+     ============================================================ */
+  @media print {
+    html, body { background: #fff; }
+    .wrap { box-shadow: none; max-width: 100%; padding: 0 8mm 12mm; }
+    .chapter { page-break-before: always; padding-top: 8mm; }
+    .cover { page-break-after: always; }
+    .toc { page-break-after: always; }
+    h3.sub, h4.subsub, .task, .case, .jd-sheet, .prompt, .callout, .figure { page-break-inside: avoid; }
+    .shot { border-style: solid; border-color: #999; background: #fff; }
+    .figure { border-color: #999; }
+    .prompt { background: #fafafa; border-color: #999; }
+    .community { background: #fff; color: #111; border: 2px solid var(--ml-blue); }
+    .community h3, .community p, .community .ml-eyebrow { color: #111; }
+    .community .qr-slot { border-color: #999; color: #555; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  @media (max-width: 620px) {
+    .jd-row { flex-direction: column; }
+    .jd-cell-k { width: 100%; border-right: 0; border-bottom: 1px solid var(--ml-gray-200); }
+    .cover h1 { font-size: 34px; }
+    .chapter > h2.ml-h2 { font-size: var(--text-3xl); }
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- ============================================================ COVER ============================================================ -->
+  <header class="cover">
+    <img class="logo" src="../../shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg" alt="MindsLeap 心智悦动 · Founders Space" />
+    <div class="kicker">给零技术老板的实操手册</div>
+    <h1>数字员工上岗手册</h1>
+    <p class="h1-en">The Owner's Handbook for Hiring Your First Digital Employee</p>
+    <p class="cover-sub">把 AI 当成一名员工来招、来管、来用。这本手册不讲概念，只带你走一遍：今晚回去，怎么让你的第一个数字员工真正上岗。</p>
+    <div class="cover-meta">
+      <span><b>MindsLeap 心智悦动</b> · Founders Space 联合出品</span>
+      <span>版本 v1.0 · 2026.07</span>
+    </div>
+  </header>
+
+  <!-- ============================================================ TOC ============================================================ -->
+  <nav class="toc">
+    <h2>本手册目录</h2>
+    <ol>
+      <li><a href="#c0">开场：为什么你雇了 AI，却还是自己加班</a></li>
+      <li><a href="#c1">认识你的数字员工：它是谁、能干什么、不能干什么</a></li>
+      <li><a href="#c2">上岗第一天：给数字员工建一间办公室</a></li>
+      <li><a href="#c3">派活的艺术：怎么把任务交代清楚</a></li>
+      <li><a href="#c4">让它自己跑：从一个活到一条流水线</a></li>
+      <li><a href="#c5">当老板的日常：每天十分钟管理你的数字员工</a></li>
+      <li><a href="#c6">收尾：记住三句话，今晚就动手</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============================================================ 第 0 章 ============================================================ -->
+  <section class="chapter" id="c0">
+    <span class="ml-eyebrow">全书地图 · 从这里开始</span>
+    <h2 class="ml-h2">0 · 为什么你雇了 AI，却还是自己加班</h2>
+    <span class="ml-section-bar"></span>
+
+    <p class="lead">过去一年，几乎每个老板都用上了 AI。可奇怪的是，很多人不但没轻松，反而更累了。这一章先说清楚为什么，再给你一张全书地图，让你知道这本手册要带你走到哪里。</p>
+
+    <h3 class="sub">三个你可能很熟悉的场景</h3>
+    <p>先对号入座，看看你中了几个：</p>
+    <ol>
+      <li><strong>场景一：什么都自己问。</strong>写文案问它、回邮件问它、想标题问它——它每次都答，但每次都要你重新交代一遍背景，一天下来你像个不停打字的传话筒，活还是你在盯。</li>
+      <li><strong>场景二：它答得漂亮，你却不敢用。</strong>它写的东西看着挺像样，可你心里没底：数字对不对、口径合不合规、有没有胡编，最后你还是逐字重看一遍，等于自己又干了一遍。</li>
+      <li><strong>场景三：好不容易调顺了，明天从零开始。</strong>今天费半天劲把它调到能用，明天关掉窗口再打开，它什么都忘了，你又得从头交代。</li>
+    </ol>
+    <p>这三种累，根子是同一个：<strong>你把 AI 当成了一个更聪明的搜索框，而不是一名会跟你长期共事的员工。</strong>搜索框每次都得你亲自敲、亲自盯、亲自记；员工不一样——你把岗位交代清楚，它记得住、扛得起、能重复干。</p>
+
+    <h3 class="sub">把 AI 当软件，还是当员工：一张对照表</h3>
+    <p>同样一个 AI，你用它的姿势不同，得到的东西天差地别。这张表就是这本手册的出发点：</p>
+    <table class="cmp-table">
+      <thead>
+        <tr><th>你怎么看它</th><th>当软件用</th><th>当员工用</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>你的角色</td><td>操作员，事事亲自敲</td><td>老板，交代清楚就放手</td></tr>
+        <tr><td>怎么用它</td><td>想起一件问一件</td><td>给它一个固定岗位，长期干</td></tr>
+        <tr><td>它记不记得住</td><td>关窗就忘，每次从零</td><td>资料和规矩存下来，越用越顺</td></tr>
+        <tr><td>能不能重复</td><td>每次都是一次性</td><td>同一类活，交一次会一直会</td></tr>
+        <tr><td>你花的力气</td><td>没省，只是换了个地方累</td><td>前期立规矩，之后省出整块时间</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>这本手册只做一件事：教你把右边这一列，一步步落到你自己的生意里。你不需要懂技术，你只需要会当老板——你怎么带一个真人新员工，就怎么带它。而当老板的本事你早就有了：给人交代活、看结果满不满意、不行就让人重来，这三件事你天天在做，这本手册要教的，只是把这套本事用到一个新员工身上而已。</p>
+    </div>
+
+    <h3 class="sub">这本手册带你走的路（全书地图）</h3>
+    <p>今天的现场分享讲的是招数字员工的<strong>五步法</strong>：挑活、写岗位说明书、给钥匙、设试用期、连成流水线。这本手册是它的配套，把每一步拆成你回家能照着做的动作。下面这张图，是这本书的骨架：</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 820 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全书地图：六章的行进路线">
+        <defs>
+          <marker id="arw" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 Z" fill="#1e477c" />
+          </marker>
+        </defs>
+        <!-- baseline path -->
+        <line x1="60" y1="90" x2="760" y2="90" stroke="#93c5fd" stroke-width="2" marker-end="url(#arw)" />
+        <!-- nodes -->
+        <g font-family="Inter, 'Noto Sans SC', sans-serif" text-anchor="middle">
+          <g>
+            <circle cx="90" cy="90" r="26" fill="#1e477c" />
+            <text x="90" y="97" fill="#fff" font-size="20" font-weight="700">0</text>
+            <text x="90" y="150" fill="#1f2937" font-size="14" font-weight="600">为什么会累</text>
+            <text x="90" y="170" fill="#6b7280" font-size="12">认清用法</text>
+          </g>
+          <g>
+            <circle cx="230" cy="90" r="26" fill="#2a5a9e" />
+            <text x="230" y="97" fill="#fff" font-size="20" font-weight="700">1</text>
+            <text x="230" y="150" fill="#1f2937" font-size="14" font-weight="600">认识它</text>
+            <text x="230" y="170" fill="#6b7280" font-size="12">能与不能</text>
+          </g>
+          <g>
+            <circle cx="370" cy="90" r="30" fill="#1e477c" />
+            <text x="370" y="97" fill="#fff" font-size="22" font-weight="700">2</text>
+            <text x="370" y="150" fill="#1f2937" font-size="14" font-weight="600">建办公室</text>
+            <text x="370" y="170" fill="#6b7280" font-size="12">给它安家</text>
+          </g>
+          <g>
+            <circle cx="510" cy="90" r="30" fill="#1e477c" />
+            <text x="510" y="97" fill="#fff" font-size="22" font-weight="700">3</text>
+            <text x="510" y="150" fill="#1f2937" font-size="14" font-weight="600">派活</text>
+            <text x="510" y="170" fill="#6b7280" font-size="12">交代清楚</text>
+          </g>
+          <g>
+            <circle cx="650" cy="90" r="30" fill="#1e477c" />
+            <text x="650" y="97" fill="#fff" font-size="22" font-weight="700">4</text>
+            <text x="650" y="150" fill="#1f2937" font-size="14" font-weight="600">连成线</text>
+            <text x="650" y="170" fill="#6b7280" font-size="12">自己跑</text>
+          </g>
+          <g>
+            <circle cx="770" cy="90" r="26" fill="#152f54" />
+            <text x="770" y="97" fill="#fff" font-size="20" font-weight="700">5</text>
+            <text x="770" y="150" fill="#1f2937" font-size="14" font-weight="600">日常管理</text>
+            <text x="770" y="170" fill="#6b7280" font-size="12">每天十分钟</text>
+          </g>
+        </g>
+        <text x="410" y="228" text-anchor="middle" font-family="Inter, 'Noto Sans SC', sans-serif" font-size="12" fill="#9ca3af">第 6 章是收尾：三句话 + 今晚就做的五件事</text>
+      </svg>
+      <figcaption>全书地图 —— 从认清用法，到建办公室、派活、连成流水线，最后学会日常管理</figcaption>
+    </figure>
+
+    <p>现场讲的五步法，和这本手册的章节是一一对应的。你可以把下面这张对照表当成书签：现场听到哪一步，翻到对应的章节就能照着做。每一章开头，我也都标了它对应五步法的第几步。</p>
+
+    <table class="map-table">
+      <thead>
+        <tr><th>五步法（现场讲）</th><th>对应到手册哪一章</th><th>你会拿到什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>第 1 步：挑活</td><td>第 2 章 前半（也在第 3 章开头）</td><td>一条判断标准，挑出最值得先交给 AI 的那件活</td></tr>
+        <tr><td>第 2 步：写岗位说明书</td><td>第 3 章</td><td>一张可打印手填的「数字员工岗位说明书」五格表</td></tr>
+        <tr><td>第 3 步：给钥匙</td><td>第 2 章 建办公室</td><td>把生意的资料、口径喂给它，让它真懂你的活</td></tr>
+        <tr><td>第 4 步：设试用期</td><td>第 5 章</td><td>验收、纠错、留人工把关的一整套动作</td></tr>
+        <tr><td>第 5 步：连成流水线</td><td>第 4 章</td><td>把一个活变成一条自动接力的生产线的判断与起步</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tie">
+      <span class="tag">铁律</span>
+      <p>贯穿全书只有一条：<strong>AI 干重复劳动，人管判断拍板。</strong>凡是需要拿主意、担责任的地方，最后一定留一道人工关。这条你先记住，后面每一章都会用到。</p>
+    </div>
+
+    <div class="foot-rule">MindsLeap 心智悦动 · 数字员工上岗手册 v1.0</div>
+  </section>
+
+  <!-- ============================================================ 第 1 章 ============================================================ -->
+  <section class="chapter" id="c1">
+    <span class="ml-eyebrow">五步法 · 贯穿全篇的认知底座</span>
+    <h2 class="ml-h2">1 · 认识你的数字员工</h2>
+    <span class="ml-section-bar"></span>
+
+    <p class="lead">招人之前，你总得先弄清这个人是干什么的、能扛什么、不能碰什么。数字员工也一样。这一章不教操作，先帮你把它看明白——看明白了，后面每一步你才不会用错。</p>
+
+    <h3 class="sub">一句人话定义，和它的一份简历</h3>
+    <p><strong>数字员工，就是一个你用文字交代、它就照着干的助手。</strong>你把要它做的事写清楚，它读你的资料、按你的规矩，把活干出来交给你。它不是一个会思考人生的机器人，它更像一个记性好、不喊累、专挑重复活干的新员工。</p>
+    <p>如果给它写一份简历，长这样：</p>
+    <ul>
+      <li><strong>擅长：</strong>读大段材料、按固定套路写东西、逐条比对打分、把散乱信息整理成表——这类又多又重复、有章可循的活。</li>
+      <li><strong>特点：</strong>不请假、不吐槽、你在不在都一样干，同一类活交一次、以后一直会。</li>
+      <li><strong>短板：</strong>不会替你拿主意、不担责任；你没交代清楚的地方，它会自己猜，猜错了还答得很笃定。</li>
+    </ul>
+
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>记住它这份简历的最后一条：<strong>它最大的风险不是不会干，是「不懂装懂」——你没说清的地方它会一本正经地编。</strong>所以你交代得越清楚、给的资料越全，它就越靠谱。这也是后面第 2、3 章的全部功夫所在。</p>
+    </div>
+
+    <h3 class="sub">老板的一天：我团队里的五名数字员工</h3>
+    <p>说抽象的没用，我把自己真在用的几名数字员工摆出来，你就明白它们能干到什么程度了。它们都不发工资、不请假、我在不在都照干：</p>
+    <ul>
+      <li><strong>候选人评估员</strong>（Talent Screener）—— 招聘时，它照着一份定好的用人标准，把候选人一个个过一遍，给出「推荐 / 可约 / 排除」三档，每条结论都能查到是按哪条标准判的。看简历比我认真，但该网开一面时，它会主动提醒我。</li>
+      <li><strong>线索哨兵</strong>（Lead Sentinel）—— 蹲在对标视频的评论区，一条条读，把「随便看看」和「马上要买」的人分开，直接把线索填进表格。广告和场面话它连眼皮都不抬。</li>
+      <li><strong>内容流水线</strong>（Content Line）—— 这不是一个人，是一条由六个工位接力的生产线：选题、写稿、审核、配图、剪片各管一段，一篇内容从想法走到成品，我只在关键处把关。</li>
+      <li><strong>节目监制</strong>（Program Editor）—— 我做的一档对谈节目，发布前必须先过它这一关：两个维度打分，够分才放行。我连审稿的领导都是 AI，它也不发工资。</li>
+      <li><strong>复盘分析师</strong>（Replay Analyst）—— 别人复盘一场直播只看总账，它能把三个多小时拆到「哪一句话说完，接下来五分钟多卖了几单」这种颗粒度。</li>
+    </ul>
+    <p>这五名员工，后面每一章我都会挑一个，把它「怎么招进来、怎么交代、干成了什么」讲透。你现在只需要有个印象：<strong>这些都不是玄乎的黑科技，是一个个岗位清晰、干着具体活的普通员工。</strong></p>
+
+    <h3 class="sub">一个反直觉的小道理：别让最贵的员工干最杂的活</h3>
+    <p>顺着<strong>线索哨兵</strong>多说一句，因为它藏着一个很多人想不到的道理。它每天要读成百上千条评论找客户，如果每一条都调用最聪明（也最贵）的那个大脑去判断，成本会很高。所以我给它设计了一道「分层」：一看就是打广告的、纯发祝福的评论，用一条便宜的规则先挡掉，根本不动用那个贵脑子；只有真正拿不准、可能是客户的，才交给聪明的大脑去细判。</p>
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>这就像开公司分配人手：<strong>不是所有活都得让最贵的员工做。</strong>粗活让便宜的规则先筛一遍，疑难杂症才请高手出马。你带数字员工，也该有这个「分层用人」的意识——它既省钱，也让每个环节各司其职。这个道理，你在第 4 章连流水线时还会再用到。</p>
+    </div>
+
+    <h3 class="sub">它最容易被误用的三种方式</h3>
+    <p>新员工带不好，多半是老板的带法错了。数字员工被用废，也逃不出这三种：</p>
+    <div class="callout pit">
+      <span class="tag">避坑</span>
+      <p><strong>一、当神仙使，什么都塞给它一个人。</strong>又要它懂法务、又要它会写文案、又要它管数据——真人里没有这种全才，数字员工也一样。正确做法是拆岗：一个岗位干一件事，干得又稳又好。</p>
+    </div>
+    <div class="callout pit">
+      <span class="tag">避坑</span>
+      <p><strong>二、给一句话就想要好结果。</strong>你对真员工说「随便写写」，交上来的能用吗？对它也一样。你给的交代有多具体，它给你的结果就有多靠谱。</p>
+    </div>
+    <div class="callout pit">
+      <span class="tag">避坑</span>
+      <p><strong>三、给了活就当甩手掌柜，结果直接对外用。</strong>它会编、会漏。凡是要对外、要担责的，人必须在它后面留一道关。把它当「初稿手」，不当「终审人」。</p>
+    </div>
+
+    <h3 class="sub">这一章唯一要你记住的一条铁律</h3>
+    <div class="callout tie">
+      <span class="tag">铁律</span>
+      <p><strong>AI 干重复劳动，人管判断拍板。</strong>凡是「又多又重复、有标准可循」的活，尽管交给它；凡是「要拿主意、要担责任、要对外负责」的，最后一定是人说了算。这条守住了，你就不会被它坑，也不会浪费它。</p>
+    </div>
+
+    <div class="foot-rule">MindsLeap 心智悦动 · 数字员工上岗手册 v1.0</div>
+  </section>
+
+  <!-- ============================================================ 第 2 章 ============================================================ -->
+  <section class="chapter" id="c2">
+    <span class="ml-eyebrow">五步法 · 第 3 步（给钥匙）</span>
+    <h2 class="ml-h2">2 · 上岗第一天：给数字员工建一间办公室</h2>
+    <span class="ml-section-bar"></span>
+
+    <p class="lead">真员工入职第一天，你会给他一张工位、一台电脑、一套账号，再带他熟悉业务。数字员工也需要这么一套「办公室」，它才能真正在你的生意里干活，而不是每次都从零开始。这一章是全书最动手的一章，我们一步步搭。</p>
+
+    <h3 class="sub">先看懂：一间数字员工办公室的四层</h3>
+    <p>别被「技术架构」吓到。用开公司招人的话说，它就四层，缺一层它都干不成活：</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="数字员工办公室的四层架构">
+        <g font-family="Inter, 'Noto Sans SC', sans-serif">
+          <!-- layer 1 办公室 -->
+          <rect x="60" y="30" width="660" height="52" rx="8" fill="#eff6ff" stroke="#1e477c" stroke-width="1.5"/>
+          <text x="84" y="55" font-size="16" font-weight="700" fill="#1e477c">办公室 = 你已经在用的协作软件</text>
+          <text x="84" y="74" font-size="12.5" fill="#6b7280">员工在哪上班、大家怎么找到它、活干完存在哪</text>
+          <!-- layer 2 工位 -->
+          <rect x="60" y="94" width="660" height="52" rx="8" fill="#dbeafe" stroke="#1e477c" stroke-width="1.5"/>
+          <text x="84" y="119" font-size="16" font-weight="700" fill="#1e477c">工位 = 调度台（一个对话入口）</text>
+          <text x="84" y="138" font-size="12.5" fill="#4b5563">你在这一个入口跟它说话，它背后连着一整条产线</text>
+          <!-- layer 3 脑力 -->
+          <rect x="60" y="158" width="660" height="52" rx="8" fill="#bfdbfe" stroke="#1e477c" stroke-width="1.5"/>
+          <text x="84" y="183" font-size="16" font-weight="700" fill="#152f54">脑力 = 大模型（按用量买）</text>
+          <text x="84" y="202" font-size="12.5" fill="#374151">它的「脑子」，用多少算多少，比养一个人便宜得多</text>
+          <!-- layer 4 技能证书 -->
+          <rect x="60" y="222" width="660" height="52" rx="8" fill="#93c5fd" stroke="#152f54" stroke-width="1.5"/>
+          <text x="84" y="247" font-size="16" font-weight="700" fill="#152f54">技能证书 = 一个个技能包</text>
+          <text x="84" y="266" font-size="12.5" fill="#1f2937">一项技能一张证，学会一个存一个，可积累、可复用</text>
+        </g>
+      </svg>
+      <figcaption>四层架构 —— 从上到下：办公室、工位、脑力、技能证书</figcaption>
+    </figure>
+
+    <p>翻译成人话，逐层解释一遍：</p>
+    <ul>
+      <li><strong>办公室（你已经在用的协作软件）：</strong>就是你公司平时用来发消息、存文件、填表格的那套办公软件。数字员工就「住」在这里，同事怎么在群里找同事，就怎么找它。你不用另建一个新系统。</li>
+      <li><strong>工位 · 调度台（一个对话入口）：</strong>你和它打交道，只需要一个说话的入口。你在这一个地方交代，它背后可能连着一整条产线，但对你来说，就是「跟一个人对话」这么简单。技术上这个入口叫「调度台」——你只管发话，它负责把活派到该干的地方。</li>
+      <li><strong>脑力 · 大模型（按用量买）：</strong>它聪不聪明，取决于背后接的「大脑」，也就是大模型。好消息是，这个大脑<strong>按用量付费</strong>——干多少活付多少钱，不用像招人那样每月固定发工资。用国产的大模型，成本更是低到你会意外。</li>
+      <li><strong>技能证书 · 技能包：</strong>你希望它会一项新本事（比如「把录音整理成文字稿」），就给它装一个对应的「技能包」。学会一个存一个，像给员工考下一张张证书，越攒越多，而且能反复用。技术上这叫 Skill —— 你可以理解成「一项技能一张证」。</li>
+    </ul>
+
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>这四层里，只有「脑力」和「技能证书」跟钱、跟技术沾点边，而它们都是<strong>按需、可积累</strong>的——用得多才花得多，学会的本事不会丢。这就是为什么数字员工比招人「划算」：前期投入小，越用越值。</p>
+    </div>
+
+    <h3 class="sub">第 1 步 · 挑出你要先交给它的那件活</h3>
+    <p>建办公室之前，先想清楚让它先干什么。别贪多，就挑一件。判断标准只有一句：</p>
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p><strong>挑那件你最烦、最重复、又最有套路可循的活。</strong>三个条件缺一不可：你烦它（说明值得省），它重复（说明省下来是整块时间），有套路（说明能教得会）。像「每天整理一批评论找客户」「把每场直播复盘成一份报告」这种，就是最好的第一个岗位。</p>
+    </div>
+
+    <h4 class="subsub">实操</h4>
+    <p>拿张纸，写下你一周里重复做三次以上、又不需要你拍板的活，列五到八件。挨个打分：烦不烦（1-5）、重不重复（1-5）、有没有固定套路（1-5）。三项加起来最高的那件，就是你第一个数字员工的岗位。<strong>预估时间：10 分钟。</strong></p>
+
+    <h4 class="subsub">讲解：这一步到底在干什么</h4>
+    <p>你不是在选「AI 最擅长什么」，你是在选「你最该被解放的地方」。很多人第一次用 AI 就失败，是因为一上来挑了个又难又不常做的活，费半天劲省不下几分钟，然后就放弃了。<strong>第一个岗位选对，你才有信心招第二个。</strong>这一步花的十分钟，决定了你后面的路走不走得下去。</p>
+
+    <h3 class="sub">第 2 步 · 建办公室，让它读懂你的生意</h3>
+    <h4 class="subsub">实操</h4>
+    <p>把这件活相关的资料归到一处：你的产品说明、常用话术、过往做得好的样本、必须守的口径和红线。给它开一个说话的入口（调度台），把这批资料喂进去，用下面这段开场指令，让它先「读懂你的生意」，再开始干活。<strong>预估时间：15 分钟。</strong></p>
+
+    <div class="prompt">
+      <span class="prompt-flag">复制发给你的 AI</span>
+      <pre>复制这段话，发给你的 AI：
+
+在正式派活之前，我先让你熟悉我的生意，你之后所有的产出都要基于这些背景。
+
+【我是做什么的】
+一句话说清我的行业、我的客户是谁、我靠什么赚钱。（照实填两三句）
+
+【我马上要交给你的岗位】
+我准备让你长期负责这件事：______（填你上一步挑出的那件活）。
+
+【我给你的资料】
+下面这些是你干活的依据，请全部读完、记住，之后不要脱离它们自由发挥：
+- 产品／服务说明：______
+- 我常用的话术或写法样本：______
+- 必须守的口径和红线（哪些话不能说、哪些数字不能改、哪些客户信息不能外露）：______
+
+【现在请你做四件事】
+1. 用你自己的话，把我这门生意和这个岗位复述一遍，让我确认你真读懂了；
+2. 把你打算怎么干这个岗位，用几步说给我听，让我先看看方向对不对；
+3. 告诉我，为了把这个岗位干好，你还缺哪些我没给到的信息；
+4. 先别急着干活，等我确认过你的复述、认可了你的做法、补齐信息之后，再正式开始。</pre>
+    </div>
+
+    <div class="shot">
+      <span class="shot-k">截图位</span>
+      <span class="shot-d">飞书机器人对话实录：把资料喂进去后，它复述「你的生意 + 岗位」的回复截图</span>
+    </div>
+
+    <h4 class="subsub">讲解：这一步到底在干什么</h4>
+    <p>这一步就是给新员工「带业务」。为什么非要它先复述、再干活？因为这是最省事的一道保险——<strong>你能在它动手之前，就发现它哪里理解错了</strong>，而不是等它交出一堆错东西你再返工。让它「先说自己缺什么」，也是同一个道理：与其它自己瞎猜编数字，不如逼它把不确定的地方摆到台面上，你来补。这两个小动作，帮你挡掉后面一大半的翻车。</p>
+
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>「把资料和干活分开、先带业务再派活」这个动作，本身就是很多深度案例的地基。我那名<strong>复盘分析师</strong>能把一场直播拆到分钟级、还能把每句话术和成交曲线对上，靠的正是先把直播后台的数据、几个小时的语音转成的文字稿，这些「钥匙」都交到位了，它才干得出那种颗粒度。给钥匙给得全，它才走得深。</p>
+    </div>
+
+    <div class="callout tie">
+      <span class="tag">铁律</span>
+      <p>老实话放在这一章结尾：建办公室、让它读懂生意，你自己就能起步；但要把它做到「给足钥匙、深到能自动跑」，往后是工程活，有不少坑。这本手册教你判断方向、把第一步走稳；真到了深水区，找专业的人陪你走一段，比自己硬扛省时间。这一句点到为止，不展开。</p>
+    </div>
+
+    <div class="foot-rule">MindsLeap 心智悦动 · 数字员工上岗手册 v1.0</div>
+  </section>
+
+  <!-- ============================================================ 第 3 章 ============================================================ -->
+  <section class="chapter" id="c3">
+    <span class="ml-eyebrow">五步法 · 第 2 步（写岗位说明书）</span>
+    <h2 class="ml-h2">3 · 派活的艺术：怎么把任务交代清楚</h2>
+    <span class="ml-section-bar"></span>
+
+    <p class="lead">办公室建好了，现在要真正派活。派活的水平，直接决定它干得好不好。这一章给你一张「岗位说明书」——填完它，你就有了一份能直接发给数字员工的交代话术。这也是今天现场那张表，手册里就有，你现在就能填。</p>
+
+    <h3 class="sub">核心工具：数字员工岗位说明书（可打印手填）</h3>
+    <p>交代任务别靠临场发挥。把这五格填满，一份清清楚楚的岗位说明书就成了。填的时候就当在跟一个真人新员工交底：</p>
+
+    <div class="jd-sheet">
+      <div class="jd-head">
+        <b>数字员工岗位说明书</b>
+        <span>Digital Employee Job Description　·　打印出来，用笔填</span>
+      </div>
+      <div class="jd-row">
+        <div class="jd-cell-k"><b>岗位名</b><span>给它一个像样的职务名</span></div>
+        <div class="jd-cell-v"><span class="hint">例：线索哨兵 / 复盘分析师 —— 你的填在这里</span></div>
+      </div>
+      <div class="jd-row">
+        <div class="jd-cell-k"><b>服务谁</b><span>它的活是交给谁、给谁用</span></div>
+        <div class="jd-cell-v"><span class="hint">例：交给销售主管 / 给我本人看 ——</span></div>
+      </div>
+      <div class="jd-row">
+        <div class="jd-cell-k"><b>高频任务</b><span>它每天／每次具体干什么</span></div>
+        <div class="jd-cell-v"><span class="hint">例：读评论、分档、填表 ——</span></div>
+      </div>
+      <div class="jd-row">
+        <div class="jd-cell-k"><b>输入材料</b><span>它要拿到什么才能开工</span></div>
+        <div class="jd-cell-v"><span class="hint">例：视频链接、判客户的标准 ——</span></div>
+      </div>
+      <div class="jd-row">
+        <div class="jd-cell-k"><b>人工把关点</b><span>哪一步必须你过目才算数</span></div>
+        <div class="jd-cell-v"><span class="hint">例：对外发布前我要终审 ——</span></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>五格里最容易被忽略、也最重要的是最后一格——<strong>人工把关点</strong>。它标出了「哪一步机器说了不算、必须你拍板」。这一格填对了，你既放了权，又没失控。别嫌它多余，这是你不被 AI 坑的安全绳。</p>
+    </div>
+
+    <h3 class="sub">交代任务的万能模板（整段可复制）</h3>
+    <p>把上面五格的内容，套进下面这段话，就是一份能直接发出去的交代。这是你的第一份作业。</p>
+
+    <div class="task">
+      <div class="task-head">
+        <h4>作业 1 · 用岗位说明书，生成第一份交代话术</h4>
+        <span class="time-badge">预估时间：15 分钟</span>
+      </div>
+      <p>把你刚填好的五格，对号填进下面这段模板，整段发给你的 AI。它会先跟你确认，再开工。</p>
+      <div class="prompt">
+        <span class="prompt-flag">复制发给你的 AI</span>
+        <pre>复制这段话，发给你的 AI：
+
+从现在起，你在我这里担任一个固定岗位。先看清岗位说明，再干活。
+
+【岗位名】______
+（例：线索哨兵）
+
+【你服务谁】______
+（这份活是交给谁、给谁用的。例：交给我们的销售主管，用来决定先联系哪些客户）
+
+【你的高频任务】______
+（你每次具体要做的事，讲清楚步骤。例：读我给你的一批评论，逐条判断是不是潜在客户，分成「马上要买／在问条件／随便看看」三档，把前两档整理成一张表）
+
+【你的输入材料】______
+（你开工需要拿到的东西。例：我会给你评论列表，以及一份「什么样算潜在客户」的判断标准）
+
+【人工把关点】______
+（哪一步必须我过目才算数。例：整理好的客户名单，先给我看过、我确认了，才算数）
+
+【交付要求】
+- 严格按上面的岗位说明来，不确定的地方先问我，不要自己编；
+- 每条结论都要能说清「你是根据哪一条判的」，方便我核对；
+- 先用一小批（比如 5 条）试做给我看，我确认没问题，你再批量做全部。
+
+现在，请先把这个岗位用你自己的话复述一遍，并告诉我你还缺什么，等我确认后再开始。</pre>
+      </div>
+    </div>
+
+    <h3 class="sub">案例：候选人评估员是怎么被交代出来的</h3>
+    <p>光有模板还不够，看一个真的。招聘这件事，我就是用「先写清岗位、再放手」的思路，招出了一名<strong>候选人评估员</strong>。它分两段干活：</p>
+
+    <div class="case">
+      <div class="case-title">案例 · 候选人评估员 Talent Screener</div>
+      <div class="case-body">
+        <div class="case-row">
+          <span class="label">业务卡点</span>
+          <p>招人季简历看不过来，一个个筛人累且慢。更麻烦的是，「什么样的人算合适」这套标准，全在我脑子里，换个人帮我筛，口径就走样，理由也说不清。</p>
+        </div>
+        <div class="case-row">
+          <span class="label">怎么交代</span>
+          <p>我把它拆成两步。<strong>第一步先造标准</strong>：让它读公司的基础门槛和用人要求，生成一份用人经理访谈清单，我把访谈内容给它，它融合成一份「可查出处」的用人标准，锁定存档。<strong>第二步再筛人</strong>：把候选人一个个交给它，对照这份锁定的标准逐条打分，给出「推荐 / 可约 / 排除」三档，每条结论都标明是按哪条标准判的，最后自动出一份招聘简报，还能同步进表格。</p>
+        </div>
+        <div class="case-row">
+          <span class="label">拿到什么</span>
+          <p>它对着一份虚构的销售岗演示数据，给出了「推荐 2 位、可约 1 位、排除 2 位」的清楚结论。最打动我的是一个例外：有位候选人学历卡在门槛线下，但工作十八年、经验很硬，它没有一刀切排除，而是标了一句「学历可放宽，建议用人经理重评」，最终把他留在了推荐档。<strong>你看，它不是拿来死板卡人的机器，是把判断依据摆清楚、最后拍板仍然交回给人。</strong>这正是那格「人工把关点」的价值。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">验收：好结果长什么样，不满意怎么返工</h3>
+    <p>它交活了，你怎么判断行不行？看三条：</p>
+    <ul>
+      <li><strong>对不对：</strong>结论是否站得住，有没有编造的信息、算错的数字。</li>
+      <li><strong>清不清楚：</strong>每条结论能不能说明「根据哪一条判的」。说不清的，多半是它在猜。</li>
+      <li><strong>合不合口径：</strong>有没有踩你交代过的红线、说了不该说的话。</li>
+    </ul>
+    <p>不满意，别自己动手改，把问题指给它、让它重来——「第 3 条理由站不住，重新判」「这个数字对不上，核对后再给我」。<strong>你改的是它的说明书，不是它的作业。</strong>说明书越改越准，它以后交的活就越来越对。</p>
+
+    <h3 class="sub">避坑：最常见的三种「派活翻车」</h3>
+    <div class="callout pit">
+      <span class="tag">避坑</span>
+      <p><strong>一、交代太笼统。</strong>「帮我看看这些人」——它不知道你看的是学历还是经验，只能瞎猜。把标准写进「输入材料」那一格，它才判得准。</p>
+    </div>
+    <div class="callout pit">
+      <span class="tag">避坑</span>
+      <p><strong>二、不让它说依据。</strong>只要结论、不要理由，你就没法核对，也就没法发现它在编。永远要求它「说清根据哪一条判的」。</p>
+    </div>
+    <div class="callout pit">
+      <span class="tag">避坑</span>
+      <p><strong>三、一上来就让它做全部。</strong>先让它拿一小批试做，你确认没跑偏，再批量放开。省得它一口气把一百条全做错。</p>
+    </div>
+
+    <div class="foot-rule">MindsLeap 心智悦动 · 数字员工上岗手册 v1.0</div>
+  </section>
+
+  <!-- ============================================================ 第 4 章 ============================================================ -->
+  <section class="chapter" id="c4">
+    <span class="ml-eyebrow">五步法 · 第 5 步（连成流水线）</span>
+    <h2 class="ml-h2">4 · 让它自己跑：从一个活到一条流水线</h2>
+    <span class="ml-section-bar"></span>
+
+    <p class="lead">一个数字员工用顺了，你自然会想：能不能让它们接力，一个干完自动交给下一个，我少插手？能，但不是所有活都值得这么干。这一章教你判断什么时候该「连成流水线」，以及怎么起步。</p>
+
+    <h3 class="sub">什么时候值得固化成流程</h3>
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>一句话判断：<strong>这件活，你是不是每次都用几乎一样的步骤在做？</strong>是——值得固化；每次都要临场拿不同主意——先别急，那还是该人来做。固化的前提是「有稳定套路」，不是「重要」。越重复、越不用动脑的活，越适合连成线自动跑。</p>
+    </div>
+
+    <h3 class="sub">实操：把一件重复活，沉淀成一套固定做法</h3>
+    <h4 class="subsub">实操</h4>
+    <p>挑一件你已经用数字员工做顺了、每次步骤都差不多的活。让 AI 把「这件活的标准做法」写下来，固定成一套以后能反复调用的流程（技术上叫 Skill，你就理解成「把这套本事存成一张证，以后喊一声就来」）。用下面作业 2 的模板。<strong>预估时间：15 分钟。</strong></p>
+
+    <h4 class="subsub">讲解：这一步到底在干什么</h4>
+    <p>你在做的事，是把「你脑子里的做法」变成「它能重复执行的规矩」。这一步的价值在于<strong>可复用</strong>：今天固化好一套，以后同类活喊一声就跑，不用每次重新交代。这就像给员工写了本操作手册，新人照着就能上手，老人照着不会跑偏。</p>
+
+    <div class="task">
+      <div class="task-head">
+        <h4>作业 2 · 让 AI 把一件重复活，沉淀成固定做法</h4>
+        <span class="time-badge">预估时间：15 分钟</span>
+      </div>
+      <p>挑一件你反复在做的活，把它交给 AI 整理成一套标准做法。以后再做同类活，直接调这套就行。</p>
+      <div class="prompt">
+        <span class="prompt-flag">复制发给你的 AI</span>
+        <pre>复制这段话，发给你的 AI：
+
+我有一件活，每次做的步骤都差不多，我想把它固定成一套标准做法，以后能反复调用。请你帮我把它整理出来。
+
+【这件活是什么】______
+（例：每来一场直播，我都要复盘成一份报告）
+
+【我现在每次是怎么做的】
+请我把步骤一条条讲给你，你负责把它整理清楚：
+1. ______
+2. ______
+3. ______
+（讲你真实的做法，哪怕零散，它会帮你理顺）
+
+【固定下来时，请你做到】
+- 把上面的步骤，整理成一套清晰、有先后顺序、别人照着也能做的标准流程；
+- 每一步都写清「输入什么、产出什么、交给下一步什么」；
+- 标出这套流程里，哪几步必须由我本人确认后才能往下走（这几步不许自动跳过）；
+- 顺带告诉我，这套流程里最容易出错、最需要我盯的是哪一步，为什么；
+- 最后用一句话给这套流程起个名字，方便我以后直接喊它来干这类活。
+
+请先把整理好的流程，连同你标出的把关点和风险点，一起给我看。我确认没问题，我们再把它固定下来反复用。</pre>
+      </div>
+    </div>
+
+    <h3 class="sub">案例：内容流水线，和一次「没通过审核」的返工</h3>
+    <p>把多个数字员工连成线，最典型的就是我那条<strong>内容流水线</strong>：从一个选题到一条能发的成品，六个工位接力——选题、写稿、审核、配图、剪片，各管一段，谁没干好，下一道工序不接。以前这是一个团队七八个人的活，现在我只要一个会指挥这条线的人。</p>
+    <p>但我更想讲的是它<strong>没跑通</strong>的那次，因为它正好说明「连成线」为什么必须配检查点：</p>
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>早期，这条线里写稿工位自动出的文案，老是被后面的<strong>合规审核关卡</strong>打回——审核给它打分，钩子分只有 67 分，没到 70 分的及格线，直接被拦下，连图都不给出。后来我回去改了写稿的「说明书」，让它写的时候自然带上「最关键 / 误区 / 评论区」这类钩子词，分数才升到 79 到 91 分，稳定过审。<strong>你看，数字员工也会不及格；它一不及格，系统直接不让它往下走，不用人一次次盯着挑错。这就是「设检查点」的意义。</strong></p>
+    </div>
+    <p>还有一个好处：这条流水线支持多个行业，换个行业只要换一份配置，不用重写。<strong>你招的不是只会一件事的员工，是一套流程；换个行业，只是换一份说明书。</strong></p>
+
+    <h3 class="sub">铁律：全自动，只给「不用判断的活」</h3>
+    <div class="callout tie">
+      <span class="tag">铁律</span>
+      <p>能连成线自动跑的，永远只有「不用拿主意」的那些环节——读、整理、初筛、打分、排版，这些可以放手。凡是「要不要发、这个客户要不要跟、这条能不能对外」这种要拍板的，<strong>必须留一个人工确认的关口，不许自动跳过。</strong>半自动、人来拍板，才是靠谱的自动化。全自动不是让你当甩手掌柜，是让机器替你跑腿、你专心拍板。</p>
+    </div>
+
+    <h3 class="sub">一人公司的一天：系统跑起来之后</h3>
+    <p>当这些都连起来，你的一天会变成这样：早上打开办公软件，昨晚线索哨兵已经把新客户线索填好了表，你扫一眼、圈出今天要跟的几个；内容流水线昨晚出的几条初稿在等你终审，你改两句、放行；复盘分析师把上一场活动的复盘报告放在那儿，你看结论、定下一步。<strong>你真正花时间的，只剩「看什么、批什么、定什么」——全是判断，重复的跑腿全交出去了。</strong>这不是未来，这是把这本手册走完之后，一个普通老板能过上的日子。</p>
+
+    <h3 class="sub">为什么这套东西会「越用越值」</h3>
+    <p>连成流水线之后，还有一个隐形的好处，值得你记一辈子：<strong>它会复利。</strong>你每教它一次、每固化一套做法、每攒下一份说明书，这些都不会随人走——今天立的规矩，明年还在用；今天带熟的岗位，能长成明年的一条线。它跟招人最不一样的地方就在这：真员工的经验会离职带走，数字员工的经验留在你公司，一圈一圈往上滚。</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="复利闭环：喂它、它干活、沉淀成资产、再用来喂它">
+        <defs>
+          <marker id="arw2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 Z" fill="#1e477c" />
+          </marker>
+        </defs>
+        <g font-family="Inter, 'Noto Sans SC', sans-serif" text-anchor="middle">
+          <!-- four nodes on a circle -->
+          <g>
+            <rect x="250" y="24" width="140" height="52" rx="10" fill="#eff6ff" stroke="#1e477c" stroke-width="1.5"/>
+            <text x="320" y="47" font-size="15" font-weight="700" fill="#1e477c">你喂它资料</text>
+            <text x="320" y="66" font-size="12" fill="#6b7280">规矩、样本、纠错</text>
+          </g>
+          <g>
+            <rect x="470" y="124" width="140" height="52" rx="10" fill="#dbeafe" stroke="#1e477c" stroke-width="1.5"/>
+            <text x="540" y="147" font-size="15" font-weight="700" fill="#1e477c">它照着干活</text>
+            <text x="540" y="166" font-size="12" fill="#4b5563">出结果、交给你</text>
+          </g>
+          <g>
+            <rect x="250" y="224" width="140" height="52" rx="10" fill="#bfdbfe" stroke="#1e477c" stroke-width="1.5"/>
+            <text x="320" y="247" font-size="15" font-weight="700" fill="#152f54">沉淀成资产</text>
+            <text x="320" y="266" font-size="12" fill="#374151">说明书、流程、标准</text>
+          </g>
+          <g>
+            <rect x="30" y="124" width="140" height="52" rx="10" fill="#eff6ff" stroke="#1e477c" stroke-width="1.5"/>
+            <text x="100" y="147" font-size="15" font-weight="700" fill="#1e477c">下次更省力</text>
+            <text x="100" y="166" font-size="12" fill="#6b7280">同类活喊一声就跑</text>
+          </g>
+          <!-- curved arrows clockwise -->
+          <path d="M392,58 Q500,70 545,120" fill="none" stroke="#1e477c" stroke-width="2" marker-end="url(#arw2)"/>
+          <path d="M540,178 Q500,240 392,250" fill="none" stroke="#1e477c" stroke-width="2" marker-end="url(#arw2)"/>
+          <path d="M248,250 Q140,240 100,178" fill="none" stroke="#1e477c" stroke-width="2" marker-end="url(#arw2)"/>
+          <path d="M100,122 Q140,70 248,58" fill="none" stroke="#1e477c" stroke-width="2" marker-end="url(#arw2)"/>
+          <text x="320" y="154" font-size="13" font-weight="700" fill="#9ca3af">越滚越厚</text>
+        </g>
+      </svg>
+      <figcaption>复利闭环 —— 喂它、它干活、沉淀成资产、下次更省力，一圈圈往上滚</figcaption>
+    </figure>
+
+    <div class="foot-rule">MindsLeap 心智悦动 · 数字员工上岗手册 v1.0</div>
+  </section>
+
+  <!-- ============================================================ 第 5 章 ============================================================ -->
+  <section class="chapter" id="c5">
+    <span class="ml-eyebrow">五步法 · 第 4 步（设试用期）</span>
+    <h2 class="ml-h2">5 · 当老板的日常：每天十分钟管理你的数字员工</h2>
+    <span class="ml-section-bar"></span>
+
+    <p class="lead">数字员工上岗了，不等于你可以彻底不管。但它要的管理很轻——每天十分钟，做好三件事，它就能长期稳稳给你干。这一章讲你当老板的日常动作，以及它出问题时怎么办。</p>
+
+    <h3 class="sub">每日三件事：看什么、批什么、喂什么</h3>
+    <ol>
+      <li><strong>看：</strong>扫一眼它昨天干的活——线索表新增了几条、初稿出了几篇。花两分钟看它有没有明显跑偏，不用逐字审。</li>
+      <li><strong>批：</strong>凡是标了「人工把关点」的，过目、拍板。该发的放行，不对的打回。这是你每天最该花力气的地方，也是你「设试用期」的日常延续——你一直在给它打分，只是打得很轻。</li>
+      <li><strong>喂：</strong>碰到它做错、或你有了新要求，别憋着，随手把新的规矩、新的样本喂给它。<strong>喂得越勤，它长得越快。</strong>它跟真员工一样，是带出来的，不是买来就完美的。</li>
+    </ol>
+
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>这三件事连起来就是「试用期」的常态版：看它表现、批它的活、教它改进。真员工的试用期会结束，数字员工的「试用期」其实一直都在——你越舍得花这十分钟，它越好用。</p>
+    </div>
+
+    <h3 class="sub">它出错了怎么办</h3>
+    <p>数字员工一定会出错，关键是你有没有留住那道人工关。三个我亲历的真实故事，正好说明这道关有多要紧：</p>
+
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p><strong>故事一：它会一本正经地编。</strong>我那档节目发布前要过<strong>节目监制</strong>两位「评委」的打分关，两项都要到 85 分以上才放行——六期节目全部过了关，多数拿的是 88 分，其中一期还拿到 92 分。但就算过了机器这关，人工复核时我们还是揪出它在初稿里编了一句「某名人谈编译器」的话——语料库里根本没这段，是它自己编的，被人工直接删掉了。</p>
+    </div>
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p><strong>故事二：它可能把不该露的信息带出去。</strong>还是那次复核，人工发现它不小心把一个「风格来源者的真实姓名」带进了对外的材料里，也被当场修掉。机器打分再高，也替代不了人这最后一眼——它不知道哪些信息对外是红线，你知道。</p>
+    </div>
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p><strong>故事三：它也会「猝死」，得有人盯着它还活着没有。</strong>我那名候选人评估员，有一次因为网络抖动掉了线，没人去拉它起来，断了差不多三天才被发现。后来我给它配上了「心跳监控」——开机自启、掉线自动重连。<strong>数字员工不发工资，但你得确认它今天有没有来上班。</strong></p>
+    </div>
+
+    <p>三个故事，一个结论：<strong>AI 会编事实、会漏红线、也会掉线，所以人必须留最后一道关。</strong>这不是不信任它，这是用它的正确姿势。它自己也承认这一点——我用的打分机制里就写着一句老实话：机器打分不是精细的刻度尺，「够好就给个高分」，真正的质量，靠多轮打磨加上人工那一关。</p>
+
+    <h3 class="sub">它出错时，怎么跟它「说」</h3>
+    <p>发现它做错，别自己闷头改，也别笼统骂一句「不对」。像跟员工纠错一样，把「错在哪、按什么改」讲清楚，它下次才不再犯。几句可以直接照搬：</p>
+    <ul>
+      <li><strong>指出具体位置：</strong>「第 3 条理由站不住，你说的这条标准我资料里没有，重新判。」——比「你判错了」有用一百倍。</li>
+      <li><strong>要它给依据：</strong>「这个结论你根据哪一条得出来的？说不清就说明你在猜，重来。」——逼它把编造暴露出来。</li>
+      <li><strong>把错误变成新规矩：</strong>「以后凡是遇到这种情况，一律先问我，不许自己拿主意。」——一次纠错，长成一条永久的规矩。</li>
+    </ul>
+    <div class="callout">
+      <span class="tag">要点</span>
+      <p>纠错的关键，是<strong>改它的说明书，不是改它这一次的作业</strong>。你把「以后该怎么办」写进它的规矩里，这个错就再也不会犯第二次；你只帮它改这一次的答案，它下回照样错。这就是数字员工比返工一个粗心员工省心的地方——它记性好，你教一次，它记一辈子。</p>
+    </div>
+
+    <h3 class="sub">什么信号说明该升级它了</h3>
+    <p>出现下面这些信号，说明这个岗位可以「加担子」或「招帮手」了：</p>
+    <ul>
+      <li><strong>它交的活你连着好多天几乎不用改</strong>——说明这个岗位成熟了，可以把相邻的活也交给它。</li>
+      <li><strong>你发现自己老在它前面、或后面手动补一道固定动作</strong>——那道动作就该固化进流程，让它接管（回到第 4 章）。</li>
+      <li><strong>一个岗位的活越堆越多、开始顾不过来</strong>——该给它拆岗、招帮手，把一个岗位拆成一条小流水线。</li>
+    </ul>
+
+    <div class="callout tie">
+      <span class="tag">铁律</span>
+      <p>升级它的前提，永远是「它当前这个岗位已经稳了」。别在它还常出错时就急着加担子——先把一个岗位带熟，再谈扩张。带团队是这个理，带数字员工也是。</p>
+    </div>
+
+    <div class="foot-rule">MindsLeap 心智悦动 · 数字员工上岗手册 v1.0</div>
+  </section>
+
+  <!-- ============================================================ 第 6 章 ============================================================ -->
+  <section class="chapter" id="c6">
+    <span class="ml-eyebrow">收尾 · 把手册合上之前</span>
+    <h2 class="ml-h2">6 · 记住三句话，今晚就动手</h2>
+    <span class="ml-section-bar"></span>
+
+    <p class="lead">这本手册讲了很多，但真要你带走的，就三句话和五个动作。合上书之前，把它们记住、把清单填了。</p>
+
+    <h3 class="sub">记住这三句话</h3>
+    <ol>
+      <li><strong>它是员工，不是软件。</strong>你怎么带一个真人新员工——交代清楚、给足资料、留住把关——就怎么带它。姿势对了，一切都对。</li>
+      <li><strong>它干重复劳动，你管判断拍板。</strong>把又多又重复的活尽管交出去，把要拿主意、要担责的关口牢牢留在自己手里。</li>
+      <li><strong>人会离职，规矩不会。</strong>你把做法沉淀成流程、把标准写成说明书，这些就成了你公司的资产——它不随人走，越攒越厚。</li>
+    </ol>
+
+    <h3 class="sub">今晚回去就做的五件事</h3>
+    <p>别等「准备好了」，那一天不会来。今晚就照这张清单动手，把第一个数字员工推上岗：</p>
+    <ul class="checklist">
+      <li>列出你一周里重复三次以上的活，挑出最烦、最有套路的那一件　<span class="est">（10 分钟 · 见第 2 章）</span></li>
+      <li>把这件活相关的资料、话术、红线归到一处　<span class="est">（15 分钟 · 见第 2 章）</span></li>
+      <li>填一张「数字员工岗位说明书」五格表　<span class="est">（10 分钟 · 见第 3 章）</span></li>
+      <li>用作业 1 的模板，把五格套成话术，发给你的 AI，让它先复述再干活　<span class="est">（15 分钟 · 见第 3 章）</span></li>
+      <li>用一小批真实材料试跑一次，圈出要改的地方，把它当说明书改回去　<span class="est">（15 分钟 · 见第 3、5 章）</span></li>
+    </ul>
+
+    <h3 class="sub">附：一张「术语翻译表」，别被行话唬住</h3>
+    <p>这一行有一堆听着高深的词，其实说穿了都是大白话。这张表帮你把它们对回人话——以后再有人跟你讲这些，你心里有底：</p>
+    <table class="cmp-table">
+      <thead>
+        <tr><th>行话</th><th>人话翻译</th><th>对你这个老板意味着什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>提示词 Prompt</td><td>岗位说明书</td><td>你对真员工怎么交代，就对它怎么交代，写清楚它才干得好</td></tr>
+        <tr><td>技能 Skill</td><td>一项技能一张证</td><td>让它学会一个新本事，学会一个存一个，能反复用</td></tr>
+        <tr><td>大模型</td><td>它的脑子</td><td>它聪不聪明看这个；按用量付费，用多少花多少</td></tr>
+        <tr><td>调度台 / 一个对话入口</td><td>工位上那个总台</td><td>你只跟一个入口说话，它背后连着一整条产线</td></tr>
+        <tr><td>接力自动跑 / Hook</td><td>上一个干完，自动喊下一个上</td><td>把重复环节连成线，你只在关键处拍板</td></tr>
+        <tr><td>检查点 / 质量关卡</td><td>不达标就不放行的那道闸</td><td>它干得不合格，系统直接拦住，不用你一次次盯着挑错</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tie">
+      <span class="tag">铁律</span>
+      <p>第一步别贪：<strong>挑一件你最烦、最重复的活，把它这一个岗位做成，就够了。</strong>做成第一个，你才会有信心招第二个。这本手册的全部，都是为了让你今晚能真正开始。</p>
+    </div>
+
+    <!-- 社群钩子 -->
+    <div class="community">
+      <span class="ml-eyebrow">手册不是终稿</span>
+      <h3>回去动手卡住了，群里喊一声，有人接</h3>
+      <p>这本手册不是终稿——AI 这一行一个月一个样，我们每落地一个新员工、踩一个新坑，手册就迭代一版。最新版、模板源文件、每次迭代背后的实战复盘，都在 MindsLeap 心智悦动的企业家社群里更新。回去动手卡住了，在群里喊一声，有人接。</p>
+    </div>
+
+    <div class="foot-rule">MindsLeap 心智悦动 · 数字员工上岗手册 v1.0</div>
+  </section>
+
+</div>

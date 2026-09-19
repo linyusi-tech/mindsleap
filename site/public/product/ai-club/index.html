@@ -1,0 +1,1382 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Club 宣传海报</title>
+  <base href="/product/ai-club/" />
+  <style>
+    @font-face {
+      font-family: "SourceHanPosterHeavy";
+      src: url("./assets/SourceHanSansSC-Heavy-subset.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --title-font: "SourceHanPosterHeavy", "Source Han Sans SC Heavy", "Source Han Sans SC", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      --ink: #f7fbff;
+      --muted: rgba(224, 238, 247, 0.78);
+      --soft: rgba(212, 230, 242, 0.62);
+      --brand-blue: #1e477c;
+      --brand-blue-light: #2a5a9e;
+      --brand-blue-dark: #152f54;
+      --brand-blue-accent: #3b82f6;
+      --blue-tint: #c9fbff;
+      --deep: #04101d;
+      --panel: rgba(8, 25, 45, 0.84);
+      --panel-strong: rgba(10, 33, 58, 0.94);
+      --line: rgba(147, 197, 253, 0.22);
+      --cyan: #62d8ff;
+      --gold: #ffe27a;
+      --mint: #86ead7;
+      --grad: linear-gradient(120deg, #bdf9ff 0%, #36d8ff 20%, #008bff 38%, #25f4ff 56%, #39ffcb 74%, #c9ff44 100%);
+      --title-grad: linear-gradient(90deg, #bdf9ff 0%, #36d8ff 20%, #008bff 38%, #25f4ff 56%, #39ffcb 74%, #c9ff44 100%);
+      --line-grad: linear-gradient(135deg, #bdf9ff 0%, #36d8ff 20%, #008bff 38%, #25f4ff 56%, #39ffcb 74%, #c9ff44 100%);
+      --line-grad-hot: linear-gradient(135deg, #d8fdff 0%, #54e4ff 18%, #1599ff 38%, #38f9ff 58%, #55ffd5 76%, #d7ff63 100%);
+      --panel-glow:
+        radial-gradient(circle at 0% 0%, rgba(30, 71, 124, 0.28), transparent 34%),
+        radial-gradient(circle at 100% 8%, rgba(59, 130, 246, 0.18), transparent 38%),
+        radial-gradient(circle at 100% 100%, rgba(98, 216, 255, 0.11), transparent 32%),
+        radial-gradient(circle at 8% 100%, rgba(255, 226, 122, 0.08), transparent 30%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+        linear-gradient(180deg, rgba(7, 24, 43, 0.94), rgba(4, 15, 28, 0.9));
+      --shadow: 0 26px 64px rgba(0, 0, 0, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #04101d;
+      color: var(--ink);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    body {
+      min-width: 1080px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--title-font);
+      font-weight: 900;
+    }
+
+    .poster {
+      position: relative;
+      width: 1080px;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(3, 9, 18, 0.08), rgba(3, 9, 18, 0.32)),
+        url("./assets/ai-club-bg-brand-blue.jpg") center top / 1080px auto no-repeat,
+        #030812;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.15));
+    }
+
+    .poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(3, 9, 18, 0.06) 0%, rgba(3, 9, 18, 0.42) 100%),
+        radial-gradient(circle at 7% 23%, rgba(30, 71, 124, 0.18), transparent 18%),
+        radial-gradient(circle at 90% 63%, rgba(59, 130, 246, 0.1), transparent 21%),
+        radial-gradient(circle at 18% 93%, rgba(101, 224, 186, 0.06), transparent 20%);
+    }
+
+    .hero,
+    .section,
+    .closing {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 0;
+      padding: 56px 58px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      isolation: isolate;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      display: none;
+    }
+
+    .hero-bg::after {
+      content: none;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 36px;
+    }
+
+    .logo-row img {
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.32));
+    }
+
+    .logo-row .mindsleap {
+      height: 102px;
+      width: auto;
+    }
+
+    .logo-row .founders {
+      height: 75px;
+      width: auto;
+    }
+
+    .hero-copy {
+      padding-top: 70px;
+    }
+
+    .hero-title {
+      position: relative;
+      max-width: 964px;
+      font-size: 126px;
+      line-height: 1.02;
+      font-weight: 950;
+      color: transparent;
+      white-space: nowrap;
+      background: var(--title-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter:
+        brightness(1.12)
+        saturate(1.18);
+      text-shadow: none;
+    }
+
+    .hero-title::after {
+      content: none;
+      position: absolute;
+      left: -8px;
+      right: -8px;
+      bottom: -20px;
+      height: 22px;
+      z-index: -1;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(30, 71, 124, 0.32), rgba(59, 130, 246, 0.22), rgba(243, 208, 110, 0.14));
+      filter: blur(18px);
+    }
+
+    .hero-subtitle {
+      margin-top: 28px;
+      max-width: 890px;
+      font-size: 44px;
+      line-height: 1.36;
+      font-weight: 850;
+      color: rgba(247, 251, 255, 0.94);
+    }
+
+    .hero-desc {
+      margin-top: 28px;
+      max-width: 885px;
+      font-size: 33px;
+      line-height: 1.62;
+      color: var(--muted);
+    }
+
+    .hero-stage {
+      position: relative;
+      margin-top: 42px;
+      padding: 2px;
+      border-radius: 22px;
+      background: var(--line-grad);
+      box-shadow:
+        0 34px 82px rgba(0, 0, 0, 0.52),
+        0 0 54px rgba(59, 130, 246, 0.18);
+    }
+
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      inset: -36px -24px auto;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(98, 216, 255, 0.24), rgba(255, 226, 122, 0.09), transparent 66%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .hero-stage img {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+      border-radius: 20px;
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .stage-panel {
+      position: absolute;
+      left: 38px;
+      right: 38px;
+      bottom: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stage-panel span {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 18px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+        rgba(6, 20, 38, 0.78) padding-box,
+        var(--line-grad-hot) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        inset 0 0 24px rgba(59, 130, 246, 0.12),
+        0 18px 34px rgba(0, 0, 0, 0.34),
+        0 0 24px rgba(98, 216, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: #ffffff;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 880;
+    }
+
+    .hero-bottom {
+      margin-top: 28px;
+      padding: 30px 34px;
+      border-radius: 14px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad-hot) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        var(--shadow),
+        0 0 36px rgba(59, 130, 246, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-bottom p {
+      font-size: 48px;
+      line-height: 1.25;
+      color: transparent;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-align: center;
+      font-weight: 950;
+      filter:
+        brightness(1.1)
+        saturate(1.14);
+      text-shadow: none;
+    }
+
+    .section {
+      padding: 66px 58px;
+    }
+
+    .hero + .section {
+      padding-top: 34px;
+    }
+
+    .section.alt {
+      background: transparent;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin-bottom: 13px;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 27px;
+      line-height: 1.2;
+      font-weight: 850;
+      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+    }
+
+    .section-title {
+      font-size: 64px;
+      line-height: 1.08;
+      font-weight: 950;
+      color: transparent;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter:
+        brightness(1.1)
+        saturate(1.14);
+      text-shadow: none;
+    }
+
+    .section-note {
+      max-width: 358px;
+      font-size: 28px;
+      line-height: 1.45;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 20px;
+    }
+
+    .intro-card {
+      min-height: 358px;
+      padding: 34px;
+      border-radius: 18px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad-hot) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        var(--shadow),
+        0 0 34px rgba(59, 130, 246, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .intro-card h3 {
+      margin-bottom: 18px;
+      font-size: 39px;
+      line-height: 1.22;
+      color: transparent;
+      background: var(--title-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter:
+        brightness(1.08)
+        saturate(1.12);
+      text-shadow: none;
+    }
+
+    .intro-card p,
+    .member-card p,
+    .visit-card p {
+      font-size: 29px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .value-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .value-pill {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 27px;
+      line-height: 1.22;
+      font-weight: 900;
+      color: #ffffff;
+      background: rgba(30, 71, 124, 0.28);
+      border: 1px solid rgba(147, 197, 253, 0.28);
+    }
+
+    .ecosystem-image {
+      position: relative;
+      height: 540px;
+      padding: 2px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 0;
+      box-shadow:
+        var(--shadow),
+        0 0 38px rgba(59, 130, 246, 0.16);
+      background: var(--line-grad-hot);
+    }
+
+    .ecosystem-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+      opacity: 0.92;
+    }
+
+    .ecosystem-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 42%, rgba(5, 12, 22, 0.54) 100%);
+      pointer-events: none;
+    }
+
+    .node-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .node {
+      min-height: 210px;
+      padding: 24px;
+      border-radius: 16px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad-hot) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.22),
+        0 0 28px rgba(59, 130, 246, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .node b {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 31px;
+      line-height: 1.24;
+      color: #ffffff;
+    }
+
+    .node span {
+      display: block;
+      font-size: 25px;
+      line-height: 1.42;
+      color: var(--muted);
+    }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 62px;
+      row-gap: 22px;
+    }
+
+    .member-card {
+      min-height: 52px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .member-card::before {
+      content: none;
+    }
+
+    .member-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 0;
+      font-size: 31px;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .member-icon {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--grad);
+      box-shadow: 0 0 28px rgba(59, 130, 246, 0.22);
+    }
+
+    .member-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: #06101b;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .member-card.featured {
+      grid-column: span 2;
+      min-height: 0;
+      margin-bottom: 12px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .member-card.featured h3 {
+      display: block;
+      max-width: 900px;
+      font-size: 34px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .member-card.featured p {
+      max-width: 900px;
+      font-size: 27px;
+    }
+
+    .expert-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .expert-column {
+      padding: 30px 28px;
+      border-radius: 18px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad-hot) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        var(--shadow),
+        0 0 34px rgba(59, 130, 246, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+    }
+
+    .expert-column h3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 38px;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    .expert-column h3 small {
+      flex: 0 0 auto;
+      color: var(--blue-tint);
+      font-size: 23px;
+      font-weight: 850;
+    }
+
+    .expert-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .expert {
+      padding: 20px 22px 22px;
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.024)),
+        linear-gradient(180deg, rgba(7, 24, 43, 0.82), rgba(4, 15, 28, 0.74)) padding-box,
+        var(--line-grad) border-box;
+      border: 1px solid transparent;
+    }
+
+    .expert b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 31px;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    .expert span {
+      display: block;
+      font-size: 24px;
+      line-height: 1.36;
+      color: var(--muted);
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .benefit {
+      min-height: 260px;
+      padding: 32px;
+      border-radius: 18px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad-hot) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        0 20px 46px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(59, 130, 246, 0.14);
+    }
+
+    .benefit-icon {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--grad);
+      color: #07111f;
+      font-size: 36px;
+      font-weight: 950;
+    }
+
+    .benefit-title {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .benefit h3 {
+      margin-bottom: 0;
+      font-size: 38px;
+      line-height: 1.22;
+      color: #ffffff;
+    }
+
+    .benefit p {
+      font-size: 29px;
+      line-height: 1.48;
+      color: var(--muted);
+    }
+
+    .history-list,
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .more-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 18px 0 24px;
+      padding: 0;
+      border-radius: 0;
+      background: none;
+      border: 0;
+      color: #ffffff;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: 850;
+      gap: 20px;
+      backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .more-chip::before,
+    .more-chip::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--line-grad-hot);
+      box-shadow: 0 0 18px rgba(59, 130, 246, 0.18);
+    }
+
+    .more-chip span {
+      padding: 0 8px;
+      color: transparent;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .history-item,
+    .activity {
+      display: grid;
+      align-items: stretch;
+      border-radius: 18px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.24),
+        0 0 28px rgba(59, 130, 246, 0.12);
+    }
+
+    .history-item {
+      grid-template-columns: 136px 222px 1fr;
+      gap: 20px;
+      min-height: 184px;
+      padding: 18px;
+    }
+
+    .history-date,
+    .month {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.026)),
+        linear-gradient(180deg, rgba(7, 24, 43, 0.84), rgba(4, 15, 28, 0.78)) padding-box,
+        var(--line-grad) border-box;
+      border: 1px solid transparent;
+      box-shadow: inset 0 0 24px rgba(59, 130, 246, 0.08);
+    }
+
+    .history-date b,
+    .month b {
+      font-size: 48px;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .history-date span,
+    .month span {
+      margin-top: 8px;
+      color: var(--blue-tint);
+      font-size: 23px;
+      font-weight: 850;
+    }
+
+    .history-thumb,
+    .activity-img {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #07172a;
+      box-shadow: 0 0 0 1px rgba(147, 197, 253, 0.18);
+    }
+
+    .history-thumb img,
+    .activity-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.04) contrast(1.02);
+    }
+
+    .history-main,
+    .activity-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .history-main h3,
+    .activity-main h3 {
+      margin-bottom: 10px;
+      font-size: 33px;
+      line-height: 1.24;
+      color: #ffffff;
+    }
+
+    .history-main p,
+    .activity-main p {
+      font-size: 26px;
+      line-height: 1.42;
+      color: var(--muted);
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .visit-card {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 154px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 12px;
+      overflow: hidden;
+      border-radius: 18px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad) border-box;
+      border: 2px solid transparent;
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.22),
+        0 0 26px rgba(59, 130, 246, 0.12);
+    }
+
+    .visit-card.wide {
+      grid-column: auto;
+    }
+
+    .visit-img {
+      height: 108px;
+      overflow: hidden;
+      background: #07172a;
+      border-radius: 12px;
+    }
+
+    .visit-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.06) contrast(1.03);
+    }
+
+    .visit-body {
+      min-width: 0;
+      padding: 0;
+    }
+
+    .visit-year {
+      display: none;
+      margin-bottom: 12px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      color: #07111f;
+      background: var(--grad);
+      font-size: 22px;
+      line-height: 1.1;
+      font-weight: 900;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.18);
+    }
+
+    .visit-card h3 {
+      margin-bottom: 0;
+      font-size: 27px;
+      line-height: 1.2;
+      white-space: nowrap;
+      color: #ffffff;
+    }
+
+    .visit-card p {
+      display: none;
+    }
+
+    .activity {
+      grid-template-columns: 150px 238px 1fr;
+      gap: 20px;
+      min-height: 214px;
+      padding: 18px;
+    }
+
+    .founders-panel {
+      display: grid;
+      gap: 20px;
+    }
+
+    .logowall {
+      padding: 3px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--line-grad-hot);
+      border: 0;
+      box-shadow:
+        var(--shadow),
+        0 0 34px rgba(59, 130, 246, 0.16);
+    }
+
+    .logowall img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 13px;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .proof {
+      min-height: 158px;
+      padding: 24px 20px;
+      border-radius: 16px;
+      background:
+        var(--panel-glow) padding-box,
+        var(--line-grad) border-box;
+      border: 2px solid transparent;
+      text-align: center;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.2);
+    }
+
+    .proof b {
+      display: block;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 38px;
+      line-height: 1.1;
+    }
+
+    .proof span {
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.32;
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .case {
+      padding: 24px;
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.064), rgba(255, 255, 255, 0.026)),
+        linear-gradient(180deg, rgba(7, 24, 43, 0.84), rgba(4, 15, 28, 0.76)) padding-box,
+        var(--line-grad) border-box;
+      border: 1px solid transparent;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .case b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 31px;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    .case span {
+      display: block;
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.36;
+    }
+
+    .founders-title {
+      font-size: 52px;
+      white-space: nowrap;
+    }
+
+    .closing {
+      padding: 104px 58px 112px;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
+        radial-gradient(circle at 50% 12%, rgba(59, 130, 246, 0.22), transparent 30%),
+        radial-gradient(circle at 12% 100%, rgba(255, 226, 122, 0.12), transparent 22%);
+    }
+
+    .closing-card {
+      position: relative;
+      overflow: hidden;
+      padding: 56px 42px 48px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(30, 71, 124, 0.3), transparent 32%),
+        radial-gradient(circle at 82% 6%, rgba(59, 130, 246, 0.2), transparent 30%),
+        radial-gradient(circle at 90% 100%, rgba(98, 216, 255, 0.13), transparent 36%),
+        radial-gradient(circle at 8% 100%, rgba(255, 226, 122, 0.1), transparent 30%),
+        linear-gradient(135deg, rgba(30, 71, 124, 0.18), rgba(98, 216, 255, 0.08)),
+        linear-gradient(180deg, rgba(7, 24, 43, 0.94), rgba(4, 15, 28, 0.9)) padding-box,
+        var(--line-grad-hot) border-box;
+      border: 3px solid transparent;
+      box-shadow:
+        var(--shadow),
+        0 0 54px rgba(59, 130, 246, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .closing-card::before {
+      content: none;
+    }
+
+    .closing-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .closing h2 {
+      margin-bottom: 24px;
+      font-size: 70px;
+      line-height: 1.12;
+      color: transparent;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-weight: 950;
+      filter:
+        brightness(1.1)
+        saturate(1.14);
+      text-shadow: none;
+    }
+
+    .closing p {
+      max-width: 820px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 34px;
+      line-height: 1.52;
+    }
+
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      margin-top: 42px;
+    }
+
+    .footer-logos img {
+      display: block;
+      object-fit: contain;
+      opacity: 0.96;
+    }
+
+    .footer-logos .mindsleap {
+      height: 58px;
+    }
+
+    .footer-logos .founders {
+      height: 44px;
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="logo-row">
+        <img class="mindsleap" src="./assets/mindsleap-logo-white.png" alt="MindsLeap" />
+        <img class="founders" src="./assets/founders-space-logo-white.png" alt="Founders Space" />
+      </div>
+
+      <div class="hero-copy">
+        <h1 class="hero-title" data-text="企业家 AI 俱乐部">企业家 AI 俱乐部</h1>
+        <p class="hero-subtitle">汇聚 AI 转型企业家，一起学习，共同成长。</p>
+      </div>
+
+      <div class="hero-stage">
+        <img src="./assets/hero-connection-scheme-a-2.png" alt="企业家与 AI 连接场景" />
+        <div class="stage-panel">
+          <span>看见趋势</span>
+          <span>进入场景</span>
+          <span>找到伙伴</span>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <p>成为站在 AI 时代前沿的企业家。</p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">俱乐部定位</div>
+          <h2 class="section-title">把传统企业接入 AI 新生态</h2>
+        </div>
+      </div>
+
+      <div class="ecosystem-image">
+        <img src="./assets/ecosystem-chart.jpg" alt="企业家 AI 俱乐部连接生态图" />
+      </div>
+      <div class="node-grid">
+        <div class="node"><b>AI 认知实践</b><span>把趋势、案例和业务场景放在一起，帮助企业家判断下一步怎么动。</span></div>
+        <div class="node"><b>最前沿的专家连接</b><span>连接硅谷专家、国内 AI 实践者与一线企业家，形成高密度对话。</span></div>
+        <div class="node"><b>资本与 AI 服务</b><span>连接投资人、创业项目与可信赖服务方，让 AI 资源进入真实业务。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">会员画像</div>
+          <h2 class="section-title">已加入的部分企业家</h2>
+        </div>
+      </div>
+
+      <div class="member-grid">
+        <article class="member-card featured">
+          <h3>新能源汽车、连锁餐饮、上市公司、金融科技、智能制造、教育与财税等赛道</h3>
+          <p>创始人、董事长、总经理、合伙人与关键业务负责人，在这里带着真实产业问题共创 AI 转型。</p>
+        </article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M5 15l2-5h10l2 5" /><path d="M7 15h10" /><circle cx="8" cy="17" r="1.8" /><circle cx="16" cy="17" r="1.8" /><path d="M9 10l1.5-3h3L15 10" /></svg></span><span>新能源汽车副总裁</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M7 3v18" /><path d="M4 3v6a3 3 0 0 0 6 0V3" /><path d="M16 3v18" /><path d="M16 3c2.2 1.8 3.5 4.4 3.5 7.2V12H16" /></svg></span><span>千店连锁餐饮创始人</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M4 14h4l9 4V6l-9 4H4z" /><path d="M8 14v5" /><path d="M19 9l2-2" /><path d="M20 13h2" /></svg></span><span>头部广告集团董事长</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M7 8V4h10v4" /><rect x="5" y="8" width="14" height="8" rx="2" /><path d="M8 16h8v4H8z" /><path d="M8 12h.1" /></svg></span><span>工业级 3D 打印董事长</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="M3 10h18" /><path d="M7 15h4" /></svg></span><span>金融级支付科技董事长</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H20v17H8.5A3.5 3.5 0 0 0 5 22z" /><path d="M5 5.5v16" /><path d="M9 7h7" /><path d="M9 11h6" /></svg></span><span>全国口才教育创始人</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M8 7h8" /><path d="M8 11h2" /><path d="M12 11h2" /><path d="M16 11h.1" /><path d="M8 15h2" /><path d="M12 15h2" /><path d="M16 15h.1" /></svg></span><span>智能财税 SaaS 创始人</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M4 19h16" /><path d="M6 16l4-5 3 3 5-7" /><path d="M16 7h2v2" /></svg></span><span>大宗投资机构董事长</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18" /><path d="M5 7h14" /><path d="M7 7l-3 6h6z" /><path d="M17 7l-3 6h6z" /><path d="M8 21h8" /></svg></span><span>全国税务集团合伙人</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M4 10l1.2-5h13.6L20 10" /><path d="M5 10v10h14V10" /><path d="M8 20v-6h4v6" /><path d="M14 14h3" /></svg></span><span>港股连锁商超总经理</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v16" /><path d="M8 7h2" /><path d="M12 7h1" /><path d="M8 11h2" /><path d="M12 11h1" /><path d="M3 21h18" /></svg></span><span>A 股上市科技总经理</span></h3></article>
+        <article class="member-card"><h3><span class="member-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 2v3" /><path d="M12 19v3" /><path d="M2 12h3" /><path d="M19 12h3" /><path d="M4.9 4.9l2.1 2.1" /><path d="M17 17l2.1 2.1" /><path d="M19.1 4.9L17 7" /><path d="M7 17l-2.1 2.1" /></svg></span><span>头部工厂自动化高管</span></h3></article>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">前沿洞察</div>
+          <h2 class="section-title">科技与投资视野</h2>
+        </div>
+        <p class="section-note">部分全球专家</p>
+      </div>
+
+      <div class="expert-wrap">
+        <article class="expert-column">
+          <h3>硅谷专家 <small>硅谷</small></h3>
+          <div class="expert-list">
+            <div class="expert"><b>Steve Hoffman</b><span>Founders Space CEO、硅谷创投教父、畅销书作者</span></div>
+            <div class="expert"><b>李佳</b><span>LiveX 联合创始人、斯坦福大学教授、前谷歌云 AI 机器学习研发负责人</span></div>
+            <div class="expert"><b>Zack Kass</b><span>OpenAI 前商业化负责人</span></div>
+            <div class="expert"><b>Piero Scaruffi</b><span>硅谷人工智能研究院长、《硅谷百年史》作者</span></div>
+            <div class="expert"><b>Jeff 钱慰祖</b><span>前 Plug and Play SVP、斯坦福创业导师、Spark Venture Studio 联合创始人</span></div>
+          </div>
+        </article>
+
+        <article class="expert-column">
+          <h3>国内 AI 专家 <small>国内</small></h3>
+          <div class="expert-list">
+            <div class="expert"><b>狮明亮</b><span>全域增长研究院创始人，小红书大快消商业化负责人</span></div>
+            <div class="expert"><b>杨炯纬</b><span>卫瓴科技创始人兼 CEO，前 360 集团高级副总裁</span></div>
+            <div class="expert"><b>蒋镒珍</b><span>有孚网络首席 AI 科学家，曾任巨斧科技 CTO、Adobe 中国研发中心创始人</span></div>
+            <div class="expert"><b>延君晨</b><span>Dify 联合创始人，开源大语言模型应用开发平台建设者</span></div>
+            <div class="expert"><b>周立钢</b><span>博乐设计创始人，全国工业设计产业创新联盟副主席</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">会员权益</div>
+          <h2 class="section-title">不止于听课</h2>
+        </div>
+      </div>
+
+      <div class="benefit-grid">
+        <article class="benefit">
+          <div class="benefit-title"><div class="benefit-icon">↗</div><h3>大咖私享会</h3></div>
+          <p>硅谷 AI 专家与企业家面对面交流，分享前沿科技、投资趋势与实战经验。</p>
+        </article>
+        <article class="benefit">
+          <div class="benefit-title"><div class="benefit-icon">◎</div><h3>实战坊</h3></div>
+          <p>动手实践 AI 工具与方法论，把“听懂 AI”变成“进入 AI 协作项目”。</p>
+        </article>
+        <article class="benefit">
+          <div class="benefit-title"><div class="benefit-icon">◇</div><h3>标杆企业参访</h3></div>
+          <p>走进 AI 标杆企业，观察真实场景与最佳实践，理解技术如何进入业务。</p>
+        </article>
+        <article class="benefit">
+          <div class="benefit-title"><div class="benefit-icon">∞</div><h3>企业家共创流</h3></div>
+          <p>带着真实问题进入同频社群，在开放氛围中激发群智。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">往期回顾</div>
+          <h2 class="section-title">往期回顾</h2>
+        </div>
+      </div>
+
+      <div class="history-list">
+        <article class="history-item">
+          <div class="history-date"><b>11</b><span>2025</span></div>
+          <div class="history-thumb"><img src="./assets/event-hoffman.jpg" alt="硅谷科技投资私享会" /></div>
+          <div class="history-main"><h3>硅谷科技投资私享会</h3><p>与 Steve Hoffman 共探 AI 产业化、6G 与量子计算融合、智能体商业化等前沿议题。</p></div>
+        </article>
+        <article class="history-item">
+          <div class="history-date"><b>12</b><span>2025</span></div>
+          <div class="history-thumb"><img src="./assets/event-ai-marketing.jpg" alt="AI 营销增长创新工作坊" /></div>
+          <div class="history-main"><h3>AI 驱动营销增长创新工作坊</h3><p>从理论拆解到现场实操，企业家共建可落地的 AI 营销军团。</p></div>
+        </article>
+        <article class="history-item">
+          <div class="history-date"><b>1</b><span>2026</span></div>
+          <div class="history-thumb"><img src="./assets/event-hangzhou.jpg" alt="杭州企业家二日闭门会" /></div>
+          <div class="history-main"><h3>杭州企业家二日闭门会</h3><p>科技参访、禅意修行与群智共创，完成一次面向未来的内在充能。</p></div>
+        </article>
+        <article class="history-item">
+          <div class="history-date"><b>3</b><span>2026</span></div>
+          <div class="history-thumb"><img src="./assets/event-guangzhou.jpg" alt="广州 AI 增长微研学" /></div>
+          <div class="history-main"><h3>广州 AI 增长微研学</h3><p>围绕 AI 转型切入点与落地路径深度共创，把问题转成可执行方案。</p></div>
+        </article>
+        <article class="history-item">
+          <div class="history-date"><b>4</b><span>2026</span></div>
+          <div class="history-thumb"><img src="./assets/event-lobster.jpg" alt="AI 龙虾上海站" /></div>
+          <div class="history-main"><h3>AI 龙虾·上海站</h3><p>从 Vibe Coding 到企业级 Agent，会员现场完成第一个 AI 共创项目。</p></div>
+        </article>
+        <article class="history-item">
+          <div class="history-date"><b>5</b><span>2026</span></div>
+          <div class="history-thumb"><img src="./assets/event-ai-native.jpg" alt="AI 原生企业大会" /></div>
+          <div class="history-main"><h3>AI 原生企业大会</h3><p>近 300 位企业家、投资人与科创专家共探 AI 原生企业的转型路径。</p></div>
+        </article>
+        <article class="history-item">
+          <div class="history-date"><b>7</b><span>2026</span></div>
+          <div class="history-thumb"><img src="./assets/event-digital-employee.jpg" alt="AI 数字员工实战坊" /></div>
+          <div class="history-main"><h3>AI 数字员工实战坊</h3><p>在外滩 FTC 从第一个 AI 数字员工，走向可协作的 AI 数字员工团队。</p></div>
+        </article>
+      </div>
+
+      <div class="more-chip"><span>更多</span></div>
+
+      <div class="visit-grid">
+        <article class="visit-card">
+          <div class="visit-img"><img src="./assets/visit-huawei-lianqihu.jpg" alt="华为练秋湖基地参访" /></div>
+          <div class="visit-body"><h3>华为全球基地参访</h3></div>
+        </article>
+        <article class="visit-card">
+          <div class="visit-img"><img src="./assets/visit-zhongqing-robot.jpg" alt="众擎机器人参访" /></div>
+          <div class="visit-body"><h3>众擎机器人参访</h3></div>
+        </article>
+        <article class="visit-card">
+          <div class="visit-img"><img src="./assets/visit-webank.jpg" alt="微众银行参访" /></div>
+          <div class="visit-body"><h3>微众银行参访</h3></div>
+        </article>
+        <article class="visit-card">
+          <div class="visit-img"><img src="./assets/visit-flexiv.jpg" alt="硅谷 Flexiv 参访" /></div>
+          <div class="visit-body"><h3>硅谷 Flexiv 参访</h3></div>
+        </article>
+        <article class="visit-card wide">
+          <div class="visit-img"><img src="./assets/hero-ai-club.jpg" alt="Founders Space 路演" /></div>
+          <div class="visit-body"><h3>Founders Space 路演</h3></div>
+        </article>
+        <article class="visit-card">
+          <div class="visit-img"><img src="./assets/visit-branco-official.jpg" alt="Branco 科技参访" /></div>
+          <div class="visit-body"><h3>Branco 科技参访</h3></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">活动预告</div>
+          <h2 class="section-title">活动预告</h2>
+        </div>
+        <p class="section-note">仅供参考，我会根据 AI 的最新发展更新活动安排。</p>
+      </div>
+
+      <div class="timeline">
+        <article class="activity">
+          <div class="month"><b>8</b><span>2026</span></div>
+          <div class="activity-img"><img src="./assets/upcoming-shenzhen-robot.png" alt="深圳 AI 智造新图景" /></div>
+          <div class="activity-main"><h3>深圳·AI 智造新图景</h3><p>走进 3D 打印、工业机器人与情感机器人标杆，理解 AI 如何进入生产、工业与生活场景。</p></div>
+        </article>
+        <article class="activity">
+          <div class="month"><b>9</b><span>2026</span></div>
+          <div class="activity-img"><img src="./assets/upcoming-hackathon.png" alt="企业真实痛点共创" /></div>
+          <div class="activity-main"><h3>上海·企业真实痛点共创</h3><p>企业带真实问题入场，与超级个体现场组队共创，产出可交付、可落地的初步方案。</p></div>
+        </article>
+        <article class="activity">
+          <div class="month"><b>10</b><span>2026</span></div>
+          <div class="activity-img"><img src="./assets/upcoming-zhipu.png" alt="智谱 AI 深度参访" /></div>
+          <div class="activity-main"><h3>北京·智谱 AI + 飞书深度参访</h3><p>深入大模型与 AI 协同办公一线，连接技术供应链认知与组织效率升级实践。</p></div>
+        </article>
+        <article class="activity">
+          <div class="month"><b>11</b><span>2026</span></div>
+          <div class="activity-img"><img src="./assets/event-ai-native.jpg" alt="硅谷大咖思想会" /></div>
+          <div class="activity-main"><h3>硅谷大咖思想会</h3><p>对话硅谷创新、投资与 AI 原生企业方法，升级企业家的全球 AI 视野。</p></div>
+        </article>
+        <article class="activity">
+          <div class="month"><b>12</b><span>2026</span></div>
+          <div class="activity-img"><img src="./assets/upcoming-lijia.png" alt="年终臻享会员大会" /></div>
+          <div class="activity-main"><h3>上海·年终臻享会员大会</h3><p>AI 项目 Roadshow + 斯坦福李佳教授云端分享，兼顾前沿认知与优质项目机会。</p></div>
+        </article>
+        <article class="activity">
+          <div class="month"><b>1</b><span>2027</span></div>
+          <div class="activity-img"><img src="./assets/upcoming-bao-kuan.png" alt="AI 爆款策略私享" /></div>
+          <div class="activity-main"><h3>杭州·AI 爆款策略私享</h3><p>从 AI 爆款公式到小米爆品场景，拆解从用户痛点到产品爆发的全链路策略。</p></div>
+        </article>
+        <article class="activity">
+          <div class="month"><b>2</b><span>2027</span></div>
+          <div class="activity-img"><img src="./assets/upcoming-feishu.png" alt="AI 重塑组织与产业" /></div>
+          <div class="activity-main"><h3>上海·AI 重塑组织与产业</h3><p>参访华为与 AI 产品创新团队，理解企业级 AI 底座与产品验证的落地路径。</p></div>
+        </article>
+        <article class="activity">
+          <div class="month"><b>3</b><span>2027</span></div>
+          <div class="activity-img"><img src="./assets/upcoming-fanuc.png" alt="发那科与英伟达参访" /></div>
+          <div class="activity-main"><h3>北京·发那科 + 英伟达参访</h3><p>从 AI 算力“大脑”到机器人自动化“躯体”，形成公司的 AI 战略宣言。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">创新网络</div>
+        <h2 class="section-title founders-title">Founderspace 曾经孵化或投资过的企业</h2>
+        </div>
+      </div>
+
+      <div class="founders-panel">
+        <div class="logowall">
+          <img src="./assets/portfolio-logowall-v2.png" alt="Founders Space portfolio and ecosystem logo wall" />
+        </div>
+        <div class="proof-grid">
+          <div class="proof"><b>22+</b><span>国家与地区网络</span></div>
+          <div class="proof"><b>50+</b><span>全球战略合作伙伴</span></div>
+          <div class="proof"><b>VC</b><span>天使、基金与产业资本</span></div>
+        </div>
+        <div class="case-row">
+          <div class="case"><b>创业项目案例</b><span>Chooch Intelligence、iProperty Network、Exeq Private Banking、Virtual Fantasy League</span></div>
+          <div class="case"><b>全球投资人网络</b><span>Venrock、August Capital、ScaleVP、TransLink Capital、Band of Angels 等</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="closing-card">
+        <h2>加入企业家 AI 俱乐部</h2>
+        <p>与同频企业家一起，看见 AI 前沿、走进真实场景、链接全球资源，把下一轮增长变成可持续行动。</p>
+        <div class="footer-logos">
+          <img class="mindsleap" src="./assets/mindsleap-logo-white.png" alt="MindsLeap" />
+          <img class="founders" src="./assets/founders-space-logo-white.png" alt="Founders Space" />
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="/poster/_assets/shared/mobile-fit-poster.js"></script>
+</body>
+</html>

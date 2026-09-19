@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-logo="joint" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <base href="/product/enterprise-ai-growth-suite/" />
+  <title>MindsLeap 企业AI落地</title>
+  <link rel="stylesheet" href="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/colors_and_type.css" />
+  <link rel="stylesheet" href="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/deck.css" />
+  <link rel="stylesheet" href="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/styles.css" />
+  <script src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/deck-stage.js"></script>
+  <style>
+    @font-face {
+      font-family: "MindsLeap Brand";
+      src: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/fonts/MindsLeap-Brand.otf") format("opentype");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    html {
+      --font-heading: "MindsLeap Brand", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Inter", system-ui, sans-serif;
+      --font-body: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    }
+
+    .slide {
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+
+    .cover-logo,
+    .slide:not(.no-chrome)::before {
+      background-image: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-foundersspace-joint-logo-blue.svg");
+    }
+
+    h1.slide-title,
+    .slide .slide-title,
+    .cover h1,
+    .statement h1,
+    .closing h1,
+    .card h3,
+    .triad-step h3,
+    .month-card h3,
+    .boundary-card h3,
+    .selection-card h3,
+    .case-column h3,
+    .person-body h3 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+    }
+
+    .cover-copy,
+    .slide-lead,
+    .card p,
+    .triad-step p,
+    .deliverable span,
+    .diagnosis-main p,
+    .month-card p,
+    .boundary-card li,
+    .selection-card p,
+    .case-column p,
+    .case-principle,
+    .suite-table .cell,
+    .person-body p,
+    .closing .lead,
+    .next-step-box span {
+      font-weight: 500;
+    }
+
+    .suite-note {
+      position: absolute;
+      top: 38px;
+      right: 112px;
+      color: #6b7d96;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 3px !important;
+    }
+
+    .cover .cover-copy {
+      max-width: 820px;
+    }
+
+    .cover .cover-meta {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .suite-visual img {
+      object-position: center;
+    }
+
+    .slide[data-label="客户卡点"] .slide-title,
+    .slide[data-label="产品地图"] .slide-title,
+    .slide[data-label="为什么我们"] .slide-title {
+      font-size: 70px;
+      line-height: 1.06;
+    }
+
+    .org-three-slide .slide-title {
+      font-size: 66px;
+      line-height: 1.06;
+      white-space: nowrap;
+    }
+
+    .slide[data-label="核心路径"].statement h1 {
+      font-size: 70px;
+      line-height: 1.2;
+      max-width: 1420px;
+    }
+
+    .slide[data-label="核心路径"].statement p {
+      font-size: 30px;
+      line-height: 1.48;
+      max-width: 1260px;
+      margin-top: 34px;
+    }
+
+    .triad-route {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .triad-step {
+      min-height: 470px;
+      padding: 42px 38px;
+      border-radius: 10px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .triad-step.dark {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .triad-step b {
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: 950;
+      letter-spacing: 3px !important;
+      margin-bottom: 54px;
+    }
+
+    .triad-step.dark b,
+    .triad-step.dark p,
+    .triad-step.dark .tagline {
+      color: #d8e8ff;
+    }
+
+    .triad-step h3 {
+      color: var(--accent);
+      font-size: 40px;
+      line-height: 1.12;
+      margin: 0 0 24px;
+    }
+
+    .triad-step h3.nowrap {
+      white-space: nowrap;
+      font-size: 37px;
+    }
+
+    .triad-step.dark h3 {
+      color: #fff;
+    }
+
+    .triad-step p {
+      color: var(--ink-muted);
+      font-size: 25px;
+      line-height: 1.42;
+      margin: 0;
+    }
+
+    .triad-step .tagline {
+      margin-top: auto;
+      padding-top: 34px;
+      color: var(--accent);
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+
+    .triad-price {
+      margin-top: auto;
+      padding-top: 30px;
+    }
+
+    .triad-price span {
+      display: block;
+      color: #b8d7ff;
+      font-size: 22px;
+      font-weight: 850;
+      text-decoration: line-through;
+      margin-bottom: 10px;
+    }
+
+    .triad-price strong {
+      display: block;
+      color: #fff;
+      font-size: 25px;
+      line-height: 1.26;
+      font-weight: 950;
+    }
+
+    .suite-offer {
+      gap: 24px;
+    }
+
+    .suite-offer .product-card {
+      min-height: 460px;
+      padding: 38px 36px;
+    }
+
+    .suite-offer .metric {
+      font-size: 62px;
+      white-space: nowrap;
+    }
+
+    .suite-offer .duration {
+      color: var(--ink-muted);
+      font-size: 22px;
+      font-weight: 850;
+      margin: 0 0 24px;
+    }
+
+    .suite-offer .product-card.dark .duration {
+      color: #d8e8ff;
+    }
+
+    .suite-offer .product-card h3 {
+      font-size: 37px;
+      line-height: 1.12;
+    }
+
+    .suite-offer .product-card p {
+      font-size: 24px;
+      line-height: 1.42;
+    }
+
+    .suite-package {
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 30px;
+    }
+
+    .suite-package .price-card {
+      min-height: 500px;
+      padding: 40px;
+    }
+
+    .price-card .price.text-price {
+      font-size: 58px;
+      line-height: 1.06;
+      white-space: nowrap;
+    }
+
+    .price-card .duration {
+      display: block;
+      margin-top: 4px;
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 850;
+    }
+
+    .price-card .original-price,
+    .suite-offer .original-price {
+      color: rgba(255,255,255,0.72);
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 800;
+      text-decoration: line-through;
+      margin-top: 18px;
+    }
+
+    .suite-offer .product-card:not(.dark) .original-price {
+      color: var(--ink-muted);
+    }
+
+    .price-card .activity-price-note,
+    .suite-offer .activity-price-note {
+      display: block;
+      margin-top: 8px;
+      color: #d8e8ff;
+      font-size: 22px;
+      line-height: 1.28;
+      font-weight: 850;
+    }
+
+    .suite-offer .product-card:not(.dark) .activity-price-note {
+      color: var(--accent);
+    }
+
+    .slide.package-slide {
+      padding-top: 64px;
+    }
+
+    .slide.package-slide .slide-title {
+      font-size: 68px;
+      line-height: 1.05;
+    }
+
+    .slide.package-slide .slide-bar {
+      margin-top: 24px;
+      margin-bottom: 30px;
+    }
+
+    .slide.package-slide .price-card p {
+      font-size: 26px;
+      line-height: 1.42;
+    }
+
+    .slide.package-slide .deliverable {
+      min-height: 148px;
+      padding: 26px 28px 24px;
+    }
+
+    .slide.package-slide .deliverable b {
+      font-size: 29px;
+      line-height: 1.14;
+      margin-bottom: 10px;
+    }
+
+    .slide.package-slide .deliverable span {
+      font-size: 22px;
+      line-height: 1.4;
+    }
+
+    .diagnosis-board {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .diagnosis-main {
+      box-sizing: border-box;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px;
+      padding: 42px 44px;
+      min-height: 430px;
+    }
+
+    .diagnosis-main h2 {
+      font-size: 56px;
+      line-height: 1.08;
+      margin: 0 0 28px;
+    }
+
+    .diagnosis-main p {
+      color: #d8e8ff;
+      font-size: 28px;
+      line-height: 1.42;
+      margin: 0;
+    }
+
+    .diagnosis-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .diagnosis-list .deliverable {
+      min-height: 132px;
+    }
+
+    .org-combo-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) 520px;
+      gap: 30px;
+      align-items: stretch;
+      margin-top: 24px;
+    }
+
+    .org-visual-frame {
+      margin-top: 0;
+      height: 600px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--rule);
+      background: linear-gradient(180deg, #f7fbff 0%, #e8f3ff 100%);
+    }
+
+    .org-visual-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+    }
+
+    .org-insight-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .org-insight {
+      border-radius: 10px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .org-insight.dark {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .org-insight b {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing: 2px !important;
+      margin-bottom: 12px;
+    }
+
+    .org-insight.dark b,
+    .org-insight.dark p,
+    .org-insight.dark .org-mini-price span {
+      color: #d8e8ff;
+    }
+
+    .org-insight h3 {
+      color: var(--accent);
+      font-size: 27px;
+      line-height: 1.12;
+      margin: 0 0 12px;
+    }
+
+    .org-insight.dark h3,
+    .org-insight.dark .org-mini-price strong {
+      color: #fff;
+    }
+
+    .org-insight p {
+      color: var(--ink-muted);
+      font-size: 20px;
+      line-height: 1.34;
+      margin: 0;
+    }
+
+    .org-mini-price {
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .org-mini-price span {
+      display: block;
+      color: #b8d7ff;
+      font-size: 17px;
+      font-weight: 850;
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .org-mini-price strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.18;
+      font-weight: 950;
+    }
+
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .month-card {
+      min-height: 430px;
+      border-top: 6px solid var(--accent);
+      background: var(--bg-alt);
+      border-radius: 8px;
+      padding: 34px 32px;
+      border-left: 1px solid var(--rule);
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .month-card b {
+      display: block;
+      color: var(--accent);
+      font-size: 26px;
+      margin-bottom: 46px;
+      letter-spacing: 3px !important;
+    }
+
+    .month-card h3 {
+      color: var(--ink);
+      font-size: 38px;
+      line-height: 1.14;
+      margin: 0 0 18px;
+    }
+
+    .month-card p {
+      color: var(--ink-muted);
+      font-size: 24px;
+      line-height: 1.42;
+      margin: 0;
+    }
+
+    .boundary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .boundary-card {
+      border-radius: 10px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 38px 40px;
+      min-height: 500px;
+    }
+
+    .boundary-card.dark {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .boundary-card h3 {
+      color: var(--accent);
+      font-size: 46px;
+      line-height: 1.12;
+      margin: 0 0 26px;
+    }
+
+    .boundary-card.dark h3,
+    .boundary-card.dark li {
+      color: #fff;
+    }
+
+    .boundary-card ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .boundary-card li {
+      color: var(--ink-muted);
+      font-size: 26px;
+      line-height: 1.48;
+      margin-bottom: 18px;
+    }
+
+    .suite-table .cell {
+      min-height: 82px;
+      font-size: 19px;
+      line-height: 1.32;
+      padding: 18px 20px;
+    }
+
+    .suite-table .cell.head {
+      font-size: 21px;
+    }
+
+    .suite-table .cell strong {
+      font-size: 21px;
+    }
+
+    .suite-table .diag-head {
+      background: #163e6f;
+      color: #fff;
+    }
+
+    .suite-table .diag-cell {
+      background: #eaf2ff;
+      border-left: 2px solid #9ec5ff;
+      border-right: 2px solid #9ec5ff;
+      color: #163e6f;
+      font-weight: 800;
+    }
+
+    .suite-table .diag-cell strong {
+      color: #163e6f;
+    }
+
+    .selection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .selection-card {
+      border-radius: 10px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 36px 34px;
+      min-height: 435px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .selection-card.dark {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .selection-card b {
+      color: var(--accent);
+      font-size: 24px;
+      letter-spacing: 2px !important;
+      margin-bottom: 44px;
+    }
+
+    .selection-card.dark b,
+    .selection-card.dark p,
+    .selection-card.dark .next {
+      color: #d8e8ff;
+    }
+
+    .selection-card h3 {
+      color: var(--accent);
+      font-size: 40px;
+      line-height: 1.12;
+      margin: 0 0 20px;
+    }
+
+    .selection-card.dark h3 {
+      color: #fff;
+    }
+
+    .selection-card p {
+      color: var(--ink-muted);
+      font-size: 24px;
+      line-height: 1.42;
+      margin: 0;
+    }
+
+    .selection-card .next {
+      margin-top: auto;
+      padding-top: 30px;
+      color: var(--accent);
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+
+    .expert-card.bingzhou-card img {
+      width: 100%;
+      height: 100%;
+      object-position: center 18%;
+      transform: translate(24px, 9px) scale(1.42);
+      transform-origin: center 18%;
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+      padding: 96px 112px;
+      background:
+        radial-gradient(circle at 82% 16%, rgba(184, 215, 255, 0.22), transparent 32%),
+        linear-gradient(135deg, #102948 0%, #1e477c 58%, #0f2746 100%);
+      color: #fff;
+    }
+
+    .closing .logo-white {
+      width: 610px;
+      height: 72px;
+      margin-bottom: 76px;
+      background: url("/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/mindsleap-foundersspace-joint-logo-white.png") left center / contain no-repeat;
+    }
+
+    .closing .kicker {
+      margin: 0 0 26px;
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 4px !important;
+    }
+
+    .closing h1 {
+      max-width: 1120px;
+      margin: 0;
+      color: #fff;
+      font-size: 58px;
+      line-height: 1.16;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .closing .lead {
+      margin: 34px 0 0;
+      max-width: 1120px;
+      color: #d8e8ff;
+      font-size: 30px;
+      line-height: 1.42;
+      font-weight: 500;
+    }
+
+    .closing .blue-dot {
+      color: #b8d7ff;
+    }
+
+    .closing-next {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-self: center;
+      width: 560px;
+    }
+
+    .next-step-box {
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      padding: 26px 28px;
+    }
+
+    .next-step-box b {
+      display: block;
+      color: #fff;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .next-step-box span {
+      display: block;
+      color: #d8e8ff;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+
+  <section class="slide cover no-chrome" data-label="封面" data-page="01">
+    <div>
+      <div class="cover-logo"></div>
+      <div class="cover-kicker">MindsLeap 企业AI落地</div>
+      <h1>把 AI 变成<br />企业增长能力<span class="blue-dot">.</span></h1>
+      <p class="cover-copy">先从 ¥39,800 诊断包切入，用两次线下和一次线上把关键问题、机会地图和定制化培训做扎实；后续陪跑和 FDE 都按实际情况专项评估。</p>
+      <div class="cover-meta">
+        <div><b>主推诊断包</b><span>数字员工学员活动价 ¥39,800</span></div>
+        <div><b>后续陪跑</b><span>按月收费 · 专项评估</span></div>
+        <div><b>FDE</b><span>复杂搭建 · 按月/按项目收费</span></div>
+      </div>
+    </div>
+    <div class="cover-visual suite-visual">
+      <img src="/proposal/ai-fde-investor-bp/assets/ai-lobster-shanghai-2026-hands-on-help.jpg" alt="MindsLeap AI 共创项目现场辅导" />
+      <div class="proof-badges">
+        <div><strong>原价 ¥59,800</strong><span>数字员工学员活动价 ¥39,800</span></div>
+        <div><strong>两次线下</strong><span>访谈、深沟、培训</span></div>
+        <div><strong>一次线上</strong><span>机会地图与诊断沟通</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="客户卡点" data-page="02">
+    <div class="suite-note">企业AI落地</div>
+    <div class="eyebrow">Client Pain · 为什么 AI 很重要却很难落地</div>
+    <h1 class="slide-title">企业推进 AI，最容易卡在这三件事上</h1>
+    <span class="slide-bar"></span>
+    <div class="grid-3 pain-grid sharp-pain">
+      <div class="card dark"><h3>老板看见机会，团队不知道从哪一步开始</h3><p>AI 重要性已经达成共识，但销售、运营、交付、管理哪个环节先改，没人敢拍板。</p></div>
+      <div class="card"><h3>培训带来热度，业务动作接不住</h3><p>员工课后能上手功能，回到岗位仍缺任务、标准和负责人。</p></div>
+      <div class="card"><h3>系统先上了，组织还没准备好</h3><p>数字员工角色、人机边界、数据责任没说清，项目容易停在演示和零散试用。</p></div>
+    </div>
+  </section>
+
+  <section class="slide statement no-chrome" data-label="核心路径" data-page="03">
+    <div>
+      <h1>先用诊断包完成第一次切入，<br />再根据真实问题评估陪跑或 FDE<span class="blue-dot">.</span></h1>
+      <p>MindsLeap 先通过访谈、老板深沟、机会地图和定制化培训建立共同判断；后续陪跑和复杂搭建，都根据企业实际情况专项评估。</p>
+    </div>
+  </section>
+
+  <section class="slide body org-three-slide" data-label="数字员工组织" data-page="04">
+    <div class="eyebrow">Operating Model · 从单个数字员工到人机协作结构</div>
+    <h1 class="slide-title">企业要建设的是一套管理数字员工的组织能力</h1>
+    <p class="slide-lead">数字员工不是孤立工具，而是需要岗位、团队和协作结构共同设计。</p>
+    <span class="slide-bar"></span>
+    <div class="org-combo-layout">
+      <div class="org-visual-frame">
+        <img src="assets/digital-employee-org-visual.png" alt="AI Leader 与多层级数字员工组织结构" />
+      </div>
+      <div class="org-insight-list">
+        <div class="org-insight dark">
+          <b>01 单个数字员工</b>
+          <h3>先把一个数字员工做成可用岗位</h3>
+          <p>明确它负责什么任务、调用哪些资料、输出什么结果，以及由谁验收和迭代。</p>
+        </div>
+        <div class="org-insight">
+          <b>02 数字员工团队</b>
+          <h3>再组合成一支数字员工团队</h3>
+          <p>让多个数字员工形成分工、层级和交接关系，覆盖一条完整业务流程。</p>
+        </div>
+        <div class="org-insight">
+          <b>03 人机协作结构</b>
+          <h3>最后搭建人类与数字员工的协作结构</h3>
+          <p>定义人类员工负责判断、授权和异常处理，数字员工负责执行、汇总和反馈。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body package-slide" data-label="39800 Product" data-page="05">
+    <div class="eyebrow">Package 01 · 主推诊断包</div>
+    <h1 class="slide-title">一次诊断加定制化培训，让 AI 工程事半功倍</h1>
+    <span class="slide-bar"></span>
+    <div class="product-hero suite-package">
+      <div class="price-card">
+        <b>诊断包</b>
+        <div class="price">¥39,800</div>
+        <div class="original-price">原价 ¥59,800</div>
+        <span class="activity-price-note">数字员工学员活动价</span>
+        <span class="duration">两次线下 + 一次线上</span>
+        <p>用相对轻量的一次初诊闭环，把问题定位、老板共识、机会地图和团队培训一次打通，让后续陪跑或 FDE 少走弯路。</p>
+      </div>
+      <div class="deliverable-list">
+        <div class="deliverable"><b>关键人与岗位访谈</b><span>访谈老板、管理层和重点岗位人员，梳理业务目标、效率瓶颈、已有 AI 尝试和真实工作任务。</span></div>
+        <div class="deliverable"><b>老板深度沟通</b><span>把访谈发现带回到经营目标上，和老板一起判断优先级、投入边界和后续合作可能性。</span></div>
+        <div class="deliverable"><b>机会地图</b><span>把访谈结论整理成可讨论的 AI 机会地图，标出高价值项目、首批数字员工方向和关键岗位参与方式。</span></div>
+        <div class="deliverable"><b>定制化培训</b><span>根据访谈得出的结论，为团队设计定制化培训，用企业自己的问题讲清楚 AI 应该怎么用。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body package-slide" data-label="陪跑" data-page="06">
+    <div class="eyebrow">Follow-on Option 01 · 陪跑</div>
+    <h1 class="slide-title">陪跑：用咨询加培训，帮助团队自己跑出 AI 项目</h1>
+    <span class="slide-bar"></span>
+    <div class="product-hero suite-package">
+      <div class="price-card">
+        <b>陪跑服务</b>
+        <div class="price text-price">专项评估</div>
+        <span class="duration">按月收费</span>
+        <p>适合诊断后希望内部团队自己成长的企业。MindsLeap 以咨询加培训的方式切入，帮助团队找到 AI 人才、定义高价值项目，并持续推动阶段成果。</p>
+      </div>
+      <div class="deliverable-list">
+        <div class="deliverable"><b>识别 AI 人才</b><span>在真实任务中观察谁能理解业务、使用 AI、推动协作，帮助企业找到内部种子选手。</span></div>
+        <div class="deliverable"><b>定位高价值项目</b><span>帮助团队判断最值得推进的 AI 项目，以及第一批最需要建设的 AI 数字员工。</span></div>
+        <div class="deliverable"><b>给目标并协助推进</b><span>为团队设置阶段目标，过程中遇到问题时提供咨询、培训和问题拆解支持。</span></div>
+        <div class="deliverable"><b>阶段反馈和再诊断</b><span>对阶段成果给反馈，重新诊断新问题，并评估团队 AI 水平的提升。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body package-slide" data-label="FDE" data-page="07">
+    <div class="eyebrow">Follow-on Option 02 · FDE</div>
+    <h1 class="slide-title">FDE：直接接手更难的数字员工团队建设</h1>
+    <span class="slide-bar"></span>
+    <div class="product-hero suite-package">
+      <div class="price-card">
+        <b>FDE</b>
+        <div class="price text-price">专项评估</div>
+        <span class="duration">复杂搭建与人机分工 · 按月或按项目收费</span>
+        <p>除了陪跑服务之外，MindsLeap 可以直接接手更难搭建的数字员工团队，负责数字员工建设，以及数字员工和人类员工之间的分工设计。</p>
+      </div>
+      <div class="deliverable-list">
+        <div class="deliverable"><b>接手复杂数字员工搭建</b><span>针对更难的业务流程、知识库、工作流和接口需求，由 FDE 直接负责推进。</span></div>
+        <div class="deliverable"><b>建设数字员工团队</b><span>定义数字员工角色、任务边界、输入资料、输出标准和协作流程。</span></div>
+        <div class="deliverable"><b>定义人机分工</b><span>明确哪些工作由人类员工判断，哪些工作由数字员工执行，异常如何升级。</span></div>
+        <div class="deliverable"><b>培训协作和交接</b><span>训练团队如何与数字员工协作，让复杂能力最终进入企业内部运营。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body" data-label="产品对比" data-page="08">
+    <div class="eyebrow">Compare · 先卖诊断包，后续专项评估</div>
+    <h1 class="slide-title">先用诊断包切入，陪跑和 FDE 都按实际情况评估</h1>
+    <span class="slide-bar"></span>
+    <div class="table cols-4 compact-table suite-table">
+      <div class="cell head">维度</div><div class="cell head diag-head">诊断包</div><div class="cell head">陪跑</div><div class="cell head">FDE</div>
+      <div class="cell"><strong>价格机制</strong></div><div class="cell diag-cell">原价 ¥59,800；数字员工学员活动价 ¥39,800。</div><div class="cell">按月收费，基于企业目标和团队状态专项评估。</div><div class="cell">按月或按项目收费，根据复杂数字员工搭建和人机分工需求确定。</div>
+      <div class="cell"><strong>服务形式</strong></div><div class="cell diag-cell">两次线下 + 一次线上，完成 AI 初诊闭环。</div><div class="cell">咨询 + 培训 + 阶段反馈，陪团队自己推进。</div><div class="cell">直接接手更难搭建的数字员工团队建设。</div>
+      <div class="cell"><strong>核心动作</strong></div><div class="cell diag-cell">访谈关键人和岗位、老板深沟、机会地图、定制化培训。</div><div class="cell">识别 AI 人才，定位高价值项目，设定目标，协助解决过程问题。</div><div class="cell">建设数字员工团队，定义人机分工，培训协作和交接。</div>
+      <div class="cell"><strong>客户价值</strong></div><div class="cell diag-cell">低门槛切入，让双方互相理解，也让团队先形成共同语言。</div><div class="cell">提升团队 AI 水平，并发现能继续推动 AI 的内部人才。</div><div class="cell">复杂需求有人负责，数字员工能力真正进入企业运营。</div>
+    </div>
+  </section>
+
+  <section class="slide body delivery-team-slide" data-label="交付专家团队" data-page="09">
+    <div class="eyebrow">Delivery Team · 和企业一起把 AI 做进业务</div>
+    <h1 class="slide-title">MindsLeap 交付专家团队</h1>
+    <span class="slide-bar"></span>
+    <div class="delivery-team-layout">
+      <div class="primary-team">
+        <div class="person primary-card lincoln-card">
+          <div class="portrait-box"><img src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/assets/Lincoln.png" alt="Lincoln" /></div>
+          <div class="person-body">
+            <h3>Lincoln</h3>
+            <p>负责企业 AI 战略、经营场景判断和组织推动<br />MindsLeap 心智悦动创始人<br />Founders AI Club 创始人<br />硅谷排名第一孵化器中国区 CEO<br />Emeritus 前中国区 COO<br />维京邮轮中国区副总裁</p>
+          </div>
+        </div>
+        <div class="person primary-card">
+          <div class="portrait-box"><img src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/assets/Yusi.png" alt="Yusi" /></div>
+          <div class="person-body">
+            <h3>Yusi</h3>
+            <p>负责 AI 产品设计、业务场景拆解和交付机制搭建<br />MindsLeap 联合创始人 &amp; CPO<br />Founders AI Club 联合创始人<br />前 Emeritus 中国区产品负责人<br />字节跳动教育出海业务资深产品经理<br />复旦大学本科</p>
+          </div>
+        </div>
+      </div>
+      <div class="expert-team">
+        <div class="person expert-card bingzhou-card"><div class="expert-portrait"><img src="assets/bingzhou.jpg" alt="冰洲" /></div><div class="person-body"><h3>冰洲</h3><p>十年连续创业者<br />MindsLeap 落地合伙人<br />FDE 驻场推进数字员工团队陪跑<br />近一年亲手搭建 10+ AI 系统与方案<br />制造、直播电商、医疗深度诊断</p></div></div>
+        <div class="person expert-card"><img src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/assets/Zhou-Zhongjie.png" alt="周忠杰" /><div class="person-body"><h3>周忠杰</h3><p>钱拓科技董事长<br />Allinone AI CEO<br />长期在企业经营与 AI 结合的一线</p></div></div>
+        <div class="person expert-card jiang-card"><div class="expert-portrait"><img src="/proposal/ENTERPRISE-AI-GROWTH-ACCELERATOR/assets/Jiang-Yizhen.jpg" alt="蒋镒珍" /></div><div class="person-body"><h3>蒋镒珍</h3><p>有孚网络首席 AI 科学家<br />曾任巨斧科技 CTO<br />Adobe 中国研发中心创始人</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide closing dark no-chrome" data-label="收束页" data-page="10">
+    <div>
+      <div class="logo-white"></div>
+      <p class="kicker">MindsLeap 企业AI落地</p>
+      <h1>先用诊断包完成初诊，建立信任<br />再评估陪跑或 FDE，专项推进<br />让数字员工真正进入企业经营<span class="blue-dot">.</span></h1>
+      <p class="lead">建议先从 ¥39,800 诊断包开始。完成访谈、老板深沟、机会地图和定制化培训后，再判断是否进入按月陪跑或 FDE 专项评估。</p>
+    </div>
+    <div class="closing-next">
+      <div class="next-step-box"><b>01 活动价诊断包</b><span>原价 ¥59,800，数字员工学员活动价 ¥39,800。</span></div>
+      <div class="next-step-box"><b>02 两次线下 + 一次线上</b><span>完成访谈、老板深沟、机会地图和定制化培训。</span></div>
+      <div class="next-step-box"><b>03 后续专项评估</b><span>根据诊断结果决定是否进入陪跑或 FDE。</span></div>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>

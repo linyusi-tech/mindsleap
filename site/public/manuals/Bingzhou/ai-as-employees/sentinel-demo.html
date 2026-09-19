@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>线索哨兵 · 海外社媒聆听演示台</title>
+<style>
+  :root{
+    --blue:#1e477c; --blue2:#3b82f6; --ink:#111827; --sub:#4b5563; --mute:#9ca3af;
+    --line:#e5e7eb; --bg:#f9fafb; --card:#ffffff;
+    --gA:#b42318; --gB:#b54708; --green:#067647;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Inter","Noto Sans SC","PingFang SC",sans-serif;
+       letter-spacing:-0.01em}
+  .wrap{max-width:1120px;margin:0 auto;padding:40px 28px 72px}
+  header{border-bottom:2px solid var(--line);padding-bottom:24px}
+  .eyebrow{color:var(--blue2);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  h1{font-size:32px;margin:10px 0 6px;color:var(--blue);font-weight:800}
+  header .meta{color:var(--sub);font-size:14px}
+  header .tag{display:inline-block;margin-top:10px;background:#eff6ff;color:var(--blue);
+       border:1px solid #dbeafe;border-radius:6px;padding:4px 12px;font-size:13px;font-weight:600}
+  h2{font-size:19px;margin:44px 0 4px;color:var(--blue);font-weight:700}
+  h2 + .h2sub{color:var(--mute);font-size:14px;margin:0 0 18px}
+  .bar{width:56px;height:4px;background:var(--blue2);margin:8px 0 0;border-radius:2px}
+
+  /* 漏斗 */
+  .funnel{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:0;align-items:center;margin-top:24px;
+          background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 8px}
+  .fstep{text-align:center;padding:8px 18px;position:relative}
+  .fstep + .fstep::before{content:"→";position:absolute;left:-10px;top:50%;transform:translateY(-50%);
+          color:var(--blue2);font-size:22px;font-weight:700}
+  .fstep .n{font-size:44px;font-weight:800;color:var(--blue);line-height:1;font-variant-numeric:tabular-nums}
+  .fstep .t{color:var(--sub);font-size:14px;margin-top:8px}
+  .fresult{background:var(--blue);color:#fff;border-radius:10px;padding:18px 26px;text-align:center;margin-left:12px}
+  .fresult .n{font-size:44px;font-weight:800;line-height:1}
+  .fresult .t{font-size:13px;opacity:.9;margin-top:6px}
+  .fresult .g{font-size:12px;opacity:.85;margin-top:4px}
+
+  /* 平台矩阵 */
+  .plat{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+  .prow{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+  .prow .pname{font-weight:700;min-width:104px}
+  .prow .pnote{color:var(--sub);font-size:13.5px}
+  .chip{display:inline-block;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;margin-bottom:6px}
+  .chip.live{color:var(--green);background:#f0fdf4;border:1px solid #abefc6}
+  .chip.pending{color:var(--gB);background:#fffaeb;border:1px solid #fedf89}
+  .chip.official{color:var(--sub);background:#f3f4f6;border:1px solid var(--line)}
+
+  /* 线索卡 */
+  .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;
+        border-left:5px solid var(--blue)}
+  .lead .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px;color:var(--mute)}
+  .grade{display:inline-block;min-width:26px;text-align:center;padding:2px 10px;border-radius:6px;
+         font-weight:800;font-size:14px;color:#fff}
+  .gA{background:var(--gA)} .gB{background:var(--gB)}
+  .ltype{background:#eff6ff;color:var(--blue);border:1px solid #dbeafe;border-radius:10px;padding:1px 10px;font-size:12px;font-weight:600}
+  .said{margin:14px 0 4px;padding:12px 16px;background:var(--bg);border-left:3px solid var(--line);border-radius:0 8px 8px 0}
+  .said .en{color:var(--ink);font-size:14.5px}
+  .said .zh{color:var(--sub);font-size:14px;margin-top:6px}
+  .why{color:var(--sub);font-size:14px;margin-top:10px}
+  .why b{color:var(--blue)}
+  .draft{margin-top:12px;border:1px dashed #c7d4f0;background:#f5f8ff;border-radius:8px;padding:12px 16px}
+  .draft .dtag{font-size:12px;color:var(--blue);font-weight:700}
+  .draft .en{font-size:14px;margin:6px 0 0}
+  .draft .zh{font-size:13px;color:var(--sub);margin-top:6px}
+
+  .foot{margin-top:44px;padding:20px 22px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--sub);font-size:14px}
+  .foot b{color:var(--ink)}
+  .foot .red{color:var(--gA);font-weight:700}
+  .foot .grn{color:var(--green);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Lead Sentinel · 线索哨兵</div>
+    <h1>海外社媒聆听 · 客户线索演示台</h1>
+    <div class="meta">采集引擎：防风控浏览器（只读公开页）　·　意图判定：大模型分级　·　本轮耗时约 8 分钟</div>
+    <div class="tag">演示数据已脱敏　·　客户 = 某出海智能穿戴品牌（智能骑行安全装备）</div>
+  </header>
+
+  <h2>它这一轮干了什么</h2>
+  <div class="bar"></div>
+  <div class="funnel">
+    <div class="fstep"><div class="n">100</div><div class="t">扫描的公开讨论</div></div>
+    <div class="fstep"><div class="n">9</div><div class="t">值得进评论区深挖</div></div>
+    <div class="fstep"><div class="n">7</div><div class="t">判为疑似客户</div></div>
+    <div class="fresult"><div class="n">7</div><div class="t">条客户线索入表</div><div class="g">A 类 1　·　B 类 6</div></div>
+  </div>
+
+  <h2>它在盯哪些地方</h2>
+  <div class="h2sub">按合规等级接入——能只读公开页的只读，不能碰的走官方渠道</div>
+  <div class="plat">
+    <div class="prow"><div class="pname">Reddit</div><div><span class="chip live">已接入 · 真数据</span><div class="pnote">公开版块 + 站内搜索，热帖到评论区全链路，AI 分级出线索。</div></div></div>
+    <div class="prow"><div class="pname">YouTube</div><div><span class="chip live">已接入 · 真数据</span><div class="pnote">高意图视频雷达（评测 / 对比视频 = 购买意图最强的位置）。</div></div></div>
+    <div class="prow"><div class="pname">X（Twitter）</div><div><span class="chip pending">官方 API · 待开通</span><div class="pnote">走官方付费接口，客户拍板即接，架构插槽已留好。</div></div></div>
+    <div class="prow"><div class="pname">Meta（FB / IG）</div><div><span class="chip official">走官方渠道</span><div class="pnote">不做任何抓取（平台明令禁止）；只用官方接口管自家账号互动、接客服线。</div></div></div>
+  </div>
+
+  <h2>它挑出来的疑似客户（AI 分级 · 回复只到草稿，发出必须过人）</h2>
+  <div class="bar"></div>
+
+  <div class="lead">
+    <div class="top"><span class="grade gA">A</span><span class="ltype">主动求推荐</span><span>公开版块 · 通勤讨论区 · 17 楼</span></div>
+    <div class="said">
+      <div class="en">"Noob commuter looking to preserve a new e-bike… what kind of locks do I want?"</div>
+      <div class="zh">中文大意：新手通勤族，刚入手一台新电动车，想知道该配点什么（在问锁具）。</div>
+    </div>
+    <div class="why"><b>AI 判断：</b>明确自述新手 + 刚买新车 + 主动开口求装备建议，属于高意图潜在客户，判 A 类。</div>
+    <div class="draft">
+      <div class="dtag">AI 起草的公开回复 · 草稿（人工审核后才会发出）</div>
+      <div class="en">Congrats on the new ride! Since you're locking it up for commutes, visibility matters just as much as security—especially at dusk and intersections. Gear that keeps you easy to see can be a real game-changer. Ride safe!</div>
+      <div class="zh">中文大意：恭喜提车。通勤除了防盗，"路上被看见"同样重要，尤其傍晚和路口——带可见性设计的骑行安全装备会很有帮助。（点到为止，不硬推产品）</div>
+    </div>
+  </div>
+
+  <div class="lead">
+    <div class="top"><span class="grade gB">B</span><span class="ltype">通勤 · 安全焦虑</span><span>公开版块 · 骑行讨论区 · 14 楼</span></div>
+    <div class="said">
+      <div class="en">"…great if you also use your bike as a commuter."</div>
+      <div class="zh">中文大意：（聊装备时提到）如果你也拿它通勤，会很合适。</div>
+    </div>
+    <div class="why"><b>AI 判断：</b>主动提到"通勤"场景，隐含对骑行安全 / 可见性的潜在需求，可教育转化，判 B 类、先培育。</div>
+    <div class="draft">
+      <div class="dtag">AI 起草的公开回复 · 草稿（人工审核后才会发出）</div>
+      <div class="en">If you're commuting, being seen is just as important as the ride itself—something with built-in visibility can make a big difference in traffic. Worth a look.</div>
+      <div class="zh">中文大意：通勤的话，"被看见"和骑行本身一样重要，带可见性设计的装备在车流里差别很大，值得看看。</div>
+    </div>
+  </div>
+
+  <div class="lead">
+    <div class="top"><span class="grade gB">B</span><span class="ltype">功能询问</span><span>公开版块 · 骑行讨论区 · 20 楼</span></div>
+    <div class="said">
+      <div class="en">"Genuine question. Why? What design problems are you trying to solve?"</div>
+      <div class="zh">中文大意：认真问一句——你到底想解决普通装备的什么问题？</div>
+    </div>
+    <div class="why"><b>AI 判断：</b>对产品设计有深度兴趣、愿意认真讨论，是可引导到"安全 / 可见性"话题的高质量对象，判 B 类。</div>
+    <div class="draft">
+      <div class="dtag">AI 起草的公开回复 · 草稿（人工审核后才会发出）</div>
+      <div class="en">Good question—one real-world gap is visibility in low light. Practical gear that helps drivers notice you earlier solves a problem most people underrate.</div>
+      <div class="zh">中文大意：好问题——一个被低估的痛点是弱光下的可见性，能让司机更早注意到你的实用装备正是冲这个去的。</div>
+    </div>
+  </div>
+
+  <div class="lead">
+    <div class="top"><span class="grade gB">B</span><span class="ltype">安全焦虑</span><span>公开版块 · 通勤讨论区 · 20 楼</span></div>
+    <div class="said">
+      <div class="en">"Rule #1: it's always better to ride the bike than any alternative."</div>
+      <div class="zh">中文大意：第一条铁律——骑车永远比其它任何出行方式都好。</div>
+    </div>
+    <div class="why"><b>AI 判断：</b>强骑行认同、通勤高频用户，隐含对"骑得更安全"的持续需求，判 B 类、可长期培育。</div>
+    <div class="draft">
+      <div class="dtag">AI 起草的公开回复 · 草稿（人工审核后才会发出）</div>
+      <div class="en">Totally agree. If you ever want those rides even safer in low light or traffic, gear that makes your intentions visible to drivers really helps. Stay visible out there.</div>
+      <div class="zh">中文大意：完全同意。如果想让弱光 / 车流里的骑行更安全，能让司机看清你意图的装备很有用。</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <b>合规边界（写进方案的铁律）：</b><br>
+    <span class="grn">绿区</span> = 只读公开数据 → AI 识别分级 → AI 起草回复 → <b>人工审核后、人工公开回复</b> → 对方自愿留资进邮件名单（opt-in）。<br>
+    <span class="red">红线</span> = 批量 + 未经请求 + 自动发出。本演示只读公开页面；X 走官方付费 API；Meta 平台不做任何抓取，只走官方渠道接客服线。
+  </div>
+</div>
+</body>
+</html>

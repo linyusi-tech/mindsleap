@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindsLeap Menu · 内部入口</title>
+  <link rel="stylesheet" href="/internal-nav.css" />
+  <style>
+    :root {
+      --blue: #1e477c;
+      --blue-soft: #eff6ff;
+      --ink: #111111;
+      --muted: #4b5563;
+      --subtle: #9ca3af;
+      --rule: #e5e7eb;
+      --bg-alt: #f9fafb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+      letter-spacing: -0.01em;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 56px;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,.96);
+    }
+    .logo {
+      width: 260px;
+      height: 52px;
+      background: url("/decks/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+    }
+    .inner { max-width: 1180px; margin: 0 auto; }
+    .hero {
+      padding: 92px 56px 84px;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--rule);
+    }
+    .eyebrow {
+      color: #3b82f6;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+    .lead {
+      max-width: 760px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.62;
+    }
+    .section { padding: 72px 56px 96px; }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .menu-card {
+      display: flex;
+      min-height: 260px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+    .menu-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+    .tag {
+      display: inline-flex;
+      padding: 8px 12px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .menu-card h2 {
+      margin: 26px 0 14px;
+      color: var(--blue);
+      font-size: 30px;
+      line-height: 1.18;
+    }
+    .menu-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    .meta {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    footer {
+      padding: 42px 56px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      header { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .logo { width: 230px; }
+      .hero, .section, footer { padding-left: 24px; padding-right: 24px; }
+      .menu-card { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/zh" aria-label="MindsLeap"></a>
+    <nav class="internal-nav" aria-label="Internal pages">
+      <a href="/menu" aria-current="page">Menu</a>
+      <a href="/decks">Decks</a>
+      <a href="/proposal">Proposal</a>
+      <a href="/product">Product</a>
+      <a href="/poster">Poster</a>
+      <a href="/manuals">Manuals</a>
+      <a href="/case">Case</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="inner">
+        <div class="eyebrow">MindsLeap Internal Menu</div>
+        <h1>内部资料入口</h1>
+        <p class="lead">这里集中放从官网主导航不直接进入、但团队日常会用到的材料入口。以后新增内部页面，也可以从这里继续扩展。</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="inner">
+        <div class="menu-grid">
+          <a class="menu-card" href="/decks"><div><span class="tag">Decks</span><h2>公开课件与培训材料</h2><p>培训、演讲、工作坊和可演示 HTML deck。</p></div><div class="meta">/decks</div></a>
+          <a class="menu-card" href="/proposal"><div><span class="tag">Proposal</span><h2>策划中方案与客户提案</h2><p>还在验证和客户沟通阶段的方案材料。</p></div><div class="meta">/proposal</div></a>
+          <a class="menu-card" href="/product"><div><span class="tag">Product</span><h2>确定产品与可售卖服务</h2><p>已经定型、可以直接对外销售和交付的产品与产品化材料。</p></div><div class="meta">/product</div></a>
+          <a class="menu-card" href="/poster"><div><span class="tag">Poster</span><h2>活动海报与手机长图</h2><p>活动宣传和项目宣传长图。</p></div><div class="meta">/poster</div></a>
+          <a class="menu-card" href="/manuals"><div><span class="tag">Manuals</span><h2>用户指导手册</h2><p>面向活动和产品交付的用户手册与操作说明。</p></div><div class="meta">/manuals</div></a>
+          <a class="menu-card" href="/manuals/codex-installation/"><div><span class="tag">Manual</span><h2>Codex 安装攻略</h2><p>AI 数字员工实战坊原版会前攻略，公开访问，不需要登录活动工作台。</p></div><div class="meta">/manuals/codex-installation</div></a>
+          <a class="menu-card" href="/case"><div><span class="tag">Case</span><h2>企业 AI 转型案例集</h2><p>客户项目案例、品牌策略和可复盘方法论。</p></div><div class="meta">/case</div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="inner">© MindsLeap · Internal materials menu</div></footer>
+</body>
+</html>

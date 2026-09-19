@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MindsLeap Products · 确定产品</title>
+  <title>MindsLeap Product · 可售卖产品与背景介绍</title>
+  <link rel="stylesheet" href="/internal-nav.css" />
   <style>
     :root {
       --blue: #1e477c;
@@ -80,6 +81,10 @@
     .section {
       padding: 72px 56px 96px;
     }
+    .section + .section {
+      border-top: 1px solid var(--rule);
+      background: var(--bg-alt);
+    }
     .section h2 {
       margin: 0 0 12px;
       color: var(--blue);
@@ -93,19 +98,84 @@
       font-size: 18px;
       line-height: 1.6;
     }
-    .empty {
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
       margin-top: 40px;
+    }
+    .product-card {
+      display: flex;
+      min-height: 330px;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 34px;
       border: 1px solid var(--rule);
       background: #fff;
-      color: var(--muted);
       box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      transition: box-shadow .25s ease, transform .25s ease;
     }
-    .empty strong {
-      display: block;
-      margin-bottom: 10px;
+    .product-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+    .tag {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 8px 12px;
+      background: var(--blue-soft);
       color: var(--blue);
-      font-size: 24px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .product-card h3 {
+      margin: 26px 0 14px;
+      color: var(--blue);
+      font-size: 30px;
+      line-height: 1.18;
+    }
+    .product-card .meta {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .product-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .product-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .product-action.primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    .product-action:hover {
+      transform: translateY(-1px);
+      background: var(--blue-soft);
+    }
+    .product-action.primary:hover {
+      background: #173864;
+      color: #fff;
     }
     footer {
       padding: 42px 56px;
@@ -118,33 +188,100 @@
       .logo { width: 230px; }
       nav { flex-wrap: wrap; }
       .hero, .section, footer { padding-left: 24px; padding-right: 24px; }
+      .product-card { min-height: 0; }
     }
   </style>
 </head>
 <body>
   <header>
-    <a class="logo" href="https://www.mindsleap.ai/zh" aria-label="MindsLeap"></a>
-    <nav>
-      <a href="https://www.mindsleap.ai/zh">首页</a>
-      <a href="/proposal">Proposal</a>
+    <a class="logo" href="/zh" aria-label="MindsLeap"></a>
+    <nav class="internal-nav" aria-label="Internal pages">
+      <a href="/menu">Menu</a>
       <a href="/decks">Decks</a>
+      <a href="/proposal">Proposal</a>
+      <a href="/product" aria-current="page">Product</a>
+      <a href="/poster">Poster</a>
+      <a href="/manuals">Manuals</a>
+      <a href="/case">Case</a>
     </nav>
   </header>
   <main>
     <section class="hero">
       <div class="inner">
         <div class="eyebrow">MindsLeap Product Archive</div>
-        <h1>确定产品与可售卖服务</h1>
-        <p class="lead">这里放已经定型、可以直接对外售卖和交付的产品。还在策划和验证阶段的内容，会先放在 Proposal 目录。</p>
+        <h1>可售卖产品与背景介绍</h1>
+        <p class="lead">这里集中放可以直接对外销售和交付的产品，以及销售沟通中常用的背景介绍材料。还在策划和验证阶段的内容，会先放在 Proposal 目录。</p>
       </div>
     </section>
     <section class="section">
       <div class="inner">
-        <h2>当前 Products</h2>
-        <p>暂无公开上架产品。产品定型后，会在这里按产品线归档。</p>
-        <div class="empty">
-          <strong>等待上架</strong>
-          Product 目录只放确定版本，避免把仍在讨论中的方案误当成正式产品。
+        <h2>可售卖产品</h2>
+        <p>已经定型、可以直接对外销售和交付的产品与产品化材料。</p>
+        <div class="product-grid">
+          <article class="product-card">
+            <div>
+              <span class="tag">Membership</span>
+              <h3>企业家 AI 俱乐部</h3>
+              <p>Founders AI Club 会员产品介绍，覆盖俱乐部定位、活动体系、参访安排和全球创新网络。</p>
+            </div>
+            <div>
+              <div class="product-actions">
+                <a class="product-action primary" href="/product/ai-club">打开页面</a>
+                <a class="product-action" href="/product/ai-club/ai-club.pdf" download>下载 PDF</a>
+              </div>
+              <div class="meta">ai-club</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div>
+              <span class="tag">Implementation</span>
+              <h3>企业AI落地</h3>
+              <p>面向企业 AI 战略、场景诊断、数字员工 / FDE 落地和组织推进的产品化方案。</p>
+            </div>
+            <div>
+              <div class="product-actions">
+                <a class="product-action primary" href="/product/enterprise-ai-growth-suite">打开页面</a>
+                <a class="product-action" href="/product/enterprise-ai-growth-suite/enterprise-ai-growth-suite.pdf" download>下载 PDF</a>
+              </div>
+              <div class="meta">enterprise-ai-growth-suite</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="inner">
+        <h2>背景介绍</h2>
+        <p>用于客户沟通、生态介绍、成员展示和公司背景说明的辅助材料。</p>
+        <div class="product-grid">
+          <article class="product-card">
+            <div>
+              <span class="tag">Directory</span>
+              <h3>企业家 AI 俱乐部会员名录</h3>
+              <p>企业家 AI 俱乐部会员名录长图，用于展示成员生态与联系入口。</p>
+            </div>
+            <div>
+              <div class="product-actions">
+                <a class="product-action primary" href="/product/member-directory">打开页面</a>
+                <a class="product-action" href="/product/member-directory/member-directory.pdf" download>下载 PDF</a>
+              </div>
+              <div class="meta">member-directory</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <div>
+              <span class="tag">Company Intro</span>
+              <h3>MindsLeap 公司介绍</h3>
+              <p>心智悦动与 Founders Space 的品牌、生态、服务体系、过往活动和团队背景介绍，用于客户沟通前置铺垫。</p>
+            </div>
+            <div>
+              <div class="product-actions">
+                <a class="product-action primary" href="/product/mindsleap-company-intro">打开页面</a>
+                <a class="product-action" href="/product/mindsleap-company-intro/mindsleap-company-intro.pdf" download>下载 PDF</a>
+              </div>
+              <div class="meta">mindsleap-company-intro</div>
+            </div>
+          </article>
         </div>
       </div>
     </section>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="magazine" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>我把 AI 当员工用 · 冰洲 Bingzhou · MindsLeap 心智悦动</title>
+  <link rel="stylesheet" href="../../shared/mindsleap-template/colors_and_type.css" />
+  <link rel="stylesheet" href="../../shared/mindsleap-template/deck.css" />
+  <script src="../../shared/mindsleap-template/deck-stage.js"></script>
+  <style>
+    html[data-theme="magazine"] {
+      --logo-img: url("../../shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg");
+    }
+    .slide:not(.no-chrome)::before { width: 380px; height: 76px; bottom: 40px; opacity: 1; }
+    .slide:not(.no-chrome)::after { content: attr(data-page); }
+    .slide.body, .slide.quote, .slide.contact { padding-bottom: 190px; }
+    .accent { color: var(--accent); }
+    .muted { color: var(--ink-muted); }
+
+    /* ── COVER ── */
+    .cover-workshop .logo { width: 520px; height: 104px; margin-bottom: 10px; }
+    .cover-workshop .cover-title { font-size: 150px; line-height: 0.98; }
+    .cover-workshop .cover-tagline { font-size: 30px; line-height: 1.46; max-width: 820px; }
+    .cover-workshop .col-image { display: grid; grid-template-rows: 1fr 1fr; gap: 28px; background: transparent; border: 0; }
+    .cover-panel { background: var(--card-bg); border: 1px solid var(--card-rule); padding: 42px; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; }
+    .cover-panel h3 { margin: 0; color: var(--accent); font: 700 54px/1.06 var(--font-heading); }
+    .cover-panel p { margin: 22px 0 0; color: var(--ink-muted); font: 500 24px/1.44 var(--font-body); }
+    .mini-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: end; margin-top: 28px; }
+    .mini-flow div { height: 86px; background: color-mix(in srgb, var(--accent) 58%, white); color: #fff; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; font: 700 20px/1.2 var(--font-heading); }
+    .mini-flow div:nth-child(2) { height: 112px; background: color-mix(in srgb, var(--accent) 70%, white); }
+    .mini-flow div:nth-child(3) { height: 142px; background: color-mix(in srgb, var(--accent) 82%, white); }
+    .mini-flow div:nth-child(4) { height: 172px; background: var(--accent); }
+
+    /* ── BIO ── */
+    .bio-layout { display: grid; grid-template-columns: 1.08fr .92fr; gap: var(--gap); margin-top: 56px; flex: 1; min-height: 0; }
+    .bio-points { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-content: start; }
+    .bio-point { border-top: 4px solid var(--accent); background: var(--card-bg); padding: 28px 30px; min-height: 190px; }
+    .bio-point b { display: block; color: var(--ink); font: 700 31px/1.15 var(--font-heading); margin-bottom: 14px; }
+    .bio-point span { color: var(--ink-muted); font: 400 21px/1.45 var(--font-body); }
+    .portrait-card { position: relative; background: var(--card-bg); border: 1px solid var(--card-rule); overflow: hidden; min-height: 620px; }
+    .portrait-card img.portrait { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; display: block; }
+    .portrait-ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; color: var(--ink-subtle); font: 700 36px/1.3 var(--font-heading); }
+    .portrait-ph span { font: 500 18px/1.4 var(--font-body); opacity: .72; letter-spacing: .02em; }
+
+    /* ── STATEMENT ── */
+    .statement .frame { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 1560px; }
+    .statement .stmt { margin: 32px 0 0; color: var(--ink); font: 700 86px/1.14 var(--font-heading); letter-spacing: 0; text-wrap: balance; }
+    .statement .stmt em { color: var(--accent); font-style: normal; }
+    .statement .stmt-sub { max-width: 1300px; margin: 42px 0 0; color: var(--ink-muted); font: 400 32px/1.5 var(--font-body); }
+
+    /* ── 5-STEP PIPELINE (hiring metaphor) ── */
+    .pipeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 58px; }
+    .pipe-step { background: var(--card-bg); border: 1px solid var(--card-rule); padding: 28px 24px; min-height: 300px; position: relative; }
+    .pipe-step:not(:last-child)::after { content: "→"; position: absolute; right: -19px; top: 44%; transform: translateY(-50%); color: var(--accent); font: 700 30px/1 var(--font-heading); z-index: 2; }
+    .pipe-step b { color: var(--accent); font: 700 42px/1 var(--font-heading); }
+    .pipe-step h3 { margin: 26px 0 12px; color: var(--ink); font: 700 30px/1.15 var(--font-heading); }
+    .pipe-step p { margin: 0; color: var(--ink-muted); font: 400 20px/1.46 var(--font-body); }
+
+    /* ── 4-STEP FLOW (demo) ── */
+    .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 58px; flex: 1; min-height: 0; }
+    .step4 { background: var(--card-bg); border: 1px solid var(--card-rule); padding: 34px 30px; position: relative; display: flex; flex-direction: column; }
+    .step4:not(:last-child)::after { content: "→"; position: absolute; right: -22px; top: 50%; transform: translateY(-50%); color: var(--accent); font: 700 34px/1 var(--font-heading); z-index: 2; }
+    .step4 .n { color: var(--accent); font: 700 46px/1 var(--font-heading); }
+    .step4 h3 { margin: 26px 0 14px; color: var(--ink); font: 700 34px/1.14 var(--font-heading); }
+    .step4 p { margin: 0; color: var(--ink-muted); font: 400 23px/1.48 var(--font-body); }
+    .step4.hot { background: var(--accent); }
+    .step4.hot .n, .step4.hot h3 { color: #fff; }
+    .step4.hot p { color: rgba(255,255,255,.86); }
+
+    /* ── TWO-COL (blue panel + white stack / lite panel) ── */
+    .two-col { display: grid; grid-template-columns: .95fr 1.05fr; gap: var(--gap); margin-top: 56px; flex: 1; min-height: 0; }
+    .two-col.even { grid-template-columns: 1fr 1fr; }
+    .blue-panel { background: var(--accent); color: #fff; padding: 44px; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; }
+    .blue-panel h3 { margin: 0; color: #fff; font: 700 52px/1.08 var(--font-heading); }
+    .blue-panel p, .blue-panel li { color: rgba(255,255,255,.88); font: 400 25px/1.46 var(--font-body); }
+    .blue-panel ul { margin: 28px 0 0; padding-left: 25px; }
+    .blue-panel li { margin-bottom: 14px; }
+    .blue-panel .foot { color: rgba(255,255,255,.78); font: 500 22px/1.4 var(--font-body); margin-top: 28px; }
+    .lite-panel { background: var(--card-bg); border: 1px solid var(--card-rule); padding: 44px; display: flex; flex-direction: column; }
+    .lite-panel h3 { margin: 0 0 24px; color: var(--accent); font: 700 46px/1.1 var(--font-heading); }
+    .lite-panel ul { margin: 0; padding-left: 25px; }
+    .lite-panel li { color: var(--ink-muted); font: 400 26px/1.5 var(--font-body); margin-bottom: 16px; }
+    .lite-panel li b { color: var(--ink); font-weight: 700; }
+    .white-stack { display: grid; gap: 16px; align-content: start; }
+    .stack-row { border-top: 1px solid var(--rule); padding-top: 22px; display: grid; grid-template-columns: 210px 1fr; gap: 24px; }
+    .stack-row b { color: var(--accent); font: 700 27px/1.18 var(--font-heading); }
+    .stack-row span { color: var(--ink-muted); font: 400 24px/1.44 var(--font-body); }
+
+    /* ── MATRIX (comment → verdict) ── */
+    .matrix { margin-top: 50px; border-top: 1px solid var(--rule); flex: 1; }
+    .matrix-row { display: grid; grid-template-columns: 380px 1fr 260px 1fr; gap: 26px; padding: 26px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+    .matrix-row.header { color: var(--eyebrow); font: 700 17px/1 var(--font-body); letter-spacing: .18em; text-transform: uppercase; padding: 18px 0; }
+    .matrix-row b { color: var(--ink); font: 700 28px/1.25 var(--font-heading); }
+    .matrix-row span { color: var(--ink-muted); font: 400 23px/1.4 var(--font-body); }
+    .matrix-row .tier { color: var(--accent); font: 700 24px/1.3 var(--font-heading); }
+
+    /* ── NOTE BAR ── */
+    .note-bar { margin-top: 36px; padding: 28px 36px; background: var(--card-bg); border-left: 4px solid var(--accent); font: 500 25px/1.5 var(--font-body); color: var(--ink); display: flex; gap: 24px; align-items: baseline; }
+    .note-bar b { font: 700 18px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+
+    /* ── FINAL / THANK YOU ── */
+    .final-layout { display: grid; grid-template-columns: 1fr .92fr; gap: 56px; align-items: stretch; flex: 1; min-height: 0; }
+    .final-copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+    .final-title { margin: 34px 0 0; color: var(--ink); font: 700 116px/1.04 var(--font-heading); letter-spacing: 0; text-wrap: balance; }
+    .final-title em { color: var(--accent); font-style: normal; }
+    .final-contact { background: var(--accent); color: #fff; padding: 42px; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; }
+    .final-contact h3 { margin: 0; color: #fff; font: 700 46px/1.1 var(--font-heading); }
+    .final-contact p { margin: 14px 0 0; color: rgba(255,255,255,.84); font: 400 24px/1.44 var(--font-body); }
+    .final-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: start; margin-top: 28px; }
+    .final-action { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.24); padding: 20px 22px; }
+    .final-action b { display: block; color: rgba(255,255,255,.72); font: 700 14px/1 var(--font-body); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 12px; }
+    .final-action span { display: block; color: #fff; font: 700 24px/1.18 var(--font-heading); }
+    .final-contact-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-top: 36px; }
+    .final-contact-bottom .note { color: rgba(255,255,255,.86); font: 700 20px/1.4 var(--font-body); max-width: 320px; }
+    .qr-block { background: #fff; padding: 16px; width: 210px; align-self: flex-end; }
+    .qr-ph { width: 100%; aspect-ratio: 1/1; background: #fff; border: 1px dashed rgba(0,0,0,.22); display: flex; align-items: center; justify-content: center; text-align: center; color: #9aa0a6; font: 600 15px/1.4 var(--font-body); }
+    .qr-block span { display: block; margin-top: 12px; color: var(--accent); font: 700 15px/1 var(--font-body); letter-spacing: .18em; text-transform: uppercase; text-align: center; }
+
+    /* ── ARCHITECTURE (4 layers) ── */
+    .arch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 52px; flex: 1; min-height: 0; }
+    .arch-card { background: var(--card-bg); border: 1px solid var(--card-rule); border-top: 5px solid var(--accent); padding: 34px 36px; display: flex; flex-direction: column; }
+    .arch-card .layer { color: var(--eyebrow); font: 700 16px/1 var(--font-body); letter-spacing: .2em; text-transform: uppercase; }
+    .arch-card h3 { margin: 16px 0 4px; color: var(--ink); font: 700 40px/1.12 var(--font-heading); }
+    .arch-card .tool { color: var(--accent); font: 700 27px/1.2 var(--font-heading); margin-bottom: 16px; }
+    .arch-card p { margin: 0; color: var(--ink-muted); font: 400 23px/1.48 var(--font-body); }
+
+    /* ── ROSTER (digital staff cards) ── */
+    .roster-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr 1fr; gap: 22px; margin-top: 40px; flex: 1; min-height: 0; }
+    .roster-card { background: var(--card-bg); border: 1px solid var(--card-rule); border-left: 5px solid var(--accent); padding: 30px 32px; display: flex; flex-direction: column; justify-content: center; }
+    .roster-card .role-cn { color: var(--ink); font: 700 34px/1.1 var(--font-heading); }
+    .roster-card .role-en { color: var(--accent); font: 700 20px/1.2 var(--font-heading); letter-spacing: .01em; margin: 8px 0 16px; }
+    .roster-card p { margin: 0; color: var(--ink-muted); font: 400 22px/1.46 var(--font-body); }
+
+    /* ── WORKSHEET (job description fill-in) ── */
+    .ws-layout { display: grid; grid-template-columns: .92fr 1.08fr; gap: var(--gap); margin-top: 56px; flex: 1; min-height: 0; }
+    .ws-lead { background: var(--accent); color: #fff; padding: 44px; display: flex; flex-direction: column; justify-content: space-between; min-height: 0; }
+    .ws-lead .kicker { color: rgba(255,255,255,.78); font: 700 17px/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; }
+    .ws-lead h3 { margin: 20px 0 0; color: #fff; font: 700 52px/1.08 var(--font-heading); }
+    .ws-lead p { margin: 22px 0 0; color: rgba(255,255,255,.9); font: 400 25px/1.5 var(--font-body); }
+    .ws-lead .foot { color: rgba(255,255,255,.82); font: 500 23px/1.44 var(--font-body); margin-top: 28px; }
+    .ws-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-content: start; }
+    .field-card { background: color-mix(in srgb, var(--accent) 4%, white); border-top: 4px solid var(--accent); padding: 24px 26px; display: flex; flex-direction: column; }
+    .field-card b { color: var(--ink); font: 700 27px/1.14 var(--font-heading); }
+    .field-card .eg { color: var(--ink-subtle); font: 400 18px/1.35 var(--font-body); margin: 8px 0 16px; }
+    .field-line { border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 34%, white); height: 26px; }
+    .field-line + .field-line { margin-top: 10px; }
+    .field-card.span2 { grid-column: 1 / -1; }
+
+    /* ── HANDBOOK + COMMUNITY ── */
+    .hb-layout { display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; }
+    .hb-copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+    .hb-copy .big { margin: 24px 0 0; color: var(--ink); font: 700 74px/1.1 var(--font-heading); text-wrap: balance; }
+    .hb-copy .big em { color: var(--accent); font-style: normal; }
+    .hb-copy .sub { margin: 34px 0 0; color: var(--ink-muted); font: 400 30px/1.52 var(--font-body); max-width: 900px; }
+    .hb-qr { display: flex; flex-direction: column; align-items: center; }
+    .hb-qr .qr-block { align-self: center; width: 300px; }
+
+  </style>
+</head>
+<body>
+<deck-stage>
+
+  <!-- 01 · COVER -->
+  <section class="slide cover cover-workshop no-chrome" data-label="封面 Cover">
+    <div class="col-text">
+      <div>
+        <div class="logo"></div>
+        <div class="cover-eyebrow">MindsLeap 心智悦动 · AI 落地实战坊 · 2026.07.05</div>
+        <h1 class="cover-title">我把 AI<br/>当员工用<span class="lf">.</span></h1>
+        <p class="cover-tagline">一个不写代码的老板，怎么在一年里，招进一支"不发工资、不会离职、24 小时上班"的数字员工团队——今天这套方法有一本手册，人手一份带回家。</p>
+      </div>
+      <div class="cover-meta">
+        <div><b>主讲</b>冰洲 Bingzhou</div>
+        <div><b>视角</b>老板视角 · 实战</div>
+        <div><b>Handbook</b>手册人手一册</div>
+      </div>
+    </div>
+    <div class="col-image">
+      <div class="cover-panel">
+        <div>
+          <h3>数字员工，不是"会聊天的机器人"</h3>
+          <p>它是被你明确交办、拿到你公司钥匙、按你的规矩干活、还要过你验收的一名员工。</p>
+        </div>
+        <div class="mini-flow"><div>挑活</div><div>给钥匙</div><div>定规矩</div><div>连成线</div></div>
+      </div>
+      <div class="cover-panel">
+        <div>
+          <h3>今天，你会看到一个员工当场上班</h3>
+          <p>我 @ 它一句话，它干完活、把结果写进一张表——这张表，就是你公司的数据基座。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · SPEAKER -->
+  <section class="slide body" data-label="自我介绍">
+    <div class="eyebrow">Speaker <span class="dot">·</span> 冰洲 Bingzhou</div>
+    <h1 class="slide-title">我不是搞技术的，我把 AI 当员工"带"<span class="en">Not an engineer. I manage AI the way a boss manages people.</span></h1>
+    <div class="bio-layout">
+      <div class="bio-points">
+        <div class="bio-point"><b>老板视角，不是技术视角</b><span>我不研究模型，我只问一句：这活儿，能不能交给一个不发工资的员工。</span></div>
+        <div class="bio-point"><b>连数字员工的考勤我都管上了</b><span>有个员工掉线三天没人发现，后来我给每个都配了心跳监控——员工是不发工资，但也得盯着别猝死。</span></div>
+        <div class="bio-point"><b>亲手打通平台、拉真数据</b><span>不是 demo，是真接进飞书、后台、报表，出能直接用的业务结果。</span></div>
+        <div class="bio-point"><b>企业 AI 落地技术合伙人</b><span>陪企业把 AI 从"一个想法"，落成"每天都在跑的员工"。</span></div>
+      </div>
+      <div class="portrait-card">
+        <img class="portrait" src="assets/bingzhou.jpg" alt="冰洲 Bingzhou" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · THESIS -->
+  <section class="slide body statement" data-label="核心判断">
+    <div class="frame">
+      <div class="eyebrow">Thesis <span class="dot">·</span> 我的一句话</div>
+      <h1 class="stmt">这活儿，能不能交给一个<br/><em>不发工资、不会离职、24 小时干</em>的员工？</h1>
+      <p class="stmt-sub">今天不讲技术。讲我这一年，怎么把这样的员工，一个一个招进公司的。</p>
+    </div>
+  </section>
+
+  <!-- 04 · BEFORE / AFTER -->
+  <section class="slide body compare" data-label="以前 vs 现在">
+    <div class="eyebrow">The Shift <span class="dot">·</span> 这一年我的变化</div>
+    <h1 class="slide-title">老板没变，位置变了<span class="en">Same boss, a different seat.</span></h1>
+    <div class="pair">
+      <div class="panel now">
+        <h3>以前</h3>
+        <div class="zh-en">One boss, no hands</div>
+        <ul>
+          <li>看着 AI 觉得挺厉害，但跟我公司没关系。</li>
+          <li>想提效，只能招人、加人、盯人。</li>
+          <li>经验都在员工脑子里，人一走就带走。</li>
+        </ul>
+      </div>
+      <div class="panel next">
+        <h3>现在</h3>
+        <div class="zh-en">One boss, a team of agents</div>
+        <ul>
+          <li>带一支数字员工团队，人只做判断和拍板。</li>
+          <li>重复的活交给员工，24 小时不停。</li>
+          <li>经验沉进表格和流程，员工离职也带不走。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · HOW (transition) -->
+  <section class="slide body statement" data-label="怎么招一个数字员工">
+    <div class="frame">
+      <div class="eyebrow">How <span class="dot">·</span> 怎么招一个数字员工</div>
+      <h1 class="stmt">招一个数字员工，<br/>跟招一个真人，其实就<em>五步</em>。</h1>
+      <p class="stmt-sub">这五步我全教给你，不留一手——护城河从来不是把概念藏着，是执行的深度。</p>
+    </div>
+  </section>
+
+  <!-- 06 · THE 5 STEPS -->
+  <section class="slide body" data-label="五步法">
+    <div class="eyebrow">The 5 Steps <span class="dot">·</span> 五步招一个数字员工</div>
+    <h1 class="slide-title">把它当一个新员工来招、来带、来考核<span class="en">Hire it, onboard it, review it — like a real employee.</span></h1>
+    <div class="pipeline">
+      <div class="pipe-step"><b>01</b><h3>挑活</h3><p>先挑一件"重复干、有规则、有数据"的活。比如每天从三个后台导报表再手工汇总。</p></div>
+      <div class="pipe-step"><b>02</b><h3>写岗位说明书</h3><p>prompt 不是咒语，就是你培训新人的那份 SOP。写得越清楚，它干得越对。</p></div>
+      <div class="pipe-step"><b>03</b><h3>给钥匙</h3><p>把它接进你真实的系统——飞书、后台、报表。没钥匙，员工进不了办公室。</p></div>
+      <div class="pipe-step"><b>04</b><h3>设试用期</h3><p>定好哪些环节人必须把关、怎么验它干得对。数字员工也要过考核。</p></div>
+      <div class="pipe-step"><b>05</b><h3>连成流水线</h3><p>一个员工只是开始。上一个干完自动喊下一个上，才是一支团队。</p></div>
+    </div>
+    <div class="note-bar"><b>老实说</b>第一步、第二步你们回去自己就能干。真正的分水岭在第三步和第五步——那是工程活。</div>
+  </section>
+
+  <!-- 07 · ARCHITECTURE (how it works) -->
+  <section class="slide body" data-label="怎么搭·一张架构图">
+    <div class="eyebrow">How It Works <span class="dot">·</span> 它们在哪上班</div>
+    <h1 class="slide-title">这套员工系统就四层，都是现成的<span class="en">Four layers. Not one of them you have to invent.</span></h1>
+    <div class="arch-grid">
+      <div class="arch-card">
+        <div class="layer">办公室 · Office</div>
+        <h3>它们在哪上班</h3>
+        <div class="tool">飞书</div>
+        <p>员工就住在你每天用的飞书里，你像跟同事私聊一样直接跟它说话，它也在这里把活交回给你。</p>
+      </div>
+      <div class="arch-card">
+        <div class="layer">工位 · Desk</div>
+        <h3>一个入口，只做调度</h3>
+        <div class="tool">调度台</div>
+        <p>一个对话入口只负责调度，背后是一条能接力干活的产线。</p>
+      </div>
+      <div class="arch-card">
+        <div class="layer">脑力 · Brains</div>
+        <h3>按用量买，比养人便宜</h3>
+        <div class="tool">国产大模型</div>
+        <p>算力按用量付费，用多少算多少，不用像招人一样每月发固定工资。</p>
+      </div>
+      <div class="arch-card">
+        <div class="layer">技能证书 · Skills</div>
+        <h3>一个技能一张证</h3>
+        <div class="tool">Skill</div>
+        <p>每教会一项本事就发一张"证书"，可以积累、可以复用、越攒越值钱。</p>
+      </div>
+    </div>
+    <div class="note-bar"><b>关键</b>这四层没有一层需要你自己发明，全是拿来就能用的。</div>
+  </section>
+
+  <!-- 08 · ROSTER (my digital staff) -->
+  <section class="slide body" data-label="数字员工花名册">
+    <div class="eyebrow">Roster <span class="dot">·</span> 我的数字员工花名册</div>
+    <h1 class="slide-title">介绍一下我团队里这几位<span class="en">Meet the team — none of them on payroll.</span></h1>
+    <p class="slide-sub">我的数字员工不止这几位——今天时间有限，挑几个能当场演示的给你看。</p>
+    <div class="roster-grid">
+      <div class="roster-card">
+        <div class="role-cn">线索哨兵</div>
+        <div class="role-en">Lead Sentinel</div>
+        <p>评论区蹲一整天不喊累，广告和场面话它连眼皮都不抬。</p>
+      </div>
+      <div class="roster-card">
+        <div class="role-cn">内容流水线</div>
+        <div class="role-en">Content Line</div>
+        <p>六个工位接力干活，一个想法走到成片，中间不用我插手。</p>
+      </div>
+      <div class="roster-card">
+        <div class="role-cn">复盘分析师</div>
+        <div class="role-en">Replay Analyst</div>
+        <p>别人复盘看总账，它能告诉你"这句话说完的五分钟，多卖了两单"。</p>
+      </div>
+      <div class="roster-card" style="background:var(--accent);border-left-color:var(--accent);">
+        <div class="role-cn" style="color:#fff">都不发工资</div>
+        <div class="role-en" style="color:rgba(255,255,255,.82)">Never on payroll</div>
+        <p style="color:rgba(255,255,255,.9)">不请假、不吐槽老板、干活的时候我在不在都一样。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · LIVE (transition) -->
+  <section class="slide body statement" data-label="现场招一个员工上班">
+    <div class="frame">
+      <div class="eyebrow">Live <span class="dot">·</span> 现场招一个员工上班</div>
+      <h1 class="stmt">下面不是讲，<br/>是<em>现场</em>招一个数字员工，当场上班给你看。</h1>
+      <p class="stmt-sub">我直接在飞书里私聊它一句话，就像交代一个同事，它干完活、把结果整理成一张界面给你。请大家盯着它交出来的东西——接下来，请看我的屏幕。</p>
+    </div>
+  </section>
+
+  <!-- 08 · DEMO — the four steps -->
+  <section class="slide body" data-label="Demo 四步">
+    <div class="eyebrow">Demo <span class="dot">·</span> 数字员工上班的四步</div>
+    <h1 class="slide-title">看懂这四步，就看懂了整件事<span class="en">Give it one instruction. It works. It writes the result into a table.</span></h1>
+    <div class="steps4">
+      <div class="step4"><div class="n">1</div><h3>在飞书里私聊它</h3><p>就像找同事私聊，直接把活交代给它，它就在你每天用的飞书里。</p></div>
+      <div class="step4"><div class="n">2</div><h3>给一句老板式需求</h3><p>一句话，不是技术指令。"帮我把这批人按标准评个级、排个序。"</p></div>
+      <div class="step4"><div class="n">3</div><h3>它自己干活</h3><p>它读、它判断、按你定好的标准一条条处理，不用你盯着。</p></div>
+      <div class="step4 hot"><div class="n">4</div><h3>写进飞书多维表格</h3><p>结果落进一张表。重点，就在这最后一步——请盯住这张表。</p></div>
+    </div>
+  </section>
+
+  <!-- 09 · THE POINT -->
+  <section class="slide body statement" data-label="数据基座">
+    <div class="frame">
+      <div class="eyebrow">The Point <span class="dot">·</span> 这张表就是你的数据基座</div>
+      <h1 class="stmt">人会离职、会忘、会把经验带走。<br/>这张表<em>不会</em>——它每天都在变厚。</h1>
+      <p class="stmt-sub">三个月后你问"今年这类事我们干了多少、效果怎么样"，答案就在表里。这就叫：数据变成公司的资产。</p>
+    </div>
+  </section>
+
+  <!-- 12 · CASE 01 · LIVE REVIEW -->
+  <section class="slide body case" data-label="案例·直播复盘">
+    <div class="eyebrow">Case 01 <span class="dot">·</span> 深度拆解</div>
+    <h1 class="slide-title">别人复盘看卖了多少，我把一场 3 小时直播拆到每一分钟<span class="en">Not "how much did we sell" — but "which sentence made them buy".</span></h1>
+    <div class="row">
+      <div class="body-col">
+        <span class="client">某少儿英语知识 IP · 脱敏</span>
+        <h3>从"卖了多少"，到"哪一句话最赚钱"</h3>
+        <p>让 AI 连进直播后台，把每一分钟的进场、离场、成交拆开；把 3 小时录音全程转成文字；再让一组 AI 把每句话术和当时的成交对齐，找出"哪句一说、下单就涨"，产出一套照着念就能复用的话术剧本。</p>
+        <p>它还揪出一个反常识的坑：有一句升单话术全场说了 22 次，那场客单价反而是最低的——讲多了不是更有效，是人自己复盘未必看得出来的边际递减。</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="v">180<small>分钟</small></div><div class="lbl">逐分钟拆解<span>Minute by minute</span></div></div>
+        <div class="metric"><div class="v">21<small>%</small></div><div class="lbl">点击 → 成交率<span>Click to order</span></div></div>
+        <div class="metric"><div class="v">67<small>%</small></div><div class="lbl">短视频引流成交<span>From short video</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · CASE 02 · LEAD SENTINEL -->
+  <section class="slide body" data-label="案例·评论判客户">
+    <div class="eyebrow">Case 02 <span class="dot">·</span> 客户线索</div>
+    <h1 class="slide-title">人一条条翻评论翻不过来，让"哨兵"替你盯、替你挑<span class="en">It reads every comment and picks the ones who want to buy.</span></h1>
+    <div class="matrix">
+      <div class="matrix-row header"><span>评论原文</span><span>AI 判断</span><span>分级</span><span>处理</span></div>
+      <div class="matrix-row"><b>"请问多少钱"</b><span>想买、在问价</span><span class="tier">客户 · A</span><span>马上派给销售跟进</span></div>
+      <div class="matrix-row"><b>"我这条件还能做吗"</b><span>有意向、在问条件</span><span class="tier">客户 · B</span><span>进线索表、排队跟进</span></div>
+      <div class="matrix-row"><b>"拍得真好，祝好运"</b><span>纯祝福、无意向</span><span class="tier">非客户</span><span>不打扰</span></div>
+      <div class="matrix-row"><b>"这是广告别信"</b><span>无关 / 干扰</span><span class="tier">直接挡掉</span><span>省钱，不调 AI</span></div>
+    </div>
+    <div class="note-bar"><b>结果</b>一张随时更新的客户线索表——不是一个想法，是明天就能让销售去打电话的名单。</div>
+  </section>
+
+  <!-- 10 · FROM ONE TO A TEAM -->
+  <section class="slide body" data-label="从一个员工到一支团队">
+    <div class="eyebrow">From One to a Team <span class="dot">·</span> 从一个员工到一支团队</div>
+    <h1 class="slide-title">一个员工只是开始，值钱的是一支能接力的团队<span class="en">The value is a relay team, not a single helper.</span></h1>
+    <div class="two-col">
+      <div class="blue-panel">
+        <div>
+          <h3>未来的部门<br/>长这样</h3>
+          <ul>
+            <li>人：定目标、做判断、拍板。</li>
+            <li>数字员工：高频、重复、跨系统的执行。</li>
+            <li>每个部门配几个，一层层长出来。</li>
+          </ul>
+        </div>
+        <div class="foot">以"某连锁零售品牌"为例：市场部原来 10 个人，未来可能是 3 个人 + 5 个数字员工。</div>
+      </div>
+      <div class="white-stack">
+        <div class="stack-row"><b>市场部</b><span>3 人 + 5 个数字员工：选题、初稿、配图、分发、监测。</span></div>
+        <div class="stack-row"><b>财务</b><span>1 人 + 2 个数字员工：多平台收入自动核对、异常预警。</span></div>
+        <div class="stack-row"><b>销售</b><span>人负责谈单；数字员工整理线索、跟进提醒、出周报。</span></div>
+        <div class="stack-row"><b>老板</b><span>只做判断和拍板，执行交给这支永不离职的团队。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · ONBOARDING RHYTHM -->
+  <section class="slide body timeline" data-label="上岗节奏">
+    <div class="eyebrow">Onboarding Rhythm <span class="dot">·</span> 上岗节奏</div>
+    <h1 class="slide-title">数字员工不是一次到位，是一个月一个月长出来的<span class="en">Your team grows month by month — and you can see it.</span></h1>
+    <div class="track">
+      <div class="row">
+        <div class="step"><div class="yr">第1月<span class="q">Month 1</span></div><p class="ev-title">财务数字员工上岗</p><p class="ev-desc">会一项技能：多平台收入自动核对。过去人对账要几天，它几小时。</p></div>
+        <div class="step"><div class="yr">第2月<span class="q">Month 2</span></div><p class="ev-title">市场数字员工上岗</p><p class="ev-desc">财务员工又学会新技能，同时市场员工开始选题、出初稿。</p></div>
+        <div class="step"><div class="yr">第3月<span class="q">Month 3</span></div><p class="ev-title">员工之间接力</p><p class="ev-desc">上一个干完自动喊下一个，一条内容从想法到成品，人只把关。</p></div>
+        <div class="step"><div class="yr">第4月<span class="q">Month 4</span></div><p class="ev-title">线索数字员工上岗</p><p class="ev-desc">从公开渠道读评论、挑疑似客户、自动写进线索表。</p></div>
+        <div class="step"><div class="yr">第5月<span class="q">Month 5</span></div><p class="ev-title">一支小团队成形</p><p class="ev-desc">每个月都看得见新员工、新技能——团队在你眼前长大。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 · WORKSHEET · job description fill-in -->
+  <section class="slide body" data-label="现场实操·岗位说明书">
+    <div class="eyebrow">Hands-on <span class="dot">·</span> 你的第一份数字员工岗位说明书</div>
+    <h1 class="slide-title">先定义员工，再打开工具<span class="en">Define the hire first — the tool comes after.</span></h1>
+    <div class="ws-layout">
+      <div class="ws-lead">
+        <div>
+          <div class="kicker">Hands-on · 现场实操</div>
+          <h3>先定义员工，<br/>再打开工具</h3>
+          <p>大多数人一上来就问"用哪个 AI"。顺序反了——先把这个员工要干的活说清楚，工具只是最后一步。</p>
+          <p>就跟招真人一样：先写岗位说明书，再登招聘网站。</p>
+        </div>
+        <div class="foot">手册里就有这张表，现在花 3 分钟，先把第一格填了。</div>
+      </div>
+      <div class="ws-fields">
+        <div class="field-card">
+          <b>岗位名</b>
+          <span class="eg">例：报表核对员</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-card">
+          <b>服务谁</b>
+          <span class="eg">谁用它的产物、谁验收</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-card span2">
+          <b>高频任务</b>
+          <span class="eg">一句话：它每天 / 每周替你干什么重复活</span>
+          <div class="field-line"></div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-card">
+          <b>输入材料</b>
+          <span class="eg">表格、后台、文档、链接</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-card">
+          <b>人工把关点</b>
+          <span class="eg">哪些环节必须人拍板</span>
+          <div class="field-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · THE HONEST PART -->
+  <section class="slide body" data-label="你们会卡在哪">
+    <div class="eyebrow">The Honest Part <span class="dot">·</span> 说句老实话</div>
+    <h1 class="slide-title">前两步你们自己能干，后面是工程活<span class="en">The first two steps are yours. The rest is engineering.</span></h1>
+    <div class="two-col even">
+      <div class="lite-panel">
+        <h3>回去你就能干</h3>
+        <ul>
+          <li><b>第一步 · 挑活</b>：挑一件重复、有规则、有数据的活。</li>
+          <li><b>第二步 · 写岗位说明书</b>：把这件活的 SOP 写清楚。</li>
+        </ul>
+      </div>
+      <div class="blue-panel">
+        <div>
+          <h3>分水岭在这两步</h3>
+          <ul>
+            <li><b style="color:#fff">第三步 · 给钥匙</b>：把它接进你公司真实的系统和数据。</li>
+            <li><b style="color:#fff">第五步 · 连成流水线</b>：把一个个员工连成一支能接力的团队。</li>
+          </ul>
+        </div>
+        <div class="foot">这两步是工程活，也是我们这半年一直在客户现场干的活。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18 · HANDBOOK + COMMUNITY -->
+  <section class="slide body" data-label="手册与社群">
+    <div class="eyebrow">Handbook <span class="dot">·</span> 手册与社群</div>
+    <h1 class="slide-title">带回家的不是灵感，是一本能照着干的说明书<span class="en">You leave with a handbook — and it keeps growing.</span></h1>
+    <div class="hb-layout">
+      <div class="hb-copy">
+        <p class="big">手册人手一份，<br/>但它印出来那一刻，<br/>就<em>开始过时了</em>。</p>
+        <p class="sub">最新版在 MindsLeap 心智悦动的企业家社群里长大——模板源文件、每次迭代的实战复盘，都在那里更新。回去动手卡住了，群里喊一声，有人接。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · HANDOVER -->
+  <section class="slide body statement" data-label="收尾·交棒">
+    <div class="frame">
+      <div class="eyebrow">Handover <span class="dot">·</span> 交棒</div>
+      <h1 class="stmt">从"<em>一个想法</em>"，到"在你公司真跑起来、出业务结果"，<br/>中间那段路，我们接着陪你走。</h1>
+      <p class="stmt-sub">具体怎么走——把 AI 接进你的平台、你的数据、你的团队——交给周总讲 FDE，也就是帮你把 AI 真正落进公司的那套打法。我，是这条路上的技术合伙人。</p>
+    </div>
+  </section>
+
+  <!-- 14 · THANK YOU -->
+  <section class="slide body" data-label="结尾 Thank You">
+    <div class="final-layout">
+      <div class="final-copy">
+        <div class="eyebrow">Thank You <span class="dot">·</span> 从今天起，把 AI 当员工用</div>
+        <h1 class="final-title">给你的公司，<br/>装上一支 <em>数字员工团队</em>。</h1>
+        <p class="slide-sub">先从一件重复的活、一个数字员工开始，剩下的路我们陪你走。</p>
+      </div>
+      <div class="final-contact">
+        <div>
+          <h3>继续交流</h3>
+          <p>企业 AI 落地、数字员工、把 AI 接进你的真实业务。</p>
+          <div class="final-actions">
+            <div class="final-action"><b>01 挑活</b><span>选一件重复的活</span></div>
+            <div class="final-action"><b>02 写说明书</b><span>给它写份岗位 SOP</span></div>
+            <div class="final-action"><b>03 给钥匙</b><span>接进你的真实数据</span></div>
+            <div class="final-action"><b>04 连成线</b><span>连成一支团队</span></div>
+          </div>
+        </div>
+        <div class="final-contact-bottom">
+          <div class="note">MindsLeap 心智悦动 · 冰洲 Bingzhou<br/>企业 AI 落地 · 技术合伙人 · 企业家社群见</div>
+          <div class="qr-block">
+            <img src="assets/bingzhou-wechat.png" alt="冰洲微信二维码" style="width:100%;display:block" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script>
+  document.querySelectorAll('.slide').forEach((slide, index) => {
+    slide.dataset.page = String(index + 1).padStart(2, '0');
+  });
+</script>
+
+</body>
+</html>

@@ -17,6 +17,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Guard critical static archives
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            site/public/internal-nav.css
+            site/public/menu/index.html
+            site/public/manuals/index.html
+            site/public/product/index.html
+            site/public/product/ai-club/index.html
+            site/public/product/enterprise-ai-growth-suite/index.html
+            site/public/product/member-directory/index.html
+            site/public/product/mindsleap-company-intro/index.html
+          )
+
+          for required_file in "${required_files[@]}"; do
+            if [ ! -f "$required_file" ]; then
+              echo "Critical static archive is missing: $required_file" >&2
+              exit 1
+            fi
+          done
+
+          product_file_count="$(find site/public/product -type f | wc -l | tr -d ' ')"
+          if [ "$product_file_count" -lt 100 ]; then
+            echo "Product archive unexpectedly shrank to $product_file_count files" >&2
+            exit 1
+          fi
+
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
@@ -104,11 +132,23 @@ jobs:
 
             news_html="$(curl -fsS https://www.mindsleap.cn/zh/news || true)"
             article_html="$(curl -fsS https://www.mindsleap.cn/zh/news/boris-cherny-coding-solved-ai-ascent-2026 || true)"
+            product_html="$(curl -fsS https://www.mindsleap.cn/product || true)"
+            menu_html="$(curl -fsS https://www.mindsleap.cn/menu || true)"
+            manuals_html="$(curl -fsS https://www.mindsleap.cn/manuals || true)"
 
             if [ -n "$css_path" ] \
               && curl -fIs "https://www.mindsleap.cn$css_path" >/dev/null \
               && [ -n "$news_html" ] \
-              && grep -q "boris-cherny-coding-solved-ai-ascent-2026" <<< "$article_html"; then
+              && grep -q "boris-cherny-coding-solved-ai-ascent-2026" <<< "$article_html" \
+              && grep -q 'href="/menu"' <<< "$product_html" \
+              && grep -q 'href="/manuals"' <<< "$product_html" \
+              && grep -q 'href="/product/ai-club"' <<< "$product_html" \
+              && grep -q 'MindsLeap Internal Menu' <<< "$menu_html" \
+              && grep -q '用户指导手册' <<< "$manuals_html" \
+              && curl -fsS https://www.mindsleap.cn/product/ai-club >/dev/null \
+              && curl -fsS https://www.mindsleap.cn/product/enterprise-ai-growth-suite >/dev/null \
+              && curl -fsS https://www.mindsleap.cn/product/member-directory >/dev/null \
+              && curl -fsS https://www.mindsleap.cn/product/mindsleap-company-intro >/dev/null; then
               exit 0
             fi
 

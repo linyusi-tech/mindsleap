@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindsLeap Manuals · 心智悦动用户指导手册</title>
+  <style>
+    :root {
+      --blue: #1e477c;
+      --blue-deep: #163865;
+      --blue-soft: #eff6ff;
+      --green: #157f63;
+      --ink: #111111;
+      --muted: #4b5563;
+      --subtle: #9ca3af;
+      --rule: #e5e7eb;
+      --bg: #ffffff;
+      --bg-alt: #f9fafb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 56px;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,.96);
+    }
+    .logo {
+      width: 260px;
+      height: 52px;
+      background: url("/manuals/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    nav a { color: var(--blue); }
+    main { overflow: hidden; }
+    .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .hero {
+      padding: 92px 56px 84px;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--rule);
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .lead {
+      max-width: 780px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.62;
+    }
+    .section {
+      padding: 72px 56px 96px;
+    }
+    .section h2 {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 36px;
+      line-height: 1.2;
+    }
+    .section > .inner > p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .manual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .manual-card {
+      display: flex;
+      min-height: 300px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+    .manual-copy {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 34px;
+    }
+    .tag {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 8px 12px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .manual-card h3 {
+      margin: 24px 0 14px;
+      color: var(--blue);
+      font-size: 34px;
+      line-height: 1.16;
+    }
+    .manual-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.62;
+    }
+    .meta {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .button.primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    footer {
+      padding: 42px 56px;
+      border-top: 1px solid var(--rule);
+      color: var(--subtle);
+      font-size: 14px;
+    }
+    @media (max-width: 720px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 24px;
+      }
+      .logo { width: 230px; }
+      .hero, .section, footer { padding-left: 24px; padding-right: 24px; }
+      .manual-copy { padding: 28px 24px; }
+      .manual-card h3 { font-size: 29px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/zh" aria-label="MindsLeap"></a>
+    <nav>
+      <a href="/zh">首页</a>
+      <a href="/zh/research">研究</a>
+      <a href="/decks">Decks</a>
+      <a href="/zh/contact">联系</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="inner">
+        <div class="eyebrow">MindsLeap Manuals Library</div>
+        <h1>用户指导手册</h1>
+        <p class="lead">这里集中存放 MindsLeap 面向用户的实操手册、上岗指南和配套模板。每份 manual 都尽量保留可阅读、可打印、可现场使用的 HTML 版本。</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="inner">
+        <h2>最新 Manuals</h2>
+        <p>当前公开列表会随着新的训练营、工作坊和用户实践材料持续更新。</p>
+        <div class="manual-grid">
+          <article class="manual-card">
+            <div class="manual-copy">
+              <div>
+                <span class="tag">Manual</span>
+                <h3>Codex 安装攻略</h3>
+                <p>AI 数字员工实战坊原版会前攻略，包含电脑、网络、手机端工具、Codex 账号与安装准备。</p>
+                <div class="meta">MindsLeap · AI 数字员工实战坊 · 会前准备</div>
+              </div>
+              <div class="actions">
+                <a class="button primary" href="/manuals/codex-installation/" data-local-href="codex-installation/index.html">打开攻略</a>
+                <a class="button" href="/codex-installation/" data-local-href="../codex-installation/">打开短链接</a>
+              </div>
+            </div>
+          </article>
+          <article class="manual-card">
+            <div class="manual-copy">
+              <div>
+                <span class="tag">Manual</span>
+                <h3>数字员工上岗手册</h3>
+                <p>给零技术老板的实操手册：把 AI 当成一名员工来招、来管、来用，从挑活、写岗位说明书、给钥匙、试用验收到连成流水线，带用户完成第一个数字员工上岗。</p>
+                <div class="meta">Bingzhou · AI as Employees · User Handbook · v1.0</div>
+              </div>
+              <div class="actions">
+                <a class="button primary" href="/manuals/Bingzhou/ai-as-employees/handbook.html" data-local-href="Bingzhou/ai-as-employees/handbook.html">打开手册</a>
+                <a class="button" href="/manuals/Bingzhou/ai-as-employees/sentinel-demo.html" data-local-href="Bingzhou/ai-as-employees/sentinel-demo.html">查看 Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="inner">© MindsLeap · Upgrade AI Mindsets for Global Success</div>
+  </footer>
+  <script>
+    if (window.location.protocol === "file:") {
+      document.querySelector(".logo").style.backgroundImage = 'url("shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg")';
+      document.querySelectorAll("[data-local-href]").forEach((link) => {
+        link.setAttribute("href", link.getAttribute("data-local-href"));
+      });
+    }
+  </script>
+</body>
+</html>
