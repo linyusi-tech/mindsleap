@@ -31,6 +31,12 @@ export default function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
+  if (pathname === "/event/qinghuaemba" || pathname === "/event/qinghuaemba/") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/event/qinghuaemba/index.html";
+    return NextResponse.rewrite(url);
+  }
+
   if (isAgentContentPath(pathname) && acceptsMarkdown(request.headers.get("accept"))) {
     const url = request.nextUrl.clone();
     url.pathname = `/api/agent-content${pathname.replace(/\/$/, "")}`;

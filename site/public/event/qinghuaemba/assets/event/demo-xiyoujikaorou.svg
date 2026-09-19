@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">西游记烤肉网站封面</title>
+  <desc id="desc">红金色西游主题餐饮网站封面</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#32100d"/>
+      <stop offset=".55" stop-color="#8e2118"/>
+      <stop offset="1" stop-color="#d66b25"/>
+    </linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#ffd58b" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+  <circle cx="935" cy="154" r="230" fill="#ffcf76" opacity=".16"/>
+  <circle cx="935" cy="154" r="142" fill="#ffcf76" opacity=".18"/>
+  <path d="M790 490c92-130 222-134 322-16-126-55-218-35-322 16Z" fill="#1d0b09" opacity=".55"/>
+  <text x="86" y="126" fill="#ffd58b" font-family="Arial, PingFang SC, sans-serif" font-size="24" font-weight="700" letter-spacing="6">BRAND WEBSITE · DEMO</text>
+  <text x="86" y="333" fill="#fff2d4" font-family="STKaiti, KaiTi, serif" font-size="104" font-weight="700">西游记烤肉</text>
+  <text x="90" y="417" fill="#ffdca0" font-family="Arial, PingFang SC, sans-serif" font-size="32">把主题、烟火气与品牌故事端上网页</text>
+  <rect x="88" y="501" width="206" height="60" rx="30" fill="#ffd58b"/>
+  <text x="191" y="541" fill="#681910" text-anchor="middle" font-family="Arial, PingFang SC, sans-serif" font-size="23" font-weight="700">进入网站</text>
+</svg>
