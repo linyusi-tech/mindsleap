@@ -72,15 +72,28 @@ jobs:
           SSH_USER: ${{ secrets.CN_SERVER_USER }}
         run: |
           set -euo pipefail
-          # Compare file contents because checkout mtimes change on every run.
-          rsync -azc --delete \
-            --exclude '.git' \
-            --exclude '.github' \
-            --exclude 'site/node_modules' \
-            --exclude 'site/.next' \
-            --exclude 'site/.env.production' \
-            -e "ssh -p $SSH_PORT" \
-            ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          commit_subject="$(git log -1 --pretty=%s)"
+          if [ "$commit_subject" = "Deploy restored Yusi decks with targeted sync" ]; then
+            # One-time recovery: send only the restored archive and its routing files.
+            # Omitting --delete prevents any unrelated server content from being removed.
+            rsync -azR \
+              -e "ssh -p $SSH_PORT" \
+              ./site/next.config.ts \
+              ./site/public/decks/Yusi/index.html \
+              ./site/public/decks/Yusi/gaoge-agent-training-deck/ \
+              ./site/public/decks/Yusi/entrepreneur-second-brain/ \
+              "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          else
+            # Compare file contents because checkout mtimes change on every run.
+            rsync -azc --delete \
+              --exclude '.git' \
+              --exclude '.github' \
+              --exclude 'site/node_modules' \
+              --exclude 'site/.next' \
+              --exclude 'site/.env.production' \
+              -e "ssh -p $SSH_PORT" \
+              ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          fi
 
       - name: Build and restart on server
         env:
