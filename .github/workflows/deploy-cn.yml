@@ -73,7 +73,13 @@ jobs:
         run: |
           set -euo pipefail
           commit_subject="$(git log -1 --pretty=%s)"
-          if [ "$commit_subject" = "Deploy restored Yusi decks with targeted sync" ]; then
+          if [ "$commit_subject" = "Restore complete internal navigation on Yusi archive" ]; then
+            # One-time navigation correction: no unrelated server content is touched.
+            rsync -azR \
+              -e "ssh -p $SSH_PORT" \
+              ./site/public/decks/Yusi/index.html \
+              "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          elif [ "$commit_subject" = "Deploy restored Yusi decks with targeted sync" ]; then
             # One-time recovery: send only the restored archive and its routing files.
             # Omitting --delete prevents any unrelated server content from being removed.
             rsync -azR \
@@ -175,6 +181,13 @@ jobs:
               && grep -q 'AI原生组织跃迁实战营' <<< "$poster_program_html" \
               && grep -q 'gaoge-agent-training-deck' <<< "$yusi_decks_html" \
               && grep -q 'entrepreneur-second-brain' <<< "$yusi_decks_html" \
+              && grep -q 'href="/menu"' <<< "$yusi_decks_html" \
+              && grep -q 'href="/decks"' <<< "$yusi_decks_html" \
+              && grep -q 'href="/proposal"' <<< "$yusi_decks_html" \
+              && grep -q 'href="/product"' <<< "$yusi_decks_html" \
+              && grep -q 'href="/poster"' <<< "$yusi_decks_html" \
+              && grep -q 'href="/manuals"' <<< "$yusi_decks_html" \
+              && grep -q 'href="/case"' <<< "$yusi_decks_html" \
               && curl -fsSL https://www.mindsleap.cn/decks/Yusi/gaoge-agent-training-deck >/dev/null \
               && curl -fsSL https://www.mindsleap.cn/decks/Yusi/entrepreneur-second-brain >/dev/null \
               && curl -fIs https://www.mindsleap.cn/decks/Yusi/gaoge-agent-training-deck/gaoge-agent-training-deck.pdf >/dev/null \
