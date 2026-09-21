@@ -1,0 +1,5357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>用 AI 打造企业家第二大脑</title>
+  <script src="deck-stage.js"></script>
+  <style>
+    @font-face {
+      font-family: "MindsLeap Brand";
+      src: url("fonts/MindsLeap-Brand.otf") format("opentype");
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f5f7fb;
+      --ink: #111111;
+      --muted: #536174;
+      --subtle: #7b8494;
+      --rule: #dfe6ef;
+      --blue: #1e477c;
+      --blue-2: #2f6db4;
+      --blue-soft: #dbeafe;
+      --green: #1f7a67;
+      --amber: #b7791f;
+      --red: #b42318;
+      --font-heading: "MindsLeap Brand", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      --font-body: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; letter-spacing: 0 !important; }
+    html, body { margin: 0; width: 100%; min-height: 100%; background: #05070b; }
+    body { font-family: var(--font-body); color: var(--ink); }
+    deck-stage { background: #05070b; }
+
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      isolation: isolate;
+    }
+
+    .slide:not(.no-chrome)::before {
+      content: "";
+      position: absolute;
+      left: 112px;
+      bottom: 48px;
+      width: 387px;
+      height: 117px;
+      background: url("mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .slide:not(.no-chrome)::after {
+      content: attr(data-page);
+      position: absolute;
+      right: 112px;
+      bottom: 64px;
+      font: 600 24px/1 var(--font-body);
+      color: #9aa5b5;
+      pointer-events: none;
+    }
+
+    .body { padding: 84px 112px 150px; }
+    .no-chrome { padding: 0; }
+    .eyebrow {
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--blue-2);
+      margin-bottom: 22px;
+    }
+    .slide-title {
+      margin: 0;
+      max-width: 1696px;
+      font-family: var(--font-heading);
+      font-size: 60px;
+      line-height: 1.08;
+      font-weight: 760;
+      color: var(--ink);
+      text-wrap: wrap;
+      word-break: normal;
+    }
+    .slide-subtitle {
+      max-width: 1580px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 28px;
+      line-height: 1.42;
+    }
+    .slide-bar {
+      display: block;
+      width: 88px;
+      height: 7px;
+      background: var(--blue);
+      margin: 30px 0 40px;
+      border-radius: 999px;
+    }
+    .yusi-intro .slide-title {
+      font-size: 76px;
+      line-height: 1.02;
+    }
+    .yusi-role {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .yusi-intro-grid {
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 4px;
+    }
+    .yusi-bio-list {
+      border-top: 1px solid var(--rule);
+    }
+    .yusi-bio-list div {
+      min-height: 86px;
+      padding: 20px 0 18px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.38;
+    }
+    .yusi-bio-list b {
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .yusi-photo {
+      height: 590px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      background: #fff;
+      display: grid;
+      place-items: end center;
+      overflow: hidden;
+    }
+    .yusi-photo img {
+      width: auto !important;
+      max-width: 100%;
+      height: 588px !important;
+      max-height: 588px;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+    }
+    .source-line {
+      position: absolute;
+      left: 112px;
+      right: 112px;
+      bottom: 142px;
+      color: #8a94a4;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .speaker-cue {
+      position: absolute;
+      right: 112px;
+      bottom: 22px;
+      max-width: 280px;
+      padding: 5px 9px 6px;
+      border: 1px solid rgba(154, 165, 181, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .42);
+      color: rgba(82, 97, 116, .42);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.15;
+      box-shadow: none;
+      pointer-events: none;
+    }
+
+    .cover {
+      display: grid;
+      grid-template-columns: 1fr 820px;
+      gap: 72px;
+      padding: 82px 112px 92px;
+      background: #ffffff;
+    }
+    .cover-logo {
+      width: 318px;
+      height: 92px;
+      background: url("mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+      margin-bottom: 70px;
+    }
+    .cover-kicker {
+      color: var(--blue-2);
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .cover h1 {
+      max-width: 850px;
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 94px;
+      line-height: 1.05;
+      color: #101010;
+    }
+    .blue-dot { color: var(--blue-2); }
+    .cover-copy {
+      max-width: 840px;
+      margin: 34px 0 54px;
+      font-size: 30px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 980px;
+    }
+    .cover-meta div {
+      border-top: 4px solid var(--blue);
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+    .cover-meta b {
+      display: block;
+      color: var(--ink);
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .cover-visual {
+      position: relative;
+      height: 902px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #dfe6ef;
+    }
+    .cover-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cover-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,20,38,.08), rgba(7,20,38,.56));
+    }
+    .proof-badges {
+      position: absolute;
+      z-index: 2;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .proof-badges div {
+      background: rgba(255,255,255,.92);
+      border-radius: 8px;
+      padding: 18px 16px;
+    }
+    .proof-badges strong {
+      display: block;
+      color: var(--blue);
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .proof-badges span {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .statement {
+      display: grid;
+      place-items: center;
+      padding: 0 150px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+    }
+    .statement h1 {
+      margin: 0;
+      max-width: 1500px;
+      font-family: var(--font-heading);
+      font-size: 86px;
+      line-height: 1.12;
+      color: #fff;
+    }
+    .statement p {
+      max-width: 1260px;
+      margin: 34px auto 0;
+      color: #d8e9ff;
+      font-size: 31px;
+      line-height: 1.42;
+    }
+    .statement .blue-dot,
+    .final .blue-dot { color: #b8d7ff; }
+    .future-statement {
+      text-align: left;
+      place-items: stretch;
+      padding: 118px 132px 96px;
+    }
+    .future-statement > div {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .future-kicker {
+      color: #b8d7ff;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 34px;
+    }
+    .future-statement h1 {
+      max-width: 1540px;
+      font-size: 88px;
+      line-height: 1.1;
+      text-align: left;
+    }
+    .future-statement p {
+      max-width: 1370px;
+      margin: 38px 0 0;
+      color: #d8e9ff;
+      font-size: 34px;
+      line-height: 1.42;
+      text-align: left;
+    }
+    .future-close {
+      margin-top: 62px;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 42px;
+      line-height: 1;
+    }
+    .part-divider {
+      position: relative;
+      padding: 0 112px 150px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .part-num {
+      position: absolute;
+      right: 118px;
+      top: 72px;
+      font-family: var(--font-heading);
+      font-size: 220px;
+      line-height: .82;
+      font-weight: 900;
+      color: rgba(47, 109, 180, .10);
+      letter-spacing: -.04em !important;
+      z-index: 0;
+    }
+    .part-divider > div:not(.part-num) {
+      position: absolute;
+      left: 122px;
+      top: 392px;
+      z-index: 1;
+      max-width: 1340px;
+      text-align: left;
+    }
+    .part-kicker {
+      color: var(--blue-2);
+      font-family: var(--font-body);
+      font-size: 56px;
+      line-height: 1.2;
+      font-weight: 850;
+      margin-bottom: 28px;
+      word-spacing: 7px;
+    }
+    .part-divider h1 {
+      max-width: 1240px;
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 126px;
+      line-height: .95;
+      color: var(--blue);
+    }
+    .part-divider h1.two-line {
+      max-width: 1280px;
+      font-size: 116px;
+      line-height: .94;
+    }
+    .part-divider p {
+      max-width: 1280px;
+      margin: 34px 0 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.32;
+    }
+    .statement.light {
+      background: #f8fafc;
+      color: var(--ink);
+      text-align: left;
+      place-items: stretch;
+      padding: 120px 132px;
+    }
+    .statement.light h1 { color: var(--ink); max-width: 1540px; }
+    .statement.light p { color: var(--muted); margin-left: 0; }
+    .closing-statement h1 {
+      max-width: 1740px;
+      font-size: 132px;
+      line-height: 1.08;
+    }
+    .closing-statement p {
+      margin-top: 58px;
+      max-width: 1500px;
+      font-size: 46px;
+      line-height: 1.32;
+    }
+    .nowrap { white-space: nowrap; }
+
+    .route-map {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 62px;
+    }
+    .route-map.clean {
+      gap: 24px;
+      margin-top: 82px;
+    }
+    .todo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 22px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      font-size: 22px;
+      font-weight: 750;
+    }
+    .route-step, .card, .mini-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 28px;
+    }
+    .route-map.clean .route-step {
+      min-height: 292px;
+      padding: 34px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .route-step b, .card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .route-step h3, .card h3, .mini-card h3 {
+      margin: 0 0 14px;
+      font-size: 31px;
+      line-height: 1.18;
+      color: var(--ink);
+    }
+    .route-map.clean .route-step h3 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.16;
+      white-space: nowrap;
+    }
+    .route-step h3.tight {
+      font-size: 26px;
+      line-height: 1.18;
+      white-space: nowrap;
+    }
+    .route-step p, .card p, .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.38;
+    }
+    .agenda-layout {
+      display: grid;
+      grid-template-columns: 540px 1fr;
+      gap: 76px;
+      margin-top: 54px;
+      align-items: start;
+    }
+    .agenda-lead {
+      min-height: 575px;
+      border-left: 8px solid var(--blue);
+      padding: 34px 0 0 38px;
+    }
+    .agenda-label {
+      color: var(--blue-2);
+      font-size: 24px;
+      font-weight: 850;
+      margin-bottom: 34px;
+    }
+    .agenda-lead h2 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 62px;
+      line-height: 1.08;
+    }
+    .agenda-lead p {
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-size: 28px;
+      line-height: 1.4;
+    }
+    .agenda-spine {
+      position: relative;
+      height: 590px;
+      padding-top: 8px;
+    }
+    .agenda-item {
+      position: relative;
+      z-index: 1;
+      width: 780px;
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 18px;
+      padding: 18px 28px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+    }
+    .agenda-item:nth-child(2) { margin-left: 64px; }
+    .agenda-item:nth-child(3) { margin-left: 128px; }
+    .agenda-item:nth-child(4) { margin-left: 192px; }
+    .agenda-item:nth-child(5) { margin-left: 256px; }
+    .agenda-item b {
+      color: var(--blue-2);
+      font-family: var(--font-heading);
+      font-size: 42px;
+      line-height: 1;
+    }
+    .agenda-item h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 43px;
+      line-height: 1.12;
+      white-space: nowrap;
+    }
+    .agenda-item.final-step {
+      background: var(--blue);
+      border-color: var(--blue);
+      box-shadow: 0 22px 44px rgba(30, 71, 124, .16);
+    }
+    .agenda-item.final-step b { color: #b8d7ff; }
+    .agenda-item.final-step h3 { color: #fff; }
+    .card.dark, .mini-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .card.dark h3, .card.dark p, .card.dark b,
+    .mini-card.dark h3, .mini-card.dark p, .mini-card.dark b,
+    .card.dark span, .mini-card.dark span { color: #fff; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: stretch;
+    }
+    .two-col.wide-left { grid-template-columns: 1.18fr .82fr; }
+    .two-col.wide-right { grid-template-columns: .85fr 1.15fr; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .stack { display: grid; gap: 20px; }
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 38px;
+    }
+    .leader-panel {
+      min-height: 250px;
+      padding: 34px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+    }
+    .leader-panel.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .leader-panel b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+    .leader-panel.dark b,
+    .leader-panel.dark h3,
+    .leader-panel.dark p { color: #fff; }
+    .leader-panel h3 {
+      margin: 0 0 18px;
+      font-size: 38px;
+      line-height: 1.16;
+      color: var(--ink);
+    }
+    .leader-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.42;
+    }
+    .habit-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .habit-card {
+      min-height: 166px;
+      padding: 24px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .habit-card h3 {
+      margin: 0 0 12px;
+      font-size: 27px;
+      color: var(--ink);
+    }
+    .habit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.36;
+    }
+    .report-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 36px;
+    }
+    .report-panel {
+      min-height: 248px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 34px;
+    }
+    .report-panel.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .report-panel b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .report-panel.dark b { color: #b8d7ff; }
+    .report-panel h3 {
+      margin: 0 0 18px;
+      color: var(--ink);
+      font-size: 42px;
+      line-height: 1.12;
+    }
+    .report-panel.dark h3 { color: #fff; }
+    .report-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.42;
+    }
+    .report-panel.dark p { color: #dbeafe; }
+    .signal-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .signal-card {
+      min-height: 144px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 22px 24px;
+    }
+    .signal-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .signal-card p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.32;
+      font-weight: 680;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 42px;
+    }
+    .role-card {
+      min-height: 420px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .role-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .role-card b {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 850;
+    }
+    .role-card.dark b { color: #b8d7ff; }
+    .role-card h3 {
+      margin: 22px 0 18px;
+      color: var(--ink);
+      font-size: 40px;
+      line-height: 1.12;
+    }
+    .role-card.dark h3 { color: #fff; }
+    .role-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.4;
+    }
+    .role-card.dark p { color: #dbeafe; }
+    .trait-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 44px;
+    }
+    .trait-card {
+      min-height: 360px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 28px;
+    }
+    .trait-card b {
+      display: block;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+      font: 800 22px/48px var(--font-body);
+      margin-bottom: 24px;
+    }
+    .trait-card h3 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.15;
+    }
+    .trait-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.4;
+    }
+    .trait-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .trait-card.dark b {
+      background: #b8d7ff;
+      color: var(--blue);
+    }
+    .trait-card.dark h3,
+    .trait-card.dark p { color: #fff; }
+    .agent-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 28px;
+      margin-top: 34px;
+    }
+    .compare-head,
+    .compare-row {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 18px 22px;
+    }
+    .compare-head.dark,
+    .compare-row.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .compare-head b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .compare-head.dark b { color: #b8d7ff; }
+    .compare-head h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 36px;
+      line-height: 1.08;
+    }
+    .compare-head.dark h3 { color: #fff; }
+    .compare-row strong {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      line-height: 1;
+      margin-bottom: 9px;
+    }
+    .compare-row.dark strong { color: #b8d7ff; }
+    .compare-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.28;
+    }
+    .compare-row.dark p { color: #fff; }
+
+    .metric {
+      font-family: var(--font-heading);
+      color: var(--blue);
+      font-size: 62px;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .metric small { font-size: 28px; color: var(--muted); }
+    .big-number {
+      font-family: var(--font-heading);
+      color: var(--blue);
+      font-size: 72px;
+      line-height: .96;
+      margin-bottom: 12px;
+    }
+    .data-grid .card { min-height: 210px; }
+    .data-grid .card p { font-size: 21px; }
+
+    .curve-board {
+      height: 574px;
+      margin-top: 30px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, #f8fafc);
+      position: relative;
+      padding: 36px;
+    }
+    .curve-svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .axis-label {
+      position: absolute;
+      color: var(--subtle);
+      font-size: 21px;
+      font-weight: 650;
+    }
+    .axis-label.x { right: 360px; bottom: 32px; }
+    .axis-label.y { left: 38px; top: 28px; }
+    .callout {
+      position: absolute;
+      padding: 18px 20px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      box-shadow: 0 14px 34px rgba(17, 24, 39, .08);
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.3;
+    }
+    .callout strong { display: block; color: var(--ink); font-size: 24px; margin-bottom: 5px; }
+
+    .quote {
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      gap: 60px;
+      align-items: center;
+      padding: 120px 132px;
+      background: #f7f9fc;
+    }
+    .quote blockquote {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 76px;
+      line-height: 1.12;
+      color: var(--ink);
+    }
+    .quote p { font-size: 30px; color: var(--muted); line-height: 1.45; }
+    .quote-mark {
+      height: 620px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      padding: 50px;
+      text-align: center;
+    }
+    .quote-mark h3 { margin: 0; font-size: 34px; line-height: 1.25; color: #fff; }
+    .quote-mark span { display: block; margin-top: 24px; color: #d8e9ff; font-size: 24px; }
+    .gibson-quote {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 142px 118px;
+      background: var(--blue);
+      color: #fff;
+    }
+    .gibson-quote .quote-mark {
+      height: auto;
+      margin-bottom: 38px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      display: block;
+      color: #9fc8ff;
+      font: 800 22px/1 var(--font-body);
+      letter-spacing: .18em !important;
+      text-align: left;
+    }
+    .gibson-quote .big-quote {
+      font: 900 86px/.7 var(--font-heading);
+      color: #9fc8ff;
+      margin-bottom: 26px;
+    }
+    .gibson-quote h1 {
+      max-width: 1280px;
+      margin: 0;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 84px;
+      font-weight: 900;
+      line-height: 1.08;
+    }
+    .gibson-quote p {
+      max-width: 1280px;
+      margin: 38px 0 0;
+      color: #c9ddf8;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .gibson-quote .quote-credit {
+      margin-top: 60px;
+      padding-left: 92px;
+      position: relative;
+      color: #fff;
+      font: 900 30px/1.15 var(--font-heading);
+      text-transform: uppercase;
+      letter-spacing: .12em !important;
+    }
+    .gibson-quote .quote-credit::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 64px;
+      height: 2px;
+      background: #9fc8ff;
+    }
+    .gibson-quote .quote-credit span {
+      display: block;
+      margin-top: 10px;
+      color: #9fc8ff;
+      font: 800 23px/1.25 var(--font-body);
+      letter-spacing: .16em !important;
+    }
+    .codex-signal {
+      position: absolute;
+      right: 118px;
+      bottom: 118px;
+      width: 472px;
+      padding: 24px 28px 26px;
+      border: 1px solid rgba(201, 221, 248, .34);
+      border-radius: 8px;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 20px 42px rgba(0,0,0,.12);
+      color: #dbeafe;
+    }
+    .codex-signal b {
+      display: block;
+      color: #9fc8ff;
+      font-size: 18px;
+      font-weight: 850;
+      letter-spacing: .12em !important;
+    }
+    .codex-signal strong {
+      display: block;
+      margin-top: 14px;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 36px;
+      line-height: 1.08;
+    }
+    .codex-signal span {
+      display: block;
+      margin-top: 10px;
+      color: #dbeafe;
+      font-size: 21px;
+      line-height: 1.35;
+    }
+    .codex-signal small {
+      display: block;
+      margin-top: 16px;
+      color: rgba(219, 234, 254, .68);
+      font-size: 15px;
+      line-height: 1.25;
+    }
+    .tool-market {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 38px;
+    }
+    .tool-card {
+      min-height: 520px;
+      padding: 34px 32px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tool-card.featured {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .tool-index {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      font-weight: 850;
+      line-height: 1;
+    }
+    .tool-card.featured .tool-index { color: #b8d7ff; }
+    .tool-name {
+      display: block;
+      margin-top: 12px;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 54px;
+      font-weight: 820;
+      line-height: .96;
+    }
+    .tool-card.featured .tool-name { color: #fff; }
+    .tool-card h3 {
+      margin: 22px 0 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 42px;
+      line-height: 1;
+    }
+    .tool-card.featured h3 { color: #fff; }
+    .tool-role {
+      margin-top: 26px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(126, 145, 170, .28);
+    }
+    .tool-card.featured .tool-role { border-color: rgba(255,255,255,.24); }
+    .tool-role strong {
+      display: block;
+      color: var(--ink);
+      font-size: 31px;
+      line-height: 1.18;
+    }
+    .tool-card.featured .tool-role strong { color: #fff; }
+    .tool-role span {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.32;
+    }
+    .tool-card.featured .tool-role span { color: #dbeafe; }
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .tool-tags span {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .tool-card.featured .tool-tags span {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.24);
+      color: #fff;
+    }
+    .tool-card small {
+      display: block;
+      color: #7b8494;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+    .tool-card.featured small { color: #dbeafe; }
+    .tool-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.35;
+    }
+    .tool-note strong { color: var(--ink); }
+
+    .talent-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 44px;
+    }
+    .talent-card {
+      min-height: 392px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .talent-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .talent-card b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 850;
+    }
+    .talent-card.dark b { color: #b8d7ff; }
+    .talent-card h3 {
+      margin: 20px 0 0;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.14;
+    }
+    .talent-card.dark h3 { color: #fff; }
+    .talent-card p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.36;
+    }
+    .talent-card.dark p { color: #dbeafe; }
+    .talent-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 44px;
+      line-height: 1;
+    }
+    .talent-card.dark strong { color: #fff; }
+
+    .onboarding-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 46px;
+    }
+    .onboarding-card {
+      min-height: 392px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .onboarding-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .onboarding-card b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 850;
+    }
+    .onboarding-card.dark b { color: #b8d7ff; }
+    .onboarding-card h3 {
+      margin: 20px 0 0;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.14;
+    }
+    .onboarding-card.dark h3 { color: #fff; }
+    .onboarding-card p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.36;
+    }
+    .onboarding-card.dark p { color: #dbeafe; }
+    .onboarding-card strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 44px;
+      line-height: 1;
+    }
+    .onboarding-card.dark strong { color: #fff; }
+    .onboarding-split {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 36px;
+      margin-top: 38px;
+      align-items: stretch;
+    }
+    .onboarding-hero,
+    .onboarding-row {
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      padding: 36px;
+    }
+    .onboarding-hero {
+      min-height: 500px;
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .onboarding-hero b,
+    .onboarding-row b {
+      display: block;
+      color: #b8d7ff;
+      font-size: 22px;
+      font-weight: 850;
+      margin-bottom: 22px;
+    }
+    .onboarding-hero h3 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 56px;
+      line-height: 1.06;
+    }
+    .onboarding-hero p {
+      margin: 28px 0 0;
+      color: #dbeafe;
+      font-size: 25px;
+      line-height: 1.42;
+    }
+    .onboarding-mini-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 34px;
+    }
+    .onboarding-mini-list span {
+      display: block;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.1);
+      padding: 15px 17px;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 760;
+    }
+    .onboarding-hero strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 78px;
+      line-height: .95;
+    }
+    .onboarding-stack {
+      display: grid;
+      gap: 22px;
+    }
+    .onboarding-row {
+      min-height: 249px;
+      background: var(--bg-alt);
+    }
+    .onboarding-row b { color: var(--blue-2); }
+    .onboarding-row h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 45px;
+      line-height: 1.12;
+    }
+    .onboarding-row p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 26px;
+      line-height: 1.42;
+    }
+    .onboarding-row.dark {
+      background: #eef5ff;
+      border-color: #c7dcf6;
+    }
+    .onboarding-row.dark b { color: var(--blue); }
+    .onboarding-row.dark h3 { color: var(--blue); }
+    .subagent-visual {
+      min-height: 500px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 32px;
+    }
+    .subagent-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+    .subagent-head b {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 850;
+    }
+    .subagent-head span {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.3;
+      text-align: right;
+      font-weight: 650;
+    }
+    .subagent-flow {
+      display: grid;
+      grid-template-columns: 1.06fr 78px .86fr 78px 1.1fr;
+      gap: 0;
+      align-items: center;
+      min-height: 336px;
+    }
+    .flow-node {
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 24px;
+    }
+    .flow-node.context {
+      min-height: 312px;
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .flow-node.main {
+      min-height: 172px;
+      background: #eef5ff;
+      border-color: #c7dcf6;
+    }
+    .flow-node b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 13px;
+    }
+    .flow-node h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .flow-node p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.34;
+    }
+    .flow-node.context b { color: #b8d7ff; }
+    .flow-node.context h3,
+    .flow-node.context p { color: #fff; }
+    .flow-arrow {
+      color: var(--blue-2);
+      font-family: var(--font-heading);
+      font-size: 58px;
+      line-height: 1;
+      text-align: center;
+    }
+    .subagent-list {
+      display: grid;
+      gap: 12px;
+    }
+    .subagent-pill {
+      min-height: 92px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 17px 19px;
+    }
+    .subagent-pill b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+    .subagent-pill strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 26px;
+      line-height: 1.05;
+    }
+    .subagent-return {
+      margin-top: 18px;
+      border-radius: 8px;
+      border: 1px solid #c7dcf6;
+      background: #eef5ff;
+      padding: 16px 20px;
+      color: var(--blue);
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 820;
+      text-align: center;
+    }
+
+    .future-workforce {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      align-items: center;
+      padding: 112px 132px;
+      background: var(--blue);
+      color: #fff;
+    }
+    .future-workforce h1 {
+      max-width: 1060px;
+      margin: 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 92px;
+      line-height: 1.08;
+    }
+    .future-workforce p {
+      max-width: 980px;
+      margin: 38px 0 0;
+      color: #dbeafe;
+      font-size: 34px;
+      line-height: 1.42;
+    }
+    .future-workforce .future-label {
+      color: #b8d7ff;
+      font-size: 25px;
+      font-weight: 850;
+      margin-bottom: 32px;
+    }
+    .future-workforce .future-lines {
+      display: grid;
+      gap: 18px;
+    }
+    .future-workforce .future-line {
+      border-radius: 8px;
+      border: 1px solid rgba(219, 234, 254, .28);
+      background: rgba(255,255,255,.08);
+      padding: 26px 28px;
+    }
+    .future-workforce .future-line b {
+      display: block;
+      color: #b8d7ff;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .future-workforce .future-line strong {
+      display: block;
+      color: #fff;
+      font-size: 35px;
+      line-height: 1.18;
+    }
+    .future-workforce .welcome {
+      margin-top: 46px;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 52px;
+      line-height: 1;
+    }
+    .interface-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr 1fr;
+      gap: 26px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .interface-card,
+    .interface-core {
+      border-radius: 8px;
+      padding: 30px;
+      min-height: 250px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+    }
+    .interface-card b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 850;
+    }
+    .interface-card h3,
+    .interface-core h3 {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.15;
+    }
+    .interface-card p,
+    .interface-core p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.36;
+    }
+    .interface-core {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      text-align: center;
+    }
+    .interface-core b {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #b8d7ff;
+      font-size: 18px;
+      font-weight: 850;
+    }
+    .interface-core h3 {
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 44px;
+      line-height: 1.08;
+    }
+    .interface-core p { color: #dbeafe; }
+    .speed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 24px;
+    }
+    .speed-card {
+      min-height: 176px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 24px 26px;
+    }
+    .speed-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .speed-card b {
+      color: var(--blue-2);
+      font-size: 18px;
+      font-weight: 850;
+    }
+    .speed-card.dark b { color: #b8d7ff; }
+    .speed-card strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 36px;
+      line-height: 1;
+    }
+    .speed-card.dark strong { color: #fff; }
+    .speed-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.32;
+    }
+    .speed-card.dark p { color: #dbeafe; }
+
+    .bci-layout {
+      display: grid;
+      grid-template-columns: 740px 1fr;
+      gap: 44px;
+      margin-top: 32px;
+      align-items: stretch;
+    }
+    .bci-visual {
+      height: 560px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: #f7faff;
+    }
+    .bci-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .bci-panel {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 18px;
+      min-width: 0;
+    }
+    .bci-flow {
+      display: grid;
+      gap: 14px;
+    }
+    .bci-step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      align-items: start;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 22px 24px;
+    }
+    .bci-step.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .bci-step b {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 850;
+    }
+    .bci-step.dark b {
+      background: rgba(255,255,255,.16);
+      color: #b8d7ff;
+    }
+    .bci-step h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 30px;
+      line-height: 1.16;
+    }
+    .bci-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.34;
+    }
+    .bci-step.dark h3,
+    .bci-step.dark p { color: #fff; }
+    .bci-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .bci-metric {
+      min-height: 150px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 22px 24px;
+    }
+    .bci-metric.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .bci-metric b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      font-weight: 850;
+      margin-bottom: 8px;
+    }
+    .bci-metric.dark b { color: #b8d7ff; }
+    .bci-metric strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .bci-metric.dark strong { color: #fff; }
+    .bci-metric p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.32;
+    }
+    .bci-metric.dark p { color: #dbeafe; }
+
+    .local-brain-layout {
+      display: grid;
+      grid-template-columns: 530px 1fr;
+      gap: 36px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .local-core {
+      min-height: 510px;
+      border-radius: 8px;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      color: #fff;
+      padding: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .local-core b {
+      color: #b8d7ff;
+      font-size: 22px;
+      font-weight: 850;
+    }
+    .local-core h3 {
+      margin: 18px 0 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 54px;
+      line-height: 1.08;
+    }
+    .local-core p {
+      margin: 20px 0 0;
+      color: #dbeafe;
+      font-size: 24px;
+      line-height: 1.38;
+    }
+    .local-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .local-chip-row span {
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .local-flow {
+      display: grid;
+      gap: 16px;
+    }
+    .local-step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      align-items: start;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 28px;
+    }
+    .local-step b {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 850;
+    }
+    .local-step h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.16;
+    }
+    .local-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.36;
+    }
+    .local-step.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .local-step.dark b {
+      background: rgba(255,255,255,.16);
+      color: #b8d7ff;
+    }
+    .local-step.dark h3,
+    .local-step.dark p { color: #fff; }
+
+    .doctor-board {
+      display: grid;
+      grid-template-columns: 630px 1fr;
+      gap: 54px;
+      align-items: center;
+      margin-top: 34px;
+    }
+    .doctor-visual {
+      height: 540px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #f8fafc, #eaf1fb);
+      border: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+    .person {
+      position: absolute;
+      width: 108px;
+      height: 150px;
+      border-radius: 54px 54px 8px 8px;
+      background: var(--blue);
+      bottom: 92px;
+    }
+    .person::before {
+      content: "";
+      position: absolute;
+      top: -54px;
+      left: 22px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #c9d7ea;
+      border: 8px solid #fff;
+    }
+    .person:nth-child(1) { left: 98px; background: var(--blue); }
+    .person:nth-child(2) { left: 258px; background: var(--green); transform: scale(1.05); }
+    .person:nth-child(3) { left: 424px; background: var(--amber); }
+    .table-shape {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      bottom: 48px;
+      height: 86px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--rule);
+    }
+
+    .iceberg {
+      height: 590px;
+      position: relative;
+      margin-top: 20px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #f5f9ff 0 42%, #d7e9fb 42% 100%);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
+    .iceberg .top {
+      position: absolute;
+      left: 50%;
+      top: 54px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 210px solid transparent;
+      border-right: 210px solid transparent;
+      border-bottom: 190px solid #ffffff;
+      filter: drop-shadow(0 8px 20px rgba(30,71,124,.14));
+    }
+    .iceberg .bottom {
+      position: absolute;
+      left: 50%;
+      top: 255px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 380px solid transparent;
+      border-right: 380px solid transparent;
+      border-top: 260px solid #ffffff;
+      filter: drop-shadow(0 8px 22px rgba(30,71,124,.14));
+    }
+    .iceberg-label {
+      position: absolute;
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-size: 21px;
+      color: var(--muted);
+    }
+    .iceberg-label strong { color: var(--ink); }
+
+    .formula {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .factor {
+      min-height: 250px;
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .factor span { color: var(--blue-2); font-size: 20px; font-weight: 800; }
+    .factor h3 { margin: 0; font-size: 30px; line-height: 1.15; }
+    .factor p { margin: 0; color: var(--muted); font-size: 20px; line-height: 1.32; }
+
+    .memory-map {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 42px;
+      margin-top: 34px;
+    }
+    .context-wheel {
+      height: 560px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fbfdff;
+      position: relative;
+    }
+    .wheel-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 260px;
+      height: 260px;
+      transform: translate(-50%, -50%);
+      border: 3px solid var(--blue);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 34px;
+      font-family: var(--font-heading);
+      text-align: center;
+      line-height: 1.18;
+      background: #fff;
+    }
+    .wheel-node {
+      position: absolute;
+      width: 190px;
+      padding: 18px 16px;
+      border-radius: 8px;
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .window-diagram {
+      height: 560px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      margin-top: 34px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      background: #fbfdff;
+    }
+    .window-zone {
+      border-radius: 8px;
+      border: 1px dashed #b8c6d8;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #fff;
+    }
+    .window-zone h3 { margin: 0; color: var(--blue); font-size: 32px; }
+    .window-zone p { margin: 0; color: var(--muted); font-size: 24px; line-height: 1.38; }
+    .window-zone.dim { opacity: .62; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+      align-items: stretch;
+    }
+    .flow .step {
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 26px 22px;
+      min-height: 210px;
+      position: relative;
+    }
+    .flow .step::after {
+      content: ">";
+      position: absolute;
+      right: -18px;
+      top: 84px;
+      color: #b8c6d8;
+      font-size: 30px;
+      font-weight: 900;
+    }
+    .flow .step:last-child::after { display: none; }
+    .flow .step b { color: var(--blue-2); font-size: 21px; }
+    .flow .step h3 { margin: 15px 0 10px; font-size: 28px; line-height: 1.18; }
+    .flow .step p { margin: 0; color: var(--muted); font-size: 20px; line-height: 1.32; }
+    .flow .step.highlight {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .flow .step.highlight b { color: #b8d7ff; }
+    .flow .step.highlight h3,
+    .flow .step.highlight p { color: #fff; }
+
+    .contract-ladder {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+    .ladder-card {
+      min-height: 360px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 30px;
+    }
+    .ladder-card:nth-child(4) { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .ladder-card:nth-child(4) h3, .ladder-card:nth-child(4) p, .ladder-card:nth-child(4) span { color: #fff; }
+    .ladder-card span { display: block; color: var(--blue-2); font-weight: 800; font-size: 21px; margin-bottom: 18px; }
+    .ladder-card h3 { margin: 0 0 18px; font-size: 34px; line-height: 1.12; }
+    .ladder-card p { margin: 0; color: var(--muted); font-size: 23px; line-height: 1.38; }
+
+    .context-action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 44px;
+    }
+    .context-action-card {
+      min-height: 420px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .context-action-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .context-action-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 23px;
+      font-weight: 850;
+    }
+    .context-action-card h3 {
+      margin: 22px 0 16px;
+      color: var(--ink);
+      font-size: 44px;
+      line-height: 1.1;
+    }
+    .context-action-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 26px;
+      line-height: 1.38;
+    }
+    .context-action-card.dark b { color: #b8d7ff; }
+    .context-action-card.dark h3,
+    .context-action-card.dark p { color: #fff; }
+
+    .mechanism-flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 46px;
+    }
+    .mechanism-step {
+      min-height: 420px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 28px 23px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mechanism-step::after {
+      content: "";
+      position: absolute;
+      right: -16px;
+      top: 50%;
+      width: 32px;
+      height: 2px;
+      background: #b8c6d8;
+      z-index: 2;
+    }
+    .mechanism-step:last-child::after { display: none; }
+    .mechanism-step b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 20px;
+      margin-bottom: 28px;
+    }
+    .mechanism-step h3 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: 31px;
+      line-height: 1.14;
+    }
+    .mechanism-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.36;
+    }
+
+    .context-map {
+      display: grid;
+      grid-template-columns: .72fr 1.78fr;
+      gap: 26px;
+      margin-top: 30px;
+      align-items: stretch;
+    }
+    .context-core {
+      border-radius: 8px;
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      padding: 30px;
+      min-height: 486px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .context-core b {
+      display: block;
+      color: #b8d7ff;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+    .context-core h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 38px;
+      line-height: 1.12;
+    }
+    .context-core p {
+      margin: 20px 0 0;
+      color: #dbeafe;
+      font-size: 21px;
+      line-height: 1.42;
+    }
+    .context-core-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .context-core-list span {
+      display: block;
+      border-radius: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 12px 14px;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 760;
+    }
+    .context-cloud {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .context-chip {
+      min-height: 132px;
+      border-radius: 8px;
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      padding: 15px 16px;
+    }
+    .context-chip b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+    .context-chip h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.12;
+    }
+    .context-chip p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.28;
+    }
+
+    .hallucination-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 42px;
+    }
+    .hallucination-card {
+      min-height: 390px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hallucination-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .hallucination-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+    .hallucination-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 35px;
+      line-height: 1.14;
+    }
+    .hallucination-card p {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.36;
+    }
+    .hallucination-card.dark b { color: #b8d7ff; }
+    .hallucination-card.dark h3,
+    .hallucination-card.dark p { color: #fff; }
+
+    .contract-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 42px;
+    }
+    .contract-panel {
+      min-height: 480px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 34px;
+    }
+    .contract-panel.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .contract-panel b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .contract-panel h3 {
+      margin: 0 0 24px;
+      color: var(--ink);
+      font-size: 46px;
+      line-height: 1.1;
+    }
+    .contract-weight {
+      display: inline-block;
+      margin: -8px 0 18px;
+      color: var(--muted);
+      font-size: 20px;
+      font-weight: 760;
+    }
+    .contract-panel.dark .contract-weight { color: #b8d7ff; }
+    .contract-panel.dark b { color: #b8d7ff; }
+    .contract-panel.dark h3 { color: #fff; }
+    .contract-list {
+      display: grid;
+      gap: 13px;
+    }
+    .contract-list span {
+      display: block;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      padding: 16px 18px;
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 720;
+    }
+    .contract-panel.dark .contract-list span {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.2);
+      color: #fff;
+    }
+
+    .principle-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 42px;
+    }
+    .principle-card {
+      min-height: 262px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 34px;
+    }
+    .principle-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .principle-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .principle-card h3 {
+      margin: 0 0 18px;
+      color: var(--ink);
+      font-size: 36px;
+      line-height: 1.14;
+    }
+    .principle-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.38;
+    }
+    .principle-card.dark b { color: #b8d7ff; }
+    .principle-card.dark h3,
+    .principle-card.dark p { color: #fff; }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .concept-grid.four-focus {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .concept-grid.big-three {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+    .concept-card {
+      min-height: 360px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .concept-card.large {
+      min-height: 440px;
+      padding: 36px 34px;
+    }
+    .concept-grid.four-focus .concept-card {
+      min-height: 410px;
+      padding: 30px 26px;
+    }
+    .concept-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .concept-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .concept-card h3 {
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.12;
+    }
+    .concept-grid.four-focus .concept-card h3 {
+      margin-bottom: 20px;
+      font-size: 48px;
+      line-height: 1.05;
+    }
+    .concept-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.34;
+    }
+    .concept-grid.four-focus .concept-card p {
+      font-size: 22px;
+      line-height: 1.34;
+    }
+    .concept-card.large b {
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+    .concept-card.large h3 {
+      font-size: 52px;
+      line-height: 1.04;
+      margin-bottom: 24px;
+    }
+    .concept-card.large p {
+      font-size: 25px;
+      line-height: 1.38;
+    }
+    .concept-note {
+      display: block;
+      margin-top: 28px;
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 820;
+      line-height: 1.32;
+    }
+    .concept-card.dark .concept-note { color: #b8d7ff; }
+    .concept-card.dark b { color: #b8d7ff; }
+    .concept-card.dark h3,
+    .concept-card.dark p { color: #fff; }
+    .concept-role {
+      display: block;
+      margin: 0 0 22px;
+      color: var(--ink);
+      font-size: 26px;
+      font-weight: 860;
+      line-height: 1.18;
+    }
+    .concept-card.dark .concept-role { color: #fff; }
+    .boundary-logic {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .boundary-logic-card {
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 18px 22px;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .boundary-logic-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .boundary-logic-card b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 860;
+      white-space: nowrap;
+    }
+    .boundary-logic-card.dark b { color: #b8d7ff; }
+    .boundary-logic-card span {
+      color: var(--muted);
+      font-size: 23px;
+      font-weight: 760;
+      line-height: 1.26;
+      text-align: right;
+    }
+    .boundary-logic-card.dark span { color: #fff; }
+    .multi-agent-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .multi-agent-grid.focus {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 38px;
+    }
+    .multi-agent-card {
+      min-height: 246px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 22px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .multi-agent-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .multi-agent-grid.focus .multi-agent-card {
+      min-height: 258px;
+      padding: 30px;
+    }
+    .multi-agent-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .multi-agent-card h3 {
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 34px;
+      line-height: 1.12;
+    }
+    .multi-agent-grid.focus .multi-agent-card h3 {
+      margin-bottom: 20px;
+      font-size: 56px;
+      line-height: 1.02;
+    }
+    .multi-agent-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.34;
+    }
+    .multi-agent-grid.focus .multi-agent-card p {
+      font-size: 24px;
+      line-height: 1.34;
+    }
+    .multi-agent-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .multi-agent-card li {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.28;
+    }
+    .multi-agent-card li strong {
+      color: var(--ink);
+      font-weight: 860;
+    }
+    .multi-agent-card.dark b { color: #b8d7ff; }
+    .multi-agent-card.dark h3,
+    .multi-agent-card.dark p,
+    .multi-agent-card.dark li,
+    .multi-agent-card.dark li strong { color: #fff; }
+    .multi-agent-extra-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .multi-agent-extra-grid .multi-agent-card {
+      min-height: 188px;
+      background: #fff;
+    }
+
+    .performance-slide {
+      background: #07111f;
+      color: #fff;
+    }
+    .performance-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("assets/ai-performance-stage.png") center / cover no-repeat;
+      opacity: .86;
+      z-index: 0;
+    }
+    .performance-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(4,10,19,.96) 0%, rgba(6,16,30,.8) 44%, rgba(6,16,30,.18) 100%);
+      z-index: 1;
+    }
+    .performance-content {
+      position: relative;
+      z-index: 2;
+      padding: 106px 112px;
+      max-width: 1050px;
+    }
+    .performance-kicker {
+      color: #b8d7ff;
+      font-size: 25px;
+      font-weight: 850;
+      margin-bottom: 26px;
+    }
+    .performance-content h1 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 86px;
+      line-height: 1.04;
+      max-width: 980px;
+    }
+    .performance-content p {
+      margin: 34px 0 0;
+      color: #dbeafe;
+      font-size: 31px;
+      line-height: 1.42;
+      max-width: 900px;
+    }
+    .performance-extra {
+      margin-top: 24px !important;
+      color: #fff !important;
+      font-size: 27px !important;
+      line-height: 1.36 !important;
+      font-weight: 820;
+    }
+    .performance-rules {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 44px;
+    }
+    .performance-rules span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 50px;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 215, 255, .34);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      padding: 0 22px;
+      font-size: 22px;
+      font-weight: 760;
+    }
+
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+    .mvv-card {
+      min-height: 275px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mvv-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .mvv-card b {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 850;
+    }
+    .mvv-card.dark b { color: #b8d7ff; }
+    .mvv-card h3 {
+      margin: 22px 0 0;
+      color: var(--ink);
+      font-size: 37px;
+      line-height: 1.12;
+    }
+    .mvv-card.dark h3 { color: #fff; }
+    .mvv-card p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.35;
+    }
+    .mvv-card.dark p { color: #e6f0ff; }
+    .example-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .example-strip div {
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 18px 20px;
+      min-height: 92px;
+    }
+    .example-strip b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .example-strip span {
+      display: block;
+      color: var(--ink);
+      font-size: 23px;
+      font-weight: 760;
+      line-height: 1.25;
+    }
+
+    .method-divider {
+      padding: 0 118px 0;
+      background: #fff;
+      overflow: hidden;
+    }
+    .method-num {
+      position: absolute;
+      right: 96px;
+      top: 46px;
+      color: rgba(47, 109, 180, .12);
+      font-family: var(--font-heading);
+      font-size: 220px;
+      font-weight: 900;
+      line-height: .84;
+      letter-spacing: 0 !important;
+    }
+    .method-inner {
+      position: absolute;
+      left: 122px;
+      right: 122px;
+      top: 322px;
+    }
+    .method-kicker {
+      color: var(--blue-2);
+      font-size: 38px;
+      font-weight: 880;
+      margin-bottom: 28px;
+    }
+    .method-divider h1 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 126px;
+      line-height: .96;
+    }
+    .method-divider p {
+      max-width: 1260px;
+      margin: 38px 0 0;
+      color: var(--muted);
+      font-size: 39px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+    .method-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 54px;
+    }
+    .method-tags span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 52px;
+      border-radius: 999px;
+      border: 1px solid #cfe0f5;
+      background: #f6faff;
+      color: var(--blue);
+      padding: 0 22px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .ingest-pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 42px;
+    }
+    .ingest-step {
+      min-height: 385px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ingest-step b {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 880;
+    }
+    .ingest-step h3 {
+      margin: 22px 0 0;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .ingest-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.36;
+    }
+    .legacy-ingest {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 34px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .legacy-source-panel,
+    .legacy-brain-panel {
+      min-height: 520px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 30px;
+    }
+    .legacy-source-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .legacy-source {
+      border-radius: 8px;
+      border: 1px solid #dbe6f4;
+      background: #fff;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 150px;
+    }
+    .legacy-source b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 860;
+    }
+    .legacy-source h3 {
+      margin: 16px 0 0;
+      color: var(--ink);
+      font-size: 31px;
+      line-height: 1.1;
+    }
+    .legacy-source p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.32;
+    }
+    .legacy-brain-panel {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 26px;
+    }
+    .legacy-brain-panel::before {
+      content: "";
+      position: absolute;
+      inset: 32px;
+      border: 1px solid rgba(184, 215, 255, .28);
+      border-radius: 999px;
+      transform: rotate(-8deg);
+    }
+    .legacy-brain-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+    .legacy-brain-kicker {
+      color: #b8d7ff;
+      font-size: 23px;
+      font-weight: 860;
+    }
+    .legacy-brain-core {
+      align-self: center;
+      justify-self: center;
+      width: 430px;
+      min-height: 260px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 34px;
+      box-shadow: 0 26px 60px rgba(0,0,0,.16);
+    }
+    .legacy-brain-core b {
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 860;
+      margin-bottom: 18px;
+    }
+    .legacy-brain-core h3 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 64px;
+      line-height: 1.02;
+    }
+    .legacy-brain-core p {
+      margin: 22px 0 0;
+      color: #e6f0ff;
+      font-size: 24px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+    .legacy-brain-rules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .legacy-brain-rules span {
+      min-height: 78px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      font-size: 21px;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+
+    .asset-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 34px;
+    }
+    .asset-panel {
+      min-height: 525px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .asset-panel.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .asset-panel b {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 860;
+    }
+    .asset-panel.dark b { color: #b8d7ff; }
+    .asset-panel h3 {
+      margin: 16px 0 0;
+      color: var(--ink);
+      font-size: 43px;
+      line-height: 1.08;
+    }
+    .asset-panel.dark h3 { color: #fff; }
+    .asset-panel ul {
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+    .asset-panel li {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.34;
+      padding-left: 25px;
+      position: relative;
+    }
+    .asset-panel li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-2);
+    }
+    .asset-panel.dark li { color: #e5efff; }
+    .asset-panel.dark li::before { background: #b8d7ff; }
+
+    .input-tool-grid {
+      display: grid;
+      grid-template-columns: 430px 1fr;
+      gap: 46px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .input-tool-grid .phone-shot { height: 570px; }
+    .input-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .metric-card {
+      min-height: 224px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .metric-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .metric-card b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 840;
+    }
+    .metric-card.dark b { color: #b8d7ff; }
+    .metric-card h3 {
+      margin: 16px 0 0;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.1;
+    }
+    .metric-card.dark h3 { color: #fff; }
+    .metric-card p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.34;
+    }
+    .metric-card.dark p { color: #e6f0ff; }
+
+    .auto-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .auto-flow-card {
+      min-height: 336px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .auto-flow-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .auto-flow-card b {
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 860;
+    }
+    .auto-flow-card.dark b { color: #b8d7ff; }
+    .auto-flow-card h3 {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 39px;
+      line-height: 1.1;
+    }
+    .auto-flow-card.dark h3 { color: #fff; }
+    .auto-flow-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.38;
+    }
+    .auto-flow-card.dark p { color: #e6f0ff; }
+    .flow-strip {
+      margin-top: 26px;
+      border-radius: 8px;
+      background: #eff6ff;
+      border: 1px solid #d7e7fa;
+      color: var(--blue);
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 820;
+      letter-spacing: 0 !important;
+    }
+
+    .typeless-layout {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 48px;
+      align-items: stretch;
+      margin-top: 34px;
+    }
+    .typeless-logo-card {
+      min-height: 540px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #f8fbff, #edf4ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 38px;
+    }
+    .typeless-logo-card img {
+      width: 245px;
+      height: 245px;
+      object-fit: cover;
+      border-radius: 52px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, .15);
+    }
+    .typeless-logo-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .typeless-logo-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 720;
+    }
+    .typing-stack {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 18px;
+    }
+    .tool-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .tool-pill {
+      min-height: 74px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .tool-pill b {
+      color: var(--blue-2);
+      font-size: 17px;
+      font-weight: 860;
+      white-space: nowrap;
+    }
+    .tool-pill span {
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 820;
+      text-align: right;
+    }
+    .typing-equation {
+      min-height: 448px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr 56px 1.05fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .typing-factor {
+      height: 100%;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid #dfe8f5;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .typing-factor.result {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .typing-factor small {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 860;
+    }
+    .typing-factor.result small { color: #b8d7ff; }
+    .typing-factor strong {
+      display: block;
+      margin-top: 24px;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 76px;
+      line-height: .95;
+      font-weight: 920;
+    }
+    .typing-factor.result strong { color: #fff; }
+    .typing-factor span {
+      display: block;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 720;
+    }
+    .typing-factor.result span { color: #e6f0ff; }
+    .equation-symbol {
+      color: rgba(47, 109, 180, .45);
+      font-family: var(--font-heading);
+      font-size: 70px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .thought-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+    .thought-card {
+      min-height: 236px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .thought-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .thought-card b {
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 860;
+    }
+    .thought-card.dark b { color: #b8d7ff; }
+    .thought-card h3 {
+      margin: 16px 0 0;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.1;
+    }
+    .thought-card.dark h3 { color: #fff; }
+    .thought-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.38;
+    }
+    .thought-card.dark p { color: #e6f0ff; }
+    .thought-focus-grid {
+      display: grid;
+      grid-template-columns: 1.22fr 1fr;
+      gap: 22px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .thought-focus-card {
+      min-height: 492px;
+      border-radius: 8px;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      padding: 38px 38px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+    .thought-focus-card b {
+      display: block;
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 860;
+      line-height: 1;
+    }
+    .thought-focus-card h3 {
+      margin: 22px 0 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 58px;
+      line-height: 1.04;
+    }
+    .thought-focus-card p {
+      margin: 0;
+      color: #e6f0ff;
+      font-size: 27px;
+      line-height: 1.34;
+      font-weight: 700;
+    }
+    .thought-side-stack {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .thought-mini-card {
+      min-height: 150px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 18px;
+      align-items: start;
+    }
+    .thought-mini-card b {
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 860;
+      line-height: 1.15;
+    }
+    .thought-mini-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.06;
+    }
+    .thought-mini-card p {
+      grid-column: 2;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.34;
+    }
+
+    .software-quote {
+      background:
+        radial-gradient(circle at 82% 18%, rgba(184, 215, 255, .18), transparent 34%),
+        linear-gradient(135deg, #102b4e 0%, #1f4f84 100%);
+      color: #fff;
+      padding: 0 128px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .software-quote::before {
+      content: none;
+    }
+    .software-quote .quote-wrap {
+      max-width: 1440px;
+      margin-top: 0;
+    }
+    .software-quote .kicker {
+      color: #b8d7ff;
+      font-size: 29px;
+      font-weight: 860;
+      margin-bottom: 28px;
+    }
+    .software-quote h1 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 142px;
+      line-height: .98;
+      letter-spacing: 0 !important;
+    }
+    .software-quote p {
+      margin: 42px 0 0;
+      color: #e7f0ff;
+      font-size: 38px;
+      line-height: 1.35;
+      max-width: 1260px;
+      font-weight: 720;
+    }
+    .software-quote .fine-print {
+      margin-top: 42px;
+      display: inline-flex;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 215, 255, .45);
+      background: rgba(255, 255, 255, .08);
+      color: #dbeafe;
+      padding: 16px 24px;
+      font-size: 23px;
+      font-weight: 760;
+    }
+
+    .storage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 38px;
+    }
+    .storage-card {
+      min-height: 390px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .storage-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .storage-card b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 850;
+    }
+    .storage-card.dark b { color: #b8d7ff; }
+    .storage-card h3 {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 36px;
+      line-height: 1.08;
+    }
+    .storage-card.dark h3 { color: #fff; }
+    .storage-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.36;
+    }
+    .storage-card.dark p { color: #e6f0ff; }
+
+    .index-stack {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .index-stack.triple {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .index-layer {
+      min-height: 430px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .index-stack.triple .index-layer { min-height: 380px; }
+    .index-layer.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .index-layer b {
+      color: var(--blue-2);
+      font-size: 19px;
+      font-weight: 850;
+    }
+    .index-layer.dark b { color: #b8d7ff; }
+    .index-layer h3 {
+      margin: 14px 0 0;
+      color: var(--ink);
+      font-size: 31px;
+      line-height: 1.12;
+    }
+    .index-layer.dark h3 { color: #fff; }
+    .index-layer p {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.35;
+    }
+    .index-layer.dark p { color: #e6f0ff; }
+    .index-layer small {
+      display: block;
+      color: var(--subtle);
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+    .index-layer.dark small { color: #b8d7ff; }
+    .concept-index-stack .index-layer h3 {
+      margin-top: 16px;
+      font-family: var(--font-heading);
+      font-size: 54px;
+      line-height: 1.02;
+    }
+    .concept-index-stack .index-layer p {
+      margin-top: 22px;
+      font-size: 18px;
+      line-height: 1.34;
+    }
+    .concept-index-stack .index-layer small {
+      font-size: 16px;
+      line-height: 1.34;
+    }
+    .architecture-strip {
+      margin-top: 22px;
+      border: 1px solid #cfe0f5;
+      border-radius: 8px;
+      background: #f6faff;
+      padding: 18px 22px;
+      color: var(--blue);
+      font-size: 23px;
+      line-height: 1.35;
+      font-weight: 760;
+    }
+
+    .review-loop {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .review-step {
+      min-height: 390px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .review-step.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .review-step b {
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 850;
+    }
+    .review-step.dark b { color: #b8d7ff; }
+    .review-step h3 {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 30px;
+      line-height: 1.08;
+    }
+    .review-step.dark h3 { color: #fff; }
+    .review-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.36;
+    }
+    .review-step.dark p { color: #e6f0ff; }
+
+    .loop-engine-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.1fr .95fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 38px;
+    }
+    .loop-engine-card {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 30px;
+      min-height: 474px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .loop-engine-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .loop-engine-card b {
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 850;
+    }
+    .loop-engine-card.dark b { color: #b8d7ff; }
+    .loop-engine-card h3 {
+      margin: 20px 0 0;
+      color: var(--ink);
+      font-size: 39px;
+      line-height: 1.1;
+    }
+    .loop-engine-card.dark h3 { color: #fff; }
+    .loop-engine-card p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.36;
+    }
+    .loop-engine-card.dark p { color: #e6f0ff; }
+
+    .video-loop-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 28px;
+      margin-top: 32px;
+    }
+    .video-loop-core {
+      min-height: 530px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .video-loop-core b {
+      color: #b8d7ff;
+      font-size: 22px;
+      font-weight: 860;
+    }
+    .video-loop-core h3 {
+      margin: 18px 0 0;
+      color: #fff;
+      font-size: 48px;
+      line-height: 1.05;
+    }
+    .video-loop-core p {
+      margin: 24px 0 0;
+      color: #e6f0ff;
+      font-size: 24px;
+      line-height: 1.38;
+    }
+    .video-loop-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .video-loop-side .mini-card {
+      min-height: 255px;
+    }
+    .throughput-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr;
+      gap: 28px;
+      margin-top: 32px;
+    }
+    .throughput-core {
+      min-height: 530px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .throughput-core b {
+      color: #b8d7ff;
+      font-size: 22px;
+      font-weight: 860;
+    }
+    .throughput-core h3 {
+      margin: 22px 0 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 58px;
+      line-height: 1.03;
+    }
+    .throughput-core p {
+      margin: 0;
+      color: #e6f0ff;
+      font-size: 25px;
+      line-height: 1.38;
+      font-weight: 720;
+    }
+    .throughput-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .throughput-side .mini-card {
+      min-height: 255px;
+    }
+    .throughput-side .mini-card strong {
+      display: block;
+      color: var(--blue);
+      font-family: var(--font-heading);
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .brain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 42px;
+    }
+    .brain-card {
+      min-height: 365px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      padding: 30px;
+      background: var(--bg-alt);
+    }
+    .brain-card h3 { margin: 0 0 18px; font-size: 34px; line-height: 1.15; color: var(--ink); }
+    .brain-card p { margin: 0; color: var(--muted); font-size: 23px; line-height: 1.42; }
+
+    .library-warroom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-top: 38px;
+    }
+    .place {
+      height: 500px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .place h3 { margin: 0; color: var(--blue); font-size: 40px; }
+    .place p { margin: 0; color: var(--muted); font-size: 25px; line-height: 1.42; }
+    .place.dark { background: var(--blue); border-color: var(--blue); }
+    .place.dark h3, .place.dark p { color: #fff; }
+
+    .phone-flow {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 54px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .phone-shot {
+      height: 586px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: #eef2f7;
+    }
+    .phone-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .loop-board {
+      margin-top: 34px;
+      height: 560px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fbfdff;
+      position: relative;
+    }
+    .loop-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 38px;
+      line-height: 1.15;
+      padding: 30px;
+    }
+    .loop-node {
+      position: absolute;
+      width: 235px;
+      padding: 18px 20px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.3;
+    }
+    .loop-node strong { display: block; color: var(--ink); font-size: 26px; margin-bottom: 7px; }
+
+    .flywheel {
+      height: 550px;
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 430px 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .fly-stack { display: grid; gap: 18px; }
+    .fly-core {
+      height: 430px;
+      border-radius: 50%;
+      border: 3px solid var(--blue);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--blue);
+      font-family: var(--font-heading);
+      font-size: 42px;
+      line-height: 1.16;
+      background: #fff;
+    }
+
+    .founder-path {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 26px;
+      margin-top: 46px;
+      align-items: stretch;
+    }
+    .path-card {
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      padding: 34px;
+      min-height: 390px;
+      background: var(--bg-alt);
+    }
+    .path-card h3 { margin: 0 0 20px; font-size: 38px; line-height: 1.16; color: var(--ink); }
+    .path-card p { margin: 0; font-size: 25px; line-height: 1.4; color: var(--muted); }
+    .path-card.dark { background: var(--blue); border-color: var(--blue); }
+    .path-card.dark h3, .path-card.dark p { color: #fff; }
+
+    .emergence-layout {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 28px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .emergence-routes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .emergence-card {
+      min-height: 194px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 24px 26px;
+      position: relative;
+    }
+    .emergence-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .emergence-card h3 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: 31px;
+      line-height: 1.16;
+    }
+    .emergence-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.35;
+    }
+    .emergence-card .tag {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #e8eef7;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .emergence-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .emergence-card.dark b { color: #b8d7ff; }
+    .emergence-card.dark h3,
+    .emergence-card.dark p { color: #fff; }
+    .emergence-card.dark .tag {
+      background: #b8d7ff;
+      color: var(--blue);
+    }
+    .emergence-side {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 18px;
+    }
+    .control-panel {
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--rule);
+      padding: 30px;
+    }
+    .control-panel b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+    .control-panel h3 {
+      margin: 0 0 18px;
+      font-size: 39px;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .control-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.42;
+    }
+    .control-chain {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .control-chain span {
+      display: grid;
+      place-items: center;
+      min-height: 58px;
+      border-radius: 8px;
+      background: #e8eef7;
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 850;
+      text-align: center;
+      line-height: 1.15;
+    }
+    .shadow-panel {
+      border-radius: 8px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 24px 26px;
+    }
+    .shadow-panel h3 {
+      margin: 0 0 12px;
+      color: #9a3412;
+      font-size: 28px;
+      line-height: 1.16;
+    }
+    .shadow-panel p {
+      margin: 0;
+      color: #7c2d12;
+      font-size: 21px;
+      line-height: 1.36;
+    }
+    .org-shift-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .org-shift-card {
+      min-height: 258px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 26px;
+    }
+    .org-shift-card b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .org-shift-card h3 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.14;
+    }
+    .org-shift-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.38;
+    }
+    .org-founder-panel {
+      margin-top: 22px;
+      min-height: 170px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 26px;
+      align-items: center;
+      padding: 28px 34px;
+    }
+    .org-founder-panel b {
+      display: block;
+      color: #b8d7ff;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .org-founder-panel h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 42px;
+      line-height: 1.12;
+    }
+    .org-founder-panel p {
+      margin: 0;
+      color: #e6f0ff;
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 42px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .case-image {
+      height: 560px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: #edf2f7;
+    }
+    .case-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .case-image.contain img { object-fit: contain; background: #eef3f8; }
+    .case-image.browser img { object-fit: contain; background: #eef2f7; padding: 16px; }
+    .mosaic {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      padding: 12px;
+      background: #eef2f7;
+    }
+    .mosaic img {
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+      border-radius: 6px;
+      border: 1px solid #d6e0ec;
+      background: #fff;
+      object-fit: cover;
+    }
+    .mosaic img:first-child { grid-row: 1 / span 2; object-fit: contain; }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      padding: 12px;
+      background: #eef2f7;
+    }
+    .proof-grid img {
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+      border-radius: 6px;
+      border: 1px solid #d6e0ec;
+      object-fit: cover;
+      background: #fff;
+    }
+    .case-points { display: grid; gap: 18px; }
+    .case-points .card { min-height: 120px; padding: 24px 28px; }
+    .case-points .card h3 { font-size: 28px; margin-bottom: 8px; }
+    .case-points .card p { font-size: 22px; }
+
+    .day-plan {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 42px;
+    }
+    .day-card {
+      min-height: 440px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 32px;
+    }
+    .day-card h3 { margin: 0 0 18px; font-size: 38px; color: var(--blue); }
+    .day-card ul { margin: 0; padding-left: 26px; color: var(--muted); font-size: 24px; line-height: 1.55; }
+    .day-card.dark { background: var(--blue); border-color: var(--blue); }
+    .day-card.dark h3, .day-card.dark ul { color: #fff; }
+
+    .final {
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      gap: 70px;
+      align-items: center;
+      padding: 106px 132px;
+      background: var(--blue);
+      color: #fff;
+    }
+    .final-logo {
+      width: 330px;
+      height: 92px;
+      background: url("mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+      filter: brightness(0) invert(1);
+      opacity: .96;
+      margin-bottom: 84px;
+    }
+    .final h1 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 92px;
+      line-height: 1.06;
+      color: #fff;
+    }
+    .final p {
+      max-width: 930px;
+      margin: 30px 0 0;
+      color: #d8e9ff;
+      font-size: 30px;
+      line-height: 1.45;
+    }
+    .final-stack { display: grid; gap: 18px; }
+    .final-stack .mini-card {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.22);
+    }
+    .final-stack .mini-card h3, .final-stack .mini-card p { color: #fff; }
+    .final.quote-only {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 126px 132px;
+    }
+    .final.quote-only .final-logo {
+      margin-bottom: 76px;
+    }
+    .final.quote-only h1 {
+      max-width: 1540px;
+      font-size: 108px;
+      line-height: 1.08;
+    }
+    .final.quote-only p {
+      max-width: 1240px;
+      margin-top: 40px;
+      font-size: 34px;
+      line-height: 1.42;
+    }
+    aside.speaker-notes { display: none; }
+  </style>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+
+<section class="slide cover no-chrome" data-label="开场" data-page="1">
+    <div>
+      <div class="cover-logo"></div>
+      <div class="cover-kicker">7 月 4-5 日 AI 数字员工工作坊</div>
+      <h1>用 AI 打造<br />企业家第二大脑<span class="blue-dot">.</span></h1>
+      <p class="cover-copy">好的上下文，会让 AI 越来越懂你、懂业务、懂标准。</p>
+      <div class="cover-meta">
+        <div><b>对象</b><span>企业家及业务负责人</span></div>
+        <div><b>时长</b><span>60 分钟分享</span></div>
+        <div><b>目标</b><span>从个人到组织 AI 化</span></div>
+      </div>
+    </div>
+    <div class="cover-visual">
+      <img src="assets/workshop-hero.jpg" alt="AI 数字员工工作坊活动视觉" />
+      <div class="proof-badges">
+        <div><strong>Day 1</strong><span>认知与第二大脑</span></div>
+        <div><strong>Day 2</strong><span>数字员工雏形</span></div>
+        <div><strong>30 天</strong><span>线上陪跑与迭代</span></div>
+      </div>
+    </div>
+    <aside class="speaker-notes">今天接在 Lincoln 老师之后讲。Lincoln 会讲如何用 AI 打造“一人”市场团队，我这一小时把视角往上提一层：企业家自己如何先成为超级个体，并把自己的判断、业务上下文和 AI 工作方式沉淀下来，成为后面数字员工和组织 AI 化的底座。</aside>
+  </section>
+
+<section class="slide body yusi-intro" data-label="雨丝介绍" data-page="2">
+    <div class="eyebrow">Instructor · 主讲人介绍</div>
+    <h1 class="slide-title">雨丝</h1>
+    <p class="yusi-role">MindsLeap 联合创始人 &amp; CPO</p>
+    <span class="slide-bar"></span>
+    <div class="yusi-intro-grid">
+      <div class="yusi-bio-list">
+        <div><b>当前角色：</b>MindsLeap 联合创始人 &amp; CPO，Founders Space 中国合伙人，企业家 AI 俱乐部联合发起人。</div>
+        <div><b>教育产品一线：</b>曾担任全球排名第一教育科技公司 32 亿美元独角兽 Emeritus 中国区产品负责人。复旦大学本科。</div>
+        <div><b>少儿教育与出海：</b>前纳斯达克上市教育公司少儿产品线负责人，字节跳动教育出海业务资深产品经理。</div>
+        <div><b>产品从 0 到 1：</b>主导十余款教育产品从 0 到 1 的构建，服务用户超百万。</div>
+        <div><b>AI 教育与母亲视角：</b>长期关注 AI 对学习方式、创造力培养与个性化教育的影响；作为 7 个月孩子的妈妈，也更关心技术变化背后“人如何成长”的问题。</div>
+      </div>
+      <div class="yusi-photo">
+        <img src="assets/yusi.png" alt="雨丝主讲人照片" />
+      </div>
+    </div>
+    <aside class="speaker-notes">这里简短介绍自己，不需要逐条念完。重点让大家知道我的背景一方面在教育产品、少儿教育和出海，另一方面现在在 MindsLeap 做企业 AI 和数字员工相关的事情。所以今天讲第二大脑，不是单纯从工具角度讲，而是从产品、教育、组织和人的成长几个视角一起看。</aside>
+  </section>
+
+<section class="slide body" data-label="分享主轴" data-page="3">
+    <div class="eyebrow">今天的路线 · 从 AI 拐点到组织杠杆</div>
+    <h1 class="slide-title">分享主轴</h1>
+    <span class="slide-bar"></span>
+    <div class="agenda-layout">
+      <div class="agenda-lead">
+        <div class="agenda-label">一条路径</div>
+        <h2>先让 AI 懂你，<br />再带组织会用 AI</h2>
+        <p>从看见拐点，到个人第二大脑，再到超级团队。</p>
+      </div>
+      <div class="agenda-spine">
+        <div class="agenda-item"><b>01</b><h3>看见拐点</h3></div>
+        <div class="agenda-item"><b>02</b><h3>第二大脑必要性</h3></div>
+        <div class="agenda-item"><b>03</b><h3>提升输出质量</h3></div>
+        <div class="agenda-item"><b>04</b><h3>手搓第二大脑</h3></div>
+        <div class="agenda-item final-step"><b>05</b><h3>从超级个体到超级团队</h3></div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这页先给大家一张地图。第一部分看见拐点：AI 在数字世界已经过了临界点，本地智能体开始进入真实工作现场。第二部分解释第二大脑的必要性，以及为什么 AI 是一把手工程。第三部分讲怎样提升智能体输出质量。第四部分讲怎么手搓自己的第二大脑。第五部分讲从超级个体到超级团队：创始人先有体感，再把这套工作方式复制到组织里。</aside>
+  </section>
+
+<section class="slide part-divider" data-label="Part 1 看见拐点" data-page="4">
+    <div class="part-num">01</div>
+    <div>
+      <div class="part-kicker">Part One · 看见拐点</div>
+      <h1>看见拐点</h1>
+      <p>AI 已经进入数字世界的工作现场。</p>
+    </div>
+    <aside class="speaker-notes">第一部分先讲现实情况。这里不急着讲方法，先让大家意识到：AI 的变化在数字世界已经过了临界点。很多人的体感滞后，是因为他们还在用聊天框体验 AI。</aside>
+  </section>
+
+<section class="slide body" data-label="临界点" data-page="5">
+    <div class="eyebrow">阶段判断 · 数字世界与具身世界正在分化</div>
+    <h1 class="slide-title">数字世界的 AI 已经过了临界点</h1>
+    <span class="slide-bar"></span>
+    <div class="curve-board">
+      <div class="axis-label y">能力 / 可用性</div>
+      <div class="axis-label x">时间</div>
+      <svg class="curve-svg" data-functional-curve viewBox="0 0 1500 480" aria-label="指数型能力曲线">
+        <line x1="90" y1="420" x2="1160" y2="420" stroke="#cbd5e1" stroke-width="3" />
+        <line x1="90" y1="60" x2="90" y2="420" stroke="#cbd5e1" stroke-width="3" />
+        <path id="curve-slow" fill="none" stroke="#8c939b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+        <path id="curve-fast" fill="none" stroke="#1e477c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+        <circle id="curve-point-public" r="13" fill="#fff" stroke="#1e477c" stroke-width="7" />
+        <circle id="curve-point-tipping" r="15" fill="#fff" stroke="#b42318" stroke-width="8" />
+        <circle id="curve-point-actual" r="13" fill="#fff" stroke="#1e477c" stroke-width="7" />
+        <text id="curve-label-tipping" fill="#b42318" font-size="27" font-weight="800">临界点</text>
+        <g id="curve-flex-person" fill="none" stroke="#1e477c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="0" cy="-42" r="11" fill="#fff" />
+          <path d="M0 -28 L0 10" />
+          <path d="M0 -17 C-17 -25 -27 -35 -30 -49" />
+          <path d="M-30 -49 C-18 -52 -13 -45 -17 -36" />
+          <path d="M0 -17 C18 -25 29 -35 32 -49" />
+          <path d="M32 -49 C20 -52 15 -45 19 -36" />
+          <path d="M0 10 L-17 37" />
+          <path d="M0 10 L18 37" />
+        </g>
+      </svg>
+    </div>
+    <div class="source-line">Sources: Stanford HAI AI Index 2026; AI Index Technical Performance chapter.</div>
+    <div class="speaker-cue" data-qa-ignore-footer>案例：给老公的生日礼物</div>
+    <aside class="speaker-notes">这里要避免笼统说 AI 已经超过人类。更准确的说法是，在可数字化、可复制、可校验的任务里，AI 已经跨过企业可用临界点。写代码、做研究、处理文档、搭网页、做流程自动化，这些任务已经进入规模化使用阶段。具身世界，特别是开放家庭任务和真实机器人操作，还没有同样成熟。</aside>
+  </section>
+
+<section class="slide body" data-label="感知滞后" data-page="6">
+    <div class="eyebrow">为什么很多人还没感到变化</div>
+    <h1 class="slide-title">大多数人的 AI 体验，还停在聊天框</h1>
+    <p class="slide-subtitle">真正的变化：读文件、调工具、连续执行、交付结果、<span class="nowrap">接受复盘。</span></p>
+    <span class="slide-bar"></span>
+    <div class="agent-compare">
+      <div class="compare-head">
+        <b>左侧体验</b>
+        <h3>聊天框</h3>
+      </div>
+      <div class="compare-head dark">
+        <b>右侧体验</b>
+        <h3>本地智能体</h3>
+      </div>
+      <div class="compare-row">
+        <strong>01 · 记忆沉淀</strong>
+        <p>上下文不沉淀，经验留在聊天记录里，难以复用。</p>
+      </div>
+      <div class="compare-row dark">
+        <strong>01 · 记忆沉淀</strong>
+        <p>偏好、复盘、有效做法写回本地，下一次可调用。</p>
+      </div>
+      <div class="compare-row">
+        <strong>02 · 资料权限</strong>
+        <p>资料靠复制粘贴，看不到项目目录和历史文件。</p>
+      </div>
+      <div class="compare-row dark">
+        <strong>02 · 资料权限</strong>
+        <p>直接读取本地文件、项目状态和历史输出。</p>
+      </div>
+      <div class="compare-row">
+        <strong>03 · 行动能力</strong>
+        <p>主要给答案，不能改文件、跑检查、调工具。</p>
+      </div>
+      <div class="compare-row dark">
+        <strong>03 · 行动能力</strong>
+        <p>能读写文件、调用工具，把任务推进到交付。</p>
+      </div>
+      <div class="compare-row">
+        <strong>04 · 规则对齐</strong>
+        <p>角色设定会被长对话稀释，每次都要重新交代。</p>
+      </div>
+      <div class="compare-row dark">
+        <strong>04 · 规则对齐</strong>
+        <p>AGENTS.md / instructions.md 固化边界、标准和优先级。</p>
+      </div>
+    </div>
+    <div class="speaker-cue" data-qa-ignore-footer>案例：育儿问答</div>
+    <aside class="speaker-notes">很多企业家的 AI 体验来自几次聊天：写一段文案，问一个方案，做一个总结。这种体验会有用，但它和本地智能体的差别要一一对应来看。第一是记忆沉淀：聊天框的经验留在聊天记录里，本地智能体可以把偏好、复盘和有效做法写回本地。第二是资料权限：聊天框靠复制粘贴，本地智能体能看项目目录和历史文件。第三是行动能力：聊天框主要给答案，本地智能体能读写文件、调用工具、跑检查，把任务推进到交付。第四是规则对齐：聊天框的角色设定会被长对话稀释，本地智能体可以通过 AGENTS.md、instructions.md 固化边界、标准和优先级。这里可以讲“育儿问答”的例子：同样问一个问题，聊天框只能基于这一轮输入回答；本地智能体如果长期沉淀孩子年龄、性格、家庭原则、过去尝试过的方法和有效反馈，回答就会更像一个了解家庭上下文的助手。</aside>
+  </section>
+
+<section class="slide quote gibson-quote no-chrome" data-label="未来已来" data-page="7">
+    <div class="quote-mark">OPENING QUOTE · WILLIAM GIBSON</div>
+    <div class="big-quote">“</div>
+    <h1>The future is already here.<br />It’s just not evenly distributed.</h1>
+    <p>未来已经到来，只是尚未均匀分布。</p>
+    <div class="quote-credit">William Gibson <span>Writer · Cyberpunk Pioneer</span></div>
+    <div class="codex-signal">
+      <b>CODEX SIGNAL</b>
+      <strong>500万+ 周活</strong>
+      <span>非开发者 10%+，增速超过开发者 3 倍。</span>
+      <small>Source: OpenAI · Codex for knowledge work · 2026.06</small>
+    </div>
+    <aside class="speaker-notes">这句话常被归给 William Gibson。这里要把上一页的感知滞后接到“未来已来，只是分布不均”：同一个模型，有人只拿来聊天，有人已经让它参与产品、投研、内容、销售、运营和内部系统建设。右下角可以顺带讲 Codex 的最新信号：OpenAI 在 2026 年 6 月披露，Codex 周活超过 500 万，非开发者 10%+，并且增长速度超过开发者 3 倍。这个数据说明 Agent 工作方式正在从程序员扩散到更广的知识工作者。</aside>
+  </section>
+
+<section class="slide body" data-label="工具类比" data-page="8">
+    <div class="eyebrow">工具类比 · 从本地智能体到具体选择</div>
+    <h1 class="slide-title">三个本地智能体工具，可以理解成三种 AI 人才市场</h1>
+    <p class="slide-subtitle">按任务难度、人才等级和成本结构分层调用。</p>
+    <span class="slide-bar"></span>
+    <div class="tool-market">
+      <div class="tool-card">
+        <div>
+          <span class="tool-index">01</span>
+          <b class="tool-name">WorkBuddy</b>
+          <h3>国内优质人才市场</h3>
+          <div class="tool-role">
+            <strong>985 / 211 本科生</strong>
+            <span>中文业务语境更近，适合高频执行和快速跟进。</span>
+          </div>
+          <div class="tool-tags"><span>国内语境</span><span>高性价比</span><span>执行友好</span></div>
+        </div>
+        <small>类比：靠谱、熟悉现场、上手快。</small>
+      </div>
+      <div class="tool-card featured">
+        <div>
+          <span class="tool-index">02</span>
+          <b class="tool-name">Codex</b>
+          <h3>海外名校人才市场</h3>
+          <div class="tool-role">
+            <strong>常春藤博士生密集</strong>
+            <span>高等人才“优惠包”，适合复杂推理、架构和高质量交付。</span>
+          </div>
+          <div class="tool-tags"><span>顶尖能力</span><span>深度任务</span><span>性价比极高</span></div>
+        </div>
+        <small>类比：用较低成本调用高密度高等人才。</small>
+      </div>
+      <div class="tool-card">
+        <div>
+          <span class="tool-index">03</span>
+          <b class="tool-name">Hermes</b>
+          <h3>综合人才融合市场</h3>
+          <div class="tool-role">
+            <strong>Pay-as-you-go</strong>
+            <span>人才齐备，顶尖人才管控，高性价比人才执行。</span>
+          </div>
+          <div class="tool-tags"><span>按需付费</span><span>分层管理</span><span>组合调度</span></div>
+        </div>
+        <small>类比：复杂项目里的“人才组合与调度层”。</small>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页不展开工具教程，只建立直觉。WorkBuddy 可以讲成国内优质人才市场，很多人才像中国 985、211 本科生，适合中文业务语境、高频执行和快速响应。Codex 可以讲成海外名校人才市场，像汇聚了很多常春藤博士生，高等人才密度很高，而且因为产品定价，相当于一个高等人才优惠包。Hermes 可以讲成综合性人才融合市场，按需付费，各类人才都有；顶尖人才成本高，但可以让顶尖人才负责判断、拆解和管理，再配合高性价比人才执行。</aside>
+  </section>
+
+<section class="slide body" data-label="永不离职的人才" data-page="9">
+    <div class="eyebrow">数字人才 · 为什么值得认真训练</div>
+    <h1 class="slide-title">数字人才，是企业里永不离职的人才</h1>
+    <p class="slide-subtitle">训练成果会留在公司，越用越懂业务，越用越能独立承担任务。</p>
+    <span class="slide-bar"></span>
+    <div class="talent-grid">
+      <div class="talent-card">
+        <div>
+          <b>01 · 学习</b>
+          <h3>补课速度很快</h3>
+          <p>新行业、新产品、新流程，给足 Context 就能迅速进入任务。</p>
+        </div>
+        <strong>快</strong>
+      </div>
+      <div class="talent-card">
+        <div>
+          <b>02 · 迭代</b>
+          <h3>不会僵化固化</h3>
+          <p>任务结果、错误原因和有效做法，会变成下一次的起点。</p>
+        </div>
+        <strong>活</strong>
+      </div>
+      <div class="talent-card">
+        <div>
+          <b>03 · 协作</b>
+          <h3>不会争地盘</h3>
+          <p>没有部门墙和职位焦虑，可以围绕最重要的业务目标自由调度。</p>
+        </div>
+        <strong>顺</strong>
+      </div>
+      <div class="talent-card dark">
+        <div>
+          <b>04 · 沉淀</b>
+          <h3>经验不随人走</h3>
+          <p>数字员工可以切换，但上下文、SOP 和复盘会持续留在公司。</p>
+        </div>
+        <strong>稳</strong>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页解释为什么要认真训练数字人才。数字人才和外包工具最大的差别，是训练成果可以留在公司。它们学习极快，不会像传统岗位一样固化，也不会为了部门边界和职位安全争地盘。更重要的是，数字人才每次完成任务、接受复盘、改掉错误，都能把经验写回系统。它们的起点可能是老板，但经过真实业务持续碰撞后，会在某些领域变得比老板更强。对领导者来说，这是一件好事，因为组织本来就应该让下属在专业领域超过自己。</aside>
+  </section>
+
+<section class="slide part-divider" data-label="Part 2 第二大脑必要性" data-page="10">
+    <div class="part-num">02</div>
+    <div>
+      <div class="part-kicker">Part Two · 第二大脑必要性</div>
+      <h1>第二大脑必要性</h1>
+      <p>高手来了，先让他真正懂你。</p>
+    </div>
+    <aside class="speaker-notes">第二部分解释为什么企业家需要建立自己的第二大脑。我们已经能从 AI 人才市场雇到很强的人，但强能力不等于懂公司。第二大脑的任务，就是把老板的判断、业务上下文和验收标准沉淀下来，让 AI 员工更快进入状态。</aside>
+  </section>
+
+<section class="slide body" data-label="入职培训" data-page="11">
+    <div class="eyebrow">高端人才 · 能力强不等于马上懂公司</div>
+    <h1 class="slide-title">再高端的人才，也要磨合后才用得顺手</h1>
+    <p class="slide-subtitle">人才市场解决能力供给，第二大脑解决上下文和默契。</p>
+    <span class="slide-bar"></span>
+    <div class="onboarding-split">
+      <div class="onboarding-hero">
+        <div>
+          <b>入职培训</b>
+          <h3>培训很快，磨合很慢</h3>
+          <p>流程、工具、权限可以很快讲完；判断、口味和边界要靠长期共事。</p>
+          <div class="onboarding-mini-list">
+            <span>培训：知道怎么开始干</span>
+            <span>磨合：知道什么叫做好</span>
+            <span>第二大脑：把磨合变成可调用 Context</span>
+          </div>
+        </div>
+      </div>
+      <div class="subagent-visual">
+        <div class="subagent-head">
+          <b>SubAgent 入职示意</b>
+          <span>同一套上下文包，分发给多个数字员工并发工作。</span>
+        </div>
+        <div class="subagent-flow">
+          <div class="flow-node context">
+            <b>第二大脑</b>
+            <h3>业务 Context 包</h3>
+            <p>老板判断、历史案例、风格偏好、价值边界和 Eval。</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node main">
+            <b>主 Agent</b>
+            <h3>拆解任务</h3>
+            <p>把目标拆成可并发、可验收的小任务。</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="subagent-list">
+            <div class="subagent-pill"><b>SubAgent 01</b><strong>调研</strong></div>
+            <div class="subagent-pill"><b>SubAgent 02</b><strong>执行</strong></div>
+            <div class="subagent-pill"><b>SubAgent 03</b><strong>QA</strong></div>
+          </div>
+        </div>
+        <div class="subagent-return">结果、错误和复盘再写回第二大脑</div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里承接上一页的人才市场类比。即使雇到了非常聪明的人，也需要磨合。入职培训能很快讲清楚流程、工具和权限，但真正决定交付质量的是判断、口味和边界。AI 高端人才也是一样。第二大脑的价值，是把老板和公司长期磨出来的判断沉淀成 Context 包。这样主 Agent 拆任务时，可以把同一套上下文分发给调研、执行、QA 等 SubAgent；它们做完以后，结果、错误和复盘再写回第二大脑，下一次协作就更顺。</aside>
+  </section>
+
+<section class="slide body" data-label="脑机接口" data-page="12">
+    <div class="eyebrow">企业家第二大脑 · 连接老板判断与高端 AI 人才</div>
+    <h1 class="slide-title">第二大脑，是企业家和高端 AI 人才之间的脑机接口</h1>
+    <p class="slide-subtitle">它把人的隐性判断，转成 AI 能高速检索、复盘、调用的长期 Context。</p>
+    <span class="slide-bar"></span>
+    <div class="bci-layout">
+      <div class="bci-visual">
+        <img src="assets/brain-computer-interface.png" alt="企业家第二大脑脑机接口示意图" />
+      </div>
+      <div class="bci-panel">
+        <div class="bci-flow">
+          <div class="bci-step">
+            <b>01</b>
+            <div>
+              <h3>输入：企业家的隐性判断</h3>
+              <p>客户能不能接、产品怎么取舍、文案像不像你、什么钱不能赚。</p>
+            </div>
+          </div>
+          <div class="bci-step dark">
+            <b>02</b>
+            <div>
+              <h3>转译：变成 AI 可调用 Context</h3>
+              <p>第二大脑把长期磨合沉淀为可检索、可复盘、可更新的工作背景。</p>
+            </div>
+          </div>
+          <div class="bci-step">
+            <b>03</b>
+            <div>
+              <h3>调用：高端 AI 人才快速入职</h3>
+              <p>拿到上下文、边界和 Eval 后，数字员工直接进入高质量协作。</p>
+            </div>
+          </div>
+        </div>
+        <div class="bci-metrics">
+          <div class="bci-metric">
+            <b>人和人</b>
+            <strong>十几个 bit/s</strong>
+            <p>靠说、写、听、读慢慢转码，磨合周期很长。</p>
+          </div>
+          <div class="bci-metric dark">
+            <b>AI 和 AI</b>
+            <strong>上亿 bit/s</strong>
+            <p>向量、参数和高维空间，让检索与迭代高速发生。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里正式提出企业家第二大脑的概念。它相当于企业家和高端 AI 人才之间的脑机接口。这页用一条转译链路说清楚：第一步，企业家的隐性判断进入系统，比如客户能不能接、产品怎么取舍、文案像不像你、什么钱不能赚；第二步，第二大脑把这些长期磨合沉淀成 AI 可调用的 Context；第三步，高端 AI 人才拿到上下文、边界和 Eval 后，就能快速进入高质量协作。速率对比只是解释为什么这件事有意义：人和人之间靠语言传递信息，语言思考大约是每秒十几个比特量级；AI 之间通过向量、参数和高维空间进行计算、检索、迭代，可以达到每秒上亿比特量级。第二大脑就是把你的隐性判断转成 AI 可以高速调用的上下文。参考：AI 教育老师场 deck 的人脑与 AI 速率类比。</aside>
+  </section>
+
+<section class="slide body" data-label="本地第二大脑" data-page="13">
+    <div class="eyebrow">第二大脑 · 归你所有</div>
+    <h1 class="slide-title">第二大脑放在本地，换工具才不掉一层肉</h1>
+    <p class="slide-subtitle">工具只是接口，长期 Context 必须留在你自己的本地系统里。</p>
+    <span class="slide-bar"></span>
+    <div class="local-brain-layout">
+      <div class="local-core">
+        <div>
+          <b>本地资产</b>
+          <h3>AI 易读、易索引、可迁移</h3>
+          <p>闪念、历史资料、项目过程、复盘和 SOP，都沉淀在自己的文件系统。</p>
+        </div>
+        <div class="local-chip-row">
+          <span>Codex</span>
+          <span>Hermes</span>
+          <span>Claude Code</span>
+          <span>未来工具</span>
+        </div>
+      </div>
+      <div class="local-flow">
+        <div class="local-step">
+          <b>01</b>
+          <div>
+            <h3>资产归你，不归平台</h3>
+            <p>第二大脑沉淀在本地，不被某一个第三方工具锁住。</p>
+          </div>
+        </div>
+        <div class="local-step dark">
+          <b>02</b>
+          <div>
+            <h3>工具可以随时升级</h3>
+            <p>今天接 Codex，明天接 Hermes，未来出现更强工具，也读同一套上下文。</p>
+          </div>
+        </div>
+        <div class="local-step">
+          <b>03</b>
+          <div>
+            <h3>AI 员工可以无缝交接</h3>
+            <p>一个 AI 员工离开，另一个接上；公司的经验、边界和做法还在。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页强调所有权。企业家的第二大脑要沉淀在本地，避免锁在任何一个第三方工具里。很多人现在使用第三方平台，每迁移一次都会掉一层肉：资料导不全，格式变了，历史过程丢了，团队还要重新适应。但如果你的第二大脑是本地的一套 AI 易读、易索引的知识系统，工具切换成本就会低很多。今天接 Codex，后面想换 Hermes，或者未来 Claude Code 对中国重新开放、又出现更强工具，都可以读取同一套上下文。你可以把它理解成：一个 AI 员工离职了，另一个 AI 员工来接班，只要本地第二大脑还在，就能非常快地完成交接。</aside>
+  </section>
+
+<section class="slide future-workforce no-chrome" data-label="未来组织" data-page="14">
+    <div>
+      <div class="future-label">组织预演 · Welcome to the future</div>
+      <h1>未来组织，会由大量数字员工和少量人类员工协作</h1>
+      <p>现在正是训练数字员工入职公司的窗口期。它们不会离职，会在真实业务碰撞里持续进化。</p>
+      <div class="welcome">Welcome to the future.</div>
+    </div>
+    <div class="future-lines">
+      <div class="future-line"><b>数字员工</b><strong>承担高频执行、资料处理、流程推进</strong></div>
+      <div class="future-line"><b>人类员工</b><strong>负责方向、判断、关系与关键创造</strong></div>
+      <div class="future-line"><b>第二大脑</b><strong>成为人和数字员工共享的长期上下文</strong></div>
+    </div>
+    <aside class="speaker-notes">这一页把第二大脑的意义放到未来组织里看。未来的组织里，一定会有大量数字员工，加上少量人类员工互相协作。现在是训练数字员工、让数字员工在公司入职的大好机会。因为技术已经成熟，真正稀缺的是让这些数字员工更懂你、更懂公司、更懂业务。数字员工不会离职，也不会把经验带走；它们可以不断进化。起点可能是老板，但经过真实业务的碰撞之后，它们会成长为在各自领域都比老板更强的数字员工。对领导者来说，这是一件好事：一个好的领导，本来就应该让下属比自己更强，然后把这些更强的下属组织好。</aside>
+  </section>
+
+<section class="slide part-divider" data-label="Part 3 提升输出质量" data-page="15">
+    <div class="part-num">03</div>
+    <div>
+      <div class="part-kicker">Part Three · 提升输出质量</div>
+      <h1>提升输出质量</h1>
+      <p>先学会管理上下文，再开始构建第二大脑。</p>
+    </div>
+    <aside class="speaker-notes">这里画风一转。前面讲为什么企业家需要第二大脑，现在先补一个基础：要真正构建第二大脑，需要先理解 AI 的输出质量从哪里来。企业家不用把技术细节学得很深，但要知道 AI 是怎样使用上下文、为什么会幻觉、哪些约束只是语义提醒、哪些约束可以变成系统里的硬规则。懂了这些，第二大脑就会落到一个很具体的管理问题上。</aside>
+  </section>
+
+<section class="slide body" data-label="工作流设计" data-page="16">
+    <div class="eyebrow">Context Engineering 的实际动作</div>
+    <h1 class="slide-title">输出质量，要靠工作流设计</h1>
+    <p class="slide-subtitle">把高质量上下文、真实资料、工具权限、硬边界和反馈循环组合起来，模型才会稳定变好。</p>
+    <span class="slide-bar"></span>
+    <div class="flow">
+      <div class="step"><b>01</b><h3>明确任务</h3><p>目标、边界、输入、输出和验收标准先说清楚。</p></div>
+      <div class="step highlight"><b>02</b><h3>清理上下文</h3><p>拆线程、保留信号、移除噪音，把重点放到前面。</p></div>
+      <div class="step"><b>03</b><h3>接入资料</h3><p>用本地文件、检索、API 和真实数据补足证据。</p></div>
+      <div class="step"><b>04</b><h3>硬化规则</h3><p>关键风险进入 Hook、脚本、权限、测试和 validator。</p></div>
+      <div class="step"><b>05</b><h3>复盘写回</h3><p>错误进入 AGENTS、Skill、测试、Eval 或第二大脑。</p></div>
+    </div>
+    <aside class="speaker-notes">这一页先给 Part 3 的结论：不要指望一句 prompt 解决所有问题。提高输出质量靠工作流设计，动作包括：把任务定义清楚，把上下文清理干净，把真实资料接进去，把高风险规则做成硬约束，把错误写回系统。后面几页再拆开解释为什么这些动作有效：模型怎么使用上下文，上下文里到底包含什么，为什么会失控，以及哪些规则只是软约束、哪些规则可以变硬。</aside>
+  </section>
+
+<section class="slide body" data-label="LLM 原理" data-page="17">
+    <div class="eyebrow">LLM 原理 · 上下文决定输出质量</div>
+    <h1 class="slide-title">大模型运行原理：在上下文判断下一步</h1>
+    <p class="slide-subtitle">Context Engineering，也就是上下文管理：让 AI 在正确背景下工作，输出质量会立刻上一个台阶。</p>
+    <span class="slide-bar"></span>
+    <div class="context-action-grid">
+      <div class="context-action-card">
+        <div>
+          <b>01 · 找信号</b>
+          <h3>模型会在上下文里寻找相关信号</h3>
+        </div>
+        <p>目标、资料、规则、案例、工具结果，都会成为它判断下一步的依据。</p>
+      </div>
+      <div class="context-action-card dark">
+        <div>
+          <b>02 · 分权重</b>
+          <h3>位置和内容会影响注意力分配</h3>
+        </div>
+        <p>越清晰、越相关、越靠近当前任务的信息，越容易影响模型的输出。</p>
+      </div>
+      <div class="context-action-card">
+        <div>
+          <b>03 · 预测下一步</b>
+          <h3>模型会判断最可能的下一步是什么</h3>
+        </div>
+        <p>下一段文字、下一次工具调用、下一步行动，本质上都受上下文牵引。</p>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页讲 LLM 大语言模型的核心原理，不讲成技术课，只讲到足够支撑后面的上下文工程。模型做事时，会在上下文里寻找相关信号；不同位置、不同内容、不同清晰度，会影响注意力分配的权重；最后，模型会基于这些信号判断下一步最可能是什么。下一步可能是一段文字，也可能是一次工具调用，或者一个行动建议。所以我们要得出的核心结论非常简单：上下文决定输出质量。Context Engineering，也就是上下文管理，就是让 AI 在更正确、更清晰、更有权重的背景里工作。企业家学会这一点，可以很大程度提升 AI 的交付质量。</aside>
+  </section>
+
+<section class="slide body" data-label="上下文组成" data-page="18">
+    <div class="eyebrow">Context Window · AI 的短期工作台</div>
+    <h1 class="slide-title">上下文包含不止那一句话</h1>
+    <p class="slide-subtitle">本地智能体看到的是一整套工作现场：任务、规则、文件、工具结果、检索材料、权限边界和执行记录。</p>
+    <span class="slide-bar"></span>
+    <div class="context-map">
+      <div class="context-core">
+        <div>
+          <b>本地智能体 / Codex</b>
+          <h3>进入窗口的内容，都会影响输出</h3>
+          <p>上下文远远不止一句 prompt。它更像 AI 员工进公司时拿到的桌面、资料室、制度、权限、工具和现场反馈。</p>
+        </div>
+        <div class="context-core-list">
+          <span>越相关，越靠近当前任务，权重越高</span>
+          <span>越混乱、越冲突，越容易稀释重点</span>
+          <span>上下文管理，就是管理 AI 的工作现场</span>
+        </div>
+      </div>
+      <div class="context-cloud">
+        <div class="context-chip"><b>01 · 当前任务</b><h3>Prompt / 目标</h3><p>你刚刚交代的任务、边界、口吻、验收标准。</p></div>
+        <div class="context-chip"><b>02 · 长期规则</b><h3>AGENTS.md 链</h3><p>全局、项目、子目录里的协作规则和偏好。</p></div>
+        <div class="context-chip"><b>03 · 按需能力</b><h3>Skill / 工作流</h3><p>被选中的技能说明、步骤、模板和检验标准。</p></div>
+        <div class="context-chip"><b>04 · 本地资料</b><h3>文件 / 知识库</h3><p>Markdown、代码、表格、图片、历史项目和文档。</p></div>
+        <div class="context-chip"><b>05 · 当前改动</b><h3>Diff / 分支</h3><p>正在修改的文件、未提交变更、版本状态。</p></div>
+        <div class="context-chip"><b>06 · 检索结果</b><h3>搜索 / 索引</h3><p>rg、向量召回、网页搜索、文档检索返回的信息。</p></div>
+        <div class="context-chip"><b>07 · 工具输出</b><h3>终端 / 测试</h3><p>命令结果、报错堆栈、构建日志、QA 反馈。</p></div>
+        <div class="context-chip"><b>08 · 浏览现场</b><h3>页面 / 截图</h3><p>浏览器状态、DOM、截图、网络返回和视觉检查。</p></div>
+        <div class="context-chip"><b>09 · 外部接口</b><h3>API / MCP</h3><p>数据库、连接器、远程服务和工具 schema。</p></div>
+        <div class="context-chip"><b>10 · 工作区状态</b><h3>CWD / 文件树</h3><p>当前目录、项目结构、可见资源和运行环境。</p></div>
+        <div class="context-chip"><b>11 · 权限边界</b><h3>沙箱 / 审批</h3><p>哪些文件可读写、哪些命令需要确认、网络权限。</p></div>
+        <div class="context-chip"><b>12 · 会话状态</b><h3>历史 / 计划</h3><p>前文摘要、任务计划、交接信息和用户最新反馈。</p></div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页讲清楚本地智能体的上下文到底包含什么。它不只看到你刚刚输入的一句话，还会看到当前任务、长期规则、AGENTS.md 链、被选中的 Skill、本地文件、当前 diff、检索结果、终端输出、浏览器状态、外部 API、工具 schema、当前工作目录、文件树、运行环境、沙箱权限、审批边界、历史摘要、任务计划和用户最新反馈。所谓工作区，指的是它当前所在的项目目录、能看到的文件结构、运行环境和已有改动；所谓权限，指的是它能读写哪些文件、能不能联网、哪些命令需要用户确认。这里要让大家形成一个直觉：本地智能体的上下文是一个工作现场，管理上下文就是管理这个现场里哪些信息更靠前、更清楚、更可信。</aside>
+  </section>
+
+<section class="slide body" data-label="上下文失控" data-page="19">
+    <div class="eyebrow">输出质量 · 上下文管理失败</div>
+    <h1 class="slide-title">输出不稳，常常是上下文没管好</h1>
+    <p class="slide-subtitle">模型会基于窗口里的信息工作；当背景、重点和规则没有被组织好，能力再强也容易跑偏。</p>
+    <span class="slide-bar"></span>
+    <div class="hallucination-grid">
+      <div class="hallucination-card"><div><b>01</b><h3>关键信息缺席</h3></div><p>背景、目标、限制和验收标准没进入窗口，模型只能按通用经验处理。</p></div>
+      <div class="hallucination-card"><div><b>02</b><h3>上下文稀释</h3></div><p>对话越长、主题越杂，早期要求、关键事实和角色设定越容易被埋掉。</p></div>
+      <div class="hallucination-card"><div><b>03</b><h3>检索与压缩损失</h3></div><p>超窗口、摘要、检索命中不准，都会让重要信息丢失或变形。</p></div>
+      <div class="hallucination-card"><div><b>04</b><h3>软约束失效</h3></div><p>Prompt、MD、Skill 都是语义约束；任务复杂或上下文冲突时，仍可能不执行。</p></div>
+    </div>
+    <div class="source-line">Sources: Lost in the Middle; OpenAI Codex docs; 预测大脑与机器契约闪念.</div>
+    <aside class="speaker-notes">这一页把输出质量不高讲成上下文管理问题。第一，关键信息缺席：背景、目标、限制、验收标准和真实资料没有进入窗口时，模型只能按通用经验处理，结果就会显得空、泛、偏。第二，长上下文特别容易稀释重点：对话越长、主题越杂，早期要求、关键事实、角色设定和验收标准越容易被埋掉。Lost in the Middle 这篇研究也指出，模型对长上下文中间的信息利用并不稳定。第三，超窗口之后系统会摘要、压缩和检索，重要信息可能丢掉或变形。这里可以口头带一下睡眠和上下文压缩：人做梦、睡眠也在压缩一天的信息，但人类长期记忆的重组能力目前仍有独特优势。第四，软约束会失效。Prompt、MD、Skill 都很有用，但它们本质上仍是语义约束；当任务复杂、上下文冲突、工具结果和口头要求互相打架时，模型仍可能不执行。</aside>
+  </section>
+
+<section class="slide body" data-label="契约分层" data-page="20">
+    <div class="eyebrow">机器契约 · 软硬分层</div>
+    <h1 class="slide-title">写给 AI 的规则，约束力并不一样</h1>
+    <p class="slide-subtitle">有些规则只是提醒它“尽量这样做”，有些规则可以让系统在关键节点直接拦截、验证或拒绝执行。</p>
+    <span class="slide-bar"></span>
+    <div class="contract-compare">
+      <div class="contract-panel dark">
+        <b>古典机器契约 · 更硬</b>
+        <h3>系统能直接执行</h3>
+        <span class="contract-weight">约束强度：强 → 弱</span>
+        <div class="contract-list">
+          <span>01 平台硬边界</span>
+          <span>02 外部硬门禁</span>
+          <span>03 Hook</span>
+          <span>04 脚本</span>
+        </div>
+      </div>
+      <div class="contract-panel">
+        <b>神经系统契约 · 更软</b>
+        <h3>模型会尽量理解</h3>
+        <span class="contract-weight">执行权重：高 → 低</span>
+        <div class="contract-list">
+          <span>01 Skill</span>
+          <span>02 系统级 MD</span>
+          <span>03 项目级 MD</span>
+          <span>04 当前 Prompt</span>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里来自我们之前那篇闪念：预测大脑与机器契约。原文里把机器契约从强到弱分成几层：平台硬边界、外部硬门禁、Hook、脚本，后面才是 Skill、系统级 MD、项目级 MD 和当前 Prompt。平台硬边界包括 Sandbox、Permission、Tool Schema；外部硬门禁可以包括 Branch Protection、Pre-Commit Gate、CI Validator；Hook 是第三层，脚本是第四层。右边的神经系统契约是语义约束，存在不执行的概率；在这组软契约里，Skill 权重最高，其次是系统级 MD，再到项目级 MD，当前 Prompt 最灵活，也最容易被稀释。这里要强调：如果某条规则必须稳定执行，就不要只写在 Prompt 或 MD 里，要放进更硬的契约。</aside>
+  </section>
+
+<section class="slide body" data-label="Agent 概念" data-page="21">
+    <div class="eyebrow">上下文管理工具 · 先分清层级</div>
+    <h1 class="slide-title">先分清：谁收口，谁干活，哪里开新现场</h1>
+    <p class="slide-subtitle">Agent、Sub-agent、Branch、Worktree 是四个不同层级，不要混成同一种“员工”。</p>
+    <span class="slide-bar"></span>
+    <div class="concept-grid four-focus">
+      <div class="concept-card dark">
+        <div><b>01</b><h3>Agent</h3><span class="concept-role">主线负责人</span></div>
+        <p>承接用户目标，读取主要上下文，拆任务、调工具、整合结果，最后对交付负责。</p>
+        <span class="concept-note">负责：判断与收口</span>
+      </div>
+      <div class="concept-card">
+        <div><b>02</b><h3>Sub-agent</h3><span class="concept-role">具体干活的人</span></div>
+        <p>被派去处理一个边界清楚的子任务，在自己的上下文里查资料、跑流程，再交回摘要。</p>
+        <span class="concept-note">适合：调研、审计、日志分析</span>
+      </div>
+      <div class="concept-card">
+        <div><b>03</b><h3>Branch</h3><span class="concept-role">方案分叉</span></div>
+        <p>同一个目标开出不同方向，方便比较方案、保留版本，也方便失败后回退。</p>
+        <span class="concept-note">适合：多路线探索</span>
+      </div>
+      <div class="concept-card">
+        <div><b>04</b><h3>Worktree</h3><span class="concept-role">独立施工现场</span></div>
+        <p>同一个项目开出独立目录，让不同线程并行修改文件，尽量避免互相踩现场。</p>
+        <span class="concept-note">适合：并行施工</span>
+      </div>
+    </div>
+    <div class="source-line">Sources: OpenAI Codex Subagents / Worktrees; Claude Code Subagents.</div>
+    <aside class="speaker-notes">这里要把上一版纠正过来：Sub-agent 不是带队负责人。更准确的类比是，Agent 是主线负责人，承接用户目标，拆任务、调工具、整合结果，最后对交付负责。Sub-agent 是被派出去干具体子任务的人，它在自己的上下文里查资料、跑流程、做审计，最后把摘要交回来。Branch 是方案分叉，用来保留不同方向、不同版本和不同实验路径。Worktree 是独立施工现场，同一个项目可以开出独立目录，让不同线程并行修改文件，减少互相踩现场。四个概念不要混成一种“员工”。</aside>
+  </section>
+
+<section class="slide body" data-label="多 Agent 使用场景" data-page="22">
+    <div class="eyebrow">AI 员工边界 · 逆向原则</div>
+    <h1 class="slide-title">新开一个 Agent，先看四个考量</h1>
+    <p class="slide-subtitle">数字员工的边界，主要看上下文是否该分开、任务能否并发、结果是否要审计、算力怎样分层。</p>
+    <span class="slide-bar"></span>
+    <div class="multi-agent-grid focus">
+      <div class="multi-agent-card">
+        <div><b>01</b><h3>隔离上下文</h3></div>
+        <p>资料很长、主题很杂、权限不同，就让新 Agent 单独处理，主线只接收结论、证据和风险。</p>
+      </div>
+      <div class="multi-agent-card">
+        <div><b>02</b><h3>并发推进</h3></div>
+        <p>调研、方案、测试、竞品扫描可以同时跑，一个方向一个 Agent，最后由主 Agent 收口。</p>
+      </div>
+      <div class="multi-agent-card">
+        <div><b>03</b><h3>独立审计</h3></div>
+        <p>事实、代码、安全和高风险交付，让另一个 Agent 检查；最好跨模型审计，比如 Claude Code 产出，Codex 审计。</p>
+      </div>
+      <div class="multi-agent-card">
+        <div><b>04</b><h3>算力优化</h3></div>
+        <p>强模型负责目标、判断和验收；低成本或本地模型处理扫描、整理和敏感一线数据。</p>
+      </div>
+    </div>
+    <div class="source-line">Sources: OpenAI Codex Subagents / Worktrees; Claude Code Subagents; Anthropic context engineering.</div>
+    <aside class="speaker-notes">这一页讲什么时候值得新开一个 Agent。不要把它讲复杂，就看四个考量。第一是隔离上下文：长资料、日志、访谈、竞品扫描、权限差异，会把主线程搞脏，就让一个新 Agent 单独读，最后只交结论、证据和风险。第二是并发推进：调研、方案、测试可以同时跑，一个方向一个 Agent，最后由主 Agent 收口。第三是独立审计：事实、代码、安全和高风险交付，适合让另一个 Agent 检查，尤其可以跨模型审计，比如 Claude Code 产出，Codex 再审。第四是算力优化，把原来的成本分层和数据安全放在一起：强模型负责目标、判断和验收，低成本模型处理扫描整理，本地模型处理敏感一线数据。</aside>
+  </section>
+
+<section class="slide performance-slide no-chrome" data-label="AI 表演" data-page="23">
+    <div class="performance-content">
+      <div class="performance-kicker">AI 表演 · 人造奇观</div>
+      <h1>拒绝 AI 表演</h1>
+      <p>把几个 Agent 丢进群里互相 @、让产品部和市场部在屏幕上争论，视觉上很热闹；很多时候，它只是把一个 Agent 的思考过程演给人看。</p>
+      <p class="performance-extra">人类员工按岗位、职级和能力分工；AI 数字员工更适合按上下文、并发、审计和算力边界分工。</p>
+      <div class="performance-rules">
+        <span>需要上下文隔离</span>
+        <span>需要并发推进</span>
+        <span>需要互相审计</span>
+        <span>需要算力边界</span>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页讲“AI 表演”。网上会有很多看起来很炫的形式，比如把产品调研 Agent、市场 Agent、用户研究 Agent 丢进一个群里互相 @，甚至像电影情节一样吵架。这种形式有演示价值，也能帮助人理解过程。但企业家要看清本质：一个 Agent 已经能完成的功能，就没有必要为了好看而拆成一堆角色。这里顺带补一句：人类员工按岗位、职级和能力分工；AI 数字员工更适合按上下文、并发、审计和算力边界分工。真正需要多 Agent 的时候，是你需要上下文隔离、并发推进、互相审计，或者做算力分层。否则它很可能只是人造奇观。</aside>
+  </section>
+
+<section class="slide part-divider" data-label="Part 4 手搓第二大脑方法论" data-page="24">
+    <div class="part-num">04</div>
+    <div>
+      <div class="part-kicker">Part Four · 手搓第二大脑方法论</div>
+      <h1>手搓第二大脑方法论</h1>
+      <p>输入、加工、Loop，三步走。</p>
+    </div>
+    <aside class="speaker-notes">第四部分进入手搓第二大脑方法论。这里不讲完整企业数据库，也不讲复杂平台建设。先从企业家自己能动起来的三步开始：输入，把过去和现在的判断放进来；加工，让这些内容变成 AI 易读、易检索、可调用的资产；Loop，让错误、反馈和真实数据改变下一次执行路径。</aside>
+  </section>
+
+<section class="slide method-divider no-chrome" data-label="4.1 输入" data-page="25">
+    <div class="method-num">4.1</div>
+    <div class="method-inner">
+      <div class="method-kicker">Part Four · 第一件事</div>
+      <h1>输入</h1>
+      <p>把过去搬回来，让现在自动沉淀，让未来直接长在本地。</p>
+      <div class="method-tags"><span>旧数据</span><span>自动沉淀</span><span>AI 输入法</span><span>AI 原生</span></div>
+    </div>
+    <aside class="speaker-notes">输入分三层。第一层是旧数据，把过去散落在第三方平台里的材料搬回来，献祭给第二大脑。第二层是新数据，让未来产生的信息自动进入系统，尽量减少人工搬运。第三层是善用 AI 输入法这类新工具，增加信息源和输入带宽。最后再强调保存形态：尽量让数据一开始就以 AI 易读的形式留下来。</aside>
+  </section>
+
+<section class="slide body" data-label="旧数据" data-page="26">
+    <div class="eyebrow">输入 · 把过去搬回来</div>
+    <h1 class="slide-title">旧数据：历史数据，尽可能都“献祭”给第二大脑</h1>
+    <p class="slide-subtitle">这一页只讲输入：先把散落在第三方平台里的材料牵引回来，让第二大脑先接住。</p>
+    <span class="slide-bar"></span>
+    <div class="legacy-ingest">
+      <div class="legacy-source-panel">
+        <div class="legacy-source"><div><b>聊天与私域</b><h3>微信 / 社群 / 客户对话</h3></div><p>真实判断、客户语气、合作边界。</p></div>
+        <div class="legacy-source"><div><b>会议与访谈</b><h3>录音 / 纪要 / 转写</h3></div><p>决策过程、争议点、行动项。</p></div>
+        <div class="legacy-source"><div><b>旧知识库</b><h3>印象笔记 / Notion / 飞书</h3></div><p>过去的想法、资料、课程和复盘。</p></div>
+        <div class="legacy-source"><div><b>项目沉淀</b><h3>旧方案 / 网盘 / 邮件</h3></div><p>已经验证过的做法、素材和交付物。</p></div>
+        <div class="legacy-source"><div><b>业务数据</b><h3>CRM / 表格 / 订单</h3></div><p>客户、线索、成交和运营痕迹。</p></div>
+        <div class="legacy-source"><div><b>个人素材</b><h3>闪念 / 收藏 / 草稿</h3></div><p>观点、故事、选题和判断偏好。</p></div>
+      </div>
+      <div class="legacy-brain-panel">
+        <div class="legacy-brain-kicker">先献祭，后整理</div>
+        <div class="legacy-brain-core">
+          <b>本地第二大脑</b>
+          <h3>先接住<br />旧数据</h3>
+          <p>不要让旧平台继续垄断你的长期上下文。</p>
+        </div>
+        <div class="legacy-brain-rules">
+          <span>尽量全量搬回</span>
+          <span>原始材料保留</span>
+          <span>下一层再存储</span>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里讲旧数据，只讲输入，不提前讲结构化和索引。企业家的很多关键判断，其实散落在微信聊天、客户对话、会议录音、旧方案、印象笔记、飞书文档、Notion 页面、网盘、邮件和业务表格里。第一步是先牵引回来，先献祭给第二大脑。这个阶段不追求马上整理成完美格式，重点是不要继续让旧平台垄断你的长期上下文。后面存储部分再讲怎么变成 AI 易读格式、怎么做索引、怎么召回。</aside>
+  </section>
+
+<section class="slide body" data-label="新数据自动沉淀" data-page="27">
+    <div class="eyebrow">输入 · 新数据产生</div>
+    <h1 class="slide-title">新数据：减少甚至杜绝人工搬运</h1>
+    <p class="slide-subtitle">每天新产生的数据仍会留在第三方平台里，关键是让它自动回流到第二大脑。</p>
+    <span class="slide-bar"></span>
+    <div class="auto-flow-grid">
+      <div class="auto-flow-card"><div><b>01 · API 接口</b><h3>能接 API，先接 API</h3></div><p>会议、文档、CRM、订单和客服系统，只要有开放接口，就让数据自动同步回来。</p></div>
+      <div class="auto-flow-card dark"><div><b>02 · CLI 接口</b><h3>能命令化，就脚本化</h3></div><p>如果平台支持命令行、批量导出或 Webhook，就把重复点击变成定时任务。</p></div>
+      <div class="auto-flow-card"><div><b>03 · 定时脚本</b><h3>没接口，也要想办法拉回</h3></div><p>在权限和合规边界内，用网页抓取或浏览器自动化，把新数据按周期带回本地。</p></div>
+    </div>
+    <div class="flow-strip">第三方平台 → API / CLI / 定时脚本 → 本地第二大脑</div>
+    <aside class="speaker-notes">这一页讲新数据。我们每天都在产生大量数据，很多仍然会先存在第三方平台里，比如会议系统、协作文档、CRM、订单、客服记录和内容平台。如果这些平台还要继续使用，就要把“每天复制粘贴”改造成“自动沉淀到第二大脑”。先查有没有 API；没有 API，就看有没有 CLI、批量导出或 Webhook；再不行，就在权限和合规边界内，用定时脚本、网页抓取或浏览器自动化把数据拉回来。目标是尽量 No human in the loop。只要靠人搬运，一是浪费人力，二是人一觉得麻烦，重要信息就会消失。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 输入法" data-page="28">
+    <div class="eyebrow">输入 · 增加信息源</div>
+    <h1 class="slide-title">新数据：借助 AI 的力量，放大信息源</h1>
+    <p class="slide-subtitle">AI 输入法把原本流失的念头、判断、场景和素材，变成可沉淀的数据。</p>
+    <span class="slide-bar"></span>
+    <div class="typeless-layout">
+      <div class="typeless-logo-card">
+        <img src="assets/typeless-logo.png" alt="Typeless logo" />
+        <h3>Typeless</h3>
+        <p>AI 语音输入</p>
+      </div>
+      <div class="typing-stack">
+        <div class="tool-row">
+          <div class="tool-pill"><b>免费工具</b><span>豆包 / 微信输入法</span></div>
+          <div class="tool-pill"><b>付费工具</b><span>Typeless / Whisper Flow</span></div>
+        </div>
+        <div class="typing-equation">
+          <div class="typing-factor"><small>输入速度</small><strong>4-5x</strong><span>少打字，多口述</span></div>
+          <div class="equation-symbol">×</div>
+          <div class="typing-factor"><small>扩展场景</small><strong>2-3x</strong><span>走路、通勤、临睡前都能输入</span></div>
+          <div class="equation-symbol">=</div>
+          <div class="typing-factor result"><small>总输入带宽</small><strong>10x+</strong><span>更多想法进入系统</span></div>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里重点讲信息输入方式的变化，不展开工具测评。AI 输入法会带来两个乘数：输入速度提高四到五倍，输入场景扩展两到三倍，乘起来就是十倍以上的信息输入带宽。免费工具可以先用豆包和微信输入法，付费工具可以看 Typeless 和 Whisper Flow。重点放在信息源：能不能把大量原本流失在路上、车上、会议间隙、临睡前的念头、判断、场景和素材放进第二大脑。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 输入法与思考" data-page="29">
+    <div class="eyebrow">输入 · 思维也会被改造</div>
+    <h1 class="slide-title">AI 输入法的附赠好处——打断思维反刍，将思维客体化</h1>
+    <p class="slide-subtitle">语音输入会把内在循环变成外部对象，AI 才能追问、整理、保存和复用。</p>
+    <span class="slide-bar"></span>
+    <div class="thought-focus-grid">
+      <div class="thought-focus-card">
+        <div><b>01 · 重点</b><h3>打断<br>思维反刍</h3></div>
+        <p>念头一说出来，就从脑内循环变成外部对象，不再反复消耗注意力。</p>
+      </div>
+      <div class="thought-side-stack">
+        <div class="thought-mini-card"><b>02</b><div><h3>思维客体化</h3><p>把“我在想什么”变成可看、可改、可追问的文本。</p></div></div>
+        <div class="thought-mini-card"><b>03</b><div><h3>情绪客体化</h3><p>情绪被命名之后，和“我”拉开距离，更容易被处理。</p></div></div>
+        <div class="thought-mini-card"><b>04</b><div><h3>认知卸载</h3><p>把未成形的判断先放到外部系统，降低大脑缓存压力。</p></div></div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页讲 AI 输入法对思考方式的附赠好处。重点是打断思维反刍：很多念头一旦被说出来，就从脑内循环变成外部对象，不再反复消耗注意力。接着讲三件事：第一，思维客体化，把“我在想什么”变成一段可以看、可以改、可以被 AI 追问的文本。第二，情绪客体化，情绪被命名之后，和“我”拉开距离，更容易被处理。第三，认知卸载，把未成形的判断先放到外部系统，降低大脑缓存压力。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 原生数据" data-page="30">
+    <div class="eyebrow">输入 · 数据保存形态</div>
+    <h1 class="slide-title">新数据：尽量用 AI 原生的方式生成</h1>
+    <p class="slide-subtitle">每多一个封闭平台、复杂格式和人工搬运环节，AI 的调用成本都会升高。</p>
+    <span class="slide-bar"></span>
+    <div class="asset-compare">
+      <div class="asset-panel">
+        <div>
+          <b>低复用形态</b>
+          <h3>平台和文件把经验锁住</h3>
+          <ul>
+            <li>Word、PDF、Excel、PPT 需要再次解析。</li>
+            <li>音视频、图片和截图如果没有文本入口，很难被快速调用。</li>
+            <li>封闭平台每次迁移，都可能掉一层肉。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="asset-panel dark">
+        <div>
+          <b>AI 原生形态</b>
+          <h3>生产过程就沉淀为资产</h3>
+          <ul>
+            <li>用 Markdown 保存想法、复盘和会议。</li>
+            <li>用 HTML 承载 PPT、网页和交互稿。</li>
+            <li>用 CSV / JSON 保存结构化数据。</li>
+            <li>让 AI 可以搜索、diff、修改、验证。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页回到保存形态。第三方平台和传统办公文件当然还会存在，但它们不适合作为长期 Context 的唯一形态。Word、PDF、Excel、PPT、视频、截图都需要 AI 再解析一遍。数量少的时候问题不大，数量一大就会影响效率。新数据最好一开始就以 Markdown、HTML、CSV、JSON 这类 AI 易读形态留下来。比如同样做一份 PPT，用 HTML 交付，结构、样式、文本、版本差异都更容易被 AI 复用。</aside>
+  </section>
+
+<section class="slide software-quote no-chrome" data-label="第三方软件已死" data-page="31">
+    <div class="quote-wrap">
+      <div class="kicker">长期资产不要住在第三方工具里</div>
+      <h1>第三方软件已死</h1>
+      <p>未来很多软件会变成即用即抛的界面层。它们可能卡住数据产生、保存格式和获取权限；能不用第三方软件，就尽量不用。</p>
+    </div>
+    <aside class="speaker-notes">这句是为了让大家记住一个使用习惯。未来软件会越来越像即用即抛的能力界面，今天用这个，明天换那个。真正要长期沉淀的是你的第二大脑。第三方软件可能在三个地方变成阻碍：第一，数据产生过程不透明，AI 不容易接管；第二，保存格式封闭，AI 每次都要额外解析；第三，数据获取困难，API、CLI 或批量导出不开放。能在本地、Markdown、HTML、CSV、JSON 里完成的，就尽量在本地完成。第三方软件可以用，但不要把长期记忆交给它。</aside>
+  </section>
+
+<section class="slide method-divider no-chrome" data-label="4.2 加工" data-page="32">
+    <div class="method-num">4.2</div>
+    <div class="method-inner">
+      <div class="method-kicker">Part Four · 第二件事</div>
+      <h1>加工</h1>
+      <p>把资料变成 AI 能读取、检索、引用和复用的形态。</p>
+      <div class="method-tags"><span>格式转换</span><span>说明书</span><span>索引</span></div>
+    </div>
+    <aside class="speaker-notes">输入解决“怎么进来”，加工解决“进来以后怎么变成可用资产”。这里不只是把资料存起来，而是把资料转成 AI 易读格式，再生成说明书和索引，让它能被搜索、引用、复用和持续更新。对第二大脑来说，朴素、稳定、可搜索、可 diff、可迁移，比短期界面好看更重要。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 易读加工" data-page="33">
+    <div class="eyebrow">加工 · 第一步处理</div>
+    <h1 class="slide-title">第一步：先把资料变成 AI 能读的格式</h1>
+    <p class="slide-subtitle">原始材料继续保留，同时生成一份 AI 易读副本，让资料可以被搜索、引用和复用。</p>
+    <span class="slide-bar"></span>
+    <div class="storage-grid">
+      <div class="storage-card dark"><div><b>原始材料</b><h3>先保留</h3></div><p>微信导出、PDF、录音、截图、旧文件和平台数据，不覆盖、不丢弃，作为事实源头。</p></div>
+      <div class="storage-card"><div><b>文本类</b><h3>转 Markdown</h3></div><p>闪念、会议、访谈、复盘、文章摘要和判断记录，优先转成可读、可检索的文本。</p></div>
+      <div class="storage-card"><div><b>数据类</b><h3>转 CSV / JSON</h3></div><p>客户、订单、指标、任务状态和元数据，用稳定结构保存，方便 AI 读取和计算。</p></div>
+    </div>
+    <aside class="speaker-notes">这里讲历史数据和新数据进入第二大脑后的第一步处理：格式清洗。不要把原始材料覆盖掉，原始材料要继续保留，作为事实源头。然后再生成一份 AI 易读副本。文本类资料，比如闪念、会议、访谈、复盘、文章摘要和判断记录，优先转成 Markdown，因为它可读、可搜索、可引用。数据类资料，比如客户、订单、指标、任务状态和元数据，可以转成 CSV 或 JSON。第一步先不追求完美知识库，先让资料变成 AI 能稳定读取和处理的形态。</aside>
+  </section>
+
+<section class="slide body" data-label="索引系统" data-page="34">
+    <div class="eyebrow">加工 · 第二步处理</div>
+    <h1 class="slide-title">第二步：让 AI 生成说明书和索引</h1>
+    <p class="slide-subtitle">资料进来后，不要靠人手工规划完整架构；先让 AI 读一遍，给出第一版入口和地图。</p>
+    <span class="slide-bar"></span>
+    <div class="index-stack triple">
+      <div class="index-layer">
+        <div><b>说明书</b><h3>给 AI 的说明书</h3><p>写清目录结构、重要入口、命名规则、禁区、输出格式和验收标准。</p></div>
+        <small>典型形态：AGENTS.md / instructions.md。</small>
+      </div>
+      <div class="index-layer">
+        <div><b>索引</b><h3>AI 的索引</h3><p>建立项目、人物、会议、素材、复盘和主题入口，让 AI 知道先去哪里找。</p></div>
+        <small>典型形态：MOC、项目索引、会议索引。</small>
+      </div>
+      <div class="index-layer dark">
+        <div><b>起草方式</b><h3>先交给 AI 出一版</h3><p>让 AI 根据现有资料提出说明书和索引方案，人确认后再写回系统。</p></div>
+        <small>目标：先有可用入口，再逐步迭代。</small>
+      </div>
+    </div>
+    <div class="architecture-strip">目标：AI 接到问题时，知道先读哪份说明书，再沿哪个索引找材料。</div>
+    <aside class="speaker-notes">第二步处理是制作说明书和索引。给 AI 的说明书是开工手册，写清这个第二大脑怎么用、哪些目录重要、有什么规则、哪些东西不能乱动、输出格式和验收标准是什么。AI 的索引是给资料做地图，比如项目索引、人物索引、会议索引、素材索引、复盘索引和主题 MOC。这里不用靠人一开始想清楚完整架构，重点是先交给 AI 出一版：让 AI 先读现有资料，提出第一版说明书和索引方案，人确认后再写回系统。重点是让 AI 接到问题时，知道先读哪份说明书，再沿哪个索引找材料。</aside>
+  </section>
+
+<section class="slide body" data-label="概念补充" data-page="35">
+    <div class="eyebrow">加工 · 概念补充</div>
+    <h1 class="slide-title">另外一些有用的概念</h1>
+    <p class="slide-subtitle">现阶段不用深入展开，先知道它们分别解决什么问题。</p>
+    <span class="slide-bar"></span>
+    <div class="index-stack triple concept-index-stack">
+      <div class="index-layer dark">
+        <div><b>给自己看的工作台</b><h3>Obsidian</h3><p>从第一天就可以用来浏览、编辑、链接和维护本地 Markdown。</p></div>
+        <small>价值：让人能长期维护第二大脑。</small>
+      </div>
+      <div class="index-layer">
+        <div><b>几百到几千篇 Markdown</b><h3>脚本索引</h3><p>当文件开始变多，就让 AI 或脚本自动生成项目、会议、人物和主题索引。</p></div>
+        <small>价值：减少“我记得有，但不知道在哪”。</small>
+      </div>
+      <div class="index-layer">
+        <div><b>几千到几万段文本 chunk</b><h3>向量索引</h3><p>当关键词搜不到语义相近内容，再用 Embeddings 做语义召回，并回到原文确认。</p></div>
+        <small>价值：解决同一件事有很多说法的问题。</small>
+      </div>
+    </div>
+    <div class="architecture-strip">判断信号：你经常记得“好像写过”，但用关键词和目录找不到。</div>
+    <aside class="speaker-notes">这一页讲另外一些有用的概念。现在构建第二大脑，不需要一开始就把 Obsidian、脚本索引和向量索引全部想透。先知道它们分别解决什么问题就够了。Obsidian 主要是给自己看的本地 Markdown 工作台，价值是让人能浏览、编辑、链接和长期维护第二大脑。等资料多到几百、几千篇 Markdown，可以加脚本索引，让 AI 或脚本自动生成项目索引、会议索引、人物索引和主题索引。向量索引的判断信号很具体：你经常记得某个内容好像写过，但用关键词和目录找不到。更准确地说，当资料切成几千到几万段文本 chunk 后，向量索引才开始有明显价值。它适合找语义相近的内容，但召回之后仍然要回到原文确认事实。</aside>
+  </section>
+
+<section class="slide method-divider no-chrome" data-label="4.3 Loop" data-page="36">
+    <div class="method-num">4.3</div>
+    <div class="method-inner">
+      <div class="method-kicker">Part Four · 第三件事</div>
+      <h1>Loop</h1>
+      <p>让第二大脑和项目系统在反馈里自进化。</p>
+      <div class="method-tags"><span>系统层</span><span>项目层</span><span>数据回流</span></div>
+    </div>
+    <aside class="speaker-notes">第三件事我想改叫 Loop，而不是普通的迭代。Loop 的意思是让第二大脑和具体项目不断经历：目标、执行、反馈、抽象、写回、压缩、下一轮。这样第二大脑不是静态资料库，而是一个会吸收经验、修正规则、更新索引、越来越懂你的系统。接下来分两层讲：系统层 Loop，让整个第二大脑每天变聪明；项目层 Loop，让具体业务通过并行试错和数据回流变强。</aside>
+  </section>
+
+<section class="slide body" data-label="系统层 Loop" data-page="37">
+    <div class="eyebrow">Loop · 系统层</div>
+    <h1 class="slide-title">系统层 Loop：第二大脑每天变聪明</h1>
+    <p class="slide-subtitle">每天沉淀，按周压缩，把经验写回 Skill、agent.md、索引和 Memory。</p>
+    <span class="slide-bar"></span>
+    <div class="review-loop">
+      <div class="review-step"><div><b>01</b><h3>每日捕捉</h3></div><p>任务里哪里卡住、哪里反复修改、哪些资料值得沉淀。</p></div>
+      <div class="review-step"><div><b>02</b><h3>复盘偏差</h3></div><p>找出犯错原因、价值判断偏差和可以做得更好的地方。</p></div>
+      <div class="review-step"><div><b>03</b><h3>写回系统</h3></div><p>沉淀到 Skill、agent.md、MOC、脚本、检查项和 Memory。</p></div>
+      <div class="review-step dark"><div><b>04</b><h3>每周压缩</h3></div><p>把每天沉淀抽象成更短规则，避免上下文越堆越长。</p></div>
+      <div class="review-step"><div><b>05</b><h3>下一轮读取</h3></div><p>新任务自动调用更新后的规则、索引和个人画像。</p></div>
+    </div>
+    <aside class="speaker-notes">这一页讲系统层 Loop。可以写定时脚本，每天把所有任务里值得优化的地方、犯错原因、价值判断偏差、可以做得更好的地方都复盘出来。每天都要有沉淀，但沉淀会越来越多，最后会变成一个巨长无比、无法阅读的上下文，所以每周还要做抽象和压缩。有些内容写进 Skill，有些写进 agent.md，有些写进 MOC、脚本、检查项或 Memory。系统层 Loop 关注的是整个第二大脑：哪些资料要沉淀，怎么索引，哪些规则要更新。它的效果是第二大脑越来越聪明，越来越懂你。</aside>
+  </section>
+
+<section class="slide body" data-label="项目层 Loop" data-page="38">
+    <div class="eyebrow">Loop · 项目层</div>
+    <h1 class="slide-title">项目层 Loop：人定目标，AI 跑策略</h1>
+    <p class="slide-subtitle">Mission、Vision、Value 由人把关，执行路径让 AI 并行赛马，用真实数据收口。</p>
+    <span class="slide-bar"></span>
+    <div class="loop-engine-grid">
+      <div class="loop-engine-card">
+        <div><b>人来定义</b><h3>Mission / Vision / Value</h3></div>
+        <p>目标是什么，成功长什么样，哪些价值边界不能碰，由人负责。</p>
+      </div>
+      <div class="loop-engine-card dark">
+        <div><b>AI 来探索</b><h3>多线程赛马</h3></div>
+        <p>同一个目标，让不同策略、不同路径、不同假设并行跑起来。</p>
+      </div>
+      <div class="loop-engine-card">
+        <div><b>数据来筛选</b><h3>收口到指标</h3></div>
+        <p>用播放、转化、收益、回撤、用户反馈等真实数据淘汰策略。</p>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页讲项目层 Loop。项目层最好由人定义 Mission、Vision 和 Value，目标是什么，成功画面是什么，哪些价值判断不能碰。至于中间怎么跑，方法可以交给 AI。它可以并行赛马，让很多线程跑同一个目标，但策略不一样。最后必须用数据收口，比如短视频看曝光、点击、完播、转发、私信和成交；量化交易看收益、回撤、胜率和稳定性。每个策略根据结果继续进化，数据不断反哺给 AI，项目系统就会越来越强。</aside>
+  </section>
+
+<section class="slide body" data-label="吞吐量 Loop" data-page="39">
+    <div class="eyebrow">Loop · 吞吐量和数据回流</div>
+    <h1 class="slide-title">70% × 10 = 700%：AI 先赢在吞吐量</h1>
+    <p class="slide-subtitle">一开始单条未必超过专家，但更高频的真实反馈，会让系统进化得更快。</p>
+    <span class="slide-bar"></span>
+    <div class="throughput-grid">
+      <div class="throughput-core">
+        <div>
+          <b>一个上午</b>
+          <h3>1 条 100%<br />vs 10 条 70%</h3>
+        </div>
+        <p>AI 先蒸馏你的能力，单条可能只有 70%；但它能在同样时间里跑出更多样本，总实验量先变成 700%。</p>
+      </div>
+      <div class="throughput-side">
+        <div class="mini-card"><strong>10x</strong><h3>产出密度</h3><p>从一个月一条，到两天一条，平台曝光和测试机会都会增加。</p></div>
+        <div class="mini-card"><strong>Data</strong><h3>数据回流</h3><p>选题、封面、完播、评论、转发、私信和成交都会反哺系统。</p></div>
+        <div class="mini-card"><strong>Loop</strong><h3>策略进化</h3><p>有效策略继续放大，无效策略被淘汰，每轮都写回第二大脑。</p></div>
+        <div class="mini-card"><strong>100%+</strong><h3>单条变强</h3><p>一开始接受 70%，但长期可能逼近甚至超过原来的专家水平。</p></div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页用短视频做例子讲吞吐量。假设人深度参与，一个上午做一条，质量是一百分。把 Human in the Loop 的参与大幅减少，让 AI 从头到尾生成，单条可能只有七十分。但同样一个上午，它可以生成十条，总实验量就是七十分乘以十，变成七百分。这里不是说人完全不判断，而是尽量把自己从生产过程里摘出来，只在目标、价值边界、关键判断和验收上参与。更重要的是，十条内容会带来十倍左右的数据回流：哪些选题有效，哪些封面有效，哪些 hook 有效，哪些评论和私信会转化。数据不断反哺给 AI，系统就会自进化。它一开始是在蒸馏你的能力，未必单条超过你，但 Loop 跑久以后，单条质量可能会逼近甚至超过你现在的百分百。</aside>
+  </section>
+
+<section class="slide body" data-label="放权给数字人才" data-page="40">
+    <div class="eyebrow">第二大脑建好后 · 工作习惯</div>
+    <h1 class="slide-title">AI 时代老板的新工作习惯</h1>
+    <p class="slide-subtitle">像领导公司一样放权：你负责方向、边界和验收，AI 先跑出第一版。</p>
+    <span class="slide-bar"></span>
+    <div class="leadership-grid">
+      <div class="leader-panel dark">
+        <b>放权</b>
+        <h3>AI First 工作动线</h3>
+        <p>调研、起草、比较、拆解、复盘、生成方案，先交给 AI 跑一遍。人从执行层抽出来，保留关键判断。</p>
+      </div>
+      <div class="leader-panel">
+        <b>人才密度</b>
+        <h3>允许下属在单点上比你强</h3>
+        <p>AI 人才在研究、写作、编程、设计或分析上超过你，是好事。这说明你的组织已经拥有更高的人才密度。</p>
+      </div>
+    </div>
+    <div class="habit-row">
+      <div class="habit-card"><h3>定方向</h3><p>说明 Mission、Vision、Value 和验收标准。</p></div>
+      <div class="habit-card"><h3>放手跑</h3><p>让数字人才先出方案、原型、材料和判断依据。</p></div>
+      <div class="habit-card"><h3>做验收</h3><p>人负责价值判断、审美判断和最终责任。</p></div>
+      <div class="habit-card"><h3>写回系统</h3><p>把有效做法和失败教训沉淀到第二大脑。</p></div>
+    </div>
+    <aside class="speaker-notes">这一页作为第四部分的收束：第二大脑建好以后，最重要的是养成 AI 时代老板的新工作习惯。它和领导一家公司很像，一个好的领导不会把所有事情都抓在自己手里，而是建立 AI First 工作动线。调研、写作、整理、比较、复盘、生成方案，都先交给 AI 跑一遍。你负责方向、价值边界、审美判断、关键取舍和最终验收。慢慢你会发现，下面的 AI 人才在某些单点能力上可能比你强，这是好事，说明这个组织的人才密度变高了，只不过这种人才密度可以以数字人才的形式存在。</aside>
+  </section>
+
+<section class="slide part-divider" data-label="Part 5 从超级个体到超级团队" data-page="41">
+    <div class="part-num">05</div>
+    <div>
+      <div class="part-kicker">Part Five · 从超级个体到超级团队</div>
+      <h1 class="two-line">从超级个体<br />到超级团队</h1>
+      <p>创始人先有体感，组织才知道往哪里复制。</p>
+    </div>
+    <aside class="speaker-notes">最后一部分从个人系统转向组织复制。前面讲第二大脑，核心是让 AI 越来越懂你；这里再往组织层面推一步：创始人为什么必须先亲自下场，形成体感，然后把自己的 AI 工作方式、判断标准和数字员工组织方式扩散到团队里。</aside>
+  </section>
+
+<section class="slide body" data-label="超级个体特征" data-page="42">
+    <div class="eyebrow">从超级个体到超级团队 · 先定义超级个体</div>
+    <h1 class="slide-title">超级个体的四个结构性特征</h1>
+    <p class="slide-subtitle">借助 AI，一个人达到过去小团队才能达到的产出规模和影响半径。</p>
+    <span class="slide-bar"></span>
+    <div class="trait-grid">
+      <div class="trait-card"><b>1</b><h3>AI First 工作动线</h3><p>把 AI 放进完整工作流，先让 AI 跑，再在人类判断上修正和收口。</p></div>
+      <div class="trait-card"><b>2</b><h3>能力边界量级跃迁</h3><p>产出规模显著放大，一个人能跑通从想法到交付的完整链路。</p></div>
+      <div class="trait-card"><b>3</b><h3>主动性极强</h3><p>不等待组织安排，主动探索 AI 能力边界，持续扩展自己的能力圈。</p></div>
+      <div class="trait-card"><b>4</b><h3>影响力溢出</h3><p>工作方式和成果被看见，带动周围的人变快，价值不只停在个人产能。</p></div>
+    </div>
+    <div class="source-line">Source: 腾讯研究院《超级个体时代｜腾讯研究院3万字报告》，第一章 1.1。</div>
+    <aside class="speaker-notes">这一页只定义超级个体，不讲老板。腾讯研究院报告把超级个体定义为：借助 AI，一个人达到过去需要小团队才能达到的产出规模和影响半径。拆开来看有四个结构性特征，而且四个缺一不可。第一是 AI First 工作动线，AI 是默认起点，不是遇到困难才问一下。第二是能力边界的量级跃迁，不只是快一点，而是产出规模和跨领域完整链路都被放大。第三是主动性极强，超级个体主动寻找 AI 能力极限，在行动中扩展能力圈。第四是影响力溢出，高效个体只让自己变快，超级个体会让周围的人和团队也变快。</aside>
+  </section>
+
+<section class="slide statement no-chrome" data-label="超级个体金句" data-page="43">
+    <div>
+      <h1>吃到 AI 红利的公司，<br />创始人几乎都是超级个体<span class="blue-dot">.</span></h1>
+      <p>他不必天天泡在工具里，但必须被 AI 惊艳到过，知道边界，才推得动组织变革。</p>
+    </div>
+    <aside class="speaker-notes">这里用一句话把前面超级个体的定义落到创始人身上。现在能真正拿到结果、吃到 AI 红利的公司，几乎都有一个共同点：创始人本人先被 AI 改变过。他不必每天花很多时间和 AI 深度交互，但他一定被 AI 惊艳到过，知道 AI 的能力和边界在哪里。只有这样，他才知道组织里该筛什么样的人，该训练什么能力，该用什么标准判断效果。</aside>
+  </section>
+
+<section class="slide body" data-label="超级团队涌现路径" data-page="44">
+    <div class="eyebrow">超级团队涌现 · 四条路径</div>
+    <h1 class="slide-title">最可控的入口，是创始人先成为超级个体</h1>
+    <p class="slide-subtitle">A、B、C 都需要高密度人才或成熟机制；创始人没有体感，就很难筛选、培养和复制。</p>
+    <span class="slide-bar"></span>
+    <div class="emergence-layout">
+      <div class="emergence-routes">
+        <div class="emergence-card">
+          <span class="tag">不可控</span>
+          <b>路径 A</b>
+          <h3>自下而上自发涌现</h3>
+          <p>超级个体彼此看见、自然聚合；前提是组织里本来就有极高的人才密度。</p>
+        </div>
+        <div class="emergence-card">
+          <span class="tag">难照抄</span>
+          <b>路径 B</b>
+          <h3>组织筛选培育</h3>
+          <p>筛选、集中训练、放回团队；难点是每家公司都要知道自己该筛什么。</p>
+        </div>
+        <div class="emergence-card">
+          <span class="tag">慢变量</span>
+          <b>路径 C</b>
+          <h3>氛围营造浸泡</h3>
+          <p>午餐会、每日分享、Demo day 持续浸泡；效果依赖时间和可见性。</p>
+        </div>
+        <div class="emergence-card dark">
+          <span class="tag">最可控</span>
+          <b>路径 D</b>
+          <h3>创始人驱动示范</h3>
+          <p>创始人先被 AI 惊艳到，亲自跑出结果，再把标准和机制扩散到组织。</p>
+        </div>
+      </div>
+      <div class="emergence-side">
+        <div class="control-panel">
+          <b>为什么必须先有体感</b>
+          <h3>先知道 AI 的边界，才知道组织该怎么变</h3>
+          <p>能吃到 AI 红利的公司，创始人通常先理解 AI 能做什么、不能做什么，再去重建筛选机制和工作方式。</p>
+          <div class="control-chain">
+            <span>体感</span>
+            <span>标准</span>
+            <span>筛选</span>
+            <span>复制</span>
+          </div>
+        </div>
+        <div class="shadow-panel">
+          <h3>没有体感，容易长出“AI 影子”</h3>
+          <p>有人用 AI 快速干完分内活，却不让组织看见；省下来的时间流向摸鱼或私活，个体变快，组织没有升级。</p>
+        </div>
+      </div>
+    </div>
+    <div class="source-line">Reference: 腾讯研究院《超级个体时代｜腾讯研究院3万字报告》，2.3 四种涌现路径。</div>
+    <aside class="speaker-notes">这一页讲超级团队怎么长出来。腾讯研究院报告里提到四种涌现路径。路径 A 是自下而上自发涌现，超级个体互相看见、自然聚合，但这要求组织里本来就有非常高的人才密度。路径 B 是组织筛选培育，筛选、集中训练、再放回团队，但前提是你知道该筛什么、训什么。路径 C 是氛围营造浸泡，比如午餐会、每日分享、Demo day，它有价值，但比较慢，而且需要长期可见性。路径 D 是创始人驱动示范，这是目前最可控的入口。创始人先有体感，知道 AI 的能力和边界在哪里，才知道应该建立什么样的筛选机制、培养机制和工作方式。否则公司里可能会出现 AI 影子：有人私下用 AI 变快，但组织没有看到，也没有升级。</aside>
+  </section>
+
+<section class="slide body" data-label="组织变化总览" data-page="45">
+    <div class="eyebrow">从超级个体到超级团队 · 组织会往哪里变</div>
+    <h1 class="slide-title">组织会变，创始人必须先有体感</h1>
+    <p class="slide-subtitle">AI 不只是提效工具，它会重排人才、改写分工，并把数字员工带进组织协作。</p>
+    <span class="slide-bar"></span>
+    <div class="org-shift-grid">
+      <div class="org-shift-card">
+        <b>01 · 人才标尺</b>
+        <h3>重排序列，拉大方差</h3>
+        <p>学历、资历和职级降权；学习速度、判断力、系统思维和 AI 驾驭力升权。</p>
+      </div>
+      <div class="org-shift-card">
+        <b>02 · 个体觉醒</b>
+        <h3>岗位边界变薄</h3>
+        <p>开发者、产品、运营、创始人都可能被 AI 放大，新的关键人才会从意想不到的位置冒出来。</p>
+      </div>
+      <div class="org-shift-card">
+        <b>03 · 分工协作</b>
+        <h3>从职能分工到能力放大</h3>
+        <p>组织少看“属于哪个部门”，多看“这个人加上 AI 能覆盖哪条业务链”。</p>
+      </div>
+      <div class="org-shift-card">
+        <b>04 · 协作主体</b>
+        <h3>人类员工 + 数字员工</h3>
+        <p>未来交付由人、Agent、数据和工具共同完成；权限、上下文、Eval 和复盘成为新管理底座。</p>
+      </div>
+    </div>
+    <div class="org-founder-panel">
+      <div>
+        <b>创始人的任务</b>
+        <h3>先有体感，<br />再设计组织</h3>
+      </div>
+      <p>如果创始人没有体感，觉醒的超级个体要么变成“AI 影子”，要么流向更能放大他的组织。企业家的第二大脑，是获得体感、沉淀标准、复制能力的起点。</p>
+    </div>
+    <div class="source-line">Reference: 腾讯研究院《超级个体时代｜腾讯研究院3万字报告》，1.2 / 2.3 / 4.3。</div>
+    <aside class="speaker-notes">这一页把前面几页趋势压成一页。腾讯研究院报告里有几个关键判断。第一，AI 在重排序列和拉大方差，旧的人才标尺会部分失灵，学习速度、判断力、系统思维和 AI 驾驭力变得更重要。第二，超级个体会从不同位置觉醒，开发者、产品、运营、创始人都可能被 AI 放大，岗位边界会变薄。第三，分工协作会从职能分工转向能力放大，不再只问一个人属于哪个部门，而是看这个人加上 AI 能覆盖哪条业务链。第四，协作主体会变化，未来不是纯粹的人类员工协作，而是人类员工、数字员工、数据和工具共同交付，所以权限、上下文、Eval 和复盘会成为新的管理底座。核心结论是：创始人必须先有体感，再设计组织。如果创始人没有体感，公司里觉醒的超级个体要么变成 AI 影子，私下用 AI 变快但不让组织看见；要么会流向更能放大他的组织。企业家的第二大脑，就是获得体感、沉淀标准、复制能力的起点。</aside>
+  </section>
+
+<section class="slide statement no-chrome closing-statement" data-label="收束" data-page="46">
+    <div>
+      <h1>第二大脑，<br />让 AI 越来越懂你<span class="blue-dot">.</span></h1>
+      <p>先让 AI 懂你，组织才知道往哪里变</p>
+    </div>
+    <aside class="speaker-notes">最后回到这句话：第二大脑，让 AI 越来越懂你。今天所有内容从这里展开，也在这里收束。企业家的第二大脑不是一个资料库，而是把判断、上下文、价值边界和工作方式沉淀成系统。先让 AI 懂你，组织才知道往哪里变。</aside>
+  </section>
+
+</deck-stage>
+<script>
+  (() => {
+    const svg = document.querySelector('[data-functional-curve]');
+    if (!svg) return;
+
+    const config = {
+      x0: 110,
+      x1: 1200,
+      yBase: 407,
+      amplitude: 760,
+      steepness: 5.4,
+      tippingT: 0.66,
+      publicT: 0.60,
+      actualT: 0.705,
+      samples: 120
+    };
+
+    const rise = (t) => (Math.exp(config.steepness * t) - 1) / (Math.exp(config.steepness) - 1);
+    const pointAt = (t) => ({
+      x: config.x0 + (config.x1 - config.x0) * t,
+      y: config.yBase - config.amplitude * rise(t)
+    });
+    const pathFor = (from, to) => {
+      const points = [];
+      for (let i = 0; i <= config.samples; i += 1) {
+        const t = from + (to - from) * (i / config.samples);
+        const p = pointAt(t);
+        points.push(`${i === 0 ? "M" : "L"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`);
+      }
+      return points.join(" ");
+    };
+    const placeCircle = (id, p) => {
+      const node = document.getElementById(id);
+      if (!node) return;
+      node.setAttribute("cx", p.x.toFixed(1));
+      node.setAttribute("cy", p.y.toFixed(1));
+    };
+
+    const tipping = pointAt(config.tippingT);
+    const publicPoint = pointAt(config.publicT);
+    const actualPoint = pointAt(config.actualT);
+
+    document.getElementById("curve-slow")?.setAttribute("d", pathFor(0, config.tippingT));
+    document.getElementById("curve-fast")?.setAttribute("d", pathFor(config.tippingT, 1));
+    placeCircle("curve-point-public", publicPoint);
+    placeCircle("curve-point-tipping", tipping);
+    placeCircle("curve-point-actual", actualPoint);
+
+    const label = document.getElementById("curve-label-tipping");
+    if (label) {
+      label.setAttribute("x", (tipping.x + 22).toFixed(1));
+      label.setAttribute("y", (tipping.y + 12).toFixed(1));
+    }
+
+    const person = document.getElementById("curve-flex-person");
+    if (person) {
+      person.setAttribute("transform", `translate(${(tipping.x + 178).toFixed(1)} ${(tipping.y + 12).toFixed(1)})`);
+    }
+  })();
+</script>
+</body>
+</html>

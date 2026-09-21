@@ -28,6 +28,11 @@ jobs:
             site/public/poster/index.html
             site/public/poster/ai-native-organization-program/index.html
             site/public/poster/ai-native-organization-program/poster.css
+            site/public/decks/Yusi/index.html
+            site/public/decks/Yusi/gaoge-agent-training-deck/index.html
+            site/public/decks/Yusi/gaoge-agent-training-deck/gaoge-agent-training-deck.pdf
+            site/public/decks/Yusi/entrepreneur-second-brain/index.html
+            site/public/decks/Yusi/entrepreneur-second-brain/entrepreneur-second-brain.pdf
             site/public/product/index.html
             site/public/product/ai-club/index.html
             site/public/product/enterprise-ai-growth-suite/index.html
@@ -140,6 +145,7 @@ jobs:
             manuals_html="$(curl -fsSL https://www.mindsleap.cn/manuals || true)"
             poster_html="$(curl -fsSL https://www.mindsleap.cn/poster || true)"
             poster_program_html="$(curl -fsSL https://www.mindsleap.cn/poster/ai-native-organization-program || true)"
+            yusi_decks_html="$(curl -fsSL https://www.mindsleap.cn/decks/Yusi || true)"
 
             if [ -n "$css_path" ] \
               && curl -fIs "https://www.mindsleap.cn$css_path" >/dev/null \
@@ -153,6 +159,12 @@ jobs:
               && grep -q 'MindsLeap Poster Archive' <<< "$poster_html" \
               && grep -q 'ai-native-organization-program' <<< "$poster_html" \
               && grep -q 'AI原生组织跃迁实战营' <<< "$poster_program_html" \
+              && grep -q 'gaoge-agent-training-deck' <<< "$yusi_decks_html" \
+              && grep -q 'entrepreneur-second-brain' <<< "$yusi_decks_html" \
+              && curl -fsSL https://www.mindsleap.cn/decks/Yusi/gaoge-agent-training-deck >/dev/null \
+              && curl -fsSL https://www.mindsleap.cn/decks/Yusi/entrepreneur-second-brain >/dev/null \
+              && curl -fIs https://www.mindsleap.cn/decks/Yusi/gaoge-agent-training-deck/gaoge-agent-training-deck.pdf >/dev/null \
+              && curl -fIs https://www.mindsleap.cn/decks/Yusi/entrepreneur-second-brain/entrepreneur-second-brain.pdf >/dev/null \
               && curl -fsSL https://www.mindsleap.cn/product/ai-club >/dev/null \
               && curl -fsSL https://www.mindsleap.cn/product/enterprise-ai-growth-suite >/dev/null \
               && curl -fsSL https://www.mindsleap.cn/product/member-directory >/dev/null \

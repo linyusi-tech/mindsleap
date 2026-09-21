@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>高格空间 AI 数字员工训练营 · 落地篇</title>
+  <script src="deck-stage.js"></script>
+  <style>
+    @font-face {
+      font-family: "MindsLeap Brand";
+      src: url("fonts/MindsLeap-Brand.otf") format("opentype");
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f5f7fb;
+      --ink: #111111;
+      --muted: #536174;
+      --subtle: #7b8494;
+      --rule: #dfe6ef;
+      --blue: #1e477c;
+      --blue-2: #2f6db4;
+      --blue-soft: #dbeafe;
+      --green: #1f7a67;
+      --amber: #b7791f;
+      --red: #b42318;
+      --font-heading: "MindsLeap Brand", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      --font-body: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; letter-spacing: 0 !important; }
+    html, body { margin: 0; width: 100%; min-height: 100%; background: #05070b; }
+    body { font-family: var(--font-body); color: var(--ink); }
+    deck-stage { background: #05070b; }
+
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      isolation: isolate;
+    }
+    .slide.tint { background: #eef4fb; }
+
+    .slide:not(.no-chrome)::before {
+      content: "";
+      position: absolute;
+      left: 112px;
+      bottom: 48px;
+      width: 387px;
+      height: 117px;
+      background: url("mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+      opacity: 1;
+      pointer-events: none;
+    }
+    .slide:not(.no-chrome)::after {
+      content: attr(data-page);
+      position: absolute;
+      right: 112px;
+      bottom: 64px;
+      font: 600 24px/1 var(--font-body);
+      color: #9aa5b5;
+      pointer-events: none;
+    }
+
+    .body { padding: 88px 112px 150px; }
+    .no-chrome { padding: 0; }
+
+    .eyebrow {
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--blue-2);
+      margin-bottom: 22px;
+    }
+    .slide-title {
+      margin: 0;
+      max-width: 1696px;
+      font-family: var(--font-heading);
+      font-size: 60px;
+      line-height: 1.08;
+      font-weight: 760;
+      color: var(--ink);
+      text-wrap: wrap;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    .slide-subtitle {
+      max-width: 1660px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 27px;
+      line-height: 1.4;
+    }
+    .slide-bar {
+      display: block;
+      width: 88px;
+      height: 7px;
+      background: var(--blue);
+      margin: 28px 0 4px;
+      border-radius: 999px;
+    }
+    .blue-dot { color: var(--blue-2); }
+
+    /* ---------- Cover ---------- */
+    .cover {
+      display: grid;
+      grid-template-columns: 1fr 820px;
+      gap: 72px;
+      padding: 82px 112px 92px;
+      background: #ffffff;
+    }
+    .cover-logo {
+      width: 340px;
+      height: 96px;
+      background: url("mindsleap-foundersspace-joint-logo-blue.svg") left center / contain no-repeat;
+      margin-bottom: 64px;
+    }
+    .cover-kicker {
+      color: var(--blue-2);
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 26px;
+    }
+    .cover h1 {
+      max-width: 880px;
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 88px;
+      line-height: 1.06;
+      color: #101010;
+    }
+    .cover-copy {
+      max-width: 840px;
+      margin: 34px 0 52px;
+      font-size: 29px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 980px;
+    }
+    .cover-meta div {
+      border-top: 4px solid var(--blue);
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.35;
+    }
+    .cover-meta b {
+      display: block;
+      color: var(--ink);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .cover-meta span { white-space: nowrap; }
+    .cover-visual {
+      position: relative;
+      height: 906px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #dfe6ef;
+    }
+    .cover-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cover-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,20,38,.05), rgba(7,20,38,.5));
+    }
+    .proof-badges {
+      position: absolute;
+      z-index: 2;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .proof-badges div {
+      background: rgba(255,255,255,.94);
+      border-radius: 8px;
+      padding: 20px 18px;
+      text-align: center;
+    }
+    .proof-badges strong {
+      display: block;
+      color: var(--blue);
+      font-family: var(--font-heading);
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    /* ---------- Yusi intro ---------- */
+    .yusi-intro .slide-title { font-size: 76px; line-height: 1.02; }
+    .yusi-role {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .yusi-intro-grid {
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 6px;
+    }
+    .yusi-bio-list { border-top: 1px solid var(--rule); }
+    .yusi-bio-list div {
+      min-height: 86px;
+      padding: 20px 0 18px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 25px;
+      line-height: 1.38;
+    }
+    .yusi-bio-list b { color: var(--ink); font-weight: 900; }
+    .yusi-photo {
+      height: 590px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      background: #fff;
+      display: grid;
+      place-items: end center;
+      overflow: hidden;
+    }
+    .yusi-photo img {
+      width: auto !important;
+      max-width: 100%;
+      height: 588px !important;
+      max-height: 588px;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+    }
+
+    /* ---------- Statement ---------- */
+    .statement {
+      display: grid;
+      place-items: center;
+      padding: 0 150px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+    }
+    .statement h1 {
+      margin: 0;
+      max-width: 1560px;
+      font-family: var(--font-heading);
+      font-size: 90px;
+      line-height: 1.12;
+      color: #fff;
+    }
+    .statement p {
+      max-width: 1320px;
+      margin: 36px auto 0;
+      color: #d8e9ff;
+      font-size: 32px;
+      line-height: 1.42;
+    }
+    .st-kicker {
+      color: #b8d7ff;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 30px;
+    }
+    .statement .blue-dot { color: #b8d7ff; }
+
+    /* ---------- Part divider ---------- */
+    .part-divider {
+      position: relative;
+      padding: 0 112px 150px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .part-num {
+      position: absolute;
+      right: 112px;
+      top: 66px;
+      font-family: var(--font-heading);
+      font-size: 236px;
+      line-height: .82;
+      font-weight: 900;
+      color: rgba(47, 109, 180, .10);
+      z-index: 0;
+    }
+    .part-divider > div:not(.part-num) {
+      position: absolute;
+      left: 120px;
+      top: 350px;
+      z-index: 1;
+      max-width: 1460px;
+      text-align: left;
+    }
+    .part-kicker {
+      color: var(--blue-2);
+      font-family: var(--font-body);
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: 850;
+      margin-bottom: 26px;
+      word-spacing: 6px;
+    }
+    .part-divider h1 {
+      max-width: 1440px;
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 78px;
+      line-height: 1.08;
+      color: var(--blue);
+    }
+    .part-divider p {
+      max-width: 1360px;
+      margin: 30px 0 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.34;
+    }
+
+    /* ---------- Generic cards ---------- */
+    .grid-2, .grid-3, .grid-4, .grid-5 { display: grid; gap: 22px; margin-top: 34px; align-items: stretch; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+    .card {
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card > b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 850;
+      margin-bottom: 14px;
+    }
+    .card h3 { margin: 0 0 12px; font-size: 29px; line-height: 1.16; color: var(--ink); }
+    .card p { margin: 0; color: var(--muted); font-size: 22px; line-height: 1.4; }
+    .card p b { color: var(--ink); font-weight: 850; }
+    .card .ex {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--blue-2);
+      font-size: 19px;
+      line-height: 1.36;
+      font-weight: 650;
+    }
+    .card .mini-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 11px; }
+    .card .mini-list li {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.3;
+      padding-left: 22px;
+      position: relative;
+    }
+    .card .mini-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-2);
+    }
+    .card.dark { background: var(--blue); border-color: var(--blue); }
+    .card.dark h3, .card.dark p, .card.dark strong, .card.dark span { color: #fff; }
+    .card.dark p b { color: #fff; }
+    .card.dark > b { color: #b8d7ff; }
+    .card.dark .ex { color: #dbeafe; border-color: rgba(255,255,255,.22); }
+    .card.dark .mini-list li { color: #eaf2ff; }
+    .card.dark .mini-list li::before { background: #b8d7ff; }
+
+    /* ---------- Panels (two-column emphasis) ---------- */
+    .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 34px; align-items: stretch; }
+    .panels.wide-right { grid-template-columns: .9fr 1.1fr; }
+    .panel {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 38px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel.dark { background: var(--blue); border-color: var(--blue); }
+    .panel b { display: block; color: var(--blue-2); font-size: 23px; font-weight: 850; margin-bottom: 20px; }
+    .panel.dark b { color: #b8d7ff; }
+    .panel h3 { margin: 0 0 18px; font-size: 38px; line-height: 1.14; color: var(--ink); }
+    .panel.dark h3 { color: #fff; }
+    .panel p { margin: 0; color: var(--muted); font-size: 25px; line-height: 1.44; }
+    .panel.dark p { color: #dbeafe; }
+    .panel ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 16px; }
+    .panel li { color: var(--muted); font-size: 25px; line-height: 1.34; padding-left: 28px; position: relative; }
+    .panel li b { display: inline; color: var(--ink); font-size: inherit; margin: 0; font-weight: 850; }
+    .panel li::before { content: ""; position: absolute; left: 0; top: 12px; width: 11px; height: 11px; border-radius: 50%; background: var(--blue-2); }
+    .panel.dark li { color: #eaf2ff; }
+    .panel.dark li b { color: #fff; }
+    .panel.dark li::before { background: #b8d7ff; }
+
+    /* ---------- Compare tables (two column) ---------- */
+    .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 26px; margin-top: 20px; }
+    .cmp-head, .cmp-row {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 14px 26px;
+    }
+    .cmp-head { padding: 16px 26px; }
+    .cmp-head.dark, .cmp-row.dark { background: var(--blue); border-color: var(--blue); }
+    .cmp-head b { display: block; color: var(--blue-2); font-size: 19px; margin-bottom: 6px; font-weight: 800; }
+    .cmp-head.dark b { color: #b8d7ff; }
+    .cmp-head h3 { margin: 0; color: var(--ink); font-size: 31px; line-height: 1.1; }
+    .cmp-head.dark h3 { color: #fff; }
+    .cmp-row strong { display: block; color: var(--blue-2); font-size: 19px; margin-bottom: 6px; }
+    .cmp-row.dark strong { color: #b8d7ff; }
+    .cmp-row p { margin: 0; color: var(--muted); font-size: 22px; line-height: 1.3; }
+    .cmp-row.dark p { color: #fff; }
+
+    /* ---------- Punch bar / note bar ---------- */
+    .punch {
+      margin-top: 16px;
+      background: var(--blue);
+      border-radius: 8px;
+      padding: 16px 30px;
+      color: #fff;
+      font-size: 23px;
+      line-height: 1.34;
+      font-weight: 750;
+    }
+    .punch b { color: #b8d7ff; font-weight: 850; }
+    .note-bar {
+      margin-top: 22px;
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      border-left: 6px solid var(--blue);
+      border-radius: 8px;
+      padding: 20px 28px;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.42;
+    }
+    .note-bar b { color: var(--ink); font-weight: 850; }
+
+    /* ---------- Quote lead ---------- */
+    .quote-lead {
+      margin-top: 26px;
+      background: var(--bg-alt);
+      border-left: 6px solid var(--blue);
+      border-radius: 8px;
+      padding: 24px 30px;
+    }
+    .quote-lead b { display: block; color: var(--blue-2); font-size: 21px; font-weight: 850; margin-bottom: 12px; }
+    .quote-lead p { margin: 0; color: var(--ink); font-family: var(--font-heading); font-size: 34px; line-height: 1.2; }
+
+    /* ---------- Spine (P3) ---------- */
+    .spine-wrap { display: grid; grid-template-columns: 520px 1fr; gap: 72px; margin-top: 44px; align-items: start; }
+    .spine-lead { border-left: 8px solid var(--blue); padding: 18px 0 0 36px; min-height: 560px; }
+    .spine-lead .lab { color: var(--blue-2); font-size: 24px; font-weight: 850; margin-bottom: 30px; }
+    .spine-lead h2 { margin: 0; font-family: var(--font-heading); font-size: 52px; line-height: 1.14; color: var(--ink); }
+    .spine-lead p { margin: 30px 0 0; color: var(--muted); font-size: 26px; line-height: 1.42; }
+    .spine6 { display: grid; gap: 18px; }
+    .spine-item {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      align-items: center;
+      gap: 22px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 15px 26px;
+      min-height: 104px;
+    }
+    .spine-item > b { font-family: var(--font-heading); color: var(--blue-2); font-size: 40px; line-height: 1; }
+    .spine-item strong { color: var(--ink); font-size: 29px; }
+    .spine-item span { color: var(--muted); font-size: 24px; }
+    .spine-item.last { background: var(--blue); border-color: var(--blue); }
+    .spine-item.last > b { color: #b8d7ff; }
+    .spine-item.last strong, .spine-item.last span { color: #fff; }
+
+    /* ---------- Roadmap (P4) ---------- */
+    .road { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+    .road-card {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 32px 30px;
+      min-height: 248px;
+    }
+    .road-card b { display: block; font-family: var(--font-heading); color: var(--blue-2); font-size: 40px; line-height: 1; margin-bottom: 16px; }
+    .road-card h3 { margin: 0 0 14px; font-size: 32px; color: var(--ink); }
+    .road-card p { margin: 0; color: var(--muted); font-size: 23px; line-height: 1.4; }
+    .road-card.dark { background: var(--blue); border-color: var(--blue); }
+    .road-card.dark b { color: #b8d7ff; }
+    .road-card.dark h3, .road-card.dark p { color: #fff; }
+
+    /* ---------- Rewrite (P19) ---------- */
+    .rewrite { display: grid; gap: 22px; margin-top: 30px; }
+    .rw {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 26px 32px;
+    }
+    .rw > b { display: block; color: var(--blue-2); font-size: 22px; font-weight: 850; margin-bottom: 14px; }
+    .rw-row { display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: baseline; padding: 12px 0; }
+    .rw-row + .rw-row { border-top: 1px dashed var(--rule); }
+    .rw-tag { font-size: 27px; line-height: 1; }
+    .rw-row p { margin: 0; font-size: 27px; line-height: 1.34; }
+    .rw-row.bad p { color: var(--subtle); }
+    .rw-row.good p { color: var(--ink); font-weight: 750; }
+
+    /* ---------- Traffic light (P25) ---------- */
+    .sig { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 36px; }
+    .sig-card {
+      border: 1px solid var(--rule);
+      border-top: 5px solid var(--rule);
+      border-radius: 8px;
+      background: #fff;
+      padding: 34px 32px;
+    }
+    .sig-card.red { border-top-color: var(--red); }
+    .sig-card.amber { border-top-color: var(--amber); }
+    .sig-card.green { border-top-color: var(--green); }
+    .sig-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .sig-dot { width: 20px; height: 20px; border-radius: 50%; flex: none; }
+    .sig-card.red .sig-dot { background: var(--red); }
+    .sig-card.amber .sig-dot { background: var(--amber); }
+    .sig-card.green .sig-dot { background: var(--green); }
+    .sig-name { font-family: var(--font-heading); font-size: 34px; font-weight: 850; }
+    .sig-card.red .sig-name { color: var(--red); }
+    .sig-card.amber .sig-name { color: var(--amber); }
+    .sig-card.green .sig-name { color: var(--green); }
+    .sig-sub { color: var(--ink); font-size: 25px; font-weight: 750; }
+    .sig-card p { margin: 0; color: var(--muted); font-size: 23px; line-height: 1.42; }
+
+    /* ---------- Spec table (P20) ---------- */
+    .spec-table { width: 100%; border-collapse: collapse; margin-top: 26px; table-layout: fixed; }
+    .spec-table col.c1 { width: 15%; }
+    .spec-table col.c2 { width: 20%; }
+    .spec-table col.c3 { width: 65%; }
+    .spec-table th, .spec-table td {
+      border: 1px solid var(--rule);
+      padding: 16px 22px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .spec-table thead th { background: var(--blue); color: #fff; font-size: 21px; font-weight: 800; }
+    .spec-table td { font-size: 20px; line-height: 1.34; color: var(--muted); }
+    .spec-table td.k { font-weight: 850; color: var(--ink); }
+    .spec-table td.d { color: var(--ink); font-weight: 650; }
+    .spec-table tbody tr:nth-child(even) td { background: #fafbfd; }
+
+    /* ---------- P3 spine notes (前提 / 落点) ---------- */
+    .spine-col { display: flex; flex-direction: column; }
+    .spine-note { display: flex; gap: 12px; align-items: baseline; padding: 0 2px; color: var(--muted); font-size: 22px; line-height: 1.34; }
+    .spine-note b { flex: none; color: var(--blue-2); font-weight: 850; }
+    .spine-note.top { margin-bottom: 16px; }
+    .spine-note.bot { margin-top: 16px; }
+    .spine-hint { margin: 22px 0 0; color: var(--blue-2); font-size: 24px; font-weight: 750; line-height: 1.4; }
+
+    /* ---------- P4 roadmap compact ---------- */
+    .road.compact { grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px; }
+    .road.compact .road-card { min-height: 226px; padding: 30px 30px; }
+
+    /* ---------- Contract layers (P30, 搬自企业家第二大脑 deck) ---------- */
+    .contract-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 42px;
+    }
+    .contract-panel {
+      min-height: 480px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 34px;
+    }
+    .contract-panel.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .contract-panel b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .contract-panel h3 {
+      margin: 0 0 24px;
+      color: var(--ink);
+      font-size: 46px;
+      line-height: 1.1;
+    }
+    .contract-weight {
+      display: inline-block;
+      margin: -8px 0 18px;
+      color: var(--muted);
+      font-size: 20px;
+      font-weight: 760;
+    }
+    .contract-panel.dark .contract-weight { color: #b8d7ff; }
+    .contract-panel.dark b { color: #b8d7ff; }
+    .contract-panel.dark h3 { color: #fff; }
+    .contract-list {
+      display: grid;
+      gap: 13px;
+    }
+    .contract-list span {
+      display: block;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      padding: 16px 18px;
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 720;
+    }
+    .contract-panel.dark .contract-list span {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.2);
+      color: #fff;
+    }
+
+    /* ---------- Big formula (P35 胜在量大) ---------- */
+    .bigmath { margin: 30px 0 4px; text-align: center; }
+    .bigmath .eq {
+      font-family: var(--font-heading);
+      font-size: 150px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--blue);
+    }
+    .bigmath .eq em { font-style: normal; color: var(--blue-2); }
+
+    /* ---------- 4.1 输入 / 4.2 加工 迁入类（搬自企业家第二大脑 deck，v3.5） ---------- */
+    .method-divider {
+      padding: 0 118px 0;
+      background: #fff;
+      overflow: hidden;
+    }
+    .method-num {
+      position: absolute;
+      right: 96px;
+      top: 46px;
+      color: rgba(47, 109, 180, .12);
+      font-family: var(--font-heading);
+      font-size: 220px;
+      font-weight: 900;
+      line-height: .84;
+      letter-spacing: 0 !important;
+    }
+    .method-inner {
+      position: absolute;
+      left: 122px;
+      right: 122px;
+      top: 322px;
+    }
+    .method-kicker {
+      color: var(--blue-2);
+      font-size: 38px;
+      font-weight: 880;
+      margin-bottom: 28px;
+    }
+    .method-divider h1 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 126px;
+      line-height: .96;
+    }
+    .method-divider p {
+      max-width: 1260px;
+      margin: 38px 0 0;
+      color: var(--muted);
+      font-size: 39px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+    .method-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 54px;
+    }
+    .method-tags span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 52px;
+      border-radius: 999px;
+      border: 1px solid #cfe0f5;
+      background: #f6faff;
+      color: var(--blue);
+      padding: 0 22px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .legacy-ingest {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 34px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .legacy-source-panel,
+    .legacy-brain-panel {
+      min-height: 520px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 30px;
+    }
+    .legacy-source-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .legacy-source {
+      border-radius: 8px;
+      border: 1px solid #dbe6f4;
+      background: #fff;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 150px;
+    }
+    .legacy-source b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 860;
+    }
+    .legacy-source h3 {
+      margin: 16px 0 0;
+      color: var(--ink);
+      font-size: 31px;
+      line-height: 1.1;
+    }
+    .legacy-source p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.32;
+    }
+    .legacy-brain-panel {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 26px;
+    }
+    .legacy-brain-panel::before {
+      content: "";
+      position: absolute;
+      inset: 32px;
+      border: 1px solid rgba(184, 215, 255, .28);
+      border-radius: 999px;
+      transform: rotate(-8deg);
+    }
+    .legacy-brain-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+    .legacy-brain-kicker {
+      color: #b8d7ff;
+      font-size: 23px;
+      font-weight: 860;
+    }
+    .legacy-brain-core {
+      align-self: center;
+      justify-self: center;
+      width: 430px;
+      min-height: 260px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 34px;
+      box-shadow: 0 26px 60px rgba(0,0,0,.16);
+    }
+    .legacy-brain-core b {
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 860;
+      margin-bottom: 18px;
+    }
+    .legacy-brain-core h3 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 64px;
+      line-height: 1.02;
+    }
+    .legacy-brain-core p {
+      margin: 22px 0 0;
+      color: #e6f0ff;
+      font-size: 24px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+    .legacy-brain-rules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .legacy-brain-rules span {
+      min-height: 78px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      font-size: 21px;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+    .asset-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 34px;
+    }
+    .asset-panel {
+      min-height: 525px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .asset-panel.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .asset-panel b {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 860;
+    }
+    .asset-panel.dark b { color: #b8d7ff; }
+    .asset-panel h3 {
+      margin: 16px 0 0;
+      color: var(--ink);
+      font-size: 43px;
+      line-height: 1.08;
+    }
+    .asset-panel.dark h3 { color: #fff; }
+    .asset-panel ul {
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+    .asset-panel li {
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.34;
+      padding-left: 25px;
+      position: relative;
+    }
+    .asset-panel li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-2);
+    }
+    .asset-panel.dark li { color: #e5efff; }
+    .asset-panel.dark li::before { background: #b8d7ff; }
+    .auto-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .auto-flow-card {
+      min-height: 336px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .auto-flow-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .auto-flow-card b {
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 860;
+    }
+    .auto-flow-card.dark b { color: #b8d7ff; }
+    .auto-flow-card h3 {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 39px;
+      line-height: 1.1;
+    }
+    .auto-flow-card.dark h3 { color: #fff; }
+    .auto-flow-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.38;
+    }
+    .auto-flow-card.dark p { color: #e6f0ff; }
+    .flow-strip {
+      margin-top: 26px;
+      border-radius: 8px;
+      background: #eff6ff;
+      border: 1px solid #d7e7fa;
+      color: var(--blue);
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 820;
+      letter-spacing: 0 !important;
+    }
+    .typeless-layout {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 48px;
+      align-items: stretch;
+      margin-top: 34px;
+    }
+    .typeless-logo-card {
+      min-height: 540px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #f8fbff, #edf4ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 38px;
+    }
+    .typeless-logo-card img {
+      width: 245px;
+      height: 245px;
+      object-fit: cover;
+      border-radius: 52px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, .15);
+    }
+    .typeless-logo-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .typeless-logo-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 720;
+    }
+    .typing-stack {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 18px;
+    }
+    .tool-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .tool-pill {
+      min-height: 74px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .tool-pill b {
+      color: var(--blue-2);
+      font-size: 17px;
+      font-weight: 860;
+      white-space: nowrap;
+    }
+    .tool-pill span {
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 820;
+      text-align: right;
+    }
+    .typing-equation {
+      min-height: 448px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr 56px 1.05fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .typing-factor {
+      height: 100%;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid #dfe8f5;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .typing-factor.result {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .typing-factor small {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 860;
+    }
+    .typing-factor.result small { color: #b8d7ff; }
+    .typing-factor strong {
+      display: block;
+      margin-top: 24px;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 76px;
+      line-height: .95;
+      font-weight: 920;
+    }
+    .typing-factor.result strong { color: #fff; }
+    .typing-factor span {
+      display: block;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.25;
+      font-weight: 720;
+    }
+    .typing-factor.result span { color: #e6f0ff; }
+    .equation-symbol {
+      color: rgba(47, 109, 180, .45);
+      font-family: var(--font-heading);
+      font-size: 70px;
+      font-weight: 900;
+      text-align: center;
+    }
+    .thought-focus-grid {
+      display: grid;
+      grid-template-columns: 1.22fr 1fr;
+      gap: 22px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .thought-focus-card {
+      min-height: 492px;
+      border-radius: 8px;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      padding: 38px 38px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+    .thought-focus-card b {
+      display: block;
+      color: #b8d7ff;
+      font-size: 24px;
+      font-weight: 860;
+      line-height: 1;
+    }
+    .thought-focus-card h3 {
+      margin: 22px 0 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 58px;
+      line-height: 1.04;
+    }
+    .thought-focus-card p {
+      margin: 0;
+      color: #e6f0ff;
+      font-size: 27px;
+      line-height: 1.34;
+      font-weight: 700;
+    }
+    .thought-side-stack {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .thought-mini-card {
+      min-height: 150px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 18px;
+      align-items: start;
+    }
+    .thought-mini-card b {
+      color: var(--blue-2);
+      font-size: 21px;
+      font-weight: 860;
+      line-height: 1.15;
+    }
+    .thought-mini-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 34px;
+      line-height: 1.06;
+    }
+    .thought-mini-card p {
+      grid-column: 2;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.34;
+    }
+    .storage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 38px;
+    }
+    .storage-card {
+      min-height: 390px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .storage-card.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .storage-card b {
+      color: var(--blue-2);
+      font-size: 20px;
+      font-weight: 850;
+    }
+    .storage-card.dark b { color: #b8d7ff; }
+    .storage-card h3 {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 36px;
+      line-height: 1.08;
+    }
+    .storage-card.dark h3 { color: #fff; }
+    .storage-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.36;
+    }
+    .storage-card.dark p { color: #e6f0ff; }
+    .index-stack {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .index-stack.triple {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .index-layer {
+      min-height: 430px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--bg-alt);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .index-stack.triple .index-layer { min-height: 380px; }
+    .index-layer.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .index-layer b {
+      color: var(--blue-2);
+      font-size: 19px;
+      font-weight: 850;
+    }
+    .index-layer.dark b { color: #b8d7ff; }
+    .index-layer h3 {
+      margin: 14px 0 0;
+      color: var(--ink);
+      font-size: 31px;
+      line-height: 1.12;
+    }
+    .index-layer.dark h3 { color: #fff; }
+    .index-layer p {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.35;
+    }
+    .index-layer.dark p { color: #e6f0ff; }
+    .index-layer small {
+      display: block;
+      color: var(--subtle);
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 720;
+    }
+    .index-layer.dark small { color: #b8d7ff; }
+    .concept-index-stack .index-layer h3 {
+      margin-top: 16px;
+      font-family: var(--font-heading);
+      font-size: 54px;
+      line-height: 1.02;
+    }
+    .concept-index-stack .index-layer p {
+      margin-top: 22px;
+      font-size: 18px;
+      line-height: 1.34;
+    }
+    .concept-index-stack .index-layer small {
+      font-size: 16px;
+      line-height: 1.34;
+    }
+    .architecture-strip {
+      margin-top: 22px;
+      border: 1px solid #cfe0f5;
+      border-radius: 8px;
+      background: #f6faff;
+      padding: 18px 22px;
+      color: var(--blue);
+      font-size: 23px;
+      line-height: 1.35;
+      font-weight: 760;
+    }
+
+    aside.speaker-notes { display: none; }
+  
+    /* ==== v3.8 融合:第二大脑三页(入职磨合/脑机接口/本地) ==== */
+    .onboarding-split {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 36px;
+      margin-top: 38px;
+      align-items: stretch;
+    }
+    .onboarding-hero,
+    .onboarding-row {
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      padding: 36px;
+    }
+    .onboarding-hero {
+      min-height: 500px;
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .onboarding-hero b,
+    .onboarding-row b {
+      display: block;
+      color: #b8d7ff;
+      font-size: 22px;
+      font-weight: 850;
+      margin-bottom: 22px;
+    }
+    .onboarding-hero h3 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 56px;
+      line-height: 1.06;
+    }
+    .onboarding-hero p {
+      margin: 28px 0 0;
+      color: #dbeafe;
+      font-size: 25px;
+      line-height: 1.42;
+    }
+    .onboarding-mini-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 34px;
+    }
+    .onboarding-mini-list span {
+      display: block;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.1);
+      padding: 15px 17px;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 760;
+    }
+    .onboarding-hero strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 78px;
+      line-height: .95;
+    }
+    .subagent-visual {
+      min-height: 500px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 32px;
+    }
+    .subagent-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+    .subagent-head b {
+      color: var(--blue-2);
+      font-size: 22px;
+      font-weight: 850;
+    }
+    .subagent-head span {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.3;
+      text-align: right;
+      font-weight: 650;
+    }
+    .subagent-flow {
+      display: grid;
+      grid-template-columns: 1.06fr 78px .86fr 78px 1.1fr;
+      gap: 0;
+      align-items: center;
+      min-height: 336px;
+    }
+    .flow-node {
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 24px;
+    }
+    .flow-node.context {
+      min-height: 312px;
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .flow-node.main {
+      min-height: 172px;
+      background: #eef5ff;
+      border-color: #c7dcf6;
+    }
+    .flow-node b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      margin-bottom: 13px;
+    }
+    .flow-node h3 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .flow-node p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.34;
+    }
+    .flow-node.context b { color: #b8d7ff; }
+    .flow-node.context h3,
+    .flow-node.context p { color: #fff; }
+    .flow-arrow {
+      color: var(--blue-2);
+      font-family: var(--font-heading);
+      font-size: 58px;
+      line-height: 1;
+      text-align: center;
+    }
+    .subagent-list {
+      display: grid;
+      gap: 12px;
+    }
+    .subagent-pill {
+      min-height: 92px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 17px 19px;
+    }
+    .subagent-pill b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+    .subagent-pill strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 26px;
+      line-height: 1.05;
+    }
+    .subagent-return {
+      margin-top: 18px;
+      border-radius: 8px;
+      border: 1px solid #c7dcf6;
+      background: #eef5ff;
+      padding: 16px 20px;
+      color: var(--blue);
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 820;
+      text-align: center;
+    }
+    .bci-layout {
+      display: grid;
+      grid-template-columns: 740px 1fr;
+      gap: 44px;
+      margin-top: 32px;
+      align-items: stretch;
+    }
+    .bci-visual {
+      height: 560px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: #f7faff;
+    }
+    .bci-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .bci-panel {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 18px;
+      min-width: 0;
+    }
+    .bci-flow {
+      display: grid;
+      gap: 14px;
+    }
+    .bci-step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      align-items: start;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 22px 24px;
+    }
+    .bci-step.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .bci-step b {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 850;
+    }
+    .bci-step.dark b {
+      background: rgba(255,255,255,.16);
+      color: #b8d7ff;
+    }
+    .bci-step h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 30px;
+      line-height: 1.16;
+    }
+    .bci-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.34;
+    }
+    .bci-step.dark h3,
+    .bci-step.dark p { color: #fff; }
+    .bci-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .bci-metric {
+      min-height: 150px;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      padding: 22px 24px;
+    }
+    .bci-metric.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .bci-metric b {
+      display: block;
+      color: var(--blue-2);
+      font-size: 18px;
+      font-weight: 850;
+      margin-bottom: 8px;
+    }
+    .bci-metric.dark b { color: #b8d7ff; }
+    .bci-metric strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-heading);
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .bci-metric.dark strong { color: #fff; }
+    .bci-metric p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.32;
+    }
+    .bci-metric.dark p { color: #dbeafe; }
+    .local-brain-layout {
+      display: grid;
+      grid-template-columns: 530px 1fr;
+      gap: 36px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+    .local-core {
+      min-height: 510px;
+      border-radius: 8px;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      color: #fff;
+      padding: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .local-core b {
+      color: #b8d7ff;
+      font-size: 22px;
+      font-weight: 850;
+    }
+    .local-core h3 {
+      margin: 18px 0 0;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 54px;
+      line-height: 1.08;
+    }
+    .local-core p {
+      margin: 20px 0 0;
+      color: #dbeafe;
+      font-size: 24px;
+      line-height: 1.38;
+    }
+    .local-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .local-chip-row span {
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .local-flow {
+      display: grid;
+      gap: 16px;
+    }
+    .local-step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      align-items: start;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      background: var(--bg-alt);
+      padding: 28px;
+    }
+    .local-step b {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 850;
+    }
+    .local-step h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.16;
+    }
+    .local-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.36;
+    }
+    .local-step.dark {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .local-step.dark b {
+      background: rgba(255,255,255,.16);
+      color: #b8d7ff;
+    }
+    .local-step.dark h3,
+    .local-step.dark p { color: #fff; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+
+<!-- ============================ 开场 P1-P4 ============================ -->
+
+<section class="slide cover no-chrome" data-label="开场" data-page="1">
+  <div>
+    <div class="cover-logo"></div>
+    <div class="cover-kicker">高格办公空间 × MindsLeap · AI 数字员工训练营</div>
+    <h1>高格 AI 数字员工<br />入职培训<span class="blue-dot">.</span></h1>
+    <p class="cover-copy">上午看清了方向，下午我们动手，把这个员工真正带出来。</p>
+    <div class="cover-meta">
+      <div><b>对象</b><span>高格核心业务骨干</span></div>
+      <div><b>环节</b><span>下午实战导入</span></div>
+      <div><b>目标</b><span>每个人做出一个数字员工原型</span></div>
+    </div>
+  </div>
+  <div class="cover-visual">
+    <img src="assets/workshop-hero.jpg" alt="AI 数字员工训练营现场" />
+    <div class="proof-badges">
+      <div><strong>流程地图</strong></div>
+      <div><strong>员工卡</strong></div>
+      <div><strong>Skill 草案</strong></div>
+    </div>
+  </div>
+  <aside class="speaker-notes">上午合伙人讲了 AI 原生组织、数字员工是什么、高格哪里用得上。我这半天只讲一件事——怎么把这个"数字员工"真的带出来干活。今天所有内容都围一个比喻：带 AI，就像带一个新人入职。</aside>
+</section>
+
+<section class="slide body yusi-intro" data-label="雨丝介绍" data-page="2">
+  <div class="eyebrow">Instructor · 主讲人介绍</div>
+  <h1 class="slide-title">雨丝</h1>
+  <p class="yusi-role">MindsLeap 联合创始人 &amp; CPO</p>
+  <span class="slide-bar"></span>
+  <div class="yusi-intro-grid">
+    <div class="yusi-bio-list">
+      <div><b>当前角色：</b>MindsLeap 联合创始人 &amp; CPO，Founders Space 中国合伙人，企业家 AI 俱乐部联合发起人。</div>
+      <div><b>教育产品一线：</b>曾担任全球排名第一教育科技公司 32 亿美元独角兽 Emeritus 中国区产品负责人。复旦大学本科。</div>
+      <div><b>少儿教育与出海：</b>前纳斯达克上市教育公司少儿产品线负责人，字节跳动教育出海业务资深产品经理。</div>
+      <div><b>产品从 0 到 1：</b>主导十余款教育产品从 0 到 1 的构建，服务用户超百万。</div>
+      <div><b>AI 教育与母亲视角：</b>长期关注 AI 对学习方式、创造力培养与个性化教育的影响；作为 7 个月孩子的妈妈，也更关心技术变化背后"人如何成长"的问题。</div>
+    </div>
+    <div class="yusi-photo">
+      <img src="assets/yusi.png" alt="雨丝主讲人照片" />
+    </div>
+  </div>
+  <aside class="speaker-notes">不用逐条念。让大家知道我一头在教育产品、少儿教育和出海，一头现在在 MindsLeap 做企业 AI 和数字员工。所以今天不是纯讲工具，是从产品、组织和"人怎么带人"的角度，讲怎么带一个数字员工。</aside>
+</section>
+
+<section class="slide body" data-label="四步主线" data-page="3">
+  <div class="eyebrow">今天的路线 · 带一个新员工入职</div>
+  <h1 class="slide-title">上午看清方向，下午动手，把这个员工一步步带出来</h1>
+  <div class="spine-wrap">
+    <div class="spine-lead">
+      <div class="lab">一条主线</div>
+      <h2>带 AI，像带一个<br />新员工入职</h2>
+      <p>上午回答了"要不要、是什么"，下午回答"怎么带"。</p>
+      <p class="spine-hint">一句暗线：先和领导对齐，最后和现实对齐。</p>
+    </div>
+    <div class="spine-col">
+      <div class="spine-note top"><b>前提</b><span>先请到一个能干活的员工（工具）——四步才跑得起来。</span></div>
+      <div class="spine6">
+        <div class="spine-item"><b>1</b><div><strong>给资源给资料</strong><span> —— 先让它熟悉业务，像新人入职第一件事</span></div></div>
+        <div class="spine-item"><b>2</b><div><strong>派活</strong><span> —— 把要做的事，说成一份工作说明书</span></div></div>
+        <div class="spine-item"><b>3</b><div><strong>和领导对齐</strong><span> —— 用你的标准和口味把它调对，跑通了就沉淀下来</span></div></div>
+        <div class="spine-item last"><b>4</b><div><strong>员工自己成长</strong><span> —— 让它到现实里自己转、自己校准，不用你一直盯</span></div></div>
+      </div>
+      <div class="spine-note bot"><b>落点</b><span>今天下午，每个人在高格业务里跑通第一圈。</span></div>
+    </div>
+  </div>
+  <aside class="speaker-notes">上午回答的是"要不要、是什么"，我这半天只回答一件事——怎么把这个数字员工真的带出来干活。方法就是这一条主线，四步：给资料、派活、和领导对齐、员工自己成长，像带一个新人从入职到独当一面。四步之下先记两个词：前提，是先请到一个能干活的员工，也就是工具；落点，是今天下午每人在高格业务里跑通第一圈。还有一句我先埋在这——中间"和领导对齐"这一步，你都是在和领导、也就是和你自己对齐；到最后一步"员工自己成长"，对齐的对象换成现实世界。先和领导对齐，最后和现实对齐，这是全场的暗线，到第四步我会讲透。</aside>
+</section>
+
+<section class="slide part-divider" data-label="序00 请员工" data-page="4">
+  <div class="part-num">00</div>
+  <div>
+    <div class="part-kicker">序 · 先把员工请进来</div>
+    <h1>聊天框回答你，Agent 帮你把活干完</h1>
+    <p>四步开始前，先请到一个真能干活的员工——一个能读文件、会用工具、能交付的助手。</p>
+  </div>
+  <aside class="speaker-notes">刚才那条主线，是今天的地图：给资料、派活、和领导对齐、员工自己成长。但这四步有一个前提——你手上得先有一个真能干活的员工。豆包、DeepSeek 这类问答工具很好用，可它们和数字员工差一件东西：手。这个序章不讲大道理，先解决最实际的问题：把这个能干活的"员工"请进门。请不进来，后面四步都无从谈起。所以我们从工具讲起，讲清这双"手"是什么，第一站用哪个上手。</aside>
+</section>
+
+<section class="slide body" data-label="问答 vs Agent" data-page="5">
+  <div class="eyebrow">本质差别 · Agent 比问答工具多一双手</div>
+  <h1 class="slide-title">能不能读你的文件、动你的表格，是问答和 Agent 的分水岭</h1>
+  <p class="slide-subtitle">Agent（数字员工的引擎，一个能读文件、会用工具的 AI），差别就在这双"手"。</p>
+  <div class="cmp">
+    <div class="cmp-head"><b>问答工具</b><h3>豆包 / DeepSeek</h3></div>
+    <div class="cmp-head dark"><b>Agent</b><h3>WorkBuddy / Codex</h3></div>
+    <div class="cmp-row"><strong>01 · 读资料</strong><p>只能你复制粘贴进去。</p></div>
+    <div class="cmp-row dark"><strong>01 · 读资料</strong><p>直接打开你的文件、表格、历史记录。</p></div>
+    <div class="cmp-row"><strong>02 · 动手</strong><p>只给你一段文字答案。</p></div>
+    <div class="cmp-row dark"><strong>02 · 动手</strong><p>能改文件、跑表格、生成可打开的产出。</p></div>
+    <div class="cmp-row"><strong>03 · 交付物</strong><p>你还要自己再整理一遍。</p></div>
+    <div class="cmp-row dark"><strong>03 · 交付物</strong><p>直接产出周报、摘要、HTML 页面。</p></div>
+    <div class="cmp-row"><strong>04 · 连贯干活</strong><p>一问一答，断了就忘。</p></div>
+    <div class="cmp-row dark"><strong>04 · 连贯干活</strong><p>一件事从头做到交付，中间自己推进。</p></div>
+  </div>
+  <div class="punch">真正有生产力的是：AI ＋ 本地文件 ＋ 工具接口 ＋ 可执行流程。</div>
+  <aside class="speaker-notes">问一个招商话术怎么写，问答工具够用。但让它把今天二十条线索去重、分类、配上房源、排好优先级、生成一张能直接跟进的表——这就要一双手。有没有这双手，是问答工具和 Agent 最本质的差别，也是今天为什么要换工具的原因。</aside>
+</section>
+
+<section class="slide body" data-label="Agent 能干什么" data-page="6">
+  <div class="eyebrow">安装之后 · Agent 上手就能接的五类活</div>
+  <h1 class="slide-title">会读文件、会上网、能交付，才算真帮你干活</h1>
+  <div class="grid-5">
+    <div class="card"><h3>文件处理</h3><p>读你给的表格和文档，做归并、分类、改写。</p><div class="ex">例：把一周的客户工单归成几类问题。</div></div>
+    <div class="card"><h3>网页调研</h3><p>上网查资料并标注来源，不许口说无凭。</p><div class="ex">例：拉一份周边竞品空间的租金与配套摘要。</div></div>
+    <div class="card"><h3>表格与数据</h3><p>算、比、找异常，把台账变成结论。</p><div class="ex">例：从经营台账里挑出该预警的项目。</div></div>
+    <div class="card"><h3>文档与 HTML 产出</h3><p>直接生成能打开的周报、提案、网页。</p><div class="ex">例：一版可发给客户的空间提案页面。</div></div>
+    <div class="card"><h3>自动化任务</h3><p>把重复流程固定下来，每周自动跑。</p><div class="ex">例：每周一早上自动出一份招商周报。</div></div>
+  </div>
+  <aside class="speaker-notes">这一页对着下午的安装环节讲。你不用记住这五类，只要有个直觉：凡是"要翻资料、要动表格、要出一份东西"的活，都可以交给它试一次。这些例子都是高格身边的活，下午你可以直接挑一个来练。</aside>
+</section>
+
+<section class="slide body" data-label="工具阶梯" data-page="7">
+  <div class="eyebrow">工具阶梯 · 从练手到正式干活</div>
+  <h1 class="slide-title">问答工具继续用，干活换 WorkBuddy 和 Codex</h1>
+  <div class="grid-3">
+    <div class="card"><b>继续用</b><h3>豆包 / DeepSeek</h3><p>随口问、找灵感、做单次整理还很好用；但它没有手，别指望它读你的文件、交你要的活。</p></div>
+    <div class="card dark"><b>第一站 · 国内优质人才市场</b><h3>WorkBuddy</h3><p>像 985 / 211 本科生：中文业务语境近，高频执行、上手快。国产、免翻墙、每天有免费额度，今天下午先从它开始练。</p></div>
+    <div class="card"><b>正式干活 · 海外名校人才市场</b><h3>Codex</h3><p>像常春藤博士生密集的市场，按订阅价打包，相当于高等人才"优惠包"。读写本地文件、跑命令，做正经项目——中台与品牌的同事已经用它跑通了 HTML 数据可视化。</p></div>
+  </div>
+  <div class="grid-2">
+    <div class="card"><b>科普 · 订阅包（按月付的套餐）</b><p>像手机套餐：每月固定费用，登录官方应用就能用。个人上手就选它——WorkBuddy 每天有免费额度，Codex 包含在 ChatGPT 的订阅里。</p></div>
+    <div class="card"><b>科普 · API（按用量付费的接口）</b><p>像水电表：用多少算多少，是给系统和工具"接管子"用的。要把 AI 接进公司系统、批量自动跑任务时用它；很多工具让你填的 API Key，就是这根管子的钥匙。</p></div>
+  </div>
+  <aside class="speaker-notes">不是让大家扔掉豆包。问答工具留着问，但真要它帮你把活干到交付，就得上有手的工具。这两个工具，你可以理解成两种 AI 人才市场：WorkBuddy 像国内优质人才市场，里面很多 985、211 的本科生，中文业务语境近，适合高频执行、快速响应；Codex 像海外名校人才市场，常春藤博士生密度很高，而且因为产品定价，相当于一个高等人才优惠包。今天的路线很简单：先用 WorkBuddy 免费练手，练顺了再上 Codex 做正经项目。身边已经有同事跑通了，说明这条路走得通，不是我一个人在讲。底下两个词科普一下，因为一定有人问"这些工具怎么收费"：订阅包，像手机套餐，按月付固定费用，个人用足够——今天大家开通的都是这种；API，像水电表，按用量计费，是给系统接管子用的，以后公司要把数字员工接进业务系统、自动跑周报，走的就是 API，那是技术同事去对接的事。你们记住一句：个人上手，订阅包就够了。（提"中台与品牌的同事已经跑通"前，现场口头和汪芳、吴旻旻确认；slide 上不写人名。）</aside>
+</section>
+
+<section class="slide body" data-label="上手心法" data-page="8">
+  <div class="eyebrow">上手心法 · 别等学会才开始</div>
+  <h1 class="slide-title">学 AI 像婴儿学语言：先用起来，别先背语法</h1>
+  <div class="panels wide-right">
+    <div class="panel">
+      <b>心法</b>
+      <p>最高效的学语言方式，是像婴儿一样直接开口，在用的过程中慢慢有语感——不背单词、不学语法。学 AI 也一样，直接拿真实的活开始交互，别等"学会了"再用。</p>
+    </div>
+    <div class="panel dark">
+      <b>第一招：Plan Mode（先规划再执行）</b>
+      <p>具体怎么做，你不用替它想好。开一个 Plan Mode，让 AI 先把步骤规划出来给你看，你确认方向，再让它动手。</p>
+    </div>
+  </div>
+  <aside class="speaker-notes">很多人卡在"我还没学会 AI"。其实没有"学会"这一步，就像没人是先学完语法才会说话的。下午你只要选一个真实的活，打开工具直接说，遇到不懂的当场问它。Plan Mode 是我最推荐的第一招——你说要什么，让它先列步骤，你把关方向，它去干细节。</aside>
+</section>
+
+<section class="slide statement no-chrome" data-label="金句 · 用起来" data-page="9">
+  <div>
+    <h1>不要等学会 AI 才开始用，<br />用起来，AI 才会变成你的能力<span class="blue-dot">.</span></h1>
+  </div>
+  <aside class="speaker-notes">这句话收住序章。工具、阶梯、心法都讲完了，剩下的只差一个动作——今天下午真的打开它，派第一个活。序章的任务就一件：把能干活的员工请进门。请进门之后，四步才正式开始。用起来，它才会长成你的能力。</aside>
+</section>
+
+<!-- ============================ 第一步 01 · 给资源给资料 P11-P16 ============================ -->
+
+<section class="slide part-divider" data-label="步01 给资料" data-page="10">
+  <div class="part-num">01</div>
+  <div>
+    <div class="part-kicker">第一步 · 给资源给资料</div>
+    <h1>新员工入职第一件事是熟悉资料，<br />AI 也一样</h1>
+    <p>AI 出的问题，大多是上下文的问题——先把业务现场给够，后面才顺。</p>
+  </div>
+  <aside class="speaker-notes">员工请进门了，但他现在对高格一无所知。你不会让新人第一天就接最难的活——你会先让他把业务资料、过往案例、现场规则熟悉一遍。带 AI 一模一样。而且这一步特别值：AI 聊着聊着变笨、忘约定、一本正经地编，根子几乎都在同一个地方——上下文。上下文，就是你给它的工作现场。第一步先把料给够、给对，是在替后面所有步省麻烦。这一步的路线是这样：先讲为什么要攒——第二大脑，就是你和 AI 之间的脑机接口；再讲输入——怎么让过去和现在的资料都进来；最后讲加工——怎么把它变成 AI 真正能读、能调用的资产。熟悉完了，才轮到派活。</aside>
+</section>
+
+<section class="slide body" data-label="入职磨合" data-page="11">
+    <div class="eyebrow">高端人才 · 能力强不等于马上懂公司</div>
+    <h1 class="slide-title">再高端的人才，也要磨合后才用得顺手</h1>
+    <p class="slide-subtitle">人才市场解决能力供给，第二大脑解决上下文和默契。</p>
+    <span class="slide-bar"></span>
+    <div class="onboarding-split">
+      <div class="onboarding-hero">
+        <div>
+          <b>入职培训</b>
+          <h3>培训很快，磨合很慢</h3>
+          <p>流程、工具、权限可以很快讲完；判断、口味和边界要靠长期共事。</p>
+          <div class="onboarding-mini-list">
+            <span>培训：知道怎么开始干</span>
+            <span>磨合：知道什么叫做好</span>
+            <span>第二大脑：把磨合变成可调用 Context</span>
+          </div>
+        </div>
+      </div>
+      <div class="subagent-visual">
+        <div class="subagent-head">
+          <b>SubAgent 入职示意</b>
+          <span>同一套上下文包，分发给多个数字员工并发工作。</span>
+        </div>
+        <div class="subagent-flow">
+          <div class="flow-node context">
+            <b>第二大脑</b>
+            <h3>业务 Context 包</h3>
+            <p>你的判断、历史案例、风格偏好、价值边界和验收标准。</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node main">
+            <b>主 Agent</b>
+            <h3>拆解任务</h3>
+            <p>把目标拆成可并发、可验收的小任务。</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="subagent-list">
+            <div class="subagent-pill"><b>SubAgent 01</b><strong>调研</strong></div>
+            <div class="subagent-pill"><b>SubAgent 02</b><strong>执行</strong></div>
+            <div class="subagent-pill"><b>SubAgent 03</b><strong>QA</strong></div>
+          </div>
+        </div>
+        <div class="subagent-return">结果、错误和复盘再写回第二大脑</div>
+      </div>
+    </div>
+    <aside class="speaker-notes">上午说了，数字员工就是你招进来的高端人才。可即使雇到非常聪明的人，也需要磨合。入职培训能很快讲清楚流程、工具和权限，但真正决定交付质量的是判断、口味和边界。AI 高端人才也是一样。第二大脑的价值，是把你和公司长期磨出来的判断沉淀成 Context 包。这样主 Agent 拆任务时，可以把同一套上下文分发给调研、执行、QA 等 SubAgent；它们做完以后，结果、错误和复盘再写回第二大脑，下一次协作就更顺。（Agent 具体怎么拆，第二步派活里会细讲。）</aside>
+  </section>
+
+<section class="slide body" data-label="脑机接口" data-page="12">
+    <div class="eyebrow">第二大脑 · 连接你的判断与 AI 人才</div>
+    <h1 class="slide-title">第二大脑，是你和 AI 人才之间的脑机接口</h1>
+    <p class="slide-subtitle">它把人的隐性判断，转成 AI 能高速检索、复盘、调用的长期 Context。</p>
+    <span class="slide-bar"></span>
+    <div class="bci-layout">
+      <div class="bci-visual">
+        <img src="assets/brain-computer-interface.png" alt="第二大脑脑机接口示意图" />
+      </div>
+      <div class="bci-panel">
+        <div class="bci-flow">
+          <div class="bci-step">
+            <b>01</b>
+            <div>
+              <h3>输入：你的隐性判断</h3>
+              <p>客户能不能接、产品怎么取舍、文案像不像你、什么钱不能赚。</p>
+            </div>
+          </div>
+          <div class="bci-step dark">
+            <b>02</b>
+            <div>
+              <h3>转译：变成 AI 可调用 Context</h3>
+              <p>第二大脑把长期磨合沉淀为可检索、可复盘、可更新的工作背景。</p>
+            </div>
+          </div>
+          <div class="bci-step">
+            <b>03</b>
+            <div>
+              <h3>调用：高端 AI 人才快速入职</h3>
+              <p>拿到上下文、边界和验收标准后，数字员工直接进入高质量协作。</p>
+            </div>
+          </div>
+        </div>
+        <div class="bci-metrics">
+          <div class="bci-metric">
+            <b>人和人</b>
+            <strong>十几个 bit/s</strong>
+            <p>靠说、写、听、读慢慢转码，磨合周期很长。</p>
+          </div>
+          <div class="bci-metric dark">
+            <b>AI 和 AI</b>
+            <strong>上亿 bit/s</strong>
+            <p>向量、参数和高维空间，让检索与迭代高速发生。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里正式提出第二大脑的概念。它相当于你和 AI 人才之间的脑机接口。这页用一条转译链路说清楚：第一步，你的隐性判断进入系统，比如客户能不能接、产品怎么取舍、文案像不像你、什么钱不能赚；第二步，第二大脑把这些长期磨合沉淀成 AI 可调用的 Context；第三步，AI 人才拿到上下文、边界和验收标准后，就能快速进入高质量协作。速率对比只是解释为什么这件事有意义：人和人之间靠语言传递信息，语言思考大约是每秒十几个比特量级；AI 之间通过向量、参数和高维空间进行计算、检索、迭代，可以达到每秒上亿比特量级。第二大脑就是把你的隐性判断转成 AI 可以高速调用的上下文。</aside>
+  </section>
+
+<section class="slide body" data-label="本地第二大脑" data-page="13">
+    <div class="eyebrow">第二大脑 · 归你所有</div>
+    <h1 class="slide-title">第二大脑放在本地，换工具才不掉一层肉</h1>
+    <p class="slide-subtitle">工具只是接口，长期 Context 必须留在你自己的本地系统里。</p>
+    <span class="slide-bar"></span>
+    <div class="local-brain-layout">
+      <div class="local-core">
+        <div>
+          <b>本地资产</b>
+          <h3>AI 易读、易索引、可迁移</h3>
+          <p>闪念、历史资料、项目过程、复盘和 SOP，都沉淀在自己的文件系统。</p>
+        </div>
+        <div class="local-chip-row">
+          <span>Codex</span>
+          <span>Hermes</span>
+          <span>Claude Code</span>
+          <span>未来工具</span>
+        </div>
+      </div>
+      <div class="local-flow">
+        <div class="local-step">
+          <b>01</b>
+          <div>
+            <h3>资产归你，不归平台</h3>
+            <p>第二大脑沉淀在本地，不被某一个第三方工具锁住。</p>
+          </div>
+        </div>
+        <div class="local-step dark">
+          <b>02</b>
+          <div>
+            <h3>工具可以随时升级</h3>
+            <p>今天接 Codex，明天接 Hermes，未来出现更强工具，也读同一套上下文。</p>
+          </div>
+        </div>
+        <div class="local-step">
+          <b>03</b>
+          <div>
+            <h3>AI 员工可以无缝交接</h3>
+            <p>一个 AI 员工离开，另一个接上；公司的经验、边界和做法还在。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页强调所有权。你的第二大脑要沉淀在本地，避免锁在任何一个第三方工具里。很多人现在使用第三方平台，每迁移一次都会掉一层肉：资料导不全，格式变了，历史过程丢了，团队还要重新适应。但如果你的第二大脑是本地的一套 AI 易读、易索引的知识系统，工具切换成本就会低很多。今天接 Codex，后面想换 Hermes，或者未来 Claude Code 对中国重新开放、又出现更强工具，都可以读取同一套上下文。你可以把它理解成：一个 AI 员工离职了，另一个 AI 员工来接班，只要本地第二大脑还在，就能非常快地完成交接。再往上一层，部门共享资料库就是团队的第二大脑——新来的人和新接入的 AI，入职第一件事都是读它；高格招商组把成交案例、话术、口径沉淀进共享文件夹，任何 Agent 一接入就"懂行"。第二大脑为什么值钱、为什么要放本地，到这就讲完了——具体怎么输入、怎么加工，接下来几页展开。</aside>
+  </section>
+
+<section class="slide method-divider no-chrome" data-label="输入" data-page="14">
+    <div class="method-num">1</div>
+    <div class="method-inner">
+      <div class="method-kicker">第一步 · 给资源给资料 · 第一件事</div>
+      <h1>输入</h1>
+      <p>把过去搬回来，让现在自动沉淀，让未来直接长在本地。</p>
+      <div class="method-tags"><span>旧数据</span><span>自动沉淀</span><span>AI 输入法</span><span>AI 原生</span></div>
+    </div>
+    <aside class="speaker-notes">输入分三层。第一层是旧数据，把过去散落在第三方平台里的材料搬回来，献祭给第二大脑。第二层是新数据，让未来产生的信息自动进入系统，尽量减少人工搬运。第三层是善用 AI 输入法这类新工具，增加信息源和输入带宽。最后再强调保存形态：尽量让数据一开始就以 AI 易读的形式留下来。</aside>
+  </section>
+
+<section class="slide body" data-label="旧数据" data-page="15">
+    <div class="eyebrow">输入 · 把过去搬回来</div>
+    <h1 class="slide-title">旧数据：历史数据，尽可能都“献祭”给第二大脑</h1>
+    <p class="slide-subtitle">这一页只讲输入：先把散落在第三方平台里的材料牵引回来，让第二大脑先接住。</p>
+    <span class="slide-bar"></span>
+    <div class="legacy-ingest">
+      <div class="legacy-source-panel">
+        <div class="legacy-source"><div><b>聊天与私域</b><h3>微信 / 社群 / 客户对话</h3></div><p>真实判断、客户语气、合作边界。</p></div>
+        <div class="legacy-source"><div><b>会议与访谈</b><h3>录音 / 纪要 / 转写</h3></div><p>决策过程、争议点、行动项。</p></div>
+        <div class="legacy-source"><div><b>旧知识库</b><h3>印象笔记 / Notion / 飞书</h3></div><p>过去的想法、资料、课程和复盘。</p></div>
+        <div class="legacy-source"><div><b>项目沉淀</b><h3>旧方案 / 网盘 / 邮件</h3></div><p>已经验证过的做法、素材和交付物。</p></div>
+        <div class="legacy-source"><div><b>业务数据</b><h3>CRM / 表格 / 订单</h3></div><p>客户、线索、成交和运营痕迹。</p></div>
+        <div class="legacy-source"><div><b>个人素材</b><h3>闪念 / 收藏 / 草稿</h3></div><p>观点、故事、选题和判断偏好。</p></div>
+      </div>
+      <div class="legacy-brain-panel">
+        <div class="legacy-brain-kicker">先献祭，后整理</div>
+        <div class="legacy-brain-core">
+          <b>本地第二大脑</b>
+          <h3>先接住<br />旧数据</h3>
+          <p>不要让旧平台继续垄断你的长期上下文。</p>
+        </div>
+        <div class="legacy-brain-rules">
+          <span>尽量全量搬回</span>
+          <span>原始材料保留</span>
+          <span>下一层再存储</span>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里讲旧数据，只讲输入，不提前讲结构化和索引。你的很多关键判断，其实散落在微信聊天、客户对话、会议录音、旧方案、印象笔记、飞书文档、Notion 页面、网盘、邮件和业务表格里。第一步是先牵引回来，先献祭给第二大脑。这个阶段不追求马上整理成完美格式，重点是不要继续让旧平台垄断你的长期上下文。后面“加工”那一节再讲怎么变成 AI 易读格式、怎么做索引、怎么召回。</aside>
+  </section>
+
+<section class="slide body" data-label="新数据自动沉淀" data-page="16">
+    <div class="eyebrow">输入 · 新数据产生</div>
+    <h1 class="slide-title">新数据：减少甚至杜绝人工搬运</h1>
+    <p class="slide-subtitle">每天新产生的数据仍会留在第三方平台里，关键是让它自动回流到第二大脑。</p>
+    <span class="slide-bar"></span>
+    <div class="auto-flow-grid">
+      <div class="auto-flow-card"><div><b>01 · API 接口</b><h3>能接 API，先接 API</h3></div><p>会议、文档、CRM、订单和客服系统，只要有开放接口，就让数据自动同步回来。</p></div>
+      <div class="auto-flow-card dark"><div><b>02 · CLI 接口</b><h3>能命令化，就脚本化</h3></div><p>如果平台支持命令行、批量导出或 Webhook，就把重复点击变成定时任务。</p></div>
+      <div class="auto-flow-card"><div><b>03 · 定时脚本</b><h3>没接口，也要想办法拉回</h3></div><p>在权限和合规边界内，用网页抓取或浏览器自动化，把新数据按周期带回本地。</p></div>
+    </div>
+    <div class="flow-strip">第三方平台 → API / CLI / 定时脚本 → 本地第二大脑</div>
+    <aside class="speaker-notes">这一页讲新数据。我们每天都在产生大量数据，很多仍然会先存在第三方平台里，比如会议系统、协作文档、CRM、订单、客服记录和内容平台。如果这些平台还要继续使用，就要把“每天复制粘贴”改造成“自动沉淀到第二大脑”。先查有没有 API；没有 API，就看有没有 CLI、批量导出或 Webhook；再不行，就在权限和合规边界内，用定时脚本、网页抓取或浏览器自动化把数据拉回来。目标是尽量 No human in the loop。只要靠人搬运，一是浪费人力，二是人一觉得麻烦，重要信息就会消失。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 输入法" data-page="17">
+    <div class="eyebrow">输入 · 增加信息源</div>
+    <h1 class="slide-title">新数据：借助 AI 的力量，放大信息源</h1>
+    <p class="slide-subtitle">AI 输入法把原本流失的念头、判断、场景和素材，变成可沉淀的数据。</p>
+    <span class="slide-bar"></span>
+    <div class="typeless-layout">
+      <div class="typeless-logo-card">
+        <img src="assets/typeless-logo.png" alt="Typeless logo" />
+        <h3>Typeless</h3>
+        <p>AI 语音输入</p>
+      </div>
+      <div class="typing-stack">
+        <div class="tool-row">
+          <div class="tool-pill"><b>免费工具</b><span>豆包 / 微信输入法</span></div>
+          <div class="tool-pill"><b>付费工具</b><span>Typeless / Whisper Flow</span></div>
+        </div>
+        <div class="typing-equation">
+          <div class="typing-factor"><small>输入速度</small><strong>4-5x</strong><span>少打字，多口述</span></div>
+          <div class="equation-symbol">×</div>
+          <div class="typing-factor"><small>扩展场景</small><strong>2-3x</strong><span>走路、通勤、临睡前都能输入</span></div>
+          <div class="equation-symbol">=</div>
+          <div class="typing-factor result"><small>总输入带宽</small><strong>10x+</strong><span>更多想法进入系统</span></div>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里重点讲信息输入方式的变化，不展开工具测评。AI 输入法会带来两个乘数：输入速度提高四到五倍，输入场景扩展两到三倍，乘起来就是十倍以上的信息输入带宽。免费工具可以先用豆包和微信输入法，付费工具可以看 Typeless 和 Whisper Flow。重点放在信息源：能不能把大量原本流失在路上、车上、会议间隙、临睡前的念头、判断、场景和素材放进第二大脑。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 输入法与思考" data-page="18">
+    <div class="eyebrow">输入 · 思维也会被改造</div>
+    <h1 class="slide-title">AI 输入法的附赠好处——打断思维反刍，将思维客体化</h1>
+    <p class="slide-subtitle">语音输入会把内在循环变成外部对象，AI 才能追问、整理、保存和复用。</p>
+    <span class="slide-bar"></span>
+    <div class="thought-focus-grid">
+      <div class="thought-focus-card">
+        <div><b>01 · 重点</b><h3>打断<br>思维反刍</h3></div>
+        <p>念头一说出来，就从脑内循环变成外部对象，不再反复消耗注意力。</p>
+      </div>
+      <div class="thought-side-stack">
+        <div class="thought-mini-card"><b>02</b><div><h3>思维客体化</h3><p>把“我在想什么”变成可看、可改、可追问的文本。</p></div></div>
+        <div class="thought-mini-card"><b>03</b><div><h3>情绪客体化</h3><p>情绪被命名之后，和“我”拉开距离，更容易被处理。</p></div></div>
+        <div class="thought-mini-card"><b>04</b><div><h3>认知卸载</h3><p>把未成形的判断先放到外部系统，降低大脑缓存压力。</p></div></div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页讲 AI 输入法对思考方式的附赠好处。重点是打断思维反刍：很多念头一旦被说出来，就从脑内循环变成外部对象，不再反复消耗注意力。接着讲三件事：第一，思维客体化，把“我在想什么”变成一段可以看、可以改、可以被 AI 追问的文本。第二，情绪客体化，情绪被命名之后，和“我”拉开距离，更容易被处理。第三，认知卸载，把未成形的判断先放到外部系统，降低大脑缓存压力。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 原生数据" data-page="19">
+    <div class="eyebrow">输入 · 数据保存形态</div>
+    <h1 class="slide-title">新数据：尽量用 AI 原生的方式生成</h1>
+    <p class="slide-subtitle">每多一个封闭平台、复杂格式和人工搬运环节，AI 的调用成本都会升高。</p>
+    <span class="slide-bar"></span>
+    <div class="asset-compare">
+      <div class="asset-panel">
+        <div>
+          <b>低复用形态</b>
+          <h3>平台和文件把经验锁住</h3>
+          <ul>
+            <li>Word、PDF、Excel、PPT 需要再次解析。</li>
+            <li>音视频、图片和截图如果没有文本入口，很难被快速调用。</li>
+            <li>封闭平台每次迁移，都可能掉一层肉。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="asset-panel dark">
+        <div>
+          <b>AI 原生形态</b>
+          <h3>生产过程就沉淀为资产</h3>
+          <ul>
+            <li>用 Markdown 保存想法、复盘和会议。</li>
+            <li>用 HTML 承载 PPT、网页和交互稿。</li>
+            <li>用 CSV / JSON 保存结构化数据。</li>
+            <li>让 AI 可以搜索、diff、修改、验证。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这一页回到保存形态。第三方平台和传统办公文件当然还会存在，但它们不适合作为长期 Context 的唯一形态。Word、PDF、Excel、PPT、视频、截图都需要 AI 再解析一遍。数量少的时候问题不大，数量一大就会影响效率。新数据最好一开始就以 Markdown、HTML、CSV、JSON 这类 AI 易读形态留下来。比如同样做一份 PPT，用 HTML 交付，结构、样式、文本、版本差异都更容易被 AI 复用。</aside>
+  </section>
+
+<section class="slide method-divider no-chrome" data-label="加工" data-page="20">
+    <div class="method-num">2</div>
+    <div class="method-inner">
+      <div class="method-kicker">第一步 · 给资源给资料 · 第二件事</div>
+      <h1>加工</h1>
+      <p>把资料变成 AI 能读取、检索、引用和复用的形态。</p>
+      <div class="method-tags"><span>格式转换</span><span>说明书</span><span>索引</span></div>
+    </div>
+    <aside class="speaker-notes">输入解决“怎么进来”，加工解决“进来以后怎么变成可用资产”。这里不只是把资料存起来，而是把资料转成 AI 易读格式，再生成说明书和索引，让它能被搜索、引用、复用和持续更新。对第二大脑来说，朴素、稳定、可搜索、可 diff、可迁移，比短期界面好看更重要。</aside>
+  </section>
+
+<section class="slide body" data-label="AI 易读加工" data-page="21">
+    <div class="eyebrow">加工 · 第一步处理</div>
+    <h1 class="slide-title">第一步：先把资料变成 AI 能读的格式</h1>
+    <p class="slide-subtitle">原始材料继续保留，同时生成一份 AI 易读副本，让资料可以被搜索、引用和复用。</p>
+    <span class="slide-bar"></span>
+    <div class="storage-grid">
+      <div class="storage-card dark"><div><b>原始材料</b><h3>先保留</h3></div><p>微信导出、PDF、录音、截图、旧文件和平台数据，不覆盖、不丢弃，作为事实源头。</p></div>
+      <div class="storage-card"><div><b>文本类</b><h3>转 Markdown</h3></div><p>闪念、会议、访谈、复盘、文章摘要和判断记录，优先转成可读、可检索的文本。</p></div>
+      <div class="storage-card"><div><b>数据类</b><h3>转 CSV / JSON</h3></div><p>客户、订单、指标、任务状态和元数据，用稳定结构保存，方便 AI 读取和计算。</p></div>
+    </div>
+    <aside class="speaker-notes">这里讲历史数据和新数据进入第二大脑后的第一步处理：格式清洗。不要把原始材料覆盖掉，原始材料要继续保留，作为事实源头。然后再生成一份 AI 易读副本。文本类资料，比如闪念、会议、访谈、复盘、文章摘要和判断记录，优先转成 Markdown，因为它可读、可搜索、可引用。数据类资料，比如客户、订单、指标、任务状态和元数据，可以转成 CSV 或 JSON。第一步先不追求完美知识库，先让资料变成 AI 能稳定读取和处理的形态。</aside>
+  </section>
+
+<section class="slide body" data-label="索引系统" data-page="22">
+    <div class="eyebrow">加工 · 第二步处理</div>
+    <h1 class="slide-title">第二步：让 AI 生成说明书和索引</h1>
+    <p class="slide-subtitle">资料进来后，不要靠人手工规划完整架构；先让 AI 读一遍，给出第一版入口和地图。</p>
+    <span class="slide-bar"></span>
+    <div class="index-stack triple">
+      <div class="index-layer">
+        <div><b>说明书</b><h3>给 AI 的说明书</h3><p>写清目录结构、重要入口、命名规则、禁区、输出格式和验收标准。</p></div>
+        <small>典型形态：AGENTS.md / instructions.md。</small>
+      </div>
+      <div class="index-layer">
+        <div><b>索引</b><h3>AI 的索引</h3><p>建立项目、人物、会议、素材、复盘和主题入口，让 AI 知道先去哪里找。</p></div>
+        <small>典型形态：MOC、项目索引、会议索引。</small>
+      </div>
+      <div class="index-layer dark">
+        <div><b>起草方式</b><h3>先交给 AI 出一版</h3><p>让 AI 根据现有资料提出说明书和索引方案，人确认后再写回系统。</p></div>
+        <small>目标：先有可用入口，再逐步迭代。</small>
+      </div>
+    </div>
+    <div class="architecture-strip">目标：AI 接到问题时，知道先读哪份说明书，再沿哪个索引找材料。</div>
+    <aside class="speaker-notes">第二步处理是制作说明书和索引。给 AI 的说明书是开工手册，写清这个第二大脑怎么用、哪些目录重要、有什么规则、哪些东西不能乱动、输出格式和验收标准是什么。AI 的索引是给资料做地图，比如项目索引、人物索引、会议索引、素材索引、复盘索引和主题 MOC。这里不用靠人一开始想清楚完整架构，重点是先交给 AI 出一版：让 AI 先读现有资料，提出第一版说明书和索引方案，人确认后再写回系统。重点是让 AI 接到问题时，知道先读哪份说明书，再沿哪个索引找材料。</aside>
+  </section>
+
+<section class="slide body" data-label="概念补充" data-page="23">
+    <div class="eyebrow">加工 · 概念补充</div>
+    <h1 class="slide-title">另外一些有用的概念</h1>
+    <p class="slide-subtitle">现阶段不用深入展开，先知道它们分别解决什么问题。</p>
+    <span class="slide-bar"></span>
+    <div class="index-stack triple concept-index-stack">
+      <div class="index-layer dark">
+        <div><b>给自己看的工作台</b><h3>Obsidian</h3><p>从第一天就可以用来浏览、编辑、链接和维护本地 Markdown。</p></div>
+        <small>价值：让人能长期维护第二大脑。</small>
+      </div>
+      <div class="index-layer">
+        <div><b>几百到几千篇 Markdown</b><h3>脚本索引</h3><p>当文件开始变多，就让 AI 或脚本自动生成项目、会议、人物和主题索引。</p></div>
+        <small>价值：减少“我记得有，但不知道在哪”。</small>
+      </div>
+      <div class="index-layer">
+        <div><b>几千到几万段文本 chunk</b><h3>向量索引</h3><p>当关键词搜不到语义相近内容，再用 Embeddings 做语义召回，并回到原文确认。</p></div>
+        <small>价值：解决同一件事有很多说法的问题。</small>
+      </div>
+    </div>
+    <div class="architecture-strip">判断信号：你经常记得“好像写过”，但用关键词和目录找不到。</div>
+    <aside class="speaker-notes">这一页讲另外一些有用的概念。现在构建第二大脑，不需要一开始就把 Obsidian、脚本索引和向量索引全部想透。先知道它们分别解决什么问题就够了。Obsidian 主要是给自己看的本地 Markdown 工作台，价值是让人能浏览、编辑、链接和长期维护第二大脑。等资料多到几百、几千篇 Markdown，可以加脚本索引，让 AI 或脚本自动生成项目索引、会议索引、人物索引和主题索引。向量索引的判断信号很具体：你经常记得某个内容好像写过，但用关键词和目录找不到。更准确地说，当资料切成几千到几万段文本 chunk 后，向量索引才开始有明显价值。它适合找语义相近的内容，但召回之后仍然要回到原文确认事实。到这，第一步就完整了：资料进得来，也加工成了它真正能用的资产。熟悉完了，下一步，派活。</aside>
+  </section>
+
+<!-- ============================ 第二步 02 · 派活 P17-P22 ============================ -->
+
+<section class="slide part-divider" data-label="步02 派活" data-page="24">
+  <div class="part-num">02</div>
+  <div>
+    <div class="part-kicker">第二步 · 派活</div>
+    <h1>执行已经很便宜，意图质量才是杠杆</h1>
+    <p>AI 能不能帮上忙，八成在你开口那一刻就定了。</p>
+  </div>
+  <aside class="speaker-notes">资料熟悉了，它对高格的业务有感觉了。可熟悉不等于会干——你还得把要它做的事说清楚。这一步我想扭一个直觉：大家总以为产出不好是 AI 不够聪明，其实九成是活没派清楚。执行现在很便宜，真正决定上限的，是你把意图说到多清楚。</aside>
+</section>
+
+<section class="slide body" data-label="派活翻车" data-page="25">
+  <div class="eyebrow">常见痛点 · "帮我做一下"为什么总翻车</div>
+  <h1 class="slide-title">AI 产出不合意，九成是活没派清楚</h1>
+  <div class="grid-3">
+    <div class="card"><h3>"帮我写个招商文案"</h3><p>没说帮谁、说给什么样的客户、要他们做什么——AI 只能写一段谁看了都不痛不痒的话。</p></div>
+    <div class="card"><h3>"帮我整理一下数据"</h3><p>没说按什么口径、判断标准是什么、要看出什么结论——它只能把表格换个排法还给你。</p></div>
+    <div class="card"><h3>"帮我做个方案"</h3><p>没说给谁看、要解决什么、成品长什么样——它给你一个模板，你还得从头改。</p></div>
+  </div>
+  <aside class="speaker-notes">这三句话大家每天都在说。问题不在 AI，在于这三句里没有"帮谁、什么标准、要什么成品"。这三样缺了，再聪明的员工也只能猜。下一页我教你把这类话一次改对。</aside>
+</section>
+
+<section class="slide body" data-label="意图不是欲望" data-page="26">
+  <div class="eyebrow">把话说对 · 意图不等于欲望</div>
+  <h1 class="slide-title">好的派活是一次转换：帮谁，把什么状态变成什么状态</h1>
+  <p class="slide-subtitle">一句合格的意图，回答三件事——帮助谁、从什么状态、转化成什么状态。</p>
+  <div class="rewrite">
+    <div class="rw">
+      <b>改写一 · 招商</b>
+      <div class="rw-row bad"><span class="rw-tag">❌</span><p>写招商文案</p></div>
+      <div class="rw-row good"><span class="rw-tag">✅</span><p>帮助犹豫的意向客户，从担心成本和配套，转化成愿意来现场带看。</p></div>
+    </div>
+    <div class="rw">
+      <b>改写二 · 城市运营</b>
+      <div class="rw-row bad"><span class="rw-tag">❌</span><p>整理一下数据</p></div>
+      <div class="rw-row good"><span class="rw-tag">✅</span><p>帮助城市运营负责人，从一堆零散台账，转化成一眼能看出哪个项目要预警的周报。</p></div>
+    </div>
+  </div>
+  <aside class="speaker-notes">意图和欲望不一样。"赚一百万"是欲望，不是好意图，因为它没告诉 AI 帮谁、把什么变成什么。把"写文案"改成"帮助犹豫的客户从担心成本变成愿意来带看"，AI 立刻知道对谁说话、往哪个方向使劲。这一步转换，比后面所有提示词技巧都值钱。</aside>
+</section>
+
+<section class="slide body" data-label="Spec 八格" data-page="27">
+  <div class="eyebrow">工作合同 · 一张表把活说清楚</div>
+  <h1 class="slide-title">一张工作说明书，就是你和 AI 的工作合同</h1>
+  <p class="slide-subtitle">Spec（工作说明书 / 工作合同），下午作业直接用这张表。样例＝招商线索跟进助手。</p>
+  <table class="spec-table">
+    <colgroup><col class="c1" /><col class="c2" /><col class="c3" /></colgroup>
+    <thead>
+      <tr><th>格</th><th>填什么</th><th>招商线索跟进助手（样例）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="k">1 业务目标</td><td class="d">这个活最终要什么</td><td>把每天新进的招商线索，整理成能直接跟进的清单，省掉销售自己翻聊天和表格的时间</td></tr>
+      <tr><td class="k">2 使用者</td><td class="d">谁用、什么时候用</td><td>招商运营同事，每天上班第一件事打开看</td></tr>
+      <tr><td class="k">3 输入资料</td><td class="d">喂给它什么</td><td>官网 / 电话 / 展会收来的原始线索表、历史成交客户画像、当前在租房源清单</td></tr>
+      <tr><td class="k">4 处理步骤</td><td class="d">给大方向和边界，别写死每一步</td><td>让它开 Plan Mode 自己先列步骤，你只确认方向和边界（哪些数据不能碰、哪些客户要跳过）</td></tr>
+      <tr><td class="k">5 判断规则</td><td class="d">遇到情况怎么判</td><td>只问不看、预算低于起租价、面积超出可租范围＝低优先；档期和预算明确＝高优先</td></tr>
+      <tr><td class="k">6 输出格式</td><td class="d">要达到的效果，不锁形态</td><td>招商同事三分钟内能锁定今天该跟谁；形态让它选——它常给出比表格更好用的、能筛选的 HTML 页</td></tr>
+      <tr><td class="k">7 验收标准</td><td class="d">怎样算合格</td><td>高优先线索无漏排、匹配房源真实存在、话术不虚构客户没说过的需求</td></tr>
+      <tr><td class="k">8 复用方式</td><td class="d">以后怎么反复用</td><td>存进招商组共享文件夹，每天早上跑一次，每周复盘一次判断规则</td></tr>
+    </tbody>
+  </table>
+  <div class="punch">Spec 锁的是意图和验收，<b>不锁做法。</b></div>
+  <aside class="speaker-notes">这张表就是你和 AI 的工作合同。你把它填清楚，AI 返工就少，因为误解都提前消掉了。但有一点要提醒你——这张表越往下越该放手：上面几格（目标、使用者、输入）你得说死，到了"处理步骤"和"输出格式"，给大方向和边界就够了，别替它写死每一步、也别硬锁成品长什么样。记住那句定调——Spec 锁的是意图和验收，不锁做法。下午每个人的作业，第一件事就是给你选的任务填这张表。</aside>
+</section>
+
+<section class="slide body" data-label="派活姿态" data-page="28">
+  <div class="eyebrow">派活姿态 · 像 Leader，不像监工</div>
+  <h1 class="slide-title">像 Leader 一样派活，别当 micro-manager</h1>
+  <p class="slide-subtitle">好领导只给意图和情报，放手让员工干；别在做法上当监工。</p>
+  <div class="grid-3">
+    <div class="card"><b>① 不锁形态</b><p>老一代领导习惯手填表格、打印装订；新员工用 Excel 更清楚更高效——你不该硬要求他手填。同理，今天的 AI 顺手的输出可能是 HTML，而它一样能解决问题。<b>能解决问题，就别限格式。</b></p></div>
+    <div class="card dark"><b>② 定义成功</b><p>别教它怎么做，告诉它什么算做好——该规定的是"衡量指标"和"约束条件"。<b>（下一页专门展开）</b></p></div>
+    <div class="card"><b>③ 并发换选择权</b><p>AI 产能巨大，可以让几个 Agent 同时出几套方案，你最后只做选择——怎么拆、怎么并行，这一章最后一页专门讲。</p></div>
+  </div>
+  <div class="note-bar"><b>Reference（参考）：</b>审美上说不清的要求，给它一个 Reference（一份满意样例或规范）——第三步"样例优于形容词"会细讲。</div>
+  <aside class="speaker-notes">很多人带 AI 像带实习生，恨不得每个字都盯着，反而累死自己、也压住了它。好领导不这样——你给意图、给情报，放手让能干的下属去做。三条记住：第一，不锁形态，老领导爱手填表格，可员工用 Excel 更高效，今天 AI 顺手的可能是 HTML，只要能解决问题，就别在格式上较劲；第二，别教它怎么做，告诉它什么算做好，这个下一页专门讲；第三，用它的并发，让几个 Agent 同时出几套方案，你只做选择——怎么拆给几个 Agent、怎么并行，这一章最后一页专门讲。说不清的审美，就给它一个参考样例。记住我常说的一句——与 AI 一起思考，而不是让 AI 替你思考，判断和取舍永远留在你这。</aside>
+</section>
+
+<section class="slide body" data-label="定义成功" data-page="29">
+  <div class="eyebrow">定义成功 · 指标和约束</div>
+  <h1 class="slide-title">别教它怎么做，告诉它什么算做好——给指标和约束</h1>
+  <p class="slide-subtitle">对输出有要求时，该规定的是两类东西——Metrics（衡量指标）和 Constraints（约束条件）。</p>
+  <div class="panels">
+    <div class="panel">
+      <b>Metrics · 衡量指标</b>
+      <h3>什么算成功、什么算做得好</h3>
+      <p>最好用真实世界的反馈——比如一条短视频，好不好，看点赞、收藏、转发、关注。<b style="color:var(--ink)">高格转译：</b>招商周报的指标，是高优先线索零漏排、跟进转化率；"格式漂不漂亮"排在很后面。</p>
+    </div>
+    <div class="panel dark">
+      <b>Constraints · 约束条件</b>
+      <h3>给它一个详尽的框架</h3>
+      <p>别丢一堆旧图纸让它照抄。拿电梯设计打比方：与其甩过去几十版旧图纸（过去的方案未必最好），不如把约束说清——</p>
+      <ul>
+        <li>符合牛顿第二定律</li>
+        <li>符合行业规范</li>
+        <li>符合公司设计标准</li>
+        <li>价格最优</li>
+        <li>从 1 楼升到 50 楼不能有失重感</li>
+      </ul>
+    </div>
+  </div>
+  <div class="punch">旧方案未必最好；把约束定清楚，<b>让它在框架内自由发挥。</b></div>
+  <aside class="speaker-notes">上一页说"定义成功"，这页展开。对输出有要求时，你该规定的是两类东西。一类是 Metrics，衡量指标——什么算做得好。最好的指标是真实世界的反馈：一条短视频好不好，不看你夸不夸，看点赞、收藏、转发、关注；招商周报好不好，看高优先线索有没有漏、跟进转化率高不高，格式漂不漂亮排在很后面。另一类是 Constraints，约束条件——给它一个详尽的框架。就像设计电梯，与其丢一堆旧图纸让它学（过去的方案未必最好），不如把约束说清楚：牛顿第二定律、行业规范、公司标准、价格最优，甚至坐电梯从一楼到五十楼不能有失重感，让它在这个框架内自由发挥。这里我先埋个钩子：你现在把成功定义成"真实世界的指标"，到最后一步"员工自己成长"，这些指标会长成现实的验证器——那页我们再接上。</aside>
+</section>
+
+<section class="slide body" data-label="Agent 拆分" data-page="30">
+  <div class="eyebrow">拆分逻辑 · 一个员工装不下所有活</div>
+  <h1 class="slide-title">一个员工装不下所有活，该拆就拆</h1>
+  <p class="slide-subtitle">带人一样带 AI：一件事一个负责人，忙不过来就派帮手、另开现场。</p>
+  <div class="grid-3">
+    <div class="card dark"><b>负责人</b><h3>Agent</h3><p>一件事的负责人：从头跟到交付，拆任务、调工具、整合结果都归它。</p></div>
+    <div class="card"><b>派出去的帮手</b><h3>Sub-agent</h3><p>查资料、做核对，干完只带结论回来——不占负责人的脑子，上下文保持干净。</p></div>
+    <div class="card"><b>另开的施工现场</b><h3>Worktree（工作树）</h3><p>两个方案并行试，各改各的、不互相打架，最后挑好的那个。</p></div>
+  </div>
+  <div class="note-bar"><b>什么时候拆（三个判据）：</b>职责或话题不同，就各开一个窗口，更干净更聚焦；几件事要同时推，就并行开跑省时间；干活的和检查的分开，让另一个 AI 来复核，别自己给自己打分。</div>
+  <aside class="speaker-notes">刚才说，可以让几个 Agent 同时出几套方案，你只做选择——落到操作上就是这一页。活越派越多，一个 AI 从头包到尾就开始顾此失彼——跟带团队一模一样，装不下就得拆。三个角色记清楚：Agent 是一件事的负责人，从头跟到交付；Sub-agent 是它派出去的帮手，让它去查个资料、做个核对，干完只把结论带回来，不占负责人的脑子，负责人的上下文就一直干净；Worktree（工作树）是另开一间施工现场，两个方案想并行试，就各开各的、互不打架，最后挑跑得好的那个。那什么时候该拆？三个判据：一是职责或话题不同——职责不同就拆一个 Agent，各开各的窗口，更干净；二是几件事要同时推，并行开跑省时间；三是干活的和检查的分开，让另一个 AI 来复核，别自己给自己打分。这三条会一路用到后面——尤其到终章"员工自己成长"，让一个数字员工自己转起来，靠的就是这种拆分和并行。你可能注意到了，拆分的理由全绕着一个词：窗口、上下文。派活的最后三页，我们把这个词讲透。</aside>
+</section>
+
+<section class="slide body" data-label="上下文原理" data-page="31">
+  <div class="eyebrow">底层原理 · 为什么它会变笨、会忘、会编</div>
+  <h1 class="slide-title">AI 没有记性，只有一个上下文窗口</h1>
+  <p class="slide-subtitle">上下文（Context，AI 当下能"看到"的全部信息）——它只认这一窗，离得越近权重越大。</p>
+  <div class="grid-3">
+    <div class="card"><b>没有长期记忆</b><p>它记不住你上周说过什么，只看当下这一窗里有什么。</p></div>
+    <div class="card"><b>越近越重</b><p>离当前对话越近的内容，对它的输出影响越大；开头的约定聊到后面容易被冲淡。</p></div>
+    <div class="card"><b>窗口会满</b><p>塞太多，它开始压缩，压缩就会丢信息——于是变笨、忘约定。</p></div>
+  </div>
+  <div class="note-bar"><b>小例子：</b>就像"红色"——我看到的红和你看到的红未必一样，只要都叫红就通用了。AI 也一样，说不准时它会挑一个"听起来对"的答案填上，这就是一本正经地编。</div>
+  <aside class="speaker-notes">活怎么派、怎么拆都讲完了，最后补一块底层：每一次派活，其实都发生在一个上下文窗口里。不用把这页当技术课，记住一句就够：AI 没有记性，只有一个上下文窗口，离得越近的越重要。你抱怨它变笨、忘事、乱编，八成不是模型的问题，是这一窗里的东西不对——要么缺了关键信息，要么塞太满被稀释了。</aside>
+</section>
+
+<section class="slide body" data-label="上下文=工作现场" data-page="32">
+  <div class="eyebrow">一个比喻 · 上下文就是它的工作现场</div>
+  <h1 class="slide-title">上下文，就是数字员工上工那天拿到的工作现场</h1>
+  <p class="slide-subtitle">一个新人到岗，你会给他六样东西——给 AI 的上下文，就是把这六样各自装满。</p>
+  <div class="grid-3">
+    <div class="card"><b>桌面</b><p>这一步到底要做什么。</p><div class="ex">任务的目标和要求 · 聊到现在的对话记录</div></div>
+    <div class="card"><b>制度手册</b><p>长期规则和判断标准。</p><div class="ex">公司口径、不能碰的红线 · 按需调用的技能手册（Skill）</div></div>
+    <div class="card"><b>资料室</b><p>业务文件和历史。</p><div class="ex">在租房源、成交案例、客户记录 · 现查的网页资料</div></div>
+    <div class="card"><b>权限</b><p>能动到哪、哪些要先问你。</p><div class="ex">能读什么、能改什么 · 哪些必须先问你</div></div>
+    <div class="card"><b>现场反馈</b><p>工具跑出来的结果。</p><div class="ex">表格算出的数 · 打开网页看到的样子</div></div>
+    <div class="card"><b>交接记录</b><p>上一轮的进度和坑。</p><div class="ex">做到哪、改了什么 · 踩过什么坑</div></div>
+  </div>
+  <aside class="speaker-notes">这是这一步的核心比喻。你想想真带一个新人：光说"去干"没用，得给他工位、资料室、公司制度、系统权限，还得告诉他上一个人做到哪了。给 AI 的上下文，就是这份工作现场——而且每一样里都得装具体东西：桌面上是这一步的目标和刚才聊到哪；资料室里是真实的房源、成交案例、客户记录；制度手册里是公司口径、红线和能调用的 Skill；权限说清它能读能改到哪、哪些要先问你；现场反馈是工具真跑出来的结果；交接记录是上一轮的进度和踩过的坑。技术同事讲上下文会列到十二项，我给大家装成这六件套，一样不少、够用。哪一样装空了，它就在哪一样上出问题。</aside>
+</section>
+
+<section class="slide body" data-label="注意力预算" data-page="33">
+  <div class="eyebrow">反直觉 · 给得越多，不等于做得越好</div>
+  <h1 class="slide-title">注意力是有限预算，不是无限仓库</h1>
+  <p class="slide-subtitle">Anthropic 的原则——找到那一组最小的、高信号的信息，让你要的结果最可能发生。</p>
+  <div class="grid-3">
+    <div class="card"><b>话题换了，就开新对话</b><p>别把不相关的旧话题拖着走，那会稀释它的注意力。</p></div>
+    <div class="card"><b>一次只给这一步要用的材料</b><p>这一步需要哪几页，就给哪几页，别把所有文件一股脑塞进去。</p></div>
+    <div class="card"><b>重要约定放开头</b><p>最关键的规则、口径，放在最前面说，别埋在长对话中间。</p></div>
+  </div>
+  <aside class="speaker-notes">很多人以为上下文越长越好，把所有资料一股脑丢进去。恰恰相反——塞太多，它反而看漏、抓错重点，这叫上下文腐烂。正确做法是省着用它的注意力：只给手边这一步要用的那几页，重要的约定放最前面，话题换了就开新窗。把窗口管好，派活这一步才算齐：意图说清、Spec 锁住、放手让它跑、活多就拆、料给得少而准。它交回来的第一版，几乎不会刚好是你要的——下一步，和领导对齐。</aside>
+</section>
+
+<!-- ============================ 第三步 03 · 和领导对齐 P23-P31 ============================ -->
+
+<section class="slide part-divider" data-label="步03 和领导对齐" data-page="34">
+  <div class="part-num">03</div>
+  <div>
+    <div class="part-kicker">第三步 · 和领导对齐</div>
+    <h1>它交的活你给反馈，跑通的活你沉淀——<br />两件事都是在和你对齐</h1>
+    <p>这一步的验证器是你——你的标准、你的口味、你的规矩。</p>
+  </div>
+  <aside class="speaker-notes">活派出去了，它交回来第一版，几乎可以肯定不会刚好是你要的——这很正常，就像新人交的第一稿。接下来这一步做两件事，而这两件事其实是一件事的两面：一面是当场给反馈，把哪里对、哪里不对讲清楚，让它调成你要的——这是"当场对齐"；另一面是等这个活跑通了，把"怎么跑通的"沉淀下来、写成能复用的东西，让下次不用从头再对一遍、也让同事不用再对一遍——这是"长期对齐"。当场对齐靠反馈，长期对齐靠沉淀，可对的都是同一个人：你。所以记住这一步的验证器是你——你现在的标准、你现在的口味、你现在的规矩。请记住"你现在"这三个字：到最后一步「员工自己成长」我会告诉你，还要再对齐一次——那一次对齐的对象，从你换成了现实世界。</aside>
+</section>
+
+<section class="slide body" data-label="验收三看" data-page="35">
+  <div class="eyebrow">怎么验收 · 只看结果，不看过程</div>
+  <h1 class="slide-title">验收只看三样：理解、思路、交付——过程不看</h1>
+  <p class="slide-subtitle">反馈从验收开始；验收对了，反馈才给得准。</p>
+  <div class="panels wide-right">
+    <div class="panel">
+      <b>验收三看（过程不看）</b>
+      <ul>
+        <li>一看<b>理解对不对</b>：它有没有搞懂你要什么。</li>
+        <li>二看<b>思路对不对</b>：它的方法路子对不对。</li>
+        <li>三看<b>交付是不是想要的</b>：成品是不是你要的东西。</li>
+      </ul>
+    </div>
+    <div class="panel dark">
+      <b>不打断原则</b>
+      <p>看到它中途犯错，先忍住——它常常能自己纠回来；你一打断，反而破坏了它的反馈闭环。</p>
+    </div>
+  </div>
+  <aside class="speaker-notes">给反馈的前提是会验收。验收只看三样：它理解对不对、思路对不对、交付是不是你要的——中间过程别盯，盯了既累又没用。还有个反直觉的点：它中途出错先别急着打断，很多时候它下一步自己就改回来了；你一插手，反而打断了它自己的反馈闭环。看准了这三样，你的反馈才落在刀刃上。</aside>
+</section>
+
+<section class="slide body" data-label="反馈给样例" data-page="36">
+  <div class="eyebrow">反馈怎么给 · 样例优于形容词</div>
+  <h1 class="slide-title">别说"高级一点"，给它一个满意的样例和一个不要的反例</h1>
+  <p class="slide-subtitle">你说得出口的规则，就写进 Spec 判断规则；说不清的，用样例让它看。</p>
+  <div class="panels">
+    <div class="panel">
+      <b>形容词喂不动它</b>
+      <p>"高级一点""专业一点""再大气些"——这些词你我理解都不一样，AI 只能猜，越猜越偏。就像"红色"：我说的红和你说的红未必是同一个红。</p>
+    </div>
+    <div class="panel dark">
+      <b>样例才对得准</b>
+      <p>给它看一个你满意的正例、一个你明确不要的反例。它对着样例学，比对着形容词猜准得多。</p>
+    </div>
+  </div>
+  <div class="note-bar"><b>说得出口就写进 Spec：</b>凡是你能讲清的标准（比如"竞品数据必须带可点开的来源链接"），别停在口头，直接写进 Spec 的判断规则，下次不用再说。</div>
+  <div class="punch">像培养新人一样培养它——<b>给资料、给规则、给样例。</b></div>
+  <aside class="speaker-notes">这一页是这一步的手艺活。很多人给反馈就一句"不够好，高级一点"，AI 根本不知道你说的"高级"长什么样——这跟你我看到的"红色"未必是同一个红是一个道理。最有效的反馈是拿样例说话：给它一个你满意的、一个你明确不要的，它照着调。再进一步：凡是你能说清楚的规则，就别只挂在嘴上，写进 Spec 的判断规则里，变成它每次都要过的一条。带 AI 和带新人一样——资料、规则、样例，三样齐了，它才越调越像你要的。而一旦你这么把一个活调通了，别让这套经验散在聊天记录里——下一页，就是把"怎么跑通的"沉淀成能复用的 Skill。</aside>
+</section>
+
+<section class="slide body" data-label="Skill 定义" data-page="37">
+  <div class="eyebrow">别让经验留在聊天记录里 · 把跑通的写成 Skill</div>
+  <h1 class="slide-title">Skill 就是写给 AI 的 SOP，教一次，永久复用</h1>
+  <p class="slide-subtitle">反馈对齐跑通后，把"怎么跑通的"固化成一个文件夹——下次一句话复用，同事也不用再对齐一遍。Skill（写给 AI 的 SOP）＝ 一个装着操作手册和工具的文件夹。</p>
+  <div class="grid-3">
+    <div class="card"><b>什么时候用</b><p>每周做客服复盘时。</p></div>
+    <div class="card"><b>输入要求</b><p>本周工单记录、客户评价、上周复盘结论。</p></div>
+    <div class="card"><b>执行步骤</b><p>归类问题 → 找高频与升级投诉 → 对照上周有没有改善 → 出改进建议。</p></div>
+    <div class="card"><b>输出格式</b><p>一页复盘，含三张：问题分布、重点个案、下周动作。</p></div>
+    <div class="card"><b>质量检查</b><p>个案必须能追到真实工单，不许编造客户原话。</p></div>
+    <div class="card"><b>常见失败</b><p>把偶发个案当成趋势、结论没落到可执行的动作。</p></div>
+  </div>
+  <aside class="speaker-notes">前面你在反馈里把一个活跟它对齐、跑通了，可能还跑了好几轮。新问题来了：难道每个活、每次都从头再教一遍、再对齐一遍？太亏了。这一步就是别让经验留在聊天记录里——把跑通的经验固化成一份写给 AI 的 SOP，也就是 Skill。说白了，就是给它一份操作手册加工具箱，装在一个文件夹里。以后每次遇到这类活，它自己翻手册照做，你不用从头教一遍，同事接手也不用再跟你对一遍。就像给新同事写了一份 SOP。下午每个人的作业里，跑通之后就把它写成这样一张结构卡。</aside>
+</section>
+
+<section class="slide body" data-label="四个共同语言" data-page="38">
+  <div class="eyebrow">团队共同语言 · 四个词说清协作</div>
+  <h1 class="slide-title">Prompt、Workflow、Skill、Spec：<br />团队协作的四个共同语言</h1>
+  <p class="slide-subtitle">承接上午合伙人的概念框架，给出它们落地时的关系。</p>
+  <div class="grid-4">
+    <div class="card"><b>Prompt · 一次性对话</b><p>临时灵感、单次整理。</p><div class="ex">例：随手让它改一句朋友圈文案。</div></div>
+    <div class="card"><b>Workflow · 一条生产线</b><p>明确输入、步骤、判断、输出的固定流程。</p><div class="ex">例：招商周报从收数到出报的固定流程。</div></div>
+    <div class="card dark"><b>Skill · 可复用 SOP</b><p>把流程写成 AI 能反复调用的手册。</p><div class="ex">例：客服复盘助手那张结构卡。</div></div>
+    <div class="card"><b>Spec · 工作合同</b><p>人和 AI 的工作合同，用来减少返工和误解。</p><div class="ex">例："派活"那一步的八格表。</div></div>
+  </div>
+  <aside class="speaker-notes">这四个词是团队的共同语言，以后开会说"这个做成 Skill 还是先写个 Spec"，大家就懂。它们是一条线：从随口一句 Prompt，到固定的 Workflow，到能复用的 Skill，再到锁定标准的 Spec。上午合伙人讲的概念框架，落到地上就是这四个词。</aside>
+</section>
+
+<section class="slide body" data-label="硬规则" data-page="39">
+  <div class="eyebrow">让规则真生效 · 嘴上强调没用</div>
+  <h1 class="slide-title">必须执行的规则，要变成卡点，不是嘴上强调</h1>
+  <div class="panels">
+    <div class="panel">
+      <b>软契约（靠它理解，不牢靠）</b>
+      <p>写在提示词里的"记得""尽量""一定不要"。越唠叨越没用——它可能理解，也可能漏。</p>
+    </div>
+    <div class="panel dark">
+      <b>硬契约（变成动作，才牢靠）</b>
+      <p>把必须执行的规则做成一个卡点：模板必填项、产出前的检查动作、验收 checklist。不过关就出不来。</p>
+    </div>
+  </div>
+  <div class="note-bar"><b>高格例子：</b>要求"竞品数据来源必须真实可查"，别只在提示里写一句——把它做成产出前的一条检查项：来源链接打不开，就不许交。</div>
+  <aside class="speaker-notes">这是个很实用的原则。如果一条规则是一定要守的，你光在提示里反复强调"千万别忘"，几乎没用——它属于软契约，靠 AI 理解，不牢靠。真正重要的规则，要变成一个硬卡点：一个必填项、一个检查动作。比如"来源必须真实"，就做成交付前查链接的一步，不过就退回。软契约、硬契约都讲完了——下一页，我给你看一套把这两种契约分层排开的框架。</aside>
+</section>
+
+<section class="slide body" data-label="契约分层" data-page="40">
+    <div class="eyebrow">机器契约 · 软硬分层</div>
+    <h1 class="slide-title">写给 AI 的规则，约束力并不一样</h1>
+    <p class="slide-subtitle">有些规则只是提醒它“尽量这样做”，有些规则可以让系统在关键节点直接拦截、验证或拒绝执行。</p>
+    <span class="slide-bar"></span>
+    <div class="contract-compare">
+      <div class="contract-panel dark">
+        <b>古典机器契约 · 更硬</b>
+        <h3>系统能直接执行</h3>
+        <span class="contract-weight">约束强度：强 → 弱</span>
+        <div class="contract-list">
+          <span>01 平台硬边界</span>
+          <span>02 外部硬门禁</span>
+          <span>03 Hook</span>
+          <span>04 脚本</span>
+        </div>
+      </div>
+      <div class="contract-panel">
+        <b>神经系统契约 · 更软</b>
+        <h3>模型会尽量理解</h3>
+        <span class="contract-weight">执行权重：高 → 低</span>
+        <div class="contract-list">
+          <span>01 Skill</span>
+          <span>02 系统级 MD</span>
+          <span>03 项目级 MD</span>
+          <span>04 当前 Prompt</span>
+        </div>
+      </div>
+    </div>
+    <aside class="speaker-notes">这里来自我们之前那篇闪念：预测大脑与机器契约。原文里把机器契约从强到弱分成几层：平台硬边界、外部硬门禁、Hook、脚本，后面才是 Skill、系统级 MD、项目级 MD 和当前 Prompt。平台硬边界包括 Sandbox、Permission、Tool Schema；外部硬门禁可以包括 Branch Protection、Pre-Commit Gate、CI Validator；Hook 是第三层，脚本是第四层。右边的神经系统契约是语义约束，存在不执行的概率；在这组软契约里，Skill 权重最高，其次是系统级 MD，再到项目级 MD，当前 Prompt 最灵活，也最容易被稀释。这里要强调：如果某条规则必须稳定执行，就不要只写在 Prompt 或 MD 里，要放进更硬的契约。</aside>
+  </section>
+
+<section class="slide body" data-label="全局对齐" data-page="41">
+  <div class="eyebrow">对齐的终点 · 从这一个任务，到全局</div>
+  <h1 class="slide-title">任务对齐之后，别停在执行层面——<br />让它全局向你对齐</h1>
+  <p class="slide-subtitle">这个任务里你调到满意的偏好——字号、排版、AI 味——值得沉淀成它对你的全局理解，省得每个任务都重新对齐一次。</p>
+  <div class="grid-3">
+    <div class="card"><b>生成 Skill</b><p>改到满意的做法，当场固化成 Skill——这个活下次一句话复用，不用从头再教。</p></div>
+    <div class="card dark"><b>全局向你对齐</b><p>把偏好升级成全局的：这次做海报要"去 AI 味"，下次做短视频它也该记得；踩过的坑写进复盘——不在每个任务上重新对齐一次。</p></div>
+    <div class="card"><b>定点复盘与压缩</b><p>每天定点自动复盘、每周定点压缩——把零散的对齐，滚成它对你越来越准的理解。</p></div>
+  </div>
+  <div class="punch">全局越来越了解你，越来越聪明——底子，就是第一步搭起来的那套第二大脑；更完整的机制，<b>后面专门讲</b>。</div>
+  <aside class="speaker-notes">比如这个任务里，你嫌它输出的字太小、东西太有 AI 味，你找它改，改到满意——别就这么翻篇，还有两个动作。第一，生成 Skill，把这个活调对的做法当场固化，下次一句话复用。第二，更重要：让它全局向你对齐。你这次是做海报，下次可能是做短视频，你同样希望没有 AI 味——所以它需要对你的偏好有一个全局的对齐，也对踩过的坑有一个复盘，免得你在每一个任务上都要重新对齐一次。这样它就全局越来越了解你、越来越聪明。机制上有两个定点动作：每天定点的自动复盘，每周定点的压缩。这背后就是第一步搭的那个第二大脑——输入、加工、索引都有了，再加上这两个定点动作，它就越滚越准；更完整的玩法，后面专门讲。对齐沉淀成全局之后，最后一步，让它走出你的办公室，去和现实对齐。</aside>
+</section>
+
+<!-- ============================ 第四步 04 · 员工自己成长 P32-P37 ============================ -->
+
+<section class="slide part-divider" data-label="步04 员工自己成长" data-page="42">
+  <div class="part-num">04</div>
+  <div>
+    <div class="part-kicker">第四步 · 员工自己成长</div>
+    <h1>最好的员工，最后不靠领导盯，靠现实教</h1>
+    <p>前三步的验证器都是你；这一步，把验证器换成现实世界。</p>
+  </div>
+  <aside class="speaker-notes">走到这里，你已经能把一个活跑通、固化成流程，甚至让它定时自己跑起来了。但有一件更根本的事还没解决——前面三步，不管是当场给反馈，还是把经验沉淀写回，验证它做得对不对的那把尺子，始终是你：你的标准、你的口味。可你现在的标准不是终点，客户会变、市场会变、现实会变。最好的员工，走到最后，就该让现实来教他，领导慢慢退到后面。所以最后这一步只做一件事：把那台验证器，从你，换成现实世界——它做得对不对，交给现实来判：客户回不回、线索转没转化、数据对不对得上，由这些说了算。这就是今天两次对齐的第二次：前面和你对齐，最后和现实对齐。这一步走通，数字员工才算真正活起来、越用越聪明。这两年圈里管这套自己转的循环叫"写循环"，下一页先把这个词的来历说清楚。</aside>
+</section>
+
+<section class="slide body" data-label="循环工程溯源" data-page="43">
+  <div class="eyebrow">从写提示到写循环 · 口径先说清</div>
+  <h1 class="slide-title">高手已经从写提示，升级到写循环</h1>
+  <div class="quote-lead">
+    <b>Boris Cherny · Claude Code 负责人</b>
+    <p>"我不再写提示，我写循环。"</p>
+  </div>
+  <div class="grid-3">
+    <div class="card"><b>这句话是谁说的</b><p>出自 Claude Code 负责人 Boris Cherny 的采访引用。他不再一句句写提示，改成让一堆循环去驱动 AI。</p></div>
+    <div class="card"><b>"循环工程"是社区热词</b><p>2026 年 6 月由前 Google 的 Addy Osmani 命名，是行业概念，<b style="color:var(--ink)">不是 Anthropic 官方术语</b>；官方对应的概念叫 agent loop（智能体循环）。</p></div>
+    <div class="card"><b>"写循环"落到操作上</b><p>说白了，就是给数字员工搭一个它自己能转的循环——不用你一句句喂，它自己往前跑、自己校准。</p></div>
+  </div>
+  <aside class="speaker-notes">我特意把口径讲清楚，免得大家出去以讹传讹。"循环工程 / Loop Engineering"是社区起的名，很好用，但它不是官方术语，官方叫 agent loop。Boris 那句"我不再写提示，我写循环"很传神：高手已经从一句句写提示，升级到去搭一个能自己转的循环。这一章讲的"员工自己成长"，落到操作上就是这件事——给它搭一个自己转的循环。那这个循环靠什么校准？下一页讲：靠和现实对齐。</aside>
+</section>
+
+<section class="slide body" data-label="和现实对齐" data-page="44">
+  <div class="eyebrow">两次对齐的第二次 · 把验证器换成现实</div>
+  <h1 class="slide-title">前面和你的标准对齐，最后让它和现实对齐</h1>
+  <p class="slide-subtitle">循环要自己转，就得有一台验证器盯着它对不对——这一步，把这台验证器从你，换成现实世界。</p>
+  <div class="grid-4">
+    <div class="card"><b>客户回没回</b><p>发出去的跟进，客户理不理、约不约带看——现实直接告诉你话术行不行。</p></div>
+    <div class="card"><b>线索转没转化</b><p>排在前面的高优先线索，最后成没成交——转化率是最硬的一道验收。</p></div>
+    <div class="card"><b>数据对不对得上</b><p>它给的判断，拿真实经营数据一对，准不准立刻见分晓。</p></div>
+    <div class="card dark"><b>内容的点赞收藏转发关注</b><p>内容发出去，真实世界的点赞、收藏、转发、关注，就是它做得好不好的评分——这正是"派活"那一步说的 Metrics（衡量指标），现在长成了现实的验证器。</p></div>
+  </div>
+  <div class="punch"><b>现场有神明</b>——现实的反馈，比任何人的想象都准。</div>
+  <aside class="speaker-notes">这是全场我最想讲透的一页。回想第三步，你给反馈、把经验沉淀，那时候的验证器是你，对齐的是你现在的标准。但你现在的标准不是终点：客户会变、市场会变。所以最后一步，把验证器从你换成现实世界。现实怎么给它打分？看四样真实反馈：客户回没回、约不约带看；高优先线索最后转没转化；它的判断和真实经营数据对不对得上；还有内容发出去后的点赞、收藏、转发、关注——这就是我们在"派活"那一步埋的 Metrics，当时你把成功定义成这些现实指标，现在它们就长成了现实的验证器。我常说"现场有神明"——你坐在办公室想象的对错，远不如现实里一个真实反馈来得准。今天两次对齐你一定要记住：先和你对齐，最后和现实对齐。数字员工能不能真活起来、越用越聪明，就看它有没有接上现实这台验证器。</aside>
+</section>
+
+<section class="slide body" data-label="原则一 · 胜在量大" data-page="45">
+  <div class="eyebrow">员工自己成长 · 原则一</div>
+  <h1 class="slide-title">让它自己成长，第一靠量大——<br />七成的质量，乘上十倍的产能</h1>
+  <p class="slide-subtitle">我们从不要求 AI 做到人类的 100%；能到 70%，再乘上十倍产能，组织效率就是几十倍地涨。</p>
+  <div class="bigmath"><div class="eq">70% × 10 = <em>700%</em></div></div>
+  <div class="grid-2">
+    <div class="card"><b>产能账</b><p>一个专家，原来一天出一条；现在借 AI 一天出十条、一百条，哪怕每条只有 70% 的质量，乘起来，整个组织的产能是几十倍、几百倍地涨。</p></div>
+    <div class="card"><b>为什么"量大"对循环这么关键</b><p>量大了，它和现实世界的碰撞才多；碰撞多了，收到的真实反馈才多；反馈多了，上一页那台"现实验证器"才有足够的信号——整个循环才真正转得起来、越转越准。</p></div>
+  </div>
+  <div class="punch">敢让它多做，<b>是让这台循环转起来的燃料。</b></div>
+  <aside class="speaker-notes">这一章讲"员工自己成长"，第一条原则是：胜在量大。我们从不要求 AI 做到人类的 100%，能到 70% 就够用了。你算笔账：一个专家原来一天出一条，借 AI 一天出十条、一百条，哪怕每条只有七成质量，乘起来，组织的产能是几十倍、几百倍地涨——70% 乘以十倍就是 700%，再往上就是七十倍。但"量大"在这一章的意义，比"产能高"更深一层：量大了，它跟真实世界碰撞的次数才多；碰撞多了，收到的真实反馈才多；反馈多了，我们上一页说的那台"现实验证器"才有足够的信号去校准它。所以敢让它多做、敢于"浪费"，其实是让这台循环转起来的燃料。</aside>
+</section>
+
+<section class="slide body" data-label="原则二 · 反馈路径自动化" data-page="46">
+  <div class="eyebrow">员工自己成长 · 原则二</div>
+  <h1 class="slide-title">从"人在环中"到"人在环上"，<br />才算真的把人才带出来</h1>
+  <p class="slide-subtitle">起步时你在每一步里（Human in the Loop）；带到最后，你只在环上看着、异常才介入（Human on the Loop）。</p>
+  <div class="panels">
+    <div class="panel">
+      <b>Human in the Loop · 人在环中</b>
+      <p>起步阶段一定是这样——每一步都要你在：你给料、你验收、你纠偏。这没错，你正在培养一个新员工，本就该手把手。</p>
+    </div>
+    <div class="panel dark">
+      <b>Human on the Loop · 人在环上</b>
+      <p>培养的终极目标——他能独当一面，在某个领域比你还强，不再需要你大量介入；你只在环上看着它运转，出了异常才伸手。带到这一步，才叫真的把人才带出来了。</p>
+    </div>
+  </div>
+  <div class="punch">怎么从环中走到环上？关键一步——<b>把现实世界的反馈，自动回写给数字员工</b>，让它不靠你转达，就能收到现实的打分、自己调整。</div>
+  <aside class="speaker-notes">第二条原则，讲的是你和这个员工的关系怎么演变。有两个词：Human in the Loop，人在环中——每一步都要你在，你给料、你验收、你纠偏；还有 Human on the Loop，人在环上——你退到外面看着它运转，只有出异常才介入。起步阶段一定是"人在环中"，这很正常，你在培养一个新员工，当然得手把手。但请记住，培养的终极目标，是让他能独当一面、在某个领域比你还强、不再需要你大量介入——能带到这一步，才叫真的把人才带出来了。那怎么从"环中"走到"环上"？最关键的一步，是把现实世界的反馈自动回写给它——注意，这跟上一章"定时复盘"不一样：定时复盘是让它拿你的标准自查，这里是让现实的反馈自己流回来，它不用你转达，就收到现实的打分、自己调整。下一页，我给你看一个高格场景里，这条自动反馈路径长什么样。</aside>
+</section>
+
+<section class="slide body" data-label="录音卡自动闭环" data-page="47">
+  <div class="eyebrow">一个高格场景 · 反馈路径自动化长什么样</div>
+  <h1 class="slide-title">招商带看跑一圈，反馈自动回流——<br />你就从环中退到了环上</h1>
+  <p class="slide-subtitle">拿招商带看举例：见客户前、谈完、系统分析，反馈一路自动回到数字员工，不靠你手动回收。</p>
+  <div class="grid-4">
+    <div class="card"><b>a · 见客户前</b><p>工作台自动做这位客户的背景分析，给出对应的话术建议——你是"打过腹稿"去的。</p></div>
+    <div class="card"><b>b · 谈完当场</b><p>一键录音，录音卡的数据自动上传、回传到项目里——不用你事后再整理。</p></div>
+    <div class="card"><b>c · 系统分析客户反应</b><p>你说了哪句话、对方怎么回应、有没有被打动、约没约到下一步跟进——系统替你把这场对话复盘掉。</p></div>
+    <div class="card dark"><b>d · 核心原则</b><p>数据尽可能自动回传，不靠手动回收——但凡能自动，就不留人工那一步。</p></div>
+  </div>
+  <div class="punch">反馈路径全自动，<b>你就从"环中"退到了"环上"。</b></div>
+  <aside class="speaker-notes">上一页说要把反馈路径自动化，这一页给你一个能想象的高格场景——招商带看。第一步，见客户之前，工作台自动把这个客户的背景分析好，给你对应的话术建议，你是"打过腹稿"去的。第二步，谈完当场一键录音，录音卡的数据自动上传、回传到项目里，你不用事后再整理。第三步，系统分析这场对话：你说了哪句话、对方什么反应、有没有被打动、约没约到下一步，替你把这场带看复盘掉。第四步，也是核心原则——数据尽可能自动回传，但凡能自动，就别留手动那一步，这正是我常说的：但凡有选择，尽量让全过程没有人为干预。你看，当见客户前的准备、谈完的记录、事后的复盘全自动串起来，现实的反馈就自己流回了数字员工，你不用当那个搬运工——这时候你就从"环中"退到了"环上"。这台循环，开始自己转、自己学了。四步走完，一个数字员工从入职到自己成长的路径就全了——下午，我们把它跑一遍。</aside>
+</section>
+
+<!-- ============================ 实战 05 · 高格落地 P38-P43 ============================ -->
+
+<section class="slide part-divider" data-label="实战05 高格" data-page="48">
+  <div class="part-num">05</div>
+  <div>
+    <div class="part-kicker">实战 · 高格落地</div>
+    <h1>方法讲完了，下午就在高格真实业务上跑第一圈</h1>
+    <p>不做演示题，就挑一个你手上真实的活。</p>
+  </div>
+  <aside class="speaker-notes">四步走完了，一个数字员工从入职到自己成长的路径就全了。但讲得再清楚，不动手就是零。这一章开始动手：下午每个人挑一个真实业务，把这四步走一遍，做出自己的第一个数字员工原型。关键词就一个字——真，别做给我看的演示题。</aside>
+</section>
+
+<section class="slide body" data-label="选第一个任务" data-page="49">
+  <div class="eyebrow">怎么选 · 第一个任务别挑错</div>
+  <h1 class="slide-title">第一个交给 AI 的任务，挑重复、清楚、拿得到、有人验的</h1>
+  <div class="grid-4">
+    <div class="card"><b>每周重复</b><p>不是一次性的活，值得固化。</p></div>
+    <div class="card"><b>规则清楚</b><p>判断标准说得明白，不全靠临场感觉。</p></div>
+    <div class="card"><b>数据可拿到</b><p>需要的资料你手上就有，不用到处求人。</p></div>
+    <div class="card"><b>有人愿意验收</b><p>有个明确的人愿意看结果、给反馈。</p></div>
+  </div>
+  <div class="note-bar"><b>反例提醒（别一上来挑这些）：</b>跨好几个系统的、涉钱的、要拍板定生死的——这些留到后面。</div>
+  <aside class="speaker-notes">第一个任务选对了，今天下午你自己就能跑通、有成就感。四条判据一起看：每周重复、规则清楚、数据拿得到、有人愿意验收。反过来，别逞强挑最难的——跨系统、涉钱、要拍板的，一上来就卡住，反而打击信心。每人先挑个稳的，先赢一次。</aside>
+</section>
+
+<section class="slide body" data-label="场景地图" data-page="50">
+  <div class="eyebrow">业务方向 · 按自己的业务对号入座</div>
+  <h1 class="slide-title">四个业务方向，每人认领一个数字员工原型</h1>
+  <div class="grid-4">
+    <div class="card">
+      <h3>招商运营与客户服务</h3>
+      <ul class="mini-list"><li>招商线索跟进助手</li><li>客户服务复盘助手</li><li>城市运营周报员</li></ul>
+    </div>
+    <div class="card">
+      <h3>增量业务与空间产品</h3>
+      <ul class="mini-list"><li>选址研判助手</li><li>竞品调研员</li><li>空间提案生成员</li></ul>
+    </div>
+    <div class="card">
+      <h3>中台增长与品牌</h3>
+      <ul class="mini-list"><li>内容资产管理员</li><li>全域发布适配员</li><li>官网项目页助手</li></ul>
+    </div>
+    <div class="card">
+      <h3>经营支持与组织管理</h3>
+      <ul class="mini-list"><li>经营数据解释员</li><li>招聘面试评估员</li><li>绩效人才盘点助手</li></ul>
+    </div>
+  </div>
+  <aside class="speaker-notes">这四个是高格的业务方向，今天不分组——你按自己手上的业务对号入座，人人认领一个方向里的一个原型开工。每个方向下面我各列了三个原型，任挑一个。不用把一个方向做全，各带出一个跑通的就是今天的胜利。选的时候，回到上一页那四条判据。</aside>
+</section>
+
+<section class="slide body" data-label="现场作业" data-page="51">
+  <div class="eyebrow">今天的交付 · 一个最小可行的数字员工包</div>
+  <h1 class="slide-title">今天，每个人交出一个最小可行的数字员工包</h1>
+  <div class="grid-4">
+    <div class="card"><b>一张 Spec</b><p>那张八格工作说明书，把任务锁清楚。</p></div>
+    <div class="card"><b>一份样例输入</b><p>喂给它的真实资料样本。</p></div>
+    <div class="card"><b>一个可打开的产出</b><p>一份能当场展示、同事看得懂的成品。</p></div>
+    <div class="card"><b>一条迭代计划</b><p>下一步怎么改、以后每周怎么复用。</p></div>
+  </div>
+  <div class="punch"><b>真、小、显、留、复用。</b>　真实业务 / 只做第一版 / 可展示 / 输出进资料库 / 说清怎么复用。</div>
+  <aside class="speaker-notes">今天不追求做完美，追求每人做出一个最小可行包：一张 Spec、一份样例输入、一个能打开的产出、一条迭代计划。四样凑齐，就是方案里说的"数字员工卡 + Skill 草案"。记住五个字——真、小、显、留、复用：用真实的活、只做第一版、能展示、结果进资料库、说清以后怎么每周复用。</aside>
+</section>
+
+<section class="slide body" data-label="后续预告" data-page="52">
+  <div class="eyebrow">后续预告 · 今天只是第一步</div>
+  <h1 class="slide-title">今天先把第一个数字员工的雏形拿出来，<br />后面还有两块更大的</h1>
+  <p class="slide-subtitle">一个数字员工只是起点；真正的杠杆，在员工与员工、人与员工怎么协作。</p>
+  <div class="grid-2">
+    <div class="card"><b>下一次专门讲</b><h3>数字员工 × 数字员工</h3><p>多个数字员工怎么分工、并行、接力，组成一条更长的生产线。</p></div>
+    <div class="card"><b>组织真正 AI 化的关键</b><h3>人类员工 × 数字员工</h3><p>你和团队怎么和一群数字员工共事、分权、配合。</p></div>
+  </div>
+  <div class="punch">今天，先赢第一步——<b>把你自己的第一个数字员工带出来。</b></div>
+  <aside class="speaker-notes">最后交代一句后面的路。今天的目标很聚焦：每人先把第一个数字员工的雏形拿出来，能跑、能看、能复用就是胜利。但这只是起点。后面还有两块更大的：一块是数字员工和数字员工之间怎么协作——多个员工分头干、并行跑、接力干，组成一条更长的生产线；另一块是人类员工和数字员工之间怎么协作——你和团队怎么和一群数字员工共事、怎么分权配合。这两块才是组织真正 AI 化的地方，我们后面专门讲。今天，先赢第一步。</aside>
+</section>
+
+<section class="slide statement no-chrome" data-label="收尾金句" data-page="53">
+  <div>
+    <h1>人人都可以带领一个 AI 团队，<br />人人都能成为超级个体<span class="blue-dot">.</span></h1>
+  </div>
+  <aside class="speaker-notes">一句话收今天，也收住这半天。过去，"团队"是几十个人；现在，一个人带一支 AI 团队，就能干出过去一个部门的事——所以我说，人人都可以带领一个 AI 团队，人人都能成为超级个体。我常引一句话：吃到 AI 红利的公司，创始人几乎都是超级个体。今天你们每个人带出的第一个数字员工，就是你成为超级个体的第一块拼图。方向、口味、最后拍板，永远留在你手里；执行、重复、整理，交给你的 AI 团队。散会之后，别让它停在今天——带着它，继续跑。</aside>
+</section>
+
+</deck-stage>
+</body>
+</html>

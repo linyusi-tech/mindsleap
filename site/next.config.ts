@@ -300,6 +300,22 @@ const nextConfig: NextConfig = {
           source: "/decks/Yusi/ai-practice-training-deck/",
           destination: "/decks/Yusi/ai-practice-training-deck/index.html",
         },
+        {
+          source: "/decks/Yusi/gaoge-agent-training-deck",
+          destination: "/decks/Yusi/gaoge-agent-training-deck/index.html",
+        },
+        {
+          source: "/decks/Yusi/gaoge-agent-training-deck/",
+          destination: "/decks/Yusi/gaoge-agent-training-deck/index.html",
+        },
+        {
+          source: "/decks/Yusi/entrepreneur-second-brain",
+          destination: "/decks/Yusi/entrepreneur-second-brain/index.html",
+        },
+        {
+          source: "/decks/Yusi/entrepreneur-second-brain/",
+          destination: "/decks/Yusi/entrepreneur-second-brain/index.html",
+        },
       ],
       afterFiles: [],
       fallback: [],
