@@ -72,7 +72,8 @@ jobs:
           SSH_USER: ${{ secrets.CN_SERVER_USER }}
         run: |
           set -euo pipefail
-          rsync -az --delete \
+          # Compare file contents because checkout mtimes change on every run.
+          rsync -azc --delete \
             --exclude '.git' \
             --exclude '.github' \
             --exclude 'site/node_modules' \
