@@ -1,5 +1,21 @@
 'use strict';
 
+const attribution = (() => {
+  const params = new URLSearchParams(window.location.search);
+  const query = Object.fromEntries(['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(key => [key, params.get(key) || '']));
+  const currentPage = `${window.location.pathname}${window.location.search}`;
+  let stored = {};
+  try { stored = JSON.parse(sessionStorage.getItem('mindsleap_attribution') || '{}'); } catch {}
+  const next = {
+    firstLandingPage: stored.firstLandingPage || currentPage,
+    referrer: stored.referrer || document.referrer || '',
+    ...stored,
+    ...Object.fromEntries(Object.entries(query).filter(([, value]) => value)),
+  };
+  try { sessionStorage.setItem('mindsleap_attribution', JSON.stringify(next)); } catch {}
+  return next;
+})();
+
 const phases = [
   { id:'phase-1', title:'第一次学习：个人驾驭 AI，让个体效率 10X', meta:'第一次学习 · 3 天 · Day 1—3', days:[
     ['启动 AI 原生组织的转型之旅','理解 AI 原生组织新范式；智能体的本体论：数据、逻辑、行为与安全；企业数据盘点：唯一的真相在哪里？','构建决策者的第二大脑，让未来的 AI 员工充分了解你。','第二大脑，可以被 Agent 灵活调用的记忆体'],
@@ -113,11 +129,11 @@ dialog.addEventListener('click', event => {
 });
 dialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); if (lastTrigger) lastTrigger.focus(); });
 
-// Consultation stays client-side. Only the visitor can send the generated email.
+// Submit to the server when hosted with the lead API; keep email as a fallback.
 document.querySelectorAll('.consult-form').forEach(form => {
   const contactInput = form.elements.contact;
   form.querySelectorAll('input').forEach(input => input.addEventListener('input', () => input.setCustomValidity('')));
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault();
     for (const field of ['name','company','contact']) {
       const input = form.elements[field];
@@ -136,11 +152,25 @@ document.querySelectorAll('.consult-form').forEach(form => {
       lastTrigger = form.querySelector('button');
     }
     const content = `MindsLeap 团队，你们好：\n\n我想了解「AI 原生组织跃迁实战营」。\n\n称呼：${String(data.get('name')).trim()}\n企业：${String(data.get('company')).trim()}\n联系方式：${contact}\n关注方向：${data.get('interest')}\n计划团队：1 位企业家 + 最多 ${3+extra} 位员工\n参考费用：¥${(128000+extra*10000).toLocaleString('en-US')} / 企业\n${data.get('challenge') ? '\n业务问题：'+String(data.get('challenge')).trim()+'\n' : ''}\n请与我沟通具体排期、项目适配情况与服务范围。`;
+    const attributionParts = [
+      `page=${location.hostname}${location.pathname}`,
+      `first=${attribution.firstLandingPage || ''}`,
+      `referrer=${attribution.referrer || ''}`,
+      ...['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].filter(key => attribution[key]).map(key => `${key}=${attribution[key]}`),
+    ];
+    const payload = { name: String(data.get('name')).trim(), company: String(data.get('company')).trim(), contact, interest: String(data.get('interest') || '').trim(), challenge: String(data.get('challenge') || '').trim(), extraMembers: extra, estimatedPrice: 128000 + extra * 10000, source: attributionParts.join(' | ') };
     document.querySelector('#enquiry-preview').textContent = content;
     document.querySelector('#send-enquiry').href = `mailto:mindsleap@gmail.com?subject=${encodeURIComponent('AI 原生组织跃迁实战营 · 企业咨询')}&body=${encodeURIComponent(content)}`;
+    const status = document.querySelector('#copy-status');
+    const endpoint = document.body.dataset.leadEndpoint || '/api/course-leads';
+    let submitted = false;
+    try {
+      const response = await fetch(endpoint, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload) });
+      submitted = response.ok;
+    } catch (error) { console.warn('Course lead API unavailable; keeping email fallback.', error); }
     entry.hidden = true; review.hidden = false;
     dialog.setAttribute('aria-labelledby','review-title');
-    document.querySelector('#copy-status').textContent = '收件人：mindsleap@gmail.com。发送前可继续编辑。';
+    status.textContent = submitted ? '已收到你的信息，MindsLeap 团队会尽快与你联系。邮件按钮可作为备用沟通方式。' : '暂时无法自动提交。请点击邮件按钮发送，或复制内容后发给 MindsLeap 团队。';
     if (!dialog.open) { dialog.showModal(); document.body.classList.add('modal-open'); }
     document.querySelector('#review-title').focus();
   });

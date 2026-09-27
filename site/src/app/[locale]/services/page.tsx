@@ -3,6 +3,7 @@ import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import ServicesHero from "@/components/services/ServicesHero";
+import ProgramHighlight from "@/components/program/ProgramHighlight";
 import JsonLd from "@/components/shared/JsonLd";
 import { getServicesHubContent } from "@/lib/services-hub";
 import { getSiteUrl } from "@/lib/site";
@@ -241,6 +242,8 @@ export default async function ServicesPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <ProgramHighlight locale={currentLocale} compact />
 
       <section className="bg-primary-dark py-16 text-white md:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">

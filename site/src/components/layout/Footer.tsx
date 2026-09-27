@@ -50,6 +50,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <a href="/program/ai-native-organization" className="font-semibold text-white hover:text-blue-100 transition">
+                  {isZh ? "AI 原生组织跃迁实战营" : "AI-Native Organization Program"}
+                </a>
+              </li>
+              <li>
                 <Link href="/news" className="hover:text-white transition">
                   {nav("news")}
                 </Link>

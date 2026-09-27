@@ -35,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const eventEntries = [
     {
+      url: `${baseUrl}/program/ai-native-organization`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/event/ai-employee`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,

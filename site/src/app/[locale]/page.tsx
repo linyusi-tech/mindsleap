@@ -4,6 +4,7 @@ import ValueProposition from "@/components/home/ValueProposition";
 import BusinessOverview from "@/components/home/BusinessOverview";
 import EcosystemSection from "@/components/home/EcosystemSection";
 import LatestEvents from "@/components/home/LatestEvents";
+import ProgramHighlight from "@/components/program/ProgramHighlight";
 import { getAllPosts } from "@/lib/posts";
 
 type Props = {
@@ -24,6 +25,7 @@ export default async function HomePage({ params }: Props) {
       <HeroSection />
       <ValueProposition />
       <BusinessOverview />
+      <ProgramHighlight locale={locale} />
       <EcosystemSection />
       <LatestEvents
         posts={latestEvents}
