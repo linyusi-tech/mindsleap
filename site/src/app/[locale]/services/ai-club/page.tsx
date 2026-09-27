@@ -39,14 +39,14 @@ const content = {
       {
         title: "企业参访",
         description: "走进AI标杆企业，近距离观察AI落地的真实场景与最佳实践。",
-        image: "/images/news/zhipu-ai-founders-ai-club-visit-2026-sharing.jpg",
+        image: "/images/news/zhipu-ai-founders-ai-club-visit-2026-hall.jpg",
         imageAlt: "MindsLeap 企业家 AI 俱乐部参访智谱 AI",
       },
       {
-        title: "企业家共创流",
+        title: "企业家共创",
         description: "通过设定开放心态、彼此平等、话语平权的氛围，让企业家会员们\"群智涌现\"。",
-        image: "/images/news/tsinghua-emba-hangzhou-ai-study-tour-2026-second-brain.jpg",
-        imageAlt: "企业家在杭州 AI 研学活动中交流共创",
+        image: "/images/news/mindsleap-founders-ai-club-co-creation-awe-2026.jpg",
+        imageAlt: "MindsLeap 企业家在活动中交流共创",
       },
     ],
     valuesTitle: "核心价值观",
@@ -106,15 +106,15 @@ const content = {
         title: "Enterprise Visits",
         description:
           "On-site visits to AI-leading companies, observing real-world AI deployment scenarios and best practices.",
-        image: "/images/news/zhipu-ai-founders-ai-club-visit-2026-sharing.jpg",
+        image: "/images/news/zhipu-ai-founders-ai-club-visit-2026-hall.jpg",
         imageAlt: "MindsLeap Founders AI Club visiting Zhipu AI",
       },
       {
         title: "Lobster Summit",
         description:
           "Deep exchanges in relaxed social settings, sparking ideas and connections over fine dining.",
-        image: "/images/news/tsinghua-emba-hangzhou-ai-study-tour-2026-second-brain.jpg",
-        imageAlt: "Entrepreneurs exchanging ideas during a Hangzhou AI study session",
+        image: "/images/news/mindsleap-founders-ai-club-co-creation-awe-2026.jpg",
+        imageAlt: "MindsLeap entrepreneurs exchanging ideas during a co-creation session",
       },
     ],
     valuesTitle: "Core Values",
@@ -219,24 +219,17 @@ export default async function AIClubPage({ params }: Props) {
       {(() => {
         const allPosts = getAllPosts(locale);
         const clubEventSlugs = new Set([
-          "ai-lobster-shanghai-2026",
           "ai-digital-employee-workshop-shanghai-2026",
+          "ai-lobster-shanghai-2026",
           "ai-native-enterprise-conference-shanghai-2026",
           "ai-marketing-workshop-2025",
-          "cui-jian-ai-native-enterprise-sharing-recap-2026",
+          "guangzhou-ai-growth-workshop-2026",
           "hangzhou-retreat-2026",
-          "jeff-qian-ai-native-enterprise-sharing-recap-2026",
           "hoffman-shanghai-2025",
-          "lincoln-opc-chongqing-ai-transformation-2026",
-          "lincoln-ai-native-organization-sharing-recap-2026",
-          "nanchang-ai-digital-employee-bootcamp-2026",
           "zhipu-ai-founders-ai-club-visit-2026",
-          "suzhou-ai-growth-exchange-digital-employees-2026",
-          "steve-hoffman-ai-native-enterprise-sharing-recap-2026",
         ]);
         const eventPosts = allPosts
-          .filter((p) => p.category === "events" && clubEventSlugs.has(p.slug))
-          .slice(0, 3);
+          .filter((p) => p.category === "events" && clubEventSlugs.has(p.slug));
         const sectionTitle = locale === "zh" ? "往期精彩回顾" : "Past Event Highlights";
         if (eventPosts.length === 0) return null;
         return (
