@@ -13,7 +13,7 @@ export default function ProgramHighlight({ locale, compact = false }: Props) {
     <section className={compact ? "bg-white py-16 md:py-20" : "bg-[#f4f7fb] py-16 md:py-24"}>
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-12">
         <div>
-          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#8b6f3a]">
+          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#3b82f6]">
             {isZh ? "MindsLeap 旗舰项目" : "MindsLeap Flagship Program"}
           </p>
           <h2 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight tracking-normal text-[#1e477c] md:text-4xl">
