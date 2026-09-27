@@ -52,6 +52,6 @@ export default function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/case/:path*",
-    "/((?!api|_next|_vercel|design-system|decks|case-login|product|proposal|poster|manuals|office(?:/|$)|.*\\..*).*)",
+    "/((?!api|_next|_vercel|design-system|decks|case-login|product|program|proposal|poster|manuals|office(?:/|$)|.*\\..*).*)",
   ],
 };
