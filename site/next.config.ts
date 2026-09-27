@@ -46,6 +46,8 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         { source: "/program", destination: "/program/index.html" },
         { source: "/program/", destination: "/program/index.html" },
+        { source: "/program/ai-native-organization", destination: "/program/ai-native-organization/index.html" },
+        { source: "/program/ai-native-organization/", destination: "/program/ai-native-organization/index.html" },
         { source: "/office", destination: "/office/index.html" },
         { source: "/office/", destination: "/office/index.html" },
         { source: "/design-system", destination: "/design-system/index.html" },
