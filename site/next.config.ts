@@ -64,6 +64,8 @@ const nextConfig: NextConfig = {
         { source: "/proposal/", destination: "/proposal/index.html" },
         { source: "/poster", destination: "/poster/index.html" },
         { source: "/poster/", destination: "/poster/index.html" },
+        { source: "/poster/future-founders-winter-camp", destination: "/poster/future-founders-winter-camp/index.html" },
+        { source: "/poster/future-founders-winter-camp/", destination: "/poster/future-founders-winter-camp/index.html" },
         {
           source: "/poster/ai-native-organization-program",
           destination: "/poster/ai-native-organization-program/index.html",
