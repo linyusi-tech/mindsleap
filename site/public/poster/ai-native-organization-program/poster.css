@@ -13,3 +13,44 @@
 .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.offer-grid article{padding:17px 18px 15px;border:1px solid #e0e9ed;border-radius:13px;background:#f7fafb}.offer-grid h3{font:650 20px/1.4 'PingFang SC',sans-serif;margin-bottom:5px}.offer-grid strong{font-size:27px;line-height:1.2;color:#337db6}.offer-grid p{font-size:16px;line-height:1.5;margin-top:5px}
 .offer-total{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;margin-top:12px;border-radius:13px;background:#0a2c43;color:#fff}.offer-total span{font-size:23px;font-weight:600}.offer-total strong{font-size:36px;line-height:1.2;color:#a4e7d6}.offer-note{font-size:16px;line-height:1.65;margin-top:11px}
 .offer-price{border:1px solid #60b8bd;border-radius:20px;margin-top:18px;padding:22px 24px}.offer-price-head{display:flex;justify-content:space-between;align-items:center}.offer-price-head b{font-size:23px;color:#a6e4d7}.offer-price-head s{font-size:18px;color:#aec7d5}.offer-price .amount{font-size:62px;margin:5px 0 6px}.offer-team{font-size:21px!important;color:#c6ece8!important}.offer-refund{margin-top:17px;padding-top:16px;border-top:1px solid #ffffff29}.offer-refund>div{display:flex;align-items:center;justify-content:space-between;gap:10px}.offer-refund b{font-size:20px;line-height:1.45}.offer-refund span{font-size:16px;color:#accad3;white-space:nowrap}.offer-refund>strong{display:block;margin-top:5px;color:#a6eadb;font-size:37px;line-height:1.2;letter-spacing:-.5px}.offer-refund small{font-size:19px}.offer-terms{font-size:15px!important;line-height:1.7;margin-top:10px;color:#b2cbd8!important}.service-scope{margin-top:14px}
+
+/* 2026-09-29: current edition aligned to mindsleap.cn/zh brand blue #1e477c. */
+.current-edition{--navy:#1e477c;--deep:#152f54;--blue:#1e477c;--ink:#152f54;--pale:#f4f7fb;--mint:#dce9fb}
+.current-edition .hero{background:#1e477c}
+.current-edition .dark{background:linear-gradient(120deg,#1e477c 0%,#1e477c 65%,#16385f 100%)}
+.current-edition .mint{background:linear-gradient(120deg,#e6eef9,#f4f7fb)}
+.current-edition .dark p,.current-edition .dark .fine,.current-edition .dark figcaption{color:#d5e3f5}
+.current-edition .dark .eyebrow,.current-edition .hero h1 em,.current-edition .hero-sub,.current-edition .kicker,.current-edition .hoffman h3{color:#e4eeff}
+.current-edition .hero-meta{color:#d5e3f5}
+.current-edition .hero-key:before{background:#9fc2ef}
+.current-edition .steps article:before{background:linear-gradient(#1e477c,#83abe0)}
+.current-edition .steps strong,.current-edition .day .tag,.current-edition .day .morning b,.current-edition .day .afternoon,.current-edition .offer-grid strong,.current-edition .staff-grid b,.current-edition .cta .eyebrow{color:#1e477c}
+.current-edition .outcome{border-color:#8bb1e0}
+.current-edition .big-project{border-color:#8bb1e0}
+.current-edition .big-project .eyebrow{background:#ffffff16}
+.current-edition .project-grid p,.current-edition .phase-heading p{color:#d5e3f5}
+.current-edition blockquote{background:#e5edf9;color:#1e477c;border-color:#8bb1e0}
+.current-edition .dark blockquote{background:#152f5466;color:#e4eeff}
+.current-edition .day-number,.current-edition .day-2 .day-number,.current-edition .day-3 .day-number{background:linear-gradient(145deg,#1e477c,#4378b7)}
+.current-edition .day .deliverable{background:#edf3fb;color:#1e477c;border-color:#8bb1e0}
+.current-edition .offer-total{background:#1e477c}
+.current-edition .offer-total strong,.current-edition .offer-price-head b,.current-edition .offer-refund>strong,.current-edition .amount small{color:#fff}
+.current-edition .offer-price{border-color:#8bb1e0}
+.current-edition .offer-price-head .offer-saving{background:#e4eeff;color:#1e477c}
+.current-edition .offer-team,.current-edition .offer-terms{color:#d5e3f5!important}
+/* Equal visible logo height: source alpha bounds are 67/100 and 58/83. */
+.current-edition .brand img{width:214.925px;height:53.731px;transform:translateY(-2.955px);flex:none}
+.current-edition .brand img:last-child{width:353.172px;height:51.517px;transform:translateY(-.31px)}
+.current-edition .brand span{background:#9ab4d3}
+.journey-intro{padding-bottom:12px}
+.journey-intro h2{margin-bottom:16px}
+.journey-summary{font-size:23px;color:#536b87;line-height:1.6}
+.journey-clinic{display:grid;grid-template-columns:66px minmax(0,1fr);gap:19px;padding:24px;margin:28px 0 16px;border:1px solid #b9cde8;border-left:6px solid #1e477c;border-radius:16px;background:#e8f0fb}
+.clinic-marker{font-size:17px;font-weight:700;color:#1e477c;text-align:center;line-height:1.4;padding-top:5px}
+.clinic-marker strong{display:block;font-size:34px;line-height:1.2}
+.journey-clinic .clinic-when{font-size:18px;font-weight:700;color:#456a9b;margin-bottom:5px}
+.journey-clinic h3{font-size:28px;margin-bottom:8px;color:#1e477c}
+.journey-clinic p{font-size:22px;line-height:1.55;color:#4a607b}
+.current-edition{color:var(--ink)}
+.current-edition .dark .cta p{color:#536b87}
+.current-edition .dark .cta .eyebrow{color:#1e477c}
