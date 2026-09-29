@@ -326,6 +326,14 @@ export const geoTopics: GeoTopic[] = [
         href: "/news/lumen-people-first-ai-playbook-2026",
         label: { zh: "AI 转型七成是人，三成才是工具", en: "AI transformation is mostly people, not tools" },
       },
+      {
+        href: "/news/deloitte-china-council-ai-native-organization-sharing-2026",
+        label: { zh: "德勤中国区理事会：如何构建 AI 原生组织", en: "Deloitte China Council: building an AI-native organization" },
+      },
+      {
+        href: "/news/tsinghua-emba-hangzhou-ai-study-tour-2026",
+        label: { zh: "清华大学 EMBA 杭州 AI 研学", en: "Tsinghua SEM EMBA Hangzhou AI study tour" },
+      },
     ],
     faqs: [
       {
@@ -405,6 +413,14 @@ export const geoPeople: GeoPerson[] = [
       {
         href: "/news/lincoln-ai-native-organization-sharing-recap-2026",
         label: { zh: "Lincoln：如何构建 AI 原生组织", en: "Lincoln on building AI-native organizations" },
+      },
+      {
+        href: "/news/deloitte-china-council-ai-native-organization-sharing-2026",
+        label: { zh: "德勤中国区理事会 AI 原生组织分享", en: "AI-native organization sharing with Deloitte China’s Council" },
+      },
+      {
+        href: "/news/tsinghua-emba-hangzhou-ai-study-tour-2026",
+        label: { zh: "清华大学 EMBA 杭州 AI 研学", en: "Tsinghua SEM EMBA Hangzhou AI study tour" },
       },
     ],
     faqs: [

@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/shared/JsonLd";
 import { asGeoLocale, getEntityGraphJsonLd } from "@/lib/geo";
 import { getSiteUrl } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 
 type Props = {
   children: React.ReactNode;
@@ -77,6 +78,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <main className="min-h-screen">{children}</main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

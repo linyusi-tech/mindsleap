@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+
 import { getAllLocalizedPostSlugs } from "@/lib/posts";
 import { getSiteUrl } from "@/lib/site";
 import { geoPeople, geoTopics } from "@/lib/geo";
@@ -39,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/program/ai-native-organization`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/event/ai-employee`,

@@ -1,8 +1,9 @@
 import { getSiteUrl } from "@/lib/site";
-import {
-  EnterpriseAiServicesPage,
-  type EnterpriseAiServicesPageProps,
-} from "../training/page";
+import { EnterpriseAiServicesPage } from "../training/page";
+
+type AiTransformationPageProps = {
+  params: Promise<{ locale: string }>;
+};
 
 const metadataCopy = {
   zh: {
@@ -17,7 +18,7 @@ const metadataCopy = {
   },
 };
 
-export async function generateMetadata({ params }: EnterpriseAiServicesPageProps) {
+export async function generateMetadata({ params }: AiTransformationPageProps) {
   const { locale } = await params;
   const currentLocale = locale === "en" ? "en" : "zh";
   const copy = metadataCopy[currentLocale];
@@ -44,6 +45,6 @@ export async function generateMetadata({ params }: EnterpriseAiServicesPageProps
   };
 }
 
-export default async function AiTransformationPage(props: EnterpriseAiServicesPageProps) {
-  return EnterpriseAiServicesPage({ ...props, showCaseStudies: true });
+export default async function AiTransformationPage({ params }: AiTransformationPageProps) {
+  return EnterpriseAiServicesPage({ params, showCaseStudies: true });
 }
