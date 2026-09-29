@@ -61,3 +61,55 @@
 .r5 .single-price{padding:0;margin:0;border:0}
 .r5 .single-price strong{font-size:56px;color:#fff}
 .r5 .single-price h3{color:#dcecff}
+
+/* R6: youth adaptation requested by user. Brand blue / accent from design-system;
+   purple and orange extend the palette specifically for this youth camp. */
+.r6{--navy:#245ee3;--deep:#1e477c;--mint:#d7e7ff;--teal:#2954b7;--ink:#19365a;--paper:#f5f7ff;--youth-purple:#7144d9;--youth-orange:#ffad55}
+.r6 .dark{background:linear-gradient(135deg,#245ee3,#254fb5)}
+.r6 .hero{background:radial-gradient(ellipse at 110% 4%,#925ef06b,transparent 57%),linear-gradient(160deg,#245ee3,#2454c3)}
+.r6 .hero h1 em{color:#ffcf94}
+.r6 .hero .kicker,.r6 .hero .en,.r6 .dark .eyebrow{color:#e2ecff}
+.r6 .dark p{color:#f0f4ff}
+.r6 .hero-photo:after{background:linear-gradient(#245bda,transparent 17%,transparent 81%,#2454c3)}
+.r6 .hero-info{background:#0d347066;border-color:#b4cdff55}
+.r6 .compact-intro{background:linear-gradient(135deg,#1e477c,#2a5a9e)}
+.r6 .compact-intro .card{background:#ffffff12;border-color:#ffffff25;box-shadow:none}
+.r6 .school-section,.r6 .r3-learning{background:#f5f7ff}
+.r6 .school-content h4,.r6 .learning-steps{color:#2954b7}
+.r6 .examples-r2.dark{background:radial-gradient(ellipse at 100% 0,#9761e9 0%,transparent 47%),linear-gradient(160deg,#7144d9 0%,#5934b4 62%,#45318f 100%)}
+.r6 .examples-r2 h2 em{color:#ffe0b2}
+.r6 .case-no{color:#7144d9}
+.r6 .case-category{color:#79609d}
+.r6 .concept-badge{background:#f3edff;border-color:#e2d7fa;color:#715499}
+.r6 .example-details .case-market{color:#6243a6;border-color:#e5def1}
+.r6 .pmf-panel{background:linear-gradient(125deg,#fff6e8,#ffe5c6);border-color:#ffcc93;color:#40304b}
+.r6 .pmf-kicker{color:#925009}
+.r6 .pmf-biography{border-color:#dfb78c}
+.r6 .pmf-biography strong{color:#805026}
+.r6 .examples-r2 .pmf-panel p{color:#614d58}
+.r6 .days{background:#f5f7ff}
+.r6 .day-id{background:linear-gradient(160deg,#3b82f6,#2454c3)}
+.r6 .day:nth-child(even) .day-id{background:linear-gradient(160deg,#8254e3,#6038b7)}
+.r6 .day:last-child .day-id{background:linear-gradient(160deg,#ffb764,#ff9752);color:#502f22}
+.r6 .day:last-child .day-id strong{color:#502f22}
+.r6 .day-text .deliverable{background:#edf0fe;color:#4753a0}
+.r6 .r3-results{background:linear-gradient(125deg,#ffac54,#ffd694);color:#302b4d}
+.r6 .r3-results p{color:#59413a}
+.r6 .r3-results .eyebrow{color:#7e3c0d}
+.r6 .r3-results h2 em{color:#5834a4}
+.r6 .result-chips span{border-color:#9c542b30}
+.r6 .result-chips span:before{color:#653bac}
+.r6 .r3-certificate{background:linear-gradient(140deg,#2766e7,#244fbc)}
+.r6 .mentor-section-r2{background:linear-gradient(140deg,#1e477c,#2a5a9e)}
+.r6 .mentor-r2{background:#163b6c;border-color:#84a7d64d}
+.r6 .mentor-r2 .role{color:#ffcf94}
+.r6 .mentor-position{color:#f3f6ff}
+.r6 .mentor-r2 .mentor-bio{color:#d3e3f7}
+.r6 .closing{background:radial-gradient(ellipse at 100% 0,#9560e86b,transparent 58%),linear-gradient(140deg,#6740ca 0%,#5537b4 48%,#245bd3 100%);border-top:1px solid #ffffff25}
+.r6 .closing h2 em{color:#ffdda9}
+.r6 .closing .date{color:#fff}
+.r6 .tuition{background:#37278580;border-color:#ccb6f5}
+.r6 .single-price h3{color:#eadfff}
+.r6 .single-price strong{color:#fff}
+.r6 .pill{background:linear-gradient(100deg,#ffbf78,#ffda9e);color:#473058}
+.r6 .closing .fine,.r6 .examples-r2 .case-note{color:#e1d7f4}
