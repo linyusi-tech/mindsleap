@@ -113,3 +113,9 @@
 .r6 .single-price strong{color:#fff}
 .r6 .pill{background:linear-gradient(100deg,#ffbf78,#ffda9e);color:#473058}
 .r6 .closing .fine,.r6 .examples-r2 .case-note{color:#e1d7f4}
+
+/* R7: return to the official-blue R5 base; warm accents only on three focal details. */
+.r7 .hero h1 em{color:#ffd4a0}
+.r7 .school-name strong{color:#1e477c}
+.r7 .day:last-child .deliverable{background:#fff1e0;color:#805019}
+.r7 .single-price strong{color:#ffd4a0}
