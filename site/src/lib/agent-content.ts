@@ -1,5 +1,15 @@
-import { brandSummary, geoPeople, geoTopics, getGeoPerson, getGeoTopic, type GeoLocale } from "@/lib/geo";
+import {
+  brandSummary,
+  clubName,
+  entityStatements,
+  geoPeople,
+  geoTopics,
+  getGeoPerson,
+  getGeoTopic,
+  type GeoLocale,
+} from "@/lib/geo";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { getServicesHubContent } from "@/lib/services-hub";
 import { getSiteUrl } from "@/lib/site";
 
 type AgentDocument = {
@@ -47,8 +57,15 @@ function renderHome(locale: GeoLocale): AgentDocument {
     "",
     brandSummary[locale],
     "",
+    `## ${isZh ? "关键实体" : "Key Entities"}`,
+    "",
+    `- ${clubName[locale]}`,
+    `- ${entityStatements.partnership[locale]}`,
+    `- ${entityStatements.lincoln[locale]}`,
+    "",
     `## ${isZh ? "核心内容" : "Core Content"}`,
     "",
+    `- [${isZh ? "服务总览与项目证据" : "Services and Project Evidence"}](${siteUrl}/${locale}/services)`,
     `- [${isZh ? "主题知识库" : "Topic Knowledge Base"}](${siteUrl}/${locale}/topics)`,
     `- [${isZh ? "人物与硅谷资源" : "People and Silicon Valley Network"}](${siteUrl}/${locale}/people)`,
     `- [AI Insights](${siteUrl}/${locale}/news)`,
@@ -81,12 +98,26 @@ function renderAgentIndex(locale: GeoLocale): AgentDocument {
     "",
     brandSummary[locale],
     "",
+    `## ${isZh ? "关键实体" : "Key Entities"}`,
+    "",
+    `- ${clubName[locale]}`,
+    `- ${entityStatements.partnership[locale]}`,
+    `- ${entityStatements.lincoln[locale]}`,
+    "",
     `## ${isZh ? "机器可读入口" : "Machine-readable Entry Points"}`,
     "",
     `- [llms.txt](${siteUrl}/llms.txt)`,
     `- [Sitemap](${siteUrl}/sitemap.xml)`,
     `- [RSS](${siteUrl}/feed.xml)`,
     `- [JSON Feed](${siteUrl}/feed.json)`,
+    "",
+    `## ${isZh ? "服务" : "Services"}`,
+    "",
+    `- [${isZh ? "服务总览与项目证据" : "Services and Project Evidence"}](${siteUrl}/${locale}/services)`,
+    `- [${isZh ? "企业 AI 转型服务" : "Enterprise AI Transformation"}](${siteUrl}/${locale}/services/ai-transformation)`,
+    `- [${clubName[locale]}](${siteUrl}/${locale}/services/ai-club)`,
+    `- [${isZh ? "AI 原生创业加速" : "AI-Native Venture Acceleration"}](${siteUrl}/${locale}/services/accelerator)`,
+    `- [${isZh ? "全球增长服务" : "Global Growth Services"}](${siteUrl}/${locale}/services/global-growth)`,
     "",
     `## ${isZh ? "主题" : "Topics"}`,
     "",
@@ -100,6 +131,102 @@ function renderAgentIndex(locale: GeoLocale): AgentDocument {
     "",
     ...getAllPosts(locale).slice(0, 20).map((post) => `- [${post.title}](${siteUrl}/${locale}/news/${post.slug}) — ${post.excerpt}`),
     "",
+    `Source: ${canonicalUrl}`,
+  ];
+
+  return { body: lines.join("\n"), canonicalUrl };
+}
+
+function renderServicesHub(locale: GeoLocale): AgentDocument {
+  const siteUrl = getSiteUrl();
+  const canonicalUrl = `${siteUrl}/${locale}/services`;
+  const content = getServicesHubContent(locale);
+  const isZh = locale === "zh";
+
+  const lines = [
+    ...frontmatter({
+      title: content.metadata.title,
+      description: content.metadata.description,
+      canonical: canonicalUrl,
+      language: localeNames[locale],
+      content_type: "services-hub",
+      organization: "MindsLeap",
+    }),
+    `# ${content.hero.title}`,
+    "",
+    content.hero.description,
+    "",
+    `## ${content.paths.title}`,
+    "",
+    content.paths.description,
+    "",
+    ...content.paths.items.flatMap((path) => [
+      `### ${path.number}. ${path.title}`,
+      "",
+      path.description,
+      "",
+      ...path.links.map((link) => `- [${link.label}](${absoluteUrl(link.href, locale)})`),
+      "",
+    ]),
+    `## ${content.families.title}`,
+    "",
+    content.families.description,
+    "",
+    ...content.families.items.flatMap((service) => [
+      `### ${service.name}`,
+      "",
+      `- ${content.families.targetLabel}: ${service.audience}`,
+      `- ${content.families.problemLabel}: ${service.problem}`,
+      `- ${content.families.deliveryLabel}: ${service.delivery}`,
+      `- [${content.families.detailLabel}](${absoluteUrl(service.href, locale)})`,
+      ...(service.evidenceHref
+        ? [`- [${content.families.evidenceLabel}](${absoluteUrl(service.evidenceHref, locale)})`]
+        : []),
+      "",
+    ]),
+    `## ${content.delivery.title}`,
+    "",
+    content.delivery.description,
+    "",
+    ...content.delivery.stages.flatMap((stage) => [
+      `### ${stage.number}. ${stage.title}`,
+      "",
+      stage.description,
+      "",
+    ]),
+    `> ${content.delivery.note}`,
+    "",
+    `## ${content.cases.title}`,
+    "",
+    content.cases.description,
+    "",
+    ...content.cases.items.flatMap((project) => [
+      `### [${project.organization}: ${project.title}](${siteUrl}/${locale}/news/${project.slug})`,
+      "",
+      `- ${isZh ? "日期" : "Date"}: ${project.date}`,
+      `- ${isZh ? "服务" : "Services"}: ${project.services}`,
+      "",
+      project.summary,
+      "",
+    ]),
+    `## ${content.platform.title}`,
+    "",
+    content.platform.description,
+    "",
+    ...content.platform.items.flatMap((item) => [
+      `### [${item.title}](${absoluteUrl(item.href, locale)})`,
+      "",
+      item.description,
+      "",
+    ]),
+    `## ${content.faq.title}`,
+    "",
+    ...content.faq.items.flatMap((faq) => [
+      `### ${faq.question}`,
+      "",
+      faq.answer,
+      "",
+    ]),
     `Source: ${canonicalUrl}`,
   ];
 
@@ -338,6 +465,7 @@ export function getAgentDocument(pathname: string): AgentDocument | null {
 
   if (segments.length === 1) return renderHome(locale);
   if (segments[1] === "ai" && segments.length === 2) return renderAgentIndex(locale);
+  if (segments[1] === "services" && segments.length === 2) return renderServicesHub(locale);
   if (segments[1] === "topics" && segments.length === 2) return renderTopicIndex(locale);
   if (segments[1] === "topics" && segments.length === 3) return renderTopic(locale, segments[2]);
   if (segments[1] === "people" && segments.length === 2) return renderPeopleIndex(locale);

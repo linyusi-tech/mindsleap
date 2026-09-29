@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "title": "MindsLeap | Industrial Accelerator for AI-Native Enterprises",
-    "description": "MindsLeap is an industrial accelerator for AI-native enterprises. Through AI Club, AI transformation services, startup acceleration, and global growth services, we connect entrepreneurs, industry scenarios, capital, and global resources."
+    "title": "MindsLeap | Enterprise AI Transformation and AI-Native Startup Acceleration",
+    "description": "MindsLeap is an enterprise AI transformation and AI-native startup acceleration platform. Through the MindsLeap Founders AI Club, AI training and strategic advisory, FDE implementation, startup acceleration, and global growth services, MindsLeap helps traditional enterprises embed AI into real business workflows and helps AI-native ventures connect with industry use cases and global markets."
   },
   "nav": {
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "aiClub": "AI Club",
+    "aiClub": "Founders AI Club",
     "incubation": "Startup Acceleration",
     "training": "AI Transformation",
     "studyTours": "Global Growth",
@@ -16,11 +16,15 @@
     "contact": "Contact"
   },
   "hero": {
+    "brandTitle": "MindsLeap",
+    "brandHeading": "Enterprise AI Transformation &\nAI-Native Startup Acceleration",
+    "brandSubtitle": "Helping enterprises embed AI into real workflows and AI-native ventures connect with industry use cases and global markets.",
+    "brandCta": "Explore Our Services",
     "slide5Title": "AI Native Enterprise Conference",
     "slide5Heading": "Build AI Native Organizations",
     "slide5Subtitle": "From Silicon Valley frontiers to China industry practice.",
     "slide5Cta": "Learn More",
-    "slide1Title": "AI Club",
+    "slide1Title": "MindsLeap Founders AI Club",
     "slide1Heading": "Upgrade AI Mindsets\nfor Global Success",
     "slide1Subtitle": "Co-create AI transformation with like-minded entrepreneurs.",
     "slide2Title": "Startup Acceleration",
@@ -37,20 +41,20 @@
     "slide3Cta": "Start AI Transformation",
     "slide4Cta": "Start Global Growth",
     "tagline": "Upgrade AI Mindsets for Global Success",
-    "subtitle": "The industrial accelerator for AI-native enterprises",
-    "description": "Through AI Club, AI transformation services, startup acceleration, and global growth services, we help companies turn AI insight into business execution and help AI-native ventures move from real scenarios to global markets.",
+    "subtitle": "Enterprise AI transformation and AI-native startup acceleration",
+    "description": "Helping traditional enterprises embed AI into real business workflows and AI-native ventures connect with industry use cases and global markets.",
     "cta": "Learn More",
     "ctaContact": "Contact Us"
   },
   "valueProp": {
     "title": "MindsLeap: Joyful Transformation",
     "paragraph1": "In the AI era, enterprise competition is moving from simply using AI tools to building AI-native organizations. Traditional entrepreneurs need to embed AI into business workflows, organizational capabilities, and new growth curves. AI founders and OPC builders also need real industry scenarios, customers, capital, and global markets to turn technical capability into business outcomes.",
-    "paragraph2": "MindsLeap is the \"industrial accelerator for AI-native enterprises.\" In partnership with Founders Space, we connect entrepreneurs, AI-native founders, industry scenarios, capital, and global resources. Through AI Club, AI transformation services, startup acceleration, and global growth services, we help enterprises move from mindset upgrade to business execution, and help AI-native ventures move from real-world scenarios to global markets.",
+    "paragraph2": "MindsLeap is an enterprise AI transformation and AI-native startup acceleration platform. Through the MindsLeap Founders AI Club, AI training and strategic advisory, FDE implementation, startup acceleration, and global growth services, MindsLeap helps traditional enterprises embed AI into real business workflows and helps AI-native ventures connect with industry use cases and global markets. MindsLeap is a global partner of Founders Space.",
     "stat1Label": "Global Partner of Founders Space, the renowned Silicon Valley incubator",
     "stat2Label": "Target Transformations",
     "quote": "Upgrade AI Mindsets for Global Success. Our mission is to accompany traditional enterprises in their AI transformation and help AI-native enterprises grow faster.",
     "quoteRole": "Founder & CEO, MindsLeap",
-    "quoteRole2": "Founders Space Global Partner",
+    "quoteRole2": "Partner and CEO, Founders Space China",
     "hoffmanQuote": "Founders Space and MindsLeap are coming together to help entrepreneurs and businesses transform with AI.",
     "hoffmanRole": "Founder and Chairman of Founders Space"
   },
@@ -58,7 +62,7 @@
     "title": "MindsLeap Core Services",
     "subtitle": "Connecting entrepreneurs, industry scenarios, AI-native ventures, and global markets",
     "aiClub": {
-      "title": "AI Club",
+      "title": "MindsLeap Founders AI Club",
       "description": "An AI transformation community for entrepreneurs, combining private salons, workshops, enterprise visits, and industry co-creation.",
       "tag": "Core Product"
     },
@@ -134,7 +138,7 @@
   "aboutHero": {
     "slide1Title": "About MindsLeap",
     "slide1Heading": "Joyful\nTransformation",
-    "slide1Subtitle": "The industrial accelerator for AI-native enterprises",
+    "slide1Subtitle": "Enterprise AI transformation and AI-native startup acceleration",
     "slide2Title": "Founders Space Global Partner",
     "slide2Heading": "Bridging China\n& Silicon Valley",
     "slide2Subtitle": "Building a global entrepreneur ecosystem"
@@ -171,12 +175,12 @@
     "missionSubText": "",
     "vision": "Our Vision",
     "story": "Our Story",
-    "storyText": "MindsLeap is an industrial accelerator for AI-native enterprises, connecting traditional entrepreneurs, AI-native founders, industry scenarios, investors, and global innovation networks.",
+    "storyText": "MindsLeap is an enterprise AI transformation and AI-native startup acceleration platform. Through the MindsLeap Founders AI Club, AI training and strategic advisory, FDE implementation, startup acceleration, and global growth services, MindsLeap helps traditional enterprises embed AI into real business workflows and helps AI-native ventures connect with industry use cases and global markets.",
     "naming": "\"Minds\" represents cognition and thinking, \"Leap\" represents breakthrough and transformation. MindsLeap: Making AI transformation not painful, but a joyful journey of cognitive upgrade.",
     "acceleratorTitle": "How We Accelerate AI-Native Enterprises",
     "acceleratorItems": [
       {
-        "title": "AI Club",
+        "title": "MindsLeap Founders AI Club",
         "description": "Bring together like-minded entrepreneurs through private salons, workshops, company visits, and industry co-creation to build new AI-era cognition and connections."
       },
       {
@@ -195,7 +199,7 @@
     "founders": "Founding Team",
     "lincolnName": "Lincoln",
     "lincolnRole": "Founder & CEO, MindsLeap",
-    "lincolnRole2": "Founders Space Global Partner",
+    "lincolnRole2": "Partner and CEO, Founders Space China",
     "lincolnBio": "Former COO of Emeritus China (a $3.2B global edtech unicorn ranked #1), VP of Marketing at Viking Cruises China. Rich in AI entrepreneurship circles and Silicon Valley resources.",
     "yusiName": "Yusi",
     "yusiRole": "Co-founder & CPO, MindsLeap",
@@ -275,7 +279,7 @@
     "slide2Subtitle": "From industry visits to GTM and global team setup"
   },
   "footer": {
-    "description": "The industrial accelerator for AI-native enterprises",
+    "description": "Enterprise AI transformation and AI-native startup acceleration",
     "services": "Our Services",
     "contactTitle": "Contact Us",
     "company": "Company",

@@ -38,6 +38,8 @@ export type GeoPerson = {
   title: LocalizedText;
   description: LocalizedText;
   image: string;
+  roles: Record<GeoLocale, string[]>;
+  affiliations: Array<"mindsleap" | "founders-space">;
   knowsAbout: string[];
   highlights: Record<GeoLocale, string[]>;
   relatedLinks: Array<{
@@ -51,10 +53,87 @@ export function asGeoLocale(locale: string): GeoLocale {
   return locale === "en" ? "en" : "zh";
 }
 
-export const brandSummary: Record<GeoLocale, string> = {
-  zh: "MindsLeap 心智悦动是 AI 原生企业的产业加速平台，联合硅谷知名孵化器 Founders Space，帮助传统企业完成 AI 转型，也帮助 AI 原生企业、OPC 和科技创业者连接产业场景、资本、硅谷资源与全球市场。",
-  en: "MindsLeap is an AI-native enterprise acceleration platform working with Founders Space to help enterprises transform with AI and help AI-native startups, OPC builders, and technology founders connect with industry scenarios, capital, Silicon Valley resources, and global markets.",
+export const brandCategory: LocalizedText = {
+  zh: "MindsLeap 心智悦动是一家企业 AI 转型与 AI 原生创业加速平台。",
+  en: "MindsLeap is an enterprise AI transformation and AI-native startup acceleration platform.",
 };
+
+export const brandProof: LocalizedText = {
+  zh: "通过 MindsLeap 企业家 AI 俱乐部、AI 培训与战略咨询、FDE 落地、创业加速和全球增长服务，帮助传统企业把 AI 嵌入真实业务流程，也帮助 AI 原生项目连接产业场景与全球市场。",
+  en: "Through the MindsLeap Founders AI Club, AI training and strategic advisory, FDE implementation, startup acceleration, and global growth services, MindsLeap helps traditional enterprises embed AI into real business workflows and helps AI-native ventures connect with industry use cases and global markets.",
+};
+
+export const brandSummary: LocalizedText = {
+  zh: `${brandCategory.zh}${brandProof.zh}`,
+  en: `${brandCategory.en} ${brandProof.en}`,
+};
+
+export const clubName: LocalizedText = {
+  zh: "MindsLeap 企业家 AI 俱乐部",
+  en: "MindsLeap Founders AI Club",
+};
+
+export const entityStatements = {
+  lincoln: {
+    zh: "Lincoln 王林，MindsLeap 创始人兼 CEO，Founders Space 合伙人兼中国区 CEO。",
+    en: "Lincoln Wang is the Founder and CEO of MindsLeap, and Partner and CEO of Founders Space China.",
+  },
+  partnership: {
+    zh: "MindsLeap 心智悦动是 Founders Space 的全球合作伙伴。",
+    en: "MindsLeap is a global partner of Founders Space.",
+  },
+} satisfies Record<string, LocalizedText>;
+
+export function getEntityGraphJsonLd(locale: GeoLocale, siteUrl: string) {
+  const organizationId = `${siteUrl}/#organization`;
+  const lincolnId = `${siteUrl}/#lincoln-wang`;
+  const foundersSpaceId = `${siteUrl}/#founders-space`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: "MindsLeap",
+        alternateName: ["MindsLeap 心智悦动", "心智悦动"],
+        url: siteUrl,
+        logo: `${siteUrl}/images/logo.png`,
+        description: `${brandSummary[locale]} ${entityStatements.partnership[locale]}`,
+        founder: { "@id": lincolnId },
+        knowsAbout: [
+          "Enterprise AI transformation",
+          "AI training",
+          "AI strategic advisory",
+          "Forward Deployed Engineering",
+          "AI-native startups",
+          "OPC",
+          "Global growth",
+          "Silicon Valley",
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": lincolnId,
+        name: "Lincoln Wang",
+        alternateName: ["Lincoln 王林", "王林"],
+        description: entityStatements.lincoln[locale],
+        jobTitle:
+          locale === "zh"
+            ? ["MindsLeap 创始人兼 CEO", "Founders Space 合伙人兼中国区 CEO"]
+            : ["Founder and CEO of MindsLeap", "Partner and CEO of Founders Space China"],
+        image: `${siteUrl}/images/about/lincoln.jpg`,
+        worksFor: [{ "@id": organizationId }, { "@id": foundersSpaceId }],
+      },
+      {
+        "@type": "Organization",
+        "@id": foundersSpaceId,
+        name: "Founders Space",
+        description: entityStatements.partnership[locale],
+      },
+    ],
+  };
+}
 
 export const geoTopics: GeoTopic[] = [
   {
@@ -247,6 +326,14 @@ export const geoTopics: GeoTopic[] = [
         href: "/news/lumen-people-first-ai-playbook-2026",
         label: { zh: "AI 转型七成是人，三成才是工具", en: "AI transformation is mostly people, not tools" },
       },
+      {
+        href: "/news/deloitte-china-council-ai-native-organization-sharing-2026",
+        label: { zh: "德勤中国区理事会：如何构建 AI 原生组织", en: "Deloitte China Council: building an AI-native organization" },
+      },
+      {
+        href: "/news/tsinghua-emba-hangzhou-ai-study-tour-2026",
+        label: { zh: "清华大学 EMBA 杭州 AI 研学", en: "Tsinghua SEM EMBA Hangzhou AI study tour" },
+      },
     ],
     faqs: [
       {
@@ -273,8 +360,8 @@ export const geoTopics: GeoTopic[] = [
       {
         question: { zh: "MindsLeap 如何帮助企业 AI 转型？", en: "How does MindsLeap help enterprises transform with AI?" },
         answer: {
-          zh: "MindsLeap 通过企业家 AI 俱乐部、AI 培训、AI 咨询和 FDE 服务，帮助企业从认知升级走向场景落地，并连接 Founders Space 与硅谷 AI 前沿资源。",
-          en: "MindsLeap combines its AI club, training, advisory work, and FDE services to help enterprises move from executive alignment to implementation, while connecting them with Founders Space and Silicon Valley AI resources.",
+          zh: "MindsLeap 通过 MindsLeap 企业家 AI 俱乐部、AI 培训、战略咨询和 FDE 服务，帮助企业从认知升级走向场景落地，并连接 Founders Space 与硅谷 AI 前沿资源。",
+          en: "MindsLeap combines the MindsLeap Founders AI Club, training, strategic advisory, and FDE services to help enterprises move from executive alignment to implementation, while connecting them with Founders Space and Silicon Valley AI resources.",
         },
       },
     ],
@@ -286,6 +373,77 @@ export const geoTopics: GeoTopic[] = [
 ];
 
 export const geoPeople: GeoPerson[] = [
+  {
+    slug: "lincoln-wang",
+    name: "Lincoln Wang",
+    alternateNames: ["Lincoln 王林", "王林"],
+    title: {
+      zh: "Lincoln 王林：MindsLeap 创始人兼 CEO",
+      en: "Lincoln Wang: Founder and CEO of MindsLeap",
+    },
+    description: entityStatements.lincoln,
+    image: "/images/about/lincoln.jpg",
+    roles: {
+      zh: ["MindsLeap 创始人兼 CEO", "Founders Space 合伙人兼中国区 CEO"],
+      en: ["Founder and CEO of MindsLeap", "Partner and CEO of Founders Space China"],
+    },
+    affiliations: ["mindsleap", "founders-space"],
+    knowsAbout: ["enterprise AI transformation", "AI-native organizations", "FDE", "OPC", "startup acceleration", "global growth"],
+    highlights: {
+      zh: [
+        "MindsLeap 创始人兼 CEO",
+        "Founders Space 合伙人兼中国区 CEO",
+        "关注企业 AI 转型、AI 原生企业、OPC 与全球增长",
+      ],
+      en: [
+        "Founder and CEO of MindsLeap",
+        "Partner and CEO of Founders Space China",
+        "Focused on enterprise AI transformation, AI-native ventures, OPC, and global growth",
+      ],
+    },
+    relatedLinks: [
+      {
+        href: "/about",
+        label: { zh: "关于 MindsLeap", en: "About MindsLeap" },
+      },
+      {
+        href: "/topics/enterprise-ai-transformation",
+        label: { zh: "企业 AI 转型方法", en: "Enterprise AI transformation" },
+      },
+      {
+        href: "/news/lincoln-ai-native-organization-sharing-recap-2026",
+        label: { zh: "Lincoln：如何构建 AI 原生组织", en: "Lincoln on building AI-native organizations" },
+      },
+      {
+        href: "/news/deloitte-china-council-ai-native-organization-sharing-2026",
+        label: { zh: "德勤中国区理事会 AI 原生组织分享", en: "AI-native organization sharing with Deloitte China’s Council" },
+      },
+      {
+        href: "/news/tsinghua-emba-hangzhou-ai-study-tour-2026",
+        label: { zh: "清华大学 EMBA 杭州 AI 研学", en: "Tsinghua SEM EMBA Hangzhou AI study tour" },
+      },
+    ],
+    faqs: [
+      {
+        question: { zh: "Lincoln 王林是谁？", en: "Who is Lincoln Wang?" },
+        answer: entityStatements.lincoln,
+      },
+      {
+        question: { zh: "Lincoln 王林和 Founders Space 是什么关系？", en: "How is Lincoln Wang connected to Founders Space?" },
+        answer: {
+          zh: "Lincoln 王林担任 Founders Space 合伙人兼中国区 CEO。MindsLeap 与 Founders Space 的机构关系是全球合作伙伴。",
+          en: "Lincoln Wang is Partner and CEO of Founders Space China. MindsLeap's institutional relationship with Founders Space is that of a global partner.",
+        },
+      },
+      {
+        question: { zh: "Lincoln 王林主要关注哪些领域？", en: "What areas does Lincoln Wang focus on?" },
+        answer: {
+          zh: "Lincoln 王林主要关注企业 AI 转型、AI 原生组织、FDE、OPC、创业加速与全球增长。",
+          en: "Lincoln Wang focuses on enterprise AI transformation, AI-native organizations, FDE, OPC, startup acceleration, and global growth.",
+        },
+      },
+    ],
+  },
   {
     slug: "steve-hoffman",
     name: "Steve Hoffman",
@@ -299,6 +457,11 @@ export const geoPeople: GeoPerson[] = [
       en: "Steve Hoffman is the founder and chairman of Founders Space and an important ecosystem figure for MindsLeap's connection to Silicon Valley startups, AI-native enterprises, global mentors, and innovation resources.",
     },
     image: "/images/about/hoffman.png",
+    roles: {
+      zh: ["Founders Space 创始人兼 Chairman"],
+      en: ["Founder and Chairman of Founders Space"],
+    },
+    affiliations: ["founders-space"],
     knowsAbout: ["AI startups", "Silicon Valley", "venture building", "AI-native enterprises", "global acceleration", "Founders Space"],
     highlights: {
       zh: [
@@ -361,4 +524,3 @@ export function getGeoTopic(slug: string) {
 export function getGeoPerson(slug: string) {
   return geoPeople.find((person) => person.slug === slug);
 }
-

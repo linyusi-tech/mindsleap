@@ -53,7 +53,7 @@ export default function LatestEvents({
                       width={400}
                       height={224}
                       className="w-full h-56 object-cover"
-                      style={{ objectPosition: post.imagePosition ?? "center" }}
+                            style={{ objectPosition: post.imagePosition ?? "center", ...(post.imageLayout === "poster" ? { objectFit: "contain", backgroundColor: "#1e477c" } : {}) }}
                     />
                   ) : (
                     <div className="w-full h-56 bg-gradient-to-br from-[#1e477c] to-blue-400 flex items-center justify-center">

@@ -94,7 +94,7 @@ export default function NewsListClient({ posts, initialFilter = "events" }: Prop
                             alt={post.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            style={{ objectPosition: post.imagePosition ?? "center" }}
+                            style={{ objectPosition: post.imagePosition ?? "center", ...(post.imageLayout === "poster" ? { objectFit: "contain", backgroundColor: "#1e477c" } : {}) }}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
                         </div>

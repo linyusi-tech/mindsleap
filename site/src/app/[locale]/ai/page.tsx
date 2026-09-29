@@ -98,6 +98,30 @@ export default async function AgentIndexPage({ params }: Props) {
         </div>
       </section>
 
+      <section className="border-b border-gray-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-[0.7fr_1.3fr] md:py-20">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#8b6f3a]">Program</p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-normal text-[#1e477c]">
+              {isZh ? "旗舰课程" : "Flagship Program"}
+            </h2>
+          </div>
+          <div>
+            <h3 className="text-2xl font-extrabold text-gray-950">
+              {isZh ? "AI 原生组织跃迁实战营" : "AI-Native Organization Acceleration Program"}
+            </h3>
+            <p className="mt-4 max-w-3xl leading-8 text-gray-600">
+              {isZh
+                ? "面向企业家与核心团队的三个月企业 AI 转型实战项目，包含十天集中学习、四次企业专属诊断和一个真实业务主项目。"
+                : "A three-month enterprise AI transformation program for founders and core teams, with 10 days of learning, four advisory sessions, and one real business project."}
+            </p>
+            <a href="/program/ai-native-organization" className="mt-6 inline-flex font-semibold text-[#1e477c] hover:text-[#16385f]">
+              {isZh ? "查看课程详情" : "View program details"} <span aria-hidden="true" className="ml-2">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 md:py-20">
         <div>
           <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#8b6f3a]">People</p>

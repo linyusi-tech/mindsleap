@@ -142,7 +142,9 @@ export default function ContactContent() {
                     </label>
                     <select name="interest" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
                       <option value="">--</option>
-                      <option value="ai-club">{locale === "zh" ? "AI俱乐部" : "AI Club"}</option>
+                      <option value="ai-club">
+                        {locale === "zh" ? "MindsLeap 企业家 AI 俱乐部" : "MindsLeap Founders AI Club"}
+                      </option>
                       <option value="ai-transformation">{locale === "zh" ? "AI转型服务" : "AI Transformation Services"}</option>
                       <option value="accelerator">{locale === "zh" ? "创业加速" : "Startup Acceleration"}</option>
                       <option value="global-growth">{locale === "zh" ? "出海服务" : "Global Growth Services"}</option>

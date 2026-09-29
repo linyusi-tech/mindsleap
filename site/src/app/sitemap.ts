@@ -29,11 +29,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/${locale}${page}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
-      priority: page === "" ? 1 : 0.8,
+      priority: page === "" ? 1 : page === "/services" ? 0.9 : 0.8,
     }))
   );
 
   const eventEntries = [
+    {
+      url: `${baseUrl}/program/ai-native-organization`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/event/ai-employee`,
       lastModified: new Date(),

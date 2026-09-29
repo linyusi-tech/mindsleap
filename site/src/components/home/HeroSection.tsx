@@ -6,6 +6,15 @@ import { Link } from "@/i18n/navigation";
 
 const slides = [
   {
+    titleKey: "brandTitle",
+    subtitleKey: "brandSubtitle",
+    headingKey: "brandHeading",
+    ctaKey: "brandCta",
+    href: "/services",
+    image: "/images/hero/AI-Native-Conference-team.jpg",
+    bgPosition: "center 30%",
+  },
+  {
     titleKey: "slide5Title",
     subtitleKey: "slide5Subtitle",
     headingKey: "slide5Heading",
@@ -86,18 +95,24 @@ export default function HeroSection() {
           {/* Content */}
           <div className="relative h-full flex items-center justify-center text-center px-4">
             <div className={`${i === current ? "animate-fade-in" : ""}`}>
-              <h2 className="text-white text-2xl md:text-4xl font-medium tracking-widest uppercase mb-4">
+              <p className="text-white text-2xl md:text-4xl font-medium tracking-widest uppercase mb-4">
                 {t(slide.titleKey)}
-              </h2>
-              <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                {t(slide.headingKey)}
-              </h1>
+              </p>
+              {slide.headingKey === "brandHeading" ? (
+                <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                  {t(slide.headingKey)}
+                </h1>
+              ) : (
+                <h2 className="text-white text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                  {t(slide.headingKey)}
+                </h2>
+              )}
               <p className="text-gray-200 text-xl max-w-2xl mx-auto mb-8">
                 {t(slide.subtitleKey)}
               </p>
               <div className="flex gap-4 justify-center">
                 <Link
-                  href={slide.href as "/services/ai-club"}
+                  href={slide.href as "/services"}
                   className="bg-white text-[#1e477c] px-8 py-4 rounded-md font-bold hover:bg-gray-100 transition inline-block"
                 >
                   {t(slide.ctaKey)}

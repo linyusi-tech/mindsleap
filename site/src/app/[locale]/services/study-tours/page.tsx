@@ -86,7 +86,7 @@ const content = {
     ],
     featuresTitle: "服务特色",
     features: [
-      "Founders Space全球合伙人身份背书",
+      "Founders Space 全球合作伙伴网络支持",
       "产业考察与GTM咨询结合",
       "全球人才与专业服务伙伴支持",
       "高端小团与企业定制方案",
@@ -178,7 +178,7 @@ const content = {
     ],
     featuresTitle: "Service Highlights",
     features: [
-      "Founders Space Global Partner endorsement",
+      "Support from the Founders Space global partner network",
       "Industry visits combined with GTM advisory",
       "Global talent and professional-service partner support",
       "Premium small groups and enterprise customization",

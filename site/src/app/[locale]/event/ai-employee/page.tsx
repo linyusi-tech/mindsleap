@@ -76,7 +76,7 @@ export default async function AiEmployeeHomePage() {
         <div className="relative mx-auto grid min-h-[76dvh] max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.1em] text-blue-200">
-              Founders AI Club Bootcamp
+              MindsLeap Founders AI Club Bootcamp
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-tight md:text-6xl">
               AI数字员工实战营

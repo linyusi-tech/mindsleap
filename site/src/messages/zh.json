@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "title": "MindsLeap 心智悦动 | AI时代企业转型加速器",
-    "description": "MindsLeap帮助企业家和组织实现AI转型，智胜全球市场。通过企业家AI俱乐部、独角兽孵化、高管培训和全球研学四大业务，连接中国企业与全球AI前沿。"
+    "title": "MindsLeap 心智悦动 | 企业 AI 转型与 AI 原生创业加速平台",
+    "description": "MindsLeap 心智悦动是一家企业 AI 转型与 AI 原生创业加速平台。通过 MindsLeap 企业家 AI 俱乐部、AI 培训与战略咨询、FDE 落地、创业加速和全球增长服务，帮助传统企业把 AI 嵌入真实业务流程，也帮助 AI 原生项目连接产业场景与全球市场。"
   },
   "nav": {
     "home": "首页",
     "about": "关于我们",
     "services": "业务板块",
-    "aiClub": "AI俱乐部",
+    "aiClub": "企业家 AI 俱乐部",
     "incubation": "创业加速",
     "training": "AI转型服务",
     "studyTours": "出海服务",
@@ -16,11 +16,15 @@
     "contact": "联系我们"
   },
   "hero": {
+    "brandTitle": "MindsLeap 心智悦动",
+    "brandHeading": "企业 AI 转型与\nAI 原生创业加速平台",
+    "brandSubtitle": "帮助传统企业把 AI 嵌入真实业务，也帮助 AI 原生项目连接产业场景与全球市场",
+    "brandCta": "了解核心业务",
     "slide5Title": "AI原生企业大会",
     "slide5Heading": "Build AI Native Organizations",
     "slide5Subtitle": "从硅谷前沿到中国产业实践",
     "slide5Cta": "了解详情",
-    "slide1Title": "企业家AI俱乐部",
+    "slide1Title": "MindsLeap 企业家 AI 俱乐部",
     "slide1Heading": "Upgrade AI Mindsets\nfor Global Success",
     "slide1Subtitle": "与同频企业家共创AI转型",
     "slide2Title": "创业加速",
@@ -37,20 +41,20 @@
     "slide3Cta": "开启AI转型",
     "slide4Cta": "开启全球市场",
     "tagline": "Upgrade AI Mindsets for Global Success",
-    "subtitle": "连接中国传统企业家与全球AI前沿技术的转型加速器",
-    "description": "通过社群、内容、孵化、研学四大业务，帮助企业家轻松拥抱AI，实现从焦虑到落地的「悦动」式变革",
+    "subtitle": "企业 AI 转型与 AI 原生创业加速平台",
+    "description": "帮助传统企业把 AI 嵌入真实业务流程，也帮助 AI 原生项目连接产业场景与全球市场",
     "cta": "了解更多",
     "ctaContact": "联系我们"
   },
   "valueProp": {
     "title": "心智悦动，轻快变革",
     "paragraph1": "AI时代，企业竞争正在从「使用AI工具」走向「构建AI原生组织」。传统企业家需要把AI真正嵌入业务流程、组织能力和新增长曲线；AI创业者和OPC也需要真实产业场景、客户、资本与全球市场，才能从技术能力走向商业结果。",
-    "paragraph2": "MindsLeap是「AI原生企业的产业加速平台」。我们联合硅谷知名孵化器Founders Space，连接企业家、AI原生创业者、产业场景、资本与全球资源，通过AI俱乐部、AI转型服务、创业加速和出海服务，帮助企业从认知升级走向业务落地，帮助AI原生项目从真实场景走向全球市场。并且我们相信，这场变革可以是轻快、愉悦且充满行动感的。",
+    "paragraph2": "MindsLeap 心智悦动是一家企业 AI 转型与 AI 原生创业加速平台。通过 MindsLeap 企业家 AI 俱乐部、AI 培训与战略咨询、FDE 落地、创业加速和全球增长服务，帮助传统企业把 AI 嵌入真实业务流程，也帮助 AI 原生项目连接产业场景与全球市场。MindsLeap 心智悦动是 Founders Space 的全球合作伙伴。我们相信，这场变革可以是轻快、愉悦且充满行动感的。",
     "stat1Label": "硅谷知名孵化器Founders Space 全球合作伙伴",
     "stat2Label": "目标转型企业",
     "quote": "Upgrade AI Mindsets for Global Success. 我们的使命是陪伴传统企业AI转型，助力AI原生企业更快成长。",
     "quoteRole": "MindsLeap 创始人 & CEO",
-    "quoteRole2": "Founders Space 全球合伙人",
+    "quoteRole2": "Founders Space 合伙人兼中国区 CEO",
     "hoffmanQuote": "Founders Space and MindsLeap are coming together to help entrepreneurs and businesses transform with AI.",
     "hoffmanRole": "Founder and Chairman of Founders Space"
   },
@@ -58,7 +62,7 @@
     "title": "MindsLeap核心业务",
     "subtitle": "连接企业家、产业场景、AI原生项目与全球市场",
     "aiClub": {
-      "title": "企业家AI俱乐部",
+      "title": "MindsLeap 企业家 AI 俱乐部",
       "description": "面向企业家的AI转型社群，通过私享会、Workshop、企业参访与产业共创，建立新认知、新连接和新行动。",
       "tag": "核心产品"
     },
@@ -134,7 +138,7 @@
   "aboutHero": {
     "slide1Title": "关于MindsLeap",
     "slide1Heading": "心智悦动\n轻快变革",
-    "slide1Subtitle": "AI原生企业的产业加速平台",
+    "slide1Subtitle": "企业 AI 转型与 AI 原生创业加速平台",
     "slide2Title": "Founders Space 全球合作伙伴",
     "slide2Heading": "连接中国与硅谷\n共创AI未来",
     "slide2Subtitle": "连接企业家、AI原生创业者、产业场景与全球资源"
@@ -171,12 +175,12 @@
     "missionSubText": "陪伴传统企业AI转型，助力AI原生企业更快成长",
     "vision": "品牌愿景",
     "story": "品牌故事",
-    "storyText": "MindsLeap（心智悦动）是「AI原生企业的产业加速平台」。我们连接企业家、AI原生创业者、产业场景、资本与全球资源，帮助传统企业从AI认知走向业务落地，也帮助OPC、AI原生企业与科技独角兽从真实场景走向全球市场。",
+    "storyText": "MindsLeap 心智悦动是一家企业 AI 转型与 AI 原生创业加速平台。通过 MindsLeap 企业家 AI 俱乐部、AI 培训与战略咨询、FDE 落地、创业加速和全球增长服务，帮助传统企业把 AI 嵌入真实业务流程，也帮助 AI 原生项目连接产业场景与全球市场。",
     "naming": "\"心\"代表心智与思维，\"智\"代表智慧与AI，\"悦\"代表喜悦与轻快，\"动\"代表行动与变革。心智悦动：让AI转型不只是焦虑和压力，而是一场有认知、有方法、有行动、有结果的跃迁。",
     "acceleratorTitle": "我们如何加速AI原生企业",
     "acceleratorItems": [
       {
-        "title": "AI俱乐部",
+        "title": "MindsLeap 企业家 AI 俱乐部",
         "description": "汇聚同频企业家，通过私享会、Workshop、企业参访和产业共创，建立面向AI时代的新认知与新连接。"
       },
       {
@@ -195,13 +199,13 @@
     "founders": "创始团队",
     "lincolnName": "王林 Lincoln",
     "lincolnRole": "MindsLeap 创始人 & CEO",
-    "lincolnRole2": "Founders Space 全球合伙人",
+    "lincolnRole2": "Founders Space 合伙人兼中国区 CEO",
     "lincolnBio": "曾担任全球排名第一教育科技公司32亿美元独角兽Emeritus中国区首席运营官，维京游轮中国区营销副总裁。拥有丰富的AI创业圈、硅谷资源、企业家战略辅导、企业AI转型咨询、企业家社群运营与全球市场连接经验，长期关注AI原生企业、OPC和中国企业全球化机会。",
     "yusiName": "林雨思 Yusi",
     "yusiRole": "MindsLeap 联合创始人 & CPO",
     "yusiBio": "曾担任全球排名第一教育科技公司32亿美元独角兽Emeritus中国区产品负责人、前纳斯达克上市教育公司少儿产品线负责人，字节跳动教育出海业务资深产品经理。主导过十余款产品从0到1的构建，服务用户超百万。作为MindsLeap联合创始人兼CPO，负责产品体系、服务产品化、交付标准与客户体验，推动AI俱乐部、AI转型服务、创业加速和出海服务形成可复制的业务体系。",
     "partnership": "Founders Space 全球合作伙伴",
-    "partnershipText": "MindsLeap是Founders Space的全球合作伙伴。Founders Space是一家全球风险投资平台，在22个国家/地区拥有50个战略合作伙伴，长期服务创业者、政府和企业创新生态。通过这一全球网络，MindsLeap将硅谷导师、国际资本、产业资源和全球市场机会引入中国企业与AI原生创业生态。"
+    "partnershipText": "MindsLeap 心智悦动是 Founders Space 的全球合作伙伴。Founders Space 是一家全球风险投资平台，在22个国家/地区拥有50个战略合作伙伴，长期服务创业者、政府和企业创新生态。通过这一全球网络，MindsLeap 将硅谷导师、国际资本、产业资源和全球市场机会引入中国企业与 AI 原生创业生态。"
   },
   "services": {
     "title": "业务板块",
@@ -237,7 +241,7 @@
     "wechatDesc": "扫码添加MindsLeap官方微信"
   },
   "aiClubHero": {
-    "slide1Title": "企业家AI俱乐部",
+    "slide1Title": "MindsLeap 企业家 AI 俱乐部",
     "slide1Heading": "Upgrade AI Mindsets\nfor Global Success",
     "slide1Subtitle": "汇聚AI转型企业家，一起学习共同成长",
     "slide2Title": "AI工作坊",
@@ -275,7 +279,7 @@
     "slide2Subtitle": "从产业考察到GTM与全球团队搭建"
   },
   "footer": {
-    "description": "连接中国传统企业家与全球AI前沿技术的转型加速器",
+    "description": "企业 AI 转型与 AI 原生创业加速平台",
     "services": "业务板块",
     "contactTitle": "联系我们",
     "company": "关于",

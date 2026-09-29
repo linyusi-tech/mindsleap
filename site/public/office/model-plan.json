@@ -1,0 +1,19 @@
+{
+  "version": "1.0-proportional-model",
+  "units": "meters",
+  "source": "Original 1121 x 1142 floor-plan PNG; not generated birdseye images",
+  "scale": {"pixelsPerMeter":40,"status":"estimated","basis":"Cross-check tablet chair width approximately 0.55–0.65 m, chair centers 0.83–0.94 m, room and desk proportions; not a surveyed dimension","ceilingHeight":3.0,"wallThickness":0.15},
+  "originPixel":[89,1052],
+  "footprintPixels":[[89,493],[425,493],[425,230],[628,89],[945,548],[945,713],[1034,713],[1034,1052],[89,1052]],
+  "meetingPixels":[[425,304],[604,178],[716,350],[508,493]],
+  "storagePixels":[[425,304],[508,493],[425,493]],
+  "teaPixels":[[870,713],[1034,713],[1034,1052],[870,1052]],
+  "columnsPixels":[[508,472,38],[773,293,38],[930,523,38],[667,693,36],[318,754,36],[318,997,36],[657,997,36],[924,754,36],[924,997,36]],
+  "officeDeskCentersPixels":[[824,638],[732,804],[725,920]],
+  "training":{"columnsX":[171,208.5,246,283.5,321,358.5,396,433.5,471,508.5],"blocksY":[[568,601,634,667,700],[811,844,877,910,943]],"count":100,"faces":"west / negative X"},
+  "entrance":{"wallPixels":[[425,230],[628,89]],"centerAlongWall":0.27,"widthMeters":1.6,"type":"open automatic glass sliding door","status":"estimated; center aligned to meeting welcome-wall center by perpendicular projection"},
+  "greenWall":{"endpointsPixels":[[508,493],[716,350]],"heightMeters":3.0,"structuralColumnConcealed":true,"estimatedWidthMeters":6.31},
+  "island":{"countertopOutlinePixels":[[578,944],[609,944],[609,773],[674,708],[652,686],[578,760]],"bodyOutlinePixels":[[582,941],[605,941],[605,771],[670,707],[652,691],[582,762]],"heightMeters":1.1,"connectsToColumn":"Structural_column_04","description":"Continuous straight bar with diagonal return into column, traced from original plan; stool row stays on office side."},
+  "estimatedAreaSquareMeters":394.8075,
+  "notes":["All coordinates transcribed manually from source plan and should be field verified.","Original source contains black structural squares; central training column and other columns are preserved.","The lounge-facing wall has been built out to cover the adjacent column, following user revision.","Entrance-left culture wall is solid; display headings are placeholders, not company claims.","Each of three office desk groups has exactly three chairs.","No measured clearance, fire-code capacity or structural approval is claimed.","Original logo image is used as a texture, without generated letterforms."]
+}

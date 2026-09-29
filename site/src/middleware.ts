@@ -33,7 +33,8 @@ export default function middleware(request: NextRequest) {
 
   if (isAgentContentPath(pathname) && acceptsMarkdown(request.headers.get("accept"))) {
     const url = request.nextUrl.clone();
-    url.pathname = `/api/agent-content${pathname.replace(/\/$/, "")}`;
+    const contentPath = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+    url.pathname = `/api/agent-content${contentPath}`;
     url.search = "";
     return NextResponse.rewrite(url);
   }
@@ -52,6 +53,6 @@ export default function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/case/:path*",
-    "/((?!api|_next|_vercel|design-system|decks|case-login|menu|product|proposal|poster|manuals|codex-installation|.*\\..*).*)",
+    "/((?!api|_next|_vercel|design-system|decks|case-login|menu|product|program|proposal|poster|manuals|codex-installation|office(?:/|$)|.*\..*).*)",
   ],
-};
+};          

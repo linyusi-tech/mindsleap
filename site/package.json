@@ -7,17 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "decks:pdf": "node scripts/generate-deck-pdfs.mjs",
-    "decks:check": "node scripts/check-deck-release.mjs",
-    "decks:prepare": "npm run decks:pdf && npm run decks:check"
+    "zhihu:queue": "node scripts/build-zhihu-queue.mjs",
+    "zhihu:publish": "node scripts/publish-zhihu-via-browser.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.36.0",
     "gray-matter": "^4.0.3",
     "next": "16.1.6",
     "next-intl": "^4.8.3",
     "next-mdx-remote": "^6.0.0",
+    "node-cron": "^4.2.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "reading-time": "^1.5.0",
