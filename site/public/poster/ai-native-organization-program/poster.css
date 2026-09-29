@@ -38,9 +38,9 @@
 .current-edition .offer-price{border-color:#8bb1e0}
 .current-edition .offer-price-head .offer-saving{background:#e4eeff;color:#1e477c}
 .current-edition .offer-team,.current-edition .offer-terms{color:#d5e3f5!important}
-/* Equal visible logo height: source alpha bounds are 67/100 and 58/83. */
+/* Visible alpha bounds: MindsLeap 36px; Founders Space 80% of prior 36px. */
 .current-edition .brand img{width:214.925px;height:53.731px;transform:translateY(-2.955px);flex:none}
-.current-edition .brand img:last-child{width:353.172px;height:51.517px;transform:translateY(-.31px)}
+.current-edition .brand img:last-child{width:282.538px;height:41.214px;transform:translateY(-.248px)}
 .current-edition .brand span{background:#9ab4d3}
 .journey-intro{padding-bottom:12px}
 .journey-intro h2{margin-bottom:16px}
@@ -54,3 +54,12 @@
 .current-edition{color:var(--ink)}
 .current-edition .dark .cta p{color:#536b87}
 .current-edition .dark .cta .eyebrow{color:#1e477c}
+
+/* 2026-09-29 follow-up: orange diagnostic milestones and bright blue headline. */
+.current-edition .hero h1 em{color:#55bcff}
+.current-edition .journey-clinic{background:linear-gradient(110deg,#ffecd6,#fff5e9);border-color:#f2bb82;border-left-color:#ee7c20;box-shadow:0 8px 20px #d26b1110}
+.current-edition .clinic-marker{background:#e7791e;color:white;border-radius:12px;padding:9px 5px;align-self:center}
+.current-edition .journey-clinic .clinic-when{color:#a54b13;font-weight:750}
+.current-edition .journey-clinic h3{color:#9b3b0b}
+.current-edition .journey-clinic p{color:#805338}
+.current-edition .staff-grid p{font-size:21px;line-height:1.6}
