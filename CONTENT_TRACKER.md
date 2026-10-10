@@ -7,6 +7,15 @@
 
 ## Workflow
 
+### 2026-10-10 Shopify AI Insights
+
+- ContentHub: `art_20261009_yt_9GtcbnmldcY`; Lincoln approved 2026-10-09.
+- Slug: `shopify-ai-capability-2026` (zh/en); source video `9GtcbnmldcY`.
+- Deduplication: no matching ID, source video, slug, or title in fetched `.ai` / `.cn` main branches.
+- Release scope: bilingual article and original 16:9 cover only; independent site configurations preserved.
+- Local production builds passed for both sites. CN GEO check passed; AI full-corpus GEO check reports pre-existing legacy author titles in eight other articles, not this release.
+- Status: ready for deployment; confirm both public domains before marking published. Do not create another slug for this ContentHub ID.
+
 每篇内容统一按以下状态推进：
 
 1. `Inbox`
