@@ -21,22 +21,40 @@ const INTEREST_LABELS: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { name, email, company, role, interest, message } = body;
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    }
+    const field = (key: string) => typeof body[key] === "string" ? body[key].trim() : "";
+    const name = field("name");
+    const phone = field("phone");
+    const email = field("email");
+    const company = field("company");
+    const role = field("role");
+    const interest = field("interest");
+    const message = field("message");
 
-    if (!name || !email) {
+    const digits = phone.replace(/\D/g, "");
+    if (!name || !/^\+?[0-9() .-]+$/.test(phone) || phone.length > 30 || digits.length < 7 || digits.length > 15) {
       return NextResponse.json(
-        { error: "Name and email are required" },
+        { error: "Name and a valid phone number are required" },
         { status: 400 }
       );
     }
+
+    if (email && !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(email)) {
+      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    }
+    const escape = (value: string) => value.replace(/[&<>"']/g, (char) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    }[char]!));
 
     const interestLabel = INTEREST_LABELS[interest] || interest || "未选择";
 
     const { error } = await resend.emails.send({
       from: contactFromEmail,
       to: [process.env.CONTACT_EMAIL || getContactEmail()],
-      replyTo: email,
+      ...(email ? { replyTo: email } : {}),
       subject: `[MindsLeap] 新咨询 - ${name} | ${interestLabel}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
@@ -46,32 +64,36 @@ export async function POST(request: Request) {
           <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; width: 120px; color: #333;">姓名</td>
-              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${name}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${escape(name)}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">手机号码</td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${escape(phone)}</td>
             </tr>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">邮箱</td>
               <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">
-                <a href="mailto:${email}" style="color: #1e477c;">${email}</a>
+                ${email ? escape(email) : "未填写"}
               </td>
             </tr>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">公司</td>
-              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${company || "未填写"}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${escape(company) || "未填写"}</td>
             </tr>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">职位</td>
-              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${role || "未填写"}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${escape(role) || "未填写"}</td>
             </tr>
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #333;">感兴趣业务</td>
-              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${interestLabel}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${escape(interestLabel)}</td>
             </tr>
           </table>
           ${
             message
               ? `<div style="margin-top: 20px; padding: 15px; background: #f9fafb; border-radius: 8px;">
                    <p style="font-weight: bold; color: #333; margin: 0 0 8px 0;">留言内容：</p>
-                   <p style="color: #555; margin: 0; white-space: pre-wrap;">${message}</p>
+                   <p style="color: #555; margin: 0; white-space: pre-wrap;">${escape(message)}</p>
                  </div>`
               : ""
           }

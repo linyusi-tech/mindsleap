@@ -229,6 +229,8 @@
     "form": {
       "name": "姓名",
       "email": "邮箱",
+      "phone": "手机号码",
+      "emailOptional": "邮箱（选填）",
       "company": "公司名称",
       "role": "职位",
       "interest": "感兴趣的服务",
