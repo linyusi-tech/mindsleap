@@ -117,7 +117,7 @@
  .schedule .fine-print{font-size:12px;line-height:1.65;padding-top:12px}
 }
 @media(max-width:520px){
- .lincoln .speaker-portrait{transform:scale(.85);transform-origin:center bottom}
+ .lincoln .speaker-portrait{transform:scale(.9775);transform-origin:center bottom}
  .speaker-feature .speaker-main{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);min-height:310px}
  .speaker-feature .speaker-copy{padding-bottom:22px}
  .speaker-feature .speaker-mobile-role{font-size:14px;line-height:1.9}
