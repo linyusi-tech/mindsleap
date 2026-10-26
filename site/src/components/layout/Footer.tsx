@@ -110,7 +110,7 @@ export default function Footer() {
 
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-blue-300/60">
           <div className="flex space-x-6 mb-4 md:mb-0">
-            <a href="#" className="hover:text-white transition">Privacy Policy</a>
+            <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
             <a href="#" className="hover:text-white transition">Terms of Service</a>
           </div>
           <p>{isZh ? "MindsLeap · Founders Space 全球合作伙伴" : "MindsLeap · Global Partner of Founders Space"}</p>
