@@ -1,0 +1,2795 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI数字员工实战营 · Poster Template</title>
+  <meta name="description" content="MindsLeap 心智悦动 AI数字员工实战营海报模板。" />
+  <script>
+    if (location.protocol !== "file:") {
+      document.write('<base href="/poster/ai-hermes-workshop-template/">');
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("img[data-src]").forEach((image) => {
+        image.setAttribute("src", image.getAttribute("data-src"));
+      });
+    });
+  </script>
+  <style>
+    @font-face {
+      font-family: "Source Han Sans SC Poster";
+      src: url("fonts/SourceHanSansSC-VF.otf") format("opentype");
+      font-weight: 250 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "MindsLeap Brand";
+      src: url("../../design-system/fonts/MindsLeap-Brand.otf") format("opentype");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --ml-blue: #1e477c;
+      --ml-blue-light: #2a5a9e;
+      --ml-blue-dark: #152f54;
+      --ml-blue-accent: #3b82f6;
+      --ml-blue-hover: #1e40af;
+      --ml-white: #ffffff;
+      --ml-black: #111111;
+      --ml-ink: #111111;
+      --ml-gray-50: #f9fafb;
+      --ml-gray-100: #f3f4f6;
+      --ml-gray-500: #6b7280;
+      --ml-gray-600: #4b5563;
+      --ml-gray-800: #1f2937;
+      --ml-blue-50: #eff6ff;
+      --ml-blue-100: #dbeafe;
+      --ml-blue-200: #93c5fd;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --font-zh-heavy: "Source Han Sans SC Poster", "Source Han Sans SC Heavy", "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --page-max: 1180px;
+      --hairline: rgba(30, 71, 124, 0.12);
+      --soft-blue: #eef5ff;
+      --soft-blue-2: #f6faff;
+      --surface: rgba(255, 255, 255, 0.88);
+      --shadow-soft: 0 20px 60px rgba(21, 47, 84, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ml-white);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ml-ink);
+      background:
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 22%, #ffffff 100%);
+      font-family: var(--font-sans);
+      letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(var(--page-max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(30, 71, 124, 0.08);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(22px);
+    }
+
+    .nav-inner {
+      width: min(1240px, calc(100% - 40px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 190px;
+      height: 38px;
+      background: url("../_assets/shared/logo-blue.png") left center / contain no-repeat;
+      flex: 0 0 auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ml-blue);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background: var(--ml-blue-50);
+    }
+
+    .nav-cta {
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      box-shadow: 0 10px 24px rgba(30, 71, 124, 0.18);
+    }
+
+    .nav-links .nav-cta:hover {
+      background: var(--ml-blue-hover);
+    }
+
+    .hero {
+      min-height: calc(100svh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 58px 0 72px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.78fr);
+      align-items: center;
+      gap: clamp(36px, 6vw, 78px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ml-blue-accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--ml-blue-accent);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 26px;
+      color: var(--ml-blue);
+      font-size: clamp(56px, 8vw, 104px);
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .hero-lead {
+      margin-top: 28px;
+      max-width: 760px;
+      color: var(--ml-gray-800);
+      font-size: clamp(25px, 3vw, 42px);
+      line-height: 1.18;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .hero-summary {
+      margin-top: 22px;
+      max-width: 680px;
+      color: var(--ml-gray-600);
+      font-size: clamp(18px, 1.8vw, 23px);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      color: var(--ml-blue);
+      background: var(--ml-white);
+      font-size: 17px;
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .button.primary {
+      border-color: var(--ml-blue);
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      box-shadow: 0 16px 34px rgba(30, 71, 124, 0.22);
+    }
+
+    .quick-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 720px;
+    }
+
+    .meta-card {
+      min-height: 104px;
+      padding: 18px;
+      border: 1px solid var(--hairline);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meta-card span {
+      display: block;
+      color: var(--ml-gray-500);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .meta-card strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--ml-blue);
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 650px;
+      border-radius: 42px;
+      background:
+        linear-gradient(180deg, rgba(30, 71, 124, 0.08), rgba(30, 71, 124, 0.02)),
+        var(--ml-white);
+      border: 1px solid var(--hairline);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.86) 62%),
+        url("../ai-hermes-workshop/background_ai_digital_employee_bootcamp_v1.png") center top / cover no-repeat;
+    }
+
+    .phone-panel {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 22px 60px rgba(21, 47, 84, 0.16);
+    }
+
+    .phone-panel .label {
+      color: var(--ml-blue-accent);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .phone-panel h2 {
+      margin-top: 12px;
+      color: var(--ml-blue);
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.04;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .phone-panel p {
+      margin-top: 14px;
+      color: var(--ml-gray-600);
+      font-size: 18px;
+      line-height: 1.58;
+      font-weight: 600;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--ml-blue-50);
+      color: var(--ml-blue);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: clamp(70px, 10vw, 128px) 0;
+    }
+
+    .section.alt {
+      background: var(--ml-gray-50);
+    }
+
+    .section.blue {
+      color: var(--ml-white);
+      background: var(--ml-blue);
+    }
+
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 42px;
+    }
+
+    .section h2 {
+      margin-top: 16px;
+      color: var(--ml-blue);
+      font-size: clamp(38px, 5.4vw, 72px);
+      line-height: 1.05;
+      font-weight: 830;
+      letter-spacing: 0;
+    }
+
+    .section.blue h2,
+    .section.blue .section-lead {
+      color: var(--ml-white);
+    }
+
+    .section-lead {
+      margin-top: 20px;
+      color: var(--ml-gray-600);
+      font-size: clamp(19px, 2vw, 25px);
+      line-height: 1.6;
+      font-weight: 530;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      min-height: 100%;
+      padding: clamp(24px, 3vw, 34px);
+      border: 1px solid var(--hairline);
+      border-radius: 24px;
+      background: var(--ml-white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card.soft {
+      background: linear-gradient(180deg, var(--soft-blue-2), var(--ml-white));
+    }
+
+    .card-number {
+      color: var(--ml-blue-accent);
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin-top: 18px;
+      color: var(--ml-blue);
+      font-size: clamp(25px, 2.4vw, 34px);
+      line-height: 1.14;
+      font-weight: 820;
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin-top: 14px;
+      color: var(--ml-gray-600);
+      font-size: 18px;
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+      overflow: hidden;
+    }
+
+    .feature-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .list span {
+      display: flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: var(--ml-blue-50);
+      color: var(--ml-blue);
+      font-size: 17px;
+      font-weight: 750;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: clamp(28px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .flow-sticky {
+      position: sticky;
+      top: 110px;
+      padding: 34px;
+      border-radius: 30px;
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      box-shadow: 0 24px 54px rgba(30, 71, 124, 0.22);
+    }
+
+    .flow-sticky h2 {
+      margin-top: 0;
+      color: var(--ml-white);
+      font-size: clamp(36px, 4.4vw, 64px);
+    }
+
+    .flow-sticky p {
+      margin-top: 20px;
+      color: var(--ml-blue-200);
+      font-size: 20px;
+      line-height: 1.65;
+      font-weight: 550;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 20px;
+      padding: 24px;
+      border: 1px solid var(--hairline);
+      border-radius: 22px;
+      background: var(--ml-white);
+    }
+
+    .timeline-step {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: var(--ml-blue-50);
+      color: var(--ml-blue);
+      font-size: 20px;
+      font-weight: 850;
+    }
+
+    .timeline-title {
+      color: var(--ml-blue);
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 820;
+    }
+
+    .timeline-copy {
+      margin-top: 8px;
+      color: var(--ml-gray-600);
+      font-size: 17px;
+      line-height: 1.62;
+      font-weight: 500;
+    }
+
+    .business-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .business-card {
+      min-height: 270px;
+    }
+
+    .business-card .tag {
+      color: var(--ml-blue-accent);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr 0.85fr;
+      gap: 18px;
+    }
+
+    .speaker {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      padding: 0;
+      background: linear-gradient(180deg, var(--soft-blue), var(--ml-white));
+    }
+
+    .speaker.primary {
+      grid-row: span 2;
+      min-height: 860px;
+    }
+
+    .speaker-photo {
+      position: absolute;
+      inset: auto 0 0;
+      height: 58%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .speaker.primary .speaker-photo {
+      height: 62%;
+    }
+
+    .speaker-photo img {
+      max-height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .speaker-info {
+      position: relative;
+      z-index: 1;
+      padding: 28px;
+    }
+
+    .speaker-name {
+      color: var(--ml-blue);
+      font-size: clamp(28px, 3.6vw, 48px);
+      line-height: 1.05;
+      font-weight: 850;
+    }
+
+    .speaker-role {
+      margin-top: 12px;
+      color: var(--ml-gray-600);
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 560;
+    }
+
+    .speaker-topic {
+      display: inline-flex;
+      margin-top: 16px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: var(--ml-blue);
+      color: var(--ml-white);
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .agenda {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .day {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .day-head {
+      padding: 28px;
+      background: var(--ml-blue);
+      color: var(--ml-white);
+    }
+
+    .day-title {
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 850;
+    }
+
+    .day-subtitle {
+      margin-top: 8px;
+      color: var(--ml-blue-200);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .agenda-list {
+      display: grid;
+      gap: 0;
+      padding: 10px 28px 28px;
+    }
+
+    .agenda-item {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--ml-gray-100);
+    }
+
+    .agenda-item:last-child {
+      border-bottom: 0;
+    }
+
+    .time {
+      color: var(--ml-blue-accent);
+      font-size: 15px;
+      line-height: 1.3;
+      font-weight: 850;
+    }
+
+    .agenda-title {
+      color: var(--ml-blue);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 820;
+    }
+
+    .agenda-copy {
+      margin-top: 7px;
+      color: var(--ml-gray-600);
+      font-size: 15px;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    .sprint {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .sprint-hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 500px;
+      padding: clamp(30px, 4vw, 46px);
+      border-radius: 30px;
+      background: var(--ml-white);
+      color: var(--ml-blue);
+    }
+
+    .sprint-hero .number {
+      font-size: clamp(84px, 12vw, 152px);
+      line-height: 0.85;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .sprint-hero h2 {
+      margin-top: 24px;
+      color: var(--ml-blue);
+      font-size: clamp(36px, 5vw, 68px);
+    }
+
+    .sprint-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .sprint-item {
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--ml-white);
+    }
+
+    .sprint-item strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 850;
+    }
+
+    .sprint-item span {
+      display: block;
+      margin-top: 10px;
+      color: var(--ml-blue-200);
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 520;
+    }
+
+    .final-cta {
+      text-align: center;
+      padding: clamp(76px, 10vw, 128px) 0;
+    }
+
+    .final-cta h2 {
+      max-width: 860px;
+      margin: 0 auto;
+      color: var(--ml-blue);
+      font-size: clamp(45px, 7vw, 92px);
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: 0;
+    }
+
+    .final-cta p {
+      max-width: 780px;
+      margin: 26px auto 0;
+      color: var(--ml-gray-600);
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.62;
+      font-weight: 550;
+    }
+
+    .footer {
+      padding: 44px 0 48px;
+      color: var(--ml-white);
+      background: var(--ml-blue);
+    }
+
+    .footer .shell {
+      display: block;
+      text-align: center;
+    }
+
+    .footer-brand-lockup {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--ml-white);
+    }
+
+    .footer-brand-cn {
+      font-family: var(--font-zh-heavy);
+      font-size: 28px;
+      font-weight: 900;
+      font-variation-settings: "wght" 900;
+      line-height: 1;
+    }
+
+    .footer-brand-en {
+      font-family: "MindsLeap Brand", var(--font-sans);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .footer-tagline {
+      max-width: 330px;
+      margin: 14px auto 0;
+      color: var(--ml-ice);
+      font-size: 15px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .flow,
+      .sprint {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 620px;
+      }
+
+      .flow-sticky {
+        position: relative;
+        top: auto;
+      }
+
+      .business-grid,
+      .speaker-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .speaker.primary {
+        grid-row: auto;
+        grid-column: span 2;
+        min-height: 560px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell,
+      .nav-inner {
+        width: min(100% - 28px, var(--page-max));
+      }
+
+      .nav-inner {
+        min-height: 66px;
+      }
+
+      .logo {
+        width: 154px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 9px 12px;
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 44px 0 56px;
+      }
+
+      h1 {
+        font-size: clamp(54px, 17vw, 76px);
+      }
+
+      .hero-lead {
+        font-size: 28px;
+      }
+
+      .hero-summary,
+      .section-lead {
+        font-size: 19px;
+      }
+
+      .quick-meta,
+      .grid.three,
+      .grid.two,
+      .business-grid,
+      .agenda,
+      .speaker-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-meta {
+        gap: 10px;
+      }
+
+      .meta-card {
+        min-height: 0;
+      }
+
+      .hero-visual {
+        min-height: 560px;
+        border-radius: 30px;
+      }
+
+      .hero-visual::before {
+        inset: 14px;
+        border-radius: 22px;
+      }
+
+      .phone-panel {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        padding: 22px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section h2,
+      .flow-sticky h2,
+      .sprint-hero h2,
+      .final-cta h2 {
+        font-size: 42px;
+      }
+
+      .card {
+        border-radius: 20px;
+      }
+
+      .feature-card {
+        min-height: 0;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-step {
+        width: 64px;
+        height: 64px;
+      }
+
+      .speaker,
+      .speaker.primary {
+        grid-column: auto;
+        min-height: 520px;
+      }
+
+      .speaker-photo {
+        height: 54%;
+      }
+
+      .agenda-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .sprint-hero {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .shell,
+      .nav-inner {
+        width: min(100% - 24px, var(--page-max));
+      }
+
+      .hero-visual {
+        min-height: 500px;
+      }
+
+      .phone-panel h2 {
+        font-size: 34px;
+      }
+
+      .phone-panel p {
+        font-size: 17px;
+      }
+
+      .speaker,
+      .speaker.primary {
+        min-height: 480px;
+      }
+    }
+
+    /* Mobile poster mode: this page is intended as a phone-first long poster. */
+    body {
+      background: transparent;
+    }
+
+    .nav,
+    main,
+    .footer {
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    main {
+      overflow: hidden;
+      background: #1e477c;
+    }
+
+    .nav {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(30, 71, 124, 0.96);
+      box-shadow: none;
+    }
+
+    .nav-inner {
+      width: min(100% - 28px, 402px);
+      min-height: 70px;
+    }
+
+    .logo {
+      width: 160px;
+      background-image: url("../_assets/shared/MindsLeap New Logo-white.png");
+    }
+
+    .nav-links a:not(.nav-cta) {
+      display: none;
+    }
+
+    .nav-cta {
+      background: var(--ml-white);
+      color: var(--ml-blue);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    .shell {
+      width: min(100% - 28px, 402px);
+    }
+
+    .hero {
+      min-height: auto;
+      padding: 42px 0 46px;
+    }
+
+    .hero-grid,
+    .flow,
+    .sprint,
+    .quick-meta,
+    .grid.three,
+    .grid.two,
+    .business-grid,
+    .speaker-grid,
+    .agenda {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+      gap: 28px;
+    }
+
+    .eyebrow {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+
+    .eyebrow::before {
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    h1 {
+      margin-top: 24px;
+      color: var(--ml-white);
+      font-size: clamp(58px, 17vw, 78px);
+      line-height: 0.92;
+      text-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-lead {
+      color: var(--ml-white);
+      font-size: 29px;
+      line-height: 1.18;
+    }
+
+    .hero-summary,
+    .section-lead,
+    .flow-sticky p,
+    .sprint-hero .section-lead,
+    .final-cta p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      width: 100%;
+      min-height: 56px;
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--ml-white);
+      box-shadow: none;
+    }
+
+    .button.primary {
+      border-color: var(--ml-white);
+      background: var(--ml-white);
+      color: var(--ml-blue);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
+    }
+
+    .meta-card,
+    .card,
+    .timeline-item,
+    .sprint-item {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+      backdrop-filter: blur(18px);
+    }
+
+    .meta-card span,
+    .card-number,
+    .business-card .tag,
+    .time,
+    .phone-panel .label {
+      color: rgba(255, 255, 255, 0.66);
+    }
+
+    .meta-card strong,
+    .section h2,
+    .card h3,
+    .timeline-title,
+    .speaker-name,
+    .agenda-title,
+    .day-title,
+    .sprint-hero h2,
+    .final-cta h2 {
+      color: var(--ml-white);
+    }
+
+    .card p,
+    .timeline-copy,
+    .speaker-role,
+    .agenda-copy,
+    .day-subtitle,
+    .sprint-item span {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .hero-visual {
+      min-height: 510px;
+      border-color: rgba(255, 255, 255, 0.16);
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: none;
+    }
+
+    .hero-visual::before {
+      inset: 12px;
+      border-radius: 24px;
+      opacity: 0.36;
+      background:
+        linear-gradient(180deg, rgba(30, 71, 124, 0.1), var(--ml-blue) 72%),
+        url("../ai-hermes-workshop/background_ai_digital_employee_bootcamp_v1.png") center top / cover no-repeat;
+    }
+
+    .phone-panel {
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 22px;
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(30, 71, 124, 0.72);
+      box-shadow: none;
+    }
+
+    .phone-panel h2 {
+      color: var(--ml-white);
+      font-size: 35px;
+    }
+
+    .phone-panel p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 17px;
+    }
+
+    .chip,
+    .list span {
+      background: rgba(255, 255, 255, 0.13);
+      color: var(--ml-white);
+    }
+
+    .section,
+    .section.alt,
+    .section.blue,
+    .final-cta {
+      padding: 66px 0;
+      background: transparent;
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+    }
+
+    .section h2,
+    .flow-sticky h2,
+    .sprint-hero h2,
+    .final-cta h2 {
+      font-size: 42px;
+      line-height: 1.04;
+    }
+
+    .flow-sticky,
+    .sprint-hero {
+      position: relative;
+      top: auto;
+      min-height: auto;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+      backdrop-filter: blur(18px);
+    }
+
+    .timeline-step {
+      background: var(--ml-white);
+      color: var(--ml-blue);
+    }
+
+    .speaker,
+    .speaker.primary {
+      grid-column: auto;
+      grid-row: auto;
+      min-height: 500px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+    }
+
+    .speaker-topic,
+    .badge,
+    .day-head {
+      background: var(--ml-white);
+      color: var(--ml-blue);
+    }
+
+    .speaker-photo {
+      height: 54%;
+    }
+
+    .day {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .day-head {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .day-subtitle {
+      color: rgba(30, 71, 124, 0.68);
+    }
+
+    .agenda-item {
+      grid-template-columns: 1fr;
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .sprint-hero .number {
+      color: var(--ml-white);
+    }
+
+    .footer {
+      background: #1e477c;
+    }
+
+    /* Typography-first poster pass: fewer frames, more rhythm, lines, and icons. */
+    :root {
+      --ml-ice: #93c5fd;
+      --ml-ice-soft: rgba(147, 197, 253, 0.26);
+      --poster-rule: rgba(147, 197, 253, 0.28);
+      --poster-background: #1e477c;
+    }
+
+    main {
+      background: var(--poster-background);
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .hero {
+      padding-top: 24px;
+      padding-bottom: 34px;
+    }
+
+    .hero-joint-logo {
+      display: block;
+      width: 284px;
+      height: 58px;
+      margin: 0 auto 34px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-family: var(--font-zh-heavy);
+      font-size: clamp(51px, 14.7vw, 68px);
+      line-height: 1.08;
+      font-weight: 900;
+      font-variation-settings: "wght" 900;
+      letter-spacing: 0;
+    }
+
+    .hero-lead {
+      margin-top: 26px;
+      font-size: 31px;
+      line-height: 1.12;
+    }
+
+    .hero-summary {
+      margin-top: 22px;
+    }
+
+    .hero-icons {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--poster-rule);
+    }
+
+    .hero-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-icon svg {
+      width: 42px;
+      height: 42px;
+      display: block;
+      color: var(--ml-ice);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hero-icon span {
+      display: block;
+      margin-top: 12px;
+      color: var(--ml-white);
+      font-size: 15px;
+      font-weight: 900;
+      font-variation-settings: "wght" 900;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    .hero-actions {
+      display: none;
+    }
+
+    .button {
+      display: none;
+    }
+
+    .button::after {
+      content: "";
+      width: 34px;
+      height: 1px;
+      margin-left: 12px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+
+    .button.primary {
+      display: none;
+    }
+
+    .button.primary::after {
+      display: none;
+    }
+
+    .quick-meta {
+      gap: 0;
+      margin-top: 36px;
+      border-top: 1px solid var(--poster-rule);
+    }
+
+    .meta-card {
+      min-height: 0;
+      padding: 18px 0;
+      border: 0;
+      border-bottom: 1px solid var(--poster-rule);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .meta-card span {
+      color: var(--ml-ice);
+    }
+
+    .meta-card strong {
+      margin-top: 8px;
+      font-size: 26px;
+      color: var(--ml-white);
+      letter-spacing: 0;
+    }
+
+    .hero-visual {
+      min-height: auto;
+      padding: 8px 0 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .hero-visual::before {
+      display: none;
+    }
+
+    .system-illo {
+      display: none;
+    }
+
+    .system-node.main-node circle {
+      fill: rgba(147, 197, 253, 0.08);
+    }
+
+    .system-illo text {
+      fill: rgba(255, 255, 255, 0.76);
+      font: 800 16px var(--font-sans);
+      letter-spacing: 0.08em;
+    }
+
+    .phone-panel {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      margin-top: -8px;
+      padding: 0 0 8px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .phone-panel h2 {
+      font-size: 34px;
+      line-height: 1.02;
+    }
+
+    .chip-row {
+      gap: 8px 14px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--ml-ice);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .chip::before {
+      content: "/";
+      margin-right: 8px;
+      color: rgba(255, 255, 255, 0.34);
+    }
+
+    .section,
+    .section.alt,
+    .section.blue,
+    .final-cta {
+      position: relative;
+      padding: 58px 0;
+    }
+
+    .section.light-panel,
+    .final-cta.light-panel {
+      background: var(--ml-white);
+      color: var(--ml-blue);
+    }
+
+    .section::before,
+    .final-cta::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      top: 0;
+      height: 1px;
+      background: var(--poster-rule);
+    }
+
+    .section.light-panel::before,
+    .final-cta.light-panel::before {
+      left: 0;
+      right: 0;
+      background: rgba(30, 71, 124, 0.18);
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .section h2,
+    .flow-sticky h2,
+    .sprint-hero h2,
+    .final-cta h2 {
+      font-size: 45px;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .section-lead {
+      margin-top: 18px;
+    }
+
+    .grid,
+    .timeline,
+    .sprint-list {
+      gap: 0;
+    }
+
+    .card,
+    .card.soft,
+    .timeline-item,
+    .sprint-item,
+    .flow-sticky,
+    .sprint-hero,
+    .day {
+      padding: 22px 0;
+      border: 0;
+      border-top: 1px solid var(--poster-rule);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .grid > :first-child,
+    .timeline > :first-child,
+    .sprint-list > :first-child {
+      border-top: 0;
+    }
+
+    .card-number,
+    .business-card .tag,
+    .time {
+      color: var(--ml-ice);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      font-size: 31px;
+      line-height: 1.03;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-size: 17px;
+    }
+
+    .feature-top {
+      align-items: baseline;
+    }
+
+    .badge {
+      width: auto;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      background: transparent;
+      color: var(--ml-ice);
+      font-size: 13px;
+      line-height: 1.35;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .list {
+      gap: 0;
+      margin-top: 18px;
+    }
+
+    .list span {
+      min-height: 0;
+      padding: 9px 0 9px 22px;
+      border-top: 1px solid rgba(147, 197, 253, 0.14);
+      border-radius: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 17px;
+      position: relative;
+    }
+
+    .list span::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 9px;
+      height: 9px;
+      border: 1.5px solid var(--ml-ice);
+      transform: rotate(45deg);
+    }
+
+    .flow {
+      gap: 22px;
+    }
+
+    .flow-sticky {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .timeline-item {
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 18px;
+      padding: 20px 0;
+      align-items: start;
+    }
+
+    .timeline-mark {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      align-self: start;
+    }
+
+    .timeline-icon {
+      width: 44px;
+      height: 44px;
+      display: block;
+      color: var(--ml-ice);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .timeline-content {
+      min-width: 0;
+    }
+
+    .timeline-step {
+      width: auto;
+      height: auto;
+      place-items: start;
+      border-radius: 0;
+      background: transparent;
+      color: var(--ml-ice);
+      font-size: 16px;
+      letter-spacing: 0.12em;
+    }
+
+    .timeline-mark .timeline-step {
+      display: block;
+      width: 100%;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .timeline-title {
+      font-size: 24px;
+    }
+
+    .business-card {
+      min-height: auto;
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr);
+      column-gap: 16px;
+      align-items: start;
+    }
+
+    .business-icon {
+      grid-column: 1;
+      width: 44px;
+      height: 44px;
+      margin-top: 2px;
+      color: var(--ml-ice);
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .business-copy {
+      grid-column: 2;
+      min-width: 0;
+    }
+
+    .business-card h3 {
+      margin-top: 7px;
+      font-size: 27px;
+      line-height: 1.08;
+    }
+
+    .speaker,
+    .speaker.primary {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+      align-items: end;
+      min-height: 0;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .speaker-info {
+      grid-column: 2;
+      grid-row: 1;
+      padding: 0;
+    }
+
+    .speaker-name {
+      font-size: 34px;
+      color: var(--ml-white);
+    }
+
+    .speaker-role {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .speaker-topic {
+      margin-top: 14px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--ml-ice);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    .speaker-photo {
+      grid-column: 1;
+      grid-row: 1;
+      position: relative;
+      height: auto;
+      align-self: end;
+      padding-bottom: 8px;
+      border-bottom: 4px solid var(--ml-ice);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .speaker-photo img {
+      max-height: 220px;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: bottom center;
+    }
+
+    .day {
+      padding-top: 0;
+    }
+
+    .day + .day {
+      margin-top: 28px;
+    }
+
+    .day-head {
+      padding: 0 0 16px;
+      border-bottom: 1px solid var(--poster-rule);
+      background: transparent;
+      color: var(--ml-white);
+    }
+
+    .day-subtitle {
+      color: var(--ml-ice);
+    }
+
+    .agenda-list {
+      padding: 0;
+    }
+
+    .agenda-item {
+      padding: 18px 0;
+      border-bottom-color: rgba(147, 197, 253, 0.18);
+    }
+
+    .sprint-hero .number {
+      color: var(--ml-ice);
+      font-size: 132px;
+    }
+
+    .sprint-item strong {
+      color: var(--ml-white);
+      font-size: 24px;
+    }
+
+    .final-cta {
+      text-align: left;
+    }
+
+    .final-cta h2 {
+      margin: 0;
+    }
+
+    .final-cta p {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .footer {
+      border-top: 1px solid var(--poster-rule);
+      background: var(--poster-background);
+    }
+
+    .light-panel .eyebrow,
+    .light-panel .card-number,
+    .light-panel .business-card .tag,
+    .light-panel .timeline-step,
+    .light-panel .speaker-topic {
+      color: var(--ml-blue-accent);
+    }
+
+    .light-panel .eyebrow::before {
+      background: var(--ml-blue-accent);
+    }
+
+    .light-panel h2,
+    .light-panel .card h3,
+    .light-panel .timeline-title,
+    .light-panel .speaker-name,
+    .light-panel .final-cta h2 {
+      color: var(--ml-blue);
+      font-family: var(--font-zh-heavy);
+      font-variation-settings: "wght" 900;
+      font-weight: 900;
+    }
+
+    .light-panel .section-lead,
+    .light-panel .card p,
+    .light-panel .flow-sticky p,
+    .light-panel .timeline-copy,
+    .light-panel .speaker-role,
+    .light-panel .final-cta p {
+      color: rgba(21, 47, 84, 0.78);
+    }
+
+    #method .card.soft {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      column-gap: 18px;
+      align-items: start;
+    }
+
+    #method .card-number {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      color: var(--ml-blue-accent);
+      font-family: var(--font-zh-heavy);
+      font-size: 52px;
+      font-weight: 900;
+      font-variation-settings: "wght" 900;
+      line-height: 0.86;
+      letter-spacing: 0;
+    }
+
+    #method .card h3,
+    #method .card p {
+      grid-column: 2;
+    }
+
+    #method .card h3 {
+      margin-top: 0;
+    }
+
+    .light-panel .timeline-icon {
+      color: var(--ml-blue-accent);
+    }
+
+    .hero h1 {
+      text-align: center;
+    }
+
+    .section h2,
+    .flow-sticky h2,
+    .sprint-hero h2,
+    .final-cta h2 {
+      font-size: clamp(30px, 8.7vw, 34px);
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .phone-panel h2,
+    .card h3,
+    .timeline-title,
+    .agenda-title,
+    .speaker-topic {
+      text-wrap: balance;
+    }
+
+    .light-panel .business-icon {
+      color: var(--ml-blue-accent);
+    }
+
+    #mentors .speaker,
+    #mentors .speaker.primary {
+      border-top: 0;
+      padding: 0;
+    }
+
+    #mentors .speaker-photo {
+      padding-bottom: 4px;
+      border-bottom: 0;
+    }
+
+    #mentors .speaker::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: var(--ml-ice);
+    }
+
+    #mentors .speaker-topic {
+      margin-bottom: 16px;
+    }
+
+    #mentors .speaker-photo img {
+      position: relative;
+      z-index: 1;
+    }
+
+    .light-panel .card,
+    .light-panel .card.soft,
+    .light-panel .timeline-item,
+    .light-panel .flow-sticky,
+    .light-panel .sprint-hero,
+    .light-panel .speaker {
+      border-top-color: rgba(30, 71, 124, 0.16);
+      background: transparent;
+    }
+
+    .light-panel .list span {
+      color: var(--ml-blue);
+      border-top-color: rgba(30, 71, 124, 0.12);
+    }
+
+    .light-panel .list span::before {
+      border-color: var(--ml-blue-accent);
+    }
+
+    .light-panel .speaker {
+      background: transparent;
+    }
+
+    .light-panel .speaker-photo {
+      opacity: 0.98;
+    }
+
+    /* Editorial type scale: strong contrast, few sizes, generous leading. */
+    :root {
+      --poster-type-display: clamp(51px, 14.7vw, 68px);
+      --poster-type-section: clamp(30px, 8.7vw, 34px);
+      --poster-type-subtitle: clamp(22px, 6vw, 24px);
+      --poster-type-body-lg: 17px;
+      --poster-type-body: 15px;
+      --poster-type-label: 12px;
+    }
+
+    .hero h1 {
+      font-size: var(--poster-type-display);
+    }
+
+    .section h2,
+    .flow-sticky h2,
+    .sprint-hero h2,
+    .final-cta h2 {
+      font-size: var(--poster-type-section);
+    }
+
+    .hero-lead {
+      max-width: 330px;
+      margin: 24px auto 0;
+      font-size: var(--poster-type-subtitle);
+      line-height: 1.36;
+      font-weight: 760;
+      text-align: center;
+    }
+
+    .hero-summary {
+      max-width: 330px;
+      margin: 18px auto 0;
+      font-size: var(--poster-type-body-lg);
+      line-height: 1.7;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .phone-panel h2 {
+      font-size: 28px;
+      line-height: 1.16;
+    }
+
+    .phone-panel p,
+    .card p,
+    .timeline-copy,
+    .agenda-copy {
+      font-size: var(--poster-type-body);
+      line-height: 1.68;
+    }
+
+    .section-lead,
+    .flow-sticky p,
+    .final-cta p {
+      font-size: var(--poster-type-body-lg);
+      line-height: 1.68;
+    }
+
+    .card h3,
+    .timeline-title {
+      font-size: var(--poster-type-subtitle);
+      line-height: 1.2;
+    }
+
+    .agenda-title {
+      font-size: 20px;
+      line-height: 1.28;
+    }
+
+    .meta-card strong {
+      font-size: 23px;
+    }
+
+    /* Keyword emphasis uses light blue on blue panels and stronger blue on white. */
+    .title-accent {
+      color: var(--ml-ice);
+      font: inherit;
+    }
+
+    .hero h1,
+    .phone-panel h2,
+    .section h2,
+    .flow-sticky h2,
+    .sprint-hero h2,
+    .final-cta h2,
+    .card h3,
+    .timeline-title,
+    .agenda-title,
+    .day-title,
+    .speaker-name,
+    .sprint-item strong {
+      font-family: var(--font-zh-heavy);
+      font-variation-settings: "wght" 900;
+      font-weight: 900;
+    }
+
+    .light-panel h2,
+    .final-cta.light-panel h2 {
+      color: var(--ml-black);
+    }
+
+    .light-panel .title-accent {
+      color: var(--ml-blue-accent);
+    }
+
+    .section.blue .sprint-hero {
+      border-top: 0;
+    }
+
+    .final-cta.light-panel {
+      padding: 36px 0 34px;
+    }
+
+    .final-cta.light-panel p {
+      margin-top: 16px;
+      color: rgba(21, 47, 84, 0.78);
+    }
+
+    .speaker-name {
+      font-size: 30px;
+    }
+
+    .speaker-role,
+    .speaker-topic {
+      font-size: 13px;
+    }
+
+    .eyebrow,
+    .card-number,
+    .business-card .tag,
+    .time {
+      font-size: var(--poster-type-label);
+    }
+
+    .timeline-step {
+      font-size: 13px;
+    }
+
+    .poster-canvas {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      background: var(--poster-background);
+    }
+
+    .poster-canvas.is-exporting {
+      width: 430px;
+      max-width: none;
+      margin: 0;
+    }
+
+    .export-button {
+      position: fixed;
+      right: max(16px, calc((100vw - 430px) / 2 - 132px));
+      bottom: 20px;
+      z-index: 100;
+      min-width: 116px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 14px;
+      border: 1px solid rgba(30, 71, 124, 0.18);
+      border-radius: 6px;
+      background: var(--ml-white);
+      color: var(--ml-blue);
+      font: 800 14px/1 var(--font-sans);
+      letter-spacing: 0;
+      box-shadow: 0 10px 28px rgba(21, 47, 84, 0.2);
+      cursor: pointer;
+    }
+
+    .export-button:hover {
+      background: var(--ml-blue-50);
+    }
+
+    .export-button:focus-visible {
+      outline: 3px solid rgba(59, 130, 246, 0.32);
+      outline-offset: 3px;
+    }
+
+    .export-button:disabled {
+      cursor: wait;
+      opacity: 0.68;
+    }
+
+    .export-button svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="../index.html" aria-label="MindsLeap 心智悦动"></a>
+      <nav class="nav-links" aria-label="页面导航">
+        <a href="#method">方法</a>
+        <a href="#agenda">日程</a>
+        <a href="#mentors">导师</a>
+        <a class="nav-cta" href="#signup">报名咨询</a>
+      </nav>
+    </div>
+  </header>
+
+  <button class="export-button" id="export-png" type="button" title="导出整张海报为 PNG" data-html2canvas-ignore="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path d="m7 10 5 5 5-5M12 15V3" />
+    </svg>
+    <span class="export-button-label" aria-live="polite">导出 PNG</span>
+  </button>
+
+  <div class="poster-canvas" id="poster-canvas">
+  <main>
+    <section class="hero">
+      <img class="hero-joint-logo" src="../../design-system/assets/logos/mindsleap-foundersspace-joint-logo-white.png" alt="MindsLeap × Founders Space" decoding="sync" />
+      <div class="shell hero-grid">
+        <div>
+          <h1>AI数字员工<br><span class="title-accent">实战营</span></h1>
+          <p class="hero-lead">创始人亲自学会，怎么给公司搭出第一批 AI 数字员工</p>
+          <p class="hero-summary">不是让你变成技术人员，而是让你知道如何定义 AI 岗位、拆解业务流程、指挥数字员工把活跑起来。</p>
+          <div class="hero-icons" aria-label="实战路径">
+            <div class="hero-icon">
+              <svg class="hero-icon-svg" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path d="M14 13h20M14 24h20M14 35h12" />
+                <circle cx="9" cy="13" r="2" />
+                <circle cx="9" cy="24" r="2" />
+                <circle cx="9" cy="35" r="2" />
+              </svg>
+              <span>定义岗位</span>
+            </div>
+            <div class="hero-icon">
+              <svg class="hero-icon-svg" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path d="M24 8v8M24 32v8M12 24h8M28 24h8" />
+                <rect x="16" y="16" width="16" height="16" rx="4" />
+                <path d="M19 24h10" />
+              </svg>
+              <span>拆解流程</span>
+            </div>
+            <div class="hero-icon">
+              <svg class="hero-icon-svg" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path d="M14 28c3 7 17 7 20 0" />
+                <path d="M16 18h16v10H16z" />
+                <path d="M20 18v-5h8v5M24 33v7" />
+              </svg>
+              <span>员工上岗</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#signup">报名咨询</a>
+            <a class="button" href="#agenda">查看两天日程</a>
+          </div>
+          <div class="quick-meta" aria-label="活动信息">
+            <div class="meta-card">
+              <span>Date</span>
+              <strong>7 月 4 日 - 7 月 5 日</strong>
+            </div>
+            <div class="meta-card">
+              <span>Location</span>
+              <strong>外滩 FTC</strong>
+            </div>
+            <div class="meta-card">
+              <span>Format</span>
+              <strong>现场实操 + 30 天陪跑</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="AI数字员工实战营视觉">
+          <div class="phone-panel">
+            <div class="label">Founder-Led AI</div>
+            <h2>先搭<span class="title-accent">一个员工</span>，<br>再长出一支 AI 团队</h2>
+            <p>从真实岗位出发，把目标、输入、输出和判断标准讲清楚，让 AI 真正进入业务现场。</p>
+            <div class="chip-row">
+              <span class="chip">老板亲自下场</span>
+              <span class="chip">市场部数字员工</span>
+              <span class="chip">企业家第二大脑</span>
+              <span class="chip">管理层工作流</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt light-panel" id="method">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Founder Operating System</div>
+          <h2>老板必须亲自下场，<br>才能真正推动 <span class="title-accent">AI 转型</span></h2>
+          <p class="section-lead">如果老板不懂 AI 能做什么，团队只会零散试工具。真正的 AI 转型，是创始人先定义岗位、流程和结果，再让数字员工进入业务现场。</p>
+        </div>
+        <div class="grid three">
+          <article class="card soft">
+            <div class="card-number">01</div>
+            <h3>从岗位出发</h3>
+            <p>先问公司哪个岗位、哪条流程最卡，而不是先问用哪个工具。</p>
+          </article>
+          <article class="card soft">
+            <div class="card-number">02</div>
+            <h3>老板定标准</h3>
+            <p>把目标、输入、输出和判断标准讲清楚，AI 才能真正干活。</p>
+          </article>
+          <article class="card soft">
+            <div class="card-number">03</div>
+            <h3>数字员工上岗</h3>
+            <p>让 AI 进入市场、投研、知识管理和运营流程，持续交付结果。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Digital Employees</div>
+          <h2>当天跑通一个岗位，<br>30 天扩展成<span class="title-accent">业务系统</span></h2>
+        </div>
+        <div class="grid two">
+          <article class="card feature-card">
+            <div>
+              <div class="feature-top">
+                <div>
+                  <div class="card-number">Single Role</div>
+                  <h3>单岗位数字员工</h3>
+                </div>
+                <div class="badge">当天<br>跑通</div>
+              </div>
+              <p>围绕一个具体岗位或流程，做出一个你当天就能带回去试用的 AI 数字员工。</p>
+            </div>
+            <div class="list">
+              <span>市场部选题脚本员工</span>
+              <span>客户跟进记录员工</span>
+              <span>会议纪要行动员工</span>
+              <span>投研资料整理员工</span>
+            </div>
+          </article>
+          <article class="card feature-card">
+            <div>
+              <div class="feature-top">
+                <div>
+                  <div class="card-number">Team System</div>
+                  <h3>数字员工团队</h3>
+                </div>
+                <div class="badge">30 天<br>扩展</div>
+              </div>
+              <p>把多个数字员工串成一条业务链路，从单点效率升级为可复用的业务系统。</p>
+            </div>
+            <div class="list">
+              <span>内容生产到发布团队</span>
+              <span>投研到决策辅助团队</span>
+              <span>销售线索到成交团队</span>
+              <span>知识库与 SOP 团队</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt light-panel">
+      <div class="shell flow">
+        <div class="flow-sticky">
+          <h2>创始人不必写代码，<br>但必须会<span class="title-accent">下指令</span></h2>
+          <p>把真实业务带到现场，跟着岗位定义、案例拆解和实操环节，把一个 AI 岗位从想法推进到能跑起来。</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-mark">
+              <svg class="timeline-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <rect x="11" y="10" width="26" height="31" rx="3" />
+                <path d="M18 10V7h12v3M17 19h14M17 27h14M17 35h9" />
+              </svg>
+              <div class="timeline-step">会前</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">带来一个真实业务岗位或流程</div>
+              <div class="timeline-copy">选出最值得先改造的业务卡点，让数字员工从真实场景开始上岗。</div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-mark">
+              <svg class="timeline-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <circle cx="24" cy="24" r="17" />
+                <path d="m20 16 12 8-12 8Z" />
+              </svg>
+              <div class="timeline-step">开场</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">理解数字员工的岗位设计</div>
+              <div class="timeline-copy">看清楚 AI 不是工具清单，而是岗位职责、流程标准和结果交付。</div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-mark">
+              <svg class="timeline-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <rect x="7" y="8" width="34" height="26" rx="2" />
+                <path d="M16 41l8-7 8 7M14 17h20M14 27l6-6 5 4 8-8" />
+              </svg>
+              <div class="timeline-step">示范</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">拆解市场部、第二大脑和管理层案例</div>
+              <div class="timeline-copy">从岗位定义、工具选择到可运行工作流，步步拆解。</div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-mark">
+              <svg class="timeline-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <rect x="7" y="7" width="14" height="14" rx="2" />
+                <rect x="27" y="27" width="14" height="14" rx="2" />
+                <path d="M21 14h7c4 0 6 2 6 6v7M27 34h-7c-4 0-6-2-6-6v-7" />
+              </svg>
+              <div class="timeline-step">实操</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">搭建自己的第一个数字员工</div>
+              <div class="timeline-copy">现场完成一个能进入业务流程的 AI 岗位雏形，而不是停留在 demo。</div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-mark">
+              <svg class="timeline-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                <path d="m7 37 11-11 8 7 15-19" />
+                <path d="M32 14h9v9" />
+              </svg>
+              <div class="timeline-step">课后</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-title">从单个数字员工扩展到业务系统</div>
+              <div class="timeline-copy">后续 30 天继续串联多个数字员工，在群内分享进展和结果。</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Business Stack</div>
+          <h2>数字员工会进入<br>这些<span class="title-accent">业务现场</span></h2>
+        </div>
+        <div class="grid business-grid">
+          <article class="card business-card">
+            <svg class="business-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <rect x="10" y="9" width="28" height="31" rx="3" />
+              <path d="M18 9V6h12v3M17 19h14M17 27h9M17 35h6M29 32l3 3 6-7" />
+            </svg>
+            <div class="business-copy">
+              <div class="tag">岗位设计</div>
+              <h3>把 AI 从工具变成岗位</h3>
+              <p>定义职责、输入、输出和验收标准，让 AI 有明确的工作边界。</p>
+            </div>
+          </article>
+          <article class="card business-card">
+            <svg class="business-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <path d="M8 20v9h8l20 8V12l-20 8H8Z" />
+              <path d="m16 29 4 11h7l-4-8M40 19c2 3 2 8 0 11" />
+            </svg>
+            <div class="business-copy">
+              <div class="tag">市场增长</div>
+              <h3>搭建一人营销团队</h3>
+              <p>选题、脚本、文案、资料和风格统一，让市场部数字员工持续产出。</p>
+            </div>
+          </article>
+          <article class="card business-card">
+            <svg class="business-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <path d="M24 13c-5-4-11-5-17-2v25c6-3 12-2 17 2 5-4 11-5 17-2V11c-6-3-12-2-17 2Z" />
+              <path d="M24 13v25M12 19c3-1 6 0 8 1M12 27c3-1 6 0 8 1M28 20c2-1 5-2 8-1M28 28c2-1 5-2 8-1" />
+            </svg>
+            <div class="business-copy">
+              <div class="tag">知识与管理</div>
+              <h3>搭建老板第二大脑</h3>
+              <p>把判断、经验、资料和项目沉淀成团队可以调用的经营资产。</p>
+            </div>
+          </article>
+          <article class="card business-card">
+            <svg class="business-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+              <path d="M8 40V9M8 40h33M14 32l9-10 7 6 11-15" />
+              <path d="M33 13h8v8" />
+            </svg>
+            <div class="business-copy">
+              <div class="tag">投研 / 运营</div>
+              <h3>让判断与流程可复用</h3>
+              <p>把投研、运营、复盘和 SOP 串成数字员工能持续推进的流程。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt light-panel" id="mentors">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Mentors + Cases</div>
+          <h2>五位实战者，拆给你看<br><span class="title-accent">数字员工怎么上岗</span></h2>
+        </div>
+        <div class="speaker-grid">
+          <article class="card speaker primary">
+            <div class="speaker-info">
+              <div class="speaker-name">Lincoln</div>
+              <div class="speaker-role">MindsLeap 心智悦动创始人 / Founders AI Club 创始人<br>硅谷排名第一孵化器中国区 CEO<br>Emeritus 前中国区 COO<br>维京邮轮中国区副总裁<br>英孚高级营销总监</div>
+              <div class="speaker-topic">打造市场部数字员工</div>
+            </div>
+            <div class="speaker-photo">
+              <img data-src="../_assets/shared/Lincoln.png" alt="Lincoln" />
+            </div>
+          </article>
+          <article class="card speaker">
+            <div class="speaker-info">
+              <div class="speaker-name">Lawrence</div>
+              <div class="speaker-role">Humania.AI 创办人<br>资深 AI 技术顾问<br>20+ 年大型项目交付经验</div>
+              <div class="speaker-topic">用爱马仕打造数字员工</div>
+            </div>
+            <div class="speaker-photo">
+              <img data-src="../ai-hermes-workshop/Lawrence-2.png" alt="Lawrence Wong" />
+            </div>
+          </article>
+          <article class="card speaker">
+            <div class="speaker-info">
+              <div class="speaker-name">Yusi</div>
+              <div class="speaker-role">MindsLeap 联合创始人 &amp; CPO<br>Founders AI Club 联合创始人<br>前 Emeritus 中国区产品负责人</div>
+              <div class="speaker-topic">打造企业家第二大脑</div>
+            </div>
+            <div class="speaker-photo">
+              <img data-src="../ai-hermes-workshop/Yusi.png" alt="Yusi" />
+            </div>
+          </article>
+          <article class="card speaker">
+            <div class="speaker-info">
+              <div class="speaker-name">周忠杰</div>
+              <div class="speaker-role">AI 企业家俱乐部会员<br>钱拓科技董事长<br>Allinone AI CEO</div>
+              <div class="speaker-topic">FDE 一人顶一个团队秘诀</div>
+            </div>
+            <div class="speaker-photo">
+              <img data-src="../ai-hermes-workshop/老周.png" alt="周忠杰" />
+            </div>
+          </article>
+          <article class="card speaker">
+            <div class="speaker-info">
+              <div class="speaker-name">江南</div>
+              <div class="speaker-role">AI 企业家俱乐部会员<br>上海八桂资产管理有限公司董事长<br>20 年投资交易经历</div>
+              <div class="speaker-topic">AI 投资教练实战心得</div>
+            </div>
+            <div class="speaker-photo">
+              <img data-src="../ai-hermes-workshop/江南.png" alt="江南" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agenda">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow">Two-Day Agenda</div>
+          <h2>两天日程，<br>从老板定义到<span class="title-accent">员工上岗</span></h2>
+        </div>
+        <div class="agenda">
+          <article class="card day">
+            <div class="day-head">
+              <div class="day-title">Day 1 · 7 月 4 日</div>
+              <div class="day-subtitle">第一个数字员工启动</div>
+            </div>
+            <div class="agenda-list">
+              <div class="agenda-item">
+                <div class="time">10:00 - 11:30</div>
+                <div>
+                  <div class="agenda-title">Lincoln：打造市场部数字员工</div>
+                  <div class="agenda-copy">从企业真实增长场景出发，看 AI 如何变成一支能持续执行的市场部。</div>
+                </div>
+              </div>
+              <div class="agenda-item">
+                <div class="time">11:30 - 12:30</div>
+                <div>
+                  <div class="agenda-title">Yusi：打造企业家第二大脑</div>
+                  <div class="agenda-copy">把知识、判断、灵感和长期项目沉淀成可调用的个人经营系统。</div>
+                </div>
+              </div>
+              <div class="agenda-item">
+                <div class="time">14:00 - 14:30</div>
+                <div>
+                  <div class="agenda-title">实战营 Brief：如何定义你的第一个 AI 岗位</div>
+                  <div class="agenda-copy">讲清楚数字员工的岗位职责、工具组合、交付标准和现场实战方式。</div>
+                </div>
+              </div>
+              <div class="agenda-item">
+                <div class="time">14:30 - 17:30</div>
+                <div>
+                  <div class="agenda-title">实战环节：搭建自己的第一个数字员工</div>
+                  <div class="agenda-copy">围绕真实业务卡点，把岗位目标拆成输入、流程、提示词、工具调用和可运行结果。</div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="card day">
+            <div class="day-head">
+              <div class="day-title">Day 2 · 7 月 5 日</div>
+              <div class="day-subtitle">数字员工上线与路演</div>
+            </div>
+            <div class="agenda-list">
+              <div class="agenda-item">
+                <div class="time">10:00 - 12:00</div>
+                <div>
+                  <div class="agenda-title">Lawrence：用爱马仕打造数字员工</div>
+                  <div class="agenda-copy">拆解 AI Agent 工具链、提示词方法和企业管理工作流落地路径。</div>
+                </div>
+              </div>
+              <div class="agenda-item">
+                <div class="time">12:00 - 12:30</div>
+                <div>
+                  <div class="agenda-title">江南：AI 投资教练实战心得</div>
+                  <div class="agenda-copy">从投资交易场景出发，拆解 AI 如何进入投研、辅助判断和日常复盘。</div>
+                </div>
+              </div>
+              <div class="agenda-item">
+                <div class="time">14:00 - 15:00</div>
+                <div>
+                  <div class="agenda-title">周忠杰：FDE 一人顶一个团队秘诀</div>
+                  <div class="agenda-copy">从企业经营与 AI 应用一线，拆解 FDE 如何让一个人顶起一支团队。</div>
+                </div>
+              </div>
+              <div class="agenda-item">
+                <div class="time">15:00 - 17:30</div>
+                <div>
+                  <div class="agenda-title">继续实战：数字员工上线与 5 分钟路演</div>
+                  <div class="agenda-copy">每个人完成一个能跑起来的数字员工，并进行 5 分钟上台分享。</div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue">
+      <div class="shell sprint">
+        <div class="sprint-hero">
+          <div>
+            <div class="number">30</div>
+            <h2>天<span class="title-accent">数字员工</span> Sprint</h2>
+          </div>
+          <p class="section-lead">现场跑通第一个数字员工，课后围绕更完整的业务系统继续推进。</p>
+        </div>
+        <div class="sprint-list">
+          <div class="sprint-item">
+            <strong>第 1 周：岗位定义与流程拆解</strong>
+            <span>明确数字员工的职责、输入、步骤、输出和使用场景。</span>
+          </div>
+          <div class="sprint-item">
+            <strong>第 2-3 周：串联多个数字员工</strong>
+            <span>围绕关键环节继续迭代，让 AI 进入内容、运营、投研或管理流程。</span>
+          </div>
+          <div class="sprint-item">
+            <strong>第 4 周：群内路演与复盘</strong>
+            <span>展示数字员工团队进展，看到其他伙伴的系统，也获得新改进方向。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta light-panel" id="signup">
+      <div class="shell">
+        <h2>不是来学工具，<br>是来给公司招 <span class="title-accent">AI 员工</span></h2>
+        <p>你不需要成为技术专家。你需要带来一个真实业务问题，现场把它拆成岗位、流程和结果，让第一个数字员工真正跑起来。</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="button primary" href="../index.html">返回 Poster Archive</a>
+          <a class="button" href="../ai-hermes-workshop/index.html">查看原版页面</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer-brand-lockup" aria-label="心智悦动 MindsLeap">
+        <span class="footer-brand-cn">心智悦动</span>
+        <span class="footer-brand-en">MindsLeap</span>
+      </div>
+      <p class="footer-tagline">Upgrade AI Mindsets for Global Success</p>
+    </div>
+  </footer>
+  </div>
+
+  <script src="vendor/html2canvas.min.js"></script>
+  <script>
+    (() => {
+      const button = document.getElementById("export-png");
+      const label = button.querySelector(".export-button-label");
+      const poster = document.getElementById("poster-canvas");
+      const exportWidth = 430;
+
+      const waitForImages = () => Promise.all(
+        Array.from(poster.querySelectorAll("img")).map((image) => {
+          if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+          return new Promise((resolve) => {
+            image.addEventListener("load", resolve, { once: true });
+            image.addEventListener("error", resolve, { once: true });
+          });
+        })
+      );
+
+      const nextFrame = () => new Promise((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve));
+      });
+
+      const canvasToBlob = (canvas) => new Promise((resolve, reject) => {
+        canvas.toBlob((blob) => {
+          if (blob) resolve(blob);
+          else reject(new Error("PNG encoding failed"));
+        }, "image/png");
+      });
+
+      button.addEventListener("click", async () => {
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        label.textContent = "生成中...";
+
+        try {
+          if (!window.html2canvas) throw new Error("Image exporter failed to load");
+          await Promise.all([document.fonts.ready, waitForImages()]);
+
+          poster.classList.add("is-exporting");
+          await nextFrame();
+
+          const canvas = await html2canvas(poster, {
+            scale: 2,
+            width: exportWidth,
+            height: poster.scrollHeight,
+            windowWidth: exportWidth,
+            windowHeight: poster.scrollHeight,
+            backgroundColor: "#1e477c",
+            useCORS: true,
+            logging: false,
+            imageTimeout: 15000
+          });
+          const blob = await canvasToBlob(canvas);
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "mindsleap-ai-digital-employee-bootcamp.png";
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          label.textContent = "已生成";
+        } catch (error) {
+          console.error(error);
+          label.textContent = "生成失败";
+        } finally {
+          poster.classList.remove("is-exporting");
+          button.removeAttribute("aria-busy");
+          setTimeout(() => {
+            button.disabled = false;
+            label.textContent = "导出 PNG";
+          }, 1600);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,2028 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-logo="joint" data-heading-font="brand" data-density="standard">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>MindsLeap AI原生企业价值放大平台商业计划书</title>
+  <script src="/proposal/password-gate.js"></script>
+  <script src="/decks/shared/mindsleap-template/deck-stage.js"></script>
+  <style>
+    :root {
+      --bg: #0b1320;
+      --panel: #101a2b;
+      --panel-2: #142238;
+      --line: rgba(255,255,255,.12);
+      --text: #f4f7fb;
+      --muted: #9bb0cf;
+      --dim: #6f82a2;
+      --blue: #1e477c;
+      --blue-2: #2d67ae;
+      --red: #b84747;
+      --red-2: #d75e5e;
+      --gold: #d8b56d;
+      --green: #43b883;
+      --shadow: 0 24px 80px rgba(0,0,0,.35);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(184,71,71,.18), transparent 30%),
+        radial-gradient(circle at 86% 18%, rgba(30,71,124,.28), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    .deck {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    .slide {
+      position: relative;
+      min-height: 720px;
+      margin: 0 auto 28px;
+      padding: 54px 64px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(16,26,43,.98), rgba(11,19,32,.96) 58%, rgba(15,31,55,.98)),
+        linear-gradient(90deg, rgba(184,71,71,.08), transparent);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.65), transparent 65%);
+    }
+
+    .slide > * { position: relative; z-index: 1; }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffd7d7;
+      border: 1px solid rgba(184,71,71,.55);
+      background: rgba(184,71,71,.14);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 14px;
+      letter-spacing: 0;
+      margin-bottom: 22px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red-2);
+      box-shadow: 0 0 18px rgba(216,94,94,.75);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 980px;
+      font-size: 62px;
+      line-height: 1.06;
+      letter-spacing: 0;
+      margin-bottom: 24px;
+    }
+    h2 {
+      max-width: 980px;
+      font-size: 44px;
+      line-height: 1.12;
+      letter-spacing: 0;
+      margin-bottom: 26px;
+    }
+    h3 {
+      font-size: 22px;
+      line-height: 1.22;
+      margin-bottom: 12px;
+    }
+    .lead {
+      max-width: 920px;
+      color: #dbe7fb;
+      font-size: 24px;
+      line-height: 1.5;
+      margin-bottom: 34px;
+    }
+    .subtle {
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .small { font-size: 14px; color: var(--muted); }
+    .strong { color: #fff; font-weight: 700; }
+    .accent { color: #ffb5b5; }
+    .gold { color: var(--gold); }
+    .green { color: #8be0b8; }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+    .card {
+      min-height: 130px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+    }
+    .card.blue {
+      background: linear-gradient(180deg, rgba(30,71,124,.42), rgba(255,255,255,.025));
+      border-color: rgba(80,141,210,.32);
+    }
+    .card.red {
+      background: linear-gradient(180deg, rgba(184,71,71,.35), rgba(255,255,255,.025));
+      border-color: rgba(216,94,94,.35);
+    }
+    .card.gold {
+      background: linear-gradient(180deg, rgba(216,181,109,.2), rgba(255,255,255,.025));
+      border-color: rgba(216,181,109,.28);
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    .metric {
+      font-size: 44px;
+      line-height: 1;
+      font-weight: 800;
+      margin: 4px 0 10px;
+    }
+    .metric small {
+      font-size: 18px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 0;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: #dfeaff;
+      border: 1px solid rgba(155,176,207,.24);
+      background: rgba(255,255,255,.055);
+      font-size: 14px;
+    }
+    .pill.red {
+      color: #ffe0e0;
+      border-color: rgba(184,71,71,.45);
+      background: rgba(184,71,71,.16);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: start;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .quote {
+      border-left: 4px solid var(--red);
+      padding: 18px 22px;
+      background: rgba(184,71,71,.1);
+      color: #f6dede;
+      font-size: 22px;
+      line-height: 1.5;
+    }
+
+    ul.clean {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    ul.clean li {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      color: #dce7f8;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    ul.clean li::before {
+      content: "";
+      flex: 0 0 8px;
+      width: 8px;
+      height: 8px;
+      margin-top: 9px;
+      border-radius: 50%;
+      background: var(--red-2);
+    }
+    ul.clean li:last-child { border-bottom: 0; }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .step {
+      min-height: 152px;
+      padding: 18px 16px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.045);
+    }
+    .step .no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--red);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+    }
+    th, td {
+      padding: 14px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      text-align: left;
+      vertical-align: top;
+      font-size: 15px;
+    }
+    th {
+      color: #eaf2ff;
+      background: rgba(30,71,124,.45);
+      font-weight: 700;
+    }
+    td { color: #d4e0f3; }
+    tr:last-child td { border-bottom: 0; }
+
+    .bar-table td:last-child { width: 42%; }
+    .bar {
+      height: 28px;
+      border-radius: 4px;
+      background: rgba(255,255,255,.08);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .bar > span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue-2), var(--red-2));
+    }
+
+    .waterfall {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      align-items: end;
+      height: 260px;
+      padding: 20px 18px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.035);
+    }
+    .wf-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      gap: 10px;
+      height: 100%;
+    }
+    .wf-bar {
+      border-radius: 6px 6px 2px 2px;
+      background: linear-gradient(180deg, var(--red-2), var(--blue-2));
+      min-height: 28px;
+    }
+    .wf-label { font-size: 13px; color: var(--muted); min-height: 38px; }
+    .wf-value { font-size: 22px; font-weight: 800; }
+
+    .flywheel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .flywheel .card {
+      min-height: 150px;
+      border-top: 4px solid var(--red);
+    }
+
+    .slide-number {
+      position: absolute;
+      right: 34px;
+      bottom: 24px;
+      color: rgba(155,176,207,.58);
+      font-size: 13px;
+      z-index: 2;
+    }
+    .source {
+      position: absolute;
+      left: 64px;
+      right: 112px;
+      bottom: 22px;
+      color: rgba(155,176,207,.68);
+      font-size: 12px;
+      z-index: 2;
+    }
+    .source a { color: rgba(190,210,240,.86); text-decoration: none; }
+    .logo {
+      position: absolute;
+      right: 64px;
+      top: 54px;
+      color: #dce7f8;
+      font-weight: 800;
+      letter-spacing: .04em;
+      font-size: 18px;
+    }
+    .cover-mark {
+      position: absolute;
+      right: -80px;
+      bottom: -160px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 80px solid rgba(184,71,71,.14);
+      z-index: 0;
+    }
+    .cover-meta {
+      position: absolute;
+      left: 64px;
+      bottom: 54px;
+      color: var(--muted);
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 15px;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 28px;
+      margin-top: 40px;
+    }
+    .toc-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+    .toc-no {
+      color: #fff;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .big-callout {
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(184,71,71,.38);
+      background:
+        linear-gradient(135deg, rgba(184,71,71,.28), rgba(30,71,124,.22)),
+        rgba(255,255,255,.04);
+    }
+    .big-callout .metric { font-size: 54px; }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 220px repeat(3, 1fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .matrix > div {
+      padding: 16px;
+      border-right: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      min-height: 86px;
+      background: rgba(255,255,255,.035);
+      color: #d4e0f3;
+      font-size: 15px;
+    }
+    .matrix > div:nth-child(4n) { border-right: 0; }
+    .matrix .head {
+      background: rgba(30,71,124,.45);
+      color: #fff;
+      font-weight: 800;
+    }
+    .matrix .rowhead {
+      background: rgba(184,71,71,.12);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .footnote-list a { color: #bdd5ff; text-decoration: none; }
+    .footnote-list li { margin: 0 0 10px; color: #d4e0f3; }
+
+    @media (max-width: 900px) {
+      .deck { padding: 12px; }
+      .slide {
+        min-height: auto;
+        padding: 34px 24px 72px;
+        border-radius: 10px;
+      }
+      h1 { font-size: 40px; }
+      h2 { font-size: 32px; }
+      .lead { font-size: 19px; }
+      .grid-2, .grid-3, .grid-4, .grid-5, .two-col, .split, .process, .flywheel {
+        grid-template-columns: 1fr;
+      }
+      .matrix {
+        display: block;
+      }
+      .matrix > div {
+        border-right: 0;
+      }
+      .source { left: 24px; right: 72px; }
+      .logo { position: relative; top: auto; right: auto; margin-bottom: 20px; }
+      .cover-meta { position: relative; left: auto; bottom: auto; margin-top: 40px; }
+    }
+
+    @media print {
+      body { background: var(--bg); }
+      .deck { width: 100%; padding: 0; }
+      .slide {
+        min-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      a { color: inherit; }
+    }
+
+    /* MindsLeap official deck-template skin: light theme + joint logo */
+    @font-face {
+      font-family: "MindsLeap Brand";
+      src: url("/decks/shared/mindsleap-template/fonts/MindsLeap-Brand.otf") format("opentype");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    html {
+      --ml-bg: #ffffff;
+      --ml-bg-alt: #f9fafb;
+      --ml-ink: #111111;
+      --ml-muted: #4b5563;
+      --ml-subtle: #9ca3af;
+      --ml-rule: #e5e7eb;
+      --ml-blue: #1e477c;
+      --ml-blue-soft: #3b82f6;
+      --ml-card: #f9fafb;
+      --ml-logo: url("/decks/shared/mindsleap-template/mindsleap-foundersspace-joint-logo-blue.svg");
+      --ml-font-body: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --ml-font-heading: "MindsLeap Brand", "Noto Sans SC", Inter, system-ui, sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+    }
+
+    body {
+      color: var(--ml-ink);
+      font-family: var(--ml-font-body);
+      letter-spacing: -0.01em;
+    }
+
+    .deck,
+    deck-stage {
+      counter-reset: slide;
+    }
+
+    .slide {
+      width: 1920px !important;
+      height: 1080px !important;
+      min-height: 1080px !important;
+      margin: 0 !important;
+      padding: 96px 140px 160px !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      background: var(--ml-bg) !important;
+      color: var(--ml-ink) !important;
+      overflow: hidden !important;
+      counter-increment: slide;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 140px !important;
+      right: auto !important;
+      top: auto !important;
+      bottom: 56px !important;
+      width: 300px !important;
+      height: 60px !important;
+      background: var(--ml-logo) left center / contain no-repeat !important;
+      mask-image: none !important;
+      opacity: 1 !important;
+    }
+
+    .slide::after {
+      content: counter(slide, decimal-leading-zero);
+      position: absolute;
+      right: 140px;
+      bottom: 56px;
+      font: 600 22px/1 var(--ml-font-heading);
+      letter-spacing: .2em;
+      color: var(--ml-subtle);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slide:first-child {
+      display: block;
+      padding: 96px 140px !important;
+    }
+
+    .slide:first-child::before,
+    .slide:first-child::after {
+      display: none !important;
+    }
+
+    .slide:first-child .logo {
+      position: static !important;
+      width: 540px;
+      height: 108px;
+      margin: 0 0 44px;
+      background: var(--ml-logo) left center / contain no-repeat;
+      font-size: 0;
+    }
+
+    .slide:first-child .cover-mark {
+      display: none;
+    }
+
+    .slide:first-child .kicker {
+      margin-top: 16px;
+    }
+
+    .slide:first-child h1 {
+      font: 700 96px/1.05 var(--ml-font-heading);
+      letter-spacing: -0.025em;
+      color: var(--ml-ink);
+      max-width: 760px;
+      margin: 0 0 44px;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .slide:first-child .lead {
+      font: 400 28px/1.34 var(--ml-font-body);
+      color: var(--ml-muted);
+      max-width: 880px;
+      margin: 0;
+    }
+
+    .slide:first-child .cover-meta {
+      position: absolute;
+      left: 140px;
+      right: auto;
+      bottom: 42px;
+      display: flex;
+      gap: 10px 22px;
+      max-width: 440px;
+      flex-wrap: wrap;
+      color: var(--ml-subtle);
+      font: 500 15px/1.2 var(--ml-font-body);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .slide:first-child .cover-visual {
+      position: absolute;
+      top: 96px;
+      right: 140px;
+      width: 720px;
+      height: 820px;
+      margin: 0;
+      border: 1px solid var(--ml-rule);
+      background: var(--ml-bg-alt);
+      overflow: hidden;
+    }
+
+    .slide:first-child .cover-visual img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: 36% center;
+      transform: scale(1.24);
+      transform-origin: 36% 68%;
+    }
+
+    .slide:first-child .cover-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 62%, rgba(255,255,255,.72) 100%);
+      pointer-events: none;
+    }
+
+    .slide:first-child .cover-caption {
+      position: absolute;
+      left: 36px;
+      right: 36px;
+      bottom: 34px;
+      z-index: 1;
+      color: var(--ml-blue);
+      font: 700 20px/1.35 var(--ml-font-body);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .kicker {
+      display: block;
+      width: fit-content;
+      padding: 0;
+      margin: 0 0 0;
+      border: 0;
+      background: transparent;
+      color: var(--ml-blue-soft);
+      font: 700 22px/1 var(--ml-font-body);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      display: none;
+    }
+
+    h1, h2, h3, p {
+      color: inherit;
+    }
+
+    h2 {
+      font: 700 70px/1.1 var(--ml-font-heading);
+      letter-spacing: -0.015em;
+      color: var(--ml-ink);
+      width: 100%;
+      max-width: none;
+      margin: 28px 0 0;
+      text-wrap: auto;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 5px;
+      background: var(--ml-blue-soft);
+      margin: 28px 0 0;
+    }
+
+    h3 {
+      font: 700 32px/1.18 var(--ml-font-heading);
+      color: var(--ml-ink);
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      font: 400 34px/1.45 var(--ml-font-body);
+      color: var(--ml-muted);
+      max-width: 1360px;
+      margin: 36px 0 0;
+    }
+
+    .subtle,
+    .small,
+    .source {
+      color: var(--ml-muted);
+    }
+
+    .source {
+      left: 140px;
+      right: 560px;
+      bottom: 170px;
+      font: 400 12px/1.3 var(--ml-font-body);
+      color: var(--ml-subtle);
+    }
+
+    .source a {
+      color: var(--ml-blue);
+      text-decoration: none;
+    }
+
+    .slide-number {
+      display: none;
+    }
+
+    .grid {
+      gap: 28px;
+    }
+
+    .card {
+      min-height: 0;
+      padding: 34px 32px;
+      border: 1px solid var(--ml-rule);
+      border-radius: 0;
+      background: var(--ml-card);
+      color: var(--ml-ink);
+    }
+
+    .card.blue,
+    .card.red,
+    .card.gold {
+      background: var(--ml-card);
+      border-color: var(--ml-rule);
+    }
+
+    .card.blue,
+    .big-callout {
+      border-left: 5px solid var(--ml-blue);
+    }
+
+    .card.red,
+    .quote {
+      border-left: 5px solid var(--ml-blue-soft);
+    }
+
+    .card p,
+    td,
+    ul.clean li,
+    .wf-label,
+    .matrix > div {
+      color: var(--ml-muted);
+      font-size: 23px;
+      line-height: 1.45;
+    }
+
+    .metric {
+      font: 700 76px/1 var(--ml-font-heading);
+      color: var(--ml-blue);
+      letter-spacing: -0.03em;
+      margin: 8px 0 18px;
+    }
+
+    .metric small {
+      color: var(--ml-muted);
+    }
+
+    .pill {
+      min-height: 42px;
+      padding: 8px 16px;
+      border: 1px solid var(--ml-rule);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ml-blue);
+      font: 600 18px/1 var(--ml-font-body);
+    }
+
+    .pill.red {
+      background: var(--ml-blue);
+      border-color: var(--ml-blue);
+      color: #fff;
+    }
+
+    .quote {
+      padding: 32px 40px;
+      background: var(--ml-card);
+      color: var(--ml-ink);
+      font: 400 34px/1.45 var(--ml-font-body);
+      border-radius: 0;
+    }
+
+    .big-callout {
+      padding: 40px 44px;
+      border-radius: 0;
+      border-top: 1px solid var(--ml-rule);
+      border-right: 1px solid var(--ml-rule);
+      border-bottom: 1px solid var(--ml-rule);
+      background: var(--ml-card);
+    }
+
+    .big-callout p {
+      color: var(--ml-muted);
+      font: 400 26px/1.5 var(--ml-font-body);
+    }
+
+    ul.clean li {
+      border-bottom: 1px solid var(--ml-rule);
+      padding: 16px 0;
+    }
+
+    ul.clean li::before {
+      width: 12px;
+      height: 2px;
+      margin-top: 16px;
+      border-radius: 0;
+      background: var(--ml-blue-soft);
+    }
+
+    .process {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 30px;
+      border-top: 1px solid var(--ml-rule);
+    }
+
+    .step {
+      min-height: 0;
+      padding: 18px 14px 16px;
+      border: 0;
+      border-right: 1px solid var(--ml-rule);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .step .no {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: transparent;
+      color: var(--ml-blue-soft);
+      font: 700 18px/1 var(--ml-font-heading);
+      letter-spacing: .25em;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      font: 700 24px/1.12 var(--ml-font-heading);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--ml-muted);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    table {
+      border-radius: 0;
+      border: 1px solid var(--ml-rule);
+      background: #fff;
+      margin-top: 44px;
+    }
+
+    th {
+      padding: 18px 18px;
+      background: var(--ml-blue);
+      color: #fff;
+      font: 700 20px/1.3 var(--ml-font-body);
+    }
+
+    td {
+      padding: 18px;
+      border-bottom: 1px solid var(--ml-rule);
+    }
+
+    .slide:nth-child(11) table {
+      margin-top: 36px;
+    }
+
+    .slide:nth-child(11) th,
+    .slide:nth-child(11) td {
+      padding: 13px 16px;
+      font-size: 19px;
+      line-height: 1.32;
+    }
+
+    .bar {
+      height: 30px;
+      border-radius: 0;
+      background: var(--ml-bg-alt);
+      border: 1px solid var(--ml-rule);
+    }
+
+    .bar > span,
+    .wf-bar {
+      background: var(--ml-blue);
+      border-radius: 0;
+    }
+
+    .waterfall {
+      height: 260px;
+      padding: 24px 20px 10px;
+      border: 1px solid var(--ml-rule);
+      border-radius: 0;
+      background: #fff;
+    }
+
+    .wf-value {
+      color: var(--ml-blue);
+      font: 700 34px/1 var(--ml-font-heading);
+    }
+
+    .flywheel {
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .flywheel .card {
+      min-height: 188px;
+      border-top: 4px solid var(--ml-blue-soft);
+    }
+
+    .toc {
+      margin-top: 72px;
+      gap: 24px 96px;
+    }
+
+    .toc-item {
+      grid-template-columns: 96px 1fr;
+      padding: 24px 0;
+      border-bottom: 0;
+      border-top: 1px solid var(--ml-rule);
+    }
+
+    .toc-no {
+      color: var(--ml-blue-soft);
+      font: 600 36px/1 var(--ml-font-heading);
+    }
+
+    .matrix {
+      grid-template-columns: 260px repeat(3, 1fr);
+      border: 1px solid var(--ml-rule);
+      border-radius: 0;
+      margin-top: 52px;
+    }
+
+    .matrix > div {
+      border-right: 1px solid var(--ml-rule);
+      border-bottom: 1px solid var(--ml-rule);
+      background: #fff;
+      min-height: 118px;
+    }
+
+    .matrix .head {
+      background: var(--ml-blue);
+      color: #fff;
+    }
+
+    .matrix .rowhead {
+      background: var(--ml-card);
+      color: var(--ml-blue);
+      font-weight: 800;
+    }
+
+    .footnote-list a {
+      color: var(--ml-blue);
+    }
+
+    .footnote-list li {
+      color: var(--ml-muted);
+      font-size: 24px;
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    .slide:nth-child(15) .grid-2 {
+      gap: 18px;
+    }
+
+    .slide:nth-child(15) .card {
+      padding: 24px 26px;
+    }
+
+    .slide:nth-child(15) ul.clean li {
+      padding: 9px 0;
+      font-size: 18px;
+      line-height: 1.32;
+    }
+
+    .slide:nth-child(15) .big-callout {
+      margin-top: 20px !important;
+      padding: 24px 30px;
+    }
+
+    .slide:nth-child(15) .big-callout p {
+      font-size: 21px;
+      line-height: 1.42;
+    }
+
+    .slide:nth-child(17) .two-col {
+      gap: 22px;
+    }
+
+    .slide:nth-child(17) .big-callout {
+      padding: 30px 34px;
+    }
+
+    .slide:nth-child(17) .big-callout .metric {
+      font-size: 58px;
+    }
+
+    .slide:nth-child(17) table {
+      margin-top: 0;
+    }
+
+    .slide:nth-child(17) th,
+    .slide:nth-child(17) td {
+      padding: 11px 12px;
+      font-size: 17px;
+      line-height: 1.34;
+    }
+
+    .slide:nth-child(18) table {
+      margin-top: 34px;
+    }
+
+    .slide:nth-child(18) th,
+    .slide:nth-child(18) td {
+      padding: 11px 13px;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .slide:nth-child(18) .big-callout {
+      margin-top: 18px !important;
+      padding: 22px 28px;
+    }
+
+    .slide:nth-child(18) .big-callout p {
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    .adoption-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 42px;
+      border-top: 1px solid var(--ml-rule);
+      border-bottom: 1px solid var(--ml-rule);
+    }
+
+    .adoption-metric {
+      min-height: 188px;
+      padding: 34px 32px 28px;
+      border-left: 1px solid var(--ml-rule);
+    }
+
+    .adoption-metric:first-child {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    .adoption-metric:last-child {
+      padding-right: 0;
+    }
+
+    .adoption-number {
+      color: var(--ml-blue);
+      font: 700 88px/.95 var(--ml-font-heading);
+      letter-spacing: -0.035em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .adoption-metric p {
+      margin: 20px 0 0;
+      color: var(--ml-muted);
+      font: 400 22px/1.42 var(--ml-font-body);
+      max-width: 310px;
+    }
+
+    .slide:nth-child(4) .two-col {
+      margin-top: 34px !important;
+    }
+
+    .fde-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 36px;
+    }
+
+    .fde-panel {
+      min-height: 430px;
+      padding: 34px 40px;
+      border: 1px solid var(--ml-rule);
+      background: var(--ml-card);
+      position: relative;
+    }
+
+    .fde-panel::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--ml-rule);
+    }
+
+    .fde-panel.next {
+      background: var(--ml-blue);
+      color: #fff;
+      border-color: var(--ml-blue);
+    }
+
+    .fde-panel.next::before {
+      background: var(--ml-blue-soft);
+    }
+
+    .fde-label {
+      font: 700 15px/1 var(--ml-font-body);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ml-blue-soft);
+      margin-bottom: 16px;
+    }
+
+    .fde-panel.next .fde-label {
+      color: rgba(255,255,255,.72);
+    }
+
+    .fde-panel h3 {
+      font: 700 38px/1.12 var(--ml-font-heading);
+      margin-bottom: 20px;
+    }
+
+    .fde-panel.next h3,
+    .fde-panel.next li,
+    .fde-panel.next .fde-desc {
+      color: #fff;
+    }
+
+    .fde-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fde-panel li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--ml-muted);
+      font: 400 21px/1.36 var(--ml-font-body);
+    }
+
+    .fde-panel li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 12px;
+      height: 2px;
+      background: var(--ml-subtle);
+    }
+
+    .fde-panel.next li {
+      color: rgba(255,255,255,.9);
+    }
+
+    .fde-panel.next li::before {
+      background: rgba(255,255,255,.78);
+    }
+
+    .fde-desc {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--ml-rule);
+      color: var(--ml-muted);
+      font: 500 20px/1.36 var(--ml-font-body);
+    }
+
+    .fde-panel.next .fde-desc {
+      border-top-color: rgba(255,255,255,.22);
+      color: rgba(255,255,255,.92);
+    }
+
+    .slide:nth-child(12) .bar-table {
+      margin-top: 0;
+    }
+
+    .slide:nth-child(9) .two-col {
+      margin-top: 18px !important;
+      gap: 24px;
+    }
+
+    .slide:nth-child(9) .grid-5 {
+      gap: 18px;
+    }
+
+    .slide:nth-child(9) .card {
+      padding: 24px 22px;
+    }
+
+    .slide:nth-child(9) .card h3 {
+      font-size: 25px;
+      line-height: 1.16;
+      min-height: 58px;
+      margin-bottom: 10px;
+    }
+
+    .slide:nth-child(9) .card p {
+      font-size: 18px;
+      line-height: 1.34;
+    }
+
+    .slide:nth-child(9) .metric {
+      font-size: 48px;
+      line-height: 1;
+      margin: 6px 0 12px;
+    }
+
+    .slide:nth-child(9) .metric small {
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .slide:nth-child(9) ul.clean li {
+      padding: 8px 0;
+      font-size: 19px;
+      line-height: 1.32;
+    }
+
+    .slide:nth-child(9) .quote {
+      padding: 24px 30px;
+      font-size: 27px;
+      line-height: 1.34;
+    }
+
+    .slide:nth-child(12) .bar-table td {
+      padding: 8px 10px;
+      font-size: 15px;
+      line-height: 1.24;
+    }
+
+    .slide:nth-child(12) .bar {
+      height: 18px;
+    }
+
+    .slide:nth-child(12) .two-col {
+      margin-top: 18px !important;
+      gap: 20px;
+    }
+
+    .slide:nth-child(12) h3 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .slide:nth-child(12) ul.clean li {
+      padding: 7px 0;
+      font-size: 17px;
+      line-height: 1.28;
+    }
+
+    .slide:nth-child(13) .matrix {
+      margin-top: 36px;
+    }
+
+    .slide:nth-child(13) .matrix > div {
+      min-height: 92px;
+      padding: 12px 14px;
+      font-size: 17px;
+      line-height: 1.33;
+    }
+
+    .slide:nth-child(14) table {
+      margin-top: 30px;
+    }
+
+    .slide:nth-child(14) th,
+    .slide:nth-child(14) td {
+      padding: 12px 14px;
+      font-size: 17px;
+      line-height: 1.34;
+    }
+
+    .slide:nth-child(14) .waterfall {
+      height: 230px;
+      margin-top: 22px !important;
+    }
+
+    .slide:nth-child(16) .quote {
+      margin-top: 22px !important;
+      padding: 24px 32px;
+      font-size: 28px;
+      line-height: 1.38;
+    }
+
+    .accent,
+    .gold,
+    .green {
+      color: var(--ml-blue);
+    }
+  </style>
+</head>
+<body>
+  <deck-stage width="1920" height="1080" no-rail>
+    <section class="slide">
+      <div class="logo">MINDSLEAP</div>
+      <div class="cover-mark"></div>
+      <div class="kicker">Investor Discussion Draft · V3</div>
+      <h1>MindsLeap<br />AI原生企业<br />价值放大平台<br />商业计划书</h1>
+      <p class="lead">以企业家俱乐部、内容与活动获得信任入口；以培训咨询和 FDE 改造传统企业；通过业绩分成、技术入股与 PE 合作，分享 AI 原生化后的价值增值。</p>
+      <div class="cover-visual">
+        <img src="/images/news/ai-native-enterprise-conference-shanghai-2026-cover1.jpg" alt="AI原生企业大会现场" />
+        <div class="cover-caption">AI Native Enterprise Conference · Shanghai</div>
+      </div>
+      <div class="cover-meta">
+        <span>Version: 2026-07-16</span>
+        <span>Updated after Silicon Valley investor discussions</span>
+        <span>Confidential · Not Investment Advice</span>
+      </div>
+      <div class="slide-number">01</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">BP Structure</div>
+      <h2>这份 BP 要回答五个投资问题</h2>
+      <p class="lead">不是证明“AI 很热”，而是证明 MindsLeap 如何把信任入口、FDE 交付和资本合作连接起来，把传统企业 AI 原生化的服务需求升级为长期价值增值机会。</p>
+      <div class="toc">
+        <div class="toc-item"><div class="toc-no">01</div><div><h3>窗口期</h3><p class="subtle">AI 转型需求正在爆发，企业真正稀缺的是能进入现场、重构流程、承担结果的 deployment layer。</p></div></div>
+        <div class="toc-item"><div class="toc-no">02</div><div><h3>信任入口</h3><p class="subtle">线下俱乐部、短视频直播、创始人 IP、活动和硅谷背书，让 MindsLeap 先获得企业家信任。</p></div></div>
+        <div class="toc-item"><div class="toc-no">03</div><div><h3>服务变现</h3><p class="subtle">培训、咨询、FDE Sprint 和年度运营先形成现金流，并进入客户真实经营问题。</p></div></div>
+        <div class="toc-item"><div class="toc-no">04</div><div><h3>深度绑定</h3><p class="subtle">从一次性项目走向业绩分成、项目公司、技术入股，分享客户 AI 化后的增长。</p></div></div>
+        <div class="toc-item"><div class="toc-no">05</div><div><h3>资本放大</h3><p class="subtle">与 PE 和产业投资人合作，把被投传统企业改造为 AI 原生企业，获得服务收入与股权增值。</p></div></div>
+      </div>
+      <div class="slide-number">02</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Core Thesis</div>
+      <h2>核心判断：AI 工具会商品化，AI 原生化入口不会</h2>
+      <div class="grid grid-3">
+        <div class="card red">
+          <h3>第一阶段：拿到信任入口</h3>
+          <p>俱乐部、内容、直播、活动和培训咨询让企业家愿意讲真实问题，并允许我们进入组织现场。</p>
+        </div>
+        <div class="card blue">
+          <h3>第二阶段：改造经营流程</h3>
+          <p>FDE 进入门店、营销、客服、供应链、人效和管理流程，把 AI 从认知培训推进到可见业务结果。</p>
+        </div>
+        <div class="card gold">
+          <h3>第三阶段：分享价值重估</h3>
+          <p>对高潜力客户通过业绩分成、项目公司、技术入股或 PE 合作，分享传统企业 AI 原生化后的长期增值。</p>
+        </div>
+      </div>
+      <div class="quote" style="margin-top:32px;">MindsLeap 的机会不是做一家普通 AI 咨询公司，而是成为传统企业 AI 原生化的信任入口、部署网络和价值放大平台。</div>
+      <div class="slide-number">03</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Problem</div>
+      <h2>AI 工具已经进入企业，但企业工作流还没有被重构</h2>
+      <div class="adoption-strip">
+        <div class="adoption-metric">
+          <div class="adoption-number">88%</div>
+          <p>组织已在至少一个业务职能使用 AI 工具。</p>
+        </div>
+        <div class="adoption-metric">
+          <div class="adoption-number">1/3</div>
+          <p>组织开始把 AI 扩展到企业层级。</p>
+        </div>
+        <div class="adoption-metric">
+          <div class="adoption-number">23%</div>
+          <p>将 Agentic AI 推进到试点之外。</p>
+        </div>
+        <div class="adoption-metric">
+          <div class="adoption-number">5%</div>
+          <p>真正实现工作流级 AI 集成。</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:32px;">
+        <div>
+          <h3>企业卡住的不是“能不能用 ChatGPT”</h3>
+          <ul class="clean">
+            <li>高价值场景不知道如何识别和排序。</li>
+            <li>数据、权限、系统接口、流程责任人难以协调。</li>
+            <li>PoC 很容易做，进入真实运营很难。</li>
+            <li>老板看不到 ROI，员工没有形成使用习惯。</li>
+          </ul>
+        </div>
+        <div class="big-callout">
+          <h3>这就是 FDE 的切入点</h3>
+          <p>FDE 不是单纯写代码，也不是传统外包，而是把模型能力部署进企业现场，形成可运行、可衡量、可复制的 AI 工作流。</p>
+        </div>
+      </div>
+      <div class="source">Source: TechRadar citing McKinsey State of AI 2025 and MIT research, 2026.</div>
+      <div class="slide-number">04</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Why FDE</div>
+      <h2>传统咨询与软件服务 vs FDE 现场部署：从方案交付到业务结果</h2>
+      <div class="fde-compare">
+        <div class="fde-panel">
+          <div class="fde-label">Traditional Consulting &amp; Software Service</div>
+          <h3>传统咨询与软件服务<br />停在“建议”和“上线”</h3>
+          <ul>
+            <li>咨询公司通常交付分析框架、解决方案与 PPT，实施仍由客户负责。</li>
+            <li>软件服务围绕需求文档、系统功能和上线节点完成验收。</li>
+            <li>项目结束后，业务动作是否改变、经营指标是否改善，往往不在责任范围内。</li>
+            <li>隐性经验、一线反馈和组织采用，很难真正进入日常工作流。</li>
+          </ul>
+          <div class="fde-desc">结果是：方案可能正确、系统可能上线，但 PPT 不会自动变成流程，AI 也未必产生真实业务结果。</div>
+        </div>
+        <div class="fde-panel next">
+          <div class="fde-label">Forward Deployed Engineer</div>
+          <h3>FDE 进入现场<br />以真实业务结果为交付目标</h3>
+          <ul>
+            <li>进入业务现场，从诊断、选场景、上线到持续优化连续交付。</li>
+            <li>把模型能力接入工作流、Agent、数据和企业系统。</li>
+            <li>围绕效率、收入、质量等指标验证结果，并根据反馈持续迭代。</li>
+            <li>训练组织使用 AI，沉淀可复制的 SOP、模板、案例和复盘机制。</li>
+          </ul>
+          <div class="fde-desc">结果是：企业不只获得建议，而是获得可运行、可衡量、可复制的 AI 工作流和业务改善。</div>
+        </div>
+      </div>
+      <div class="source">Source: Forward Deployed Engineer definition and Palantir-style market references; MindsLeap service copy from local website repo.</div>
+      <div class="slide-number">05</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Why Now</div>
+      <h2>窗口期：AI 转型需求爆发，PE 也需要 AI 原生化抓手</h2>
+      <div class="grid grid-2">
+        <div class="card blue">
+          <h3>需求正在从认知进入行动</h3>
+          <p>企业主已经不再只问“AI 是什么”，而是开始问“我的业务怎么改、先做哪个场景、谁来负责落地”。</p>
+        </div>
+        <div class="card red">
+          <h3>线上流量与线下活动正在放大需求</h3>
+          <p>短视频、直播、访谈、月度活动和大型大会会持续教育企业家，把“想了解 AI”转成“愿意付费试点”。</p>
+        </div>
+        <div class="card">
+          <h3>PE 需要新的投后价值创造工具</h3>
+          <p>大量传统消费、教育文旅、本地生活和贸易企业增长放缓，PE 与产业投资人需要可执行的 AI 改造抓手。</p>
+        </div>
+        <div class="card gold">
+          <h3>我们看得比服务收入更远</h3>
+          <p>短期抓住 FDE 服务爆发，长期通过行业场景库、客户数据洞察、业绩分成和股权合作建立更深的护城河。</p>
+        </div>
+      </div>
+      <div class="source">Source: Investor discussions in Silicon Valley; investor discussion on 2026-07-01; BCG AI value gap reporting; MindsLeap events and service assets.</div>
+      <div class="slide-number">06</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">MindsLeap Assets</div>
+      <h2>MindsLeap 的资源，正好对应“流量 + 信任 + 交付 + 资本”的关键要素</h2>
+      <div class="grid grid-3">
+        <div class="card red">
+          <h3>硅谷品牌背书</h3>
+          <p>Founders Space、Steve Hoffman 与硅谷资源，让 MindsLeap 能把全球 AI 前沿翻译成中国企业可行动的路线。</p>
+        </div>
+        <div class="card blue">
+          <h3>企业家俱乐部信任</h3>
+          <p>企业家 AI 俱乐部形成高信任入口，客户来自会员单位与活动参与者，天然适合从诊断、培训切入 FDE。</p>
+        </div>
+        <div class="card">
+          <h3>大型活动宣传能力</h3>
+          <p>AI 原生企业大会等活动聚集企业家、投资人和 AI 创业者，把品牌势能转化为线下高质量线索。</p>
+        </div>
+        <div class="card">
+          <h3>AI 媒体影响力</h3>
+          <p>短视频、直播、访谈、白皮书、AI 研究报告和案例内容可以持续教育市场，形成线上流量入口和投资人可见度。</p>
+        </div>
+        <div class="card">
+          <h3>供给侧生态</h3>
+          <p>OPC、AI 原生企业、科技独角兽、海外市场拓展与全球人才服务，为 FDE 带来人才、产品和合作伙伴。</p>
+        </div>
+        <div class="card gold">
+          <h3>PE 与产业资本网络</h3>
+          <p>与基金合伙人、产业投资人和家办资源建立连接，可把 AI 改造服务嵌入投后价值创造和技术入股机制。</p>
+        </div>
+      </div>
+      <div class="source">Source: MindsLeap website service pages, user-provided customer traction, and investor discussion on 2026-07-01.</div>
+      <div class="slide-number">07</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Acquisition Flywheel</div>
+      <h2>增长飞轮：从流量到信任，从 FDE 到业绩分成和股权增值</h2>
+      <div class="flywheel">
+        <div class="card">
+          <h3>1. 短视频 / 直播 / 访谈</h3>
+          <p>创始人 IP、AI 原生案例、白皮书与研究报告，形成线上流量入口，目标百万粉丝量级。</p>
+        </div>
+        <div class="card">
+          <h3>2. 线下俱乐部 / 月度活动</h3>
+          <p>城市私董会、行业闭门会、AI 转型工作坊，持续把线上关注转为高信任企业家连接。</p>
+        </div>
+        <div class="card">
+          <h3>3. 培训与咨询</h3>
+          <p>以诊断、课程和管理层共创建立共识，识别最适合启动的高价值 AI 工作流场景。</p>
+        </div>
+        <div class="card">
+          <h3>4. FDE Sprint</h3>
+          <p>30/60/90 天交付可运行试点，把客户从认知转入流程改造和 ROI 验证。</p>
+        </div>
+        <div class="card">
+          <h3>5. 年度运营 / 业绩分成</h3>
+          <p>围绕增长、人效、转化、复购等指标持续优化，把项目交付升级为经营结果绑定。</p>
+        </div>
+        <div class="card">
+          <h3>6. 技术入股 / PE 合作</h3>
+          <p>对高潜力企业以权益绑定，并与 PE 改造被投企业，形成服务收入和股权增值的双重收益。</p>
+        </div>
+      </div>
+      <div class="slide-number">08</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Early Traction</div>
+      <h2>早期客户验证：从餐饮签约到咨询培训启动</h2>
+      <div class="grid grid-5">
+        <div class="card red">
+          <h3>杨铭宇黄焖鸡米饭</h3>
+          <div class="metric">20万+</div>
+          <p>餐饮客户已签约。适合验证门店运营、培训、加盟商知识库与营销内容等场景。</p>
+        </div>
+        <div class="card red">
+          <h3>嘻游记烤肉</h3>
+          <div class="metric">50万+</div>
+          <p>餐饮客户已签约。适合打造连锁餐饮 AI 转型标杆案例，并向年度运营升级。</p>
+        </div>
+        <div class="card blue">
+          <h3>头部共享办公空间</h3>
+          <div class="metric">咨询培训<br /><small>已启动</small></div>
+          <p>围绕招商获客、运营管理、会员服务和空间活动，启动 AI 转型咨询培训服务。</p>
+        </div>
+        <div class="card gold">
+          <h3>欧洲美发头部奢侈品牌</h3>
+          <div class="metric">咨询培训<br /><small>已启动</small></div>
+          <p>围绕品牌营销、门店服务、客户运营和一线团队赋能，启动 AI 咨询培训服务。</p>
+        </div>
+        <div class="card blue">
+          <h3>百亿营收日化企业</h3>
+          <div class="metric">项目洽谈中<br /><small>创始人参与</small></div>
+          <p>百亿营收规模指该日化企业自身规模，不是 MindsLeap 可确认收入。项目洽谈中，创始人亲自参与。</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:30px;">
+        <div>
+          <h3>为什么早期单额低仍然有价值</h3>
+          <ul class="clean">
+            <li>20-50 万级订单已经出现，证明早期需求不只停留在低价试水。</li>
+            <li>只要打出 ROI，后续可以升级为 50-150 万 FDE 实施和 30-120 万年度运营。</li>
+            <li>餐饮、空间服务、美业奢侈品牌与日化企业都具备可复制场景，案例一旦成立，能带来同行扩散。</li>
+          </ul>
+        </div>
+      <div class="quote">客户来源来自会员单位和活动参与者，证明企业家 AI 俱乐部与大型活动不是品牌成本，而是高信任获客资产；同样的信任机制也可以复制到 PE 被投企业的投后改造场景。</div>
+      </div>
+      <div class="slide-number">09</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Beachhead</div>
+      <h2>第一阶段聚焦 ToC 服务业：找 AI 认知不足但经营压力真实的行业</h2>
+      <div class="grid grid-3">
+        <div class="card red">
+          <h3>连锁餐饮 / 本地生活</h3>
+          <p>门店 SOP、培训、加盟管理、会员营销、客服、短视频内容、排班与运营分析。优势是客户多、痛点具体、案例容易传播。</p>
+          <div class="pill-row"><span class="pill">AI 店长助手</span><span class="pill">加盟知识库</span><span class="pill">营销内容工厂</span></div>
+        </div>
+        <div class="card blue">
+          <h3>空间服务 / 本地生活</h3>
+          <p>招商获客、运营管理、客服咨询、用户分层、活动策划、场地巡检与私域转化。优势是场景多、运营链条长、AI 能直接影响人效。</p>
+          <div class="pill-row"><span class="pill">招商 Copilot</span><span class="pill">运营助手</span><span class="pill">客户服务 Agent</span></div>
+        </div>
+        <div class="card gold">
+          <h3>教育 / 研学 / 文旅</h3>
+          <p>招生获客、课程内容、学员运营、研学行程、客服咨询、导览推荐与私域转化。优势是服务链条长、内容密度高、AI 工作流容易被一线团队感知。</p>
+          <div class="pill-row"><span class="pill">招生 Copilot</span><span class="pill">内容工厂</span><span class="pill">行程顾问 Agent</span></div>
+        </div>
+      </div>
+      <div class="big-callout" style="margin-top:30px;">
+        <h3>策略原则</h3>
+        <p>先做高密度行业案例，再通过企业家网络和 PE 投后网络做跨企业复制。制造业和大型企业可以作为后续机会，但第一阶段优先选择决策链更短、痛点更外显、AI 认知更稀缺的服务业。</p>
+      </div>
+      <div class="slide-number">10</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Product Ladder</div>
+      <h2>产品阶梯：从培训咨询进入 FDE，再走向结果绑定与权益合作</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>产品</th>
+            <th>交付内容</th>
+            <th>建议价格</th>
+            <th>目标</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AI 转型诊断</strong></td>
+            <td>管理层访谈、流程盘点、数据/系统评估、场景优先级排序。</td>
+            <td>5-20 万</td>
+            <td>建立信任，锁定高价值场景。</td>
+          </tr>
+          <tr>
+            <td><strong>FDE Sprint</strong></td>
+            <td>30-60 天搭建一个可运行 AI 工作流或 Agent 原型。</td>
+            <td>20-50 万</td>
+            <td>从咨询进入可见成果。</td>
+          </tr>
+          <tr>
+            <td><strong>FDE 实施项目</strong></td>
+            <td>接入真实业务系统、培训用户、上线试点并做 ROI 复盘。</td>
+            <td>50-150 万</td>
+            <td>形成标杆案例和行业模板。</td>
+          </tr>
+          <tr>
+            <td><strong>年度 AI 运营 / 生态分成</strong></td>
+            <td>持续优化、AgentOps、模型/API 使用管理、工具、人才与培训生态分成。</td>
+            <td>30-120 万 / 年 + 分成</td>
+            <td>把一次性项目转为经常性收入，并跟随客户 AI 使用量增长。</td>
+          </tr>
+          <tr>
+            <td><strong>业绩分成 / 增长陪跑</strong></td>
+            <td>围绕营销转化、人效提升、复购增长等指标设计结果绑定机制。</td>
+            <td>服务费 + 分成</td>
+            <td>从项目交付升级为经营结果伙伴。</td>
+          </tr>
+          <tr>
+            <td><strong>技术入股 / PE 合作</strong></td>
+            <td>对高潜力客户或 PE 被投企业，以 FDE 能力换取小比例股权、分红权或项目公司权益。</td>
+            <td>现金折扣 + 权益</td>
+            <td>分享传统企业 AI 原生化后的价值重估。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="slide-number">11</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Market Size</div>
+      <h2>TAM / SAM / SOM：服务收入是底盘，权益增值是想象空间</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>TAM</h3>
+          <div class="metric">千亿级</div>
+          <p>中国企业 AI 转型相关的培训、咨询、系统集成、Agent 开发、模型使用运营、行业解决方案与技术服务市场。</p>
+        </div>
+        <div class="card blue">
+          <h3>SAM</h3>
+          <div class="metric">100-300亿</div>
+          <p>2026-2028 年更可触达的 ToC 服务业、中型民营企业、连锁品牌、教育文旅、本地生活与 PE 被投企业 AI 落地服务。</p>
+        </div>
+        <div class="card red">
+          <h3>SOM + Equity Upside</h3>
+          <div class="metric">0.3-3亿</div>
+          <p>MindsLeap 三年内通过自营团队 + 合伙人 FDE 网络可以争取的收入规模；股权收益作为额外长期 upside，不计入基准收入。</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:30px;">
+        <div>
+          <h3>市场测算逻辑</h3>
+          <ul class="clean">
+            <li>不是按单一软件品类测算，而是按“企业 AI 应用落地预算”测算。</li>
+            <li>客户预算来自培训、咨询、数字化、系统集成、营销增长、IT 与创新预算的重新分配。</li>
+            <li>早期最现实的 SAM 是愿意为 AI 落地付费的服务业、中型企业、成长型企业与 PE 被投传统企业。</li>
+            <li>权益收益不是短期收入假设，而是通过 FDE 现场洞察筛选出的高潜力标的组合。</li>
+          </ul>
+        </div>
+        <div>
+          <table class="bar-table">
+            <tbody>
+              <tr><td>TAM: 企业 AI 落地服务</td><td><div class="bar"><span style="width:100%"></span></div></td></tr>
+              <tr><td>SAM: 未来三年可服务细分市场</td><td><div class="bar"><span style="width:34%"></span></div></td></tr>
+              <tr><td>SOM: MindsLeap 三年目标份额</td><td><div class="bar"><span style="width:10%"></span></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="source">Note: Market sizing is an internal model based on enterprise AI adoption, digital transformation budget migration, and service attach assumptions.</div>
+      <div class="slide-number">12</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Business Model</div>
+      <h2>双路径商业模式：企业家入口 + PE 被投企业改造</h2>
+      <div class="matrix">
+        <div class="head">收入类型</div>
+        <div class="head">启动阶段</div>
+        <div class="head">放大阶段</div>
+        <div class="head">长期价值</div>
+
+        <div class="rowhead">企业家入口</div>
+        <div>俱乐部、短视频直播、访谈、月度活动和大型大会。</div>
+        <div>把线上关注转成线下信任，把会员和活动客户转成诊断机会。</div>
+        <div>持续降低获客成本，提高客户质量和品牌溢价。</div>
+
+        <div class="rowhead">培训咨询 / FDE</div>
+        <div>AI 转型诊断、培训、FDE Sprint，10-50 万客单。</div>
+        <div>50-150 万实施项目，30-120 万年度运营，形成行业标杆。</div>
+        <div>沉淀客户工作流、ROI 基准、场景库与交付 SOP。</div>
+
+        <div class="rowhead">生态分成</div>
+        <div>为客户选择模型、云、Agent 工具、人才和培训服务。</div>
+        <div>模型/API/工具渠道分成，跟随客户 AI 使用量增长。</div>
+        <div>中立 FDE 网络成为模型厂商争取企业客户的渠道。</div>
+
+        <div class="rowhead">业绩分成</div>
+        <div>以增长、人效、转化、复购等业务指标设计结果绑定。</div>
+        <div>对已验证 ROI 的客户升级为年度陪跑或项目公司。</div>
+        <div>把服务关系升级为共同经营，放大单客户 LTV。</div>
+
+        <div class="rowhead">PE 合作 / 技术入股</div>
+        <div>帮助 PE 识别被投企业 AI 改造机会，并用 FDE 承接投后项目。</div>
+        <div>用 SPV、合资投资公司、专项协议或技术入股承接权益。</div>
+        <div>分享传统企业 AI 原生化后的估值提升和长期资本收益。</div>
+      </div>
+      <div class="slide-number">13</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Financial Model</div>
+      <h2>财务测算依据：先用服务收入验证，再用 PE 与权益合作放大</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>场景</th>
+            <th>2026E</th>
+            <th>2027E</th>
+            <th>2028E</th>
+            <th>关键假设</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>保守</strong></td>
+            <td>300 万</td>
+            <td>1,550 万</td>
+            <td>5,500 万</td>
+            <td>项目增长温和，平均客单从 20 万到 50 万；不计入业绩分成和股权收益。</td>
+          </tr>
+          <tr>
+            <td><strong>基准</strong></td>
+            <td>525 万</td>
+            <td>3,200 万</td>
+            <td>1.25 亿</td>
+            <td>2027 年形成 50 个项目，2028 年 120 个项目；同步筛选 3-5 个业绩分成或技术入股标的。</td>
+          </tr>
+          <tr>
+            <td><strong>进取</strong></td>
+            <td>800 万</td>
+            <td>6,500 万</td>
+            <td>2.6 亿</td>
+            <td>媒体流量、大型活动和 PE 投后合作放大线索，模型/云厂商合作带来渠道增长；权益收益另行计算。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pill-row" style="margin-top:18px;">
+        <span class="pill">收入 = 项目数 × 平均客单价</span>
+        <span class="pill">+ 年度运营客户数 × 年费</span>
+        <span class="pill">+ 模型/API/工具生态分成</span>
+        <span class="pill">+ 业绩分成与技术入股 upside</span>
+        <span class="pill">交付上限由认证 FDE 网络决定</span>
+      </div>
+      <div class="waterfall" style="margin-top:30px;">
+        <div class="wf-item"><div class="wf-value">525万</div><div class="wf-bar" style="height:22%;"></div><div class="wf-label">2026E 基准收入</div></div>
+        <div class="wf-item"><div class="wf-value">3,200万</div><div class="wf-bar" style="height:44%;"></div><div class="wf-label">2027E 基准收入</div></div>
+        <div class="wf-item"><div class="wf-value">1.25亿</div><div class="wf-bar" style="height:92%;"></div><div class="wf-label">2028E 基准收入</div></div>
+        <div class="wf-item"><div class="wf-value">30+</div><div class="wf-bar" style="height:48%;"></div><div class="wf-label">2027E 认证伙伴 FDE</div></div>
+        <div class="wf-item"><div class="wf-value">100+</div><div class="wf-bar" style="height:86%;"></div><div class="wf-label">2028E 认证伙伴 FDE</div></div>
+      </div>
+      <div class="source">Note: All figures are RMB. E = Estimate，表示预估值。Current signed order sizes are 100k-200k; model assumes land-and-expand from Sprint to implementation, annual operation and PE portfolio pilots. Performance-share and equity upside are excluded from revenue forecast.</div>
+      <div class="slide-number">14</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Operating Model</div>
+      <h2>组织设计：核心团队做入口与标准，外部网络补交付、销售与资本能力</h2>
+      <div class="grid grid-2">
+        <div class="card blue">
+          <h3>核心团队</h3>
+          <ul class="clean">
+            <li>CEO / Founder：战略、融资、关键客户、生态合作。</li>
+            <li>CPO：产品化、服务体系、场景库、交付质量。</li>
+            <li>Business Lead：客户拓展、行业方案、收入目标。</li>
+            <li>Content & Research Lead：创始人 IP、访谈、报告、白皮书。</li>
+            <li>FDE Lead + Solution Architect：项目架构、技术标准、FDE 培训。</li>
+            <li>Capital / PE Strategy Advisor：PE 合作、技术入股、SPV、投资公司和战略投资人机制。</li>
+            <li>Finance & Ops / Event Ops：财务、活动、合同、供应商与运营。</li>
+          </ul>
+        </div>
+        <div class="card red">
+          <h3>FDE 与产业合伙人网络</h3>
+          <ul class="clean">
+            <li>优先招募自带行业资源和销售能力的 FDE。</li>
+            <li>按线索来源、交付角色、复购贡献设计分成机制。</li>
+            <li>通过认证、方法论、模板、案例库和质量复盘降低交付波动。</li>
+            <li>核心团队不无限扩人，把能力沉淀在流程和工具中。</li>
+            <li>长期形成区域合伙人、行业合伙人、交付合伙人和 PE 投后合作伙伴四类角色。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="big-callout" style="margin-top:30px;">
+        <h3>关键治理原则</h3>
+        <p>服务收入按获客、方案、交付、复购和资产沉淀分配；业绩分成与技术入股项目需要独立投委逻辑、利益冲突规则和客户数据使用边界。</p>
+      </div>
+      <div class="slide-number">15</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Moat</div>
+      <h2>护城河升级：从信任入口，到工作流数据、PE 通道和股东身份</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>第一层：媒体与品牌入口</h3>
+          <p>创始人 IP、短视频直播、访谈、研究报告和大会，让客户在做决策前先认识 MindsLeap。</p>
+        </div>
+        <div class="card">
+          <h3>第二层：信任网络</h3>
+          <p>企业家 AI 俱乐部、活动和创始人 IP 让客户愿意谈真实问题、开放组织流程。</p>
+        </div>
+        <div class="card">
+          <h3>第三层：工作流与数据</h3>
+          <p>进入企业现场后，我们看到转化率、翻台率、人效、客户流失等经营底层数据。</p>
+        </div>
+        <div class="card">
+          <h3>第四层：行业场景库</h3>
+          <p>从餐饮、本地生活、教育文旅等行业沉淀场景模板、ROI 基准和交付 SOP。</p>
+        </div>
+        <div class="card">
+          <h3>第五层：FDE 与 PE 网络</h3>
+          <p>用合伙人制度扩张供给，并通过 PE/产业资本连接被投企业与投后改造机会。</p>
+        </div>
+        <div class="card red">
+          <h3>最终层：股东或经营伙伴身份</h3>
+          <p>当 MindsLeap 成为客户的技术股东、业绩分成伙伴或项目公司共建方，关系从采购服务升级为共同增长。</p>
+        </div>
+      </div>
+      <div class="quote" style="margin-top:30px;">投资人真正要买的不是“咨询收入”，而是 MindsLeap 能否通过 AI 转型入口筛选、绑定并放大一批传统企业的 AI 原生化增长。</div>
+      <div class="slide-number">16</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Fundraising</div>
+      <h2>融资建议：先融一轮打穿 18 个月验证，并建立 PE 合作样板</h2>
+      <div class="two-col">
+        <div>
+          <div class="big-callout">
+            <h3>建议融资规模</h3>
+            <div class="metric">1,000-1,500万 <small>RMB</small></div>
+            <p>适合面向有资源的战略投资人：不仅要钱，更要企业客户入口、PE 被投企业资源、模型厂商合作、资本结构经验和媒体放大能力。</p>
+          </div>
+          <div class="pill-row">
+            <span class="pill">18 个月 runway</span>
+            <span class="pill">10-20 人核心团队</span>
+            <span class="pill">30+ 伙伴 FDE</span>
+            <span class="pill">20-50 个项目验证</span>
+            <span class="pill">3-5 个权益合作试点</span>
+          </div>
+        </div>
+        <div>
+          <table>
+            <thead><tr><th>资金用途</th><th>比例</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>媒体矩阵</td><td>28%</td><td>创始人 IP、访谈、短视频、直播、报告、分发投放，目标百万粉丝入口。</td></tr>
+              <tr><td>FDE 招募与认证</td><td>24%</td><td>招募销售型 FDE、培训认证、伙伴激励、交付标准化。</td></tr>
+              <tr><td>核心团队薪资</td><td>20%</td><td>业务负责人、内容研究、FDE Lead、解决方案、运营支持。</td></tr>
+              <tr><td>活动与大会</td><td>10%</td><td>月度活动、行业闭门会、AI 原生企业大会相关投入。</td></tr>
+              <tr><td>PE 合作与资本结构</td><td>8%</td><td>PE 投后合作方案、业绩分成、技术入股、SPV/合资投资公司、法律税务合规。</td></tr>
+              <tr><td>办公与 Demo Lab</td><td>5%</td><td>办公场地、演示空间、客户工作坊环境。</td></tr>
+              <tr><td>系统与预备金</td><td>5%</td><td>CRM、知识库、Agent Workflow、财务法务和应急资金。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="source">Alternative: lean round RMB 5-8M for validation; aggressive round RMB 20M+ only if strategic investors commit distribution and PE portfolio resources. Standard fund setup can wait until post-validation stage.</div>
+      <div class="slide-number">17</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Milestones</div>
+      <h2>融资后 18 个月关键里程碑：先做收入，再验证 PE 与权益合作</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>阶段</th>
+            <th>业务目标</th>
+            <th>组织目标</th>
+            <th>资产沉淀</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>0-3 个月</strong></td>
+            <td>完成 3-5 个付费 Sprint，打磨餐饮、本地生活、教育文旅案例，并筛选首批 PE 合作对象。</td>
+            <td>确定 Business Lead、FDE Lead、Content & Research Lead。</td>
+            <td>标准诊断包、FDE Sprint SOP、业绩分成与技术入股协议框架 v0。</td>
+          </tr>
+          <tr>
+            <td><strong>3-6 个月</strong></td>
+            <td>累计 10-15 个项目，形成 2 个可公开案例，启动 1 个 PE 被投企业试点。</td>
+            <td>核心团队 10-12 人，认证 10 名伙伴 FDE。</td>
+            <td>行业场景库 v1、客户 ROI 模板、3 个业绩分成或权益合作候选标的。</td>
+          </tr>
+          <tr>
+            <td><strong>6-12 个月</strong></td>
+            <td>累计 30+ 项目，年度运营客户开始出现，完成 2-3 个 PE 投后改造方案。</td>
+            <td>建立区域/行业合伙人规则，核心团队 15 人左右。</td>
+            <td>完成 1-2 个业绩分成或技术入股试点，明确 SPV/合资投资公司路径。</td>
+          </tr>
+          <tr>
+            <td><strong>12-18 个月</strong></td>
+            <td>冲刺 3,000 万年化收入，验证 1 亿收入模型，并形成可复用 PE 合作包。</td>
+            <td>30+ 认证伙伴 FDE，形成交付质量管理机制。</td>
+            <td>可复制行业包、客户成功体系、生态渠道分成协议与资本平台雏形。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="big-callout" style="margin-top:30px;">
+        <h3>下一轮需要重点讨论的 5 个决策</h3>
+        <p>融资规模、首批行业聚焦、FDE 合伙人分成、业绩分成与技术入股边界、首批 PE 合作伙伴、首批可公开标杆客户。</p>
+      </div>
+      <div class="slide-number">18</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Investor Ask</div>
+      <h2>我们要找的是能带来企业家入口和 PE 资产入口的战略投资人</h2>
+      <div class="grid grid-2">
+        <div class="card red">
+          <h3>理想投资人画像</h3>
+          <ul class="clean">
+            <li>能带来企业客户入口，尤其是 ToC 服务业、连锁品牌、本地生活、教育文旅与消费客户。</li>
+            <li>能连接 PE、产业资本和家办资源，帮助我们进入被投传统企业的投后改造场景。</li>
+            <li>能连接模型厂商、云厂商、Agent 平台、产业园区和战略资本。</li>
+            <li>理解 AI 服务早期会重交付，但长期价值在工作流入口、数据洞察、业绩分成和权益组合。</li>
+            <li>愿意帮助 MindsLeap 设计 SPV、合资投资公司、技术入股和未来基金路径。</li>
+          </ul>
+        </div>
+        <div class="card blue">
+          <h3>投资判断要点</h3>
+          <p class="lead" style="font-size:22px;margin-bottom:20px;">这轮投资投的不是单个咨询项目，而是 MindsLeap 用 AI 转型服务进入传统企业、筛选高潜力标的，并通过业绩分成、技术入股和 PE 合作分享企业 AI 原生化红利的能力。</p>
+          <p class="subtle">短期看会员、FDE 服务收入和标杆客户；中期看年度运营、场景库、伙伴 FDE 网络和 PE 投后试点；长期看权益组合、投资载体和 AI 供需生态的网络效应。</p>
+        </div>
+      </div>
+      <div class="slide-number">19</div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Sources & Assumptions</div>
+      <h2>研究依据、硅谷投资人洞察与待验证假设</h2>
+      <div class="two-col">
+        <div>
+          <h3>外部资料</h3>
+          <ol class="footnote-list">
+            <li><a href="https://www.techradar.com/pro/how-ai-is-exposing-enterprise-operating-models">TechRadar, 2026: AI adoption and enterprise operating model gap, citing McKinsey/MIT.</a></li>
+            <li><a href="https://www.businessinsider.com/bcg-report-ai-value-companies-2025-10">Business Insider, 2025: BCG report on AI value realization gap.</a></li>
+            <li><a href="https://www.businessinsider.com/palantir-forward-deployed-engineer-startups-silicon-valley-vibe-coding-ai-2025-6">Business Insider, 2025: startups adopting Palantir-style FDE playbook.</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Forward_deployed_engineer">Forward Deployed Engineer definition and origin reference.</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Artificial_intelligence_industry_in_China">China AI industry background and policy context.</a></li>
+          </ol>
+        </div>
+        <div>
+          <h3>内部依据与假设</h3>
+          <ul class="clean">
+            <li>网站服务定位：AI 俱乐部、AI 转型服务、FDE、创业加速、出海服务、媒体研究与活动。</li>
+            <li>早期牵引：两家餐饮客户已签约，单额 10-20 万；一家具备约 10 亿年营收的贸易企业进入机会池。</li>
+            <li>增长假设：10-20 万 Sprint 能升级为 50-150 万实施项目、30-120 万年度运营和结果绑定合作。</li>
+            <li>会议洞察：单纯 AI 服务会被模型能力和低价服务商侵蚀，必须从 vendor 升级为 partner，并进入客户经营结果。</li>
+            <li>硅谷投资人启发：线下俱乐部、短视频直播、培训咨询、FDE、业绩分成和股权合作可以构成一条连续转化链。</li>
+            <li>资本路径：第一阶段不急于设标准基金，可先探索 PE 投后合作、技术入股、SPV 或合资投资公司。</li>
+            <li>待验证：公开案例授权、项目 ROI 数据、业绩分成试点、技术入股试点、投资载体合规与 FDE 合伙人分成机制。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-number">20</div>
+    </section>
+  </deck-stage>
+</body>
+</html>

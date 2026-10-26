@@ -53,6 +53,23 @@ jobs:
             exit 1
           fi
 
+      - name: Verify event configuration before deployment
+        env:
+          EVENT_REGISTRATION_ENABLED: ${{ secrets.EVENT_REGISTRATION_ENABLED }}
+          EVENT_FEISHU_APP_ID: ${{ secrets.EVENT_FEISHU_APP_ID }}
+          EVENT_FEISHU_APP_SECRET: ${{ secrets.EVENT_FEISHU_APP_SECRET }}
+          EVENT_FEISHU_APP_TOKEN: ${{ secrets.EVENT_FEISHU_APP_TOKEN }}
+          EVENT_FEISHU_TABLE_ID: ${{ secrets.EVENT_FEISHU_TABLE_ID }}
+        run: |
+          set -euo pipefail
+          for name in EVENT_REGISTRATION_ENABLED EVENT_FEISHU_APP_ID EVENT_FEISHU_APP_SECRET EVENT_FEISHU_APP_TOKEN EVENT_FEISHU_TABLE_ID; do
+            if [ -z "${!name}" ]; then
+              echo "Missing required configuration: $name" >&2
+              exit 1
+            fi
+          done
+          case "$EVENT_REGISTRATION_ENABLED" in true|false) ;; *) exit 1 ;; esac
+
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
@@ -91,7 +108,8 @@ jobs:
               "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
           else
             # Compare file contents because checkout mtimes change on every run.
-            rsync -azc --delete \
+            # Preserve server-only archives while syncing the complete merged source.
+            rsync -azc \
               --exclude '.git' \
               --exclude '.github' \
               --exclude 'site/node_modules' \
@@ -111,18 +129,41 @@ jobs:
           RESEND_API_KEY: ${{ secrets.CN_RESEND_API_KEY }}
           CONTACT_EMAIL: ${{ secrets.CN_CONTACT_EMAIL }}
           CONTACT_FROM_EMAIL: ${{ secrets.CN_CONTACT_FROM_EMAIL }}
+          EVENT_REGISTRATION_ENABLED: ${{ secrets.EVENT_REGISTRATION_ENABLED }}
+          EVENT_FEISHU_APP_ID: ${{ secrets.EVENT_FEISHU_APP_ID }}
+          EVENT_FEISHU_APP_SECRET: ${{ secrets.EVENT_FEISHU_APP_SECRET }}
+          EVENT_FEISHU_APP_TOKEN: ${{ secrets.EVENT_FEISHU_APP_TOKEN }}
+          EVENT_FEISHU_TABLE_ID: ${{ secrets.EVENT_FEISHU_TABLE_ID }}
         run: |
           set -euo pipefail
           ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<EOF
           set -euo pipefail
           cd /www/wwwroot/mindsleap/site
-          cat > .env.production <<ENVEOF
+          umask 077
+          cat > .env.cn-managed <<ENVEOF
           SITE_URL=${SITE_URL}
           CONTACT_PUBLIC_EMAIL=${CONTACT_PUBLIC_EMAIL}
           RESEND_API_KEY=${RESEND_API_KEY}
           CONTACT_EMAIL=${CONTACT_EMAIL}
           CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL}
+          EVENT_REGISTRATION_ENABLED=${EVENT_REGISTRATION_ENABLED}
+          EVENT_FEISHU_APP_ID=${EVENT_FEISHU_APP_ID}
+          EVENT_FEISHU_APP_SECRET=${EVENT_FEISHU_APP_SECRET}
+          EVENT_FEISHU_APP_TOKEN=${EVENT_FEISHU_APP_TOKEN}
+          EVENT_FEISHU_TABLE_ID=${EVENT_FEISHU_TABLE_ID}
+          EVENT_ALLOWED_ORIGINS=https://www.mindsleap.cn,https://mindsleap.cn
           ENVEOF
+          python3 - <<'PYENV'
+          from pathlib import Path
+          current = Path('.env.production')
+          managed = Path('.env.cn-managed')
+          incoming = managed.read_text().splitlines()
+          keys = {line.split('=', 1)[0] for line in incoming if '=' in line}
+          retained = [line for line in current.read_text().splitlines() if line.split('=', 1)[0] not in keys] if current.exists() else []
+          managed.write_text('\n'.join(retained + incoming) + '\n')
+          managed.chmod(0o600)
+          managed.replace(current)
+          PYENV
           npm install --no-fund --no-audit
           rm -rf .next
           NODE_OPTIONS=--max-old-space-size=1536 npm run build
@@ -146,6 +187,8 @@ jobs:
           EOF
 
       - name: Verify CN public site
+        env:
+          EVENT_REGISTRATION_ENABLED: ${{ secrets.EVENT_REGISTRATION_ENABLED }}
         run: |
           set -euo pipefail
 
@@ -166,10 +209,15 @@ jobs:
             poster_html="$(curl -fsSL https://www.mindsleap.cn/poster || true)"
             poster_program_html="$(curl -fsSL https://www.mindsleap.cn/poster/ai-native-organization-program || true)"
             yusi_decks_html="$(curl -fsSL https://www.mindsleap.cn/decks/Yusi || true)"
+            event_html="$(curl -fsSL https://mindsleap.cn/event/2026november8 || true)"
+            event_status="$(curl -fsS https://mindsleap.cn/api/events/2026november8 || true)"
 
             if [ -n "$css_path" ] \
               && curl -fIs "https://www.mindsleap.cn$css_path" >/dev/null \
               && [ -n "$news_html" ] \
+              && grep -q 'id="registration-form"' <<< "$event_html" \
+              && grep -q '"enabled":'"$EVENT_REGISTRATION_ENABLED" <<< "$event_status" \
+              && curl -fsSL https://mindsleap.cn/privacy >/dev/null \
               && grep -q "boris-cherny-coding-solved-ai-ascent-2026" <<< "$article_html" \
               && grep -q 'href="/menu"' <<< "$product_html" \
               && grep -q 'href="/manuals"' <<< "$product_html" \

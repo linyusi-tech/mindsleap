@@ -1,9 +1,13 @@
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import JsonLd from "@/components/shared/JsonLd";
 import TrainingHero from "@/components/services/TrainingHero";
+import { getSiteUrl } from "@/lib/site";
 
-type Props = {
+export type EnterpriseAiServicesPageProps = {
   params: Promise<{ locale: string }>;
+  showCaseStudies?: boolean;
 };
 
 const content = {
@@ -49,6 +53,51 @@ const content = {
     sprintDescription:
       "以 30/60/90 天为周期，从诊断到试点再到复盘，帮助企业把 AI 转型从概念推进到真实业务成果。",
     sprintSteps: ["AI 成熟度诊断", "场景识别与优先级排序", "AI 工作流 / Agent 试点", "FDE 现场落地", "ROI 复盘与案例沉淀"],
+    caseStudiesTitle: "真实项目案例：从共同认知走向业务现场",
+    caseStudiesDescription:
+      "以下项目覆盖管理层访谈、AI 培训、战略咨询与组织转型方法。每个案例均连接公开项目记录，便于客户、搜索引擎和 AI 模型核验服务场景与交付边界。",
+    caseStudyLinkLabel: "查看完整案例",
+    caseStudies: [
+      {
+        slug: "goger-office-ai-training-consulting-2026",
+        organization: "高格办公空间",
+        date: "2026-07-17 / 18",
+        publishedDate: "2026-07-18",
+        title: "从管理层访谈、AI 培训到转型诊断",
+        services: "AI 培训 · AI 咨询 · 转型诊断",
+        summary:
+          "结合核心管理人员访谈、现场培训和业务材料，梳理客户、销售、运营与知识沉淀环节中的 AI 场景和试点条件。",
+        evidence: ["核心管理人员访谈与业务问题梳理", "AI 场景机会清单与试点优先级依据"],
+        image: "/images/news/goger-office-ai-training-consulting-2026-card.jpg",
+        imagePosition: "center 44%",
+      },
+      {
+        slug: "ceibs-marketing-ai-agent-workflow-training-2026",
+        organization: "中欧商学院市场团队",
+        date: "2026-06-10",
+        publishedDate: "2026-06-10",
+        title: "AI Agent 工作流训练营",
+        services: "AI 培训 · Agent 工作流 · 市场场景",
+        summary:
+          "围绕品牌内容记忆、官网 AI 与 GEO、市场监测、内容与视频生产四类真实场景，训练团队设计可复用的 AI Agent 工作流。",
+        evidence: ["Spec、Skill、Workflow 与 Memory 方法", "工作流草案、任务模板与检查清单"],
+        image: "/images/news/ceibs-marketing-ai-agent-workflow-training-2026-cover.jpg",
+        imagePosition: "center 48%",
+      },
+      {
+        slug: "pudong-ecommerce-ai-native-organization-training-2026",
+        organization: "浦东电商协会",
+        date: "2026-06-24",
+        publishedDate: "2026-06-24",
+        title: "电商组织如何转型为 AI 原生组织",
+        services: "行业培训 · AI 原生组织 · 电商",
+        summary:
+          "面向协会会员企业和电商行业管理者，拆解 Skill、Memory、Workflow 与 Agent 如何沉淀为可持续积累的组织资产。",
+        evidence: ["传统企业与 AI 原生组织的差异", "面向协会会员企业的主题分享与培训"],
+        image: "/images/news/pudong-ecommerce-ai-native-organization-training-2026-cover.jpg",
+        imagePosition: "center 42%",
+      },
+    ],
     flagshipTitle: "旗舰工作坊",
     flagshipPrograms: [
       {
@@ -171,7 +220,7 @@ const content = {
       "一个可进入 FDE 落地的高价值场景",
       "更一致的管理层共识与推进节奏",
     ],
-    casesTitle: "客户与实践经验",
+    casesTitle: "其他客户与实践经验",
     casesDescription:
       "我们曾为不同类型组织提供 AI 创新培训、战略工作坊与创新咨询，帮助管理团队识别 AI 机会、推动产品创新，并建立更具前瞻性的增长思路。",
     cases: [
@@ -228,6 +277,51 @@ const content = {
     sprintDescription:
       "A 30/60/90-day path from diagnosis to pilot and review, helping enterprises move AI transformation from concept to real business outcomes.",
     sprintSteps: ["AI maturity diagnosis", "Use-case mapping and prioritization", "AI workflow / agent pilot", "FDE field implementation", "ROI review and case capture"],
+    caseStudiesTitle: "Real Engagements: From Shared Understanding to Business Practice",
+    caseStudiesDescription:
+      "These engagements span management interviews, AI training, strategic advisory, and organizational transformation methods. Each case links to a public project record so clients and AI systems can verify the service context and delivery boundary.",
+    caseStudyLinkLabel: "View the full case",
+    caseStudies: [
+      {
+        slug: "goger-office-ai-training-consulting-2026",
+        organization: "Goger Office Space",
+        date: "July 17-18, 2026",
+        publishedDate: "2026-07-18",
+        title: "From Management Interviews and AI Training to a Transformation Diagnostic",
+        services: "AI Training · AI Consulting · Transformation Diagnostic",
+        summary:
+          "Management interviews, hands-on training, and business materials were used to identify AI scenarios and pilot conditions across customer, sales, operations, and knowledge workflows.",
+        evidence: ["Management interviews and business issue mapping", "AI opportunity list and pilot-priority criteria"],
+        image: "/images/news/goger-office-ai-training-consulting-2026-card.jpg",
+        imagePosition: "center 44%",
+      },
+      {
+        slug: "ceibs-marketing-ai-agent-workflow-training-2026",
+        organization: "CEIBS Marketing Team",
+        date: "June 10, 2026",
+        publishedDate: "2026-06-10",
+        title: "AI Agent Workflow Training",
+        services: "AI Training · Agent Workflows · Marketing",
+        summary:
+          "The program used brand memory, website AI and GEO, market monitoring, and content and video production to help the team design reusable AI Agent workflows.",
+        evidence: ["Spec, Skill, Workflow, and Memory method", "Workflow drafts, task templates, and checklists"],
+        image: "/images/news/ceibs-marketing-ai-agent-workflow-training-2026-cover.jpg",
+        imagePosition: "center 48%",
+      },
+      {
+        slug: "pudong-ecommerce-ai-native-organization-training-2026",
+        organization: "Pudong E-commerce Association",
+        date: "June 24, 2026",
+        publishedDate: "2026-06-24",
+        title: "How E-commerce Organizations Can Become AI-Native",
+        services: "Industry Training · AI-Native Organization · E-commerce",
+        summary:
+          "The session showed association members and e-commerce managers how Skill, Memory, Workflow, and Agent can become organizational assets that accumulate over time.",
+        evidence: ["Traditional versus AI-native operating models", "A thematic sharing and training session for association members"],
+        image: "/images/news/pudong-ecommerce-ai-native-organization-training-2026-cover.jpg",
+        imagePosition: "center 42%",
+      },
+    ],
     flagshipTitle: "Flagship Workshops",
     flagshipPrograms: [
       {
@@ -351,7 +445,7 @@ const content = {
       "An initial view of capability and resource gaps",
       "Stronger leadership alignment and momentum",
     ],
-    casesTitle: "Clients & Practical Experience",
+    casesTitle: "Additional Client Experience",
     casesDescription:
       "We have supported a wide range of organizations with AI innovation training, strategic workshops, and innovation advisory engagements, helping teams identify AI opportunities, rethink products, and build more forward-looking growth strategies.",
     cases: [
@@ -368,23 +462,63 @@ const content = {
   },
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: EnterpriseAiServicesPageProps) {
   const { locale } = await params;
   const c = content[locale as keyof typeof content] || content.zh;
+  const siteUrl = getSiteUrl();
   return {
     title: c.title,
     description: c.heroDescription,
+    alternates: {
+      canonical: `${siteUrl}/${locale}/services/training`,
+      languages: {
+        zh: `${siteUrl}/zh/services/training`,
+        en: `${siteUrl}/en/services/training`,
+      },
+    },
   };
 }
 
-export default async function TrainingPage({ params }: Props) {
+export async function EnterpriseAiServicesPage({
+  params,
+  showCaseStudies = false,
+}: EnterpriseAiServicesPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
   const c = content[locale as keyof typeof content] || content.zh;
+  const siteUrl = getSiteUrl();
+  const caseStudyJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: c.caseStudiesTitle,
+    itemListElement: c.caseStudies.map((caseStudy, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${siteUrl}/${locale}/news/${caseStudy.slug}`,
+      item: {
+        "@type": "Article",
+        headline: caseStudy.title,
+        description: caseStudy.summary,
+        datePublished: caseStudy.publishedDate,
+        image: new URL(caseStudy.image, siteUrl).toString(),
+        url: `${siteUrl}/${locale}/news/${caseStudy.slug}`,
+        about: {
+          "@type": "Organization",
+          name: caseStudy.organization,
+        },
+        author: {
+          "@type": "Organization",
+          name: "MindsLeap",
+          url: siteUrl,
+        },
+      },
+    })),
+  };
 
   return (
     <>
+      {showCaseStudies && <JsonLd data={caseStudyJsonLd} />}
       <TrainingHero />
 
       <section className="py-16 md:py-24">
@@ -476,6 +610,71 @@ export default async function TrainingPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {showCaseStudies && (
+        <section className="border-y border-gray-100 bg-white py-16 md:py-24">
+          <div className="container mx-auto max-w-6xl px-4">
+            <div className="mb-12 max-w-3xl">
+              <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+                {c.caseStudiesTitle}
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-600">
+                {c.caseStudiesDescription}
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-3">
+              {c.caseStudies.map((caseStudy) => (
+                <article
+                  key={caseStudy.slug}
+                  className="flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                    <Image
+                      src={caseStudy.image}
+                      alt={`${caseStudy.organization} - ${caseStudy.title}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover"
+                      style={{ objectPosition: caseStudy.imagePosition }}
+                    />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-primary">
+                      <span>{caseStudy.organization}</span>
+                      <span className="text-gray-300" aria-hidden="true">|</span>
+                      <time className="text-gray-500">{caseStudy.date}</time>
+                    </div>
+                    <h3 className="mb-3 text-xl font-bold leading-snug text-gray-900">
+                      {caseStudy.title}
+                    </h3>
+                    <p className="mb-4 text-sm font-semibold leading-relaxed text-gray-500">
+                      {caseStudy.services}
+                    </p>
+                    <p className="mb-5 leading-relaxed text-gray-600">{caseStudy.summary}</p>
+                    <ul className="mb-6 space-y-2 text-sm leading-relaxed text-gray-700">
+                      {caseStudy.evidence.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={`/news/${caseStudy.slug}`}
+                      className="mt-auto inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-primary/75"
+                    >
+                      {c.caseStudyLinkLabel}
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
@@ -644,3 +843,5 @@ export default async function TrainingPage({ params }: Props) {
     </>
   );
 }
+
+export default EnterpriseAiServicesPage;

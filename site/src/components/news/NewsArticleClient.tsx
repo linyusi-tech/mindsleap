@@ -14,6 +14,7 @@ type Props = {
 
 export default function NewsArticleClient({ post, children }: Props) {
   const t = useTranslations("news");
+  const imageMatchesArticleWidth = post.imageLayout === "article";
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -56,15 +57,15 @@ export default function NewsArticleClient({ post, children }: Props) {
 
       {/* Featured Image */}
       {post.image && (
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="relative h-48 md:h-72 rounded-2xl overflow-hidden shadow-lg">
+        <div className={`${imageMatchesArticleWidth ? "max-w-4xl" : "max-w-3xl"} mx-auto px-4 sm:px-6 lg:px-8 py-6`}>
+          <div className={`relative ${post.imageLayout === "poster" ? "aspect-video" : "h-48 md:h-72"} rounded-2xl overflow-hidden shadow-lg`}>
             <Image
               src={post.image}
               alt={post.title}
               fill
               className="object-cover"
               style={{ objectPosition: post.imagePosition ?? "center" }}
-              sizes="(max-width: 768px) 100vw, 768px"
+              sizes={imageMatchesArticleWidth ? "(max-width: 1024px) 100vw, 896px" : "(max-width: 768px) 100vw, 768px"}
               priority
             />
           </div>
@@ -75,7 +76,7 @@ export default function NewsArticleClient({ post, children }: Props) {
       <article className="pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* MDX Content */}
-          <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-headings:text-xl prose-p:text-gray-600 prose-a:text-primary prose-hr:hidden">
+          <div className="news-article-prose prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-headings:text-xl prose-p:text-gray-600 prose-a:text-primary prose-hr:hidden">
             {children}
           </div>
 

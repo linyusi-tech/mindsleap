@@ -1,0 +1,111 @@
+---
+title: "Two Months Later, He Stopped Opening His IDE"
+date: "2026-07-01"
+excerpt: "Spotify's engineering lead revealed he completely abandoned his IDE within two months. The company, with over 20 million lines of code, completes 4,500 production deployments daily — and their internal prototype store even features prototypes built by the co-CEO."
+category: "ai-insights"
+showOnHomepage: true
+locale: "en"
+author: "Lincoln Wang"
+image: "/images/news/spotify-agents-20m-lines-code-2026.jpg"
+sourceVideo: "https://www.youtube.com/watch?v=9DHZLw5653E"
+---
+
+**Author: Lincoln Wang | Founder & CEO, MindsLeap | Partner and CEO, Founders Space China | Founder, MindsLeap Founders AI Club**
+
+"I thought it would take at least two years. But two months in, I found myself no longer using an IDE."
+
+The person who said this is Niklas Gustavsson, Spotify's Head of Engineering. In a conversation, he recalled how last September someone predicted that by year's end nobody would be using an IDE anymore. His reaction at the time was "that's insane." Yet two months later, his own way of working had undergone a change unseen in thirty years.
+
+This isn't a story about tool preferences. It's a signal about how enterprises are being reshaped by AI agents at the engineering organization level.
+
+## The Codebase Grows Faster Than the Team
+
+Five or six years ago, Spotify noticed a troubling trend: their codebase was growing seven times faster than their engineering headcount.
+
+What does that mean? More and more code that nobody truly owns. And Spotify never lacks new ideas to ship — being dragged down by maintenance work is unacceptable to them.
+
+They did something that sounds almost brute-force: instead of distributing Java upgrades or API migration tasks across hundreds of teams working manually on thousands of components, they started doing batch changes across the entire codebase.
+
+Each migration takes months. They can only do about ten per year. They can barely keep up with supported framework versions.
+
+This is the starting point of what Niklas calls "Fleet Management" — not chasing trends, but because the old way simply stopped working.
+
+## The Trial of Twenty Million Lines
+
+Spotify's backend monorepo exceeds 20 million lines of code. Niklas admits he was initially worried whether AI agents could work at that scale. Previous tools had stumbled on indexing alone.
+
+But the results were surprising.
+
+"Claude performs remarkably well in a codebase like this. One key thing we've discovered is how good it is at looking at other code in the repo for inspiration."
+
+His daily routine now involves running five to ten terminal sessions simultaneously, with multiple AI agents working in parallel in the background. A few sessions are permanently assigned to the monorepo; occasionally he needs to jump into a separate smaller repo and spins up a new session.
+
+This isn't some sophisticated architectural trick. It's a way of working validated in a real, massive-scale codebase.
+
+## They Used to Need a "Judge." Then They Didn't.
+
+Spotify has an internal system called Honk for automating code changes. The architecture isn't complex — it runs on an AI agent SDK inside Kubernetes containers, has a set of tool-calling permissions, and can run CI builds and validate on both Linux and macOS.
+
+But its evolution path is worth noting.
+
+In early versions, Honk had a "judge" module — another model that evaluated whether the AI agent's code output was correct. This judge lifted PR success rates from 20-30% to 80%.
+
+"Then we removed the judge. The models got good enough."
+
+This isn't a small change. It means that in specific domains, AI agents have moved from "needing human oversight" to "self-verifying." Niklas repeatedly emphasizes the importance of validation, but his approach isn't having humans review code — it's automated tests and CI builds.
+
+This also forced an organizational shift: previously teams could do manual review on every PR, so test automation could be somewhat rough. Now that AI agent-merged code might never pass through human eyes, test quality must be in place from the start.
+
+## The Confidence of 4,500 Daily Deployments
+
+Spotify runs approximately 4,500 production deployments per day.
+
+This number alone illustrates a truth many overlook: reliability and speed are not opposites. If you want to go faster, what you need isn't more overtime — it's automating quality practices, encoding them into scripts, rules, and tools that AI agents can execute.
+
+"We kept quality metrics flat while significantly improving speed. But it's not free — we needed to invest in test automation."
+
+This is more of a signal: when AI agents become new participants in the codebase, the foundational investments originally made for engineer productivity — standardization, consistency, test coverage — equally make AI agents stronger.
+
+"If there are ten different ways to write things in the codebase, Claude gets more confused. The more consistent we are, the better the AI agents perform."
+
+## The Co-CEO Is Building Prototypes
+
+The most surprising part of this conversation wasn't the technical details — it was a product story.
+
+Spotify built an internal prototype store. Engineers can express ideas in natural language, have AI agents implement them directly, and then share the prototypes in the store for colleagues to try. The store now includes prototypes built by the co-CEO.
+
+"They always have some idea in mind, but the entire engineering team is working on other things. Now they can validate it much faster than before — testing an idea in a day instead of weeks or months."
+
+This isn't non-technical people "playing" with AI. This is the most senior leadership using the shortest possible path to validate business hypotheses. Before, you needed to convince a team, get it scheduled, wait for production. Now you express an idea and see real data running in hours.
+
+## The Questions Haven't Changed. The Solutions Have.
+
+Niklas has a background in molecular biology. He started programming during his PhD because genomics sequencing was "big data." He still does competitive programming in his spare time because "the pure mental challenge is fun."
+
+He worried that if AI agents solved coding, would he lose the joy of problem-solving?
+
+"I was wrong. What I love is solving problems — and the way I solve them isn't the core part. I can now produce more value and tackle problems I couldn't before. I can jump into codebases that used to take days or weeks to understand and start contributing."
+
+Every leader should read this paragraph.
+
+True problem awareness — understanding what users need, judging what's worth doing, knowing what not to do — these don't get outsourced. What gets automated is the implementation path, not the judgment itself.
+
+For Chinese entrepreneurs watching from the sidelines, part of the map is already unfolded. Standardization and consistency aren't bureaucracy — they're prerequisites for AI agents to deliver value. Test automation isn't a cost center — it's the safety net that lets enterprises trust agents to work autonomously. And companies that can turn ideas into prototypes fastest, validating hypotheses with real data, are accumulating a new kind of organizational speed.
+
+You don't need to wait until everyone stops opening their IDE. What you need is to start today: Is your codebase too messy? Are your tests too thin? Is the path from idea to prototype too long?
+
+Because when AI agents truly enter your codebase, what they see isn't your vision — it's the engineering habits you've left behind over the past decade.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI-native organization transformation accelerator.
+
+In deep partnership with Silicon Valley innovation incubator Founders Space, we continuously connect cutting-edge global AI insights, the Silicon Valley tech entrepreneurship ecosystem, and real transformation scenarios for Chinese entrepreneurs.
+
+Around the theme of AI-native organization building, MindsLeap is constructing an ecosystem for entrepreneurs, startup founders, AI engineers, industry experts, and investors — helping enterprises move AI from cognition, strategy, and tools into real organizational capabilities, business processes, product innovation, and growth systems.
+
+---
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

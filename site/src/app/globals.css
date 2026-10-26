@@ -70,3 +70,9 @@ body {
 .animate-marquee {
   animation: marquee 40s linear infinite;
 }
+
+/* Article quotes already carry their own punctuation in MDX. */
+.news-article-prose :where(blockquote p:first-of-type)::before,
+.news-article-prose :where(blockquote p:last-of-type)::after {
+  content: none;
+}

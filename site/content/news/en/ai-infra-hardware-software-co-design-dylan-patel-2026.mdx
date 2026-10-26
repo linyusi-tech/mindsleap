@@ -1,0 +1,111 @@
+---
+title: "When Cloud Computing's Moat Becomes a Liability: AI Infrastructure Rewrites the Rules"
+date: "2026-06-30"
+excerpt: "Dylan Patel reveals a counterintuitive phenomenon in his Sequoia Capital interview: traditional cloud providers' core competencies in the AI era are becoming liabilities. Meanwhile, Jensen Huang is reshaping the entire industry landscape with a 'chum strategy.'"
+category: "ai-insights"
+showOnHomepage: true
+locale: "en"
+author: "Lincoln Wang"
+image: "/images/news/ai-infra-hardware-software-co-design-dylan-patel-2026.jpg"
+sourceVideo: "https://www.youtube.com/watch?v=f6D_aiy8qyU"
+---
+
+**Author: Lincoln Wang | Founder & CEO, MindsLeap | Partner and CEO, Founders Space China | Founder, MindsLeap Founders AI Club**
+
+"The first neural network I ever trained learned by watching customers at a gas station."
+
+Dylan Patel half-jokingly recalls working at his family's gas station at age twelve. He was too short to reach the cigarettes displayed above the counter, so he had to predict which brand to move the ladder to based on each customer's age, clothing, and ethnicity before they even spoke. Gray-haired ladies with curly hair walked toward Camels, young professionals toward menthols — by the time they reached the counter, he was already on the right ladder.
+
+"If I waited for them to speak before moving the ladder, I'd have to climb down and back up. Being ready directly is a completely different level of efficiency."
+
+This "prediction model" developed at the gas station partly explains what Dylan later did: while everyone was fixated on GPU compute numbers, he saw how hardware, software, supply chains, and organizational capabilities were being rewoven together. His company SemiAnalysis grew from this full-stack observation.
+
+In his Sequoia Capital interview, he revealed a structural change that's happening but being overlooked by most: the competitive rules of cloud computing are being completely rewritten by AI.
+
+## How the Giants' Moat Became a Liability
+
+In 2023, Dylan wrote a report that made Amazon extremely unhappy, titled "Amazon Web Crisis."
+
+In the traditional cloud era, Amazon got almost everything right. Nitro cards achieved tenant isolation, offloading the virtualization layer from CPUs. They bought raw NAND flash to manufacture their own SSDs, driving down storage costs. Graviton custom CPUs further reduced per-core costs. Combined, these capabilities made Amazon invincible in the traditional cloud world.
+
+But in the AI cloud era, these same strengths became problems.
+
+Nitro card performance negatively impacts GPU compute and still hasn't fully caught up. Security isolation mechanisms became irrelevant — nobody rents a single GPU from an eight-card server, or a single card from a 72-card rack. Customers rent entire racks, often many racks, on long-term contracts, not hourly.
+
+More critically, the custom networking architectures Google and Amazon designed for traditional CPU workloads actually perform worse in AI scenarios.
+
+"The GPU rental market's mechanics mean much of the expertise these giants accumulated is not just useless — some of it is actually a liability."
+
+When the market's fundamental assumption shifts from "fine-grained, multi-tenant, elastic rental" to "full-rack delivery, long-term lock-in," the old-world champions are holding a toolbox designed for the wrong track.
+
+## Those Who "Didn't Know the Rules" Are Running Ahead
+
+This is precisely the root of the Neocloud opportunity.
+
+CoreWeave's GPU compute objectively outperforms Amazon, Google, and Microsoft in raw performance, with test data and reliability already validated. But why do customers still choose the giants? One key difference is capital turnover speed.
+
+Google typically starts pre-selling before having actual capacity, signing contracts six months early, then using those signed contracts to secure debt financing, then paying for equipment already ordered. SpaceX's logic is completely different: "Don't wait, run now, buy directly."
+
+"When you have a balance sheet that supports this kind of instant delivery, your revenue efficiency per megawatt is significantly higher."
+
+SpaceX has another advantage many underestimate. When asked whether giving SpaceX one gigawatt of power or giving another company one gigawatt would be used better, Dylan's answer was surprising:
+
+"They might utilize the hardware better than most people. People underestimate the networking experience they accumulated in Starlink and the power management expertise from Tesla."
+
+These capabilities weren't learned from textbooks — they were forged in real engineering trenches. Building Starlink forced them to solve large-scale low-latency networking problems. Building Tesla forced them to understand every aspect of power systems. When these experiences transfer to AI data centers, they become invisible competitive barriers.
+
+## What Chess Game Is Jensen Playing?
+
+On the surface, Jensen Huang's recent moves are hard to understand: investing in seemingly nascent AI labs everywhere, traveling the world convincing others to invest in these companies, even showing unusual enthusiasm for Chinese labs.
+
+But the logic is actually clear.
+
+"Jensen absolutely hates a world where all hyperscalers hold the话语权."
+
+If the future only has OpenAI, Anthropic, and Google models, his position is dangerous. If only hyperscalers are building their own compute, his position is equally dangerous. So he needs to direct GPU allocation toward Neoclouds, backstop their cluster builds, and do everything possible to create a multipolar world.
+
+"Five years from now, the existence of CoreWeave and Crusoe means Google TPU gets weaker, means Amazon Trainium gets weaker. More inference work done by non-closed model labs — that's better for NVIDIA."
+
+Dylan used a vivid metaphor: Jensen's approach is like chumming the water — the best fish will naturally rise. Some will die, many will die, but some will grow into truly strong teams.
+
+Crusoe's founding team were crypto people who pivoted to data centers and natural gas flaring. CoreWeave started as a group from a New York hedge fund, also did crypto. Many players who started alongside them have disappeared, but those surviving are proving this "unconventional" background isn't a disadvantage — it's a different capability structure.
+
+Thinking Machines, less than half a year old, has already reached hundreds of millions in annual recurring revenue, despite media full of talent departure reports. That speed itself is a signal.
+
+## Signs of Capability Reversal
+
+The most easily misunderstood point in this narrative: Neocloud success looks like merely a product of capital games, an artificial bubble Jensen created to counterbalance hyperscalers.
+
+This view misses deeper structural changes.
+
+Hyperscaler data center teams function fine under predictable construction rhythms, but when demand suddenly doubles, they stumble and have to go back to Neoclouds for capacity. Those who came from crypto mining operations are accustomed to violently volatile markets, accustomed to delivering under extreme uncertainty. These two organizational genes perform very differently when facing AI infrastructure's explosive demand.
+
+"In a violently volatile market, what you learn is completely different."
+
+This isn't saying Neoclouds will completely replace hyperscalers. It's more of a signal: when an industry's technological paradigm fundamentally shifts, what was previously defined as "core competency" may be becoming a drag. And those previously considered "irregular" or "mainstream" teams may恰好 carry the capability combination the new track requires.
+
+## What This Map Means for Business
+
+Returning to the business level, this story's message isn't "go invest in data centers" — it's reminding us to notice a more universal phenomenon.
+
+When your industry is undergoing a fundamental technology paradigm shift, ask yourself first: those capabilities we relied on for past success — processes, architectures, organizational inertia — under the new rules, are they helping us or slowing us down?
+
+Amazon's Nitro card didn't do anything wrong. It was just used in a world that no longer needs it. CoreWeave's hedge fund background isn't a plus — it just happened to make them less fearful of "fast delivery, heavy leverage."
+
+AI is rewriting not just compute supply methods, but the entire industry's capability evaluation system.
+
+Jensen's multipolar strategy gives new players a survival window. But this window won't stay open forever. For enterprises that accumulated massive assets under old rules, the real challenge isn't catching up to newcomers — it's admitting the old map is no longer sufficient, then having the courage to redraw it.
+
+Because in the next cycle, what determines winners may not be who's better at running the old track, but who first discovers the track has changed.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI-native organization transformation accelerator.
+
+In deep partnership with Silicon Valley innovation incubator Founders Space, we continuously connect cutting-edge global AI insights, the Silicon Valley tech entrepreneurship ecosystem, and real transformation scenarios for Chinese entrepreneurs.
+
+---
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

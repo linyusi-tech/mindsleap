@@ -44,52 +44,76 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        { source: "/poster/future-founders-winter-camp", destination: "/poster/future-founders-winter-camp/index.html" },
+        { source: "/poster/future-founders-winter-camp/", destination: "/poster/future-founders-winter-camp/index.html" },
+        { source: "/poster/ai-native-organization-program", destination: "/poster/ai-native-organization-program/index.html" },
+        { source: "/poster/ai-native-organization-program/", destination: "/poster/ai-native-organization-program/index.html" },
+        { source: "/manuals/codex-installation", destination: "/manuals/codex-installation/index.html" },
+        { source: "/manuals/codex-installation/", destination: "/manuals/codex-installation/index.html" },
+        { source: "/codex-installation", destination: "/manuals/codex-installation/index.html" },
+        { source: "/codex-installation/", destination: "/manuals/codex-installation/index.html" },
+        { source: "/decks/Yusi/gaoge-agent-training-deck", destination: "/decks/Yusi/gaoge-agent-training-deck/index.html" },
+        { source: "/decks/Yusi/gaoge-agent-training-deck/", destination: "/decks/Yusi/gaoge-agent-training-deck/index.html" },
+        { source: "/decks/Yusi/entrepreneur-second-brain", destination: "/decks/Yusi/entrepreneur-second-brain/index.html" },
+        { source: "/decks/Yusi/entrepreneur-second-brain/", destination: "/decks/Yusi/entrepreneur-second-brain/index.html" },
+        { source: "/program", destination: "/program/index.html" },
+        { source: "/program/", destination: "/program/index.html" },
+        { source: "/program/ai-native-organization", destination: "/program/ai-native-organization/index.html" },
+        { source: "/program/ai-native-organization/", destination: "/program/ai-native-organization/index.html" },
+        { source: "/office", destination: "/office/index.html" },
+        { source: "/office/", destination: "/office/index.html" },
         { source: "/design-system", destination: "/design-system/index.html" },
         { source: "/design-system/", destination: "/design-system/index.html" },
         { source: "/product", destination: "/product/index.html" },
         { source: "/product/", destination: "/product/index.html" },
+        {
+          source: "/product/ai-club",
+          destination: "/product/ai-club/index.html",
+        },
+        {
+          source: "/product/ai-club/",
+          destination: "/product/ai-club/index.html",
+        },
+        {
+          source: "/product/member-directory",
+          destination: "/product/member-directory/index.html",
+        },
+        {
+          source: "/product/member-directory/",
+          destination: "/product/member-directory/index.html",
+        },
+        {
+          source: "/product/enterprise-ai-growth-suite",
+          destination: "/product/enterprise-ai-growth-suite/index.html",
+        },
+        {
+          source: "/product/enterprise-ai-growth-suite/",
+          destination: "/product/enterprise-ai-growth-suite/index.html",
+        },
+        {
+          source: "/product/mindsleap-company-intro",
+          destination: "/product/mindsleap-company-intro/index.html",
+        },
+        {
+          source: "/product/mindsleap-company-intro/",
+          destination: "/product/mindsleap-company-intro/index.html",
+        },
+        { source: "/proposal", destination: "/proposal/index.html" },
+        { source: "/proposal/", destination: "/proposal/index.html" },
+        {
+          source: "/proposal/goger-ai-transformation-diagnostic",
+          destination: "/proposal/goger-ai-transformation-diagnostic/index.html",
+        },
+        {
+          source: "/proposal/goger-ai-transformation-diagnostic/",
+          destination: "/proposal/goger-ai-transformation-diagnostic/index.html",
+        },
+        { source: "/poster", destination: "/poster/index.html" },
+        { source: "/poster/", destination: "/poster/index.html" },
         { source: "/menu", destination: "/menu/index.html" },
         { source: "/menu/", destination: "/menu/index.html" },
         { source: "/manuals", destination: "/manuals/index.html" },
         { source: "/manuals/", destination: "/manuals/index.html" },
-        { source: "/product/ai-club", destination: "/product/ai-club/index.html" },
-        { source: "/product/ai-club/", destination: "/product/ai-club/index.html" },
-        { source: "/product/enterprise-ai-growth-suite", destination: "/product/enterprise-ai-growth-suite/index.html" },
-        { source: "/product/enterprise-ai-growth-suite/", destination: "/product/enterprise-ai-growth-suite/index.html" },
-        { source: "/product/member-directory", destination: "/product/member-directory/index.html" },
-        { source: "/product/member-directory/", destination: "/product/member-directory/index.html" },
-        { source: "/product/mindsleap-company-intro", destination: "/product/mindsleap-company-intro/index.html" },
-        { source: "/product/mindsleap-company-intro/", destination: "/product/mindsleap-company-intro/index.html" },
-        { source: "/proposal", destination: "/proposal/index.html" },
-        { source: "/proposal/", destination: "/proposal/index.html" },
-        { source: "/poster", destination: "/poster/index.html" },
-        { source: "/poster/", destination: "/poster/index.html" },
-        { source: "/poster/future-founders-winter-camp", destination: "/poster/future-founders-winter-camp/index.html" },
-        { source: "/poster/future-founders-winter-camp/", destination: "/poster/future-founders-winter-camp/index.html" },
-        {
-          source: "/poster/ai-native-organization-program",
-          destination: "/poster/ai-native-organization-program/index.html",
-        },
-        {
-          source: "/poster/ai-native-organization-program/",
-          destination: "/poster/ai-native-organization-program/index.html",
-        },
-        {
-          source: "/manuals/codex-installation",
-          destination: "/manuals/codex-installation/index.html",
-        },
-        {
-          source: "/manuals/codex-installation/",
-          destination: "/manuals/codex-installation/index.html",
-        },
-        {
-          source: "/codex-installation",
-          destination: "/manuals/codex-installation/index.html",
-        },
-        {
-          source: "/codex-installation/",
-          destination: "/manuals/codex-installation/index.html",
-        },
         {
           source: "/poster/ai-hermes-workshop",
           destination: "/poster/ai-hermes-workshop/index.html",
@@ -97,6 +121,22 @@ const nextConfig: NextConfig = {
         {
           source: "/poster/ai-hermes-workshop/",
           destination: "/poster/ai-hermes-workshop/index.html",
+        },
+        {
+          source: "/poster/ai-club",
+          destination: "/poster/ai-club/index.html",
+        },
+        {
+          source: "/poster/ai-club/",
+          destination: "/poster/ai-club/index.html",
+        },
+        {
+          source: "/poster/ai-hermes-workshop-template",
+          destination: "/poster/ai-hermes-workshop-template/index.html",
+        },
+        {
+          source: "/poster/ai-hermes-workshop-template/",
+          destination: "/poster/ai-hermes-workshop-template/index.html",
         },
         {
           source: "/poster/arctic-expedition",
@@ -199,6 +239,14 @@ const nextConfig: NextConfig = {
           destination: "/proposal/enterprise-ai-growth-light-consulting/index.html",
         },
         {
+          source: "/proposal/enterprise-ai-growth-suite",
+          destination: "/proposal/enterprise-ai-growth-suite/index.html",
+        },
+        {
+          source: "/proposal/enterprise-ai-growth-suite/",
+          destination: "/proposal/enterprise-ai-growth-suite/index.html",
+        },
+        {
           source: "/proposal/mindsleap-fde-bp",
           destination: "/proposal/mindsleap-fde-bp/index.html",
         },
@@ -208,6 +256,8 @@ const nextConfig: NextConfig = {
         },
         { source: "/decks", destination: "/decks/index.html" },
         { source: "/decks/", destination: "/decks/index.html" },
+        { source: "/case-login", destination: "/case-login/index.html" },
+        { source: "/case-login/", destination: "/case-login/index.html" },
         { source: "/case", destination: "/case/index.html" },
         { source: "/case/", destination: "/case/index.html" },
         {
@@ -217,6 +267,14 @@ const nextConfig: NextConfig = {
         {
           source: "/case/zhidu-brand-strategy/",
           destination: "/case/zhidu-brand-strategy/index.html",
+        },
+        {
+          source: "/case/fushanji-brand-strategy",
+          destination: "/case/fushanji-brand-strategy/index.html",
+        },
+        {
+          source: "/case/fushanji-brand-strategy/",
+          destination: "/case/fushanji-brand-strategy/index.html",
         },
         {
           source: "/case/zhidu-brand-strategy/report",
@@ -301,22 +359,6 @@ const nextConfig: NextConfig = {
         {
           source: "/decks/Yusi/ai-practice-training-deck/",
           destination: "/decks/Yusi/ai-practice-training-deck/index.html",
-        },
-        {
-          source: "/decks/Yusi/gaoge-agent-training-deck",
-          destination: "/decks/Yusi/gaoge-agent-training-deck/index.html",
-        },
-        {
-          source: "/decks/Yusi/gaoge-agent-training-deck/",
-          destination: "/decks/Yusi/gaoge-agent-training-deck/index.html",
-        },
-        {
-          source: "/decks/Yusi/entrepreneur-second-brain",
-          destination: "/decks/Yusi/entrepreneur-second-brain/index.html",
-        },
-        {
-          source: "/decks/Yusi/entrepreneur-second-brain/",
-          destination: "/decks/Yusi/entrepreneur-second-brain/index.html",
         },
       ],
       afterFiles: [],

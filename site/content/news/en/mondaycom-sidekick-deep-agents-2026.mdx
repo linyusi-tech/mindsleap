@@ -1,0 +1,95 @@
+---
+title: "After 200 Tools Crashed the System, monday.com Reunderstood AI Agents"
+date: "2026-06-28"
+excerpt: 'monday.com AI assistant Sidekick tried to cover all scenarios with 200 tools — and the system "blew up in front of us." Their final answer was not more agents, but a smarter orchestrator, an on-demand tool discovery mechanism, and a universal toolbox that writes code.'
+category: "ai-insights"
+showOnHomepage: true
+locale: "en"
+author: "Lincoln Wang"
+image: "/images/news/mondaycom-sidekick-deep-agents-2026.jpg"
+sourceVideo: "https://www.youtube.com/watch?v=c2fLLS7np3Y"
+---
+
+**Author: Lincoln Wang | Founder & CEO, MindsLeap | Partner and CEO, Founders Space China | Founder, MindsLeap Founders AI Club**
+
+"It was full of promise, but it ultimately didn't work — it blew up right in front of us."
+
+At the 2026 Interrupt conference, monday.com team lead Omri stood on stage and openly复盘ed their failure. Sidekick V2 was their second-generation AI assistant, using a multi-agent architecture where each business domain had its own MCP service and dedicated tools. The engine was packed with over 200 tools. The result? Context pollution confused the model, costs skyrocketed, and different teams' needs conflicted with each other.
+
+This isn't some distant lab story. monday.com is an AI work platform serving enterprises globally — their decisions directly affect millions of users' daily experience. And the pitfalls they stepped into are becoming a shared lesson for every company trying to build enterprise-grade AI systems today.
+
+## From "Managing Work" to "Doing Work for You"
+
+monday.com's ambition underwent a fundamental shift over the past year. Previously, they helped enterprises manage work with Kanban boards — finding sales leads for you, entering candidate information into systems for you. Now, their SDR agent can directly call potential customers to pitch products, and the recruiting agent can go to LinkedIn itself to screen candidates and send emails.
+
+In Omri's words: "Why should we just manage work for you? Let's just do it for you."
+
+This isn't feature stacking — it's product form redefinition. When AI shifts from a system of record to a system of execution, enterprise business processes, organizational structures, and role matching all get reshuffled. But for monday.com itself, the first step was making their AI assistant reliable enough not to fail at critical moments.
+
+## Why 200 Tools Became a Disaster
+
+Sidekick V2's approach was intuitively sound: each product line — CRM, customer service, marketing — has its own terminology and scenarios, so give each domain dedicated tools and prompts. But in practice, one engine hosting 200+ tools with infinitely expanding context left the model overwhelmed.
+
+Omri described it bluntly: "Context pollution, the model got confused, costs spiked. Each domain has different needs."
+
+This maps to a classic business mistake: when you see multiple segmented needs, the first instinct is to build more specialized things. But the relationship between AI system complexity and tool count isn't linear — the more tools, the more noise in model selection, and error probability grows exponentially.
+
+They made a decision that seemed counterintuitive at the time: scrap the entire architecture and rewrite from scratch.
+
+## A Smart Orchestrator Beats a Swarm of Busy Executors
+
+The rewrite direction was one word: Deep Agent.
+
+monday.com's choice logic was simple — rather than having hundreds of specialized agents shouting at each other creating chaos, cultivate one highly concentrated brain. Omri said: "We wanted a smart orchestrator, not a chaotic swarm."
+
+The belief behind this judgment: today's models are smart enough to handle planning, memory management, and subagent scheduling themselves. What you need to do isn't help the model think through every step — it's ensure it doesn't get overwhelmed by too many options at the starting gate.
+
+This is why progressive disclosure became their architecture's core principle. Don't throw everything at the model at once — let it discover things on demand.
+
+## Three-Layer Tool Discovery: On-Demand Engineering Wisdom
+
+How specifically? monday.com designed a three-layer tool classification system.
+
+Layer one is foundational tools, covering roughly 50-60% of common use cases — web search, image generation, knowledge base retrieval, these are always visible to the model. Layer two is contextual tools, exposing only functions relevant to your current domain: if you're looking at CRM docs, you only see CRM tools, not marketing module stuff. Layer three is the most clever — lazy-loaded tools. All remaining tools sit in a directory with roughly 20-word short descriptions, activated only when the model needs them.
+
+This means the model faces only a small number of clear options most of the time, instead of being overwhelmed by 200 tool names.
+
+Omri also revealed next steps: putting all these tool descriptions into a semantic database, replacing simple list matching with semantic search. Tool discovery shifts from "browsing a menu" to "asking a question."
+
+## The Code-Writing Agent Replaced All Specialized Tools
+
+The most surprising design in the entire talk: rather than building specialized tools for every possible use case, let the agent write code itself.
+
+monday.com equipped Sidekick with the ability to run Python code in a sandbox. They used LangChain's sandbox environment — securely isolated, write-and-run. The effect? "A secure sandbox that can replace hundreds of tools."
+
+Omri gave a real example: a user wanted to find a new office in London, requiring locations within a 20-minute drive from Big Ben during specific time periods. Sidekick called Google APIs and mapping services, wrote its own algorithm to filter qualifying properties. Without code capability, this would require building an entire separate toolchain.
+
+When agents gain the ability to write and execute code, their behavioral boundaries expand from predefined operations to any computable logic. For enterprises, this means you don't need to anticipate all user needs — you just need to provide a secure execution environment and sufficient context.
+
+## Systems That Self-Heal Are Enterprise-Grade
+
+The biggest difference between enterprise and consumer products: failure costs are too high. Omri's number: 94% self-healing success rate.
+
+How did they achieve this? Not by pursuing perfect model accuracy, but by designing a healing middleware. When an agent gets stuck, the system detects it and switches to another model; when memory overflows, the system automatically expands resources. In Omri's words: "Real enterprise workflows shouldn't fail frequently."
+
+This is a completely different engineering philosophy: accept the premise that large models will make mistakes, then design fault tolerance and self-healing at the system level, rather than trying to eliminate all hallucinations at the model level.
+
+## Judgment and Boundaries
+
+monday.com's exploration sent several clear signals. Tool discovery matters more than tool stacking; progressive disclosure is the core approach to solving context pollution. Code execution capability is becoming standard agent infrastructure, not a differentiating feature. Self-healing mechanisms aren't nice-to-have — they're the entry threshold for enterprise AI systems.
+
+But these practices remain early-stage. 94% self-healing sounds high, but the remaining 6% in enterprise scenarios could mean critical business outages. Agent code-writing ability is powerful, but code quality, security, and maintenance costs remain open questions. Whether monday.com's strategy of handing all hard work to the model applies across different industries and risk levels needs time to verify.
+
+For Chinese entrepreneurs, perhaps the more valuable insight isn't the specific technical solution, but monday.com's attitude toward failure. They publicly admitted V2 "blew up in front of us," then decisively tore it down and rebuilt. This honesty about technical boundaries and坚持 to architectural principles determines how far a company can go in this transformation more than any tool selection.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI-native organization transformation accelerator.
+
+In deep partnership with Silicon Valley innovation incubator Founders Space, we continuously connect cutting-edge global AI insights, the Silicon Valley tech entrepreneurship ecosystem, and real transformation scenarios for Chinese entrepreneurs.
+
+---
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

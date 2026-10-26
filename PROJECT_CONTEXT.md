@@ -65,11 +65,11 @@
 
 洞察文章默认作者信息：
 
-`作者：王林Lincoln | MindsLeap创始人 | Founders Space合伙人 | 企业家AI俱乐部创始人`
+`作者：王林 Lincoln | MindsLeap 创始人兼 CEO | Founders Space 合伙人兼中国区 CEO | MindsLeap 企业家 AI 俱乐部创始人`
 
 英文洞察文章默认作者信息：
 
-`Author: Lincoln Wang | Founder of MindsLeap | Global Partner at Founders Space | Founder of Founders AI Club`
+`Author: Lincoln Wang | Founder & CEO, MindsLeap | Partner and CEO, Founders Space China | Founder, MindsLeap Founders AI Club`
 
 基于官方视频、访谈或公开演讲解读的文章，来源说明统一使用对外表达：
 

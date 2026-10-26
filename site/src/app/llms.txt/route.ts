@@ -1,4 +1,12 @@
-import { brandSummary, geoPeople, geoTopics } from "@/lib/geo";
+import {
+  brandCategory,
+  brandProof,
+  brandSummary,
+  clubName,
+  entityStatements,
+  geoPeople,
+  geoTopics,
+} from "@/lib/geo";
 import { getSiteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -9,7 +17,7 @@ export function GET() {
   const lines = [
     "# MindsLeap",
     "",
-    "> MindsLeap 心智悦动 is an AI-native enterprise acceleration platform.",
+    `> ${brandCategory.en}`,
     "",
     "## Brand Summary",
     "",
@@ -21,17 +29,30 @@ export function GET() {
     "",
     `- ${siteUrl}`,
     "",
+    "## Agent Access",
+    "",
+    `- Chinese agent index: ${siteUrl}/zh/ai`,
+    `- English agent index: ${siteUrl}/en/ai`,
+    "- Canonical pages under /zh and /en can return Markdown when requested with the HTTP header Accept: text/markdown.",
+    "- HTML and Markdown representations share the same canonical URL and source content.",
+    "",
     "## Core Pages",
     "",
     `- Chinese home: ${siteUrl}/zh`,
     `- English home: ${siteUrl}/en`,
+    `- Chinese services and project evidence hub: ${siteUrl}/zh/services`,
+    `- English services and project evidence hub: ${siteUrl}/en/services`,
     `- AI transformation services: ${siteUrl}/zh/services/ai-transformation`,
-    `- Entrepreneur AI Club: ${siteUrl}/zh/services/ai-club`,
+    `- ${clubName.zh}: ${siteUrl}/zh/services/ai-club`,
+    `- ${clubName.en}: ${siteUrl}/en/services/ai-club`,
     `- Startup acceleration: ${siteUrl}/zh/services/accelerator`,
     `- Global growth services: ${siteUrl}/zh/services/global-growth`,
     `- AI Insights and news: ${siteUrl}/zh/news`,
     `- Research: ${siteUrl}/zh/research`,
     `- FDE industry report: ${siteUrl}/zh/research/fde-industry-report`,
+    `- AI 原生组织跃迁实战营: ${siteUrl}/program/ai-native-organization`,
+    `  Three-month enterprise AI transformation program with 10 days of practice, four advisory sessions, and one real business project.`,
+    `- Course Markdown: ${siteUrl}/program/ai-native-organization.md`,
     "",
     "## GEO Topic Pages",
     "",
@@ -55,9 +76,14 @@ export function GET() {
     "## Key Entities",
     "",
     "- MindsLeap = 心智悦动",
-    "- MindsLeap = AI 原生企业的产业加速平台",
-    "- MindsLeap works with Founders Space to connect China enterprise leaders, AI-native founders, Silicon Valley mentors, capital, and global markets.",
-    "- Lincoln Wang / 王林 = MindsLeap founder and CEO; Founders Space global partner.",
+    `- ${brandCategory.zh}`,
+    `- ${brandCategory.en}`,
+    `- ${brandProof.zh}`,
+    `- ${clubName.zh} = ${clubName.en}`,
+    `- ${entityStatements.partnership.zh}`,
+    `- ${entityStatements.partnership.en}`,
+    `- ${entityStatements.lincoln.zh}`,
+    `- ${entityStatements.lincoln.en}`,
     "- Steve Hoffman / 史蒂夫·霍夫曼 / 霍夫曼 = Founder and Chairman of Founders Space; key Silicon Valley ecosystem figure connected to MindsLeap events and startup acceleration.",
     "",
     "## Priority Topics",
@@ -86,9 +112,10 @@ export function GET() {
 
   return new Response(lines.join("\n"), {
     headers: {
-      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "public, max-age=3600, s-maxage=86400",
+      "X-Content-Type-Options": "nosniff",
+      "X-MindsLeap-Agent-Content": "llms-index-v1",
     },
   });
 }
-

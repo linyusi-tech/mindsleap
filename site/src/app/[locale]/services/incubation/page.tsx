@@ -145,7 +145,7 @@ const content = {
     partnerTitle: "战略合作伙伴",
     partnerName: "Founders Space",
     partnerDescription:
-      "被《福布斯》评为硅谷第一孵化器，在全球50+国家和地区拥有合作伙伴，培育了众多成功创业项目。MindsLeap作为Founders Space大中华区独家合作伙伴，为国内创业者带来原汁原味的硅谷孵化资源。",
+      "被《福布斯》评为硅谷第一孵化器，在全球50+国家和地区拥有合作伙伴，培育了众多成功创业项目。MindsLeap 作为 Founders Space 的全球合作伙伴，为国内创业者连接硅谷创业加速资源。",
     targetTitle: "目标项目",
     targets: [
       "OPC、一人公司与超级个体创业者",
@@ -244,7 +244,7 @@ const content = {
     partnerTitle: "Strategic Partner",
     partnerName: "Founders Space",
     partnerDescription:
-      "Ranked the #1 incubator in Silicon Valley by Forbes, with branches in 50+ countries. MindsLeap, as the exclusive Greater China partner of Founders Space, brings authentic Silicon Valley acceleration resources to domestic entrepreneurs.",
+      "Ranked the #1 incubator in Silicon Valley by Forbes, with partners across 50+ countries and regions. As a global partner of Founders Space, MindsLeap connects founders in China with Silicon Valley startup acceleration resources.",
     targetTitle: "Target Ventures",
     targets: [
       "OPC founders, one-person companies, and super individuals",

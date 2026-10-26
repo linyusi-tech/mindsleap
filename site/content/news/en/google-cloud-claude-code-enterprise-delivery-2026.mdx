@@ -1,0 +1,129 @@
+---
+title: "A Sketch Beside a Coffee Cup, and the Enterprise Software Delivery Logic It's Rewriting"
+date: "2026-05-15"
+excerpt: "In a Google Cloud demo, the speaker drew a rough product wireframe, and minutes later Claude Code turned it into an interactive prototype. This isn't just about faster coding — the entire delivery chain from product manager to security engineer is being reconnected."
+category: "ai-insights"
+showOnHomepage: true
+locale: "en"
+author: "Lincoln Wang"
+image: "/images/news/google-cloud-claude-code-enterprise-delivery-2026.jpg"
+sourceVideo: "https://www.youtube.com/watch?v=SqHsS737CeA"
+---
+
+**Author: Lincoln Wang | Founder & CEO, MindsLeap | Partner and CEO, Founders Space China | Founder, MindsLeap Founders AI Club**
+
+## A Sketch Beside a Coffee Cup
+
+Ivan Nardini said something on stage that made the audience laugh:
+
+> "You might just be having coffee in San Francisco and sketch something like what's on screen."
+
+Then he ran Claude Code against this hand-drawn sketch. Minutes later, an interactive product prototype appeared on screen.
+
+This isn't a carefully choreographed demo trick — it's a structural change happening now. Previously, a product manager with an idea needed to find a UI designer to communicate intent, the designer would build a prototype, then iterate repeatedly. Now that path is compressed to "sketch → prompt → prototype" in three steps.
+
+The speaker put it directly:
+
+> "It can start from a very simple image or sketch, and that sketch might just be something you drew while having coffee."
+
+But the real weight of this isn't in "fast."
+
+Beneath "fast" lies another layer of change worth more attention from entrepreneurs.
+
+## What's Really Changing Isn't Coding Speed
+
+The most counterintuitive part of this demo: it spent nearly half its time on a problem unrelated to writing code.
+
+Nardini had Claude Code wear five hats in sequence: product manager, UI/UX designer, software engineer, security engineer, data analyst — completing the full journey from idea to launch.
+
+When AI plays all five roles simultaneously, what you see isn't a "super programmer" — it's a **process connector**.
+
+The speaker introduced a feature called **Plan Mode** during the software engineer segment. When activated, Claude doesn't start coding immediately — it first outputs an implementation plan, waits for human confirmation before proceeding.
+
+Nardini was clear:
+
+> "Before writing any code, it thinks first and proposes what it plans to do."
+
+The judgment behind this design deserves more attention than execution speed. It shows Anthropic and Google Cloud understand AI agents not as autonomous black boxes, but as collaborators that can be reviewed, intervened with, and aligned to intent.
+
+For Chinese enterprises accustomed to "requirements doc → review → development → testing" workflows, this "align first, implement second" logic integrates more easily into existing organizations than pure "AI writes code for you."
+
+## A Product Team Starting from a Sketch
+
+Back to technical details — here's a layer worth拆开.
+
+After the product prototype was confirmed, Claude Code needed to deploy the application to Google Cloud. For developers unfamiliar with cloud architecture, this should have been a step requiring documentation lookup, colleague consultations, and trial-and-error.
+
+But Google Cloud did something: released Developer Knowledge API, paired with an MCP server, letting Claude Code directly read the latest cloud architecture documentation.
+
+Nardini said:
+
+> "You don't need to know how to deploy an application on Google Cloud."
+
+The subtext: the threshold for knowledge access is being erased. Previously you needed an engineer who understood Cloud Run, Firestore, BigQuery architecture. Now that knowledge is encoded into the MCP server, and AI agents can call it directly.
+
+Further, Google Cloud prebuilt **Skills** — equivalent to giving AI standardized operation modules: deploy to Cloud Run, connect Firestore, write to BigQuery.
+
+Combined with **sub-agents** functionality, Claude Code can simultaneously launch three child agents handling API development, data pipeline, and dashboard construction. The speaker compared this process to:
+
+> "Like running a team sprint in your regular software development lifecycle."
+
+Note this analogy.
+
+It's not "AI replaced a team" — it's "AI simulated a team's parallel collaboration mode." These two have completely different organizational implications.
+
+## Data Stays in Your Own Project
+
+Among all technical details, one thing Nardini mentioned casually but matters especially for Chinese enterprises:
+
+> "Data stays in your own project."
+
+When Claude Code runs on Google Cloud, your code, your business data, your architecture design — all stay within your own project environment. Model capabilities are invoked, but data doesn't leave.
+
+This sounds like an infrastructure-level technical detail, but for Chinese enterprises highly sensitive about data compliance, this is the prerequisite for AI coding tools entering core business.
+
+Meanwhile, Google Cloud's billing model also sends a signal:
+
+> "Pay for what you use."
+
+Per-token billing, no message count limits. For enterprise decision-makers evaluating AI tool ROI, this means cost structure shifts from "fixed subscription" to "on-demand consumption" — closer to traditional cloud computing billing logic, easier to fit into existing budget frameworks.
+
+## Security Review Is No Longer the Last Manual Gate
+
+The demo's final segment was security review.
+
+Claude Code ran a preset security check process, automatically discovered a potential issue and self-fixed it, then deployed.
+
+Nardini himself admitted this was a simplified version:
+
+> "This demo is of course a significant simplification of what could happen in the real world."
+
+But the direction itself is clear enough.
+
+When AI agents can execute security checks during development, enterprises don't need to wait until code is written and ready to launch before pulling in the security team for final review. Security review shifts from "post-audit" to "embedded in development" — this directly changes the security team's role and work rhythm in the enterprise.
+
+## The Real Question Isn't About Replacing Anyone
+
+At the demo's end, Nardini had the audience rate the session in real-time, with dashboard numbers jumping accordingly. Interesting detail: he used his own feedback app to demonstrate a complete closed loop from data collection to real-time visualization.
+
+But this恰恰 reminds us: this demo remains a designed scenario — we can't directly conclude "AI can replace the entire R&D team."
+
+Toolchain completeness is rapidly improving. Agent Platform provides MCP server registry, Skills and sub-agent capabilities are expanding. But enterprise software delivery complexity goes far beyond a feedback app.
+
+For entrepreneurs, the real question isn't "will AI replace my engineers" — it's:
+
+**Which processes in my enterprise, previously scattered across different roles, are now worth reconnecting through an agent layer?**
+
+Product prototypes, security reviews, data analysis — boundaries between these segments are blurring. Those who understand this change first will build new competitive advantages in organizational efficiency and product iteration speed.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI-native organization transformation accelerator.
+
+In deep partnership with Silicon Valley innovation incubator Founders Space, we continuously connect cutting-edge global AI insights, the Silicon Valley tech entrepreneurship ecosystem, and real transformation scenarios for Chinese entrepreneurs.
+
+---
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

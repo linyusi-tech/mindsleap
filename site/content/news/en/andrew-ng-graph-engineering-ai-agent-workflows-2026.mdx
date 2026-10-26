@@ -1,0 +1,136 @@
+---
+title: "Andrew Ng's Answer: The Real Evolution of AI Agents Is Workflows That Can Go Back"
+date: "2026-08-17"
+excerpt: "Andrew Ng's course on Graph Engineering matters not because it adds another technical term, but because it shows what AI agents need in real business: the ability to move forward, fail, recover, and keep humans at the key judgment points."
+category: "ai-insights"
+showOnHomepage: true
+image: "/images/news/andrew-ng-graph-engineering-ai-agent-workflows-2026-cover.jpg"
+imagePosition: "center"
+locale: "en"
+author: "Lincoln Wang"
+sourceVideo: "https://www.youtube.com/watch?v=58n-n-3oRic"
+contentHubId: "art_20260816_short_youtube-58n-n-3oRic"
+contentHubSlug: "article_20260817_andrew-ng-graph-engineering"
+---
+
+**Author: Lincoln Wang | Founder of MindsLeap | Global Partner at Founders Space | Founder of Founders AI Club**
+
+This article was interpreted by Lincoln based on the Function Form video "Andrew Ng 2-hour course covering graph engineering: 1 prompt to 100 agents to loops to graphs," published on August 16, 2026.
+
+Andrew Ng starts his discussion of Graph Engineering by making the difference between an AI agent and a normal chatbot very clear.
+
+A normal model usually works as a single exchange: you give it a prompt, and it gives you an answer. An AI agent has to decide what to do next, call tools, inspect the result, switch paths when necessary, and keep moving until the task reaches a deliverable state.
+
+But the important point is not the new term itself. Graph Engineering is really about a deeper question: how do we turn a complex task into an engineered graph that can execute, judge, recover, and continue?
+
+## What Graph Engineering Is Really Engineering
+
+Graph Engineering is not just a new name for the same model, and it is not merely a flowchart made out of prompts.
+
+It breaks a task into nodes and connects them with edges. A node may be a model call, a search, a calculation, or a database query. An edge may be a fixed route, or it may depend on the current result. State records where the task is, what the system has seen, and what is still missing.
+
+Once this graph allows loops, the agent no longer has to travel in a straight line from input to output. It can return to a previous step when the result is not good enough, switch tools when one fails, and pause for human approval before a high-risk action.
+
+Prompt Engineering asks how to make the model answer one request better. A conventional workflow asks how to connect several steps. Graph Engineering asks a more operational question: when reality does not follow the plan, how does the system know what to do next?
+
+So the first thing Graph Engineering changes is not the model. It changes the shape of the process. AI is moving from an interface for answering questions into a set of processes that can keep work moving.
+
+![From Prompt to Graph: four stages of AI workflows](/images/news/andrew-ng-graph-engineering-ai-agent-workflows-2026-diagram.png)
+
+## When the Search Tool Failed, the Agent Did Not Stop
+
+One small demo in the course explains the idea very well.
+
+Andrew asked an agent to call a search API and gather material for an article. The API suddenly failed. For a single-turn prompt, the task would usually stop there: either the model returns an error, or it keeps writing with no reliable source material.
+
+This agent treated tool failure as a state inside the process, not as the end of the task. It recognized that the original search tool was unavailable, switched to a Wikipedia search, recovered the needed context, and continued writing.
+
+That detail is the point. The value of an agent is not that it never makes mistakes. The value is whether it can recognize an error as part of the workflow and choose the next move.
+
+Many enterprise AI applications today are still just one prompt connected to one model. If the model answers well, the application looks smart. If the model fails, the whole system fails with it.
+
+A more mature system designs for failure, retry, fallback tools, and human takeover in advance. It does not require the model to be correct every time. It makes sure one error does not destroy the entire task.
+
+## Do Not Rush to Deploy One Hundred Agents
+
+The video includes a very simple example: calculating the combined average weight of a Border Collie and a Scottish Terrier.
+
+The agent first finds the average weight of a Border Collie, then finds the average weight of a Scottish Terrier, and then calls a calculator to add them together. The answer is not complicated. The process is what matters. The model does not guess from memory. It decomposes the task into search, observation, and calculation.
+
+Andrew summarizes common agentic capabilities as planning, tool use, reflection, multi-agent collaboration, and memory. These words can easily become a feature checklist. What they really represent are five kinds of control: how a task unfolds, how the model touches the outside world, how results are checked, how different roles collaborate, and how the system remembers what it has already done.
+
+That is why a company should not start by asking, "Should we deploy one hundred AI agents?"
+
+A better question is: in my business process, which step needs a tool, which step needs review, which step can run in parallel, and which step must preserve human decision-making?
+
+## Search No Longer Ends with Links
+
+The course also pushes the conversation about search beyond the simple question of whether a model can browse the web.
+
+A traditional search engine returns links. The human then opens pages, filters information, and decides which sources to trust. This is familiar to us, but a web page is messy for a model: navigation, ads, scripts, duplicated text, and unrelated content all consume limited context.
+
+Agentic search is not just about letting the model open more pages. It turns search into a workflow the agent can keep processing: parse the page, chunk the content, rank and score it, and pass the most relevant context into the next step.
+
+There is an important business judgment behind this. Competition in AI applications is not only at the model layer. It is also at the information-flow layer. The company that finds reliable material faster, understands relationships between sources better, and hands cleaner context to the model has a better chance of turning a general model into a useful business system.
+
+For companies, the future "knowledge base" should not be a file dump. It should look more like a chain from source to evidence, from evidence to judgment, and from judgment to action. Where did the information come from? Why is it trustworthy? Who reviewed it? What is the system allowed to do next? All of this should be traceable.
+
+The ContentHub I am building follows the same logic. It can be understood as a digital newsroom for frontier AI content. The goal is not to make AI automatically write a few articles. The goal is to turn discovery, source verification, viewpoint extraction, drafting, editorial review, and publishing approval into a traceable graph of work.
+
+Inside that graph, reporter agents look for source material, editor agents judge reliability and timeliness, writing agents turn evidence into articles, the editor-in-chief agent performs final review, and Lincoln keeps the publishing decision. This is not a queue of manual buttons. It is a stateful work graph: if review fails, the article returns to writing; if evidence is weak, the material returns to collection; only after it reaches "approved for publishing" does it move to the website publishing step.
+
+That is the difference between an AI-native organization and ordinary automation. In the past, people executed most nodes in the process. Now some nodes can be handled by AI agents. But the boundaries, states, and recovery paths still have to be designed by the organization.
+
+## Production Systems Must Be Able to Go Back
+
+One of the hardest problems in AI systems is explaining what happened after something goes wrong. What did the system see? At which step did it make the wrong judgment? Why did it continue?
+
+The course introduces a checkpointer that saves the AgentState at each step. Developers can inspect past states, restore from a previous point, and even modify the state before continuing. This is described as a kind of time travel.
+
+The demo is intuitive: an agent is about to query the weather in Los Angeles. Before the search runs, the process is interrupted. The developer changes the city in the state to Louisiana and lets the graph continue. The system does not start over. It continues from the modified state.
+
+For enterprise systems, this matters more than the ability to call one more tool.
+
+A production system has to answer accountability questions. Where did the result start to drift? What did the system know at that moment? If we need to fix it, can we repair only that segment? If a customer questions the result, can we reconstruct the reasoning path?
+
+An agent without state is at best a black box that can act. An agent with state, checkpoints, and audit records has a chance to become part of organizational capability.
+
+## Humans Were Not Removed from the Graph
+
+When people talk about AI agents, they often imagine giving the system as much autonomy as possible and letting it stop bothering humans.
+
+The course points in a different direction. It repeatedly shows interruptions at key nodes, where a human can approve, reject, change parameters, or decide whether the process should continue.
+
+That is worth taking seriously. A mature AI agent does not remove people from the workflow. It frees people from repetitive execution and moves human attention to the places where judgment matters.
+
+People no longer need to perform every search, copy every field, or forward every message. But people still decide which evidence is trustworthy, which actions are allowed, and which results are ready to be published.
+
+"Human in the loop" should not mean adding a decorative approval button to an automated process. It should mean redesigning where human judgment belongs.
+
+That is why I do not think companies should treat automation rate as the only goal. A fully automated process with no human exit, no state trail, and no recovery path may simply turn old inefficiency into faster mistakes.
+
+A mature system should let AI agents push the work forward, let the organization define the boundaries, and let people keep the final judgment.
+
+## Final Thought
+
+From Prompt to Loop, and from Loop to Graph, AI engineers are building a new technical language.
+
+But from an entrepreneur's point of view, this is also a change in how work is designed. We used to treat software as a passive tool. Now we are starting to design it as a digital team that can divide labor, collaborate, receive feedback, and keep moving.
+
+Whether this team can work depends on model capability, but not only on model capability. It also depends on whether the task has been decomposed correctly, whether state is saved, whether tools are connected, whether failure has a fallback path, and where humans retain decision rights.
+
+So the real question is not, "Should I build an AI agent?"
+
+The real question is: in my business, which graph is worth drawing first?
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI-native organization transformation platform.
+
+Through deep collaboration with Silicon Valley innovation incubator Founders Space, MindsLeap connects global AI frontier thinking, the Silicon Valley technology entrepreneurship ecosystem, and the real transformation needs of Chinese entrepreneurs.
+
+Around AI-native organization building, MindsLeap is developing a transformation ecosystem for entrepreneurs, founders, AI engineers, industry experts, and investors, helping companies move AI from awareness, strategy, and tools into organizational capabilities, business processes, product innovation, and growth systems.
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

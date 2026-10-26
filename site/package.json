@@ -6,33 +6,37 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "zhihu:queue": "node scripts/build-zhihu-queue.mjs",
+    "zhihu:publish": "node scripts/publish-zhihu-via-browser.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
-    "better-sqlite3": "^12.4.1",
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.36.0",
     "gray-matter": "^4.0.3",
     "next": "16.1.6",
     "next-intl": "^4.8.3",
     "next-mdx-remote": "^6.0.0",
+    "node-cron": "^4.2.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "reading-time": "^1.5.0",
     "rehype-highlight": "^7.0.2",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
-    "resend": "^6.9.4"
+    "resend": "^6.9.4",
+    "better-sqlite3": "^12.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@types/better-sqlite3": "^7.6.13"
   }
 }
