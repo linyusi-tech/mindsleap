@@ -116,6 +116,67 @@
       overflow: hidden;
     }
 
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(30, 71, 124, 0.14);
+      z-index: 2147483500;
+      pointer-events: none;
+    }
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: #1e477c;
+      box-shadow: 0 0 8px rgba(30, 71, 124, 0.3);
+      transition: width 220ms cubic-bezier(.2,.8,.2,1);
+    }
+    :host([noscale]) .progress { display: none; }
+
+    .pdf-download {
+      position: fixed;
+      right: max(22px, env(safe-area-inset-right));
+      bottom: max(22px, env(safe-area-inset-bottom));
+      z-index: 2147483400;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: #1e477c;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(20, 39, 76, 0.22);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      pointer-events: auto;
+      user-select: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+    .pdf-download[data-visible] {
+      display: inline-flex;
+    }
+    .pdf-download:hover {
+      background: #163865;
+      box-shadow: 0 12px 34px rgba(20, 39, 76, 0.3);
+      transform: translateY(-1px);
+    }
+    .pdf-download:active {
+      transform: translateY(0);
+    }
+    .pdf-download svg {
+      width: 15px;
+      height: 15px;
+      display: block;
+      flex: 0 0 auto;
+    }
+    :host([noscale]) .pdf-download { display: none !important; }
+
     .stage-frame {
       position: relative;
       flex-shrink: 0;
@@ -578,7 +639,7 @@
         page-break-after: auto;
       }
       ::slotted([data-deck-skip]) { display: none !important; }
-      .overlay, .tapzones, .rail, .rail-resize, .ctxmenu, .confirm-backdrop { display: none !important; }
+      .overlay, .tapzones, .progress, .pdf-download, .rail, .rail-resize, .ctxmenu, .confirm-backdrop { display: none !important; }
     }
   `;
 
@@ -620,6 +681,10 @@
     }
 
     connectedCallback() {
+      // Public decks should present cleanly by default. Add `rail` explicitly
+      // in authoring tools if the editable thumbnail rail is needed.
+      if (!this.hasAttribute('rail')) this.setAttribute('no-rail', '');
+
       // Presenter-view popup loads deckUrl?_snthumb=...#N for its prev/cur/
       // next thumbnails — the rail has no business rendering inside those
       // (wrong scale, and it offsets the stage so the thumb shows a gutter).
@@ -870,6 +935,35 @@
       frame.appendChild(canvas);
       stage.appendChild(frame);
 
+      const progress = document.createElement('div');
+      progress.className = 'progress export-hidden';
+      progress.setAttribute('role', 'progressbar');
+      progress.setAttribute('aria-label', 'Slide progress');
+      progress.setAttribute('aria-valuemin', '1');
+      progress.setAttribute('aria-valuenow', '1');
+      progress.setAttribute('aria-valuemax', '1');
+      progress.setAttribute('data-noncommentable', '');
+      const progressBar = document.createElement('div');
+      progressBar.className = 'progress-bar';
+      progress.appendChild(progressBar);
+
+      const download = document.createElement('a');
+      download.className = 'pdf-download export-hidden';
+      download.setAttribute('aria-label', 'Download PDF');
+      download.setAttribute('data-noncommentable', '');
+      download.setAttribute('download', '');
+      download.innerHTML = `
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 2v8"/>
+          <path d="M4.5 6.8 8 10.3l3.5-3.5"/>
+          <path d="M3 13.5h10"/>
+        </svg>
+        <span>下载 PDF</span>
+      `;
+      download.addEventListener('click', (e) => {
+        if (!this._pdfAvailable) e.preventDefault();
+      });
+
       // Tap zones (mobile): left third = back, right third = forward.
       const tapzones = document.createElement('div');
       tapzones.className = 'tapzones export-hidden';
@@ -998,11 +1092,14 @@
         this._deleteSlide(i);
       });
 
-      this._root.append(style, rail, resize, stage, tapzones, overlay, menu, confirm);
+      this._root.append(style, rail, resize, progress, download, stage, tapzones, overlay, menu, confirm);
       this._stage = stage;
       this._frame = frame;
       this._canvas = canvas;
       this._slot = slot;
+      this._progress = progress;
+      this._progressBar = progressBar;
+      this._download = download;
       this._overlay = overlay;
       this._tapzones = tapzones;
       this._rail = rail;
@@ -1020,6 +1117,31 @@
       } catch (err) {}
       this._setRailWidth(rw);
       this._syncRailHidden();
+      this._initPdfDownload();
+    }
+
+    _defaultPdfHref() {
+      const path = (location.pathname || '').replace(/\/index\.html$/, '').replace(/\/$/, '');
+      const parts = path.split('/').filter(Boolean);
+      const slug = parts[parts.length - 1] || 'deck';
+      return `${path || '.'}/${slug}.pdf`;
+    }
+
+    _initPdfDownload() {
+      if (!this._download) return;
+      const explicit = this.getAttribute('pdf');
+      const href = explicit || this._defaultPdfHref();
+      this._download.href = href;
+      this._download.setAttribute('download', href.split('/').pop() || 'deck.pdf');
+      this._pdfAvailable = location.protocol === 'file:';
+      this._updateDownloadButton();
+
+      if (location.protocol === 'file:') return;
+
+      fetch(href, { method: 'HEAD', cache: 'no-store' })
+        .then((res) => { this._pdfAvailable = res.ok; })
+        .catch(() => { this._pdfAvailable = false; })
+        .finally(() => this._updateDownloadButton());
     }
 
     _setRailWidth(px) {
@@ -1089,6 +1211,7 @@
       });
 
       if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
+      this._updateProgress();
       if (this._index >= this._slides.length) this._index = Math.max(0, this._slides.length - 1);
       this._markLastVisible();
       this._renderRail();
@@ -1142,6 +1265,8 @@
         else s.removeAttribute('data-deck-active');
       });
       if (this._countEl) this._countEl.textContent = String(curr + 1);
+      this._updateProgress();
+      this._updateDownloadButton();
       // Follow-scroll on every navigation (init deep-link, keyboard, click,
       // tap, external goTo) — the only time we *don't* want the rail to
       // track current is after a rail-internal mutation, where _renderRail
@@ -1178,6 +1303,23 @@
 
       this._prevIndex = curr;
       if (showOverlay) this._flashOverlay();
+    }
+
+    _updateProgress() {
+      if (!this._progressBar || !this._progress) return;
+      const total = Math.max(1, this._slides.length || 1);
+      const current = Math.min(total, Math.max(1, this._index + 1));
+      const pct = (current / total) * 100;
+      this._progressBar.style.width = pct.toFixed(3) + '%';
+      this._progress.setAttribute('aria-valuenow', String(current));
+      this._progress.setAttribute('aria-valuemax', String(total));
+    }
+
+    _updateDownloadButton() {
+      if (!this._download) return;
+      const isLast = this._slides.length > 0 && this._index === this._slides.length - 1;
+      if (isLast && this._pdfAvailable) this._download.setAttribute('data-visible', '');
+      else this._download.removeAttribute('data-visible');
     }
 
     _flashOverlay() {

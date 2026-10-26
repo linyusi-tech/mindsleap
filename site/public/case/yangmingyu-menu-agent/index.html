@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Agent Demo</title>
+    <link rel="stylesheet" href="./styles.css?v=20260630-layout-qc4" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="control-panel" aria-label="菜单屏生成控制台">
+        <section class="brand-block">
+          <p class="eyebrow">AI Menu Screen Agent</p>
+          <h1>连锁门店菜单屏生成器</h1>
+          <p class="subcopy">把总部菜单数据、门店场景和品牌风格转成可直接投屏的菜单画面。</p>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <span>门店场景</span>
+            <button class="icon-button" id="randomizeBtn" type="button" title="重新生成布局" aria-label="重新生成布局">↻</button>
+          </div>
+          <div class="grid-2">
+            <label>
+              屏幕母版
+              <select id="screenRatio">
+                <option value="landscape">杨铭宇黄焖鸡横屏母版</option>
+              </select>
+            </label>
+            <label>
+              时段
+              <select id="daypart">
+                <option value="lunch">午餐高峰</option>
+                <option value="breakfast">早餐时段</option>
+                <option value="dinner">晚餐主推</option>
+                <option value="summer">夏季新品</option>
+              </select>
+            </label>
+          </div>
+          <div class="grid-2">
+            <label>
+              主品牌色
+              <input id="primaryColor" type="color" value="#d9232e" />
+            </label>
+            <label>
+              辅助色
+              <input id="accentColor" type="color" value="#f7b731" />
+            </label>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-title">
+            <span>区块组合策略</span>
+          </div>
+          <div class="segmented" role="group" aria-label="模板策略">
+            <button class="segment active" type="button" data-template="hero">按门店生成</button>
+            <button class="segment" type="button" data-template="combo">隐藏新品</button>
+            <button class="segment" type="button" data-template="catalog">完整配置</button>
+          </div>
+          <div class="toggles">
+            <label class="toggle">
+              <input id="autoPriority" type="checkbox" checked />
+              <span>自动放大热销菜</span>
+            </label>
+            <label class="toggle">
+              <input id="qualityCheck" type="checkbox" checked />
+              <span>生成后自动质检</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel-section asset-section">
+          <div class="section-title">
+            <span>公司 UI Asset 库</span>
+            <span class="asset-badge" id="brandScore">已锁定</span>
+          </div>
+          <div class="logo-standard">
+            <div class="logo-tile" id="logoTile" aria-label="标准 Logo"></div>
+            <div>
+              <strong id="brandName">YMY Kitchen</strong>
+              <p>Logo 安全区、最小尺寸、禁用变形和错误用色。</p>
+            </div>
+          </div>
+          <div class="logo-rules" id="logoRules"></div>
+          <div class="asset-group">
+            <h3>用色标准</h3>
+            <div class="color-library" id="colorLibrary"></div>
+          </div>
+          <div class="asset-group">
+            <h3>字体标准</h3>
+            <div class="font-library" id="fontLibrary"></div>
+          </div>
+        </section>
+
+        <section class="panel-section library-section">
+          <div class="section-title">
+            <span>标准菜品图库</span>
+            <span class="library-count" id="libraryCount">0 张</span>
+          </div>
+          <div class="library-metrics">
+            <span>1:1 标准图</span>
+            <span>透明底</span>
+            <span>已质检</span>
+          </div>
+          <div class="image-library" id="imageLibrary" aria-label="标准菜品图片库"></div>
+        </section>
+
+        <section class="panel-section data-section">
+          <div class="section-title">
+            <span>菜单数据</span>
+            <button class="small-button" id="loadSampleBtn" type="button">样例</button>
+          </div>
+          <p class="field-hint">每行格式：区块, 菜名, 价格, 标签, 优先级。区块支持黄焖系列、小炒系列、当季新品、配菜。</p>
+          <textarea id="menuInput" spellcheck="false"></textarea>
+          <div class="actions">
+            <button id="generateBtn" class="primary-button" type="button">生成菜单屏</button>
+            <button id="exportBtn" class="secondary-button" type="button">导出 PNG</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="workspace" aria-label="菜单屏预览">
+        <header class="workspace-header">
+          <div>
+            <p class="eyebrow">Live Preview</p>
+            <h2>总部标准屏</h2>
+          </div>
+          <div class="status-strip">
+            <span id="itemCount">0 个菜品</span>
+            <span id="screenLabel">1920 x 1080</span>
+            <span id="qaLabel">等待生成</span>
+          </div>
+        </header>
+
+        <div class="preview-frame" id="previewFrame">
+          <article class="menu-screen landscape" id="menuScreen">
+            <div class="template-bg"></div>
+            <section class="template-zone zone-braised" aria-label="黄焖系列">
+              <div class="zone-items braised-items" id="braisedItems"></div>
+            </section>
+            <section class="template-zone zone-stir" aria-label="小炒系列">
+              <div class="zone-items stir-items" id="stirItems"></div>
+            </section>
+            <section class="template-zone zone-seasonal" aria-label="当季新品">
+              <div class="zone-items seasonal-items" id="seasonalItems"></div>
+            </section>
+            <section class="template-zone zone-side" aria-label="配菜">
+              <div class="zone-items side-items" id="sideItems"></div>
+            </section>
+          </article>
+        </div>
+
+        <section class="export-panel" id="exportPanel" hidden>
+          <div>
+            <strong id="exportStatus">导出完成</strong>
+            <p id="exportFilePath" class="export-path"></p>
+            <a id="exportOpenLink" class="export-link" href="#" target="_blank" rel="noopener" download="yangmingyu-menu-screen.png">打开 PNG</a>
+          </div>
+          <img id="exportPreview" alt="导出的菜单屏 PNG 预览" />
+        </section>
+
+        <section class="qa-panel" id="qaPanel">
+          <div>
+            <strong>质检结果</strong>
+            <p>生成后会检查菜品数量、价格字段、热销标签和版面拥挤度。</p>
+          </div>
+          <ul id="qaList"></ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="./vendor/html2canvas.min.js"></script>
+    <script src="./app.js?v=20260526-hires-dom-export"></script>
+  </body>
+</html>

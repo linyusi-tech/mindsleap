@@ -78,22 +78,25 @@ export default async function PersonPage({ params }: Props) {
     "@type": "Person",
     name: person.name,
     alternateName: person.alternateNames,
-    jobTitle: person.title[currentLocale],
+    jobTitle: person.roles[currentLocale],
     description: person.description[currentLocale],
     image: imageUrl,
     url: pageUrl,
     knowsAbout: person.knowsAbout,
-    affiliation: [
-      {
-        "@type": "Organization",
-        name: "Founders Space",
-      },
-      {
-        "@type": "Organization",
-        name: "MindsLeap",
-        url: siteUrl,
-      },
-    ],
+    affiliation: person.affiliations.map((affiliation) =>
+      affiliation === "mindsleap"
+        ? {
+            "@type": "Organization",
+            "@id": `${siteUrl}/#organization`,
+            name: "MindsLeap",
+            url: siteUrl,
+          }
+        : {
+            "@type": "Organization",
+            "@id": `${siteUrl}/#founders-space`,
+            name: "Founders Space",
+          }
+    ),
   };
 
   const faqJsonLd = {
@@ -216,4 +219,3 @@ export default async function PersonPage({ params }: Props) {
     </>
   );
 }
-

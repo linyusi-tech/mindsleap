@@ -16,6 +16,7 @@ export type Post = {
   category: NewsContentCategory;
   image?: string;
   imagePosition?: string;
+  imageLayout?: string;
   locale: string;
   content: string;
   readingTime: string;
@@ -85,6 +86,7 @@ export function getPostBySlug(slug: string, locale: string = "zh"): Post | null 
       category: normalizePostCategory(data.category, title, excerpt),
       image: data.image || null,
       imagePosition: data.imagePosition || undefined,
+      imageLayout: data.imageLayout || undefined,
       locale: data.locale || normalizeLocale(locale),
       content,
       readingTime: stats.text,

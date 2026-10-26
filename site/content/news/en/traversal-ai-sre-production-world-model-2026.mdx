@@ -1,0 +1,245 @@
+---
+title: "When Systems Break, AI Agents Must Deliver the First Clue Within Two Minutes"
+date: "2026-07-27"
+excerpt: "In LangChain's latest conversation with Traversal, AI SRE isn't just an ops tool — it's a signal: as AI writes more code, enterprises need AI agents that understand production systems, search massive datasets, and keep learning."
+category: "ai-insights"
+showOnHomepage: true
+locale: "en"
+author: "Lincoln Wang"
+image: "/images/news/traversal-ai-sre-production-world-model-2026.jpg"
+sourceVideo: "https://www.youtube.com/watch?v=U5PkKt_uJys"
+---
+
+**Author: Lincoln Wang | Founder & CEO, MindsLeap | Partner and CEO, Founders Space China | Founder, MindsLeap Founders AI Club**
+
+## More Code Is Being Written, but Fewer People Understand It
+
+Anish Agarwal, co-founder of Traversal, said something worth taking seriously in this LangChain conversation.
+
+> "More and more code will be written, and understanding of that code will decrease, because nobody is truly writing it anymore."
+
+This isn't a criticism of AI coding.
+
+Quite the opposite — it describes the next layer of problems enterprises will face once AI coding becomes widespread: when AI amplifies the speed of code production, software systems become faster, more complex, and harder for any single person to fully understand.
+
+In the past, when a system had issues, engineers could still rely on experience to chase logs, check metrics, dig through code, and pull people into a meeting room. In the future, the scale, change frequency, and dependencies of systems will keep growing. AI helped you write more code — but who will understand how that code behaves in production?
+
+What Traversal wants to build is an AI SRE — an AI agent that helps enterprises investigate production incidents and understand system anomalies.
+
+What Harrison Chase discussed with Traversal co-founders Anish Agarwal and Raj Agrawal isn't just another developer tool. The deeper signal is: AI agents are moving from "helping people write code" to "helping organizations understand complex systems."
+
+This matters for Chinese enterprises too. Because many companies will go through the same process: first use AI to boost development efficiency, then quickly discover that the real bottleneck isn't writing fast enough — it's whether the organization can still understand, manage, and rescue systems after things go wrong.
+
+## Incident Investigation Isn't a Chat Problem
+
+Traversal didn't start as an ops tool.
+
+Anish and Raj come from MIT AI research backgrounds, working on causal machine learning, reinforcement learning, and how to search effectively in enormous search spaces. Then another co-founder, Ahmed, brought them the problem of production incident investigation.
+
+They quickly realized this might be one of the hardest — and most real — battlegrounds for AI agents.
+
+Anish said that at first they thought the problem was "much harder than expected." The reasons were straightforward.
+
+First, incident investigation happens under the highest pressure — you can't afford to be wrong.
+
+Second, there's no good labeled data. LLMs aren't naturally trained on enterprise telemetry data, logs, traces, and metrics.
+
+Third, it's hard to simply replicate what humans do. Anish half-joked:
+
+> "Humans are actually not very good at incident investigation."
+
+That's a bit harsh, but true.
+
+When enterprise systems have incidents, many companies spin up a war room — dozens of people gathered together, piecing together context in real time: who changed the code, which service is anomalous, which metric changed first, which dependency has issues. This process isn't a clean SOP — it's a chaotic information search.
+
+If an AI agent just mimics this chaos, it won't get stronger — it will just automate the chaos.
+
+So the problem Traversal identified isn't "have a model read a few log lines." It's about finding truly useful signals in a PB-scale data environment with no standard answers, high pressure, and strict time constraints.
+
+Anish mentioned that some of their large clients generate roughly PB-scale data per day. If you try to shove all that data into an LLM, not only won't it fit in the context window — even if it could, the cost of a single investigation would be absurdly unacceptable.
+
+He was direct:
+
+> "You have to deliver answers within two minutes, or people will be very angry — and you can't be wrong."
+
+This is the difference between production and demos.
+
+Demos can be a bit slow. They can be a bit wrong. You can redo them.
+
+Production incidents can't.
+
+## Enterprises Need Their Own Production World Model
+
+Traversal's core concept is the production world model.
+
+The term sounds technical, but the essence is simple: an AI agent investigating production incidents can't just look at a log snippet. It must understand how the system is connected.
+
+Where is the code? How do services call each other? What was discussed in Slack? Which metrics relate to which traces? Which error logs have appeared together before? Which service names are just different names for the same business chain?
+
+Raj said they combine telemetry, code, GitHub, Slack, and other information to build a knowledge representation of how the production system is connected.
+
+Harrison asked if this was like building a "DeepWiki" for production logs. Traversal's answer: partially, but not enough. What's truly hard is connecting the system knowledge in code and documentation with real-time observational data, so the AI agent can search effectively.
+
+They said ideally, you'd want the AI agent to do a "Control F" across the entire observability system.
+
+But actually achieving this is extremely difficult.
+
+Enterprise system naming isn't unified. Session IDs and correlation IDs keep changing. Different services, tools, and teams have different fields and calibers. Without enough system context, it's very hard for AI agents to connect these fragments.
+
+This applies equally to traditional enterprises.
+
+Many enterprises today say they want to build AI agents, but their internal data, processes, systems, and knowledge are already fragmented. Customer data is in the CRM, fulfillment info in the ERP, customer service records in WeChat Work, business analysis in Feishu spreadsheets, and many critical decisions still live in WeChat group chats.
+
+Without your own "business world model," AI agents can only operate at the surface level of Q&A.
+
+Traversal builds world models for production systems. What enterprises really need to think about is: do my sales, supply chain, stores, finance, customer service, and R&D each have their own business world model?
+
+## Online Search and Offline Computation Must Be Designed Together
+
+One very practical technical insight from this Traversal conversation: AI agent search capability isn't just a RAG or vector database problem — it's about the tradeoff between online and offline computation.
+
+They said the more offline computation you do, the more data the system can search per unit of time, but granularity suffers. Fully online queries, like real-time DataDog lookups, have finer granularity but a more limited search scope per query.
+
+So the real system needs to build data structures between the two, then have an intelligence layer decide when to look at what.
+
+This insight applies well to enterprise management too.
+
+Not every problem should wait until someone asks to investigate on the spot.
+
+Truly efficient AI agents should have a lot of preparation done in advance: pre-aggregated metrics, organized anomaly patterns, business object relationship graphs, key customer changes, process history, common issues, and past decision records.
+
+When problems occur, it then does online search and reasoning.
+
+This is also why Traversal has some AI agents running 24/7 to update the production world model, while other agents run in real-time when incidents occur.
+
+They also proposed two time metrics: time to first insight and time to last insight.
+
+The first useful clue must appear within two minutes. The final complete insight might take an hour of continuous learning.
+
+This design closely mirrors how real organizations work.
+
+What leaders or clients need most isn't a perfect final report from the start — it's: what's the most likely problem right now? What should we look at first? Has the risk expanded?
+
+For AI agents to enter production, they can't just pursue "the final answer" — they also need to be designed to deliver "the first useful clue."
+
+## Memory Isn't the More the Better
+
+Harrison asked Traversal: when a user in the incident channel tells the AI agent "don't look at X logs, look at Y logs," does that feedback update the production world model?
+
+This is a critical question. Because many AI products today talk about memory, as if more is always better.
+
+Traversal's answer is more measured.
+
+They separate the production world model from user interaction memory. The former is a representation of the system's actual connection relationships, sourced from telemetry, code, GitHub, etc. The latter is more like a knowledge bank, recording user feedback, preferences, and important documents.
+
+They explained that production systems have many connection relationships that no single person knows. If you have people manually inputting constantly, you'll likely write some of the errors from "tribal knowledge" into the system, polluting it instead.
+
+This is very important for enterprises.
+
+AI agents need memory, but memory must be layered.
+
+What is system fact? What is employee preference? What is a temporary judgment? What is an expired SOP? What is user feedback? If you mix all of these in a single memory pool, the AI agent will increasingly resemble a confident but confused veteran employee.
+
+Enterprises managing AI agents in the future can't just ask "does it remember?" — they need to ask "what type of knowledge does it remember, who can audit it, when does it expire, and how is it distinguished from the fact system?"
+
+This is the knowledge governance of AI-native organizations.
+
+## The Hardest Problems Are the Best for Evaluation
+
+As AI agents become more complex, how do you know if they're actually getting better?
+
+Traversal said evaluating these agents is very difficult. Some trajectories can reach 5 million tokens. To give people a sense of scale, they noted the entire Harry Potter series is about 2 million tokens. In other words, a single complex investigation by an agent can leave an execution trace longer than two novels.
+
+You can't possibly read through it manually.
+
+But production incident investigation has an advantage: it's ultimately somewhat verifiable. You can check whether the root cause the agent identified matches what the war room eventually found.
+
+More interestingly, Traversal proposed an evaluation principle:
+
+> "You should evaluate the hardest things."
+
+Because if a system can do well on the hardest, most verifiable tasks, the capability tends to generalize to other scenarios. Conversely, if you only evaluate simple chat or daily Q&A, the data might look good, but the conclusions may not transfer to truly difficult problems.
+
+This has real reference value for enterprises building AI agent evaluations.
+
+Don't start by asking if it can chat or write a nice summary. Find the tasks that are most critical to your business, most painful, and most verifiable in results.
+
+In sales forecasting, can it identify real churn risk?
+
+In factory anomalies, can it reduce localization time?
+
+In customer service escalations, can it identify high-risk customers earlier?
+
+In software incidents, can it deliver the first useful clue within two minutes?
+
+AI agent evaluation shouldn't start from the easy stuff — it should start from where the organization most needs judgment.
+
+## L3 to L4 Is Where DIY Breaks Down
+
+For many enterprises, the most practical part of this conversation was Traversal's grading of DIY AI agents.
+
+They borrowed the autonomous driving L0 to L5 framework.
+
+L0 is fully manual investigation.
+
+L1 has runbooks and rules that humans follow.
+
+L2 is where humans are still driving, but the LLM helps write annoying queries — like Splunk queries — or writes postmortems once the root cause is clear.
+
+L3 is team-level agents. A database team, a settlement team, a frontend team responsible for maybe a dozen or twenty microservices. At this scale, a smart team building their own AI agent might actually work.
+
+What's truly hard is L4.
+
+At L4, problems require reasoning across the entire production environment. Thousands of microservices, PB-scale data, complex dependencies — any single query might need to traverse multiple systems.
+
+Anish's judgment was direct:
+
+> "The gap from L3 to L4 is where DIY starts to fail."
+
+This doesn't just apply to ops.
+
+Enterprises building AI agents face similar boundaries. Department-level tools are easy to build. Personal productivity applications are easy too. Once you cross departments, cross systems, cross data calibers, cross permission boundaries — the problem is no longer just an AI problem. It's a data structure, organizational process, permission governance, and system architecture problem.
+
+Many enterprises will misjudge themselves as having completed AI transformation at the L3 stage.
+
+The real challenge is at L4: can the AI agent reason across your entire organization's production environment to understand problems?
+
+## In Closing: The Firefighters Will First Become Fewer
+
+Traversal said their goal isn't to build an incident management tool. There are already plenty of tools that manage people: who gets woken up, who enters the meeting room, who coordinates, who writes the postmortem.
+
+What they really want to change is the SOP itself.
+
+In the past, when production incidents occurred, organizations relied on a group of people huddled together searching for the needle. In the future, if AI agents can take on more of the searching, correlating, verifying, and initial judgment, the human role will shift from "investigating everywhere" to "verifying key judgments."
+
+This is actually the direction all enterprise AI transformations will take.
+
+AI agents don't simply replace a person — they change where people should stand in a workflow.
+
+In customer service, humans may shift from repetitive answers to handling high-risk judgments.
+
+In sales, from looking up information to building trust.
+
+In R&D, from writing code to defining system boundaries and verifying results.
+
+In ops, from chaotic firefighting to auditing the causal paths AI provides.
+
+The biggest insight for me from this conversation is: AI agents won't prove their value in the easiest scenarios first — they'll be forced to create new architectures from the most painful, most complex, most judgment-demanding situations.
+
+AI writing code is just the first half.
+
+When systems break, whether AI can understand the system — that's the second half.
+
+---
+
+## About MindsLeap
+
+MindsLeap is an AI-native organization transformation accelerator.
+
+We work closely with Founders Space, a Silicon Valley innovation incubator, to connect global AI frontier insights, Silicon Valley tech entrepreneurship ecosystems, and real transformation scenarios for Chinese entrepreneurs.
+
+Around AI-native organization building, MindsLeap is building a transformation ecosystem for entrepreneurs, startup founders, AI engineers, industry experts, and investors — helping enterprises move AI from cognition, strategy, and tools into real organizational capabilities, business processes, product innovation, and growth systems.
+
+---
+
+*This article was translated and adapted from the Chinese original with AI assistance.*

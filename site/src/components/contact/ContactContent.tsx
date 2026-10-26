@@ -21,6 +21,7 @@ export default function ContactContent() {
     const formData = new FormData(e.currentTarget);
     const data = {
       name: formData.get("name"),
+      phone: formData.get("phone"),
       email: formData.get("email"),
       company: formData.get("company"),
       role: formData.get("role"),
@@ -102,15 +103,28 @@ export default function ContactContent() {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        {t("form.email")} *
+                        {t("form.phone")} *
                       </label>
                       <input
-                        type="email"
-                        name="email"
+                        type="tel"
+                        name="phone"
+                        aria-label={t("form.phone")}
+                        autoComplete="tel"
+                        inputMode="tel"
+                        maxLength={30}
+                        minLength={7}
                         required
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                       />
                     </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-2">
+                      {t("form.emailOptional")}
+                    </label>
+                    <input id="contact-email" type="email" name="email" autoComplete="email"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -142,7 +156,9 @@ export default function ContactContent() {
                     </label>
                     <select name="interest" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
                       <option value="">--</option>
-                      <option value="ai-club">{locale === "zh" ? "AI俱乐部" : "AI Club"}</option>
+                      <option value="ai-club">
+                        {locale === "zh" ? "MindsLeap 企业家 AI 俱乐部" : "MindsLeap Founders AI Club"}
+                      </option>
                       <option value="ai-transformation">{locale === "zh" ? "AI转型服务" : "AI Transformation Services"}</option>
                       <option value="accelerator">{locale === "zh" ? "创业加速" : "Startup Acceleration"}</option>
                       <option value="global-growth">{locale === "zh" ? "出海服务" : "Global Growth Services"}</option>

@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/news",
     "/research",
     "/research/fde-industry-report",
+    "/ai",
     "/topics",
     "/people",
     "/contact",
@@ -28,16 +29,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/${locale}${page}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
-      priority: page === "" ? 1 : 0.8,
+      priority: page === "" ? 1 : page === "/services" ? 0.9 : 0.8,
     }))
   );
 
   const eventEntries = [
+    { url: `${baseUrl}/event/qinghuaemba`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.85 },
+    { url: `${baseUrl}/event/2026november8`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.85 },
     {
-      url: `${baseUrl}/event/qinghuaemba`,
+      url: `${baseUrl}/program/ai-native-organization`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/event/ai-employee`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/event/ai-employee/gallery`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.75,
     },
   ];
 

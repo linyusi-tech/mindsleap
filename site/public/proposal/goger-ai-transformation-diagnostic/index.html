@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>高格办公空间 AI 转型诊断报告</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-alt: #f8fafc;
+        --ink: #111827;
+        --muted: #4b5563;
+        --subtle: #8a96a8;
+        --rule: #e5e7eb;
+        --blue: #1e477c;
+        --blue-2: #2f66ad;
+        --blue-50: #eff6ff;
+        --gold: #b88a3a;
+        --green: #16794a;
+        --orange: #c65f1a;
+        --red: #b42318;
+        --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        --font-mono: "SF Mono", "Roboto Mono", Consolas, monospace;
+        --deck-scale: 1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        background: #0a0d12;
+        color: var(--ink);
+        font-family: var(--font-body);
+      }
+
+      body {
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      .deck-stage {
+        padding: 28px 0 44px;
+        background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.08), transparent 42%), #0a0d12;
+      }
+
+      .slide-frame {
+        position: relative;
+        width: calc(1920px * var(--deck-scale));
+        height: calc(1080px * var(--deck-scale));
+        margin: 0 auto 32px;
+        background: var(--bg);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.46);
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        transform: scale(var(--deck-scale));
+        transform-origin: top left;
+        padding: 84px 112px 154px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        left: 112px;
+        bottom: 42px;
+        width: 292px;
+        height: 58px;
+        background: url("/decks/shared/mindsleap-template/mindsleap-logo-blue.png") left center / contain no-repeat;
+        opacity: 0.78;
+      }
+
+      .slide::after {
+        content: attr(data-page);
+        position: absolute;
+        right: 112px;
+        bottom: 54px;
+        color: #9aa5b5;
+        font: 700 18px/1 var(--font-body);
+        letter-spacing: 0.08em;
+      }
+
+      .cover::before,
+      .cover::after,
+      .chapter::before,
+      .chapter::after {
+        display: none;
+      }
+
+      .eyebrow {
+        display: block;
+        margin: 0 0 18px;
+        color: var(--blue-2);
+        font: 800 21px/1.1 var(--font-body);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .slide-title {
+        margin: 0;
+        color: var(--ink);
+        font: 850 62px/1.08 var(--font-heading);
+        letter-spacing: 0;
+      }
+
+      .slide-title .sub {
+        display: block;
+        margin-top: 16px;
+        max-width: 1460px;
+        color: var(--muted);
+        font: 400 28px/1.35 var(--font-heading);
+      }
+
+      .accent {
+        color: var(--blue);
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .mono {
+        font-family: var(--font-mono);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .cover {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 74px;
+        align-items: center;
+      }
+
+      .cover-logo {
+        width: 520px;
+        height: auto;
+        margin-bottom: 44px;
+      }
+
+      .cover-title {
+        margin: 0;
+        max-width: 1020px;
+        color: var(--ink);
+        font: 850 86px/1.04 var(--font-heading);
+        letter-spacing: 0;
+      }
+
+      .cover-tagline {
+        max-width: 920px;
+        margin: 34px 0 0;
+        color: var(--muted);
+        font: 400 28px/1.44 var(--font-body);
+      }
+
+      .cover-meta {
+        margin-top: 70px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--rule);
+        color: var(--blue);
+        background: #fff;
+        font: 750 16px/1 var(--font-body);
+      }
+
+      .cover-visual {
+        min-height: 742px;
+        padding: 46px;
+        background:
+          linear-gradient(135deg, rgba(30, 71, 124, 0.08), transparent 46%),
+          var(--bg-alt);
+        border: 1px solid var(--rule);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 30px;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .metric {
+        min-height: 166px;
+        padding: 26px;
+        background: #fff;
+        border: 1px solid var(--rule);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .metric b {
+        color: var(--blue);
+        font: 850 56px/1 var(--font-heading);
+      }
+
+      .metric span {
+        color: var(--ink);
+        font: 750 22px/1.28 var(--font-heading);
+      }
+
+      .platform-map {
+        position: relative;
+        min-height: 300px;
+        display: grid;
+        place-items: center;
+      }
+
+      .platform-center {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        border: 16px solid var(--blue);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        color: var(--blue);
+        background: #fff;
+        font: 850 32px/1.18 var(--font-heading);
+        box-shadow: 0 18px 42px rgba(30, 71, 124, 0.18);
+      }
+
+      .orbit {
+        position: absolute;
+        min-width: 142px;
+        padding: 12px 18px;
+        background: #fff;
+        border: 1px solid var(--rule);
+        color: var(--ink);
+        text-align: center;
+        font: 750 19px/1.2 var(--font-heading);
+      }
+
+      .o1 { top: 18px; left: 70px; }
+      .o2 { top: 18px; right: 76px; }
+      .o3 { bottom: 20px; left: 32px; }
+      .o4 { bottom: 20px; right: 32px; }
+
+      .cover-stat {
+        border-top: 5px solid var(--blue);
+        padding-top: 24px;
+      }
+
+      .cover-stat strong {
+        display: block;
+        color: var(--blue);
+        font: 850 70px/1 var(--font-heading);
+      }
+
+      .cover-stat p {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font: 400 24px/1.36 var(--font-body);
+      }
+
+      .chapter {
+        display: grid;
+        align-content: center;
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .chapter .eyebrow,
+      .chapter .slide-title,
+      .chapter .slide-title .sub {
+        color: #fff;
+      }
+
+      .chapter .slide-title {
+        max-width: 1240px;
+        font-size: 80px;
+      }
+
+      .chapter-mark {
+        position: absolute;
+        right: 112px;
+        bottom: 90px;
+        color: rgba(255, 255, 255, 0.18);
+        font: 850 190px/1 var(--font-heading);
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      .two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .content {
+        margin-top: 58px;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border: 1px solid var(--rule);
+        padding: 28px;
+        min-height: 180px;
+      }
+
+      .card.white {
+        background: #fff;
+      }
+
+      .card h3 {
+        margin: 0 0 14px;
+        color: var(--blue);
+        font: 850 28px/1.2 var(--font-heading);
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font: 400 21px/1.48 var(--font-body);
+      }
+
+      .card ul {
+        margin: 16px 0 0;
+        padding-left: 1.1em;
+        color: var(--muted);
+        font: 400 20px/1.42 var(--font-body);
+      }
+
+      .card li + li {
+        margin-top: 8px;
+      }
+
+      .big-number {
+        display: block;
+        margin-bottom: 16px;
+        color: var(--blue);
+        font: 850 60px/1 var(--font-heading);
+      }
+
+      .finding {
+        min-height: 300px;
+        border-top: 6px solid var(--blue);
+      }
+
+      .quote {
+        padding: 30px 34px;
+        background: var(--blue-50);
+        border-left: 8px solid var(--blue);
+        color: var(--ink);
+        font: 750 29px/1.36 var(--font-heading);
+      }
+
+      .evidence-row {
+        display: grid;
+        grid-template-columns: 290px 1fr;
+        gap: 20px;
+        align-items: start;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .evidence-row b {
+        color: var(--blue);
+        font: 850 25px/1.2 var(--font-heading);
+      }
+
+      .evidence-row span {
+        color: var(--muted);
+        font: 400 22px/1.42 var(--font-body);
+      }
+
+      .framework {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-top: 52px;
+      }
+
+      .layer {
+        position: relative;
+        min-height: 130px;
+        padding: 24px 26px 24px 100px;
+        border: 1px solid var(--rule);
+        background: #fff;
+      }
+
+      .layer::before {
+        content: attr(data-index);
+        position: absolute;
+        left: 26px;
+        top: 26px;
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: var(--blue);
+        font: 850 22px/1 var(--font-heading);
+      }
+
+      .layer h3 {
+        margin: 0 0 9px;
+        color: var(--ink);
+        font: 850 26px/1.2 var(--font-heading);
+      }
+
+      .layer p {
+        margin: 0;
+        color: var(--muted);
+        font: 400 20px/1.36 var(--font-body);
+      }
+
+      .opportunity {
+        min-height: 232px;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 12px;
+      }
+
+      .priority {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        padding: 7px 11px;
+        color: #fff;
+        background: var(--blue);
+        font: 850 14px/1 var(--font-body);
+      }
+
+      .priority.high { background: var(--green); }
+      .priority.mid { background: var(--orange); }
+
+      .matrix {
+        margin-top: 48px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        height: 700px;
+        border: 2px solid var(--blue);
+        position: relative;
+      }
+
+      .matrix::before,
+      .matrix::after {
+        content: "";
+        position: absolute;
+        background: var(--blue);
+      }
+
+      .matrix::before {
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+      }
+
+      .matrix::after {
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 2px;
+      }
+
+      .quadrant {
+        position: relative;
+        padding: 30px;
+        background: #fff;
+      }
+
+      .quadrant:nth-child(1) {
+        background: var(--blue-50);
+      }
+
+      .quadrant h3 {
+        margin: 0 0 18px;
+        color: var(--blue);
+        font: 850 28px/1.2 var(--font-heading);
+      }
+
+      .bubble {
+        display: inline-block;
+        margin: 0 10px 12px 0;
+        padding: 12px 15px;
+        background: #fff;
+        border: 1px solid var(--rule);
+        color: var(--ink);
+        font: 750 19px/1.2 var(--font-heading);
+      }
+
+      .axis-x,
+      .axis-y {
+        position: absolute;
+        color: var(--blue);
+        font: 850 18px/1 var(--font-body);
+        letter-spacing: 0.08em;
+      }
+
+      .axis-x {
+        right: 115px;
+        bottom: 118px;
+      }
+
+      .axis-y {
+        left: 42px;
+        top: 380px;
+        transform: rotate(-90deg);
+        transform-origin: left center;
+      }
+
+      .roadmap {
+        margin-top: 54px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .phase {
+        min-height: 630px;
+        padding: 28px;
+        background: var(--bg-alt);
+        border: 1px solid var(--rule);
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        gap: 14px;
+      }
+
+      .phase b {
+        color: var(--blue);
+        font: 850 30px/1 var(--font-heading);
+      }
+
+      .phase h3 {
+        margin: 0;
+        color: var(--ink);
+        font: 850 25px/1.24 var(--font-heading);
+      }
+
+      .phase ul {
+        margin: 6px 0 0;
+        padding-left: 1.05em;
+        color: var(--muted);
+        font: 400 20px/1.42 var(--font-body);
+      }
+
+      .role-table {
+        margin-top: 46px;
+        display: grid;
+        border: 1px solid var(--rule);
+      }
+
+      .role-row {
+        display: grid;
+        grid-template-columns: 260px 1fr 1fr;
+        gap: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .role-row:last-child {
+        border-bottom: none;
+      }
+
+      .role-row > div {
+        padding: 20px 24px;
+        color: var(--muted);
+        font: 400 20px/1.38 var(--font-body);
+        border-right: 1px solid var(--rule);
+      }
+
+      .role-row > div:last-child {
+        border-right: none;
+      }
+
+      .role-row.head > div {
+        color: #fff;
+        background: var(--blue);
+        font-weight: 850;
+      }
+
+      .role-row b {
+        color: var(--ink);
+      }
+
+      .data-map {
+        margin-top: 52px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+      }
+
+      .data-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .data-item {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 18px;
+        padding: 20px 22px;
+        border: 1px solid var(--rule);
+        background: #fff;
+      }
+
+      .data-item b {
+        color: var(--blue);
+        font: 850 23px/1.2 var(--font-heading);
+      }
+
+      .data-item span {
+        color: var(--muted);
+        font: 400 20px/1.38 var(--font-body);
+      }
+
+      .stacked {
+        display: grid;
+        gap: 18px;
+      }
+
+      .compact-card {
+        padding: 22px 24px;
+        border: 1px solid var(--rule);
+        background: var(--bg-alt);
+      }
+
+      .compact-card h3 {
+        margin: 0 0 10px;
+        color: var(--blue);
+        font: 850 24px/1.2 var(--font-heading);
+      }
+
+      .compact-card p {
+        margin: 0;
+        color: var(--muted);
+        font: 400 20px/1.38 var(--font-body);
+      }
+
+      .footer-note {
+        position: absolute;
+        left: 112px;
+        right: 112px;
+        bottom: 112px;
+        color: var(--subtle);
+        font: 400 17px/1.32 var(--font-body);
+      }
+
+      @media (max-width: 1920px) {
+        :root {
+          --deck-scale: calc((100vw - 32px) / 1920);
+        }
+        .deck-stage {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck-stage">
+      <section class="slide-frame">
+        <article class="slide cover" data-page="01 / 12">
+          <div>
+            <img class="cover-logo" src="/decks/shared/mindsleap-template/mindsleap-logo-blue.png" alt="MindsLeap" />
+            <h1 class="cover-title">高格办公空间<br /><span class="accent">AI 转型诊断报告</span></h1>
+            <p class="cover-tagline">从共享办公项目经营，升级为可复制的 AI 驱动办公资产运营平台。</p>
+            <div class="cover-meta">
+              <span class="pill">MindsLeap Consulting Agent</span>
+              <span class="pill">2026.07</span>
+              <span class="pill">基于 6 场高管访谈</span>
+            </div>
+          </div>
+          <div class="cover-visual">
+            <div class="metric-grid">
+              <div class="metric"><b>50+</b><span>共享办公空间 / 标杆项目</span></div>
+              <div class="metric"><b>10+</b><span>覆盖城市</span></div>
+              <div class="metric"><b>2亿</b><span>年营收量级</span></div>
+              <div class="metric"><b>6</b><span>核心访谈对象</span></div>
+            </div>
+            <div class="platform-map">
+              <div class="orbit o1">增长</div>
+              <div class="orbit o2">产品</div>
+              <div class="platform-center">AI 驱动<br />空间服务商</div>
+              <div class="orbit o3">运营</div>
+              <div class="orbit o4">业财</div>
+            </div>
+            <div class="cover-stat">
+              <strong>180 天</strong>
+              <p>建立从项目拓展、产品测算、存量经营到业财规则的第一版 Agent 工作流。</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="02 / 12">
+          <span class="eyebrow">Executive Takeaway</span>
+          <h2 class="slide-title">高格的 AI 转型，不应从后台提效开始，而应从增长和利润的主战场开始。</h2>
+          <div class="content grid three">
+            <div class="card finding">
+              <span class="big-number">01</span>
+              <h3>从二房东转向资产运营商</h3>
+              <p>高格正在尝试摆脱包租、包底和重装修投入，转向业主出房、资金方出资、高格运营的轻资产模式。</p>
+            </div>
+            <div class="card finding">
+              <span class="big-number">02</span>
+              <h3>增长卡点不是只有线索</h3>
+              <p>访谈显示，项目拓展卡在资金方、业主避险、项目测算、产品可信度和方案转化，而不是简单增加 BD 数量。</p>
+            </div>
+            <div class="card finding">
+              <span class="big-number">03</span>
+              <h3>组织经验必须变成系统能力</h3>
+              <p>创始人、拓展、产品、运营、财务、中台的经验仍大量留在人脑中，AI 的核心价值是把它们变成可复制 workflow。</p>
+            </div>
+          </div>
+          <div class="footer-note">诊断依据：Bob、Amy、Eric、田园、Emily、财务负责人六场访谈，以及公司基础资料。</div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="03 / 12">
+          <span class="eyebrow">Evidence</span>
+          <h2 class="slide-title">六场访谈拼出的不是功能清单，而是一条增长、产品、运营、业财必须闭环的价值链。</h2>
+          <div class="content">
+            <div class="evidence-row">
+              <b>Bob<br />创始人 / 董事长</b>
+              <span>最高优先级是生存、增长和利润；AI 首批试点应服务轻资产拓展、投资判断、业主方案、经营驾驶舱和动态定价。</span>
+            </div>
+            <div class="evidence-row">
+              <b>Amy<br />中台副总裁</b>
+              <span>中台要承担 AI 需求池、优先级、owner、验收 KPI 和组织习惯改变；品牌获客、渠道 ROI、存量运营规则要进入系统。</span>
+            </div>
+            <div class="evidence-row">
+              <b>Eric<br />项目拓展副总裁</b>
+              <span>上半年 200+ 线索、100+ 结案，最终转化仅几个；关键瓶颈在有效项目、业主决策、投资回报和资金来源。</span>
+            </div>
+            <div class="evidence-row">
+              <b>田园<br />产品部门负责人</b>
+              <span>产品部门是开发和运营之间的关键中间层，负责定位、CAD/面积测算、平面效率、设计标准、成本控制和交付。</span>
+            </div>
+            <div class="evidence-row">
+              <b>Emily<br />存量运营总经理</b>
+              <span>项目经理承担收入经营责任，但出租率、带看、客户跟进、破价审批、客户增值等仍缺少实时经营视角。</span>
+            </div>
+            <div class="evidence-row">
+              <b>财务负责人</b>
+              <span>8 人团队支撑约 30 家项目公司、10 个城市、50 个项目；业主分成、收款认领、合同审核和管理会计规则复杂。</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide chapter" data-page="04 / 12">
+          <span class="eyebrow">Diagnosis Framework</span>
+          <h2 class="slide-title">高格需要的不是一个 Agent，而是一套 AI 原生办公资产运营系统。</h2>
+          <div class="chapter-mark">6</div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="05 / 12">
+          <span class="eyebrow">Six-Layer Architecture</span>
+          <h2 class="slide-title">六层架构把高格从“项目靠人推动”，升级为“流程由数据和 Agent 推动”。</h2>
+          <div class="framework">
+            <div class="layer" data-index="1"><h3>增量增长系统</h3><p>项目拓展、业主合作、资金方匹配、投资测算、BD 漏斗转化。</p></div>
+            <div class="layer" data-index="2"><h3>产品评估系统</h3><p>项目定位、CAD/面积测算、平面布局、成本核算、东方美学、施工复盘。</p></div>
+            <div class="layer" data-index="3"><h3>存量经营系统</h3><p>出租率、续签、带看、渠道、催缴、动态定价、客户增值。</p></div>
+            <div class="layer" data-index="4"><h3>品牌获客系统</h3><p>线上线索、中介渠道、渠道 ROI、内容投放、CRM 跟进、成交归因。</p></div>
+            <div class="layer" data-index="5"><h3>业财规则连接层</h3><p>多项目公司、业主分成、收款认领、合同审核、能耗分摊、管理会计。</p></div>
+            <div class="layer" data-index="6"><h3>中台转型治理层</h3><p>AI 需求池、优先级评分、owner、数据准备、验收 KPI、组织习惯改变。</p></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="06 / 12">
+          <span class="eyebrow">Opportunity Map</span>
+          <h2 class="slide-title">首批机会要按“战略价值 x 可落地性”排序，先做能影响增长和利润的 Agent。</h2>
+          <div class="content grid three">
+            <div class="card opportunity white"><span class="priority">极高</span><h3>AI 转型治理与优先级管理 Agent</h3><p>由 Amy 中台牵头管理需求池、owner、数据准备、验收 KPI 和周度推进。</p></div>
+            <div class="card opportunity white"><span class="priority">极高</span><h3>项目评估与投资测算 Agent</h3><p>把开发、产品、运营、财务经验统一为项目评分、回本周期和敏感性模型。</p></div>
+            <div class="card opportunity white"><span class="priority high">高</span><h3>品牌获客与线索质量 Agent</h3><p>分析线上线索、中介渠道、CRM 跟进、成交归因和渠道 ROI。</p></div>
+            <div class="card opportunity white"><span class="priority high">高</span><h3>CAD 面积识别与开发测算 Agent</h3><p>从 CAD/PDF 图纸抽取面积、柱网、空间效率，提升项目初筛速度。</p></div>
+            <div class="card opportunity white"><span class="priority">极高</span><h3>存量运营标准化与动态定价 Agent</h3><p>覆盖出租率、带看、合同算费、能耗分摊、价格建议和经营动作。</p></div>
+            <div class="card opportunity white"><span class="priority high">高</span><h3>业主分成结算与收款认领 Agent</h3><p>把合同规则、业务台账和银行流水连接起来，生成结算底稿和异常清单。</p></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="07 / 12">
+          <span class="eyebrow">Priority Matrix</span>
+          <h2 class="slide-title">第一波 FDE 不做“大而全平台”，而做三个能互相强化的闭环。</h2>
+          <div class="matrix">
+            <div class="quadrant">
+              <h3>优先试点：高战略价值 / 高可落地性</h3>
+              <span class="bubble">AI 转型治理</span>
+              <span class="bubble">项目评估与投资测算</span>
+              <span class="bubble">存量运营标准化</span>
+              <span class="bubble">动态定价建议</span>
+            </div>
+            <div class="quadrant">
+              <h3>战略储备：高价值 / 需数据准备</h3>
+              <span class="bubble">资金方匹配</span>
+              <span class="bubble">业主方案生成</span>
+              <span class="bubble">品牌获客归因</span>
+              <span class="bubble">业主分成结算</span>
+            </div>
+            <div class="quadrant">
+              <h3>效率补强：中价值 / 高可落地</h3>
+              <span class="bubble">HR 简历初筛</span>
+              <span class="bubble">薪酬拆分</span>
+              <span class="bubble">会议纪要整理</span>
+            </div>
+            <div class="quadrant">
+              <h3>暂缓：价值或数据仍需验证</h3>
+              <span class="bubble">全自动设计生成</span>
+              <span class="bubble">黑箱自动定价</span>
+              <span class="bubble">无人审核财务入账</span>
+            </div>
+          </div>
+          <div class="axis-y">Strategic Impact</div>
+          <div class="axis-x">Implementation Readiness</div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="08 / 12">
+          <span class="eyebrow">FDE Pilot</span>
+          <h2 class="slide-title">建议第一个 FDE 项目做“项目增长决策台”，把拓展、产品、财务和中台接到同一张桌上。</h2>
+          <div class="content grid two">
+            <div class="card">
+              <h3>核心命题</h3>
+              <p>给一个新项目线索，高格能否在更短时间内判断：值不值得做、什么模式做、谁出钱、如何对业主讲清楚、风险在哪里。</p>
+            </div>
+            <div class="quote">从“BD 拿项目 + 产品测算 + 财务复核 + 高层拍板”，升级为“统一模型先给出证据化建议”。</div>
+            <div class="card">
+              <h3>输入数据</h3>
+              <ul>
+                <li>历史 100+ 结案线索和签约/丢单原因</li>
+                <li>3-5 个典型项目 CAD、平面图、预算和最终成本</li>
+                <li>业主画像、资金方要求、租金、空置、竞品和回本周期</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>输出成果</h3>
+              <ul>
+                <li>项目评分卡与 go / no-go 建议</li>
+                <li>投资测算、敏感性分析和资金方匹配理由</li>
+                <li>业主方案故事线、反对意见处理和需人工确认项</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="09 / 12">
+          <span class="eyebrow">Data Foundation</span>
+          <h2 class="slide-title">数据底座不需要一开始很重，但必须围绕决策对象建表，而不是围绕部门建表。</h2>
+          <div class="data-map">
+            <div class="data-list">
+              <div class="data-item"><b>项目</b><span>城市、楼宇、面积、租金、空置、业主、合作模式、阶段、丢单原因。</span></div>
+              <div class="data-item"><b>产品</b><span>CAD、可出租面积、空间效率、设计方案、预算、供应商、施工变更。</span></div>
+              <div class="data-item"><b>客户</b><span>来源、行业、需求、跟进、成交、续租、投诉、增值服务机会。</span></div>
+              <div class="data-item"><b>合同 / 财务</b><span>账期、租金、物业费、水电费、分成口径、收款流水、开票、结算周期。</span></div>
+              <div class="data-item"><b>AI 试点</b><span>需求、owner、数据 owner、KPI、状态、风险、采纳率、复盘结论。</span></div>
+            </div>
+            <div class="stacked">
+              <div class="compact-card"><h3>先轻后重</h3><p>首期可用导出表、飞书/钉钉表单和 Markdown 知识库跑通，不急于改核心系统。</p></div>
+              <div class="compact-card"><h3>先建议后决策</h3><p>项目评估、动态定价、分成结算都应先作为建议和校验工具，关键动作保留人工审批。</p></div>
+              <div class="compact-card"><h3>先样本后平台</h3><p>用少量真实项目建立规则，再逐步扩展为项目库、资金方库、业主方案库和产品知识库。</p></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="10 / 12">
+          <span class="eyebrow">Governance</span>
+          <h2 class="slide-title">Amy 中台应成为 AI 转型 PMO：不只是提需求，而是管优先级、数据、owner 和复盘。</h2>
+          <div class="role-table">
+            <div class="role-row head"><div>角色</div><div>职责</div><div>关键输出</div></div>
+            <div class="role-row"><div><b>Bob</b><br />最高 sponsor</div><div>确认战略方向、资源优先级、关键决策边界。</div><div>180 天目标、试点预算、关键取舍。</div></div>
+            <div class="role-row"><div><b>Amy</b><br />AI 转型 PMO</div><div>维护 AI 需求池、优先级评分、owner、KPI 和推进节奏。</div><div>周度看板、需求评分、验收机制。</div></div>
+            <div class="role-row"><div><b>Eric / 田园</b><br />增长与产品 owner</div><div>提供项目拓展、产品测算、成本、方案和历史复盘数据。</div><div>项目评估模型、CAD 样本、业主方案。</div></div>
+            <div class="role-row"><div><b>Emily / 财务</b><br />运营与业财 owner</div><div>定义存量经营、合同算费、分成结算和收款认领规则。</div><div>经营指标、规则库、异常处理流程。</div></div>
+            <div class="role-row"><div><b>FDE 团队</b><br />落地实施</div><div>把业务规则、数据样本和 Agent 工作流做成可用原型。</div><div>可运行 demo、数据接口、试点评估。</div></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="11 / 12">
+          <span class="eyebrow">180-Day Roadmap</span>
+          <h2 class="slide-title">180 天路线图：先让增长决策闭环跑起来，再扩展到运营、产品、业财和组织复制。</h2>
+          <div class="roadmap">
+            <div class="phase">
+              <b>0-30 天</b>
+              <h3>需求池与数据底座</h3>
+              <ul>
+                <li>建立 AI 需求池和评分机制</li>
+                <li>明确 sponsor、owner、数据 owner</li>
+                <li>整理五类核心数据底座</li>
+                <li>选定 3-5 个典型项目样本</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <b>30-60 天</b>
+              <h3>增长决策台 MVP</h3>
+              <ul>
+                <li>回看历史 100+ 结案线索</li>
+                <li>验证 CAD 面积识别</li>
+                <li>生成项目评分与投资测算</li>
+                <li>输出业主方案和资金方材料</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <b>60-90 天</b>
+              <h3>存量经营与业财试点</h3>
+              <ul>
+                <li>存量运营标准化原型</li>
+                <li>动态定价建议和审批辅助</li>
+                <li>典型分成项目结算 Agent</li>
+                <li>高格东方美学知识库启动</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <b>90-180 天</b>
+              <h3>复制与扩展</h3>
+              <ul>
+                <li>扩展品牌获客归因</li>
+                <li>接入收款认领和管理会计</li>
+                <li>沉淀施工交付复盘</li>
+                <li>建立跨城市复制 playbook</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="slide-frame">
+        <article class="slide" data-page="12 / 12">
+          <span class="eyebrow">Next Step</span>
+          <h2 class="slide-title">下一步不是再“想 AI 能做什么”，而是拿真实项目数据把第一个闭环做出来。</h2>
+          <div class="content grid two">
+            <div class="card">
+              <h3>建议立即准备的样本</h3>
+              <ul>
+                <li>历史 100+ 项目线索和结案记录</li>
+                <li>3-5 个典型项目 CAD、方案、预算、最终成本</li>
+                <li>线上 378 条有效线索及成交/失败结果</li>
+                <li>一个典型业主分成项目的合同和结算底稿</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>FDE 进场第一周目标</h3>
+              <ul>
+                <li>完成数据字段字典和样本清洗</li>
+                <li>确认项目评分卡 v0.1</li>
+                <li>跑出 5 个历史项目回测结果</li>
+                <li>形成第一版业主方案生成 workflow</li>
+              </ul>
+            </div>
+            <div class="quote">衡量第一个试点是否成功：不是模型多聪明，而是高格能否更快、更有证据地判断一个项目值不值得做。</div>
+            <div class="card">
+              <h3>报告来源</h3>
+              <p>公司基础资料、Bob 创始人 / 董事长访谈、Amy 中台副总裁访谈、Eric 项目拓展访谈、田园产品部门访谈、Emily 存量运营访谈、财务负责人访谈。</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script>
+      const setScale = () => {
+        const scale = Math.min(1, (window.innerWidth - 32) / 1920);
+        document.documentElement.style.setProperty("--deck-scale", scale.toString());
+      };
+      setScale();
+      window.addEventListener("resize", setScale);
+    </script>
+  </body>
+</html>

@@ -739,6 +739,7 @@
     }
     .table-5 { grid-template-columns: 0.96fr 0.72fr 0.64fr 1.25fr 1.28fr; }
     .table-4 { grid-template-columns: 1.08fr 0.76fr 0.76fr 0.9fr; }
+    .activity-table { grid-template-columns: 0.98fr 0.68fr 1.34fr 1.24fr; }
     .tcell {
       padding: 16px 20px;
       border-right: 1px solid #dfe6ef;
@@ -767,13 +768,31 @@
       color: #1e477c;
       font: 700 22px/1.16 var(--font-heading);
     }
+    .operating-budget-table {
+      margin-top: 24px;
+    }
+    .operating-budget-table .tcell {
+      padding: 11px 18px;
+      min-height: 56px;
+      font-size: 16px;
+      line-height: 1.22;
+    }
+    .operating-budget-table .tcell.head {
+      min-height: 44px;
+      font-size: 17px;
+    }
+    .operating-budget-table .tcell.topic,
+    .operating-budget-table .tcell.strong {
+      font-size: 19px;
+      line-height: 1.12;
+    }
     .budget-total {
-      margin-top: 22px;
+      margin-top: 10px;
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 28px;
-      padding: 22px 28px;
+      gap: 24px;
+      padding: 12px 24px;
       border-radius: 8px;
       background: #1e477c;
       color: #fff;
@@ -785,11 +804,71 @@
       color: rgba(255,255,255,0.78);
       font: 400 20px/1.35 var(--font-body);
     }
+    .budget-source {
+      justify-self: end;
+      min-width: 660px;
+      border-radius: 8px;
+      background: #fff;
+      color: #1e477c;
+      padding: 8px 14px;
+      box-sizing: border-box;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.28);
+    }
+    .budget-source .label {
+      color: #2f6db4;
+      font: 700 15px/1 var(--font-body);
+      margin-bottom: 4px;
+    }
+    .budget-source .chips {
+      display: grid;
+      grid-template-columns: 1fr auto 1.2fr;
+      gap: 12px;
+      align-items: center;
+    }
+    .budget-source .chip {
+      display: block;
+      border-radius: 7px;
+      background: #1e477c;
+      color: #fff;
+      text-align: center;
+      padding: 8px 12px;
+      font: 700 20px/1.12 var(--font-heading);
+    }
+    .budget-source .plus {
+      color: #1e477c;
+      font: 700 26px/1 var(--font-heading);
+    }
     .funding-grid {
       display: grid;
       grid-template-columns: 0.96fr 1.04fr;
       gap: 26px;
       margin-top: 42px;
+    }
+    .support-layout {
+      margin-top: 30px;
+    }
+    .support-section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: #1e477c;
+      font: 700 22px/1.2 var(--font-heading);
+    }
+    .support-section-label::before {
+      content: "";
+      width: 8px;
+      height: 24px;
+      border-radius: 2px;
+      background: #2f6db4;
+    }
+    .support-section-label.budget-label {
+      margin-top: 24px;
+    }
+    .support-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
     .funding-card {
       border: 1px solid #dfe6ef;
@@ -816,6 +895,78 @@
       font: 400 23px/1.42 var(--font-body);
     }
     .funding-card.dark p { color: rgba(255,255,255,0.78); }
+    .support-cards .funding-card {
+      min-height: 220px;
+      padding: 24px 26px;
+    }
+    .support-cards .funding-card h3 {
+      font-size: 30px;
+      line-height: 1.14;
+    }
+    .support-cards .funding-card p {
+      font-size: 20px;
+      line-height: 1.38;
+    }
+    .support-budget {
+      display: grid;
+      grid-template-columns: 0.86fr 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .budget-overview {
+      border-radius: 8px;
+      background: #1e477c;
+      color: #fff;
+      padding: 22px 24px;
+      min-height: 150px;
+      box-sizing: border-box;
+    }
+    .budget-overview span {
+      display: block;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,0.76);
+      font: 700 18px/1 var(--font-body);
+    }
+    .budget-overview b {
+      display: block;
+      color: #fff;
+      font: 700 44px/1.04 var(--font-heading);
+      margin-bottom: 12px;
+    }
+    .budget-overview p {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font: 400 17px/1.32 var(--font-body);
+    }
+    .budget-split-card {
+      border: 1px solid #dfe6ef;
+      border-top: 5px solid #2f6db4;
+      background: #fff;
+      border-radius: 8px;
+      padding: 19px 22px;
+      min-height: 150px;
+      box-sizing: border-box;
+    }
+    .budget-split-card.self {
+      border-top-color: #5f6f82;
+    }
+    .budget-split-card span {
+      display: block;
+      color: #1e477c;
+      font: 700 20px/1.1 var(--font-heading);
+      margin-bottom: 9px;
+    }
+    .budget-split-card b {
+      display: block;
+      color: #1e477c;
+      font: 700 34px/1.05 var(--font-heading);
+      margin-bottom: 9px;
+    }
+    .budget-split-card p {
+      margin: 0;
+      color: #526174;
+      font: 400 17px/1.32 var(--font-body);
+    }
     .revenue-chips {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -996,6 +1147,79 @@
       font: 400 20px/1.38 var(--font-body);
     }
     .seat-card.dark p { color: rgba(255,255,255,0.78); }
+    .people-cost-layout {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 28px;
+      margin-top: 40px;
+      flex: 0 0 auto;
+    }
+    .people-cost-total {
+      border-radius: 8px;
+      background: #1e477c;
+      color: #fff;
+      padding: 38px 36px;
+      min-height: 520px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .people-cost-total .label {
+      color: #b8d7ff;
+      font: 700 20px/1 var(--font-body);
+      margin-bottom: 28px;
+    }
+    .people-cost-total .num {
+      color: #fff;
+      font: 700 70px/0.98 var(--font-heading);
+      margin-bottom: 28px;
+    }
+    .people-cost-total p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.78);
+      font: 400 24px/1.42 var(--font-body);
+    }
+    .people-cost-total p:last-child { margin-bottom: 0; }
+    .people-cost-table {
+      display: grid;
+      grid-template-columns: 0.82fr 0.45fr 1.28fr 0.5fr;
+      border: 1px solid #dfe6ef;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .people-cell {
+      padding: 13px 16px;
+      min-height: 68px;
+      border-right: 1px solid #dfe6ef;
+      border-bottom: 1px solid #dfe6ef;
+      box-sizing: border-box;
+      color: #526174;
+      font: 400 16px/1.28 var(--font-body);
+    }
+    .people-cell:nth-child(4n) { border-right: 0; }
+    .people-cell:nth-last-child(-n+4) { border-bottom: 0; }
+    .people-cell.head {
+      min-height: 50px;
+      background: #1e477c;
+      color: #fff;
+      font: 700 17px/1.16 var(--font-heading);
+    }
+    .people-cell.topic {
+      background: #f6f8fb;
+      color: #1e477c;
+      font: 700 20px/1.14 var(--font-heading);
+    }
+    .people-cell.strong {
+      color: #1e477c;
+      font: 700 22px/1.1 var(--font-heading);
+    }
+    .people-cell.total {
+      background: #eef4fb;
+      color: #1e477c;
+      font-weight: 700;
+    }
     .metric-table {
       display: grid;
       grid-template-columns: 0.72fr repeat(3, 0.92fr) 1.22fr;
@@ -1030,6 +1254,51 @@
     .metric-cell.strong {
       color: #1e477c;
       font: 700 20px/1.16 var(--font-heading);
+    }
+    .target-slide .slide-title {
+      font-size: 58px;
+      line-height: 1.06;
+    }
+    .target-slide .slide-title .en {
+      font-size: 23px;
+      line-height: 1.28;
+    }
+    .target-slide .slide-bar {
+      margin-top: 22px;
+    }
+    .metric-table.five-year {
+      grid-template-columns: 0.64fr repeat(5, 0.66fr) 1.18fr;
+      margin-top: 22px;
+    }
+    .metric-table.five-year .metric-cell {
+      padding: 12px 13px;
+      min-height: 70px;
+      font-size: 16px;
+      line-height: 1.24;
+    }
+    .metric-table.five-year .metric-cell:nth-child(5n) {
+      border-right: 1px solid #dfe6ef;
+    }
+    .metric-table.five-year .metric-cell:nth-child(7n) {
+      border-right: 0;
+    }
+    .metric-table.five-year .metric-cell:nth-last-child(-n+5) {
+      border-bottom: 1px solid #dfe6ef;
+    }
+    .metric-table.five-year .metric-cell:nth-last-child(-n+7) {
+      border-bottom: 0;
+    }
+    .metric-table.five-year .metric-cell.head {
+      min-height: 48px;
+      font-size: 18px;
+    }
+    .metric-table.five-year .metric-cell.topic {
+      font-size: 18px;
+      line-height: 1.12;
+    }
+    .metric-table.five-year .metric-cell.strong {
+      font-size: 19px;
+      line-height: 1.12;
     }
     .space-return {
       grid-template-columns: 0.72fr 1.28fr;
@@ -1612,30 +1881,30 @@
     </div>
   </section>
 
-  <section class="slide body role-slide" data-label="13 合作分工">
-    <div class="eyebrow">合作分工 <span class="dot">·</span> 明确职责与资源配置</div>
-    <h1 class="slide-title">明确分工，优势互补，共同推动青浦AI原生企业生态发展
-      <span class="en">青浦科创提供区域平台与政策资源，MindsLeap 负责生态运营与项目转化。</span>
+  <section class="slide body role-slide" data-label="13 投入结构">
+    <div class="eyebrow">投入结构 <span class="dot">·</span> 明确双方资源配置</div>
+    <h1 class="slide-title">青浦科创提供空间与启动支持，MindsLeap 投入团队和生态运营能力
+      <span class="en">先拆清楚空间载体、空间装修和人员投入，再测算年度运营活动及双方共同承担的经费结构。</span>
     </h1>
     <span class="slide-bar"></span>
     <div class="responsibility-grid">
       <div class="responsibility">
         <header><div class="label">青浦科创集团</div><h3>青浦科创集团投入</h3></header>
         <div class="responsibility-list">
-          <div class="responsibility-item"><div class="num">01</div><div><b>空间载体</b><span>提供新楼空间作为项目一期固定物理载体，承载办公、活动、路演与社群运营。</span></div></div>
-          <div class="responsibility-item"><div class="num">02</div><div><b>空间装修</b><span>根据共同确定的定位方案，支持空间设计、装修和基础设施配置。</span></div></div>
-          <div class="responsibility-item"><div class="num">03</div><div><b>启动支持</b><span>协调临时启动空间与运营启动资源，保障项目尽快进入日常运营。</span></div></div>
-          <div class="responsibility-item"><div class="num">04</div><div><b>运营支持</b><span>提供年度运营支持经费，保障高质量活动、社群服务和生态建设稳定推进。</span></div></div>
-          <div class="responsibility-item"><div class="num">05</div><div><b>政策资源</b><span>整合注册、办公、人才、算力、基金、场景开放等政策资源包，支持入驻企业发展。</span></div></div>
+          <div class="responsibility-item"><div class="num">01</div><div><b>空间载体</b><span>提供一层空间作为项目一期固定物理载体，承载开放办公、内容录制、展示接待与社群运营。</span></div></div>
+          <div class="responsibility-item"><div class="num">02</div><div><b>空间装修</b><span>支持按照硅谷创业社区风格完成空间设计、装修和基础设施配置。</span></div></div>
+          <div class="responsibility-item"><div class="num">03</div><div><b>年度运营支持</b><span>提供每年 130 万元运营支持，用于活动、项目筛选、招商接待和年度成果呈现。</span></div></div>
+          <div class="responsibility-item"><div class="num">04</div><div><b>政策资源</b><span>整合注册、办公、人才、算力、基金、场景开放等政策资源包，支持入驻企业发展。</span></div></div>
+          <div class="responsibility-item"><div class="num">05</div><div><b>产业协同</b><span>协调区内企业需求、招商服务和重大接待，推动入驻项目进入真实产业场景。</span></div></div>
         </div>
       </div>
       <div class="responsibility dark">
         <header><div class="label">MindsLeap</div><h3>MindsLeap 投入</h3></header>
         <div class="responsibility-list">
           <div class="responsibility-item"><div class="num">01</div><div><b>项目招募与筛选</b><span>面向本地、长三角及海外创新网络，触达 AI 原生企业、OPC、FDE 团队和传统软件转型企业。</span></div></div>
-          <div class="responsibility-item"><div class="num">02</div><div><b>活动与内容运营</b><span>策划并执行年度大会、AI 工作坊、项目路演日、硅谷专家分享，并持续运营创始人访谈内容栏目。</span></div></div>
-          <div class="responsibility-item"><div class="num">03</div><div><b>内容传播与品牌建设</b><span>通过媒体矩阵、人物访谈、案例文章与短视频，持续放大青浦 AI 生态影响力。</span></div></div>
-          <div class="responsibility-item"><div class="num">04</div><div><b>硅谷资源链接</b><span>引入 Founders Space、硅谷导师、AI 创业方法论、资本与全球增长资源。</span></div></div>
+          <div class="responsibility-item"><div class="num">02</div><div><b>人员投入</b><span>配置项目统筹、BD、市场活动、新媒体内容和项目服务团队，年度人员成本约 200 万元。</span></div></div>
+          <div class="responsibility-item"><div class="num">03</div><div><b>市场化自筹</b><span>年度运营预算中通过会员、服务、赞助及市场化合作等方式自筹约 150 万元。</span></div></div>
+          <div class="responsibility-item"><div class="num">04</div><div><b>硅谷资源与内容传播</b><span>引入 Founders Space、硅谷导师、AI 创业方法论，并持续运营访谈、案例和媒体内容。</span></div></div>
           <div class="responsibility-item"><div class="num">05</div><div><b>孵化与 FDE 转化</b><span>推动企业 AI 需求转化为培训、咨询、FDE 落地和 AI 原生企业成长机会。</span></div></div>
         </div>
       </div>
@@ -1643,115 +1912,187 @@
   </section>
 
   <section class="slide body dense-slide" data-label="14 空间面积安排">
-    <div class="eyebrow">空间安排 <span class="dot">·</span> 将 1,500㎡ 建设为运营载体</div>
-    <h1 class="slide-title">将 1,500㎡ 建设为集办公、路演、录制与展示于一体的创业社区
-      <span class="en">空间安排优先服务工位承载，同时保留路演、内容生产、项目展示和政府招商接待能力。</span>
+    <div class="eyebrow">空间安排 <span class="dot">·</span> 创业社区功能拆解</div>
+    <h1 class="slide-title">将一层空间建设为集办公、录制、展示与社群交流于一体的创业社区
+      <span class="en">空间安排优先服务工位承载，同时保留内容生产、项目展示、交流协作和政府招商接待能力。</span>
     </h1>
     <span class="slide-bar"></span>
     <div class="area-table">
       <div class="area-cell head">功能区</div><div class="area-cell head">面积</div><div class="area-cell head">核心用途</div><div class="area-cell head">对应指标</div>
-      <div class="area-cell topic">OPC 开放办公区</div><div class="area-cell strong">620㎡</div><div class="area-cell">承载 OPC、一人公司、AI 原生小团队和 FDE 服务团队。</div><div class="area-cell">推导约 100 个可运营创业工位。</div>
-      <div class="area-cell topic">100 人路演 / 教学 / Hackathon 空间</div><div class="area-cell strong">250㎡</div><div class="area-cell">承接路演、培训、硅谷连线、政府展示和年度成果发布。</div><div class="area-cell">形成 Hackathon、政策宣讲和项目展示场景。</div>
-      <div class="area-cell topic">洽谈室 / 导师辅导 / 远程会议舱</div><div class="area-cell strong">120㎡</div><div class="area-cell">支持导师辅导、资本沟通、客户访谈和远程会议。</div><div class="area-cell">支撑高频项目诊断与产业对接。</div>
-      <div class="area-cell topic">灵活会议与共创空间</div><div class="area-cell strong">90㎡</div><div class="area-cell">用于小型闭门会、工作坊分组、方案共创和项目研讨。</div><div class="area-cell">支撑企业需求拆解和 FDE 样板共创。</div>
-      <div class="area-cell topic">3 个小型内容录制空间</div><div class="area-cell strong">75㎡</div><div class="area-cell">服务 Founders Talk、口播、直播、远程连线和项目宣传。</div><div class="area-cell">形成访谈内容与可传播素材。</div>
-      <div class="area-cell topic">咖啡社交中岛</div><div class="area-cell strong">80㎡</div><div class="area-cell">承接活动后交流、创业者日常沟通和访客停留。</div><div class="area-cell">提升社区活跃度和来访体验。</div>
-      <div class="area-cell topic">墙面式项目展示区</div><div class="area-cell strong">35㎡</div><div class="area-cell">用入口墙面、数字屏和可替换项目卡动态展示成果。</div><div class="area-cell">服务政府接待、招商展示和项目更新。</div>
-      <div class="area-cell topic">储藏 / 设备 / 后勤配套</div><div class="area-cell strong">60㎡</div><div class="area-cell">收纳直播器材、活动家具、物料和运营设备。</div><div class="area-cell">保障高频活动与内容生产稳定执行。</div>
-      <div class="area-cell topic">交通动线 / 声学缓冲 / 公共区域</div><div class="area-cell strong">170㎡</div><div class="area-cell">分离办公、访客、活动和录制动线，保障声学与体验。</div><div class="area-cell">提升空间长期使用效率。</div>
+      <div class="area-cell topic">OPC 开放办公区</div><div class="area-cell strong">约 600 平</div><div class="area-cell">承载 OPC、一人公司、AI 原生小团队和 FDE 服务团队。</div><div class="area-cell">推导约 100 个可运营创业工位。</div>
+      <div class="area-cell topic">开放活动与共创空间</div><div class="area-cell strong">约 250 平</div><div class="area-cell">承接培训、硅谷连线、政府展示和年度成果发布。</div><div class="area-cell">形成政策宣讲、项目展示和共创活动场景。</div>
+      <div class="area-cell topic">洽谈室 / 导师辅导 / 远程会议舱</div><div class="area-cell strong">约 120 平</div><div class="area-cell">支持导师辅导、资本沟通、客户访谈和远程会议。</div><div class="area-cell">支撑高频项目诊断与产业对接。</div>
+      <div class="area-cell topic">灵活会议与共创空间</div><div class="area-cell strong">约 90 平</div><div class="area-cell">用于小型闭门会、工作坊分组、方案共创和项目研讨。</div><div class="area-cell">支撑企业需求拆解和 FDE 样板共创。</div>
+      <div class="area-cell topic">3 个小型内容录制空间</div><div class="area-cell strong">约 80 平</div><div class="area-cell">服务 Founders Talk、口播、直播、远程连线和项目宣传。</div><div class="area-cell">形成访谈内容与可传播素材。</div>
+      <div class="area-cell topic">咖啡社交中岛</div><div class="area-cell strong">约 80 平</div><div class="area-cell">承接活动后交流、创业者日常沟通和访客停留。</div><div class="area-cell">提升社区活跃度和来访体验。</div>
+      <div class="area-cell topic">墙面式项目展示区</div><div class="area-cell strong">约 40 平</div><div class="area-cell">用入口墙面、数字屏和可替换项目卡动态展示成果。</div><div class="area-cell">服务政府接待、招商展示和项目更新。</div>
+      <div class="area-cell topic">储藏 / 设备 / 后勤配套</div><div class="area-cell strong">约 60 平</div><div class="area-cell">收纳直播器材、活动家具、物料和运营设备。</div><div class="area-cell">保障高频活动与内容生产稳定执行。</div>
+      <div class="area-cell topic">交通动线 / 声学缓冲 / 公共区域</div><div class="area-cell strong">约 170 平</div><div class="area-cell">分离办公、访客、活动和录制动线，保障声学与体验。</div><div class="area-cell">提升空间长期使用效率。</div>
     </div>
   </section>
 
   <section class="slide body dense-slide" data-label="15 工位承载推导">
     <div class="eyebrow">工位推导 <span class="dot">·</span> 由面积推导承载能力</div>
-    <h1 class="slide-title">由 620㎡ 开放办公区，推导出约 100 个可运营创业工位
+    <h1 class="slide-title">由开放办公室面积，推导出约 100 个可运营创业工位
       <span class="en">OPC 项目通常以 1-2 人为主，工位数比独立办公室数量更能反映项目承载能力。</span>
     </h1>
     <span class="slide-bar"></span>
     <div class="seat-layout">
       <div class="seat-formula">
         <div class="label">测算公式</div>
-        <div class="formula">620㎡ ÷ 6-6.5㎡/人 ≈ 95-103 个工位</div>
-        <p>建议以约 100 个可运营创业工位作为规划目标；实际运营可按约 90 个舒适工位控制体验，并保留弹性承载能力。</p>
+        <div class="formula">约 600 平开放办公室 → 约 100 个创业工位</div>
+        <p>建议以约 100 个可运营创业工位作为规划目标；实际运营可结合日常办公、短期驻留和项目冲刺进行弹性调度。</p>
       </div>
       <div class="seat-grid">
-        <div class="seat-card"><div class="num">88-95</div><h3>舒适运营</h3><p>按 6.5-7㎡/人测算，适合日常体验、开放办公与高频沟通并重。</p></div>
-        <div class="seat-card dark"><div class="num">95-103</div><h3>建议规划</h3><p>按 6-6.5㎡/人测算，作为空间规划和运营承载的主要测算依据。</p></div>
-        <div class="seat-card"><div class="num">103-112</div><h3>弹性承载上限</h3><p>按 5.5-6㎡/人测算，用于活动期、短期驻留、项目冲刺和临时扩容。</p></div>
-        <div class="seat-card"><div class="num">100</div><h3>规划目标</h3><p>按约 100 个可运营工位进行规划，服务 OPC、一人公司和小型 AI 原生团队。</p></div>
+        <div class="seat-card"><div class="num">约 90</div><h3>舒适运营</h3><p>用于日常开放办公，兼顾体验、交流和稳定承载。</p></div>
+        <div class="seat-card dark"><div class="num">约 100</div><h3>建议规划</h3><p>作为空间规划和运营承载的主要测算依据。</p></div>
+        <div class="seat-card"><div class="num">100+</div><h3>弹性承载</h3><p>用于短期驻留、项目冲刺和活动期临时扩容。</p></div>
+        <div class="seat-card"><div class="num">约 100</div><h3>规划目标</h3><p>服务 OPC、一人公司和小型 AI 原生团队。</p></div>
       </div>
     </div>
   </section>
 
-  <section class="slide body dense-slide" data-label="16 三年入驻规划">
-    <div class="eyebrow">三年入驻规划 <span class="dot">·</span> 由工位推导项目数量</div>
-    <h1 class="slide-title">三年入驻企业和项目成长目标
-      <span class="en">入驻企业原则上应在青浦注册、迁入或设立经营主体，形成可持续的招商和税收基础。</span>
+  <section class="slide body dense-slide" data-label="16 MindsLeap 人员投入">
+    <div class="eyebrow">MindsLeap 投入 <span class="dot">·</span> 年度人员成本测算</div>
+    <h1 class="slide-title">MindsLeap 以常态化团队投入保障社区运营，年度人员成本约 200 万元
+      <span class="en">该部分为 MindsLeap 自有团队投入，覆盖总体规划统筹、项目招募、市场活动、新媒体内容和项目服务等日常运营能力。</span>
     </h1>
     <span class="slide-bar"></span>
-    <div class="metric-table">
-      <div class="metric-cell head">指标</div><div class="metric-cell head">第一年</div><div class="metric-cell head">第二年</div><div class="metric-cell head">第三年</div><div class="metric-cell head">定义与说明</div>
-      <div class="metric-cell topic">空间入驻</div><div class="metric-cell strong">50-60个工位</div><div class="metric-cell strong">70-80个工位</div><div class="metric-cell strong">90-100个工位</div><div class="metric-cell">从装修交付后起算，分阶段提升入驻率，兼顾体验与承载效率。</div>
-      <div class="metric-cell topic">入驻企业主体</div><div class="metric-cell strong">35-45个</div><div class="metric-cell strong">50-60个</div><div class="metric-cell strong">65-80个</div><div class="metric-cell">包括在青浦注册、迁入或设立经营主体的 OPC、一人公司、AI 原生小团队、FDE 服务团队等。</div>
-      <div class="metric-cell topic">项目筛选</div><div class="metric-cell strong">150个候选池 / 60个重点</div><div class="metric-cell strong">180个候选池 / 80个重点</div><div class="metric-cell strong">200个候选池 / 100个重点</div><div class="metric-cell">由活动、访谈、社群、导师、产业场景和硅谷链接持续形成来源。</div>
-      <div class="metric-cell topic">产业 / FDE 对接</div><div class="metric-cell strong">10-15次</div><div class="metric-cell strong">25-35次</div><div class="metric-cell strong">45-60次</div><div class="metric-cell">指进入青浦重点企业或产业方开展需求诊断、FDE 试点或商务洽谈，随项目成熟度逐年提升。</div>
-      <div class="metric-cell topic">资本对接</div><div class="metric-cell strong">6-10次</div><div class="metric-cell strong">15-25次</div><div class="metric-cell strong">30-45次</div><div class="metric-cell">指组织投资机构、产业资本或基金管理机构参与路演、Office Hour 或项目沟通，融资结果以机构独立判断和市场化决策为准。</div>
-      <div class="metric-cell topic">资本生态伙伴</div><div class="metric-cell strong">1-2家</div><div class="metric-cell strong">3-5家</div><div class="metric-cell strong">5-8家</div><div class="metric-cell">逐步引入投资机构、产业资本或基金管理机构，参与项目筛选、辅导和后续资本沟通。</div>
-      <div class="metric-cell topic">标杆项目</div><div class="metric-cell strong">1-2个</div><div class="metric-cell strong">4-6个</div><div class="metric-cell strong">8-12个</div><div class="metric-cell">建议按获得机构融资（天使/Pre-A/A轮及以上）、年合同额/营收 300 万元以上、龙头企业样板客户或可复制行业案例等标准认定。</div>
+    <div class="people-cost-layout">
+      <div class="people-cost-total">
+        <div class="label">年度人员投入测算</div>
+        <div class="num">约200万元/年</div>
+        <p>按 16.6 万元/月 × 12 个月测算，年度约 199.2 万元。</p>
+        <p>该投入用于维持长期项目运营团队，不计入后续年度活动预算。</p>
+      </div>
+      <div class="people-cost-table">
+        <div class="people-cell head">人员模块</div><div class="people-cell head">月度预算</div><div class="people-cell head">主要职责</div><div class="people-cell head">年度预算</div>
+        <div class="people-cell topic">总体规划统筹人员</div><div class="people-cell strong">10.0万/月</div><div class="people-cell">项目总控、政府沟通、硅谷资源、战略伙伴、重大活动和年度成果统筹。</div><div class="people-cell strong">120.0万</div>
+        <div class="people-cell topic">BD / 招商对接</div><div class="people-cell strong">2.0万/月</div><div class="people-cell">入驻项目招募、产业客户对接、资本伙伴沟通和招商线索跟进。</div><div class="people-cell strong">24.0万</div>
+        <div class="people-cell topic">市场活动运营</div><div class="people-cell strong">1.6万/月</div><div class="people-cell">AI 工作坊、专家分享、路演 / Hackathon、年度大会和现场执行。</div><div class="people-cell strong">19.2万</div>
+        <div class="people-cell topic">新媒体内容运营</div><div class="people-cell strong">1.5万/月</div><div class="people-cell">Founders Talk、短视频、图文案例、公众号内容和招商传播素材。</div><div class="people-cell strong">18.0万</div>
+        <div class="people-cell topic">项目服务与社群运营</div><div class="people-cell strong">1.5万/月</div><div class="people-cell">入驻服务、导师协调、报名接待、项目资料跟进和社区日常运营。</div><div class="people-cell strong">18.0万</div>
+        <div class="people-cell topic total">合计</div><div class="people-cell strong total">16.6万/月</div><div class="people-cell total">总体统筹 10.0 万/月 + 执行团队 6.6 万/月。</div><div class="people-cell strong total">199.2万</div>
+      </div>
     </div>
   </section>
 
-  <section class="slide body dense-slide fill-slide" data-label="17 项目转化漏斗">
-    <div class="eyebrow">项目转化漏斗 <span class="dot">·</span> 从工位到企业，再到标杆项目</div>
-    <h1 class="slide-title">依托灵活 OPC 工位，形成高密度项目转化漏斗
-      <span class="en">评价重点不止于空间入驻率，更在于持续形成候选项目、入驻企业主体、产业/FDE 对接和标杆项目的运营链路。</span>
+  <section class="slide body dense-slide" data-label="17 年度运营预算">
+    <div class="eyebrow">运营经费 <span class="dot">·</span> 按年度最高档测算</div>
+    <h1 class="slide-title">年度运营活动按 280 万元测算，由青浦科创和 MindsLeap 共同承担
+      <span class="en">预算对应核心活动、访谈内容、项目筛选、招商接待和年度报告，不包含固定空间租金、装修投入、MindsLeap 常驻人员成本和企业政策补贴。</span>
     </h1>
     <span class="slide-bar"></span>
-    <div class="funnel-grid">
-      <div class="funnel-step"><div class="step">01 发现</div><div class="value">150-200</div><h3>年度候选池</h3><p>通过大会、核心活动、访谈内容、企业家社群和硅谷链接，建立 AI 原生项目与创业人才观察池。</p></div>
-      <div class="funnel-step"><div class="step">02 筛选</div><div class="value">60-100</div><h3>重点筛选项目</h3><p>按团队能力、AI 原生程度、产业场景、落地意愿和政策匹配度进行分层筛选。</p></div>
-      <div class="funnel-step dark"><div class="step">03 入驻</div><div class="value">35-80</div><h3>入驻企业主体</h3><p>第一年 35-45 个入驻企业主体，第三年提升至 65-80 个，原则上均在青浦注册、迁入或设立经营主体。</p></div>
-      <div class="funnel-step"><div class="step">04 对接</div><div class="value">10-60/年</div><h3>产业/FDE 对接</h3><p>首年以需求诊断和试点验证为主，第二、第三年随项目成熟度提升对接强度。</p></div>
-      <div class="funnel-step"><div class="step">05 成长</div><div class="value">1-12/年</div><h3>标杆项目</h3><p>第一年 1-2 个、第二年 4-6 个、第三年 8-12 个，按融资、营收/合同额或龙头客户样板等标准认定。</p></div>
+    <div class="table-4 operating-budget-table">
+      <div class="tcell head">模块</div><div class="tcell head">测算依据</div><div class="tcell head">年度数量</div><div class="tcell head">年度预算</div>
+      <div class="tcell topic">AI 工作坊 / 技术沙龙</div><div class="tcell">约 5万元/场</div><div class="tcell">6-10场/年</div><div class="tcell strong">50万元</div>
+      <div class="tcell topic">硅谷 AI 专家分享 / 闭门交流</div><div class="tcell">约 15万元/场</div><div class="tcell">2-4场/年</div><div class="tcell strong">60万元</div>
+      <div class="tcell topic">项目路演 / Hackathon</div><div class="tcell">约 10万元/场</div><div class="tcell">2-4场/年</div><div class="tcell strong">40万元</div>
+      <div class="tcell topic">年度 AI 原生创业大会 / 论坛</div><div class="tcell">约 50万元/场</div><div class="tcell">1场/年</div><div class="tcell strong">50万元</div>
+      <div class="tcell topic">Founders Talk 与内容素材生产</div><div class="tcell">约 1万元/期</div><div class="tcell">20-30期/年</div><div class="tcell strong">30万元</div>
+      <div class="tcell topic">项目运营 / 年度报告 / 招商接待</div><div class="tcell">年度运营包</div><div class="tcell">1套/年</div><div class="tcell strong">50万元</div>
+    </div>
+    <div class="budget-total">
+      <b>年度运营预算合计：280万元/年</b>
+      <div class="budget-source">
+        <div class="label">资金来源</div>
+        <div class="chips"><span class="chip">青浦科创支持</span><span class="plus">+</span><span class="chip">MindsLeap 市场化自筹</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="slide body dense-slide" data-label="18 年度运营节奏">
-    <div class="eyebrow">年度运营节奏 <span class="dot">·</span> 核心活动采用区间目标</div>
-    <h1 class="slide-title">年度活动统计核心活动，访谈单列为内容生产与项目发现机制
+  <section class="slide body dense-slide" data-label="18 资金承担结构">
+    <div class="eyebrow">资金承担 <span class="dot">·</span> 青浦科创与 MindsLeap</div>
+    <h1 class="slide-title">青浦科创承担空间、装修和 130 万元年度运营支持
+      <span class="en">空间载体和空间装修由青浦科创先行支持；年度运营预算按 280 万元/年测算，其中青浦科创支持 130 万元/年，MindsLeap 市场化自筹 150 万元/年。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="support-layout">
+      <div class="support-section-label">青浦科创支持事项</div>
+      <div class="support-cards">
+        <div class="funding-card">
+          <h3>空间载体支持</h3>
+          <p>提供一层空间作为项目一期固定物理载体，用于开放办公、内容录制、展示接待、社群运营和项目服务。</p>
+        </div>
+        <div class="funding-card">
+          <h3>空间装修支持</h3>
+          <p>支持按照硅谷创业社区风格完成设计、装修和基础设施配置，装修金额以深化设计和施工预算为准。</p>
+        </div>
+        <div class="funding-card">
+          <h3>年度运营支持</h3>
+          <p>提供 130 万元/年运营经费支持，用于核心活动、项目筛选、招商接待和年度成果呈现，保障公共平台持续运行。</p>
+        </div>
+      </div>
+      <div class="support-section-label budget-label">年度运营预算结构</div>
+      <div class="support-budget">
+        <div class="budget-overview">
+          <span>年度运营预算</span>
+          <b>280万元/年</b>
+          <p>按最高档测算，不含固定空间租金、装修投入、MindsLeap 常驻人员成本和企业政策补贴。</p>
+        </div>
+        <div class="budget-split-card">
+          <span>青浦科创年度运营支持</span>
+          <b>130万元/年</b>
+          <p>用于核心活动、项目筛选、招商接待和年度成果呈现。</p>
+        </div>
+        <div class="budget-split-card self">
+          <span>MindsLeap 市场化自筹</span>
+          <b>150万元/年</b>
+          <p>通过会员、服务、赞助及市场化合作等方式承担年度运营预算其余部分。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide" data-label="19 交付一 活动">
+    <div class="eyebrow">交付一 <span class="dot">·</span> 每年可执行的活动</div>
+    <h1 class="slide-title">交付一：每年可执行的活动
       <span class="en">活动数量采用区间表达，便于根据政府工作节奏、项目成熟度和嘉宾资源进行动态调整。</span>
     </h1>
     <span class="slide-bar"></span>
-    <div class="table-5">
-      <div class="tcell head">模块</div><div class="tcell head">年度范围</div><div class="tcell head">是否计入活动</div><div class="tcell head">主要产出</div><div class="tcell head">政府侧价值</div>
-      <div class="tcell topic">AI 工作坊 / 技术沙龙</div><div class="tcell strong">6-10场/年</div><div class="tcell strong">计入</div><div class="tcell">技术分享、行业场景共创、项目招募和企业需求沉淀。</div><div class="tcell">为项目池和产业场景对接持续导流。</div>
-      <div class="tcell topic">硅谷 AI 专家分享 / 闭门交流</div><div class="tcell strong">2-4场/年</div><div class="tcell strong">计入</div><div class="tcell">前沿趋势、远程连线、闭门交流和招商传播素材。</div><div class="tcell">提升青浦 AI 原生创业社区的国际化链接能力。</div>
-      <div class="tcell topic">项目路演 / Hackathon</div><div class="tcell strong">2-4场/年</div><div class="tcell strong">计入</div><div class="tcell">项目集中展示、48小时共创、产业命题验证和投资人交流。</div><div class="tcell">推动资本对接、产业合作和优质企业在青浦落地。</div>
-      <div class="tcell topic">年度 AI 原生创业大会 / 论坛</div><div class="tcell strong">1场/年</div><div class="tcell strong">计入</div><div class="tcell">年度品牌事件、成果发布、招商展示和媒体传播。</div><div class="tcell">形成青浦 AI 原生创业名片。</div>
-      <div class="tcell topic">创始人访谈 / Founders Talk</div><div class="tcell strong">20-30期/年</div><div class="tcell">不计入活动</div><div class="tcell">人物故事、项目画像、短视频、图文和招商素材。</div><div class="tcell">作为内容生产和项目发现机制，而非活动场次。</div>
-      <div class="tcell topic">核心活动合计</div><div class="tcell strong">11-19场/年</div><div class="tcell strong">计入</div><div class="tcell">工作坊、专家分享、项目路演 / Hackathon、年度大会四类活动合计。</div><div class="tcell">作为年度活动总量区间，访谈内容另行统计。</div>
+    <div class="table-4 activity-table">
+      <div class="tcell head">模块</div><div class="tcell head">年度目标</div><div class="tcell head">主要产出</div><div class="tcell head">政府侧价值</div>
+      <div class="tcell topic">AI 工作坊 / 技术沙龙</div><div class="tcell strong">6-10场/年</div><div class="tcell">技术分享、行业场景共创、项目招募和企业需求沉淀。</div><div class="tcell">为项目池和产业场景对接持续导流。</div>
+      <div class="tcell topic">硅谷 AI 专家分享 / 闭门交流</div><div class="tcell strong">2-4场/年</div><div class="tcell">前沿趋势、远程连线、闭门交流和招商传播素材。</div><div class="tcell">提升青浦 AI 原生创业社区的国际化链接能力。</div>
+      <div class="tcell topic">项目路演 / Hackathon</div><div class="tcell strong">2-4场/年</div><div class="tcell">项目集中展示、48小时共创、产业命题验证和投资人交流。</div><div class="tcell">推动资本对接、产业合作和优质企业在青浦落地。</div>
+      <div class="tcell topic">年度 AI 原生创业大会 / 论坛</div><div class="tcell strong">1场/年</div><div class="tcell">年度品牌事件、成果发布、招商展示和媒体传播。</div><div class="tcell">形成青浦 AI 原生创业名片。</div>
+      <div class="tcell topic">核心活动合计</div><div class="tcell strong">11-19场/年</div><div class="tcell">工作坊、专家分享、项目路演 / Hackathon、年度大会四类活动合计。</div><div class="tcell">作为年度活动总量区间，访谈内容另行统计。</div>
+      <div class="tcell topic">创始人访谈 / Founders Talk</div><div class="tcell strong">20-30期/年</div><div class="tcell">人物故事、项目画像、短视频、图文和招商素材。</div><div class="tcell">作为内容生产和项目发现机制，单列统计。</div>
     </div>
   </section>
 
-  <section class="slide body dense-slide fill-slide" data-label="19 年度成果汇总">
-    <div class="eyebrow">年度成果汇总 <span class="dot">·</span> 绩效指标与成果呈现</div>
-    <h1 class="slide-title">年度绩效重点呈现项目池、标杆项目、产业对接和传播素材
-      <span class="en">年度评估建议聚焦企业主体沉淀、标杆项目培育、产业/FDE 对接、资本生态伙伴和可传播内容。</span>
+  <section class="slide body dense-slide target-slide" data-label="20 交付二 入驻企业和人才">
+    <div class="eyebrow">交付二 <span class="dot">·</span> 入驻企业和人才</div>
+    <h1 class="slide-title">交付二：入驻企业和人才
+      <span class="en">先以项目筛选形成来源，再承接空间入驻、企业主体沉淀和高端人才政策服务。</span>
     </h1>
     <span class="slide-bar"></span>
-    <div class="kpi-grid">
-      <div class="kpi dark"><div class="num">1-12</div><b>标杆项目</b><span>第一年 1-2 个，第二年 4-6 个，第三年 8-12 个。</span></div>
-      <div class="kpi"><div class="num">150-200</div><b>项目候选池</b><span>建立 AI 原生候选项目与创业人才储备。</span></div>
-      <div class="kpi"><div class="num">35-80</div><b>入驻企业主体</b><span>入驻企业原则上在青浦注册、迁入或设立经营主体。</span></div>
-      <div class="kpi"><div class="num">10-60</div><b>产业/FDE 对接</b><span>进入重点企业开展需求诊断、FDE 试点或商务洽谈。</span></div>
-      <div class="kpi"><div class="num">6-45</div><b>资本对接</b><span>组织投资机构、产业资本或基金参与路演和项目沟通，融资结果以机构独立判断和市场化决策为准。</span></div>
-      <div class="kpi"><div class="num">1-8</div><b>资本生态伙伴</b><span>逐步引入资本机构参与项目筛选、辅导和后续沟通。</span></div>
-      <div class="kpi"><div class="num">100+</div><b>内容素材</b><span>沉淀短视频、图文、访谈、案例和活动回顾。</span></div>
-      <div class="kpi"><div class="num">11-19</div><b>核心活动总计</b><span>工作坊、专家分享、项目路演 / Hackathon 和年度大会合计。</span></div>
+    <div class="metric-table five-year">
+      <div class="metric-cell head">指标</div><div class="metric-cell head">第一年</div><div class="metric-cell head">第二年</div><div class="metric-cell head">第三年</div><div class="metric-cell head">第四年</div><div class="metric-cell head">第五年</div><div class="metric-cell head">定义与说明</div>
+      <div class="metric-cell topic">候选项目</div><div class="metric-cell strong">150个</div><div class="metric-cell strong">220个</div><div class="metric-cell strong">300个</div><div class="metric-cell strong">380个</div><div class="metric-cell strong">450个</div><div class="metric-cell">由活动、访谈、社群、导师、产业场景和硅谷链接持续形成候选来源。</div>
+      <div class="metric-cell topic">入驻空间</div><div class="metric-cell strong">50工位</div><div class="metric-cell strong">70工位</div><div class="metric-cell strong">100工位</div><div class="metric-cell strong">100工位</div><div class="metric-cell strong">100工位</div><div class="metric-cell">从装修交付后起算，第三年起进入稳定运营区间，兼顾体验与承载效率。</div>
+      <div class="metric-cell topic">入驻企业主体</div><div class="metric-cell strong">35个</div><div class="metric-cell strong">50个</div><div class="metric-cell strong">80个</div><div class="metric-cell strong">80个</div><div class="metric-cell strong">80个</div><div class="metric-cell">包括在青浦注册、迁入或设立经营主体的 OPC、一人公司、AI 原生小团队、FDE 服务团队等。</div>
+      <div class="metric-cell topic">高端人才导入<br>及政策服务对象</div><div class="metric-cell strong">3人</div><div class="metric-cell strong">5人</div><div class="metric-cell strong">10人</div><div class="metric-cell strong">15人</div><div class="metric-cell strong">20人</div><div class="metric-cell">包括科技创业人才、科技创新人才、团队领衔人及核心成员、博士后、留学回国创业人才等具备政策申报潜力的人才对象；最终认定和补贴兑现以政府评审结果为准。</div>
     </div>
   </section>
 
-  <section class="slide body dense-slide" data-label="20 硅谷落地机制">
+  <section class="slide body dense-slide target-slide" data-label="21 交付三 项目成长目标">
+    <div class="eyebrow">交付三 <span class="dot">·</span> 项目成长目标</div>
+    <h1 class="slide-title">交付三：项目成长目标
+      <span class="en">围绕产业/FDE 对接、资本生态伙伴、标杆项目规模和税收贡献，形成中长期回报指标。</span>
+    </h1>
+    <span class="slide-bar"></span>
+    <div class="metric-table five-year">
+      <div class="metric-cell head">指标</div><div class="metric-cell head">第一年</div><div class="metric-cell head">第二年</div><div class="metric-cell head">第三年</div><div class="metric-cell head">第四年</div><div class="metric-cell head">第五年</div><div class="metric-cell head">定义与说明</div>
+      <div class="metric-cell topic">产业 / FDE 对接</div><div class="metric-cell strong">10次</div><div class="metric-cell strong">25次</div><div class="metric-cell strong">70次</div><div class="metric-cell strong">110次</div><div class="metric-cell strong">160次</div><div class="metric-cell">指进入青浦重点企业或产业方开展需求诊断、FDE 试点或商务洽谈，随项目成熟度逐年提升。</div>
+      <div class="metric-cell topic">资本对接</div><div class="metric-cell strong">6次</div><div class="metric-cell strong">18次</div><div class="metric-cell strong">60次</div><div class="metric-cell strong">90次</div><div class="metric-cell strong">120次</div><div class="metric-cell">组织投资机构、产业资本或基金参与项目沟通，融资结果以机构独立判断和市场化决策为准。</div>
+      <div class="metric-cell topic">资本生态伙伴</div><div class="metric-cell strong">1家</div><div class="metric-cell strong">3家</div><div class="metric-cell strong">10家</div><div class="metric-cell strong">12家</div><div class="metric-cell strong">15家</div><div class="metric-cell">逐步引入投资机构、产业资本或基金管理机构，参与项目筛选、辅导和后续资本沟通。</div>
+      <div class="metric-cell topic">项目梯度组合</div><div class="metric-cell strong">1个300万级</div><div class="metric-cell strong">2个300万级</div><div class="metric-cell strong">1个1000万级<br>1个300万级</div><div class="metric-cell strong">1个3000万级<br>2个300万级</div><div class="metric-cell strong">1个3000万级<br>3个1000万级<br>4个300万级</div><div class="metric-cell">按不同营收梯度组合形成标杆、成长和种子项目，第五年合计约 7200 万元在地营收。</div>
+      <div class="metric-cell topic">税收贡献目标</div><div class="metric-cell strong">20万元</div><div class="metric-cell strong">40万元</div><div class="metric-cell strong">约100万元</div><div class="metric-cell strong">300万元</div><div class="metric-cell strong">600万元</div><div class="metric-cell">按科技服务型一般纳税人约 8.5% 税费贡献率初步反推，实际以企业经营、利润、纳税地和税务部门口径为准。</div>
+    </div>
+  </section>
+
+  <section class="slide body dense-slide" data-label="22 硅谷落地机制">
     <div class="eyebrow">硅谷资源与 AI 项目 <span class="dot">·</span> 面向青浦落地转化</div>
     <h1 class="slide-title">建设硅谷 AI 项目和技术人才来青浦创业的落地通道
       <span class="en">依托 MindsLeap / Founders Space 硅谷网络，持续触达 AI 创业者、技术人才和早期项目，并在政策条件具备时推动来青浦设立企业主体。</span>
@@ -1772,60 +2113,17 @@
     </div>
   </section>
 
-  <section class="slide body dense-slide fill-slide" data-label="21 对青浦回报">
+  <section class="slide body dense-slide fill-slide" data-label="23 对青浦回报">
     <div class="eyebrow">青浦侧价值 <span class="dot">·</span> 项目价值与长期收益</div>
     <h1 class="slide-title">该项目有望为青浦形成从招商线索、区域品牌到产业生态资产的递进式价值
       <span class="en">短期形成招商与声量，中期形成区域品牌，长期形成可持续的 AI 产业生态资产。</span>
     </h1>
     <span class="slide-bar"></span>
     <div class="grid-4">
-      <div class="card"><div class="idx">0-12个月</div><h3>招商增量</h3><p>力争推动首年 35-45 个入驻企业主体在青浦注册、迁入或设立经营主体，形成可跟踪的招商增量。</p></div>
+      <div class="card"><div class="idx">0-12个月</div><h3>招商增量</h3><p>力争推动首年 35 个入驻企业主体在青浦注册、迁入或设立经营主体，形成可跟踪的招商增量。</p></div>
       <div class="card"><div class="idx">0-12个月</div><h3>社会效益</h3><p>打造青浦具有辨识度的 AI 原生创业社区样板，带动外地创业者、青年人才与产业专家持续聚集。</p></div>
       <div class="card"><div class="idx">1-3年</div><h3>品牌升级</h3><p>推动青浦从传统园区运营商向 AI 新经济生态运营方转型，吸引高端人才、前沿技术与风险资本汇聚。</p></div>
       <div class="card dark"><div class="idx">2-5年</div><h3>生态共建</h3><p>探索设立专项创投基金，投资优质入驻企业，分享长期成长收益，推动园区从空间载体向产业生态平台升级。</p></div>
-    </div>
-  </section>
-
-  <section class="slide body dense-slide" data-label="22 年度运营预算">
-    <div class="eyebrow">年度运营预算 <span class="dot">·</span> 核心活动、内容生产与项目运营</div>
-    <h1 class="slide-title">年度运营经费用于保障核心交付，活动采用弹性区间
-      <span class="en">预算对应核心活动、访谈内容、项目筛选、招商接待和年度报告，不包含固定空间租金、装修投入和企业政策补贴。</span>
-    </h1>
-    <span class="slide-bar"></span>
-    <div class="table-4">
-      <div class="tcell head">模块</div><div class="tcell head">测算依据</div><div class="tcell head">年度范围</div><div class="tcell head">年度预算</div>
-      <div class="tcell topic">AI 工作坊 / 技术沙龙</div><div class="tcell">约 5万元/场</div><div class="tcell">6-10场/年</div><div class="tcell strong">30-50万元</div>
-      <div class="tcell topic">硅谷 AI 专家分享 / 闭门交流</div><div class="tcell">约 15万元/场</div><div class="tcell">2-4场/年</div><div class="tcell strong">30-60万元</div>
-      <div class="tcell topic">项目路演 / Hackathon</div><div class="tcell">约 10万元/场</div><div class="tcell">2-4场/年</div><div class="tcell strong">20-40万元</div>
-      <div class="tcell topic">年度 AI 原生创业大会 / 论坛</div><div class="tcell">约 50万元/场</div><div class="tcell">1场/年</div><div class="tcell strong">50万元</div>
-      <div class="tcell topic">Founders Talk 与内容素材生产</div><div class="tcell">0.5-1万元/期</div><div class="tcell">20-30期/年</div><div class="tcell strong">10-30万元</div>
-      <div class="tcell topic">项目运营 / 年度报告 / 招商接待</div><div class="tcell">年度运营包</div><div class="tcell">1套/年</div><div class="tcell strong">30-50万元</div>
-    </div>
-    <div class="budget-total"><b>年度运营预算：约 170-280万元/年</b><span>首年建议按约 250 万元准备，后续随市场化收入和政府要求动态调整。</span></div>
-  </section>
-
-  <section class="slide body dense-slide" data-label="23 经费分担机制">
-    <div class="eyebrow">经费分担机制 <span class="dot">·</span> 政府支持与市场化运营结合</div>
-    <h1 class="slide-title">运营经费建议采用“政府引导支持 + MindsLeap 市场化自筹”的可持续模型
-      <span class="en">政府引导支持降低项目启动成本，市场化运营逐步提升可持续发展能力。</span>
-    </h1>
-    <span class="slide-bar"></span>
-    <div class="funding-grid">
-      <div class="funding-card">
-        <h3>政府运营支持</h3>
-        <p>通过“年度运营服务包”的形式进行专项拨款，确保园区基础服务、核心活动和生态建设能够稳定开展。</p>
-      </div>
-      <div class="funding-card dark">
-        <h3>MindsLeap 自筹</h3>
-        <p>通过会员费、增值服务、活动赞助及空间租赁等市场化方式筹集剩余资金，逐步形成可持续运营能力。</p>
-        <div class="revenue-chips"><span>企业孵化费</span><span>共享工位费</span><span>增值服务费</span><span>商业活动赞助</span></div>
-      </div>
-      <div class="principles">
-        <div class="principle"><b>政府引导撬动</b><span>政府支持重点用于引导与撬动，降低项目启动成本。</span></div>
-        <div class="principle"><b>坚持市场化运营</b><span>发挥平台优势，通过专业服务自筹资金。</span></div>
-        <div class="principle"><b>协商确定机制</b><span>双方就具体分担比例与实施机制充分沟通。</span></div>
-        <div class="principle"><b>建立可持续模型</b><span>逐步提升市场化收入能力，保障长期稳定发展。</span></div>
-      </div>
     </div>
   </section>
 
@@ -1877,12 +2175,12 @@
     <div>
       <div class="logo-mark"></div>
       <h1>让青浦成为 AI 原生企业的产业加速平台。</h1>
-      <p>以 1,500㎡ 硅谷风格空间作为载体，依托 MindsLeap 硅谷网络、AI 原生项目筛选、Hackathon / 项目路演、产业/FDE 对接和资本生态伙伴，推动优质 AI 企业在青浦设立企业主体、形成标杆项目和长期产业生态资产。</p>
+      <p>以硅谷风格创业社区作为载体，依托 MindsLeap 硅谷网络、AI 原生项目筛选、Hackathon / 项目路演、产业/FDE 对接和资本生态伙伴，推动优质 AI 企业在青浦设立企业主体、形成标杆项目和长期产业生态资产。</p>
     </div>
     <div class="final-list">
       <div class="final-item"><b>产业资本闭环</b><span>围绕青浦企业真实需求，组织 FDE 试点、商务洽谈、资本沟通和场景验证。</span></div>
       <div class="final-item"><b>标杆项目培育机制</b><span>以融资、年合同额/营收、龙头客户样板和可复制案例作为标杆项目认定标准。</span></div>
-      <div class="final-item"><b>年度品牌与传播资产</b><span>通过年度大会、Hackathon、Founders Talk 和内容矩阵沉淀青浦 AI 生态影响力。</span></div>
+      <div class="final-item"><b>五年税收贡献目标</b><span>第三年力争形成约 100 万元年度税收贡献，第四年约 300 万元，第五年约 600 万元。</span></div>
       <div class="final-item"><b>硅谷 AI 项目落地通道</b><span>持续触达硅谷 AI 创业者和技术人才，推动优质项目来青浦设立企业主体。</span></div>
     </div>
   </section>

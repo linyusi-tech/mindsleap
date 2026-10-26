@@ -4,9 +4,8 @@ import ValueProposition from "@/components/home/ValueProposition";
 import BusinessOverview from "@/components/home/BusinessOverview";
 import EcosystemSection from "@/components/home/EcosystemSection";
 import LatestEvents from "@/components/home/LatestEvents";
-import JsonLd from "@/components/shared/JsonLd";
+import ProgramHighlight from "@/components/program/ProgramHighlight";
 import { getAllPosts } from "@/lib/posts";
-import { getSiteUrl } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -15,45 +14,18 @@ type Props = {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const siteUrl = getSiteUrl();
 
   const allPosts = getAllPosts(locale);
   const latestEvents = allPosts.filter((post) => post.category === "events").slice(0, 3);
   const latestFoundersTalk = allPosts.filter((post) => post.category === "founders-talk").slice(0, 3);
   const latestAIInsights = allPosts.filter((post) => post.category === "ai-insights").slice(0, 3);
 
-  const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "MindsLeap",
-    alternateName: "心智悦动",
-    url: siteUrl,
-    description:
-      locale === "zh"
-        ? "连接中国传统企业家与全球AI前沿技术的转型加速器"
-        : "AI Transformation Accelerator bridging Chinese enterprises with global AI innovation",
-    foundingDate: "2025",
-    founder: {
-      "@type": "Person",
-      name: "Lincoln",
-      jobTitle: "CEO",
-    },
-    sameAs: [],
-    knowsAbout: [
-      "Artificial Intelligence",
-      "AI Transformation",
-      "Startup Incubation",
-      "Executive Training",
-      "Silicon Valley",
-    ],
-  };
-
   return (
     <>
-      <JsonLd data={organizationJsonLd} />
       <HeroSection />
       <ValueProposition />
       <BusinessOverview />
+      <ProgramHighlight locale={locale} />
       <EcosystemSection />
       <LatestEvents
         posts={latestEvents}

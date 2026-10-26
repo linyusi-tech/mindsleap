@@ -50,6 +50,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <a href="/program/ai-native-organization" className="font-semibold text-white hover:text-blue-100 transition">
+                  {isZh ? "AI 原生组织跃迁实战营" : "AI-Native Organization Program"}
+                </a>
+              </li>
+              <li>
                 <Link href="/news" className="hover:text-white transition">
                   {nav("news")}
                 </Link>
@@ -67,6 +72,11 @@ export default function Footer() {
               <li>
                 <Link href="/people" className="hover:text-white transition">
                   {isZh ? "硅谷人物" : "People"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai" className="hover:text-white transition">
+                  {isZh ? "AI / Agent 访问" : "AI / Agent Access"}
                 </Link>
               </li>
               <li>
@@ -100,10 +110,10 @@ export default function Footer() {
 
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-blue-300/60">
           <div className="flex space-x-6 mb-4 md:mb-0">
-            <a href="#" className="hover:text-white transition">Privacy Policy</a>
+            <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
             <a href="#" className="hover:text-white transition">Terms of Service</a>
           </div>
-          <p>Managed by Founders Space Partners</p>
+          <p>{isZh ? "MindsLeap · Founders Space 全球合作伙伴" : "MindsLeap · Global Partner of Founders Space"}</p>
         </div>
       </div>
     </footer>
