@@ -334,6 +334,14 @@ export const geoTopics: GeoTopic[] = [
         href: "/news/tsinghua-emba-hangzhou-ai-study-tour-2026",
         label: { zh: "清华大学 EMBA 杭州 AI 研学", en: "Tsinghua SEM EMBA Hangzhou AI study tour" },
       },
+      {
+        href: "/services/ai-club",
+        label: { zh: "企业家 AI 俱乐部：参访、交流与工作流实践", en: "Founders AI Club: visits, discussions and workflow practice" },
+      },
+      {
+        href: "/news/suzhou-ai-study-tour-see-future-see-yourself-2026",
+        label: { zh: "苏州微研学：具身智能参访与 AI Agent 商业机会", en: "Suzhou study tour: embodied AI visits and AI Agent opportunities" },
+      },
     ],
     faqs: [
       {

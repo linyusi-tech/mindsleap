@@ -21,7 +21,7 @@ const content = {
     ],
     aboutTitle: "关于 MindsLeap 企业家 AI 俱乐部",
     aboutDescription:
-      "MindsLeap 企业家 AI 俱乐部是一个专注于 AI 转型的高端企业家社群。我们相信，在 AI 时代，企业家之间的深度交流与资源共享是实现成功转型的关键。通过邀请硅谷 AI 专家闭门交流、前沿科技企业参访、企业 AI 应用分享和工作坊，以及会员之间的交流共创，我们为会员打造一个极致坦诚、持续进化、共创共赢且具有全球连接的多元社区。",
+      "MindsLeap 企业家 AI 俱乐部是一个专注于 AI 转型的高端企业家社群。我们相信，在 AI 时代，企业家之间的深度交流与资源共享是实现成功转型的关键。通过邀请硅谷 AI 专家闭门交流、前沿科技企业参访、企业 AI 应用分享和工作坊，以及会员之间的交流共创，我们为会员打造一个极致坦诚、持续进化、共创共赢且具有全球连接的多元社区。从广州、杭州的微研学与闭门交流，到北京智谱 AI、飞书参访，再到苏州具身智能企业参访，我们把产业现场、趋势判断和 AI 工作流实践连接起来，帮助企业家找到适合自身业务的下一步。",
     activitiesTitle: "活动形式",
     activities: [
       {
@@ -38,7 +38,7 @@ const content = {
       },
       {
         title: "企业参访",
-        description: "走进AI标杆企业，近距离观察AI落地的真实场景与最佳实践。",
+        description: "走进 AI 与机器人企业，把展厅和生产现场的观察，与创业者交流、产业生态和 AI 工作流实践结合。",
         image: "/images/news/zhipu-ai-founders-ai-club-visit-2026-hall.jpg",
         imageAlt: "MindsLeap 企业家 AI 俱乐部参访智谱 AI",
       },
@@ -85,7 +85,7 @@ const content = {
     ],
     aboutTitle: "About the MindsLeap Founders AI Club",
     aboutDescription:
-      "The MindsLeap Founders AI Club is a premium entrepreneur community focused on AI transformation. We believe that deep exchange and resource sharing among entrepreneurs is the key to successful transformation in the AI era. Through our intimate closed-door format, we create a platform for candid, efficient, and meaningful dialogue.",
+      "The MindsLeap Founders AI Club is a premium entrepreneur community focused on AI transformation. We believe that deep exchange and resource sharing among entrepreneurs is the key to successful transformation in the AI era. Through expert discussions, company visits, AI workshops and peer co-creation, we create a platform for candid, practical learning. From study tours and closed-door exchanges in Guangzhou and Hangzhou to visits to Zhipu AI and Feishu in Beijing, and embodied AI companies in Suzhou, we connect industry experience, emerging trends and AI workflow practice to help entrepreneurs identify a next step for their own businesses.",
     activitiesTitle: "Activity Formats",
     activities: [
       {
@@ -105,7 +105,7 @@ const content = {
       {
         title: "Enterprise Visits",
         description:
-          "On-site visits to AI-leading companies, observing real-world AI deployment scenarios and best practices.",
+          "Visit AI and robotics companies, connecting showroom and production-floor observations with founder discussions, industry ecosystems and AI workflow practice.",
         image: "/images/news/zhipu-ai-founders-ai-club-visit-2026-hall.jpg",
         imageAlt: "MindsLeap Founders AI Club visiting Zhipu AI",
       },
@@ -219,6 +219,7 @@ export default async function AIClubPage({ params }: Props) {
       {(() => {
         const allPosts = getAllPosts(locale);
         const clubEventSlugs = new Set([
+          "suzhou-ai-study-tour-see-future-see-yourself-2026",
           "ai-digital-employee-workshop-shanghai-2026",
           "ai-lobster-shanghai-2026",
           "ai-native-enterprise-conference-shanghai-2026",
