@@ -15,9 +15,9 @@ test('rejects blank company, malformed phone and spoofed consent',()=>{
 });
 test('server mapping pins channel and omits fee/sales/client supplied extras',()=>{
  const data=validateApplication({...input,channel:'其他',费用:999,销售:'恶意值'});
- const f=buildFields(data,new Date('2026-10-26T08:00:00Z'));
+ const f=buildFields(data);
  assert.equal(f['渠道'],'官网');assert.equal(f['申请状态'],'待审核');assert.equal(f['您的手机号'],'13800000000');assert.ok(!('费用' in f));assert.ok(!('销售' in f));
- const consent=JSON.parse(f['授权记录']);assert.equal(consent.tencent,false);assert.equal(consent.mindsleapMarketing,false);assert.equal(consent.privacy,true);assert.equal(consent.requestId,id);assert.equal(consent.submittedAt,'2026-10-26T08:00:00.000Z');
+ assert.equal(f['M授权'],'是');assert.equal(f['T授权'],'否');assert.ok(!('授权记录' in f));
 });
 test('disabled or unconfigured handler fails closed without upstream request',async()=>{
  const handler=createRegistrationHandler({...config,appSecret:''},()=>{throw Error('must not call');});
@@ -28,7 +28,7 @@ test('untrusted origins and invalid payloads never reach Feishu',async()=>{
  assert.equal((await handler(makeRequest(input,'https://evil.test'))).status,403);
  assert.equal((await handler(makeRequest({...input,privacyConsent:false}))).status,400);
 });
-const schema=[['您的姓名',1],['您的手机号',1],['您的企业',1],['您的职位',1],['邀请人',1],['渠道',3],['申请状态',1],['授权记录',1]].map(([field_name,type])=>({field_name,type,property:field_name==='渠道'?{options:[{name:'官网'}]}:{}}));
+const schema=[['您的姓名',1],['您的手机号',1],['您的企业',1],['您的职位',1],['邀请人',1],['渠道',3],['申请状态',1],['M授权',3],['T授权',3]].map(([field_name,type])=>({field_name,type,property:field_name==='渠道'?{options:[{name:'官网'}]}:['M授权','T授权'].includes(field_name)?{options:[{name:'是'},{name:'否'}]}:{}}));
 function network(recordBody={code:0,data:{record:{record_id:'rec-test'}}},schemaItems=schema){
  const calls=[];return {calls,fetch:async(url,options)=>{calls.push({url:String(url),options});
  if(String(url).endsWith('/auth/v3/tenant_access_token/internal')) return Response.json({code:0,tenant_access_token:'test-access-token',expire:7200});
@@ -49,8 +49,23 @@ test('business failures, missing record IDs and upstream errors never claim succ
  }
  const handler=createRegistrationHandler(config,async()=>{throw Error('timeout with token');});assert.equal((await handler(makeRequest())).status,502);
 });
-test('missing consent field prevents writing an untraceable application',async()=>{
- const net=network(undefined,schema.filter(x=>x.field_name!=='授权记录'));const response=await createRegistrationHandler(config,net.fetch)(makeRequest());assert.equal(response.status,503);assert.equal(net.calls.filter(x=>x.url.includes('/records?')).length,0);
+test('missing or misconfigured consent single-select fields prevent incomplete writes',async()=>{
+ for(const name of ['M授权','T授权']){
+  const variants=[schema.filter(f=>f.field_name!==name),schema.map(f=>f.field_name===name?{...f,type:1}:f),...['是','否'].map(missing=>schema.map(f=>f.field_name===name?{...f,property:{options:f.property.options.filter(o=>o.name!==missing)}}:f))];
+  for(const fields of variants){
+   const net=network(undefined,fields);const response=await createRegistrationHandler(config,net.fetch)(makeRequest());
+   assert.equal(response.status,503);assert.equal(net.calls.filter(x=>x.url.includes('/records?')).length,0);
+  }
+ }
+});
+
+test('Feishu receives M privacy consent and independent T choice as yes/no without JSON',async()=>{
+ for(const [tencentConsent,want] of [[false,'否'],[true,'是']]){
+  const net=network();const response=await createRegistrationHandler(config,net.fetch)(makeRequest({...input,tencentConsent}));
+  assert.equal(response.status,200);
+  const fields=JSON.parse(net.calls.find(c=>c.url.includes('/records?')).options.body).fields;
+  assert.equal(fields['M授权'],'是');assert.equal(fields['T授权'],want);assert.ok(!('授权记录' in fields));
+ }
 });
 test('rejects excessive body length before parsing',async()=>{
  const request=makeRequest({...input,company:'x'.repeat(17000)});assert.equal((await createRegistrationHandler(config,()=>{throw Error('no');})(request)).status,413);
@@ -66,9 +81,6 @@ test('event registration never grants MindsLeap marketing consent',()=>{
  for(const marketingConsent of [false,true]){
   const result=validateApplication({...input,marketingConsent});
   assert.equal(result.marketingConsent,false);
-  const consent=JSON.parse(buildFields(result)['授权记录']);
-  assert.equal(consent.mindsleapMarketing,false);
-  assert.equal(consent.mindsleapMarketingMethod,'not_requested_on_event_form');
-  assert.equal(consent.policyVersion,'2026-10-26-v2');
+  assert.equal(buildFields(result)['M授权'],'是');
  }
 });

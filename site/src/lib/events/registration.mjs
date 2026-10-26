@@ -1,6 +1,5 @@
 import { createHash } from 'node:crypto';
 
-export const POLICY_VERSION = '2026-10-26-v2';
 const API = 'https://open.feishu.cn/open-apis';
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const json = (data, status = 200) => Response.json(data, {status, headers:{'Cache-Control':'no-store'}});
@@ -24,14 +23,11 @@ export function validateApplication(body) {
   return {...result,submittedAt:body.submittedAt,phone,privacyConsent:true,marketingConsent:false,tencentConsent:body.tencentConsent,requestId:body.requestId};
 }
 
-export function buildFields(data, now = new Date(data.submittedAt)) {
+export function buildFields(data) {
   return {
     '您的姓名':data.name, '您的手机号':data.phone, '您的企业':data.company,
     '您的职位':data.position, '邀请人':data.inviter, '渠道':'官网', '申请状态':'待审核',
-    '授权记录':JSON.stringify({event:'2026november8',privacy:true,mindsleapMarketing:false,mindsleapMarketingMethod:'not_requested_on_event_form',tencent:data.tencentConsent,
-      policyVersion:POLICY_VERSION,tencentNoticeVersion:'2026-10-26-v1',tencentPolicyUrl:'https://qdrl.qq.com/zlnQowMq',
-      tencentRecipient:'腾讯云计算（北京）有限责任公司',tencentFields:['姓名','手机号','公司','职位'],
-      method:'independent_unchecked_checkboxes',submittedAtSource:'browser; authoritative receipt time is Feishu record creation time',submittedAt:now.toISOString(),requestId:data.requestId}),
+    'M授权':data.privacyConsent ? '是' : '否', 'T授权':data.tencentConsent ? '是' : '否',
   };
 }
 
@@ -77,11 +73,13 @@ export function createRegistrationHandler(config, fetcher = fetch) {
         fields.push(...(result.data?.items||[]));cursor=result.data?.has_more?result.data.page_token:'';
         if(result.data?.has_more&&!cursor)throw new SetupError();
       } while(cursor);
-      for(const name of ['您的姓名','您的手机号','您的企业','您的职位','邀请人','渠道','申请状态','授权记录']){
+      for(const name of ['您的姓名','您的手机号','您的企业','您的职位','邀请人','渠道','申请状态','M授权','T授权']){
         const field=fields.find(f=>f.field_name===name);
-        const allowed=name==='您的手机号'?[1,13]:name==='渠道'||name==='申请状态'?[1,3]:[1];
+        const isConsent=name==='M授权'||name==='T授权';
+        const allowed=isConsent?[3]:name==='您的手机号'?[1,13]:name==='渠道'||name==='申请状态'?[1,3]:[1];
         if(!field||!allowed.includes(field.type))throw new SetupError();
-        if(field.type===3&&!field.property?.options?.some(o=>o.name===(name==='渠道'?'官网':'待审核')))throw new SetupError();
+        const requiredOptions=isConsent?['是','否']:[name==='渠道'?'官网':'待审核'];
+        if(field.type===3&&!requiredOptions.every(value=>field.property?.options?.some(o=>o.name===value)))throw new SetupError();
       }
       schemaExpires=Date.now()+60000;
     }
