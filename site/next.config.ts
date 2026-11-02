@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  // printout-cache-headers: the collection changes frequently during event production.
+  async headers() {
+    return [
+      { source: "/event/2026november8/printout", headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }] },
+      { source: "/event/2026november8/printout/", headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }] },
+      { source: "/event/2026november8/printout/index.html", headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }] },
+      { source: "/event/2026november8/printout/revision.json", headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }] },
+      { source: "/event/2026november8/printout/assets/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
+    ];
+  },
   async redirects() {
     return [
       {
