@@ -255,3 +255,15 @@ footer img{width:340px;height:56px;object-fit:contain;object-position:left cente
 .closing-future footer{z-index:4}
 .closing-future footer .page{display:none}
 .closing-future footer>span:not(.page){font-size:17px;letter-spacing:1px}
+
+/* Daily superindividual workflows: concise copy and one coherent scene. */
+.personal-practice .copy{left:120px;top:260px;width:805px}
+.personal-practice h1{font-size:98px!important;line-height:1.23!important;letter-spacing:-2px!important}
+.personal-practice .tagline{font-size:35px;max-width:750px;margin-top:40px!important}
+.personal-practice .keywords{gap:42px;margin-top:62px;max-width:780px}
+.personal-practice .keywords span{font-size:30px;padding-top:18px}
+.personal-practice .shade{background:linear-gradient(90deg,rgba(3,12,27,.70),rgba(3,12,27,.32) 39%,transparent 57%),linear-gradient(0deg,rgba(3,12,27,.75),transparent 18%)}
+.personal-followup .copy{top:205px;width:790px}
+.personal-followup h1{font-size:94px!important}
+.personal-followup .tagline{margin-top:34px!important}
+.personal-followup .keywords{margin-top:50px;gap:32px}
