@@ -213,12 +213,14 @@ jobs:
             poster_program_html="$(curl -fsSL https://www.mindsleap.cn/poster/ai-native-organization-program || true)"
             yusi_decks_html="$(curl -fsSL https://www.mindsleap.cn/decks/Yusi || true)"
             event_html="$(curl -fsSL https://mindsleap.cn/event/2026november8 || true)"
+            event_locale_html="$(curl -fsSL https://mindsleap.cn/zh/event/2026november8 || true)"
             event_status="$(curl -fsS https://mindsleap.cn/api/events/2026november8 || true)"
 
             if [ -n "$css_path" ] \
               && curl -fIs "https://www.mindsleap.cn$css_path" >/dev/null \
               && [ -n "$news_html" ] \
               && grep -q 'id="registration-form"' <<< "$event_html" \
+              && grep -q 'id="registration-form"' <<< "$event_locale_html" \
               && grep -q '"enabled":'"$EVENT_REGISTRATION_ENABLED" <<< "$event_status" \
               && curl -fsSL https://mindsleap.cn/privacy >/dev/null \
               && grep -q "boris-cherny-coding-solved-ai-ascent-2026" <<< "$article_html" \
