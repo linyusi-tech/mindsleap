@@ -17,6 +17,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Restore large printout attachments
+        run: python3 site/scripts/printout-assets.py
+
       - name: Guard critical static archives
         run: |
           set -euo pipefail

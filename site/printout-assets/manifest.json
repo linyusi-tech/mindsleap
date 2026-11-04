@@ -1,0 +1,31 @@
+{
+  "assets": [
+    {
+      "target": "541b3b0e1e39d270a46a398b.pdf",
+      "bytes": 184585865,
+      "sha256": "541b3b0e1e39d270a46a398b1e88b162d9d53d25c231e7102b0be803ed61a2d1",
+      "parts": [
+        {
+          "name": "541b3b0e1e39d270a46a398b1e88b162d9d53d25c231e7102b0be803ed61a2d1.000.part",
+          "bytes": 50331648,
+          "sha256": "57f0d2348c5dd113a50e88f0b3d70338f1805166576287c848797fe9441badd3"
+        },
+        {
+          "name": "541b3b0e1e39d270a46a398b1e88b162d9d53d25c231e7102b0be803ed61a2d1.001.part",
+          "bytes": 50331648,
+          "sha256": "51cbf677c07e46b72a8ee92fe0ad98ef05400552ed6e0c46c94fd25f8e082a6a"
+        },
+        {
+          "name": "541b3b0e1e39d270a46a398b1e88b162d9d53d25c231e7102b0be803ed61a2d1.002.part",
+          "bytes": 50331648,
+          "sha256": "673365a3f53a171cf0a668392dcf14e7dc9b3d0ba8af2b5c9332d608e2e4681e"
+        },
+        {
+          "name": "541b3b0e1e39d270a46a398b1e88b162d9d53d25c231e7102b0be803ed61a2d1.003.part",
+          "bytes": 33590921,
+          "sha256": "8bea962dc95269b123a5c78db6b37b027b35692a05f8f2fc68a91b718abc3b63"
+        }
+      ]
+    }
+  ]
+}
