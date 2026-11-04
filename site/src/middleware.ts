@@ -9,6 +9,12 @@ const CASE_ACCESS_VALUE = "mindsleapcase";
 
 export default function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
+  // Keep previously shared locale-prefixed event links working.
+  if (/^\/(zh|en)\/event\/2026november8(?:\/printout)?\/?$/.test(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.replace(/^\/(zh|en)/, "").replace(/\/$/, "");
+    return NextResponse.redirect(url, 308);
+  }
   const staticPath = pathname.replace(/\/$/, "");
   if (staticPath === "/event/2026november8/printout" || staticPath === "/event/2026november8" || staticPath === "/privacy" || staticPath === "/event/qinghuaemba") {
     const url = request.nextUrl.clone();
