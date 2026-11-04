@@ -10,6 +10,11 @@ const CASE_ACCESS_VALUE = "mindsleapcase";
 export default function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
   const staticPath = pathname.replace(/\/$/, "");
+  if (staticPath === "/zh/event/2026november8") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/event/2026november8/index.html";
+    return NextResponse.rewrite(url);
+  }
   if (staticPath === "/event/2026november8/printout" || staticPath === "/event/2026november8" || staticPath === "/privacy" || staticPath === "/event/qinghuaemba") {
     const url = request.nextUrl.clone();
     url.pathname = `${staticPath}/index.html`;
