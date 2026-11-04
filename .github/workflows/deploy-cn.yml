@@ -99,22 +99,17 @@ jobs:
               -e "ssh -p $SSH_PORT" \
               ./site/public/decks/Yusi/index.html \
               "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
-          elif [ "$commit_subject" = "Restore November 8 Chinese registration route" ]; then
+          elif [ "$commit_subject" = "Preserve server routes while restoring November 8 registration" ]; then
             # Preserve concurrent upstream updates outside this event.
-            remote_router="$(ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/src/middleware.ts' | cut -d' ' -f1)"
-            new_router="$(sha256sum site/src/middleware.ts | cut -d' ' -f1)"
-            case "$remote_router" in
-              e88a74b071243642635e34ce96e0a1eb1b7d6d0f25fad11322d8c9cd8d0bd354|9bc498ccb5e2b9b82d0e8b2d00521f9e8f5f20b730d0c9dd0b0e32a7d318dc28|"$new_router") ;;
-              *) echo "Server middleware has other edits; review before syncing." >&2; exit 1 ;;
-            esac
             rsync -azcR \
               -e "ssh -p $SSH_PORT" \
-              ./site/src/middleware.ts \
               ./site/src/app/api/events/2026november8/ \
               ./site/src/lib/events/registration.mjs \
               ./site/public/event/2026november8/ \
               ./site/public/privacy/ \
               "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+            ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+              'python3 - /www/wwwroot/mindsleap/site/src/middleware.ts' < scripts/restore-november8-route.py
           elif [ "$commit_subject" = "Deploy restored Yusi decks with targeted sync" ]; then
             # One-time recovery: send only the restored archive and its routing files.
             # Omitting --delete prevents any unrelated server content from being removed.
