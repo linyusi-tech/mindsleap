@@ -37,4 +37,5 @@ try:
         shutil.copy2(path, backup)
     tmp.replace(path)
 finally:
-    tmp.unlink(missing_ok=True)
+    if tmp.exists():
+        tmp.unlink()
