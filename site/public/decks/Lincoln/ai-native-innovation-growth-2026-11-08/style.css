@@ -239,17 +239,17 @@ footer img{width:340px;height:56px;object-fit:contain;object-position:left cente
 .closing-future{background:radial-gradient(ellipse at 82% 42%,#264f807a,transparent 52%),linear-gradient(120deg,#061224,#102b4d)}
 .closing-future .shade{display:none}
 .closing-future .kicker{top:82px;color:#9db7d4;font-size:24px;letter-spacing:3px}
-.closing-future .copy{left:120px;top:355px;width:950px;z-index:3}
+.closing-future .copy{left:120px;top:440px;width:950px;z-index:3}
 .closing-future h1{font-size:96px!important;line-height:1.26!important;letter-spacing:-2px!important}
 .closing-future .tagline{display:none}
 .closing-quote{position:absolute;left:120px;top:155px;width:890px;z-index:3}
 .closing-quote blockquote{margin:0;font:400 35px/1.5 var(--font-sans);color:#cbd9e9;letter-spacing:-.4px}
 .closing-quote cite{display:block;margin-top:18px;font:400 25px/1.4 var(--font-sans);color:#91a9c6;font-style:normal}
-.closing-people{position:absolute;right:-5px;bottom:0;width:980px;margin:0;z-index:2;line-height:0}
+.closing-people{position:absolute;right:40px;bottom:-140px;width:880px;margin:0;z-index:2;line-height:0}
 .closing-people img{display:block;width:100%;height:auto}
-.closing-contact{position:absolute;left:120px;top:690px;display:flex;align-items:center;gap:34px;z-index:3}
-.closing-qr-frame{width:280px;height:280px;box-sizing:border-box;padding:18px;background:white;border-radius:8px}
-.closing-qr-frame img{display:block;width:244px;height:244px;object-fit:contain}
+.closing-contact{position:absolute;right:120px;top:90px;display:flex;flex-direction:row-reverse;align-items:center;gap:34px;text-align:right;z-index:3}
+.closing-qr-frame{width:340px;height:340px;flex:none;box-sizing:border-box;padding:18px;background:white;border-radius:8px}
+.closing-qr-frame img{display:block;width:304px;height:304px;object-fit:contain}
 .closing-contact strong{font:500 34px/1.4 var(--font-sans-zh);color:white}
 .closing-contact p{font:400 26px/1.6 var(--font-sans-zh);color:#b4c9e0;margin:12px 0 0}
 .closing-future footer{z-index:4}
