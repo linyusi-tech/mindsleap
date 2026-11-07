@@ -1,0 +1,52 @@
+name: Publish Conference Decks
+on:
+  push:
+    branches: [content/conference-decks-20261107]
+    paths:
+      - 'site/public/decks/index.html'
+      - 'site/public/decks/Conference/**'
+      - '.github/workflows/publish-conference-decks.yml'
+concurrency:
+  group: mindsleap-conference-decks
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish Conference category and collection
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          live_hash="$(ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/decks/index.html' | cut -d' ' -f1)"
+          new_hash="$(sha256sum site/public/decks/index.html | cut -d' ' -f1)"
+          case "$live_hash" in
+            3fad2d666b7fe82080f73680695b142c27980b6a513d48397530e064eb2d7f51|"$new_hash") ;;
+            *) echo 'Decks index changed since the snapshot; merge the latest index before publishing.' >&2; exit 1 ;;
+          esac
+          rsync -azcR -e "ssh -p $SSH_PORT" \
+            ./site/public/decks/index.html \
+            ./site/public/decks/Conference/ \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'pm2 restart mindsleap-main --update-env'
+      - name: Verify category and collection
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 12); do
+            if curl -fsSL https://www.mindsleap.cn/decks | grep -q 'Conference Decks' \
+              && curl -fsSL https://www.mindsleap.cn/decks/Conference/index.html | grep -q '2026november8/index.html' \
+              && curl -fsSL https://www.mindsleap.cn/decks/Conference/2026november8/index.html -o /tmp/conference.html \
+              && cmp /tmp/conference.html site/public/decks/Conference/2026november8/index.html; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
