@@ -1,0 +1,60 @@
+name: Publish November 8 printout
+on:
+  push:
+    branches: [content/november8-printout-20261102]
+    paths:
+      - 'site/public/event/2026november8/printout/**'
+      - 'site/printout-assets/**'
+      - 'site/scripts/printout-assets.py'
+      - '.github/workflows/publish-printout.yml'
+concurrency:
+  group: deploy-mindsleap-cn
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore original large attachments
+        run: python3 site/scripts/printout-assets.py
+      - name: Publish printout directory only
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          baseline="$(python3 -c 'import json;print(json.load(open("site/printout-assets/deploy-baseline.json"))["html_sha256"])')"
+          new_hash="$(sha256sum site/public/event/2026november8/printout/index.html | cut -d' ' -f1)"
+          live_hash="$(ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/event/2026november8/printout/index.html' | cut -d' ' -f1)"
+          if [ "$live_hash" != "$baseline" ] && [ "$live_hash" != "$new_hash" ]; then
+            echo 'The live printout changed after capture. Reconcile the latest version before publishing.' >&2
+            exit 1
+          fi
+          # Upload immutable resources before replacing the page that references them.
+          rsync -azcR -e "ssh -p $SSH_PORT" \
+            ./site/public/event/2026november8/printout/assets/ \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          rsync -azcR -e "ssh -p $SSH_PORT" \
+            ./site/public/event/2026november8/printout/index.html \
+            ./site/public/event/2026november8/printout/revision.json \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'pm2 restart mindsleap-main --update-env'
+      - name: Verify published page and revision
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 12); do
+            if curl -fsSL https://mindsleap.cn/event/2026november8/printout -o /tmp/printout.html \
+              && cmp /tmp/printout.html site/public/event/2026november8/printout/index.html \
+              && curl -fsSL https://mindsleap.cn/event/2026november8/printout/revision.json -o /tmp/revision.json \
+              && cmp /tmp/revision.json site/public/event/2026november8/printout/revision.json; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
