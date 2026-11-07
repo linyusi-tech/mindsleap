@@ -7,7 +7,7 @@ on:
       - 'site/public/decks/Conference/**'
       - '.github/workflows/publish-conference-decks.yml'
 concurrency:
-  group: mindsleap-conference-decks
+  group: deploy-mindsleap-cn
   cancel-in-progress: false
 jobs:
   publish:
@@ -26,15 +26,25 @@ jobs:
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
-          live_hash="$(ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/decks/index.html' | cut -d' ' -f1)"
-          new_hash="$(sha256sum site/public/decks/index.html | cut -d' ' -f1)"
-          case "$live_hash" in
-            3fad2d666b7fe82080f73680695b142c27980b6a513d48397530e064eb2d7f51|"$new_hash") ;;
-            *) echo 'Decks index changed since the snapshot; merge the latest index before publishing.' >&2; exit 1 ;;
-          esac
+          check_snapshot() {
+            local relative="$1" expected="$2" current updated
+            current="$(ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "sha256sum /www/wwwroot/mindsleap/$relative" | cut -d' ' -f1)"
+            updated="$(sha256sum "$relative" | cut -d' ' -f1)"
+            if [ "$current" != "$expected" ] && [ "$current" != "$updated" ]; then
+              echo "The live $relative changed since capture; reconcile before publishing." >&2
+              exit 1
+            fi
+          }
+          check_snapshot site/public/decks/index.html 052a22c88fe5a253de5faae913af0b03573398e15f3c3b724b06343c36dc338c
+          check_snapshot site/public/decks/Conference/index.html 1df7acbf006c87a62239a80cb0575486b87b036c42092c363af55e9f9f8ccd1d
+          check_snapshot site/public/decks/Conference/2026november8/index.html 2c8ad40e911b3f7b39fb0de8a3d2ccf11dc52bdf7ea883d09120a26f4fa9f80d
+          rsync -azcR -e "ssh -p $SSH_PORT" \
+            ./site/public/decks/Conference/2026november8/assets/ \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
           rsync -azcR -e "ssh -p $SSH_PORT" \
             ./site/public/decks/index.html \
-            ./site/public/decks/Conference/ \
+            ./site/public/decks/Conference/index.html \
+            ./site/public/decks/Conference/2026november8/index.html \
             "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
           ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'pm2 restart mindsleap-main --update-env'
       - name: Verify category and collection
