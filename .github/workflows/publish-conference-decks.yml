@@ -36,14 +36,12 @@ jobs:
               exit 1
             fi
           }
-          check_snapshot site/public/decks/index.html 052a22c88fe5a253de5faae913af0b03573398e15f3c3b724b06343c36dc338c
-          check_snapshot site/public/decks/Conference/index.html 1df7acbf006c87a62239a80cb0575486b87b036c42092c363af55e9f9f8ccd1d
-          check_snapshot site/public/decks/Conference/2026november8/index.html 2c8ad40e911b3f7b39fb0de8a3d2ccf11dc52bdf7ea883d09120a26f4fa9f80d
-          echo "Synchronizing verified deployment files"
+          check_snapshot site/public/decks/index.html 64bc3263111ab789af708e421cb04183146359a9fbd17fd57014ad3e7d99052c
+          check_snapshot site/public/decks/Conference/index.html 1ce9396718135816880c629f21e7d558832fc6f013f76d7d3bf09bb8b4a0b303
+          check_snapshot site/public/decks/Conference/2026november8/index.html 45b27ac47c5f4809286d041156966e2b3a6c365b1fce2e480797536583d77265
           rsync -azcR --timeout=90 --info=progress2 -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
             ./site/public/decks/Conference/2026november8/assets/ \
             "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
-          echo "Synchronizing verified deployment files"
           rsync -azcR --timeout=90 --info=progress2 -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
             ./site/public/decks/index.html \
             ./site/public/decks/Conference/index.html \
