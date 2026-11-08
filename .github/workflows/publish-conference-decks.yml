@@ -38,7 +38,7 @@ jobs:
           }
           check_snapshot site/public/decks/index.html 64bc3263111ab789af708e421cb04183146359a9fbd17fd57014ad3e7d99052c
           check_snapshot site/public/decks/Conference/index.html 1ce9396718135816880c629f21e7d558832fc6f013f76d7d3bf09bb8b4a0b303
-          check_snapshot site/public/decks/Conference/2026november8/index.html 92e31564118cb1c45ad3ceedb44353d59b381a691e6a474c89240657fe6f5264
+          check_snapshot site/public/decks/Conference/2026november8/index.html 59d8ec73d9c515bba864ded095513c0d08d0ffbff06b5290b92a79fffeeea5df
           rsync -azcR --timeout=90 --info=progress2 -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
             ./site/public/decks/Conference/2026november8/assets/ \
             "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
