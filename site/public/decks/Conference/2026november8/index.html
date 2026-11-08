@@ -4273,12 +4273,14 @@ html[data-ml-mode="presenter"] deck-stage { display: none !important; }
       if (!toolbar) return;
       toolbar.classList.remove('is-idle');
       clearTimeout(idleTimeout);
-      idleTimeout = setTimeout(() => {
-        if (dialog) return;
-        // Release stale control focus so hidden inputs do not intercept slide keys.
-        if (toolbar.contains(document.activeElement)) document.activeElement.blur();
-        toolbar.classList.add('is-idle');
-      }, 2000);
+      idleTimeout = setTimeout(hideToolbar, 2000);
+    }
+    function hideToolbar() {
+      if (!toolbar || dialog) return;
+      clearTimeout(idleTimeout);
+      // Release stale control focus so hidden inputs do not intercept slide keys.
+      if (toolbar.contains(document.activeElement)) document.activeElement.blur();
+      toolbar.classList.add('is-idle');
     }
     function update() {
       if (mode === 'presenter') renderPresenter();
@@ -4460,6 +4462,10 @@ html[data-ml-mode="presenter"] deck-stage { display: none !important; }
         if (mode === 'presenter') send(window.opener, 'blackout', { value: !blackout }); else setBlackout(!blackout);
       } };
       if (actions[key]) { event.preventDefault(); event.stopImmediatePropagation(); actions[key](); }
+      if (['arrowright', 'arrowleft', 'arrowdown', 'arrowup', 'pagedown', 'pageup', 'home', 'end', ' '].includes(key)) {
+        hideToolbar();
+        return;
+      }
       showToolbar();
     }, true);
 
