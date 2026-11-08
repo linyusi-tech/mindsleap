@@ -1,0 +1,92 @@
+name: Publish Office R21
+on:
+  push:
+    branches: [content/office-r21-20261108]
+    paths:
+      - 'site/public/office/**'
+      - 'scripts/office-*'
+      - '.github/workflows/publish-office.yml'
+concurrency:
+  group: deploy-mindsleap-cn
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish only Office files
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          ssh_options=(-o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p "$SSH_PORT")
+          current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/office/index.html' | cut -d' ' -f1)"
+          updated="$(sha256sum site/public/office/index.html | cut -d' ' -f1)"
+          if [ "$current" != fffbd248263565e4d88708db6b714270ef7de69904f9ab2390109f0a5789cd40 ] && [ "$current" != "$updated" ]; then
+            echo 'Office changed on the server since capture. Reconcile before publishing.' >&2
+            exit 1
+          fi
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "mkdir -p /www/wwwroot/mindsleap-backups/office-$GITHUB_SHA; cp -p /www/wwwroot/mindsleap/site/public/office/index.html /www/wwwroot/mindsleap-backups/office-$GITHUB_SHA/index.html"
+          rsync -azcR --timeout=90 --info=progress2 --files-from=scripts/office-release-files.txt \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          rsync -azcR --timeout=90 \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            ./site/public/office/index.html ./site/public/office/revision.json \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'pm2 restart mindsleap-main --update-env'
+      - name: Verify Office short URL and page
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 8); do
+            if curl -fsSL https://www.mindsleap.cn/office/index.html -o /tmp/office-index.html \
+              && cmp /tmp/office-index.html site/public/office/index.html \
+              && curl -fsSL https://mindsleap.cn/office -o /tmp/office.html \
+              && cmp /tmp/office.html site/public/office/index.html; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
+      - name: Inspect Office route when short URL fails
+        if: failure()
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+        run: |
+          ssh -o ConnectTimeout=20 -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" 'python3 -' <<'PY'
+          from pathlib import Path
+          import json, subprocess
+          root=Path('/www/wwwroot/mindsleap/site')
+          for relative in ['next.config.ts','src/middleware.ts']:
+              p=root/relative
+              lines=p.read_text().splitlines()
+              print(relative)
+              for n,line in enumerate(lines):
+                  if any(key in line for key in ['office','beforeFiles','matcher','(?!']):
+                      print(n+1,line)
+          p=root/'.next/routes-manifest.json'
+          if p.exists():
+              d=json.loads(p.read_text());print('compiled rewrites',d.get('rewrites',{}))
+          p=root/'.next/server/middleware-manifest.json'
+          if p.exists():
+              d=json.loads(p.read_text()); print('compiled middleware', {k:v.get('matchers') for k,v in d.get('middleware',{}).items()})
+          processes=json.loads(subprocess.check_output(['pm2','jlist']))
+          for process in processes:
+              if process['name']=='mindsleap-router':
+                  script=Path(process['pm2_env']['pm_exec_path']);print('router script',script)
+                  if script.is_file():
+                      lines=script.read_text().splitlines()
+                      for i,line in enumerate(lines):
+                          if any(key in line for key in ['office','createServer','pathname','proxy','3001']):
+                              print(i+1,line)
+          PY
