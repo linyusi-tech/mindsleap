@@ -42,6 +42,7 @@ jobs:
             -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
             ./site/public/office/index.html ./site/public/office/revision.json \
             "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'python3 - /www/wwwroot/mindsleap/site' < scripts/office-route.py
           ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'pm2 restart mindsleap-main --update-env'
       - name: Verify Office short URL and page
         run: |
