@@ -47,7 +47,7 @@ for(const path of ['/', '/zh', '/en', '/zh/news', '/office-other', '/offices', '
 }
 console.log('Verified Office exemption and 16 unrelated route matcher cases.');
 '''
-subprocess.run(['node','-e',checks],input=json.dumps({'before':old_manifest,'after':new_manifest}),text=True,check=True)
+subprocess.run(['node','-e',checks],input=json.dumps({'before':old_manifest,'after':new_manifest}),universal_newlines=True,check=True)
 
 backup = SITE.parent.parent/'mindsleap-backups'/('office-route-'+datetime.now().strftime('%Y%m%d-%H%M%S'))
 backup.mkdir(parents=True,exist_ok=False)
