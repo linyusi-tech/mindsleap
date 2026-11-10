@@ -22,13 +22,16 @@ const content = {
     aboutTitle: "关于 MindsLeap 企业家 AI 俱乐部",
     aboutDescription:
       "MindsLeap 企业家 AI 俱乐部是一个专注于 AI 转型的高端企业家社群。我们相信，在 AI 时代，企业家之间的深度交流与资源共享是实现成功转型的关键。通过邀请硅谷 AI 专家闭门交流、前沿科技企业参访、企业 AI 应用分享和工作坊，以及会员之间的交流共创，我们为会员打造一个极致坦诚、持续进化、共创共赢且具有全球连接的多元社区。从广州、杭州的微研学与闭门交流，到北京智谱 AI、飞书参访，再到苏州具身智能企业参访，我们把产业现场、趋势判断和 AI 工作流实践连接起来，帮助企业家找到适合自身业务的下一步。",
+    recentEventDescription:
+      "作为俱乐部系列活动之一，2026 年 11 月 8 日，MindsLeap 心智悦动、Founders Space 与腾讯 WorkBuddy 在上海盛大天地源创谷联合举办 AI 原生创新与增长私享会，200 多位企业家参与。Steve Hoffman、林键与王林 Lincoln 从硅谷 AI 商机、Agent 实践与企业 AI 转型出发，让全球趋势与本土业务问题形成更具体的连接。",
     activitiesTitle: "活动形式",
     activities: [
       {
         title: "大咖私享会",
         description: "硅谷AI专家与企业家面对面深度交流，分享前沿科技投资、AI趋势与实战经验。",
-        image: "/images/news/ai-native-enterprise-conference-shanghai-2026-hoffman.jpg",
-        imageAlt: "Steve Hoffman 在 AI 原生企业大会上分享",
+        image: "/images/news/ai-native-innovation-growth-shanghai-2026-hoffman.jpg",
+        imageAlt: "Steve Hoffman 在俱乐部 AI 原生创新与增长私享会上分享",
+        imagePosition: "center 15%",
       },
       {
         title: "Workshop工作坊",
@@ -86,14 +89,17 @@ const content = {
     aboutTitle: "About the MindsLeap Founders AI Club",
     aboutDescription:
       "The MindsLeap Founders AI Club is a premium entrepreneur community focused on AI transformation. We believe that deep exchange and resource sharing among entrepreneurs is the key to successful transformation in the AI era. Through expert discussions, company visits, AI workshops and peer co-creation, we create a platform for candid, practical learning. From study tours and closed-door exchanges in Guangzhou and Hangzhou to visits to Zhipu AI and Feishu in Beijing, and embodied AI companies in Suzhou, we connect industry experience, emerging trends and AI workflow practice to help entrepreneurs identify a next step for their own businesses.",
+    recentEventDescription:
+      "As part of the Club's event series, MindsLeap, Founders Space and Tencent WorkBuddy jointly hosted the AI-Native Innovation and Growth Forum at 盛大天地源创谷 in Shanghai on November 8, 2026, bringing together more than 200 entrepreneurs. Steve Hoffman, Lin Jian and Lincoln Wang connected Silicon Valley AI opportunities, agent practice and enterprise AI transformation with practical business questions.",
     activitiesTitle: "Activity Formats",
     activities: [
       {
         title: "Private Salons",
         description:
           "Face-to-face deep discussions with top AI experts and entrepreneurs, sharing cutting-edge trends and practical insights.",
-        image: "/images/news/ai-native-enterprise-conference-shanghai-2026-hoffman.jpg",
-        imageAlt: "Steve Hoffman speaking at the AI Native Enterprise Conference",
+        image: "/images/news/ai-native-innovation-growth-shanghai-2026-hoffman.jpg",
+        imageAlt: "Steve Hoffman speaking at the Club's AI-Native Innovation and Growth Forum",
+        imagePosition: "center 15%",
       },
       {
         title: "Workshops",
@@ -177,6 +183,9 @@ export default async function AIClubPage({ params }: Props) {
           <p className="text-lg text-gray-600 leading-relaxed">
             {c.aboutDescription}
           </p>
+          <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            {c.recentEventDescription}
+          </p>
         </div>
       </section>
 
@@ -198,6 +207,7 @@ export default async function AIClubPage({ params }: Props) {
                     alt={activity.imageAlt}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: activity.imagePosition ?? "center" }}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -219,6 +229,7 @@ export default async function AIClubPage({ params }: Props) {
       {(() => {
         const allPosts = getAllPosts(locale);
         const clubEventSlugs = new Set([
+          "ai-native-innovation-growth-shanghai-2026",
           "suzhou-ai-study-tour-see-future-see-yourself-2026",
           "ai-digital-employee-workshop-shanghai-2026",
           "ai-lobster-shanghai-2026",
@@ -253,6 +264,7 @@ export default async function AIClubPage({ params }: Props) {
                           alt={post.title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          style={{ objectPosition: post.imagePosition ?? "center" }}
                           sizes="(max-width: 768px) 100vw, 33vw"
                         />
                       </div>
