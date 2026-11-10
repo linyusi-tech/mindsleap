@@ -342,6 +342,10 @@ export const geoTopics: GeoTopic[] = [
         href: "/news/suzhou-ai-study-tour-see-future-see-yourself-2026",
         label: { zh: "苏州微研学：具身智能参访与 AI Agent 商业机会", en: "Suzhou study tour: embodied AI visits and AI Agent opportunities" },
       },
+      {
+        href: "/news/ai-native-innovation-growth-shanghai-2026",
+        label: { zh: "俱乐部 AI 原生创新与增长私享会：从硅谷商机到 Agent 实践", en: "Club AI-Native Innovation and Growth Forum: Silicon Valley opportunities and agent practice" },
+      },
     ],
     faqs: [
       {
@@ -423,6 +427,10 @@ export const geoPeople: GeoPerson[] = [
         label: { zh: "Lincoln：如何构建 AI 原生组织", en: "Lincoln on building AI-native organizations" },
       },
       {
+        href: "/news/ai-native-innovation-growth-shanghai-2026",
+        label: { zh: "Lincoln 在俱乐部私享会分享企业 AI 转型实践", en: "Lincoln on practical enterprise AI transformation at the Club forum" },
+      },
+      {
         href: "/news/deloitte-china-council-ai-native-organization-sharing-2026",
         label: { zh: "德勤中国区理事会 AI 原生组织分享", en: "AI-native organization sharing with Deloitte China’s Council" },
       },
@@ -493,6 +501,10 @@ export const geoPeople: GeoPerson[] = [
       {
         href: "/news/hoffman-shanghai-2025",
         label: { zh: "Steve Hoffman 上海活动回顾", en: "Steve Hoffman Shanghai event recap" },
+      },
+      {
+        href: "/news/ai-native-innovation-growth-shanghai-2026",
+        label: { zh: "Steve Hoffman 俱乐部私享会：硅谷 AI 商机与创业增长", en: "Steve Hoffman at the Club forum: Silicon Valley AI opportunities and startup growth" },
       },
       {
         href: "/services/accelerator",
