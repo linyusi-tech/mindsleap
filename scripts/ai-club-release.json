@@ -1,0 +1,202 @@
+{
+  "prepared_at": "2026-11-10T16:56:52.264410+08:00",
+  "upstream_commit": "14600de4464aaf4075f944ef5df178c4bc0b223b",
+  "baseline_html_sha256": "72dbd1f77216e1f84c3182da6f8cf1466843225b9473a8383e8c09be2fa2ef31",
+  "files": [
+    {
+      "path": "site/public/product/ai-club/ai-club.jpg",
+      "bytes": 3898278,
+      "sha256": "6b7751ccd94768b1dde9daa28dc6962f72d74bf2a57b1b7ec29b0f0b2674bda1"
+    },
+    {
+      "path": "site/public/product/ai-club/ai-club.pdf",
+      "bytes": 4874712,
+      "sha256": "8433b4e24433e16328f05a3f4e09b2d5b9ec3c44f3ad884692c8d13c5bb55aec"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/ai-growth-hero.png",
+      "bytes": 2282358,
+      "sha256": "40aa8123cfa4283b07282f04f56214fbcac8b4601d2ee42797d78ea83819a3ea"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/ai-native-innovation-growth-shanghai-2026-audience.jpg",
+      "bytes": 292374,
+      "sha256": "6b74757190d256a8310fc5d53596e1465b3184eee9032d56d44c84ee29b81437"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/ai-native-innovation-growth-shanghai-2026-cover.jpg",
+      "bytes": 425009,
+      "sha256": "d0fc3acf4a3f06b0de60b863b11bc917d16a89a2f90994f168da07adc834cd0b"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/ecosystem.svg",
+      "bytes": 2488,
+      "sha256": "7750e98e39cd5c64c0976511bf9d0abdea01049f7c2733f3b4e46c58dc1383ec"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/event-ai-marketing.jpg",
+      "bytes": 391559,
+      "sha256": "06a3f49784bbb80a651469114800ce543d2f1bc367dfc8072acd8432f289b8d9"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/event-ai-native.jpg",
+      "bytes": 404593,
+      "sha256": "51620106686f25b9ed34a52912c8d232b236a35e4d33de6708bce3daabba5f79"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/event-digital-employee.jpg",
+      "bytes": 168301,
+      "sha256": "1e015913ef13cc5c0c933ae124cc23c284552bcd567077de26953ffb728dd61a"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/event-guangzhou.jpg",
+      "bytes": 581666,
+      "sha256": "5319ad348b76b134a0a09c7c4eab80f70cfa1f3d35fa45b3b198ca14840ba823"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/event-hangzhou.jpg",
+      "bytes": 500972,
+      "sha256": "032e866ecb0d9e5447ee4d30a0fdeee39f689785946df47356d49cbe4431ea46"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/event-hoffman.jpg",
+      "bytes": 481308,
+      "sha256": "6443d15fe148a421b77a8fb13083b9f5332d5f2e2b858d24542278146567ec68"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/event-lobster.jpg",
+      "bytes": 298640,
+      "sha256": "25935a66716f08363630d36b99d03446bb3f6894f66e3e07eefd7fd1a6506a59"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/founders-space-logo-white.png",
+      "bytes": 5260,
+      "sha256": "64e417151d1dd31aff57dbe07dbf8a6f606e81e0ecf84d495c0b14e53eb967f5"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/heavy.otf",
+      "bytes": 8785564,
+      "sha256": "f178cae1188a31e7f5bdb268da9253b32c893aec56e0977118371aaf4cfc90f6"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/hero-ai-club.jpg",
+      "bytes": 468284,
+      "sha256": "d3b448c241ec6a827200d70fbcef7b77c13e6b59953e9d531fe90fdf167ae2e6"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/hero-connection-scheme-a-2.png",
+      "bytes": 2094056,
+      "sha256": "3caa6803e5b7e84950d1a59f03e03f101f0b4bf9b4214024bbef61c4039cb986"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/mindsleap-logo-white.png",
+      "bytes": 10733,
+      "sha256": "32bbf4de1466916395ad00edf7bcb3ea9eca425e09adda0268b22686bb4c2d6a"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/past-classroom.jpg",
+      "bytes": 348009,
+      "sha256": "5b34a059dae726c65205409d8718402758f9dbb17e9024cfbd89edb000330131"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/past-coaching.jpg",
+      "bytes": 290627,
+      "sha256": "39cdf632e24efaaf481369589c3a01c16bfd707ce417c4014170c60f85b15a04"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/past-team.jpg",
+      "bytes": 288864,
+      "sha256": "6306c66356b76637c7a2141d11b8d3d99ac4c1cc843ad2fdb5398fb13b715f2e"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/portfolio-logowall-v2.png",
+      "bytes": 139263,
+      "sha256": "910ecf643ae2a64ebc4a5955533521744009482db12eb50dc581729ab94a3c56"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/suzhou-ai-study-tour-2026-elite-visit.jpg",
+      "bytes": 276015,
+      "sha256": "a4a4ed15b2a8fa8a3e75ad2ed5df38ed389f745ba0fd0aa3e0f94b155ad584b4"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/suzhou-ai-study-tour-2026-ruyi-group.jpg",
+      "bytes": 217967,
+      "sha256": "ed662c39cbdc05ef2fe761952136b93f9a6dc1b1612aaf22234a9b0eb1a74838"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/upcoming-bao-kuan.png",
+      "bytes": 141378,
+      "sha256": "2a3b89917e7d2932187d2f8617059250258fd73abd59905b5777cbcab8e70b45"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/upcoming-fanuc.png",
+      "bytes": 168549,
+      "sha256": "492d363ce5115266873beddd55a095dcce06e29f94ae6715557681a42201e04f"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/upcoming-feishu.png",
+      "bytes": 211495,
+      "sha256": "25dba9aaa370ad2830b55d510098b4c5305b1e81a32d6e5932d329d4927672a7"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/upcoming-hackathon.png",
+      "bytes": 211988,
+      "sha256": "b60dcc781d29e3cbd1aa36a4939d08db88899680dd2f7ef32e33b482041ffe3d"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/upcoming-shenzhen-robot.png",
+      "bytes": 200223,
+      "sha256": "c8b3bfa5d9b3cd64a069cc8b7c9685ce0e73c22dc930a9b8f2b4aa9940361c86"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/visit-branco-official.jpg",
+      "bytes": 105257,
+      "sha256": "35967bfc3209c697bba640a3d291f7639f201efd015858caaeea7f42201f5f1d"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/visit-flexiv.jpg",
+      "bytes": 71834,
+      "sha256": "12949014a7f4db34aa257d5b1339251aca149874a922b0d145bff5b054307fac"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/visit-huawei-lianqihu.jpg",
+      "bytes": 87633,
+      "sha256": "7413805d6a022c74865db7ca48471cf5c3910bb9fe4a900028bce92f14d84d47"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/visit-webank.jpg",
+      "bytes": 66175,
+      "sha256": "9de3003f2e18b69b855bffd2861b11c05a643026b47546cdbe3452b2a5eba4b0"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/visit-zhongqing-robot.jpg",
+      "bytes": 106775,
+      "sha256": "91fb30c3c23982e267ea175b6ff185ae27e5c038205c00b5062ab50f7c82b04a"
+    },
+    {
+      "path": "site/public/product/ai-club/assets/zhipu-ai-founders-ai-club-visit-2026-qa.jpg",
+      "bytes": 363096,
+      "sha256": "9db1fd6bbd8bf2bc3e1b2232829987d6c5f06cfe77f74f97b5649bc4ec7700cf"
+    },
+    {
+      "path": "site/public/product/ai-club/fit-poster.js",
+      "bytes": 283,
+      "sha256": "f8974dc513dfaa4124cd47297b31491263854a591aa99c06cab26296fb445e17"
+    },
+    {
+      "path": "site/public/product/ai-club/index.html",
+      "bytes": 23164,
+      "sha256": "75160ff22d517bc993c1db270fbfa1f7986b8229832a4170e32ee38efe5209a6"
+    },
+    {
+      "path": "site/public/product/ai-club/poster.css",
+      "bytes": 10555,
+      "sha256": "6260d3c651ce51671b0569456c67a585c29b5a24485150c5f8d45a5ca1b3d8dd"
+    },
+    {
+      "path": "site/public/product/ai-club/revision.json",
+      "bytes": 532,
+      "sha256": "b482ffd36d22c840ba6949733ad5fc849cafd91d40960264180f1d7daaca07fd"
+    }
+  ]
+}

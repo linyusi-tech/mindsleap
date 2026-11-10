@@ -1,0 +1,79 @@
+name: Publish AI Club poster
+on:
+  push:
+    branches: [content/ai-club-poster-20261110]
+    paths:
+      - 'site/public/product/ai-club/**'
+      - 'scripts/ai-club-*'
+      - 'scripts/verify-ai-club-release.py'
+      - '.github/workflows/publish-ai-club.yml'
+concurrency:
+  group: deploy-mindsleap-cn
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify bounded release
+        run: python3 scripts/verify-ai-club-release.py
+      - name: Back up and publish only AI Club
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          ssh_options=(-o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p "$SSH_PORT")
+          check_current() {
+            local current updated
+            current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/product/ai-club/index.html' | cut -d' ' -f1)"
+            updated="$(sha256sum site/public/product/ai-club/index.html | cut -d' ' -f1)"
+            if [ "$current" != 72dbd1f77216e1f84c3182da6f8cf1466843225b9473a8383e8c09be2fa2ef31 ] && [ "$current" != "$updated" ]; then
+              echo 'AI Club changed after capture. Reconcile before publishing.' >&2
+              exit 1
+            fi
+          }
+          check_current
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA" <<'AI_CLUB_BACKUP'
+          set -euo pipefail
+          mkdir -p /www/wwwroot/mindsleap-backups
+          backup="/www/wwwroot/mindsleap-backups/ai-club-$1-before.tar.gz"
+          if [ -e "$backup" ]; then
+            tar -tzf "$backup" >/dev/null
+          else
+            tar -C /www/wwwroot/mindsleap/site/public/product -czf "$backup.tmp" ai-club
+            tar -tzf "$backup.tmp" >/dev/null
+            mv "$backup.tmp" "$backup"
+          fi
+          AI_CLUB_BACKUP
+          rsync -azcR --timeout=90 --info=progress2 --files-from=scripts/ai-club-release-files.txt \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          check_current
+          rsync -azc --timeout=90 \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            site/public/product/ai-club/index.html \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/site/public/product/ai-club/index.next-$GITHUB_SHA.html"
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "mv /www/wwwroot/mindsleap/site/public/product/ai-club/index.next-$GITHUB_SHA.html /www/wwwroot/mindsleap/site/public/product/ai-club/index.html && pm2 restart mindsleap-main --update-env"
+      - name: Verify original public URLs
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 8); do
+            if curl -fsSL --connect-timeout 10 --max-time 30 https://mindsleap.cn/product/ai-club -o /tmp/ai-club.html \
+              && cmp /tmp/ai-club.html site/public/product/ai-club/index.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/product/ai-club -o /tmp/ai-club-www.html \
+              && cmp /tmp/ai-club-www.html site/public/product/ai-club/index.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 https://mindsleap.cn/product/ai-club/ai-club.pdf -o /tmp/ai-club.pdf \
+              && cmp /tmp/ai-club.pdf site/public/product/ai-club/ai-club.pdf; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
