@@ -1,0 +1,1842 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="MindsLeap 企业 AI 实战启动计划：1天业务诊断+1天定制实战，以企业真实任务搭建数字员工。"><title>MindsLeap｜企业 AI 实战启动计划 · 销售版 v3</title><style>@font-face{font-family:MindsLeapBrand;src:url("/product/enterprise-ai-practice-launch/assets/f178cae1188a31e7f5bdb268da9253b32c893aec56e0977118371aaf4cfc90f6.otf") format("opentype");font-weight:900;font-display:swap}
+
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#080D14;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}body{color:#111C2A}deck-stage:not(:defined){visibility:hidden}.slide{position:relative;width:1440px;height:810px;background:#FCFCFA;color:#111C2A;overflow:hidden}.box{position:absolute;margin:0}.text{line-height:1.45;line-break:strict;overflow-wrap:normal}.headline{font-family:MindsLeapBrand,"PingFang SC",sans-serif;font-weight:900;line-height:1.17;letter-spacing:-1.2px}.eyebrow{font-size:13px;letter-spacing:1.5px;font-weight:650}.blue{color:#1E477C}.white{color:#fff}.ice{color:#B7DFF1}.muted{color:#687789}.light-muted{color:#B9C9D9}.bold{font-weight:650}.number{font-family:Arial,sans-serif;font-variant-numeric:tabular-nums}.rule{background:#D9E1E7}.navy .rule{background:#FFFFFF25}.navy{background:#10243F;color:#fff}.navy-panel{background:#10243F}.mist{background:#EDF1F4}.photo{overflow:hidden;background:#EFF2F4}.photo img{display:block;width:100%;height:100%;object-fit:cover}.photo.logo{background:transparent}.photo.logo img{object-fit:contain}.cover-art{background:#F1F1EC}.cover-art img{object-fit:cover}.cover-sub{color:#4C6076;line-height:1.6}.cover-tags{display:flex;align-items:center;gap:22px;color:#1E477C;font-size:21px}.cover-tags span{border-bottom:2px solid #1E477C;padding-bottom:9px}.cover-tags i{font-style:normal;font-weight:300}.brand-foot{letter-spacing:.3px;color:#1E477C}.brand-foot b{font-size:17px}.brand-foot span{margin-left:10px;font-size:12px;color:#8392A3}.navy .brand-foot{color:#fff}.navy .brand-foot span{color:#97ADC6}.foot-right{text-align:right;color:#7B8B9E}.page-no{font-family:Arial,sans-serif;display:inline-block;margin-left:24px;color:inherit;font-weight:600}.mega{font-family:Arial,sans-serif;font-weight:600;line-height:1;color:#1E477C;letter-spacing:-13px}.definition{display:flex;gap:28px;align-items:center;background:#EAF0F5;padding:16px 24px;color:#48617E}.definition b{font-size:19px;color:#1E477C;white-space:nowrap}.definition span{font-size:20px}.source a{color:#627D9B;text-decoration:none;border-bottom:1px solid #A5B9CD}.source a:hover{color:#1E477C}.diagnostic-out{padding:17px 22px;background:#EAF0F5;color:#1E477C}.diagnostic-out span{font-size:14px;margin-right:21px;letter-spacing:1px}.diagnostic-out b{font-size:25px}.diagnostic-out p{font-size:18px;color:#6B7E94;margin:12px 0 0}
+.custom{width:100%;border-collapse:collapse;table-layout:fixed}.custom th{height:58px;background:#10243F;color:#fff;font-size:19px;text-align:left;padding:15px 22px;font-weight:600}.custom td{height:80px;padding:10px 22px;border-bottom:1px solid #DDE4EA;font-size:20px;color:#53687F;line-height:1.45}.custom td:first-child b{display:block;font-size:21px;color:#152F4C}.custom td:first-child span{display:block;margin-top:4px;font-size:16px;color:#7A8A9C}.custom td:last-child{color:#1E477C;font-size:20px}.custom tbody tr:nth-child(odd){background:#F0F4F7}.custom tbody tr:nth-child(even){background:#FCFCFA}.custom strong{font-weight:650}.portrait-yusi img{transform:scale(1.38);transform-origin:50% 30%}
+.job-card{background:#10243F;padding:26px 29px;color:#fff}.job-card>.eyebrow{font-size:11px;color:#B7DFF1}.job-mark{position:absolute;right:28px;top:61px;font-size:58px;color:#B7DFF1}.job-card h2{font-family:MindsLeapBrand,sans-serif;font-size:36px;line-height:1.3;letter-spacing:-1px;margin:34px 0 24px}.job-card dl{margin:0}.job-card dt{font-size:13px;color:#9DB4CE;margin:16px 0 5px}.job-card dd{margin:0;font-size:17px;line-height:1.6;color:#E4ECF6}.report{background:#FCFCFA;border:1px solid #DCE4EC;box-shadow:0 14px 32px #16365309;padding:0 26px}.report-top{height:73px;border-bottom:1px solid #DCE4EC;display:flex;align-items:center;justify-content:space-between}.report-top b{font-size:25px;color:#16365D}.report-top span{font-size:13px;color:#899BB0}.workflow-line{display:flex;align-items:center;gap:19px;height:68px;color:#526E90}.workflow-line span{font-size:15px;background:#EEF3F8;padding:7px 17px}.workflow-line i{font-style:normal;font-size:17px}.report-row{display:flex;align-items:center;gap:21px;border-top:1px solid #E2E8EE;height:79px}.report-row em{font:17px Arial;color:#90A4BC}.report-row h3{margin:0 0 6px;font-size:20px;color:#28496E}.report-row p{font-size:16px;color:#738498;margin:0}.report-row small{font-size:13px;color:#587B9E;margin-left:auto;border:1px solid #D1DFEB;padding:5px 9px}.report-bottom{font-size:14px;color:#6A809A;margin-top:16px}.toolkit{background:#F6F7F4}.handover-band{display:flex;align-items:center;justify-content:center;gap:62px;background:#1E477C;color:#fff;font-size:22px;font-weight:500}.handover-band i{font-style:normal;color:#7899C0;font-weight:300}.price-panel{background:#1E477C}.start-ready{background:#EEF2F6;padding:16px 22px;display:flex;gap:36px;align-items:center}.start-ready b{font-size:20px;color:#1E477C;white-space:nowrap}.start-ready p{font-size:20px;line-height:1.55;color:#5B7088;margin:0}.closing-brand{font-weight:750;color:#fff;letter-spacing:-.5px}.closing-brand span{font-size:17px;font-weight:400;letter-spacing:1px;margin-left:15px;color:#C4D4E6}.closing-art{background:#10243F}.closing-steps{display:flex;gap:22px;align-items:center;color:#CADDF1;font-size:20px}.closing-steps i{font-style:normal;color:#7193BA}
+.fullscreen-control{position:fixed;top:14px;right:18px;z-index:2147483000;border:1px solid #ffffff45;border-radius:4px;background:#000b;color:#fff;padding:8px 12px;font:13px sans-serif;opacity:0;transition:opacity .2s;cursor:pointer}.fullscreen-control:focus-visible,body.controls-active .fullscreen-control{opacity:1}.fullscreen-control:focus-visible{outline:2px solid white}
+@media print{html,body{background:white}.fullscreen-control{display:none!important}@page{size:1440px 810px;margin:0}.slide{break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body><deck-stage width="1440" height="810" no-rail><section class="slide cover" data-label="让数字员工为业务而生" data-page="01" aria-label="第1页：让数字员工为业务而生"><div class="box photo cover-art" style="left:784px;top:68px;width:656px;height:684px;"><img src="/product/enterprise-ai-practice-launch/assets/40f6e7a968fea92c07d0515411c229bfdb7a265627064be68e77271df3786836.png" alt="AI 概念视觉：为业务定制的数字员工身份卡" draggable="false" style="object-position:center"></div><div class="box photo logo" style="left:64px;top:45px;width:330px;height:66px;"><img src="/product/enterprise-ai-practice-launch/assets/69459e29f21ae430cfb2a1c76e742fcde97a7a6256632095e9ee49d645545a14.svg" alt="MindsLeap × Founders Space" draggable="false" style="object-position:center"></div><p class="box text eyebrow blue" style="left:66px;top:164px;width:700px;height:36px;font-size:21px;">企业 AI 实战启动计划</p><h1 class="box text headline" style="left:56px;top:244px;width:925px;height:205px;font-size:79px;">让第一个数字员工，<br>为你的业务而生。</h1><p class="box text cover-sub" style="left:66px;top:517px;width:700px;height:93px;font-size:28px;">找准业务机会。带动核心团队。<br>把真实任务，做成自己的 AI 工作助手。</p><div class="box cover-tags" style="left:66px;top:670px;width:600px;height:47px;"><span>业务诊断</span><i>×</i><span>定制实战</span></div><p class="box text muted" style="left:66px;top:776px;width:470px;height:23px;font-size:14px;">MindsLeap 心智悦动</p><p class="box text eyebrow muted" style="left:950px;top:780px;width:428px;height:20px;font-size:11px;text-align:right;">ENTERPRISE AI / START WITH YOUR BUSINESS</p></section>
+<section class="slide navy" data-label="让企业有一个明确的开始" data-page="02" aria-label="第2页：让企业有一个明确的开始"><p class="box text eyebrow" style="left:64px;top:46px;width:800px;height:24px;font-size:13px;">THE FIRST STEP</p><h1 class="box text headline" style="left:60px;top:144px;width:770px;height:265px;font-size:61px;">工具在更新。<br>你的业务，<br>需要一个明确的开始。</h1><p class="box text light-muted" style="left:66px;top:499px;width:680px;height:94px;font-size:27px;">把 AI 推进到业务里，<br>先回答三个真正影响行动的问题。</p><p class="box text eyebrow ice" style="left:894px;top:151px;width:480px;height:26px;font-size:14px;">方向</p><p class="box text bold" style="left:891px;top:188px;width:485px;height:45px;font-size:29px;">先从哪项业务开始？</p><p class="box text light-muted" style="left:894px;top:244px;width:480px;height:62px;font-size:19px;">面对众多可能性，先找到值得投入的切口。</p><div class="box rule" style="left:894px;top:301px;width:482px;height:1px;"></div><p class="box text eyebrow ice" style="left:894px;top:324px;width:480px;height:26px;font-size:14px;">团队</p><p class="box text bold" style="left:891px;top:361px;width:485px;height:45px;font-size:29px;">谁来把第一件事做出来？</p><p class="box text light-muted" style="left:894px;top:417px;width:480px;height:62px;font-size:19px;">让有意愿、有业务经验的人，形成启动队伍。</p><div class="box rule" style="left:894px;top:474px;width:482px;height:1px;"></div><p class="box text eyebrow ice" style="left:894px;top:497px;width:480px;height:26px;font-size:14px;">成果</p><p class="box text bold" style="left:891px;top:534px;width:485px;height:45px;font-size:29px;">学完之后，能留下什么？</p><p class="box text light-muted" style="left:894px;top:590px;width:480px;height:62px;font-size:19px;">让团队拿得出成果，也知道回去怎样接着用。</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">02 / 14</span></p></section>
+<section class="slide " data-label="两天的三重价值" data-page="03" aria-label="第3页：两天的三重价值"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">THE OFFER</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:52px;">先找准，再做出。<br>让企业 AI 从第一步走起来。</h1><p class="box text mega" style="left:56px;top:277px;width:300px;height:256px;font-size:226px;">2</p><p class="box text eyebrow blue" style="left:290px;top:428px;width:165px;height:46px;font-size:31px;">DAYS</p><p class="box text blue" style="left:67px;top:555px;width:390px;height:84px;font-size:25px;">1 天业务诊断<br>1 天定制化实战培训</p><p class="box text number muted" style="left:536px;top:293px;width:70px;height:32px;font-size:19px;">01</p><p class="box text headline" style="left:622px;top:290px;width:735px;height:50px;font-size:33px;">把方向变清楚</p><p class="box text muted" style="left:623px;top:346px;width:750px;height:43px;font-size:22px;">诊断高价值机会，让第一步有业务依据。</p><div class="box rule" style="left:536px;top:391px;width:840px;height:1px;"></div><p class="box text number muted" style="left:536px;top:412px;width:70px;height:32px;font-size:19px;">02</p><p class="box text headline" style="left:622px;top:409px;width:735px;height:50px;font-size:33px;">把成果做出来</p><p class="box text muted" style="left:623px;top:465px;width:750px;height:43px;font-size:22px;">围绕企业真实任务，搭建可演示的数字员工。</p><div class="box rule" style="left:536px;top:510px;width:840px;height:1px;"></div><p class="box text number muted" style="left:536px;top:531px;width:70px;height:32px;font-size:19px;">03</p><p class="box text headline" style="left:622px;top:528px;width:735px;height:50px;font-size:33px;">把团队带起来</p><p class="box text muted" style="left:623px;top:584px;width:750px;height:43px;font-size:22px;">让参与者亲手实践，带着方法和成果继续推进。</p><div class="box definition" style="left:64px;top:679px;width:1312px;height:62px;"><b>数字员工是什么？</b><span>把团队反复做的一项业务任务，做成有资料、有步骤、有输出标准的 AI 助手。</span></div><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">03 / 14</span></p></section>
+<section class="slide " data-label="真实项目建立信任" data-page="04" aria-label="第4页：真实项目建立信任"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">PROVEN IN REAL BUSINESS</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:48px;">实战课题，来自客户每天真正要做的工作。</h1><p class="box text muted" style="left:64px;top:224px;width:1312px;height:38px;font-size:22px;">MindsLeap 心智悦动 · 企业 AI 转型与 AI 原生创业加速平台 · Founders Space 全球合作伙伴</p><div class="box photo " style="left:64px;top:286px;width:642px;height:240px;"><img src="/product/enterprise-ai-practice-launch/assets/dc2f3ad90acf5597d8d521025bacf40d1e2fc19f0e6e05c8cbaafc2cddc0ea0d.jpg" alt="高格办公空间：MindsLeap 企业 AI 培训现场" draggable="false" style="object-position:center 60%"></div><div class="box photo " style="left:734px;top:286px;width:642px;height:240px;"><img src="/product/enterprise-ai-practice-launch/assets/22165b4dbf7ecc4f9a663759ee2683950cb52996fa1b9a00564414703cedd108.jpg" alt="中欧商学院市场团队：AI Agent 工作流训练讨论现场" draggable="false" style="object-position:center 64%"></div><p class="box text headline" style="left:64px;top:552px;width:642px;height:48px;font-size:30px;">高格办公空间</p><p class="box text blue bold" style="left:65px;top:601px;width:642px;height:31px;font-size:18px;">两日 AI 培训与转型诊断</p><p class="box text muted" style="left:65px;top:642px;width:642px;height:72px;font-size:21px;">结合管理层访谈与业务材料，梳理 AI 机会，<br>形成场景清单与试点优先级判断依据。</p><p class="box text headline" style="left:734px;top:552px;width:642px;height:48px;font-size:30px;">中欧商学院市场团队</p><p class="box text blue bold" style="left:735px;top:601px;width:642px;height:31px;font-size:18px;">真实市场场景的 AI Agent 工作流训练</p><p class="box text muted" style="left:735px;top:642px;width:642px;height:72px;font-size:21px;">围绕品牌内容、市场监测等工作开展实操，<br>形成工作流草案、任务模板与检查清单。</p><p class="box text source" style="left:65px;top:723px;width:620px;height:20px;font-size:12px;"><a href="https://www.mindsleap.cn/zh/news/goger-office-ai-training-consulting-2026" target="_blank" rel="noopener">查看官方项目记录 ↗</a></p><p class="box text source" style="left:735px;top:723px;width:620px;height:20px;font-size:12px;"><a href="https://www.mindsleap.cn/zh/news/ceibs-marketing-ai-agent-workflow-training-2026" target="_blank" rel="noopener">查看官方项目记录 ↗</a></p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">04 / 14</span></p></section>
+<section class="slide diagnostic" data-label="把第一步选对" data-page="05" aria-label="第5页：把第一步选对"><div class="box navy-panel" style="left:0px;top:0px;width:485px;height:810px;"></div><p class="box text eyebrow ice" style="left:64px;top:55px;width:390px;height:28px;font-size:14px;">DAY 1 / 业务诊断</p><h1 class="box text headline white" style="left:58px;top:170px;width:420px;height:280px;font-size:65px;">第一步，<br>值得被<br>认真选对。</h1><p class="box text light-muted" style="left:65px;top:530px;width:355px;height:100px;font-size:24px;">先理解业务，再选择机会。<br>把实战用在值得做的事情上。</p><p class="box text ice" style="left:65px;top:700px;width:355px;height:28px;font-size:16px;">访谈关键人 · 拆解真实流程</p><div class="box photo " style="left:535px;top:55px;width:841px;height:343px;"><img src="/product/enterprise-ai-practice-launch/assets/7ecbb70a8368874ec1c868cc2a4f137f1a6c8901176b1ad3a706ef2817334ed7.jpg" alt="高格办公空间：围绕业务数据开展诊断讨论" draggable="false" style="object-position:center 75%"></div><p class="box text number muted" style="left:535px;top:430px;width:255px;height:25px;font-size:14px;">01</p><p class="box text headline" style="left:535px;top:473px;width:255px;height:45px;font-size:28px;">业务价值</p><p class="box text muted" style="left:535px;top:529px;width:255px;height:80px;font-size:21px;">哪些高频任务，<br>最值得先改变？</p><p class="box text number muted" style="left:822px;top:430px;width:255px;height:25px;font-size:14px;">02</p><p class="box text headline" style="left:822px;top:473px;width:255px;height:45px;font-size:28px;">资料条件</p><p class="box text muted" style="left:822px;top:529px;width:255px;height:80px;font-size:21px;">现有信息与材料，<br>能否支持现场试做？</p><p class="box text number muted" style="left:1109px;top:430px;width:255px;height:25px;font-size:14px;">03</p><p class="box text headline" style="left:1109px;top:473px;width:255px;height:45px;font-size:28px;">推进责任</p><p class="box text muted" style="left:1109px;top:529px;width:255px;height:80px;font-size:21px;">谁会使用、谁来判断，<br>谁负责后续推进？</p><div class="box diagnostic-out" style="left:535px;top:635px;width:841px;height:104px;"><span>诊断交付</span><b>AI 机会地图 + 优先实战课题</b><p>哪些问题先做、由谁参与、带什么材料、做到什么程度。</p></div><p class="box text ice" style="left:65px;top:777px;width:360px;height:23px;font-size:14px;">MindsLeap 心智悦动</p><p class="box text foot-right muted" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">05 / 14</span></p></section>
+<section class="slide " data-label="定制到业务也定制到人" data-page="06" aria-label="第6页：定制到业务也定制到人"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">BUILT AROUND YOUR BUSINESS</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:52px;">每一家企业，都有自己的实战课题。</h1><p class="box text muted" style="left:64px;top:224px;width:1312px;height:38px;font-size:22px;">诊断出的机会、参训者的职责、企业真实资料，共同决定整个培训。</p><div class="box " style="left:64px;top:285px;width:1312px;height:378px;"><table class="custom"><colgroup><col style="width:23%"><col style="width:21%"><col style="width:29%"><col style="width:27%"></colgroup><thead><tr><th>诊断机会</th><th>参训人员</th><th>企业真实材料</th><th>课堂目标成果</th></tr></thead><tbody><tr><td><b>餐饮连锁</b><span>门店经营复盘</span></td><td>运营负责人 + 店长</td><td>门店周报、活动记录、经营口径</td><td><strong>经营复盘数字员工</strong></td></tr><tr><td><b>消费品 / 美妆</b><span>产品咨询与品牌内容</span></td><td>品牌 + 客服 + 销售</td><td>产品资料、FAQ、品牌内容规范</td><td><strong>品牌知识与咨询数字员工</strong></td></tr><tr><td><b>文旅服务</b><span>行前问答与接待准备</span></td><td>运营 + 一线服务</td><td>讲解资料、服务 SOP、咨询记录</td><td><strong>文旅服务数字员工</strong></td></tr><tr><td><b>空间运营</b><span>招商线索与客户跟进</span></td><td>招商 + 运营</td><td>项目介绍、沟通记录、跟进标准</td><td><strong>招商跟进数字员工</strong></td></tr></tbody></table></div><p class="box text blue bold" style="left:65px;top:689px;width:1300px;height:42px;font-size:24px;">一张任务表，把“为什么学、谁来学、拿什么练、做出什么”一次对齐。</p><p class="box text muted" style="left:65px;top:731px;width:1300px;height:21px;font-size:12px;">示例任务表；实际行业课题、工具和成果标准以企业诊断结论及参训人员为准。</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">06 / 14</span></p></section>
+<section class="slide " data-label="一天真实业务实战" data-page="07" aria-label="第7页：一天真实业务实战"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">DAY 2 / HANDS-ON WORKSHOP</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:51px;">把真实业务搬进课堂，<br>让团队亲手把数字员工搭出来。</h1><div class="box photo " style="left:0px;top:283px;width:920px;height:454px;"><img src="/product/enterprise-ai-practice-launch/assets/601feccbe1b7171055eecea4c54dda2341668d63ad67ef69f2aa561000a35c3b.jpg" alt="MindsLeap 为中欧商学院市场团队开展实战工作坊" draggable="false" style="object-position:center 67%"></div><div class="box navy-panel" style="left:920px;top:283px;width:520px;height:454px;"></div><p class="box text number ice" style="left:952px;top:316px;width:50px;height:27px;font-size:15px;">01</p><p class="box text bold white" style="left:1004px;top:312px;width:396px;height:42px;font-size:26px;">拆任务，定标准</p><p class="box text light-muted" style="left:1005px;top:357px;width:390px;height:47px;font-size:17px;">选定诊断课题，明确输入与输出。</p><p class="box text number ice" style="left:952px;top:415px;width:50px;height:27px;font-size:15px;">02</p><p class="box text bold white" style="left:1004px;top:411px;width:396px;height:42px;font-size:26px;">接材料，搭第一版</p><p class="box text light-muted" style="left:1005px;top:456px;width:390px;height:47px;font-size:17px;">把企业资料、工作指令与流程组织起来。</p><p class="box text number ice" style="left:952px;top:514px;width:50px;height:27px;font-size:15px;">03</p><p class="box text bold white" style="left:1004px;top:510px;width:396px;height:42px;font-size:26px;">跑样例，现场改</p><p class="box text light-muted" style="left:1005px;top:555px;width:390px;height:47px;font-size:17px;">使用真实业务样例，讲师逐组辅导。</p><p class="box text number ice" style="left:952px;top:613px;width:50px;height:27px;font-size:15px;">04</p><p class="box text bold white" style="left:1004px;top:609px;width:396px;height:42px;font-size:26px;">做演示，定下一步</p><p class="box text light-muted" style="left:1005px;top:654px;width:390px;height:47px;font-size:17px;">展示成果，明确试用人与改进方向。</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">07 / 14</span></p></section>
+<section class="slide mist" data-label="数字员工的具体样子" data-page="08" aria-label="第8页：数字员工的具体样子"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">THE DIGITAL EMPLOYEE / DEMO</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:48px;">让一项反复做的工作，拥有自己的数字员工。</h1><p class="box text muted" style="left:64px;top:224px;width:1312px;height:38px;font-size:22px;">课堂成果示意｜以“门店经营复盘”为例：把分散资料，组织成可供业务判断的复盘输出。</p><div class="box job-card" style="left:64px;top:295px;width:364px;height:430px;"><span class="eyebrow">DIGITAL EMPLOYEE 01</span><div class="job-mark">✦</div><h2>经营复盘<br>数字员工</h2><dl><dt>服务对象</dt><dd>运营负责人 / 区域店长</dd><dt>企业材料</dt><dd>门店周报、活动记录、复盘模板</dd><dt>岗位职责</dt><dd>按企业口径整理经营信息，<br>生成复盘初稿与行动建议。</dd></dl></div><div class="box report" style="left:457px;top:295px;width:919px;height:430px;"><div class="report-top"><b>本周经营复盘</b><span>示例输出结构</span></div><div class="workflow-line"><span>读取资料</span><i>→</i><span>归整信息</span><i>→</i><span>识别异常</span><i>→</i><span>生成复盘</span></div><div class="report-row"><em>01</em><div><h3>问题清单</h3><p>指出需要关注的变化，并标出对应材料来源。</p></div><small>有依据</small></div><div class="report-row"><em>02</em><div><h3>原因假设</h3><p>区分事实与推测，列出需要业务人员核实的问题。</p></div><small>可判断</small></div><div class="report-row"><em>03</em><div><h3>下周行动建议</h3><p>提出可讨论的动作，交由业务负责人审核决策。</p></div><small>能讨论</small></div><div class="report-bottom">现场验收：资料用对了吗？判断有依据吗？输出符合业务标准吗？</div></div><p class="box text muted" style="left:64px;top:733px;width:1300px;height:21px;font-size:12px;">以可演示、可迭代的课堂版本为目标；业务判断与结果审核由人负责。</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">08 / 14</span></p></section>
+<section class="slide " data-label="回到岗位知道怎样接着用" data-page="09" aria-label="第9页：回到岗位知道怎样接着用"><div class="box photo toolkit" style="left:735px;top:90px;width:705px;height:555px;"><img src="/product/enterprise-ai-practice-launch/assets/55aef6cd055962bb269e2f91b0507015044f1989e1b336a111847dbafb967944.png" alt="AI 概念视觉：数字员工工作材料与执行工具包" draggable="false" style="object-position:center"></div><p class="box text eyebrow blue" style="left:64px;top:46px;width:850px;height:24px;font-size:13px;">WHAT YOUR TEAM TAKES BACK</p><h1 class="box text headline" style="left:59px;top:108px;width:1060px;height:138px;font-size:52px;">把成果带回去，<br>让下一次使用有章可循。</h1><p class="box text number muted" style="left:66px;top:298px;width:55px;height:26px;font-size:15px;">01</p><p class="box text bold blue" style="left:130px;top:295px;width:600px;height:39px;font-size:26px;">一版数字员工</p><p class="box text muted" style="left:131px;top:339px;width:599px;height:36px;font-size:19px;">可演示的课堂版本，明确业务职责与输出。</p><p class="box text number muted" style="left:66px;top:391px;width:55px;height:26px;font-size:15px;">02</p><p class="box text bold blue" style="left:130px;top:388px;width:600px;height:39px;font-size:26px;">一套工作材料</p><p class="box text muted" style="left:131px;top:432px;width:599px;height:36px;font-size:19px;">工作指令、知识资料或流程配置，留在团队手里。</p><p class="box text number muted" style="left:66px;top:484px;width:55px;height:26px;font-size:15px;">03</p><p class="box text bold blue" style="left:130px;top:481px;width:600px;height:39px;font-size:26px;">一组检验样例</p><p class="box text muted" style="left:131px;top:525px;width:599px;height:36px;font-size:19px;">用真实任务检查质量，知道哪里还需改进。</p><p class="box text number muted" style="left:66px;top:577px;width:55px;height:26px;font-size:15px;">04</p><p class="box text bold blue" style="left:130px;top:574px;width:600px;height:39px;font-size:26px;">一个推进安排</p><p class="box text muted" style="left:131px;top:618px;width:599px;height:36px;font-size:19px;">明确试用负责人、补充材料与下一步动作。</p><div class="box handover-band" style="left:64px;top:691px;width:1312px;height:56px;"><span>看得见成果</span><i>／</i><span>说得清方法</span><i>／</i><span>找得到负责人</span></div><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">09 / 14</span></p></section>
+<section class="slide " data-label="高管与AI先行小分队" data-page="10" aria-label="第10页：高管与AI先行小分队"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">CHOOSE YOUR STARTING TEAM</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:53px;">让能推动的人，成为第一批创造者。</h1><p class="box text muted" style="left:64px;top:224px;width:1312px;height:38px;font-size:22px;">两种定制化培训模式，匹配企业不同的启动方式。</p><div class="box photo " style="left:64px;top:286px;width:642px;height:195px;"><img src="/product/enterprise-ai-practice-launch/assets/bb3f2786e866f9929cede79af7eb741e473e558873f2557063d3f4d1757243fd.jpg" alt="MindsLeap 往期高管圆桌交流实景" draggable="false" style="object-position:center 63%"></div><div class="box photo " style="left:734px;top:286px;width:642px;height:195px;"><img src="/product/enterprise-ai-practice-launch/assets/364554c8a5fc373fa8550d47d537fd6cce1ae1b3cc5f943abcd013d8ebe52622.jpg" alt="MindsLeap 数字员工工作坊：团队动手实操" draggable="false" style="object-position:center 47%"></div><div class="box navy-panel" style="left:734px;top:481px;width:642px;height:260px;"></div><p class="box text headline" style="left:64px;top:509px;width:642px;height:51px;font-size:33px;">A / 高管共创班</p><p class="box text blue bold" style="left:65px;top:575px;width:630px;height:38px;font-size:23px;">让推动转型的人，亲自看见可能性。</p><p class="box text muted" style="left:65px;top:628px;width:630px;height:99px;font-size:21px;">企业负责人、核心高管、业务负责人参与。<br>通过亲手搭建，理解机会与边界，<br>推动方向选择、资源投入与组织协同。</p><p class="box text headline white" style="left:762px;top:509px;width:586px;height:51px;font-size:33px;">B / AI 先行小分队</p><p class="box text ice bold" style="left:764px;top:575px;width:585px;height:38px;font-size:23px;">建议 10–15 人，愿意尝试、愿意带头。</p><p class="box text white" style="left:764px;top:628px;width:585px;height:99px;font-size:20px;">必须包含业务相关人员，不能是纯技术团队。<br>围绕真实课题做出数字员工，<br>让先行者带动更多同事开始实践。</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">10 / 14</span></p></section>
+<section class="slide navy" data-label="跨行业的服务经验" data-page="11" aria-label="第11页：跨行业的服务经验"><p class="box text eyebrow" style="left:64px;top:46px;width:900px;height:24px;font-size:13px;">EXPERIENCE ACROSS INDUSTRIES</p><h1 class="box text headline" style="left:59px;top:113px;width:910px;height:143px;font-size:52px;">业务不同。<br>我们始终从真实问题出发。</h1><p class="box text light-muted" style="left:65px;top:301px;width:775px;height:87px;font-size:24px;">餐饮连锁、文旅服务、消费美妆、空间运营。<br>把跨行业实践，带进每一次企业共创。</p><div class="box photo " style="left:953px;top:75px;width:423px;height:321px;"><img src="/product/enterprise-ai-practice-launch/assets/449d98987319998b05e0de178a866de1afda076f8dfc7a4691d0e63aa6c43e5d.jpg" alt="MindsLeap AI 原生企业大会实景" draggable="false" style="object-position:center 44%"></div><div class="box rule" style="left:64px;top:460px;width:307px;height:1px;"></div><p class="box text light-muted" style="left:64px;top:486px;width:307px;height:29px;font-size:16px;">餐饮与连锁经营</p><p class="box text headline" style="left:64px;top:537px;width:307px;height:100px;font-size:30px;">鼎大 · 嘻游记<br>炙都 · 福山季</p><div class="box rule" style="left:399px;top:460px;width:307px;height:1px;"></div><p class="box text light-muted" style="left:399px;top:486px;width:307px;height:29px;font-size:16px;">文旅</p><p class="box text headline" style="left:399px;top:537px;width:307px;height:100px;font-size:31px;">兵马俑<br>陕西历史博物馆</p><div class="box rule" style="left:734px;top:460px;width:307px;height:1px;"></div><p class="box text light-muted" style="left:734px;top:486px;width:307px;height:29px;font-size:16px;">消费品与美妆</p><p class="box text headline" style="left:734px;top:537px;width:307px;height:100px;font-size:31px;">Pure Beauty</p><div class="box rule" style="left:1069px;top:460px;width:307px;height:1px;"></div><p class="box text light-muted" style="left:1069px;top:486px;width:307px;height:29px;font-size:16px;">空间运营</p><p class="box text headline" style="left:1069px;top:537px;width:307px;height:100px;font-size:31px;">高格</p><p class="box text light-muted" style="left:65px;top:675px;width:625px;height:27px;font-size:15px;">部分服务客户与项目</p><p class="box text ice" style="left:700px;top:673px;width:676px;height:32px;font-size:19px;text-align:right;">客户满意度高 · 用真实业务共创建立信任</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">11 / 14</span></p></section>
+<section class="slide " data-label="专家交付团队" data-page="12" aria-label="第12页：专家交付团队"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">THE PEOPLE BEHIND THE PROGRAM</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:48px;">懂经营，懂产品，也能带团队把它做出来。</h1><p class="box text muted" style="left:64px;top:224px;width:1312px;height:38px;font-size:22px;">业务判断、课程设计与 AI 实操，共同支持一次有效的企业启动。</p><div class="box photo " style="left:64px;top:288px;width:420px;height:264px;"><img src="/product/enterprise-ai-practice-launch/assets/e01d587e2d8bc498a1e2285c1f2f8567f0225ed34125409a9e67872cab757adb.jpg" alt="Lincoln 官方人物照片" draggable="false" style="object-position:center 12%"></div><p class="box text headline" style="left:64px;top:576px;width:420px;height:51px;font-size:34px;">Lincoln</p><p class="box text blue bold" style="left:64px;top:630px;width:420px;height:33px;font-size:19px;">经营与组织视角</p><p class="box text muted" style="left:64px;top:675px;width:420px;height:61px;font-size:17px;">MindsLeap 创始人<br>Founders Space China CEO</p><div class="box photo portrait-yusi" style="left:510px;top:288px;width:420px;height:264px;"><img src="/product/enterprise-ai-practice-launch/assets/423e3ff069a2da94b40c9a261c2f92dd1fdb833b516c331e437ef9453cc9e659.jpg" alt="Yusi 官方人物照片" draggable="false" style="object-position:center 30%"></div><p class="box text headline" style="left:510px;top:576px;width:420px;height:51px;font-size:34px;">Yusi</p><p class="box text blue bold" style="left:510px;top:630px;width:420px;height:33px;font-size:19px;">产品与课程设计</p><p class="box text muted" style="left:510px;top:675px;width:420px;height:61px;font-size:17px;">MindsLeap 联合创始人 & CPO<br>前 Emeritus 中国区产品负责人</p><div class="box photo " style="left:956px;top:288px;width:420px;height:264px;"><img src="/product/enterprise-ai-practice-launch/assets/f50c5365e57e062496b03119cc13a736581ac0aa58401064fdff71d347e7e549.jpg" alt="冰洲 官方人物照片" draggable="false" style="object-position:center 14%"></div><p class="box text headline" style="left:956px;top:576px;width:420px;height:51px;font-size:34px;">冰洲</p><p class="box text blue bold" style="left:956px;top:630px;width:420px;height:33px;font-size:19px;">AI 实操与落地</p><p class="box text muted" style="left:956px;top:675px;width:420px;height:61px;font-size:17px;">MindsLeap AI 落地交付合伙人<br>十年连续创业者</p><p class="box text muted" style="left:65px;top:739px;width:1300px;height:20px;font-size:12px;">按课题与排期匹配 1–2 位专家；具体人选在项目排期时确定。</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">12 / 14</span></p></section>
+<section class="slide " data-label="59800元开启两天实战" data-page="13" aria-label="第13页：59800元开启两天实战"><p class="box text eyebrow" style="left:64px;top:46px;width:1300px;height:24px;font-size:13px;">YOUR INVESTMENT</p><h1 class="box text headline" style="left:60px;top:99px;width:1320px;height:132px;font-size:48px;">用两天，为企业打开一个真正的业务切口。</h1><p class="box text muted" style="left:64px;top:224px;width:1312px;height:38px;font-size:22px;">企业 AI 诊断 + 定制化实战培训</p><div class="box price-panel" style="left:64px;top:292px;width:567px;height:444px;"></div><p class="box text eyebrow ice" style="left:98px;top:328px;width:490px;height:34px;font-size:19px;">两天完整交付</p><p class="box text headline white" style="left:91px;top:403px;width:520px;height:127px;font-size:86px;">¥59,800</p><p class="box text white" style="left:101px;top:548px;width:480px;height:46px;font-size:27px;">/ 企业 · 2 天</p><p class="box text ice" style="left:101px;top:642px;width:480px;height:66px;font-size:21px;">1 天业务诊断 + 1 天定制化实战培训</p><p class="box text headline blue" style="left:687px;top:317px;width:165px;height:45px;font-size:26px;">看清机会</p><p class="box text muted" style="left:876px;top:320px;width:500px;height:63px;font-size:21px;">关键人访谈、场景梳理、AI 机会地图</p><div class="box rule" style="left:687px;top:397px;width:689px;height:1px;"></div><p class="box text headline blue" style="left:687px;top:416px;width:165px;height:45px;font-size:26px;">定制任务</p><p class="box text muted" style="left:876px;top:419px;width:500px;height:63px;font-size:21px;">根据行业、诊断结论与参训者设计课程</p><div class="box rule" style="left:687px;top:496px;width:689px;height:1px;"></div><p class="box text headline blue" style="left:687px;top:515px;width:165px;height:45px;font-size:26px;">现场做出</p><p class="box text muted" style="left:876px;top:518px;width:500px;height:63px;font-size:21px;">真实材料、讲师辅导、数字员工课堂成果</p><div class="box start-ready" style="left:687px;top:629px;width:689px;height:99px;"><b>启动准备</b><p>一个希望改变的业务问题、一支参与团队、<br>一组可用于练习的真实材料。</p></div><p class="box text muted" style="left:65px;top:740px;width:1300px;height:20px;font-size:12px;">两天可分次安排。差旅、第三方工具及税务口径以合同为准；系统开发、部署与持续陪跑另行约定。</p><div class="box rule" style="left:64px;top:760px;width:1312px;height:1px;"></div><p class="box text brand-foot" style="left:64px;top:776px;width:480px;height:23px;font-size:15px;"><b>MindsLeap</b> <span>心智悦动</span></p><p class="box text foot-right" style="left:1022px;top:777px;width:354px;height:24px;font-size:13px;">企业 AI 实战启动计划 <span class="page-no">13 / 14</span></p></section>
+<section class="slide navy closing" data-label="带着真问题来带着数字员工回去" data-page="14" aria-label="第14页：带着真问题来带着数字员工回去"><div class="box photo closing-art" style="left:0px;top:0px;width:1440px;height:810px;"><img src="/product/enterprise-ai-practice-launch/assets/c1a9e3c17d871a6fc4957fcb0353c7dfc600ed7f87943f5af388f7e30a103edc.png" alt="AI 概念视觉：从业务材料出发的启动信号" draggable="false" style="object-position:center"></div><p class="box text closing-brand" style="left:64px;top:51px;width:750px;height:42px;font-size:25px;">MindsLeap <span>心智悦动</span></p><p class="box text eyebrow ice" style="left:66px;top:192px;width:930px;height:24px;font-size:13px;">START WITH ONE REAL BUSINESS CHALLENGE</p><h1 class="box text headline white" style="left:57px;top:281px;width:1060px;height:220px;font-size:76px;">带着真问题来，<br>带着数字员工回去。</h1><p class="box text light-muted" style="left:66px;top:561px;width:910px;height:106px;font-size:29px;">让第一个业务切口，<br>成为团队开始行动的地方。</p><div class="box closing-steps" style="left:65px;top:722px;width:1040px;height:43px;"><span>选一个业务问题</span><i>→</i><span>组建启动团队</span><i>→</i><span>进入两天实战</span></div><p class="box text ice number" style="left:1302px;top:780px;width:74px;height:20px;font-size:13px;text-align:right;">14 / 14</p></section></deck-stage><button class="fullscreen-control" aria-label="切换全屏" title="按 F 切换全屏">全屏 · F</button><script>/**
+ * <deck-stage> — reusable web component for HTML decks.
+ *
+ * Handles:
+ *  (a) speaker notes — reads <script type="application/json" id="speaker-notes">
+ *      and posts {slideIndexChanged: N} to the parent window on nav.
+ *  (b) keyboard navigation — ←/→, PgUp/PgDn, Space, Home/End, number keys.
+ *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
+ *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
+ *      scaled with `transform: scale()` to fit the viewport, letterboxed.
+ *      Set the `noscale` attribute to render at authored size (1:1) — the
+ *      PPTX exporter sets this so its DOM capture sees unscaled geometry.
+ *  (f) print — `@media print` lays every slide out as its own page at the
+ *      design size, so the browser's Print → Save as PDF produces a clean
+ *      one-page-per-slide PDF with no extra setup.
+ *  (g) thumbnail rail — resizable left-hand column of per-slide thumbnails
+ *      (static clones). Click to navigate; ↑/↓ with a thumbnail focused to
+ *      step between slides; drag to reorder; right-click for
+ *      Skip / Move up / Move down / Delete (opens a Cancel/Delete confirm
+ *      dialog). Drag the rail's right edge to resize; width persists to
+ *      localStorage. Skipped slides carry `data-deck-skip`, are dimmed in
+ *      the rail, omitted from prev/next navigation, and hidden at print.
+ *      The rail is suppressed in presenting mode, in the host's Preview
+ *      mode (ViewerMode='none'), on `noscale`, and via the `no-rail`
+ *      attribute. Rail mutations dispatch a `deckchange`
+ *      CustomEvent on the element: detail = {action, from, to, slide}.
+ *
+ * Slides are HIDDEN, not unmounted. Non-active slides stay in the DOM with
+ * `visibility: hidden` + `opacity: 0`, so their state (videos, iframes,
+ * form inputs, React trees) is preserved across navigation.
+ *
+ * Lifecycle event — the component dispatches a `slidechange` CustomEvent on
+ * itself whenever the active slide changes (including the initial mount).
+ * The event bubbles and composes out of shadow DOM, so you can listen on
+ * the <deck-stage> element or on document:
+ *
+ *   document.querySelector('deck-stage').addEventListener('slidechange', (e) => {
+ *     e.detail.index         // new 0-based index
+ *     e.detail.previousIndex // previous index, or -1 on init
+ *     e.detail.total         // total slide count
+ *     e.detail.slide         // the new active slide element
+ *     e.detail.previousSlide // the prior slide element, or null on init
+ *     e.detail.reason        // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+ *   });
+ *
+ * Persistence: none at the deck level. The host app keeps the current slide
+ * in its own URL (?slide=) and re-delivers it via location.hash on load, so a
+ * bare load with no hash always starts at slide 1.
+ *
+ * Usage:
+ *   <style>deck-stage:not(:defined){visibility:hidden}</style>
+ *   <deck-stage width="1920" height="1080">
+ *     <section data-label="Title">...</section>
+ *     <section data-label="Agenda">...</section>
+ *   </deck-stage>
+ *   <script src="deck-stage.js"><\/script>
+ *
+ * The :not(:defined) rule prevents a flash of the first slide at its
+ * authored styles before this script runs and attaches the shadow root.
+ *
+ * Slides are the direct element children of <deck-stage>. Each slide is
+ * automatically tagged with:
+ *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
+ *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+ */
+
+(() => {
+  const DESIGN_W_DEFAULT = 1920;
+  const DESIGN_H_DEFAULT = 1080;
+  const OVERLAY_HIDE_MS = 1800;
+  const VALIDATE_ATTR = 'no_overflowing_text,no_overlapping_text,slide_sized_text';
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  // Label precedence: data-label → data-screen-label (number stripped) → first heading → "Slide".
+  const getSlideLabel = (el) => {
+    const explicit = el.getAttribute('data-label');
+    if (explicit) return explicit;
+
+    const existing = el.getAttribute('data-screen-label');
+    if (existing) return existing.replace(/^\s*\d+\s*/, '').trim() || existing;
+
+    const h = el.querySelector('h1, h2, h3, [data-title]');
+    const t = h && (h.textContent || '').trim().slice(0, 40);
+    if (t) return t;
+
+    return 'Slide';
+  };
+
+  const stylesheet = `
+    :host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+    /* connectedCallback holds this until document.fonts.ready (capped 2s) so
+     * the first visible paint has the deck's real typography + final rail
+     * layout. opacity (not visibility) so the active slide can't un-hide
+     * itself via the ::slotted([data-deck-active]) visibility:visible rule.
+     * Only the stage/rail hide — the black :host background stays, so the
+     * iframe doesn't flash the page's default white. */
+    :host([data-fonts-pending]) .stage,
+    :host([data-fonts-pending]) .rail { opacity: 0; pointer-events: none; }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .stage-frame {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .canvas {
+      position: absolute;
+      inset: 0;
+      transform-origin: center center;
+      flex-shrink: 0;
+      background: #fff;
+      will-change: transform;
+    }
+
+    :host([data-mobile-readable]) .stage {
+      align-items: flex-start;
+      justify-content: flex-start;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      touch-action: pan-x pan-y;
+    }
+    :host([data-mobile-readable]) .rail {
+      display: none;
+    }
+    :host([data-mobile-readable]) .stage-frame {
+      margin: 14px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    }
+    :host([data-mobile-readable]) .canvas {
+      transform-origin: top left;
+    }
+    :host([data-mobile-readable]) .tapzones {
+      display: none;
+    }
+    :host([data-mobile-readable]) .overlay {
+      opacity: 1;
+      pointer-events: auto;
+      filter: blur(0);
+      transform: translate(-50%, 0) scale(1);
+      bottom: max(10px, env(safe-area-inset-bottom));
+    }
+
+    /* Slides live in light DOM (via <slot>) so authored CSS still applies.
+       We absolutely position each slotted child to stack them. */
+    ::slotted(*) {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    ::slotted([data-deck-active]) {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* Tap zones for mobile — back/forward thirds like Stories.
+       Transparent, no visible UI, don't block the overlay. */
+    .tapzones {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      z-index: 2147482000;
+      pointer-events: none;
+    }
+    .tapzone {
+      flex: 1;
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Only activate tap zones on coarse pointers (touch devices). */
+    @media (hover: hover) and (pointer: fine) {
+      .tapzones { display: none; }
+    }
+
+    .overlay {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 6px) scale(0.92);
+      filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin: center bottom;
+      z-index: 2147483000;
+      user-select: none;
+    }
+    .overlay[data-visible] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      transition: background 140ms ease, color 140ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn:active { background: rgba(255,255,255,0.18); }
+    .btn:focus { outline: none; }
+    .btn:focus-visible { outline: none; }
+    .btn::-moz-focus-inner { border: 0; }
+    .btn svg { width: 14px; height: 14px; display: block; }
+    .btn.reset {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0 10px 0 12px;
+      gap: 6px;
+      color: rgba(255,255,255,0.72);
+    }
+    .btn.reset .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 42px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .count .sep { color: rgba(255,255,255,0.45); margin: 0 3px; font-weight: 400; }
+    .count .total { color: rgba(255,255,255,0.55); }
+
+    .divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px;
+    }
+
+    /* ── Thumbnail rail ──────────────────────────────────────────────────
+       Fixed column on the left; each thumbnail is a static deep-clone of
+       the light-DOM slide scaled into a 16:9 (or design-aspect) frame. The
+       stage re-fits around it (see _fit); hidden during present / noscale
+       / print so capture geometry and fullscreen output are unchanged. */
+    .rail {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: var(--deck-rail-w, 188px);
+      background: #141414;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 2147482500;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.18) transparent;
+    }
+    .rail::-webkit-scrollbar { width: 8px; }
+    .rail::-webkit-scrollbar-track { background: transparent; margin: 2px; }
+    .rail::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.18);
+      border-radius: 4px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    .rail::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.28);
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    :host([no-rail]) .rail,
+    :host([noscale]) .rail { display: none; }
+    .rail[data-presenting] { display: none; }
+    /* User-driven show/hide (the TweaksPanel toggle) slides instead of
+       popping. Transitions are gated on :host([data-rail-anim]) — set only
+       for the 200ms around the toggle — so window-resize and rail-width
+       drag (which also call _fit) don't lag behind the cursor. */
+    .rail[data-user-hidden] { transform: translateX(-100%); }
+    :host([data-rail-anim]) .rail { transition: transform 200ms cubic-bezier(.3,.7,.4,1); }
+    :host([data-rail-anim]) .stage { transition: left 200ms cubic-bezier(.3,.7,.4,1); }
+    :host([data-rail-anim]) .canvas { transition: transform 200ms cubic-bezier(.3,.7,.4,1); }
+    /* transition shorthand replaces rather than merges — repeat the base
+       .overlay opacity/transform/filter transitions so visibility changes
+       during the 200ms toggle window still fade instead of popping. */
+    :host([data-rail-anim]) .overlay {
+      transition: margin-left 200ms cubic-bezier(.3,.7,.4,1),
+                  opacity 260ms ease,
+                  transform 260ms cubic-bezier(.2,.8,.2,1),
+                  filter 260ms ease;
+    }
+    :host([data-rail-anim]) .tapzones { transition: left 200ms cubic-bezier(.3,.7,.4,1); }
+
+    .thumb {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .thumb .num {
+      width: 16px;
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 500;
+      text-align: right;
+      color: rgba(255,255,255,0.55);
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+    .thumb .frame {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      aspect-ratio: var(--deck-aspect);
+      background: #fff;
+      border-radius: 4px;
+      outline: 2px solid transparent;
+      outline-offset: 0;
+      overflow: hidden;
+      transition: outline-color 120ms ease;
+    }
+    .thumb:hover .frame { outline-color: rgba(255,255,255,0.25); }
+    .thumb { outline: none; }
+    .thumb:focus-visible .frame { outline-color: rgba(255,255,255,0.5); }
+    .thumb[data-current] .num { color: #fff; }
+    .thumb[data-current] .frame { outline-color: #D97757; }
+    .thumb[data-dragging] { opacity: 0.35; }
+    .thumb::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      right: 0;
+      height: 3px;
+      border-radius: 2px;
+      background: #D97757;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .thumb[data-drop="before"]::before { top: -8px; opacity: 1; }
+    .thumb[data-drop="after"]::before { bottom: -8px; opacity: 1; }
+    .thumb[data-skip] .frame { opacity: 0.35; }
+    .thumb[data-skip] .frame::after {
+      content: 'Skipped';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .ctxmenu {
+      position: fixed;
+      min-width: 150px;
+      padding: 4px;
+      background: #242424;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 7px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+      z-index: 2147483100;
+      display: none;
+      font-size: 12px;
+    }
+    .ctxmenu[data-open] { display: block; }
+    .ctxmenu button {
+      display: block;
+      width: 100%;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #e8e8e8;
+      font: inherit;
+      text-align: left;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .ctxmenu button:hover:not(:disabled) { background: rgba(255,255,255,0.08); }
+    .ctxmenu button:disabled { opacity: 0.35; cursor: default; }
+    .ctxmenu hr {
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 4px 2px;
+    }
+
+    .rail-resize {
+      position: fixed;
+      left: calc(var(--deck-rail-w, 188px) - 3px);
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      cursor: col-resize;
+      z-index: 2147482600;
+      touch-action: none;
+    }
+    .rail-resize:hover,
+    .rail-resize[data-dragging] { background: rgba(255,255,255,0.12); }
+    :host([no-rail]) .rail-resize,
+    :host([noscale]) .rail-resize,
+    .rail[data-presenting] + .rail-resize,
+    .rail[data-user-hidden] + .rail-resize { display: none; }
+
+    /* Delete-confirm popup — matches the SPA's ConfirmDialog layout
+       (title + message body, depressed footer with Cancel / Delete). */
+    .confirm-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 2147483200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .confirm-backdrop[data-open] { display: flex; }
+    .confirm {
+      width: 320px;
+      max-width: calc(100vw - 32px);
+      background: #2a2a2a;
+      color: #e8e8e8;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      overflow: hidden;
+      font-family: inherit;
+      animation: deck-confirm-in 0.18s ease;
+    }
+    @keyframes deck-confirm-in {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .confirm .body { padding: 20px 20px 16px; }
+    .confirm .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .confirm .msg { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.65); }
+    .confirm .footer {
+      padding: 14px 20px;
+      background: #1f1f1f;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .confirm button {
+      appearance: none;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .confirm .cancel {
+      background: transparent;
+      border: 0;
+      color: rgba(255,255,255,0.8);
+    }
+    .confirm .cancel:hover { background: rgba(255,255,255,0.08); }
+    .confirm .danger {
+      background: #c96442;
+      border: 1px solid rgba(0,0,0,0.15);
+      color: #fff;
+      box-shadow: 0 1px 3px rgba(166,50,68,0.3), 0 2px 6px rgba(166,50,68,0.18);
+    }
+    .confirm .danger:hover { background: #b5563a; }
+
+    /* ── Print: one page per slide, no chrome ────────────────────────────
+       The screen layout stacks every slide at inset:0 inside a scaled
+       canvas; for print we want them in document flow at the authored
+       design size so the browser paginates one slide per sheet. The
+       @page size is set from the width/height attributes via the inline
+       <style id="deck-stage-print-page"> that connectedCallback injects
+       into <head> (the @page at-rule has no effect inside shadow DOM). */
+    @media print {
+      :host {
+        position: static;
+        inset: auto;
+        background: none;
+        overflow: visible;
+        color: inherit;
+      }
+      .stage { position: static; display: block; }
+      .canvas {
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: none;
+        will-change: auto;
+      }
+      ::slotted(*) {
+        position: relative !important;
+        inset: auto !important;
+        width: var(--deck-design-w) !important;
+        height: var(--deck-design-h) !important;
+        box-sizing: border-box !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      /* :last-child alone isn't enough once data-deck-skip hides the
+         trailing slide(s) — the last *visible* slide still carries
+         break-after:page and prints a blank sheet. _markLastVisible()
+         maintains data-deck-last-visible on the last non-skipped slide. */
+      ::slotted(*:last-child),
+      ::slotted([data-deck-last-visible]) {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      ::slotted([data-deck-skip]) { display: none !important; }
+      .overlay, .tapzones, .rail, .rail-resize, .ctxmenu, .confirm-backdrop { display: none !important; }
+    }
+  `;
+
+  class DeckStage extends HTMLElement {
+    static get observedAttributes() { return ['width', 'height', 'noscale', 'no-rail']; }
+
+    constructor() {
+      super();
+      this._root = this.attachShadow({ mode: 'open' });
+      this._index = 0;
+      this._slides = [];
+      this._notes = [];
+      this._hideTimer = null;
+      this._mouseIdleTimer = null;
+      this._menuIndex = -1;
+
+      this._onKey = this._onKey.bind(this);
+      this._onResize = this._onResize.bind(this);
+      this._onSlotChange = this._onSlotChange.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onTapBack = this._onTapBack.bind(this);
+      this._onTapForward = this._onTapForward.bind(this);
+      this._onMessage = this._onMessage.bind(this);
+      // Capture-phase close so a click anywhere dismisses the menu, but
+      // ignore clicks that land inside the menu itself — otherwise the
+      // capture handler runs before the menu's own (bubble) handler and
+      // clears _menuIndex out from under it.
+      this._onDocClick = (e) => {
+        if (this._menu && e.composedPath && e.composedPath().includes(this._menu)) return;
+        this._closeMenu();
+      };
+    }
+
+    get designWidth() {
+      return parseInt(this.getAttribute('width'), 10) || DESIGN_W_DEFAULT;
+    }
+    get designHeight() {
+      return parseInt(this.getAttribute('height'), 10) || DESIGN_H_DEFAULT;
+    }
+
+    connectedCallback() {
+      // Presenter-view popup loads deckUrl?_snthumb=...#N for its prev/cur/
+      // next thumbnails — the rail has no business rendering inside those
+      // (wrong scale, and it offsets the stage so the thumb shows a gutter).
+      if (/[?&]_snthumb=/.test(location.search)) this.setAttribute('no-rail', '');
+      this._render();
+      this._loadNotes();
+      this._syncPrintPageRule();
+      window.addEventListener('keydown', this._onKey);
+      window.addEventListener('resize', this._onResize);
+      window.addEventListener('mousemove', this._onMouseMove, { passive: true });
+      window.addEventListener('message', this._onMessage);
+      window.addEventListener('click', this._onDocClick, true);
+      // Initial collection + layout happens via slotchange, which fires on mount.
+      this._enableRail();
+      // Hold the stage hidden until webfonts are ready so the first visible
+      // paint has the deck's real typography — the :not(:defined) guard in
+      // the page HTML only covers custom-element upgrade, not font load.
+      // Capped so a 404'd font URL can't blank the deck indefinitely.
+      this.setAttribute('data-fonts-pending', '');
+      const reveal = () => this.removeAttribute('data-fonts-pending');
+      // rAF first: fonts.ready is a pre-resolved promise until layout has
+      // resolved the slotted text's font-family and pushed a FontFace into
+      // 'loading'. Reading it here in connectedCallback (parse-time) would
+      // settle the race in a microtask before any font fetch starts.
+      requestAnimationFrame(() => {
+        Promise.race([
+          document.fonts ? document.fonts.ready : Promise.resolve(),
+          new Promise((r) => setTimeout(r, 2000)),
+        ]).then(reveal, reveal);
+      });
+    }
+
+    _enableRail() {
+      // Idempotent — older host builds still post __omelette_rail_enabled.
+      // no-rail guard keeps the observers/stylesheet walk off the cheap path
+      // for presenter-popup thumbnail iframes (up to 9 per view).
+      if (this._railEnabled || this.hasAttribute('no-rail')) return;
+      this._railEnabled = true;
+      // Per-viewer preference — restored alongside rail width. Default on;
+      // only a stored '0' (from the TweaksPanel toggle) hides it.
+      this._railVisible = true;
+      try {
+        if (localStorage.getItem('deck-stage.railVisible') === '0') this._railVisible = false;
+      } catch (e) {}
+      // Live thumbnail updates: watch the light-DOM slides for content
+      // edits and re-clone just the affected thumb(s), debounced. Ignore
+      // the data-deck-* / data-screen-label / data-om-validate attributes
+      // this component itself writes so nav and skip don't trigger
+      // spurious refreshes.
+      const OWN_ATTRS = /^data-(deck-|screen-label$|om-validate$)/;
+      this._liveDirty = new Set();
+      this._liveObserver = new MutationObserver((records) => {
+        for (const r of records) {
+          if (r.type === 'attributes' && OWN_ATTRS.test(r.attributeName || '')) continue;
+          let n = r.target;
+          while (n && n.parentElement !== this) n = n.parentElement;
+          if (n && this._slideSet && this._slideSet.has(n)) this._liveDirty.add(n);
+        }
+        if (this._liveDirty.size && !this._liveTimer) {
+          this._liveTimer = setTimeout(() => {
+            this._liveTimer = null;
+            this._liveDirty.forEach((s) => this._refreshThumb(s));
+            this._liveDirty.clear();
+          }, 200);
+        }
+      });
+      this._liveObserver.observe(this, {
+        subtree: true, childList: true, characterData: true, attributes: true,
+      });
+      // Lazy thumbnail materialization — clone the slide only when its
+      // frame scrolls into (or near) the rail viewport. rootMargin gives
+      // ~4 thumbs of pre-load so fast scrolling doesn't flash blanks.
+      this._railObserver = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && e.target.__deckThumb) {
+            this._materialize(e.target.__deckThumb);
+          }
+        });
+      }, { root: this._rail, rootMargin: '400px 0px' });
+      // Tweaks typically change CSS vars / attrs OUTSIDE <deck-stage>
+      // (on <html>, <body>, a wrapper div, or a <style> tag), which
+      // _liveObserver can't see. Re-snapshot author CSS (constructable
+      // sheet is shared by reference, so one replaceSync updates every
+      // thumb shadow root) and re-sync each thumb host's attrs + custom
+      // properties. In-slide DOM mutations are _liveObserver's job.
+      // Debounced so slider drags don't thrash.
+      this._onTweakChange = () => {
+        clearTimeout(this._tweakTimer);
+        this._tweakTimer = setTimeout(() => {
+          this._snapshotAuthorCss();
+          // One getComputedStyle for the whole batch — each
+          // getPropertyValue read below reuses the same computed style
+          // as long as nothing invalidates layout between thumbs.
+          const cs = getComputedStyle(this);
+          (this._thumbs || []).forEach((t) => {
+            if (t.host) this._syncThumbHostAttrs(t.host, cs);
+          });
+        }, 120);
+      };
+      window.addEventListener('tweakchange', this._onTweakChange);
+      this._snapshotAuthorCss();
+      // Build the rail now that it's enabled — slotchange already fired,
+      // so _renderRail's early-return skipped the initial build.
+      this._syncRailHidden();
+      this._renderRail();
+      this._fit();
+    }
+
+    /** Snapshot document stylesheets into a constructable sheet that each
+     *  thumbnail's nested shadow root adopts — so author CSS styles the
+     *  cloned slide content without touching this component's chrome.
+     *  Cross-origin sheets throw on .cssRules — skip them. Re-callable:
+     *  the existing constructable sheet is reused via replaceSync so every
+     *  already-adopted shadow root picks up the fresh CSS without re-adopt. */
+    _snapshotAuthorCss() {
+      // :root in an adopted sheet inside a shadow root matches nothing
+      // (only the document root qualifies), so author rules like
+      // `:root[data-voice="modern"] .serif` never reach the clones.
+      // Rewrite :root → :host and mirror <html>'s data-*/class/lang onto
+      // each thumb host (see _syncThumbHostAttrs) so the same selectors
+      // match inside the thumbnail's shadow tree.
+      const authorCss = Array.from(document.styleSheets).map((sh) => {
+        try {
+          return Array.from(sh.cssRules).map((r) => r.cssText).join('\n');
+        } catch (e) { return ''; }
+      }).join('\n')
+        // The shadow host is featureless outside the functional :host(...)
+        // form, so any compound on :root — [attr], .class, #id, :pseudo —
+        // must become :host(<compound>) not :host<compound>. Same for the
+        // html type selector (Tailwind class-strategy dark mode emits
+        // html.dark; Pico uses html[data-theme]), which has nothing to
+        // match inside the thumb's shadow tree.
+        .replace(/:root((?:\[[^\]]*\]|[.#][-\w]+|:[-\w]+(?:\([^)]*\))?)+)/g, ':host($1)')
+        .replace(/:root\b/g, ':host')
+        .replace(/(^|[\s,>~+(}])html((?:\[[^\]]*\]|[.#][-\w]+|:[-\w]+(?:\([^)]*\))?)+)(?![-\w])/g, '$1:host($2)')
+        .replace(/(^|[\s,>~+(}])html(?![-\w])/g, '$1:host');
+      // Every custom property the author references. _syncThumbHostAttrs
+      // mirrors each one's *computed* value at <deck-stage> onto the
+      // thumb host so the live value wins over the :host default above
+      // regardless of which ancestor the tweak wrote to (<html>, <body>,
+      // a wrapper div, or the deck-stage element itself all inherit
+      // down to getComputedStyle(this)).
+      this._authorVars = new Set(authorCss.match(/--[\w-]+/g) || []);
+      try {
+        if (!this._adoptedSheet) this._adoptedSheet = new CSSStyleSheet();
+        this._adoptedSheet.replaceSync(authorCss);
+      } catch (e) {
+        this._adoptedSheet = null;
+        this._authorCss = authorCss;
+      }
+    }
+
+    _syncThumbHostAttrs(host, cs) {
+      const de = document.documentElement;
+      // setAttribute overwrites but can't delete — an attr removed from
+      // <html> (toggleAttribute off, classList emptied) would linger on
+      // the host and :host([data-*]) / :host(.foo) rules would keep
+      // matching. Remove stale mirrored attrs first; iterate backward
+      // because removeAttribute mutates the live NamedNodeMap.
+      for (let i = host.attributes.length - 1; i >= 0; i--) {
+        const n = host.attributes[i].name;
+        if ((n.startsWith('data-') || n === 'class' || n === 'lang')
+            && !de.hasAttribute(n)) {
+          host.removeAttribute(n);
+        }
+      }
+      for (const a of de.attributes) {
+        if (a.name.startsWith('data-') || a.name === 'class' || a.name === 'lang') {
+          host.setAttribute(a.name, a.value);
+        }
+      }
+      // The :root→:host rewrite in _snapshotAuthorCss pins each custom
+      // property to its stylesheet default on the thumb host, shadowing
+      // the live value that would otherwise inherit. Tweaks can write the
+      // live value on any ancestor — <html>, <body>, a wrapper div, the
+      // deck-stage element — so read it as the *computed* value at
+      // <deck-stage> (which sees the whole inheritance chain) rather than
+      // trying to guess which element the author wrote to. Inline on the
+      // host beats the :host{} rule. remove-stale covers vars dropped
+      // from the stylesheet between snapshots.
+      const vars = this._authorVars || new Set();
+      for (let i = host.style.length - 1; i >= 0; i--) {
+        const p = host.style[i];
+        if (p.startsWith('--') && !vars.has(p)) host.style.removeProperty(p);
+      }
+      const live = cs || getComputedStyle(this);
+      vars.forEach((p) => {
+        const v = live.getPropertyValue(p);
+        if (v) host.style.setProperty(p, v.trim());
+        else host.style.removeProperty(p);
+      });
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('keydown', this._onKey);
+      window.removeEventListener('resize', this._onResize);
+      window.removeEventListener('mousemove', this._onMouseMove);
+      window.removeEventListener('message', this._onMessage);
+      window.removeEventListener('click', this._onDocClick, true);
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
+      if (this._liveTimer) clearTimeout(this._liveTimer);
+      if (this._tweakTimer) clearTimeout(this._tweakTimer);
+      if (this._railAnimTimer) clearTimeout(this._railAnimTimer);
+      if (this._scaleRaf) cancelAnimationFrame(this._scaleRaf);
+      if (this._liveObserver) this._liveObserver.disconnect();
+      if (this._railObserver) this._railObserver.disconnect();
+      if (this._onTweakChange) window.removeEventListener('tweakchange', this._onTweakChange);
+    }
+
+    attributeChangedCallback() {
+      if (this._canvas) {
+        this._canvas.style.width = this.designWidth + 'px';
+        this._canvas.style.height = this.designHeight + 'px';
+        this._canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+        this._canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+        if (this._rail) {
+          this._rail.style.setProperty('--deck-aspect', this.designWidth + '/' + this.designHeight);
+        }
+        this._fit();
+        this._scaleThumbs();
+        this._syncPrintPageRule();
+      }
+    }
+
+    _render() {
+      const style = document.createElement('style');
+      style.textContent = stylesheet;
+
+      const stage = document.createElement('div');
+      stage.className = 'stage';
+
+      const frame = document.createElement('div');
+      frame.className = 'stage-frame';
+      frame.style.width = this.designWidth + 'px';
+      frame.style.height = this.designHeight + 'px';
+
+      const canvas = document.createElement('div');
+      canvas.className = 'canvas';
+      canvas.style.width = this.designWidth + 'px';
+      canvas.style.height = this.designHeight + 'px';
+      canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+      canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+
+      const slot = document.createElement('slot');
+      slot.addEventListener('slotchange', this._onSlotChange);
+      canvas.appendChild(slot);
+      frame.appendChild(canvas);
+      stage.appendChild(frame);
+
+      // Tap zones (mobile): left third = back, right third = forward.
+      const tapzones = document.createElement('div');
+      tapzones.className = 'tapzones export-hidden';
+      tapzones.setAttribute('aria-hidden', 'true');
+      tapzones.setAttribute('data-noncommentable', '');
+      const tzBack = document.createElement('div');
+      tzBack.className = 'tapzone tapzone--back';
+      const tzMid = document.createElement('div');
+      tzMid.className = 'tapzone tapzone--mid';
+      tzMid.style.pointerEvents = 'none';
+      const tzFwd = document.createElement('div');
+      tzFwd.className = 'tapzone tapzone--fwd';
+      tzBack.addEventListener('click', this._onTapBack);
+      tzFwd.addEventListener('click', this._onTapForward);
+      tapzones.append(tzBack, tzMid, tzFwd);
+
+      // Overlay: compact, solid black, with clickable controls.
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay export-hidden';
+      overlay.setAttribute('role', 'toolbar');
+      overlay.setAttribute('aria-label', 'Deck controls');
+      overlay.setAttribute('data-noncommentable', '');
+      overlay.innerHTML = `
+        <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <span class="count" aria-live="polite"><span class="current">1</span><span class="sep">/</span><span class="total">1</span></span>
+        <button class="btn next" type="button" aria-label="Next slide" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      `;
+
+      overlay.querySelector('.prev').addEventListener('click', () => this._advance(-1, 'click'));
+      overlay.querySelector('.next').addEventListener('click', () => this._advance(1, 'click'));
+      overlay.querySelector('.reset').addEventListener('click', () => this._go(0, 'click'));
+
+      // Thumbnail rail + context menu. Thumbnails are populated in
+      // _renderRail() after _collectSlides().
+      const rail = document.createElement('div');
+      rail.className = 'rail export-hidden';
+      rail.setAttribute('data-noncommentable', '');
+      rail.style.setProperty('--deck-aspect', this.designWidth + '/' + this.designHeight);
+      // Edge auto-scroll while dragging a thumb near the rail's top/bottom
+      // so off-screen drop targets are reachable. Native dragover fires
+      // continuously while the pointer is stationary, so a per-event nudge
+      // (ramped by edge proximity) is enough — no rAF loop needed.
+      rail.addEventListener('dragover', (e) => {
+        if (this._dragFrom == null) return;
+        const r = rail.getBoundingClientRect();
+        const EDGE = 40;
+        const dt = e.clientY - r.top;
+        const db = r.bottom - e.clientY;
+        if (dt < EDGE) rail.scrollTop -= Math.ceil((EDGE - dt) / 3);
+        else if (db < EDGE) rail.scrollTop += Math.ceil((EDGE - db) / 3);
+      });
+
+      const menu = document.createElement('div');
+      menu.className = 'ctxmenu export-hidden';
+      menu.setAttribute('data-noncommentable', '');
+      menu.innerHTML = `
+        <button type="button" data-act="skip">Skip slide</button>
+        <button type="button" data-act="up">Move up</button>
+        <button type="button" data-act="down">Move down</button>
+        <hr>
+        <button type="button" data-act="delete">Delete slide</button>
+      `;
+      menu.addEventListener('click', (e) => {
+        const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
+        if (!act) return;
+        const i = this._menuIndex;
+        this._closeMenu();
+        if (act === 'skip') this._toggleSkip(i);
+        else if (act === 'up') this._moveSlide(i, i - 1);
+        else if (act === 'down') this._moveSlide(i, i + 1);
+        else if (act === 'delete') this._openConfirm(i);
+      });
+      menu.addEventListener('contextmenu', (e) => e.preventDefault());
+
+      // Rail resize handle — drag to set --deck-rail-w, persisted to
+      // localStorage so the width survives reloads.
+      const resize = document.createElement('div');
+      resize.className = 'rail-resize export-hidden';
+      resize.setAttribute('data-noncommentable', '');
+      resize.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        resize.setPointerCapture(e.pointerId);
+        resize.setAttribute('data-dragging', '');
+        const move = (ev) => this._setRailWidth(ev.clientX);
+        const up = () => {
+          resize.removeEventListener('pointermove', move);
+          resize.removeEventListener('pointerup', up);
+          resize.removeEventListener('pointercancel', up);
+          resize.removeAttribute('data-dragging');
+          try { localStorage.setItem('deck-stage.railWidth', String(this._railPx)); } catch (err) {}
+        };
+        resize.addEventListener('pointermove', move);
+        resize.addEventListener('pointerup', up);
+        resize.addEventListener('pointercancel', up);
+      });
+
+      // Delete-confirm dialog — mirrors the SPA's ConfirmDialog layout.
+      const confirm = document.createElement('div');
+      confirm.className = 'confirm-backdrop export-hidden';
+      confirm.setAttribute('data-noncommentable', '');
+      confirm.innerHTML = `
+        <div class="confirm" role="dialog" aria-modal="true">
+          <div class="body">
+            <div class="title">Delete slide?</div>
+            <div class="msg">This slide will be removed from the deck.</div>
+          </div>
+          <div class="footer">
+            <button type="button" class="cancel">Cancel</button>
+            <button type="button" class="danger">Delete</button>
+          </div>
+        </div>
+      `;
+      confirm.addEventListener('click', (e) => {
+        if (e.target === confirm) this._closeConfirm();
+      });
+      confirm.querySelector('.cancel').addEventListener('click', () => this._closeConfirm());
+      confirm.querySelector('.danger').addEventListener('click', () => {
+        const i = this._confirmIndex;
+        this._closeConfirm();
+        this._deleteSlide(i);
+      });
+
+      this._root.append(style, rail, resize, stage, tapzones, overlay, menu, confirm);
+      this._stage = stage;
+      this._frame = frame;
+      this._canvas = canvas;
+      this._slot = slot;
+      this._overlay = overlay;
+      this._tapzones = tapzones;
+      this._rail = rail;
+      this._resize = resize;
+      this._menu = menu;
+      this._confirm = confirm;
+      this._countEl = overlay.querySelector('.current');
+      this._totalEl = overlay.querySelector('.total');
+
+      // Restore persisted rail width.
+      let rw = 188;
+      try {
+        const s = localStorage.getItem('deck-stage.railWidth');
+        if (s) rw = parseInt(s, 10) || rw;
+      } catch (err) {}
+      this._setRailWidth(rw);
+      this._syncRailHidden();
+    }
+
+    _setRailWidth(px) {
+      const w = Math.max(120, Math.min(360, Math.round(px)));
+      this._railPx = w;
+      this.style.setProperty('--deck-rail-w', w + 'px');
+      this._fit();
+      // _scaleThumbs forces a sync layout (frame.offsetWidth) then writes
+      // N transforms. During a resize drag this runs per-pointermove;
+      // coalesce to one per frame.
+      if (!this._scaleRaf) {
+        this._scaleRaf = requestAnimationFrame(() => {
+          this._scaleRaf = null;
+          this._scaleThumbs();
+        });
+      }
+    }
+
+    /** @page must live in the document stylesheet — it's a no-op inside
+     *  shadow DOM. Inject/update a single <head> style tag so the print
+     *  sheet matches the design size and Save-as-PDF yields one slide per
+     *  page with no margins. */
+    _syncPrintPageRule() {
+      const id = 'deck-stage-print-page';
+      let tag = document.getElementById(id);
+      if (!tag) {
+        tag = document.createElement('style');
+        tag.id = id;
+        document.head.appendChild(tag);
+      }
+      tag.textContent =
+        '@page { size: ' + this.designWidth + 'px ' + this.designHeight + 'px; margin: 0; } ' +
+        '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } ' +
+        '* { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
+    }
+
+    _onSlotChange() {
+      // Rail mutations (delete/move) already reconcile synchronously and
+      // emit slidechange with reason 'api'; skip the async slotchange that
+      // would otherwise re-broadcast with reason 'init'.
+      if (this._squelchSlotChange) { this._squelchSlotChange = false; return; }
+      this._collectSlides();
+      this._restoreIndex();
+      this._applyIndex({ showOverlay: false, broadcast: true, reason: 'init' });
+      this._fit();
+    }
+
+    _collectSlides() {
+      const assigned = this._slot.assignedElements({ flatten: true });
+      this._slides = assigned.filter((el) => {
+        // Skip template/style/script nodes even if someone slots them.
+        const tag = el.tagName;
+        return tag !== 'TEMPLATE' && tag !== 'SCRIPT' && tag !== 'STYLE';
+      });
+      this._slideSet = new Set(this._slides);
+
+      this._slides.forEach((slide, i) => {
+        const n = i + 1;
+        slide.setAttribute('data-screen-label', `${pad2(n)} ${getSlideLabel(slide)}`);
+
+        // Validation attribute for comment flow / auto-checks.
+        if (!slide.hasAttribute('data-om-validate')) {
+          slide.setAttribute('data-om-validate', VALIDATE_ATTR);
+        }
+
+        slide.setAttribute('data-deck-slide', String(i));
+      });
+
+      if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
+      if (this._index >= this._slides.length) this._index = Math.max(0, this._slides.length - 1);
+      this._markLastVisible();
+      this._renderRail();
+    }
+
+    /** Tag the last non-skipped slide so print CSS can drop its
+     *  break-after (see the @media print comment above — :last-child
+     *  alone matches a hidden skipped slide). */
+    _markLastVisible() {
+      let last = null;
+      this._slides.forEach((s) => {
+        s.removeAttribute('data-deck-last-visible');
+        if (!s.hasAttribute('data-deck-skip')) last = s;
+      });
+      if (last) last.setAttribute('data-deck-last-visible', '');
+    }
+
+    _loadNotes() {
+      const tag = document.getElementById('speaker-notes');
+      if (!tag) { this._notes = []; return; }
+      try {
+        const parsed = JSON.parse(tag.textContent || '[]');
+        if (Array.isArray(parsed)) this._notes = parsed;
+      } catch (e) {
+        console.warn('[deck-stage] Failed to parse #speaker-notes JSON:', e);
+        this._notes = [];
+      }
+    }
+
+    _restoreIndex() {
+      // The host's ?slide= param is delivered as a #<int> hash (1-indexed) on
+      // the iframe src. No hash → slide 1; the deck itself keeps no position
+      // state across loads.
+      const h = (location.hash || '').match(/^#(\d+)$/);
+      if (h) {
+        const n = parseInt(h[1], 10) - 1;
+        if (n >= 0 && n < this._slides.length) this._index = n;
+      }
+    }
+
+    _applyIndex({ showOverlay = true, broadcast = true, reason = 'init' } = {}) {
+      if (!this._slides.length) return;
+      const prev = this._prevIndex == null ? -1 : this._prevIndex;
+      const curr = this._index;
+      // Keep the iframe's own hash in sync so an in-iframe location.reload()
+      // (reload banner path in viewer-handle.ts) lands on the current slide,
+      // not the stale deep-link hash from initial load.
+      try { history.replaceState(null, '', '#' + (curr + 1)); } catch (e) {}
+      this._slides.forEach((s, i) => {
+        if (i === curr) s.setAttribute('data-deck-active', '');
+        else s.removeAttribute('data-deck-active');
+      });
+      if (this._countEl) this._countEl.textContent = String(curr + 1);
+      // Follow-scroll on every navigation (init deep-link, keyboard, click,
+      // tap, external goTo) — the only time we *don't* want the rail to
+      // track current is after a rail-internal mutation, where _renderRail
+      // has already restored the user's scroll position and yanking back to
+      // current would undo it.
+      this._syncRail(reason !== 'mutation');
+      if (this.hasAttribute('data-mobile-readable') && this._stage) {
+        this._stage.scrollTo({ left: 0, top: 0, behavior: 'auto' });
+      }
+
+      if (broadcast) {
+        // (1) Legacy: host-window postMessage for speaker-notes renderers.
+        try { window.postMessage({ slideIndexChanged: curr, deckTotal: this._slides.length, deckSkipped: this._skippedIndices() }, '*'); } catch (e) {}
+
+        // (2) In-page CustomEvent on the <deck-stage> element itself.
+        //     Bubbles and composes out of shadow DOM so slide code can listen:
+        //       document.querySelector('deck-stage').addEventListener('slidechange', e => {
+        //         e.detail.index, e.detail.previousIndex, e.detail.total, e.detail.slide, e.detail.reason
+        //       });
+        const detail = {
+          index: curr,
+          previousIndex: prev,
+          total: this._slides.length,
+          slide: this._slides[curr] || null,
+          previousSlide: prev >= 0 ? (this._slides[prev] || null) : null,
+          reason: reason, // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+        };
+        this.dispatchEvent(new CustomEvent('slidechange', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }));
+      }
+
+      this._prevIndex = curr;
+      if (showOverlay) this._flashOverlay();
+    }
+
+    _flashOverlay() {
+      // Host posts __omelette_presenting while in fullscreen/tab presentation
+      // mode — suppress the nav footer entirely (both hover and slide-change
+      // flash) so the audience sees clean slides.
+      if (!this._overlay || this._presenting) return;
+      this._overlay.setAttribute('data-visible', '');
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      this._hideTimer = setTimeout(() => {
+        this._overlay.removeAttribute('data-visible');
+      }, OVERLAY_HIDE_MS);
+    }
+
+    _railWidth() {
+      // State-based, no offsetWidth: the first _fit() can run before the
+      // rail has had layout on some load paths, and a 0 there paints the
+      // slide full-width for one frame before the post-slotchange _fit()
+      // corrects it.
+      if (!this._railEnabled || !this._railVisible || this.hasAttribute('no-rail')
+          || this.hasAttribute('noscale') || this._presenting || this._previewMode) return 0;
+      return this._railPx || 0;
+    }
+
+    _fit() {
+      if (!this._canvas) return;
+      const stage = this._stage || (this._canvas.parentElement && this._canvas.parentElement.parentElement);
+      const frame = this._frame || this._canvas.parentElement;
+      // PPTX export sets noscale so the DOM capture sees authored-size
+      // geometry — the scaled canvas is in shadow DOM, so the exporter's
+      // resetTransformSelector can't reach .canvas.style.transform directly.
+      if (this.hasAttribute('noscale')) {
+        this.removeAttribute('data-mobile-readable');
+        if (frame) {
+          frame.style.width = this.designWidth + 'px';
+          frame.style.height = this.designHeight + 'px';
+        }
+        this._canvas.style.transform = 'none';
+        if (stage) stage.style.left = '0';
+        if (this._overlay) this._overlay.style.marginLeft = '0';
+        if (this._tapzones) this._tapzones.style.left = '0';
+        return;
+      }
+      const vh = window.innerHeight;
+      const mobileReadable = this._isMobileReadable(window.innerWidth, vh);
+      const rw = mobileReadable ? 0 : this._railWidth();
+      if (stage) stage.style.left = rw + 'px';
+      // Overlay is centred on the viewport via left:50% + translate(-50%);
+      // marginLeft shifts the centre by rw/2 so it lands in the middle of
+      // the [rw, innerWidth] stage region. Tapzones just inset from rw.
+      if (this._overlay) this._overlay.style.marginLeft = (rw / 2) + 'px';
+      if (this._tapzones) this._tapzones.style.left = rw + 'px';
+      const vw = window.innerWidth - rw;
+      const fitScale = Math.min(vw / this.designWidth, vh / this.designHeight);
+      const s = mobileReadable ? Math.min(0.5, Math.max(fitScale, 0.44)) : fitScale;
+      if (mobileReadable) this.setAttribute('data-mobile-readable', '');
+      else this.removeAttribute('data-mobile-readable');
+      if (frame) {
+        frame.style.width = (mobileReadable ? Math.ceil(this.designWidth * s) : this.designWidth) + 'px';
+        frame.style.height = (mobileReadable ? Math.ceil(this.designHeight * s) : this.designHeight) + 'px';
+      }
+      this._canvas.style.transform = `scale(${s})`;
+    }
+
+    _isMobileReadable(vw, vh) {
+      return vw <= 760 && vh > vw && !this.hasAttribute('noscale');
+    }
+
+    _onResize() { this._fit(); }
+
+    _onMouseMove() {
+      // Keep overlay visible while mouse moves; hide after idle.
+      this._flashOverlay();
+    }
+
+    _onMessage(e) {
+      const d = e.data;
+      if (d && typeof d.__omelette_presenting === 'boolean') {
+        this._presenting = d.__omelette_presenting;
+        if (this._presenting && this._overlay) {
+          this._overlay.removeAttribute('data-visible');
+          if (this._hideTimer) clearTimeout(this._hideTimer);
+        }
+        this._syncRailHidden();
+        this._closeMenu();
+        this._closeConfirm();
+        this._fit();
+        this._scaleThumbs();
+      }
+      // Host's Preview segment (ViewerMode='none'): the rail's drag-reorder /
+      // right-click skip-delete affordances are editing chrome, so hide it
+      // while the user is just looking at the deck. Same hard-hide path as
+      // presenting; independent of the user's _railVisible preference so
+      // returning to Edit restores whatever they had.
+      if (d && typeof d.__omelette_preview_mode === 'boolean') {
+        if (d.__omelette_preview_mode === this._previewMode) return;
+        this._previewMode = d.__omelette_preview_mode;
+        this._syncRailHidden();
+        this._closeMenu();
+        this._closeConfirm();
+        this._fit();
+        this._scaleThumbs();
+      }
+      // Per-viewer show/hide, driven by the TweaksPanel's auto-injected
+      // "Thumbnail rail" toggle (or any author script). Independent of
+      // whether the Tweaks panel itself is open — closing the panel
+      // doesn't change rail visibility. Persists alongside rail width.
+      if (d && d.type === '__deck_rail_visible' && typeof d.on === 'boolean') {
+        if (d.on === this._railVisible) return;
+        this._railVisible = d.on;
+        try { localStorage.setItem('deck-stage.railVisible', d.on ? '1' : '0'); } catch (e) {}
+        // Arm the transition, commit it, then flip state — otherwise the
+        // browser coalesces both writes and nothing animates on show.
+        this.setAttribute('data-rail-anim', '');
+        void (this._rail && this._rail.offsetHeight);
+        this._syncRailHidden();
+        this._fit();
+        this._scaleThumbs();
+        clearTimeout(this._railAnimTimer);
+        this._railAnimTimer = setTimeout(() => this.removeAttribute('data-rail-anim'), 220);
+      }
+      if (d && d.type === '__omelette_rail_enabled') this._enableRail();
+    }
+
+    _syncRailHidden() {
+      if (!this._rail) return;
+      // data-presenting is the hard hide (display:none) for flag-off,
+      // presentation mode, and the host's Preview segment — instant, no
+      // transition. data-user-hidden is the soft hide (translateX(-100%))
+      // for the viewer's rail toggle, so show/hide slides under
+      // :host([data-rail-anim]).
+      const hard = !this._railEnabled || this._presenting || this._previewMode;
+      if (hard) this._rail.setAttribute('data-presenting', '');
+      else this._rail.removeAttribute('data-presenting');
+      if (!this._railVisible) this._rail.setAttribute('data-user-hidden', '');
+      else this._rail.removeAttribute('data-user-hidden');
+      // translateX hide leaves thumbs (tabIndex=0) in the tab order —
+      // inert keeps them unfocusable while the rail is off-screen.
+      this._rail.inert = hard || !this._railVisible;
+    }
+
+    _onTapBack(e) {
+      e.preventDefault();
+      this._advance(-1, 'tap');
+    }
+
+    _onTapForward(e) {
+      e.preventDefault();
+      this._advance(1, 'tap');
+    }
+
+    _onKey(e) {
+      // Ignore when the user is typing.
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      // Confirm dialog swallows nav keys while open; Escape cancels. Enter
+      // is left to the focused button's native activation so Tab→Cancel
+      // →Enter activates Cancel, not the window-level confirm path.
+      if (this._confirm && this._confirm.hasAttribute('data-open')) {
+        if (e.key === 'Escape') { this._closeConfirm(); e.preventDefault(); }
+        return;
+      }
+      if (e.key === 'Escape' && this._menu && this._menu.hasAttribute('data-open')) {
+        this._closeMenu();
+        e.preventDefault();
+        return;
+      }
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      const key = e.key;
+      let handled = true;
+
+      if (key === 'ArrowRight' || key === 'ArrowDown' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+        this._advance(1, 'keyboard');
+      } else if (key === 'ArrowLeft' || key === 'ArrowUp' || key === 'PageUp') {
+        this._advance(-1, 'keyboard');
+      } else if (key === 'Home') {
+        this._go(0, 'keyboard');
+      } else if (key === 'End') {
+        this._go(this._slides.length - 1, 'keyboard');
+      } else if (key === 'r' || key === 'R') {
+        this._go(0, 'keyboard');
+      } else if (/^[0-9]$/.test(key)) {
+        // 1..9 jump to that slide; 0 jumps to 10.
+        const n = key === '0' ? 9 : parseInt(key, 10) - 1;
+        if (n < this._slides.length) this._go(n, 'keyboard');
+      } else {
+        handled = false;
+      }
+
+      if (handled) {
+        e.preventDefault();
+        this._flashOverlay();
+      }
+    }
+
+    _go(i, reason = 'api') {
+      if (!this._slides.length) return;
+      const clamped = Math.max(0, Math.min(this._slides.length - 1, i));
+      if (clamped === this._index) {
+        this._flashOverlay();
+        return;
+      }
+      this._index = clamped;
+      this._applyIndex({ showOverlay: true, broadcast: true, reason });
+    }
+
+    /** Step forward/back skipping any slide marked data-deck-skip. Falls
+     *  back to _go's clamp-at-ends behaviour (flash overlay) when there's
+     *  nothing further in that direction. */
+    _advance(dir, reason) {
+      if (!this._slides.length) return;
+      let i = this._index + dir;
+      while (i >= 0 && i < this._slides.length && this._slides[i].hasAttribute('data-deck-skip')) {
+        i += dir;
+      }
+      if (i < 0 || i >= this._slides.length) { this._flashOverlay(); return; }
+      this._go(i, reason);
+    }
+
+    // ── Thumbnail rail ────────────────────────────────────────────────────
+    //
+    // Thumbs are keyed by slide element and reused across _renderRail()
+    // calls, so a reorder/delete is an O(changed) DOM shuffle instead of an
+    // O(N) teardown-and-re-clone. Each thumb starts as a lightweight shell
+    // (num + empty frame); the clone is materialized lazily by an
+    // IntersectionObserver when the frame scrolls into (or near) view, so
+    // only visible-ish slides pay the clone + image-decode cost.
+
+    _renderRail() {
+      if (!this._rail || !this._railEnabled) { this._thumbs = []; return; }
+      // FLIP: record each *materialized* thumb's top before the reconcile.
+      // Off-screen (non-materialized) thumbs don't need the animation and
+      // skipping their getBoundingClientRect saves a forced layout per
+      // off-screen thumb on large decks.
+      const prevTops = new Map();
+      (this._thumbs || []).forEach(({ thumb, slide, host }) => {
+        if (host) prevTops.set(slide, thumb.getBoundingClientRect().top);
+      });
+      const st = this._rail.scrollTop;
+
+      // Reconcile: reuse thumbs that already exist for a slide, create
+      // shells for new slides, drop thumbs for removed slides.
+      const bySlide = new Map();
+      (this._thumbs || []).forEach((t) => bySlide.set(t.slide, t));
+      const next = [];
+      this._slides.forEach((slide) => {
+        let t = bySlide.get(slide);
+        if (t) bySlide.delete(slide);
+        else t = this._makeThumb(slide);
+        next.push(t);
+      });
+      // Orphans — slides removed since last render.
+      bySlide.forEach((t) => {
+        if (this._railObserver) this._railObserver.unobserve(t.frame);
+        t.thumb.remove();
+      });
+      // Put thumbs into document order to match _slides. insertBefore on
+      // an already-correctly-placed node is a no-op, so this is cheap
+      // when nothing moved.
+      next.forEach((t, i) => {
+        const want = t.thumb;
+        const at = this._rail.children[i];
+        if (at !== want) this._rail.insertBefore(want, at || null);
+        t.i = i;
+        t.num.textContent = String(i + 1);
+        if (t.slide.hasAttribute('data-deck-skip')) t.thumb.setAttribute('data-skip', '');
+        else t.thumb.removeAttribute('data-skip');
+      });
+      this._thumbs = next;
+
+      this._rail.scrollTop = st;
+      if (prevTops.size) {
+        const moved = [];
+        this._thumbs.forEach(({ thumb, slide }) => {
+          const old = prevTops.get(slide);
+          if (old == null) return;
+          const dy = old - thumb.getBoundingClientRect().top;
+          if (Math.abs(dy) < 1) return;
+          thumb.style.transition = 'none';
+          thumb.style.transform = `translateY(${dy}px)`;
+          moved.push(thumb);
+        });
+        if (moved.length) {
+          // Commit the inverted positions before flipping the transition
+          // on — otherwise the browser coalesces both style writes and
+          // nothing animates.
+          void this._rail.offsetHeight;
+          moved.forEach((t) => {
+            t.style.transition = 'transform 180ms cubic-bezier(.2,.7,.3,1)';
+            t.style.transform = '';
+          });
+          setTimeout(() => moved.forEach((t) => { t.style.transition = ''; }), 220);
+        }
+      }
+      requestAnimationFrame(() => this._scaleThumbs());
+      this._syncRail(false);
+    }
+
+    /** Create a lightweight thumb shell for one slide. The clone is
+     *  materialized later by the IntersectionObserver. Event handlers
+     *  look up the thumb's *current* index (via _thumbs.indexOf) so the
+     *  same element can be reused across reorders. */
+    _makeThumb(slide) {
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb';
+      thumb.tabIndex = 0;
+      const num = document.createElement('div');
+      num.className = 'num';
+      const frame = document.createElement('div');
+      frame.className = 'frame';
+      thumb.append(num, frame);
+
+      const entry = { thumb, num, frame, slide, clone: null, host: null, i: -1 };
+      // entry.i is refreshed on every _renderRail reconcile pass, so
+      // handlers read the thumb's current position without an O(N) scan.
+      const idx = () => entry.i;
+
+      thumb.addEventListener('click', () => this._go(idx(), 'click'));
+      // ↑/↓ step through the rail when a thumb has focus. _go clamps at the
+      // ends and _applyIndex→_syncRail scrolls the new current thumb into
+      // view; we move focus to it (preventScroll — _syncRail already
+      // scrolled) so a held key walks the whole list. stopPropagation keeps
+      // this out of the window-level _onKey nav handler.
+      thumb.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        e.preventDefault();
+        e.stopPropagation();
+        this._go(idx() + (e.key === 'ArrowDown' ? 1 : -1), 'keyboard');
+        const cur = this._thumbs && this._thumbs[this._index];
+        if (cur) cur.thumb.focus({ preventScroll: true });
+      });
+      thumb.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        this._openMenu(idx(), e.clientX, e.clientY);
+      });
+      thumb.draggable = true;
+      thumb.addEventListener('dragstart', (e) => {
+        this._dragFrom = idx();
+        thumb.setAttribute('data-dragging', '');
+        e.dataTransfer.effectAllowed = 'move';
+        try { e.dataTransfer.setData('text/plain', String(this._dragFrom)); } catch (err) {}
+      });
+      thumb.addEventListener('dragend', () => {
+        thumb.removeAttribute('data-dragging');
+        this._clearDrop();
+        this._dragFrom = null;
+      });
+      thumb.addEventListener('dragover', (e) => {
+        if (this._dragFrom == null) return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        const r = thumb.getBoundingClientRect();
+        this._setDrop(idx(), e.clientY < r.top + r.height / 2 ? 'before' : 'after');
+      });
+      thumb.addEventListener('drop', (e) => {
+        if (this._dragFrom == null) return;
+        e.preventDefault();
+        const i = idx();
+        const r = thumb.getBoundingClientRect();
+        let to = e.clientY >= r.top + r.height / 2 ? i + 1 : i;
+        if (this._dragFrom < to) to--;
+        const from = this._dragFrom;
+        this._clearDrop();
+        this._dragFrom = null;
+        if (to !== from) this._moveSlide(from, to);
+      });
+
+      if (this._railObserver) this._railObserver.observe(frame);
+      frame.__deckThumb = entry;
+      return entry;
+    }
+
+    /** Lazily build the clone for a thumb that has scrolled into view. */
+    _materialize(entry) {
+      if (entry.host) return;
+      const dw = this.designWidth, dh = this.designHeight;
+      let clone = entry.slide.cloneNode(true);
+      clone.removeAttribute('id');
+      clone.removeAttribute('data-deck-active');
+      clone.querySelectorAll('[id]').forEach((el) => el.removeAttribute('id'));
+      // Neuter heavy media; replace <video> with its poster so the box
+      // keeps a visual. <iframe>/<audio> become empty placeholders.
+      clone.querySelectorAll('iframe, audio, object, embed').forEach((el) => {
+        el.removeAttribute('src');
+        el.removeAttribute('srcdoc');
+        el.removeAttribute('data');
+        el.innerHTML = '';
+      });
+      clone.querySelectorAll('video').forEach((el) => {
+        if (!el.poster) { el.removeAttribute('src'); el.innerHTML = ''; return; }
+        const img = document.createElement('img');
+        img.src = el.poster;
+        img.alt = '';
+        img.style.cssText = el.style.cssText + ';object-fit:cover;width:100%;height:100%;';
+        img.className = el.className;
+        el.replaceWith(img);
+      });
+      // Images: defer decode and let the browser pick the smallest
+      // srcset candidate for the ~140px thumb. Same-URL clones reuse the
+      // slide's decoded bitmap (URL-keyed cache), so the remaining cost
+      // is paint/composite — lazy+async keeps that off the main thread.
+      clone.querySelectorAll('img').forEach((el) => {
+        el.loading = 'lazy';
+        el.decoding = 'async';
+        if (el.srcset) el.sizes = (this._railPx || 188) + 'px';
+      });
+      // Custom elements inside the slide would have their
+      // connectedCallback fire when the clone is appended. Replace them
+      // with inert boxes so a component-heavy deck doesn't run N copies
+      // of each component's mount logic in the rail. Children are
+      // preserved so layout-wrapper elements (<my-column><h2>…</h2>)
+      // still show their authored content; the querySelectorAll NodeList
+      // is static, so nested custom elements in the moved subtree are
+      // still visited on later iterations.
+      const neuter = (el) => {
+        const box = document.createElement('div');
+        box.style.cssText = (el.getAttribute('style') || '') +
+          ';background:rgba(0,0,0,0.06);border:1px dashed rgba(0,0,0,0.15);';
+        box.className = el.className;
+        // Preserve theming/i18n hooks so [data-*] / :lang() / [dir]
+        // descendant selectors still match the neutered root.
+        for (const a of el.attributes) {
+          const n = a.name;
+          if (n.startsWith('data-') || n.startsWith('aria-') ||
+              n === 'lang' || n === 'dir' || n === 'role' || n === 'title') {
+            box.setAttribute(n, a.value);
+          }
+        }
+        while (el.firstChild) box.appendChild(el.firstChild);
+        return box;
+      };
+      // querySelectorAll('*') returns descendants only — a custom-element
+      // slide root (<my-slide>…</my-slide>) would slip through and upgrade
+      // on append. Swap the root first.
+      if (clone.tagName.includes('-')) clone = neuter(clone);
+      clone.querySelectorAll('*').forEach((el) => {
+        if (el.tagName.includes('-')) el.replaceWith(neuter(el));
+      });
+      clone.style.cssText += ';position:absolute;top:0;left:0;transform-origin:0 0;' +
+        'pointer-events:none;width:' + dw + 'px;height:' + dh + 'px;' +
+        'box-sizing:border-box;overflow:hidden;visibility:visible;opacity:1;';
+      const host = document.createElement('div');
+      host.style.cssText = 'position:absolute;inset:0;';
+      this._syncThumbHostAttrs(host);
+      const sr = host.attachShadow({ mode: 'open' });
+      if (this._adoptedSheet) sr.adoptedStyleSheets = [this._adoptedSheet];
+      else {
+        const st = document.createElement('style');
+        st.textContent = this._authorCss || '';
+        sr.appendChild(st);
+      }
+      sr.appendChild(clone);
+      entry.frame.appendChild(host);
+      entry.host = host;
+      entry.clone = clone;
+      if (this._thumbScale) clone.style.transform = 'scale(' + this._thumbScale + ')';
+      // Once materialized the IO callback is a no-op early-return —
+      // unobserve so scroll doesn't keep firing it.
+      if (this._railObserver) this._railObserver.unobserve(entry.frame);
+    }
+
+    /** Re-clone a single thumb (live-update path). No-op if the thumb
+     *  hasn't been materialized yet — it'll pick up current content when
+     *  it scrolls into view. */
+    _refreshThumb(slide) {
+      const entry = (this._thumbs || []).find((t) => t.slide === slide);
+      if (!entry || !entry.host) return;
+      entry.host.remove();
+      entry.host = entry.clone = null;
+      this._materialize(entry);
+    }
+
+    _scaleThumbs() {
+      if (!this._thumbs || !this._thumbs.length) return;
+      // Every frame is the same width; if it reads 0 the rail is
+      // display:none (noscale / no-rail / presenting / print) — leave the
+      // clones as-is and re-run when the rail is revealed.
+      const fw = this._thumbs[0].frame.offsetWidth;
+      if (!fw) return;
+      this._thumbScale = fw / this.designWidth;
+      this._thumbs.forEach(({ clone }) => {
+        if (clone) clone.style.transform = 'scale(' + this._thumbScale + ')';
+      });
+    }
+
+    _setDrop(i, where) {
+      // dragover fires at pointer-event rate; touch only the previous
+      // and new target rather than sweeping all N thumbs.
+      const t = this._thumbs && this._thumbs[i];
+      if (this._dropOn && this._dropOn !== t) {
+        this._dropOn.thumb.removeAttribute('data-drop');
+      }
+      if (t) t.thumb.setAttribute('data-drop', where);
+      this._dropOn = t || null;
+    }
+
+    _clearDrop() {
+      if (this._dropOn) this._dropOn.thumb.removeAttribute('data-drop');
+      this._dropOn = null;
+    }
+
+    _syncRail(follow) {
+      if (!this._thumbs) return;
+      this._thumbs.forEach(({ thumb }, i) => {
+        if (i === this._index) {
+          thumb.setAttribute('data-current', '');
+          if (follow && typeof thumb.scrollIntoView === 'function') {
+            thumb.scrollIntoView({ block: 'nearest' });
+          }
+        } else {
+          thumb.removeAttribute('data-current');
+        }
+      });
+    }
+
+    _openMenu(i, x, y) {
+      if (!this._menu) return;
+      this._menuIndex = i;
+      const slide = this._slides[i];
+      const skip = slide && slide.hasAttribute('data-deck-skip');
+      this._menu.querySelector('[data-act="skip"]').textContent = skip ? 'Unskip slide' : 'Skip slide';
+      this._menu.querySelector('[data-act="up"]').disabled = i <= 0;
+      this._menu.querySelector('[data-act="down"]').disabled = i >= this._slides.length - 1;
+      this._menu.querySelector('[data-act="delete"]').disabled = this._slides.length <= 1;
+      // Place, then clamp to viewport after it's measurable.
+      this._menu.style.left = x + 'px';
+      this._menu.style.top = y + 'px';
+      this._menu.setAttribute('data-open', '');
+      const r = this._menu.getBoundingClientRect();
+      const nx = Math.min(x, window.innerWidth - r.width - 4);
+      const ny = Math.min(y, window.innerHeight - r.height - 4);
+      this._menu.style.left = Math.max(4, nx) + 'px';
+      this._menu.style.top = Math.max(4, ny) + 'px';
+    }
+
+    _closeMenu() {
+      if (this._menu) this._menu.removeAttribute('data-open');
+      this._menuIndex = -1;
+    }
+
+    _openConfirm(i) {
+      if (!this._confirm) return;
+      this._confirmIndex = i;
+      this._confirm.querySelector('.title').textContent = 'Delete slide ' + (i + 1) + '?';
+      this._confirm.setAttribute('data-open', '');
+      const btn = this._confirm.querySelector('.danger');
+      if (btn && btn.focus) btn.focus();
+    }
+
+    _closeConfirm() {
+      if (this._confirm) this._confirm.removeAttribute('data-open');
+      this._confirmIndex = -1;
+    }
+
+    _emitDeckChange(detail) {
+      this.dispatchEvent(new CustomEvent('deckchange', {
+        detail, bubbles: true, composed: true,
+      }));
+    }
+
+    _deleteSlide(i) {
+      const slide = this._slides[i];
+      if (!slide || this._slides.length <= 1) return;
+      const wasCurrent = i === this._index;
+      if (i < this._index || (wasCurrent && i === this._slides.length - 1)) this._index--;
+      this._squelchSlotChange = true;
+      slide.remove();
+      this._emitDeckChange({ action: 'delete', from: i, slide });
+      this._collectSlides();
+      this._applyIndex({ showOverlay: true, broadcast: true, reason: 'mutation' });
+    }
+
+    _toggleSkip(i) {
+      const slide = this._slides[i];
+      if (!slide) return;
+      const on = !slide.hasAttribute('data-deck-skip');
+      if (on) slide.setAttribute('data-deck-skip', '');
+      else slide.removeAttribute('data-deck-skip');
+      if (this._thumbs && this._thumbs[i]) {
+        if (on) this._thumbs[i].thumb.setAttribute('data-skip', '');
+        else this._thumbs[i].thumb.removeAttribute('data-skip');
+      }
+      this._markLastVisible();
+      this._emitDeckChange({ action: on ? 'skip' : 'unskip', from: i, slide });
+      // Re-broadcast so the presenter popup's prev/next thumbnails re-pick
+      // the nearest non-skipped slide without waiting for a nav event.
+      try { window.postMessage({ slideIndexChanged: this._index, deckTotal: this._slides.length, deckSkipped: this._skippedIndices() }, '*'); } catch (e) {}
+    }
+
+    _skippedIndices() {
+      const out = [];
+      for (let i = 0; i < this._slides.length; i++) {
+        if (this._slides[i].hasAttribute('data-deck-skip')) out.push(i);
+      }
+      return out;
+    }
+
+    _moveSlide(i, j) {
+      if (j < 0 || j >= this._slides.length || j === i) return;
+      const slide = this._slides[i];
+      const ref = j < i ? this._slides[j] : this._slides[j].nextSibling;
+      // Track the active slide across the reorder so the same content
+      // stays on screen.
+      const cur = this._index;
+      if (cur === i) this._index = j;
+      else if (i < cur && j >= cur) this._index = cur - 1;
+      else if (i > cur && j <= cur) this._index = cur + 1;
+      this._squelchSlotChange = true;
+      this.insertBefore(slide, ref);
+      this._emitDeckChange({ action: 'move', from: i, to: j, slide });
+      this._collectSlides();
+      this._applyIndex({ showOverlay: false, broadcast: true, reason: 'mutation' });
+    }
+
+    // Public API ------------------------------------------------------------
+
+    /** Current slide index (0-based). */
+    get index() { return this._index; }
+    /** Total slide count. */
+    get length() { return this._slides.length; }
+    /** Programmatically navigate. */
+    goTo(i) { this._go(i, 'api'); }
+    next() { this._advance(1, 'api'); }
+    prev() { this._advance(-1, 'api'); }
+    reset() { this._go(0, 'api'); }
+  }
+
+  if (!customElements.get('deck-stage')) {
+    customElements.define('deck-stage', DeckStage);
+  }
+})();
+</script><script>
+(()=>{const button=document.querySelector('.fullscreen-control');let timer;
+function show(){document.body.classList.add('controls-active');clearTimeout(timer);timer=setTimeout(()=>document.body.classList.remove('controls-active'),1800)}
+async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}catch(err){button.textContent='请使用浏览器全屏功能'}}
+button.addEventListener('click',fullscreen);document.addEventListener('mousemove',show,{passive:true});document.addEventListener('touchstart',show,{passive:true});
+document.addEventListener('keydown',event=>{if(event.key.toLowerCase()==='f'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){event.preventDefault();fullscreen()}});
+document.addEventListener('fullscreenchange',()=>button.textContent=document.fullscreenElement?'退出全屏 · F':'全屏 · F');
+window.addEventListener('hashchange',()=>{const n=Number(location.hash.slice(1));const stage=document.querySelector('deck-stage');const count=stage.querySelectorAll(':scope > section').length;if(Number.isInteger(n)&&n>=1&&n<=count)stage.goTo(n-1)});show();})();
+</script></body></html>
