@@ -33,14 +33,14 @@ jobs:
             local current updated
             current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/proposal/index.html' | cut -d' ' -f1)"
             updated="$(sha256sum site/public/proposal/index.html | cut -d' ' -f1)"
-            if [ "$current" != 323592194f4ffa031bdccf43a3233c1573393643363e6c4fb48806cb999ac1e4 ] && [ "$current" != "$updated" ]; then
+            if [ "$current" != 8946f952bfe66bfa0cc45503af8439c4d5b45c8fa158836c89f9febe38b8f802 ] && [ "$current" != "$updated" ]; then
               echo 'Proposal directory changed since capture. Reconcile before publishing.' >&2
               exit 1
             fi
           }
           check_current
           report_expected="$(sha256sum site/public/proposal/xian-sanli-ai-growth-phase1/index.html | cut -d' ' -f1)"
-          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $report_expected b4c76b1acc31672e369dc6a27e841063c36f7ebec37ef639ae778a7673b6694b" <<'SANLI_BACKUP'
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $report_expected 0b5ddd42634f951395fb2788a717433a7f11a27e16e0a14152071ee479ba4949" <<'SANLI_BACKUP'
           set -euo pipefail
           root=/www/wwwroot/mindsleap/site/public/proposal
           if [ -f "$root/xian-sanli-ai-growth-phase1/index.html" ]; then

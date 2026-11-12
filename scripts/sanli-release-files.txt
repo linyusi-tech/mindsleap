@@ -1,6 +1,6 @@
 site/public/proposal/xian-sanli-ai-growth-phase1/assets/503edea1372712bb212b1117fe8f2caba0a5134e6f41abb8b8f7bae49ea55041.png
 site/public/proposal/xian-sanli-ai-growth-phase1/assets/e99ae515a150454f168ba2747b97222b4864bd9f11939ce62166ade8d9028502.png
-site/public/proposal/xian-sanli-ai-growth-phase1/assets/83472f21b0c3575680ae91f7108f3bba35d3ca08bb2388d82a7836e1d6e2ed57.png
+site/public/proposal/xian-sanli-ai-growth-phase1/assets/335951ef18b66db0058e44d57d2381e63382072be0b5ca3b604edb920bb284fa.png
 site/public/proposal/xian-sanli-ai-growth-phase1/assets/aea0206507093d5a8539f64684dd1d71339e246159d8b4572c33d917441bc433.png
 site/public/proposal/xian-sanli-ai-growth-phase1/assets/e45fa71daf4ebac1bd7aa48a3fffa8c564e8ab4d64f51c394a6959ea742cf1fb.png
 site/public/proposal/xian-sanli-ai-growth-phase1/assets/89e2fa259864b545f2836bb271104b26eb3208f3fbae02229c44fe5ed863cf91.png
