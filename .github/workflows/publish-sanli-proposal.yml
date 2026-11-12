@@ -16,6 +16,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - name: Verify release file completeness
+        run: python3 scripts/sanli-check-release.py
       - name: Back up and publish only Sanli report and Proposal directory
         env:
           SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
