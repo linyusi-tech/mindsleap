@@ -33,7 +33,7 @@ jobs:
             local current updated
             current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/proposal/index.html' | cut -d' ' -f1)"
             updated="$(sha256sum site/public/proposal/index.html | cut -d' ' -f1)"
-            if [ "$current" != 8946f952bfe66bfa0cc45503af8439c4d5b45c8fa158836c89f9febe38b8f802 ] && [ "$current" != "$updated" ]; then
+            if [ "$current" != 8946f952bfe66bfa0cc45503af8439c4d5b45c8fa158836c89f9febe38b8f802 ] && [ "$current" != 979afde5e59374775220f1a0f189e1de56756a323547d77cefc2d065be3ef2c1 ] && [ "$current" != "$updated" ]; then
               echo 'Proposal directory changed since capture. Reconcile before publishing.' >&2
               exit 1
             fi
