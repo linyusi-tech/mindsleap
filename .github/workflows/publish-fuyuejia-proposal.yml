@@ -1,0 +1,80 @@
+name: Publish Fuyuejia forecast proposal
+on:
+  push:
+    branches: [content/fuyuejia-proposal-20261113]
+    paths:
+      - 'site/public/proposal/index.html'
+      - 'site/public/proposal/fuyuejia-sales-forecast-inventory/**'
+      - 'scripts/fuyuejia-*'
+      - '.github/workflows/publish-fuyuejia-proposal.yml'
+concurrency:
+  group: deploy-mindsleap-cn
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify release file completeness
+        run: python3 scripts/fuyuejia-check-release.py
+      - name: Back up and publish only Fuyuejia report and Proposal directory
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          ssh_options=(-o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p "$SSH_PORT")
+          check_current() {
+            local current updated
+            current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/proposal/index.html' | cut -d' ' -f1)"
+            updated="$(sha256sum site/public/proposal/index.html | cut -d' ' -f1)"
+            if [ "$current" != 2f5947cd6e3edd85fccee1ca0a85e4e8aca42728d2abb7b9a5b375aef21520f8 ] && [ "$current" != "$updated" ]; then
+              echo 'Proposal directory changed since capture. Reconcile before publishing.' >&2
+              exit 1
+            fi
+          }
+          check_current
+          report_expected="$(sha256sum site/public/proposal/fuyuejia-sales-forecast-inventory/index.html | cut -d' ' -f1)"
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $report_expected" <<'FUYUEJIA_BACKUP'
+          set -euo pipefail
+          root=/www/wwwroot/mindsleap/site/public/proposal
+          if [ -f "$root/fuyuejia-sales-forecast-inventory/index.html" ]; then
+            actual="$(sha256sum "$root/fuyuejia-sales-forecast-inventory/index.html" | cut -d' ' -f1)"
+            [ "$actual" = "$2" ] || { echo 'Existing report differs from this release.' >&2; exit 1; }
+          fi
+          backup="/www/wwwroot/mindsleap-backups/fuyuejia-$1"
+          mkdir -p "$backup"
+          [ -f "$backup/proposal-index.html" ] || cp -p "$root/index.html" "$backup/proposal-index.html"
+          if [ -f "$root/fuyuejia-sales-forecast-inventory/index.html" ] && [ ! -f "$backup/report-index.html" ]; then
+            cp -p "$root/fuyuejia-sales-forecast-inventory/index.html" "$backup/report-index.html"
+          fi
+          FUYUEJIA_BACKUP
+          rsync -azcR --timeout=90 --info=progress2 --files-from=scripts/fuyuejia-release-files.txt \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          check_current
+          rsync -azc --timeout=90 \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            site/public/proposal/index.html \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/site/public/proposal/index.next-$GITHUB_SHA.html"
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "mv /www/wwwroot/mindsleap/site/public/proposal/index.next-$GITHUB_SHA.html /www/wwwroot/mindsleap/site/public/proposal/index.html && pm2 restart mindsleap-main --update-env"
+      - name: Verify Proposal entry and report
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 10); do
+            if curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/proposal -o /tmp/proposal.html \
+              && cmp /tmp/proposal.html site/public/proposal/index.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/proposal/fuyuejia-sales-forecast-inventory/index.html -o /tmp/fuyuejia.html \
+              && cmp /tmp/fuyuejia.html site/public/proposal/fuyuejia-sales-forecast-inventory/index.html; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1

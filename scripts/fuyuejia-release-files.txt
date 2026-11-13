@@ -1,0 +1,2 @@
+site/public/proposal/fuyuejia-sales-forecast-inventory/index.html
+site/public/proposal/fuyuejia-sales-forecast-inventory/revision.json
