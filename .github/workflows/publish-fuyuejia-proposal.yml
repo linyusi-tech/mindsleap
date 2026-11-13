@@ -35,14 +35,14 @@ jobs:
             local current updated
             current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/proposal/index.html' | cut -d' ' -f1)"
             updated="$(sha256sum site/public/proposal/index.html | cut -d' ' -f1)"
-            if [ "$current" != 88d3c540d19ee900e3f26b35c014a2c62d97abc78ea517ee0598959ccfcb284e ] && [ "$current" != "$updated" ]; then
+            if [ "$current" != c9303f653624b529168cd0ec8da3acf93afa60763c8608a4be911bf35ea625f2 ] && [ "$current" != "$updated" ]; then
               echo 'Proposal directory changed since capture. Reconcile before publishing.' >&2
               exit 1
             fi
           }
           check_current
           report_expected="$(sha256sum site/public/proposal/fuyuejia-sales-forecast-inventory/index.html | cut -d' ' -f1)"
-          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $report_expected eca0d90a9d7c10c2f8c26f722734b0042389cd7b4aafe1288b4fa39bc94812f9" <<'FUYUEJIA_BACKUP'
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $report_expected 2c4953728b12e15f2fa7e47e9dba17ae45946b9ac1ea925f95c2485ce2f28c0e" <<'FUYUEJIA_BACKUP'
           set -euo pipefail
           root=/www/wwwroot/mindsleap/site/public/proposal
           if [ -f "$root/fuyuejia-sales-forecast-inventory/index.html" ]; then
