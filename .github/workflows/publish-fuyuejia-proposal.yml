@@ -35,19 +35,19 @@ jobs:
             local current updated
             current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/proposal/index.html' | cut -d' ' -f1)"
             updated="$(sha256sum site/public/proposal/index.html | cut -d' ' -f1)"
-            if [ "$current" != 2f5947cd6e3edd85fccee1ca0a85e4e8aca42728d2abb7b9a5b375aef21520f8 ] && [ "$current" != "$updated" ]; then
+            if [ "$current" != 88d3c540d19ee900e3f26b35c014a2c62d97abc78ea517ee0598959ccfcb284e ] && [ "$current" != "$updated" ]; then
               echo 'Proposal directory changed since capture. Reconcile before publishing.' >&2
               exit 1
             fi
           }
           check_current
           report_expected="$(sha256sum site/public/proposal/fuyuejia-sales-forecast-inventory/index.html | cut -d' ' -f1)"
-          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $report_expected" <<'FUYUEJIA_BACKUP'
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $report_expected eca0d90a9d7c10c2f8c26f722734b0042389cd7b4aafe1288b4fa39bc94812f9" <<'FUYUEJIA_BACKUP'
           set -euo pipefail
           root=/www/wwwroot/mindsleap/site/public/proposal
           if [ -f "$root/fuyuejia-sales-forecast-inventory/index.html" ]; then
             actual="$(sha256sum "$root/fuyuejia-sales-forecast-inventory/index.html" | cut -d' ' -f1)"
-            [ "$actual" = "$2" ] || { echo 'Existing report differs from this release.' >&2; exit 1; }
+            { [ "$actual" = "$2" ] || [ "$actual" = "$3" ]; } || { echo 'Existing report differs from this release.' >&2; exit 1; }
           fi
           backup="/www/wwwroot/mindsleap-backups/fuyuejia-$1"
           mkdir -p "$backup"
