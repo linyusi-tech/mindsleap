@@ -1,0 +1,81 @@
+name: Publish MindsLeap company deck
+on:
+  push:
+    branches: [content/mindsleap-company-deck-20261113]
+    paths:
+      - 'site/public/decks/index.html'
+      - 'site/public/decks/MindsLeap/company-and-products/**'
+      - 'scripts/company-deck-*'
+      - '.github/workflows/publish-company-deck.yml'
+concurrency:
+  group: deploy-mindsleap-cn
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify release files exist and are tracked
+        run: python3 scripts/company-deck-check-release.py
+      - name: Back up and publish company deck and Decks entry only
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          ssh_options=(-o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p "$SSH_PORT")
+          catalog_expected="$(sha256sum site/public/decks/index.html | cut -d' ' -f1)"
+          deck_expected="$(sha256sum site/public/decks/MindsLeap/company-and-products/index.html | cut -d' ' -f1)"
+          check_current() {
+            local current
+            current="$(ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" 'sha256sum /www/wwwroot/mindsleap/site/public/decks/index.html' | cut -d' ' -f1)"
+            if [ "$current" != 4fe7bdc3e6da3510d869d7f7595d7ed197fc96f40918fafb4b8c4576aefc0981 ] && [ "$current" != "$catalog_expected" ]; then
+              echo 'Decks catalog changed since capture; reconcile before publishing.' >&2
+              exit 1
+            fi
+          }
+          check_current
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $deck_expected" <<'COMPANY_BACKUP'
+          set -euo pipefail
+          root=/www/wwwroot/mindsleap/site/public/decks
+          original="$(sha256sum "$root/Conference/2026november8/index.html" | cut -d' ' -f1)"
+          [ "$original" = 0ac53feb0f8beebbab2a74575760432b4758e6e321c7c4f44526f4240c0c4149 ] || { echo 'Source conference deck changed; reconcile before publishing.' >&2; exit 1; }
+          if [ -f "$root/MindsLeap/company-and-products/index.html" ]; then
+            actual="$(sha256sum "$root/MindsLeap/company-and-products/index.html" | cut -d' ' -f1)"
+            [ "$actual" = "$2" ] || { echo 'Independent deck already has a different version.' >&2; exit 1; }
+          fi
+          backup="/www/wwwroot/mindsleap-backups/company-deck-$1"
+          mkdir -p "$backup"
+          [ -f "$backup/decks-index.html" ] || cp -p "$root/index.html" "$backup/decks-index.html"
+          COMPANY_BACKUP
+          rsync -azcR --timeout=90 --info=progress2 --files-from=scripts/company-deck-release-files.txt \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          check_current
+          rsync -azc --timeout=90 \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            site/public/decks/index.html \
+            "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/site/public/decks/index.next-$GITHUB_SHA.html"
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "mv /www/wwwroot/mindsleap/site/public/decks/index.next-$GITHUB_SHA.html /www/wwwroot/mindsleap/site/public/decks/index.html && pm2 restart mindsleap-main --update-env"
+      - name: Verify public catalog, deck and unchanged conference
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 10); do
+            if curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/decks -o /tmp/decks.html \
+              && cmp /tmp/decks.html site/public/decks/index.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/decks/MindsLeap/company-and-products/index.html -o /tmp/company.html \
+              && cmp /tmp/company.html site/public/decks/MindsLeap/company-and-products/index.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/decks/Conference/2026november8/index.html -o /tmp/conference.html \
+              && [ "$(sha256sum /tmp/conference.html | cut -d' ' -f1)" = 0ac53feb0f8beebbab2a74575760432b4758e6e321c7c4f44526f4240c0c4149 ]; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
