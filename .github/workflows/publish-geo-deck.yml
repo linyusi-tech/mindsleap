@@ -1,0 +1,87 @@
+name: Publish website and GEO deck
+on:
+  push:
+    branches: [content/website-geo-deck-20261114]
+    paths:
+      - 'site/public/decks/index.html'
+      - 'site/public/decks/Yusi/index.html'
+      - 'site/public/decks/Yusi/website-building-geo/**'
+      - 'scripts/geo-deck-*'
+      - '.github/workflows/publish-geo-deck.yml'
+concurrency:
+  group: deploy-mindsleap-cn
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify scoped release files and public copy
+        run: python3 scripts/geo-deck-check-release.py
+      - name: Back up and publish only GEO deck and two directory entries
+        env:
+          SSH_HOST: ${{ secrets.CN_SERVER_HOST }}
+          SSH_PORT: ${{ secrets.CN_SERVER_PORT }}
+          SSH_USER: ${{ secrets.CN_SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.CN_SERVER_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          ssh_options=(-o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p "$SSH_PORT")
+          root=/www/wwwroot/mindsleap/site/public/decks
+          catalog_expected="$(sha256sum site/public/decks/index.html | cut -d' ' -f1)"
+          yusi_expected="$(sha256sum site/public/decks/Yusi/index.html | cut -d' ' -f1)"
+          deck_expected="$(sha256sum site/public/decks/Yusi/website-building-geo/index.html | cut -d' ' -f1)"
+          check_current() {
+            ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $catalog_expected $yusi_expected" <<'GEO_GUARD'
+          set -euo pipefail
+          root=/www/wwwroot/mindsleap/site/public/decks
+          c="$(sha256sum "$root/index.html" | cut -d' ' -f1)"
+          y="$(sha256sum "$root/Yusi/index.html" | cut -d' ' -f1)"
+          { [ "$c" = 1be3458b429658dbd9ab50fecb7edd84105ede5176e7a61a0ab90b69881366cc ] || [ "$c" = "$1" ]; } || { echo 'Decks changed; reconcile before publishing.' >&2; exit 1; }
+          { [ "$y" = 22547c6bedd68b6ece2f1154d9afd9f379185a36cf258ec4f3829f4f26f39c31 ] || [ "$y" = "$2" ]; } || { echo 'Yusi directory changed; reconcile before publishing.' >&2; exit 1; }
+          GEO_GUARD
+          }
+          check_current
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "bash -s -- $GITHUB_SHA $deck_expected" <<'GEO_BACKUP'
+          set -euo pipefail
+          root=/www/wwwroot/mindsleap/site/public/decks
+          if [ -f "$root/Yusi/website-building-geo/index.html" ]; then
+            actual="$(sha256sum "$root/Yusi/website-building-geo/index.html" | cut -d' ' -f1)"
+            [ "$actual" = "$2" ] || { echo 'GEO deck already has a different version.' >&2; exit 1; }
+          fi
+          backup="/www/wwwroot/mindsleap-backups/geo-deck-$1"
+          mkdir -p "$backup"
+          [ -f "$backup/decks-index.html" ] || cp -p "$root/index.html" "$backup/decks-index.html"
+          [ -f "$backup/yusi-index.html" ] || cp -p "$root/Yusi/index.html" "$backup/yusi-index.html"
+          GEO_BACKUP
+          rsync -azcR --timeout=90 --info=progress2 --files-from=scripts/geo-deck-release-files.txt \
+            -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:/www/wwwroot/mindsleap/"
+          check_current
+          for part in index.html Yusi/index.html; do
+            rsync -azc --timeout=90 \
+              -e "ssh -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $SSH_PORT" \
+              "site/public/decks/$part" "$SSH_USER@$SSH_HOST:$root/${part%.html}.next-$GITHUB_SHA.html"
+          done
+          check_current
+          ssh "${ssh_options[@]}" "$SSH_USER@$SSH_HOST" "mv $root/Yusi/index.next-$GITHUB_SHA.html $root/Yusi/index.html && mv $root/index.next-$GITHUB_SHA.html $root/index.html && pm2 restart mindsleap-main --update-env"
+      - name: Verify public deck and both directories
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 10); do
+            if curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/decks -o /tmp/decks.html \
+              && cmp /tmp/decks.html site/public/decks/index.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/decks/Yusi/index.html -o /tmp/yusi.html \
+              && cmp /tmp/yusi.html site/public/decks/Yusi/index.html \
+              && curl -fsSL --connect-timeout 10 --max-time 30 https://www.mindsleap.cn/decks/Yusi/website-building-geo/index.html -o /tmp/geo.html \
+              && cmp /tmp/geo.html site/public/decks/Yusi/website-building-geo/index.html; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
