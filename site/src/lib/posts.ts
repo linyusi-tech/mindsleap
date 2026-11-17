@@ -12,6 +12,7 @@ export type Post = {
   slug: string;
   title: string;
   date: string;
+  eventDate?: string;
   excerpt: string;
   category: NewsContentCategory;
   image?: string;
@@ -26,6 +27,17 @@ export type Post = {
 
 function normalizeLocale(locale: string): PostLocale {
   return postLocales.includes(locale as PostLocale) ? (locale as PostLocale) : "zh";
+}
+
+function normalizeEventDate(value: unknown): string | undefined {
+  const date = value instanceof Date
+    ? (Number.isNaN(value.getTime()) ? "" : value.toISOString().split("T")[0])
+    : value;
+  if (typeof date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return undefined;
+  const parsed = new Date(date);
+  return !Number.isNaN(parsed.getTime()) && parsed.toISOString().startsWith(date)
+    ? date
+    : undefined;
 }
 
 function getPostsDirectory(locale: string): string {
@@ -58,7 +70,11 @@ export function getAllPosts(locale: string = "zh"): Post[] {
       return getPostBySlug(slug, locale);
     })
     .filter((post): post is Post => post !== null)
-    .sort((a, b) => (new Date(b.date) > new Date(a.date) ? 1 : -1));
+    .sort((a, b) => {
+      const aDate = a.category === "events" ? a.eventDate ?? a.date : a.date;
+      const bDate = b.category === "events" ? b.eventDate ?? b.date : b.date;
+      return bDate.localeCompare(aDate) || b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug);
+    });
 
   return posts;
 }
@@ -82,6 +98,7 @@ export function getPostBySlug(slug: string, locale: string = "zh"): Post | null 
       slug,
       title,
       date: data.date ? new Date(data.date).toISOString().split("T")[0] : "",
+      eventDate: normalizeEventDate(data.eventDate),
       excerpt,
       category: normalizePostCategory(data.category, title, excerpt),
       image: data.image || null,
